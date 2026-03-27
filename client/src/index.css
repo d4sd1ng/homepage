@@ -4,10 +4,10 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
-  --radius-sm: calc(var(--radius) - 4px);
-  --radius-md: calc(var(--radius) - 2px);
-  --radius-lg: var(--radius);
-  --radius-xl: calc(var(--radius) + 4px);
+  --radius-sm: 0.5rem;
+  --radius-md: 0.75rem;
+  --radius-lg: 1rem;
+  --radius-xl: 1.5rem;
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);
@@ -27,11 +27,11 @@
   --color-border: var(--border);
   --color-input: var(--input);
   --color-ring: var(--ring);
-  --color-chart-1: var(--chart-1);
-  --color-chart-2: var(--chart-2);
-  --color-chart-3: var(--chart-3);
-  --color-chart-4: var(--chart-4);
-  --color-chart-5: var(--chart-5);
+  --color-chart-1: #0052CC;
+  --color-chart-2: #10B981;
+  --color-chart-3: #FF6B35;
+  --color-chart-4: #0052CC;
+  --color-chart-5: #10B981;
   --color-sidebar: var(--sidebar);
   --color-sidebar-foreground: var(--sidebar-foreground);
   --color-sidebar-primary: var(--sidebar-primary);
@@ -43,116 +43,85 @@
 }
 
 :root {
-  /* Data-Driven Elegance Color Palette */
-  --primary: oklch(0.65 0.25 280); /* Cyan-Magenta Gradient Start */
-  --primary-foreground: oklch(0.95 0 0);
-  --sidebar-primary: oklch(0.65 0.25 280);
-  --sidebar-primary-foreground: oklch(0.95 0 0);
-  --chart-1: oklch(0.7 0.25 280); /* Cyan */
-  --chart-2: oklch(0.65 0.25 310); /* Purple */
-  --chart-3: oklch(0.6 0.25 320); /* Magenta */
-  --chart-4: oklch(0.55 0.25 330);
-  --chart-5: oklch(0.5 0.25 340);
-  --radius: 0.5rem;
-  --background: oklch(0.08 0.01 280); /* Dark Blue */
-  --foreground: oklch(0.95 0 0); /* White */
-  --card: oklch(0.12 0.01 280); /* Slightly lighter dark blue */
-  --card-foreground: oklch(0.95 0 0);
-  --popover: oklch(0.12 0.01 280);
-  --popover-foreground: oklch(0.95 0 0);
-  --secondary: oklch(0.15 0.01 280);
-  --secondary-foreground: oklch(0.85 0 0);
-  --muted: oklch(0.2 0.01 280);
-  --muted-foreground: oklch(0.7 0 0);
-  --accent: oklch(0.65 0.25 280); /* Cyan-Magenta */
-  --accent-foreground: oklch(0.95 0 0);
-  --destructive: oklch(0.577 0.245 27.325);
-  --destructive-foreground: oklch(0.985 0 0);
-  --border: oklch(0.2 0.01 280);
-  --input: oklch(0.15 0.01 280);
-  --ring: oklch(0.65 0.25 280);
-  --sidebar: oklch(0.985 0 0);
-  --sidebar-foreground: oklch(0.235 0.015 65);
-  --sidebar-accent: oklch(0.967 0.001 286.375);
-  --sidebar-accent-foreground: oklch(0.141 0.005 285.823);
-  --sidebar-border: oklch(0.92 0.004 286.32);
-  --sidebar-ring: oklch(0.623 0.214 259.815);
-}
-
-.dark {
-  /* Data-Driven Elegance is already dark by default */
-  --primary: oklch(0.65 0.25 280);
-  --primary-foreground: oklch(0.95 0 0);
-  --sidebar-primary: oklch(0.65 0.25 280);
-  --sidebar-primary-foreground: oklch(0.95 0 0);
-  --background: oklch(0.08 0.01 280);
-  --foreground: oklch(0.95 0 0);
-  --card: oklch(0.12 0.01 280);
-  --card-foreground: oklch(0.95 0 0);
-  --popover: oklch(0.12 0.01 280);
-  --popover-foreground: oklch(0.95 0 0);
-  --secondary: oklch(0.15 0.01 280);
-  --secondary-foreground: oklch(0.85 0 0);
-  --muted: oklch(0.2 0.01 280);
-  --muted-foreground: oklch(0.7 0 0);
-  --accent: oklch(0.65 0.25 280);
-  --accent-foreground: oklch(0.95 0 0);
-  --destructive: oklch(0.704 0.191 22.216);
-  --destructive-foreground: oklch(0.985 0 0);
-  --border: oklch(0.2 0.01 280);
-  --input: oklch(0.15 0.01 280);
-  --ring: oklch(0.65 0.25 280);
-  --chart-1: oklch(0.7 0.25 280);
-  --chart-2: oklch(0.65 0.25 310);
-  --chart-3: oklch(0.6 0.25 320);
-  --chart-4: oklch(0.55 0.25 330);
-  --chart-5: oklch(0.5 0.25 340);
-  --sidebar: oklch(0.12 0.01 280);
-  --sidebar-foreground: oklch(0.95 0 0);
-  --sidebar-accent: oklch(0.65 0.25 280);
-  --sidebar-accent-foreground: oklch(0.95 0 0);
-  --sidebar-border: oklch(0.2 0.01 280);
-  --sidebar-ring: oklch(0.65 0.25 280);
+  /* Autonova Modern Hi-Tech KI Colors */
+  --primary: #0052CC;
+  --primary-foreground: #FFFFFF;
+  --secondary: #10B981;
+  --secondary-foreground: #FFFFFF;
+  --accent: #FF6B35;
+  --accent-foreground: #FFFFFF;
+  
+  /* Semantic Colors */
+  --background: #FFFFFF;
+  --foreground: #1F2937;
+  --card: #F9FAFB;
+  --card-foreground: #1F2937;
+  --popover: #FFFFFF;
+  --popover-foreground: #1F2937;
+  --muted: #F3F4F6;
+  --muted-foreground: #6B7280;
+  --destructive: #EF4444;
+  --destructive-foreground: #FFFFFF;
+  --border: #E5E7EB;
+  --input: #F3F4F6;
+  --ring: #0052CC;
+  
+  /* Sidebar */
+  --sidebar: #FFFFFF;
+  --sidebar-foreground: #1F2937;
+  --sidebar-primary: #0052CC;
+  --sidebar-primary-foreground: #FFFFFF;
+  --sidebar-accent: #10B981;
+  --sidebar-accent-foreground: #FFFFFF;
+  --sidebar-border: #E5E7EB;
+  --sidebar-ring: #0052CC;
+  
+  /* Typography */
+  --font-display: 'Space Grotesk', sans-serif;
+  --font-body: 'Inter', sans-serif;
+  
+  /* Spacing & Radius */
+  --radius: 0.75rem;
 }
 
 @layer base {
   * {
     @apply border-border outline-ring/50;
   }
-  html {
-    font-family: 'Inter', sans-serif;
-  }
+  
   body {
     @apply bg-background text-foreground;
-    font-family: 'Inter', sans-serif;
+    font-family: var(--font-body);
   }
+  
   h1, h2, h3, h4, h5, h6 {
-    font-family: 'Poppins', sans-serif;
+    font-family: var(--font-display);
     font-weight: 700;
   }
+  
   h1 {
-    font-size: 3.5rem;
-    line-height: 1.1;
+    @apply text-5xl md:text-6xl font-bold;
     letter-spacing: -0.02em;
   }
+  
   h2 {
-    font-size: 2.5rem;
-    line-height: 1.2;
+    @apply text-4xl md:text-5xl font-bold;
     letter-spacing: -0.01em;
   }
+  
   h3 {
-    font-size: 1.875rem;
-    line-height: 1.3;
+    @apply text-2xl md:text-3xl font-bold;
   }
+  
   h4 {
-    font-size: 1.5rem;
-    line-height: 1.4;
+    @apply text-xl font-bold;
   }
+  
   p {
-    font-size: 1rem;
-    line-height: 1.6;
-    font-weight: 400;
+    @apply text-base leading-relaxed;
+    font-family: var(--font-body);
   }
+  
   button:not(:disabled),
   [role="button"]:not([aria-disabled="true"]),
   [type="button"]:not(:disabled),
@@ -164,34 +133,14 @@
   input[type="radio"]:not(:disabled) {
     @apply cursor-pointer;
   }
-  /* Smooth transitions for Data-Driven Elegance */
-  * {
-    transition: background-color 150ms ease-in-out, color 150ms ease-in-out, border-color 150ms ease-in-out;
-  }
-  button, a, [role="button"] {
-    transition: all 200ms ease-in-out;
-  }
 }
 
 @layer components {
-  /**
-   * Custom container utility that centers content and adds responsive padding.
-   *
-   * This overrides Tailwind's default container behavior to:
-   * - Auto-center content (mx-auto)
-   * - Add responsive horizontal padding
-   * - Set max-width for large screens
-   *
-   * Usage: <div className="container">...</div>
-   *
-   * For custom widths, use max-w-* utilities directly:
-   * <div className="max-w-6xl mx-auto px-4">...</div>
-   */
   .container {
     width: 100%;
     margin-left: auto;
     margin-right: auto;
-    padding-left: 1rem; /* 16px - mobile padding */
+    padding-left: 1rem;
     padding-right: 1rem;
   }
 
@@ -202,16 +151,59 @@
 
   @media (min-width: 640px) {
     .container {
-      padding-left: 1.5rem; /* 24px - tablet padding */
+      padding-left: 1.5rem;
       padding-right: 1.5rem;
     }
   }
 
   @media (min-width: 1024px) {
     .container {
-      padding-left: 2rem; /* 32px - desktop padding */
+      padding-left: 2rem;
       padding-right: 2rem;
-      max-width: 1280px; /* Standard content width */
+      max-width: 1280px;
     }
+  }
+  
+  /* 3D Card Effect */
+  .card-3d {
+    @apply rounded-lg border border-border bg-card p-6 transition-all duration-300;
+    box-shadow: 0 10px 30px rgba(0, 82, 204, 0.1);
+    transform: perspective(1000px) rotateX(0deg) rotateY(0deg);
+  }
+  
+  .card-3d:hover {
+    box-shadow: 0 20px 50px rgba(0, 82, 204, 0.15);
+    transform: perspective(1000px) translateY(-4px);
+  }
+  
+  /* Gradient Text */
+  .gradient-text {
+    background: linear-gradient(135deg, #0052CC 0%, #10B981 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  /* Accent Border */
+  .accent-border {
+    @apply border-l-4 border-l-primary;
+  }
+  
+  /* Tech Glow */
+  .tech-glow {
+    box-shadow: 0 0 20px rgba(0, 82, 204, 0.2);
+  }
+  
+  /* Tab Navigation */
+  .tab-nav {
+    @apply flex gap-2 border-b border-border overflow-x-auto;
+  }
+  
+  .tab-button {
+    @apply px-4 py-3 font-medium text-muted-foreground transition-all duration-200 border-b-2 border-transparent hover:text-foreground;
+  }
+  
+  .tab-button.active {
+    @apply text-primary border-b-primary;
   }
 }
