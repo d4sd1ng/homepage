@@ -43,7 +43,7 @@
 }
 
 :root {
-  /* Autonova Modern Hi-Tech KI Colors */
+  /* Autonova Dark Mode Colors */
   --primary: #0052CC;
   --primary-foreground: #FFFFFF;
   --secondary: #10B981;
@@ -51,29 +51,29 @@
   --accent: #FF6B35;
   --accent-foreground: #FFFFFF;
   
-  /* Semantic Colors */
-  --background: #FFFFFF;
-  --foreground: #1F2937;
-  --card: #F9FAFB;
-  --card-foreground: #1F2937;
-  --popover: #FFFFFF;
-  --popover-foreground: #1F2937;
-  --muted: #F3F4F6;
-  --muted-foreground: #6B7280;
+  /* Dark Mode Semantic Colors */
+  --background: #000000;
+  --foreground: #FFFFFF;
+  --card: #1F2937;
+  --card-foreground: #FFFFFF;
+  --popover: #111827;
+  --popover-foreground: #FFFFFF;
+  --muted: #374151;
+  --muted-foreground: #D1D5DB;
   --destructive: #EF4444;
   --destructive-foreground: #FFFFFF;
-  --border: #E5E7EB;
-  --input: #F3F4F6;
+  --border: #374151;
+  --input: #1F2937;
   --ring: #0052CC;
   
   /* Sidebar */
-  --sidebar: #FFFFFF;
-  --sidebar-foreground: #1F2937;
+  --sidebar: #111827;
+  --sidebar-foreground: #FFFFFF;
   --sidebar-primary: #0052CC;
   --sidebar-primary-foreground: #FFFFFF;
   --sidebar-accent: #10B981;
   --sidebar-accent-foreground: #FFFFFF;
-  --sidebar-border: #E5E7EB;
+  --sidebar-border: #374151;
   --sidebar-ring: #0052CC;
   
   /* Typography */
@@ -94,31 +94,35 @@
     font-family: var(--font-body);
   }
   
-  h1, h2, h3, h4, h5, h6 {
-    font-family: var(--font-display);
-    font-weight: 700;
-  }
-  
   h1 {
-    @apply text-5xl md:text-6xl font-bold;
+    font-family: var(--font-display);
+    @apply text-5xl md:text-6xl font-bold text-primary;
     letter-spacing: -0.02em;
   }
   
   h2 {
-    @apply text-4xl md:text-5xl font-bold;
+    font-family: var(--font-display);
+    @apply text-4xl md:text-5xl font-bold text-secondary;
     letter-spacing: -0.01em;
   }
   
   h3 {
-    @apply text-2xl md:text-3xl font-bold;
+    font-family: var(--font-display);
+    @apply text-2xl md:text-3xl font-bold text-accent;
   }
   
   h4 {
-    @apply text-xl font-bold;
+    font-family: var(--font-display);
+    @apply text-xl font-bold text-foreground;
+  }
+  
+  h5 {
+    font-family: var(--font-display);
+    @apply text-lg font-bold text-muted-foreground;
   }
   
   p {
-    @apply text-base leading-relaxed;
+    @apply text-base leading-relaxed text-muted-foreground;
     font-family: var(--font-body);
   }
   
@@ -164,16 +168,33 @@
     }
   }
   
-  /* 3D Card Effect */
-  .card-3d {
-    @apply rounded-lg border border-border bg-card p-6 transition-all duration-300;
-    box-shadow: 0 10px 30px rgba(0, 82, 204, 0.1);
-    transform: perspective(1000px) rotateX(0deg) rotateY(0deg);
+  /* Section Spacing */
+  .section {
+    @apply py-20 md:py-32;
   }
   
-  .card-3d:hover {
-    box-shadow: 0 20px 50px rgba(0, 82, 204, 0.15);
-    transform: perspective(1000px) translateY(-4px);
+  /* Card Component */
+  .card-dark {
+    @apply rounded-lg border border-border bg-card p-6 md:p-8 transition-all duration-300;
+    box-shadow: 0 10px 30px rgba(0, 82, 204, 0.2);
+  }
+  
+  .card-dark:hover {
+    box-shadow: 0 20px 50px rgba(0, 82, 204, 0.3);
+    transform: translateY(-4px);
+  }
+  
+  /* Button Styles */
+  .btn-primary {
+    @apply px-6 py-3 bg-primary hover:bg-primary/90 text-white rounded-lg font-semibold transition-all duration-200;
+  }
+  
+  .btn-secondary {
+    @apply px-6 py-3 bg-secondary hover:bg-secondary/90 text-white rounded-lg font-semibold transition-all duration-200;
+  }
+  
+  .btn-outline {
+    @apply px-6 py-3 border-2 border-primary text-primary hover:bg-primary/10 rounded-lg font-semibold transition-all duration-200;
   }
   
   /* Gradient Text */
@@ -189,11 +210,6 @@
     @apply border-l-4 border-l-primary;
   }
   
-  /* Tech Glow */
-  .tech-glow {
-    box-shadow: 0 0 20px rgba(0, 82, 204, 0.2);
-  }
-  
   /* Tab Navigation */
   .tab-nav {
     @apply flex gap-2 border-b border-border overflow-x-auto;
@@ -205,5 +221,15 @@
   
   .tab-button.active {
     @apply text-primary border-b-primary;
+  }
+  
+  /* Hero Overlay */
+  .hero-overlay {
+    @apply absolute inset-0 bg-black/50;
+  }
+  
+  /* Glass Effect */
+  .glass-effect {
+    @apply backdrop-blur-md bg-white/10 border border-white/20 rounded-lg;
   }
 }
