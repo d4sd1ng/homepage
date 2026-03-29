@@ -88,8 +88,8 @@ export default function Home() {
   ];
 
   const faqs = [
-    { q: 'Was ist Autonova?', a: 'Autonova ist ein KI-gestütztes Dienstleistungsunternehmen, das Unternehmen bei der Automatisierung ihrer Geschäftsprozesse hilft.' },
-    { q: 'Für welche Branchen ist Autonova geeignet?', a: 'Autonova ist branchenübergreifend einsetzbar. Ich habe Erfahrung in Fertigung, Finanzdienstleistungen, E-Commerce, Marketing und vielen anderen Bereichen.' },
+    { q: 'Was ist Avataryx by TSc?', a: 'Avataryx by TSc ist ein KI-gestütztes Dienstleistungsunternehmen, das Unternehmen bei der Automatisierung ihrer Geschäftsprozesse hilft.' },
+    { q: 'Für welche Branchen ist Avataryx by TSc geeignet?', a: 'Avataryx by TSc ist branchenübergreifend einsetzbar. Ich habe Erfahrung in Fertigung, Finanzdienstleistungen, E-Commerce, Marketing und vielen anderen Bereichen.' },
     { q: 'Wie lange dauert eine typische Implementierung?', a: 'Das hängt von der Komplexität ab. Einfache Automatisierungen: 2-4 Wochen. Mittlere Projekte: 1-3 Monate. SaaS-Produkte sind sofort einsatzbereit.' },
     { q: 'Wie sicher sind meine Daten?', a: 'Datensicherheit ist meine höchste Priorität. Alle Daten werden verschlüsselt übertragen und auf EU-gehosteten Servern gespeichert. DSGVO-konform.' },
     { q: 'Kann ich die SaaS-Produkte kostenlos testen?', a: 'Ja, alle SaaS-Produkte bieten eine kostenlose Trial-Phase (14-30 Tage). Sie können die volle Funktionalität testen, ohne eine Kreditkarte anzugeben.' },
@@ -99,10 +99,10 @@ export default function Home() {
     <div className="min-h-screen bg-black text-white">
       {/* Meta Tags */}
       <head>
-        <title>Autonova - KI-Automatisierung für dein Unternehmen</title>
+        <title>Avataryx by TSc - KI-Automatisierung für dein Unternehmen</title>
         <meta name="description" content="Automatisiere deine Geschäftsprozesse mit KI. 35 Jahre Erfahrung, robuste Systeme, echte Ergebnisse." />
         <meta name="keywords" content="KI, Automatisierung, Workflow, SaaS, Industrie 4.0, Digitalisierung" />
-        <meta property="og:title" content="Autonova - Künstliche Intelligenz. Echte Ergebnisse." />
+        <meta property="og:title" content="Avataryx by TSc - Künstliche Intelligenz. Echte Ergebnisse." />
         <meta property="og:description" content="Automatisiere deine Geschäftsprozesse mit KI-gestützten Lösungen." />
         <meta property="og:image" content="https://avataryx.de/og-image.png" />
         <meta property="og:url" content="https://avataryx.de" />
@@ -114,7 +114,7 @@ export default function Home() {
       <nav className="sticky top-0 z-50 bg-black/95 backdrop-blur border-b border-blue-900/30">
         <div className="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
           <div className="text-2xl font-bold bg-gradient-to-r from-blue-500 to-green-500 bg-clip-text text-transparent">
-            Autonova
+            Avataryx by TSc
           </div>
           <Tabs value={activeTab} onValueChange={setActiveTab} className="hidden md:block">
             <TabsList className="bg-transparent border-b border-blue-900/30">
@@ -362,7 +362,7 @@ export default function Home() {
                   Ich bin Tino Schneider, ein erfahrener KI-Entwickler und Automation-Spezialist mit 35+ Jahren Erfahrung in der Softwareentwicklung. Meine Reise begann mit BASIC auf dem C64 und führte mich durch alle Phasen der Technologieentwicklung – von Desktop-Anwendungen über Web bis zu modernen KI-Systemen.
                 </p>
                 <p className="text-gray-300 text-lg mb-6">
-                  Mit Autonova möchte ich mein Wissen und meine Fähigkeiten mit Unternehmen teilen, die ihre Prozesse automatisieren und optimieren wollen. Mein Fokus liegt auf robusten, zuverlässigen Systemen – nicht auf Gimmicks oder Hype.
+                  Mit Avataryx by TSc möchte ich mein Wissen und meine Fähigkeiten mit Unternehmen teilen, die ihre Prozesse automatisieren und optimieren wollen. Mein Fokus liegt auf robusten, zuverlässigen Systemen – nicht auf Gimmicks oder Hype.
                 </p>
                 <p className="text-gray-300 text-lg">
                   Ich glaube an die Kraft von KI, wenn sie richtig eingesetzt wird: zur Automatisierung von Routineaufgaben, zur Verbesserung von Entscheidungen und zur Skalierung von Unternehmen ohne proportionale Kostensteigerung.
@@ -377,7 +377,7 @@ export default function Home() {
       <section className="py-20 px-4 bg-gradient-to-r from-blue-900 to-green-900">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-4xl font-bold text-white mb-6">Bereit, dein Geschäft zu transformieren?</h2>
-          <p className="text-xl text-gray-200 mb-8">Starte mit einer kostenlosen Potenzial-Analyse. Ich zeige dir, wie viel Zeit und Geld du mit Autonova sparen kannst.</p>
+          <p className="text-xl text-gray-200 mb-8">Starte mit einer kostenlosen Potenzial-Analyse. Ich zeige dir, wie viel Zeit und Geld du mit Avataryx by TSc sparen kannst.</p>
           <Button className="bg-white text-blue-900 hover:bg-gray-100 px-8 py-6 text-lg font-bold" onClick={() => setShowLeadMagnet(true)}>
             Kostenlose Analyse anfordern
           </Button>
@@ -418,7 +418,7 @@ export default function Home() {
         <div className="max-w-6xl mx-auto">
           <div className="grid md:grid-cols-4 gap-8 mb-8">
             <div>
-              <h4 className="text-white font-bold mb-4">Autonova</h4>
+              <h4 className="text-white font-bold mb-4">Avataryx by TSc</h4>
               <p className="text-gray-400 text-sm">KI-gestützte Automatisierung für dein Unternehmen.</p>
             </div>
             <div>
@@ -447,7 +447,7 @@ export default function Home() {
             </div>
           </div>
           <div className="border-t border-blue-900/30 pt-8 text-center text-gray-500 text-sm">
-            <p>&copy; 2026 Autonova by Tino Schneider. Alle Rechte vorbehalten.</p>
+            <p>&copy; 2026 Avataryx by TSc by Tino Schneider. Alle Rechte vorbehalten.</p>
           </div>
         </div>
       </footer>
