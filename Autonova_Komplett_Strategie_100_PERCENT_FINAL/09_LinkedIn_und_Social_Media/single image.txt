@@ -1,0 +1,101 @@
+MASTER-BLOCk
+	Ultra realistic enterprise AI infrastructure design.
+	Dark cinematic datacenter environment with realistic server racks, intelligent AI infrastructure, autonomous workflow systems, predictive analytics interfaces, neural market overlays and institutional-grade backend architecture.
+	Right side filled with premium enterprise infrastructure visuals, glowing trading dashboards, modern AI operations center atmosphere and advanced backend systems. Left side mostly dark with clean negative space for typography and content placement.
+	Deep navy, matte black and subtle muted silver-blue lighting. Realistic reflections, volumetric light, layered depth, premium SaaS atmosphere and high-end institutional technology aesthetic inspired by OpenAI Enterprise, NVIDIA AI infrastructure, Bloomberg terminals and quantitative trading firms.
+
+	Minimal and sophisticated composition.
+	Very clean typography area.
+	Technical and trustworthy atmosphere.
+	Modern infrastructure aesthetic.
+	Executive enterprise branding.
+	Institutional technology style.
+
+	Use the fixed brand color palette:
+
+	Matte Black #05070B
+	Deep Navy #0A1630
+	Enterprise Blue #112B4A
+	Soft White #F5F7FA
+	Soft Blue Gray #B8C7D9
+	Steel Gray #8A96A8
+	Muted Silver Blue #6E8CA6
+
+	Optional subtle accent:
+	Muted Institutional Gold #C6A86A
+
+	Use fixed typography:
+
+	Code Pro SemiBold for headlines
+	Raleway Medium for subheadlines
+	Raleway Regular for body text
+	Raleway Medium for labels
+
+	Typography style:
+	minimal
+	technical
+	executive
+	institutional
+	high-end enterprise
+
+	Large clean typography.
+	Strong hierarchy.
+	Generous spacing.
+	Minimalistic layout.
+
+	All text must be German only.
+	All text must be editable.
+	Separate layers for background, text, icons, diagrams, lines, cards, QR code and visual elements.
+	Do not bake text into the background image.
+	Do not rasterize text.
+	Create clean editable layout for Illustrator, Photoshop and Canva.
+	Also create a clean background-only version without text.
+
+	No script fonts.
+	No playful fonts.
+	No rounded startup typography.
+	No gaming aesthetics.
+	No exaggerated futuristic fonts.
+	No clutter.
+	No crypto aesthetic.
+	No cyberpunk.
+	No exaggerated sci-fi.
+	No stock image look.
+	No people.
+
+	Ultra sharp.
+	Cinematic lighting.
+	Realistic materials.
+	Advanced AI operations center look.
+
+
+LINKEDIN SINGLE IMAGE AD
+
+Create a premium LinkedIn single image ad.
+
+Format:
+1080 x 1350 px.
+
+Deutsche Textoptionen, erstelle mehrere Varianten:
+Enterprise AI Automation
+AI-Infrastruktur für moderne Unternehmen
+Automatisierung beginnt mit intelligenten Systemen
+Enterprise AI ist Infrastruktur
+Moderne Unternehmen laufen auf Automatisierung
+Intelligente Systeme. Moderne Infrastruktur.
+Von manuellen Prozessen zu intelligenter Automatisierung
+Workflow-Systeme für moderne Unternehmen
+
+Layout:
+Große starke Typografie.
+Wenig Text.
+Klare visuelle Hierarchie.
+Dunkle Infrastruktur-Atmosphäre.
+Optional kleiner CTA:
+Potenzialanalyse anfragen
+Mehr erfahren
+Systeme automatisieren
+
+Alle Texte deutsch und editierbar.
+Hintergrund ohne Text zusätzlich exportieren.
+

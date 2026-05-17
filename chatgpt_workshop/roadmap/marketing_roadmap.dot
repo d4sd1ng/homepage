@@ -1,0 +1,64 @@
+digraph MarketingRoadmap {
+    rankdir=LR; // Layout von links nach rechts
+    node [shape=box, style=filled, fillcolor=lightblue, fontname="Helvetica"];
+    edge [fontname="Helvetica", fontsize=10];
+
+    subgraph cluster_phase1 {
+        label = "Phase 1: Vorbereitung & Ankündigung (6-8 Wochen vorher)";
+        bgcolor=lightgrey;
+        P1_Zielgruppe [label="Zielgruppe definieren"];
+        P1_Inhalte [label="Workshop-Inhalte finalisieren"];
+        P1_LandingPage [label="Landing Page erstellen & live schalten"];
+        P1_Preis [label="Preis festlegen"];
+        P1_Anmeldung [label="Anmeldesystem einrichten"];
+        P1_Ankuendigung [label="Erste Ankündigung (Social Media, Newsletter)"];
+        P1_Zielgruppe -> P1_Inhalte -> P1_LandingPage -> P1_Preis -> P1_Anmeldung -> P1_Ankuendigung;
+    }
+
+    subgraph cluster_phase2 {
+        label = "Phase 2: Aktive Promotion (4-6 Wochen vorher)";
+        bgcolor=lightyellow;
+        P2_SocialMedia [label="Social Media Kampagne starten (Posts, Ads)"];
+        P2_Email [label="E-Mail Marketing (Newsletter)"];
+        P2_Content [label="Content Marketing (Blogpost)"];
+        P2_Partner [label="Partnerschaften suchen"];
+        P2_Rabatt [label="Frühbucherrabatt anbieten"];
+        P2_SocialMedia -> P2_Email -> P2_Content -> P2_Partner -> P2_Rabatt;
+    }
+
+    subgraph cluster_phase3 {
+        label = "Phase 3: Intensivierung & Erinnerung (1-3 Wochen vorher)";
+        bgcolor=lightcoral;
+        P3_Ads [label="Intensivierte Social Media Ads"];
+        P3_Erinnerung [label="Erinnerungs-E-Mails"];
+        P3_Testimonials [label="Testimonials/Vorschau teilen"];
+        P3_LetztePlaetze [label="Letzte Plätze bewerben"];
+        P3_Ads -> P3_Erinnerung -> P3_Testimonials -> P3_LetztePlaetze;
+    }
+
+    subgraph cluster_phase4 {
+        label = "Phase 4: Workshop-Durchführung (Workshop-Tag)";
+        bgcolor=lightcyan;
+        P4_Technik [label="Technische Vorbereitung"];
+        P4_MailTeilnehmer [label="Erinnerungs-Mail an Teilnehmer"];
+        P4_Technik -> P4_MailTeilnehmer;
+    }
+
+    subgraph cluster_phase5 {
+        label = "Phase 5: Nachbereitung & Follow-Up (Nach dem Workshop)";
+        bgcolor=lightgoldenrodyellow;
+        P5_Danke [label="Dankes-E-Mail (Slides/Aufzeichnung)"];
+        P5_Feedback [label="Feedback einholen (Umfrage)"];
+        P5_Zertifikat [label="Zertifikate ausstellen"];
+        P5_FollowUp [label="Nächste Schritte/Angebote"];
+        P5_Messung [label="Erfolgsmessung"];
+        P5_Danke -> P5_Feedback -> P5_Zertifikat -> P5_FollowUp -> P5_Messung;
+    }
+
+    // Verbindungen zwischen Phasen
+    P1_Ankuendigung -> P2_SocialMedia [label="Start Promotion"];
+    P2_Rabatt -> P3_Ads [label="Intensivierung"];
+    P3_LetztePlaetze -> P4_Technik [label="Workshop naht"];
+    P4_MailTeilnehmer -> P5_Danke [label="Workshop vorbei"];
+
+}

@@ -1,0 +1,349 @@
+Das HTML-Grundgerüst
+
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<title>Page</title>
+</head>
+<body>
+<h3 style="color: orange; text-align=center">CSS Layout Float</h3>
+<header>
+<h3>Das ist der Header</h3>
+</header>
+<aside>
+<b>Navi</b><br>
+HTML<br>
+CSS<br>
+</aside>
+<main>
+<h3>Hier steht der Inhalt</h3>
+</main>
+<footer>
+Copyright © strassencoder.ch
+</footer>
+</body>
+</html>
+CopyToClipboard
+Mit CSS-Float die Container ausrichten
+<style>
+* {
+box-sizing: border-box;
+}
+header {
+background-color: black;
+padding: 10px;
+text-align: center;
+color: white;
+}
+aside {
+float: left;
+width: 30%;
+height: 300px;
+background: dodgerblue;
+padding: 20px;
+}
+main {
+float: left;
+width: 70%;
+background-color: grey;
+color: black;
+height: 300px;
+padding: 20px;
+}
+footer {
+clear: both;
+background-color: black;
+padding: 10px;
+text-align: center;
+color: white;
+}
+</style>
+
+
+
+Kachegröße
+
+* {
+box-sizing: border-box;
+}
+aside {
+float: left;
+width: 230px;
+height: 300px;
+background: dodgerblue;
+padding: 20px;
+}
+
+
+
+Überschriften sind auch relevant in der Suchmaschinen-Optimierung(engl. Search Engine Optimization, Abkürzung: SEO).
+
+<h1>definiert die grösste Überschrift!
+<h6>definiert die kleinste Überschrift!
+Überschrift Beispiel
+<!DOCTYPE html>
+<html>
+<head>
+<title>Page</title>
+</head>
+<body>
+<h1 style="color:red;text-align:center">Heading 1</h1>
+<h2 style="color:yellow;text-align:center">Heading 2</h2>
+<h3 style="color:orange;text-align:center">Heading 3</h3>
+<h4 style="color:dodgerblue;text-align:center">Heading 4</h4>
+<h5 style="color:brown;text-align:center">Heading 5</h5>
+<h6 style="color:green;text-align:center">Heading 6</h6>
+</body>
+</html>
+
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>Page</title>
+</head>
+<body>
+<h3 style="color: orange">Das ist eine Überschrift</h3>
+<p style="color: dodgerblue">Das ist ein Absatz</p>
+</body>
+</html>
+
+
+CSS in der HTML-Datei mit dem <style> Element
+
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<style>
+h1 {
+color: red;
+background-color: black;
+}
+</style>
+</head>
+<body>
+<h1>jetzt HTML lernen mit CSS</h1>
+</body>
+</html>
+
+
+Semantik-Elemente:
+
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>Page</title>
+<style>
+header {
+background-color: dodgerblue;
+color: black;
+padding: 1rem;
+}
+nav {
+background-color: black;
+color: white;
+padding: 5%;
+float: left;
+width: 20%;
+height: 200px;
+}
+main {
+background-color: grey;
+color: black;
+padding: 5%;
+float: left;
+width: 60%;
+height: 200px;
+}
+footer {
+background-color: dodgerblue;
+color: black;
+padding: 1rem;
+clear: both;
+}
+</style>
+</head>
+<body>
+<header>
+headerContainer
+</header>
+<nav>
+navContainer
+</nav>
+<main>
+mainContainer
+</main>
+<footer>
+footerContainer
+</footer>
+</body>
+</html>
+
+
+Das HTML <link> Element
+Das <link> Element verweist auf ein externes Stylesheet:
+
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<link rel="stylesheet" href="mystyle.css">
+</head>
+<body>
+<h1>jetzt HTML lernen mit CSS</h1>
+</body>
+</html>
+
+
+Das HTML <script> Element
+Das <script> Element verweist auf ein externes Skript:
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>Page</title>
+<script src="dateiname.js"></script>
+</head>
+<body>
+<h2>Javascript im head</h2>
+</body>
+</html>
+CopyToClipboard
+Das HTML <base> Element
+Mithilfe des base-Elements können Sie die Basis für relative Verweise festlegen. Es darf nur ein base-Element im Kopf eines HTML-Dokuments geben. Wenn nun in der Datei beispielsweise folgende relative Grafikreferenz steht: <img src="Bilder/Logo12.png"> … so ermittelt der Browser die Quelle dieser Grafik als <img src="http://strassencoder.ch/Bilder/Logo12.png"> und öffnet mit target="_blank" in einem neuen Tab.
+<!DOCTYPE html>
+<html>
+<head>
+<base href="https://www.strassencoder.ch" target="_blank">
+</head>
+<body>
+<h1>Das base Element</h1>
+<img src="Bilder/Logo12.png" width="100" height="100" alt="Logo">
+</body>
+</html>
+
+
+unterschiedlichste schriften
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>Page</title>
+</head>
+<body>
+<p style="color: red;text-align:center"><b>- fettgedruckter Text</b></p>
+<p style="color: orange;text-align:center"><strong>- wichtiger Text</strong></p>
+<p style="color: blue;text-align:center"><i>- kursiver Text</i></p>
+<p style="color: red;text-align:center"><em>- hervorgehobener Text</em></p>
+<p style="text-align:center"><mark>- markierter Text</mark></p>
+<p style="color: green;text-align:center"><small>- kleiner Text</small></p>
+<p style="color: brown;text-align:center"><del>- gelöschter Text</del></p>
+<p style="color: red;text-align:center"><ins>- eingefügter Text</ins></p>
+<p style="color: blue;text-align:center">Das ist<sub>- tiefgestellter Text</sub></p>
+<p style="color: green;text-align:center">Das ist<sup>- hochgestellter Text</sup></p>
+</body>
+</html>
+
+
+Klick Button
+<input type="button" onclick="alert('Hallo User!')" value="Klick mich!">
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>Page</title>
+</head>
+<body>
+<form action="action_page.php" method="post">
+<table>
+<tbody>
+<tr>
+<td>Firma:</td>
+<td>
+<input maxlength="15" name="Firma" size="20" type="text" />
+</td>
+</tr>
+<tr>
+<td>Anrede:</td>
+<td>
+<select name="geschl">
+<option value="m">Herr</option>
+<option value="f">Frau</option>
+</select>
+</td>
+</tr>
+<tr>
+<td>Vorname:</td>
+<td>
+<input maxlength="15" name="Vorname" size="20" type="text" />
+</td>
+</tr>
+<tr>
+<td>Nachname:</td>
+<td>
+<input maxlength="15" name="Nachname" size="20" type="text" />
+</td>
+</tr>
+<tr>
+<td>Strasse:</td>
+<td>
+<input maxlength="15" name="Strasse" size="20" type="text" />
+</td>
+</tr>
+<tr>
+<td>PLZ:</td>
+<td>
+<input maxlength="5" name="PLZ" size="7" type="text" />
+</td>
+</tr>
+<tr>
+<td>Ort:</td>
+<td>
+<input maxlength="15" name="Ort" size="20" type="text" />
+</td>
+</tr>
+<tr>
+<td>Land:</td>
+<td>
+<input name="Land" size="20" type="text" />
+</td>
+</tr>
+<tr>
+<td>Homepage:</td>
+<td>
+<input name="Homepage" size="20" type="url" />
+</td>
+</tr>
+<tr>
+<td>Email:</td>
+<td>
+<input maxlength="25" name="Email" size="20" type="email" />
+</td>
+</tr>
+<tr>
+<td></td>
+<td>
+<input type="submit" value="Registrieren" />
+</td>
+</tr>
+</tbody>
+</table>
+</form>
+</body>
+</html>
+CopyToClipboard
+Überschrift BrowserAusgabe
+Firma:	
+Anrede:	
+Herr
+Vorname:	
+Nachname:	
+Strasse:	
+PLZ:	
+Ort:	
+Land:	
+Homepage:	
+Email:	

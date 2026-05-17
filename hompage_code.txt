@@ -1,0 +1,178 @@
+import { useState } from 'react'
+import { Button } from '@/components/ui/button.jsx'
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card.jsx'
+import { Badge } from '@/components/ui/badge.jsx'
+import { Globe, ChevronRight, Bot, Zap, Palette, Code, Users, Shield, Server, Mail, Phone, MapPin, Menu, X, Star, CheckCircle, ArrowRight, Brain, Cpu, Lightbulb, Target, BarChart3, MessageSquare, Briefcase, DollarSign, Heart, Leaf, ShoppingCart } from 'lucide-react'
+import './App.css'
+
+// Import images (only dark theme images now)
+import darkTechAiAgent from './assets/dark_tech_ai_agent.png'
+import darkTechProcessOptimization from './assets/dark_tech_process_optimization.png'
+import darkTechGraphicDesign from './assets/dark_tech_graphic_design.png'
+import darkTechWebDesign from './assets/dark_tech_web_design.png'
+import darkTechTMT from './assets/dark_tech_tmt.png'
+import darkTechFinance from './assets/dark_tech_finance.png'
+import darkTechHealth from './assets/dark_tech_health.png'
+import darkTechEnergy from './assets/dark_tech_energy.png'
+import darkTechRetail from './assets/dark_tech_retail.png'
+import darkTechConsulting from './assets/dark_tech_consulting.png'
+
+function App() {
+  const [isGerman, setIsGerman] = useState(true)
+  const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const [currentPage, setCurrentPage] = useState('home') // State for current page
+
+  // isDark is now always true
+  const isDark = true
+  document.documentElement.classList.add('dark')
+
+  const toggleLanguage = () => {
+    setIsGerman(!isGerman)
+  }
+
+  const navigateTo = (page) => {
+    setCurrentPage(page)
+    setIsMenuOpen(false) // Close mobile menu on navigation
+  }
+
+  const content = {
+    de: {
+      nav: {
+        home: 'Startseite',
+        services: 'Leistungen',
+        portfolio: 'Portfolio',
+        about: 'Über uns',
+        contact: 'Kontakt'
+      },
+      hero: {
+        title: 'Maßgeschneiderte KI-Lösungen für Ihr Unternehmen',
+        subtitle: 'Ihr Partner für individuelle KI-Agenten, Prozessoptimierung und KI-gestütztes Design',
+        cta: 'Kostenlose Beratung anfordern',
+        demo: 'Demo anfordern'
+      },
+      servicesOverview: {
+        title: 'Unsere Leistungen',
+        subtitle: 'Umfassende KI-Lösungen aus einer Hand',
+        description: 'Entdecken Sie, wie unsere maßgeschneiderten KI-Lösungen Ihr Unternehmen transformieren können. Von der Entwicklung intelligenter Agenten bis zur Optimierung komplexer Geschäftsprozesse und innovativem Design – wir bieten alles aus einer Hand.'
+      },
+      services: {
+        aiAgents: {
+          title: 'KI-Agenten Entwicklung',
+          description: 'Wir entwickeln intelligente KI-Agenten, die selbstständig Aufgaben erledigen, Prozesse automatisieren und Entscheidungen treffen, um Ihre Effizienz zu maximieren.',
+          examples: [
+            { text: 'Automatisierter Kundenservice-Assistent', detail: 'Ein KI-Agent, der Kundenanfragen rund um die Uhr beantwortet, häufig gestellte Fragen klärt und Support-Tickets priorisiert, um die Kundenzufriedenheit zu erhöhen und die Reaktionszeiten zu verkürzen.' },
+            { text: 'Intelligenter Datenanalyse-Agent', detail: 'Sammelt, analysiert und visualisiert große Datenmengen, um wertvolle Erkenntnisse für Geschäftsstrategien zu gewinnen und datenbasierte Entscheidungen zu ermöglichen.' },
+            { text: 'Agent zur internen Prozessautomatisierung', detail: 'Automatisiert repetitive administrative Aufgaben wie Terminplanung, E-Mail-Verwaltung oder Dokumentenablage, um Mitarbeiter zu entlasten und Fehler zu minimieren.' },
+            { text: 'Content-Erstellungs-Agent', detail: 'Generiert Entwürfe für Marketingtexte, Blogbeiträge oder Produktbeschreibungen basierend auf vorgegebenen Parametern, um die Content-Produktion zu beschleunigen.' },
+            { text: 'Predictive Analytics Agent', detail: 'Analysiert historische Daten, um zukünftige Trends, Kundenverhalten oder Marktentwicklungen vorherzusagen und proaktive Geschäftsentscheidungen zu unterstützen.' }
+          ]
+        },
+        processOptimization: {
+          title: 'Optimierung von Geschäftsprozessen durch KI',
+          description: 'Wir analysieren Ihre bestehenden Geschäftsprozesse und integrieren KI-Lösungen, um Engpässe zu beseitigen, Arbeitsabläufe zu optimieren und die Gesamtproduktivität zu steigern.',
+          examples: [
+            { text: 'Supply Chain Optimierung', detail: 'KI-gestützte Vorhersage von Nachfrage und Lieferengpässen zur Optimierung von Lagerbeständen und Logistik, um Kosten zu senken und Lieferzeiten zu verkürzen.' },
+            { text: 'Automatisierte Rechnungsverarbeitung', detail: 'KI extrahiert relevante Daten aus Rechnungen, gleicht sie mit Bestellungen ab und initiiert Zahlungsprozesse, wodurch manuelle Fehler reduziert und Bearbeitungszeiten verkürzt werden.' },
+            { text: 'Predictive Maintenance', detail: 'Überwachung von Maschinen und Anlagen mittels KI zur Vorhersage von Ausfällen, um Wartungsarbeiten proaktiv zu planen und teure Stillstandszeiten zu vermeiden.' },
+            { text: 'KI-gestützte Betrugserkennung', detail: 'Analyse von Transaktionsdaten in Echtzeit, um verdächtige Muster zu identifizieren und potenziellen Betrug frühzeitig zu erkennen und zu verhindern.' },
+            { text: 'Optimierte Ressourcenallokation', detail: 'KI-basierte Planung und Zuweisung von Personal, Ausrüstung oder Budget, um Projekte effizienter zu managen und die Auslastung zu maximieren.' }
+          ]
+        },
+        graphicDesign: {
+          title: 'KI-gestütztes Grafikdesign',
+          description: 'Wir nutzen fortschrittliche KI-Technologien, um einzigartige und visuell ansprechende Grafiken zu erstellen, die Ihre Marke stärken und Ihre Botschaft effektiv kommunizieren.',
+          examples: [
+            { text: 'KI-generierte Logo-Variationen', detail: 'Erstellung einer Vielzahl von Logo-Entwürfen und -Variationen basierend auf Markenrichtlinien und Stilpräferenzen, um den Designprozess zu beschleunigen.' },
+            { text: 'Automatisierte Social Media Grafiken', detail: 'Generierung von ansprechenden Grafiken für Social-Media-Plattformen in verschiedenen Formaten und Stilen, die auf aktuelle Trends und Kampagnen abgestimmt sind.' },
+            { text: 'KI-verbesserte Bildbearbeitung', detail: 'Automatische Optimierung von Bildern durch Retusche, Farbkorrektur oder Hintergrundentfernung, um professionelle Ergebnisse in kürzerer Zeit zu erzielen.' },
+            { text: 'Personalisierte Marketing-Materialien', detail: 'Erstellung individueller Werbematerialien wie Banner oder Anzeigen, die auf die Präferenzen spezifischer Zielgruppensegmente zugeschnitten sind.' },
+            { text: 'KI-gestützte Markenrichtlinien-Überwachung', detail: 'Überprüfung von Design-Assets auf Einhaltung der Markenrichtlinien und automatische Korrekturvorschläge, um eine konsistente Markenpräsenz zu gewährleisten.' }
+          ]
+        },
+        webDesign: {
+          title: 'KI-gestütztes Webdesign',
+          description: 'Wir gestalten und entwickeln moderne, responsive Webseiten, die nicht nur ästhetisch ansprechend sind, sondern auch durch KI-Optimierung eine herausragende Benutzererfahrung bieten und Ihre Online-Ziele erreichen.',
+          examples: [
+            { text: 'KI-gestützte Layout-Generierung', detail: 'Automatische Erstellung von Website-Layouts und Wireframes, die auf Best Practices für Benutzerfreundlichkeit und Ästhetik basieren.' },
+            { text: 'Automatisierte A/B-Tests für UI-Elemente', detail: 'Kontinuierliche Optimierung von Benutzeroberflächen durch KI-gesteuerte A/B-Tests, um die effektivsten Designelemente zu identifizieren und die Konversionsraten zu steigern.' },
+            { text: 'Personalisierte User Journey', detail: 'Anpassung der Website-Inhalte und -Navigation an das individuelle Nutzerverhalten, um eine hochgradig personalisierte und relevante Erfahrung zu bieten.' },
+            { text: 'KI-gesteuerte Content-Empfehlungen', detail: 'Empfehlung von relevanten Artikeln, Produkten oder Dienstleistungen an Besucher basierend auf deren Interessen und Interaktionen, um die Verweildauer zu erhöhen.' },
+            { text: 'Barrierefreiheits-Optimierung', detail: 'Automatische Identifizierung und Behebung von Barrierefreiheitsmängeln auf der Website, um sicherzustellen, dass sie für alle Nutzer zugänglich ist.' }
+          ]
+        },
+        aiConsulting: {
+          title: 'KI-Beratung & Strategieentwicklung',
+          description: 'Wir unterstützen Unternehmen dabei, das Potenzial von KI zu erkennen, maßgeschneiderte KI-Strategien zu entwickeln und die Implementierung von KI-Lösungen erfolgreich zu planen und umzusetzen.',
+          examples: [
+            { text: 'Potenzialanalyse & Machbarkeitsstudie', detail: 'Bewertung, wie KI spezifische Geschäftsprobleme lösen und neue Chancen eröffnen kann, inklusive einer detaillierten Machbarkeitsstudie für potenzielle Projekte.' },
+            { text: 'Entwicklung einer KI-Roadmap', detail: 'Erstellung eines strategischen Plans für die schrittweise Einführung und Skalierung von KI-Technologien im Unternehmen, abgestimmt auf Geschäftsziele und Ressourcen.' },
+            { text: 'Auswahl geeigneter KI-Technologien', detail: 'Beratung bei der Auswahl der passenden KI-Plattformen, Tools und Modelle (z.B. Cloud-Dienste, Open-Source-Lösungen, spezialisierte APIs) für spezifische Anwendungsfälle.' },
+            { text: 'Schulung & Change Management', detail: 'Unterstützung bei der Vorbereitung von Teams auf die Einführung von KI, inklusive Schulungen und Strategien für ein erfolgreiches Change Management.' },
+            { text: 'Ethik & Compliance in der KI', detail: 'Beratung zu ethischen Richtlinien, Datenschutz (DSGVO) und rechtlichen Aspekten beim Einsatz von KI, um Risiken zu minimieren und Vertrauen aufzubauen.' }
+          ]
+        },
+        industrySolutions: {
+          title: 'KI-Lösungen für spezifische Branchen',
+          description: 'Maßgeschneiderte KI-Anwendungen, die auf die einzigartigen Herausforderungen und Chancen verschiedener Industriezweige zugeschnitten sind.',
+          tmt: {
+            title: 'Technologie, Medien & Telekommunikation',
+            description: 'KI-Lösungen zur Optimierung von Netzwerken, Personalisierung von Inhalten und Automatisierung von Kundenservices in der TMT-Branche.',
+            examples: [
+              { text: 'Netzwerkoptimierung', detail: 'KI-gesteuerte Analyse von Netzwerkdaten zur Vorhersage von Engpässen und zur automatischen Anpassung der Bandbreite, um die Servicequalität zu verbessern.' },
+              { text: 'Personalisierte Medieninhalte', detail: 'Empfehlung von Filmen, Musik oder Nachrichtenartikeln basierend auf den Präferenzen und dem Konsumverhalten der Nutzer, um die Engagement-Raten zu erhöhen.' },
+              { text: 'Automatisierter Kundensupport im Telekommunikationsbereich', detail: 'KI-Chatbots, die technische Anfragen bearbeiten, Störungen melden und grundlegende Support-Aufgaben übernehmen, um Callcenter zu entlasten.' },
+              { text: 'Deepfake-Erkennung', detail: 'Einsatz von KI zur Identifizierung und Filterung von manipulierten Medieninhalten, um die Authentizität von Informationen zu gewährleisten.' },
+              { text: 'Werbeoptimierung', detail: 'KI-basierte Analyse von Nutzerdaten zur Platzierung zielgerichteter Werbung und zur Optimierung von Kampagnen in Echtzeit, um den ROI zu maximieren.' }
+            ]
+          },
+          finance: {
+            title: 'Finanzen & Versicherungen',
+            description: 'KI-gestützte Lösungen für Betrugserkennung, Risikobewertung, personalisierte Finanzberatung und Automatisierung von Backoffice-Prozessen im Finanz- und Versicherungssektor.',
+            examples: [
+              { text: 'Betrugserkennung & -prävention', detail: 'KI-Systeme, die Transaktionsmuster analysieren, um ungewöhnliche Aktivitäten zu erkennen und potenziellen Kreditkartenbetrug oder Geldwäsche zu verhindern.' },
+              { text: 'Automatisierte Kreditprüfung', detail: 'KI bewertet die Kreditwürdigkeit von Antragstellern anhand verschiedener Datenpunkte, um schnelle und konsistente Entscheidungen zu ermöglichen.' },
+              { text: 'Personalisierte Finanzberatung', detail: 'KI-gestützte Plattformen, die individuelle Anlageempfehlungen oder Versicherungsangebote basierend auf dem Risikoprofil und den Zielen des Kunden erstellen.' },
+              { text: 'Schadensbearbeitung', detail: 'KI analysiert Schadensmeldungen, gleicht sie mit Richtlinien ab und automatisiert die Bearbeitung einfacher Fälle, um die Abwicklungszeiten zu verkürzen.' },
+              { text: 'Marktprognosen', detail: 'KI-Modelle, die Finanzmärkte analysieren und Vorhersagen über Kursentwicklungen treffen, um Handelsstrategien zu optimieren.' }
+            ]
+          },
+          health: {
+            title: 'Gesundheit & Soziales',
+            description: 'KI-Anwendungen zur Verbesserung der Patientenversorgung, Optimierung administrativer Abläufe und Unterstützung bei der Forschung im Gesundheits- und Sozialwesen.',
+            examples: [
+              { text: 'Diagnoseunterstützung', detail: 'KI analysiert medizinische Bilder (z.B. Röntgen, MRT) oder Patientendaten, um Ärzten bei der schnelleren und präziseren Diagnose von Krankheiten zu helfen.' },
+              { text: 'Personalisierte Behandlungspläne', detail: 'KI erstellt individuelle Therapieempfehlungen basierend auf der Krankengeschichte, Genetik und dem Ansprechen auf Medikamente, um die Behandlungsergebnisse zu optimieren.' },
+              { text: 'Automatisierte Dokumentation', detail: 'KI-Systeme, die Patientengespräche transkribieren und relevante Informationen automatisch in die elektronische Patientenakte übertragen, um den Verwaltungsaufwand zu reduzieren.' },
+              { text: 'Medikamentenentwicklung', detail: 'KI beschleunigt die Entdeckung neuer Wirkstoffe und die Optimierung von Medikamenten durch die Analyse großer molekularer Datensätze.' },
+              { text: 'Pflege- und Betreuungsroboter', detail: 'Robotische Assistenten, die ältere Menschen oder Personen mit Behinderungen im Alltag unterstützen, z.B. bei der Medikamentenerinnerung oder der Sturzerkennung.' }
+            ]
+          },
+          energy: {
+            title: 'Energie, Umwelt & Versorgung',
+            description: 'KI-Lösungen für effizientes Energiemanagement, Optimierung von Versorgungsnetzen und nachhaltige Umweltüberwachung.',
+            examples: [
+              { text: 'Smart Grid Optimierung', detail: 'KI-gesteuerte Steuerung von Stromnetzen zur effizienten Verteilung von Energie, Integration erneuerbarer Energien und Minimierung von Verlusten.' },
+              { text: 'Energieverbrauchsprognose', detail: 'KI analysiert Wetterdaten, historische Verbräuche und andere Faktoren, um den Energiebedarf präzise vorherzusagen und die Erzeugung anzupassen.' },
+              { text: 'Umweltüberwachung', detail: 'KI-Systeme, die Sensordaten von Luft- und Wasserqualität analysieren, um Umweltverschmutzung zu erkennen und Frühwarnsysteme zu etablieren.' },
+              { text: 'Optimierung von Wasserversorgungssystemen', detail: 'KI überwacht den Wasserfluss und erkennt Leckagen in Echtzeit, um Wasserverluste zu minimieren und die Effizienz zu steigern.' },
+              { text: 'Abfallmanagement', detail: 'KI-gestützte Sortieranlagen, die Abfälle effizienter trennen und Recyclingprozesse optimieren, um die Nachhaltigkeit zu fördern.' }
+            ]
+          },
+          retail: {
+            title: 'Einzelhandel & E-Commerce',
+            description: 'KI-Anwendungen zur Personalisierung des Einkaufserlebnisses, Optimierung von Lagerbeständen und Automatisierung von Marketingkampagnen im Einzelhandel und E-Commerce.',
+            examples: [
+              { text: 'Personalisierte Produktempfehlungen', detail: 'KI analysiert das Kaufverhalten und die Präferenzen von Kunden, um individuelle Produktvorschläge in Online-Shops oder per E-Mail zu unterbreiten.' },
+              { text: 'Bestandsoptimierung', detail: 'KI-gesteuerte Prognose der Nachfrage und des Lagerbedarfs, um Überbestände oder Fehlbestände zu vermeiden und die Logistik zu optimieren.' },
+              { text: 'Dynamische Preisgesta
+(Content truncated due to size limit. Use page ranges or line ranges to read remaining content)
+live
+Deliver final website to user
+7 / 7
+
+
+Freundliche Grüße,
+
+Tino Schneider
+t.schneiderx@yahoo.de
+

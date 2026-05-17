@@ -1,0 +1,257 @@
+ok dann erstmall für alles seo texte
+HERO
+
+H1:
+KI-Automatisierung für Unternehmen
+
+H2:
+Künstliche Intelligenz. Echte Ergebnisse.
+
+Text:
+Neurova entwickelt KI-Agenten, intelligente Automatisierungssysteme und datenbasierte Prozesse für Unternehmen. Von Dokumentenautomatisierung über Predictive Analytics bis zu SEO- und Workflow-Automatisierung entstehen skalierbare KI-Lösungen für mehr Effizienz, geringere Kosten und messbare Ergebnisse.
+
+CTA 1:
+Kostenlose Potenzialanalyse buchen
+
+CTA 2:
+Unsere KI-Lösungen entdecken
+
+TRUST SECTION
+
+Headline:
+35+ Jahre Code. Eine Mission: funktionierende KI-Systeme.
+
+Text:
+Meine Reise begann mit BASIC auf dem Commodore 64. Heute entwickelt Neurova autonome KI-Agenten, Automatisierungssysteme und intelligente Geschäftsprozesse für Unternehmen. Der Fokus blieb immer gleich: robuste Technik statt kurzfristiger Hype.
+
+Stats:
+35+ Jahre Programmiererfahrung
+
+KI-Agenten & Automatisierung
+
+Messbare Prozessoptimierung
+
+Persönliche Betreuung
+
+SERVICES SECTION
+
+Headline:
+Unsere KI-Lösungen für Ihren Erfolg
+
+Subline:
+Von KI-Agenten über Prozessautomatisierung bis zu datenbasierten Analysesystemen entwickelt Neurova individuelle KI-Lösungen für Unternehmen jeder Größe.
+
+Card 1:
+Maßgeschneiderte KI-Agenten
+
+Text:
+Entwicklung autonomer KI-Agenten zur Automatisierung komplexer Geschäftsprozesse, Datenverarbeitung und intelligenter Entscheidungsabläufe.
+
+Card 2:
+Prozessoptimierung mit KI
+
+Text:
+KI-gestützte Workflow-Automatisierung zur Reduzierung manueller Prozesse und operativer Kosten in Unternehmen.
+
+Card 3:
+Datenanalyse & Predictive AI
+
+Text:
+Predictive Analytics und intelligente Datenauswertung für präzisere Prognosen und datenbasierte Entscheidungen.
+
+Card 4:
+Fintech & Trading Solutions
+
+Text:
+KI-gestützte Marktanalyse, Algorithmic Trading und intelligente Finanzsysteme für datengetriebene Handelsstrategien.
+
+Card 5:
+SEO- & Marketing-Automatisierung
+
+Text:
+Automatisierte SEO-Optimierung, intelligente Content-Prozesse und KI-gestützte Leadgenerierung für digitale Sichtbarkeit.
+
+Card 6:
+Dokumenten-Automatisierung
+
+Text:
+Automatische Verarbeitung, Klassifizierung und Datenextraktion aus Dokumenten, Formularen und Rechnungen.
+
+Card 7:
+Workflow-Automatisierung
+
+Text:
+Skalierbare KI-Workflows zur Automatisierung wiederkehrender Prozesse und interner Unternehmensabläufe.
+
+Card 8:
+KI-Consulting & Strategie
+
+Text:
+Strategische Beratung zur Einführung, Skalierung und Integration von KI-Systemen in bestehende Geschäftsprozesse.
+
+BRANCHEN SECTION
+
+Headline:
+KI-Lösungen für jede Branche
+
+Subline:
+Branchenspezifische KI-Automatisierung für Unternehmen aus Industrie, Finanzen, Marketing, Verwaltung und digitalen Geschäftsmodellen.
+
+Card 1:
+Energie & Versorgung
+
+Text:
+KI für Energiemanagement, Verbrauchsprognosen und intelligente Stromnetze zur Optimierung von Effizienz und Ressourcenverbrauch.
+
+Card 2:
+Finanzen & Versicherung
+
+Text:
+KI für Finanzanalyse, Betrugserkennung und automatisierte Prozesse im Finanz- und Versicherungswesen.
+
+Card 3:
+Industrie & Produktion
+
+Text:
+Predictive Maintenance, Qualitätskontrolle und KI-gestützte Prozessoptimierung für moderne Produktionsumgebungen.
+
+Card 4:
+KI-Agenten
+
+Text:
+Autonome KI-Agenten für intelligente Geschäftsprozesse, Datenverarbeitung und automatisierte Entscheidungen.
+
+Card 5:
+Automatisierung
+
+Text:
+KI-gestützte Workflow- und Prozessautomatisierung zur Reduzierung manueller Aufgaben und operativer Kosten.
+
+Card 6:
+Prädiktive Analyse
+
+Text:
+Predictive Analytics und datenbasierte Prognosen für bessere Entscheidungen, Risikoanalyse und Wachstum.
+
+Card 7:
+Marketing & SEO
+
+Text:
+KI für SEO, Content-Erstellung und Marketing-Automatisierung zur Steigerung von Sichtbarkeit und Leadgenerierung.
+
+Card 8:
+Dokumenten-Automatisierung
+
+Text:
+Automatisierte Dokumentenverarbeitung, OCR und intelligente Datenerfassung für digitale Geschäftsprozesse.
+
+PROBLEM → LÖSUNG
+
+Headline:
+Ihre Prozesse kosten Zeit. KI macht sie skalierbar.
+
+Subline:
+Neurova entwickelt intelligente Systeme zur Automatisierung operativer Abläufe, datenbasierter Entscheidungen und digitaler Prozesse.
+
+Panel 1:
+Manuelle Dateneingabe
+
+Text:
+Rechnungen, Formulare und E-Mails kosten täglich wertvolle Arbeitszeit und führen häufig zu Übertragungsfehlern.
+
+Lösung:
+Dokumenten-Automatisierung
+
+Lösungstext:
+KI liest, strukturiert und verarbeitet Dokumente automatisch und überträgt relevante Daten direkt in bestehende Systeme.
+
+Panel 2:
+Wiederkehrende Routineaufgaben
+
+Text:
+Mitarbeiter verbringen Stunden mit identischen Abläufen, manuellen Freigaben und Standardprozessen.
+
+Lösung:
+Workflow-Automatisierung
+
+Lösungstext:
+Intelligente KI-Workflows übernehmen wiederkehrende Aufgaben automatisch und reduzieren operative Belastung nachhaltig.
+
+Panel 3:
+Ungenutzte Unternehmensdaten
+
+Text:
+Wichtige Daten bleiben unstrukturiert oder liefern keine verwertbaren Erkenntnisse für Entscheidungen.
+
+Lösung:
+KI-gestützte Analyse
+
+Lösungstext:
+Predictive Analytics erkennt Muster, erstellt Prognosen und liefert datenbasierte Entscheidungsgrundlagen in Echtzeit.
+
+Panel 4:
+Zu wenig digitale Sichtbarkeit
+
+Text:
+Hohe Marketingkosten und geringe Reichweite führen zu schwacher Leadgenerierung und fehlender Online-Präsenz.
+
+Lösung:
+SEO- & Marketing-Automatisierung
+
+Lösungstext:
+KI unterstützt bei Content, Keyword-Strategien und Leadprozessen zur nachhaltigen Steigerung organischer Sichtbarkeit.
+
+POTENZIALANALYSE
+
+Headline:
+Bereit für Ihre KI-Transformation?
+
+Subline:
+Lassen Sie uns gemeinsam herausfinden, wie KI Ihr Unternehmen effizienter, skalierbarer und profitabler machen kann.
+
+Text:
+In einer kostenlosen Potenzialanalyse analysiert Neurova bestehende Prozesse, identifiziert Automatisierungspotenziale und entwickelt konkrete KI-Strategien für Unternehmen.
+
+Benefits:
+Prozess-Audit
+
+KI-Roadmap
+
+ROI-Einschätzung
+
+Technologie-Empfehlungen
+
+Keine Verpflichtungen
+
+CTA:
+Kostenlose Analyse anfordern
+
+FOOTER
+
+Kurztext:
+KI-Agenten, Automatisierung und intelligente Prozesse für Unternehmen.
+
+Navigation:
+Home
+
+Leistungen
+
+Branchen
+
+Potenzialanalyse
+
+Kontakt
+
+Kontakt:
+Marburg, Deutschland
+
+kontakt@neurova.de
+
+LinkedIn
+
+Rechtliches:
+Impressum
+
+Datenschutz
+
+Cookie-Einstellungen

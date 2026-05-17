@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hero CTA Demo</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
+body {
+  margin: 0;
+  font-family: 'Arial', sans-serif;
+  background: #f5f5f5;
+}
+
+/* Hero-Sektion */
+.hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background: linear-gradient(135deg, #4285F4 0%, #34A853 100%);
+  color: #fff;
+  text-align: center;
+  padding: 0 20px;
+}
+
+/* Hero-Text */
+.hero h1 {
+  font-size: 48px;
+  margin-bottom: 20px;
+}
+.hero p {
+  font-size: 20px;
+  margin-bottom: 40px;
+}
+
+/* Basis CTA */
+.cta {
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+/* Hero CTA */
+.cta-hero {
+  font-size: 18px;
+  padding: 16px 36px;
+  background-color: #fff;
+  color: #4285F4;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.2);
+  margin-bottom: 16px;
+}
+.cta-hero:hover {
+  transform: scale(1.05);
+  opacity: 0.95;
+}
+
+/* Abonnement CTA */
+.cta-subscribe {
+  font-size: 16px;
+  padding: 14px 28px;
+  background-color: #34A853;
+  color: #fff;
+  margin-bottom: 16px;
+}
+.cta-subscribe:hover {
+  transform: scale(1.03);
+  opacity: 0.95;
+}
+
+/* Social CTA */
+.cta-social {
+  font-size: 14px;
+  padding: 10px 20px;
+  background-color: #FBBC05;
+  color: #000;
+  margin: 4px;
+}
+.cta-social:hover {
+  transform: scale(1.1);
+  opacity: 0.9;
+}
+.cta i {
+  margin-right: 8px;
+}
+
+/* Responsive Text */
+@media (max-width: 768px) {
+  .hero h1 { font-size: 36px; }
+  .hero p { font-size: 18px; }
+  .cta-hero { font-size: 16px; padding: 14px 28px; }
+  .cta-subscribe { font-size: 14px; padding: 12px 24px; }
+}
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <h1>Willkommen bei deinem Tool</h1>
+  <p>Starte jetzt, abonniere unseren Newsletter und teile mit Freunden</p>
+  
+  <!-- Hero CTA -->
+  <a href="#" class="cta cta-hero">Jetzt starten</a>
+
+  <!-- Subscribe CTA -->
+  <a href="#" class="cta cta-subscribe">Newsletter abonnieren</a>
+
+  <!-- Social CTA -->
+  <div>
+    <a href="#" class="cta cta-social"><i class="fa fa-thumbs-up"></i>Like</a>
+    <a href="#" class="cta cta-social"><i class="fa fa-share-alt"></i>Teilen</a>
+  </div>
+</div>
+
+</body>
+</html>
