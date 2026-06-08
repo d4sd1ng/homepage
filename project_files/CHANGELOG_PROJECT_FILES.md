@@ -31,3 +31,18 @@ Aktualisiert:
 - Lead-/Follow-up-Call ergänzt: `POST /api/v1/lead`.
 - Newsletter-/Nurturing-Opt-in als separate Checkbox ergänzt.
 - Lead-Message enthält Analyse-ID und Ergebnislink für Notion/CRM-Nachbearbeitung.
+
+## 2026-06-08 SEO-/Download-Erweiterung
+
+Aktualisiert:
+
+- `homepage/index.html` um SEO-Tool-Sektion erweitert.
+- SEO-Inhalte aus `Landing_pages/` abgeleitet.
+- SEO-Karten mit stabilen IDs und `data-landing-source` versehen.
+- Download-Bereich namentlich vorbereitet.
+- Keine unfertigen Dokumente aus `G:\Projects\Dokumente_lead` auf die Homepage kopiert.
+- Download-Karten mit stabilen `data-download-key` Werten versehen.
+- Meta Title und Meta Description der Startseite aktualisiert.
+- OpenGraph-Basisdaten ergaenzt; finales OG-Bild bleibt offen.
+- `project_files/seo_download_sections.md` als technische Notiz ergaenzt.
+- `project_files/launch_todo.md` als Launch-Checkliste ergaenzt.
