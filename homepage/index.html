@@ -538,11 +538,11 @@ body.has-sidebar .trust-section .trust-inner { width: 100%; max-width: none; min
 .problem-depth-copy { margin-bottom: 18px; padding-left: 0; border-left: 0; }
 .problem-depth-copy h3 { margin: 0; font-family: "Bebas Neue",sans-serif; font-size: clamp(12px,.82vw,15px); font-weight: 400; line-height: 1; letter-spacing: .035em; text-transform: uppercase; background: linear-gradient(180deg,#ffd7a3 0%,#f0a05a 34%,#c76b2b 100%); -webkit-background-clip: text; background-clip: text; color: transparent; -webkit-text-fill-color: transparent; }
 .problem-stair-cards { display: grid; grid-template-columns: repeat(4,minmax(0,1fr)); gap: 12px; width: 100%; max-width: 100%; margin: 0 auto; padding-top: 0; }
-.problem-stair-card { position: relative; width: 100%; aspect-ratio: 460/300; padding: 0; border: 0; background-color: transparent; background-image: url("assets/cards/cards_problem_loesung/best_card_single 470x360.png"); background-size: 100% 100%; background-position: center; background-repeat: no-repeat; filter: drop-shadow(0 4px 6px rgba(0,0,0,.24)); cursor: pointer; text-align: left; transition: transform .18s ease,filter .18s ease; }
+.problem-stair-card { position: relative; width: 112%; aspect-ratio: 470/345; margin-left: -6%; margin-right: -6%; padding: 0; border: 0; background-color: transparent; background-image: url("assets/cards/cards_problem_loesung/best_card_single 470x360.png"); background-size: 100% 100%; background-position: center; background-repeat: no-repeat; filter: drop-shadow(0 4px 6px rgba(0,0,0,.24)); cursor: pointer; text-align: left; transition: transform .18s ease,filter .18s ease; }
 .problem-stair-card:before { content: ""; position: absolute; inset: 0; z-index: 1; pointer-events: none; background: rgba(0,0,0,.16); }
 .problem-stair-card:hover,
 .problem-stair-card:focus-visible { filter: drop-shadow(0 12px 16px rgba(0,0,0,.38)) brightness(1.06); transform: translateY(-2px); outline: 0; }
-.problem-stair-card-copy { position: absolute; left: 14.5%; right: 12.5%; top: 12.5%; bottom: 31%; z-index: 2; display: flex; flex-direction: column; }
+.problem-stair-card-copy { position: absolute; left: calc(14.5% + 2.4em); right: calc(12.5% + 4.6em); top: 12.5%; bottom: 31%; z-index: 2; display: flex; flex-direction: column; }
 .problem-stair-card h4 { position: relative; z-index: 2; margin-bottom: 5px; font-family: "Bebas Neue",sans-serif; font-size: clamp(13px,.92vw,16px); font-weight: 400; line-height: 1; letter-spacing: .02em; text-transform: uppercase; background: linear-gradient(180deg,#ffd7a3 0%,#f0a05a 34%,#c76b2b 100%); -webkit-background-clip: text; background-clip: text; color: transparent; -webkit-text-fill-color: transparent; }
 .problem-stair-card h4:after { content: ""; display: block; width: 33.333%; height: 1px; margin-top: 3px; background: linear-gradient(90deg,rgba(240,160,90,.72) 0%,rgba(240,160,90,.38) 58%,transparent 100%); }
 .problem-stair-card p { position: relative; z-index: 2; max-width: 100%; min-height: 0; font-family: "Anca Coder",monospace; font-size: clamp(8.8px,.59vw,10.2px); line-height: 1.22; color: rgba(255,255,255,.86); text-shadow: 0 2px 10px rgba(0,0,0,.75); }
@@ -1024,7 +1024,7 @@ body.has-sidebar .trust-section .trust-inner { width: 100%; max-width: none; min
   .logo { height: 46px; }
   .header-cta { display: none; }
   .problem-stair-cards { grid-template-columns: 1fr; max-width: 430px; }
-  .problem-stair-card { aspect-ratio: 460/300; }
+  .problem-stair-card { width: 100%; margin-left: 0; margin-right: 0; aspect-ratio: 470/345; }
   .service-card-row { grid-template-columns: 1fr; }
   #prozess .desktop-process-img { display: none !important; }
   #prozess .mobile-process-assets { display: grid !important; grid-template-columns: 1fr !important; gap: 12px !important; }
