@@ -1,7 +1,7 @@
 /* Shared header and footer rules for all real pages. */
 .site-header {
-  height: 44px !important;
-  min-height: 44px !important;
+  height: 48px !important;
+  min-height: 48px !important;
   border-bottom: 1px solid rgba(240,160,90,.72) !important;
   background: #000 !important;
   backdrop-filter: blur(6px) !important;
@@ -11,7 +11,7 @@
 }
 
 .header-inner {
-  height: 44px !important;
+  height: 48px !important;
   max-width: none !important;
   margin: 0 !important;
   padding: 0 var(--side) !important;
@@ -93,8 +93,8 @@
 }
 
 body.has-sidebar .footer {
-  margin-left: var(--sidebar-w) !important;
-  width: calc(100% - var(--sidebar-w)) !important;
+  margin-left: var(--sidebar-w, 235px) !important;
+  width: calc(100% - var(--sidebar-w, 235px)) !important;
 }
 
 .footer-inner {
@@ -111,6 +111,119 @@ body.has-sidebar .footer {
 body.has-sidebar .footer-inner {
   margin-left: 0 !important;
   margin-right: auto !important;
+}
+
+.home-sidebar {
+  position: fixed;
+  left: 0;
+  top: 48px;
+  bottom: 0;
+  width: var(--sidebar-w, 235px);
+  z-index: 42;
+  background: #010403;
+  border-right: 1px solid rgba(240,160,90,.72);
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 16px 13px 22px;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(240,160,90,.34) rgba(255,255,255,.04);
+}
+
+.sidebar-label {
+  padding: 0 9px 12px;
+  margin-bottom: 10px;
+  border-bottom: 1px solid rgba(240,160,90,.20);
+}
+
+.sidebar-label strong {
+  display: block;
+  font-family: "Bebas Neue", sans-serif;
+  font-size: 13px;
+  line-height: 1;
+  font-weight: 400;
+  letter-spacing: .045em;
+  text-transform: uppercase;
+  background: linear-gradient(180deg,#ffd7a3 0%,#f0a05a 22%,#c76b2b 58%,#7a3518 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+}
+
+.side-list {
+  list-style: none;
+  display: grid;
+  gap: 3px;
+  margin: 0;
+  padding: 0;
+}
+
+.side-list a,
+.side-list summary {
+  min-height: 32px;
+  padding: 0 9px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  list-style: none;
+  text-decoration: none;
+  color: var(--sidebar-text, rgba(255,255,255,.74));
+  border-left: 1px solid transparent;
+  font-family: "Anca Coder", monospace;
+  font-size: 10px;
+  line-height: 1.18;
+  letter-spacing: .045em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background .16s ease, color .16s ease, border-color .16s ease;
+}
+
+.side-list summary::-webkit-details-marker {
+  display: none;
+}
+
+.side-num {
+  width: 24px;
+  flex: 0 0 24px;
+  display: none;
+  font-family: "Bebas Neue", sans-serif;
+  font-size: 14px;
+  line-height: 1;
+  color: var(--sidebar-gold, #d89828);
+}
+
+.side-label {
+  flex: 1;
+}
+
+.side-arrow {
+  margin-left: auto;
+  color: var(--sidebar-gold, #d89828);
+}
+
+.side-sub {
+  display: grid;
+  gap: 2px;
+  padding: 3px 0 5px 18px;
+}
+
+.side-sub a {
+  min-height: 26px;
+  font-size: 9px;
+  color: var(--sidebar-muted, rgba(255,255,255,.52));
+}
+
+.side-list a:hover,
+.side-list summary:hover,
+.side-list a.is-active {
+  border-left-color: var(--sidebar-gold-light, #e8b048);
+  background: var(--sidebar-soft, rgba(240,160,90,.08));
+  color: rgba(255,255,255,.9);
+}
+
+body.has-sidebar main {
+  margin-left: var(--sidebar-w, 235px);
+  width: calc(100% - var(--sidebar-w, 235px));
 }
 
 .footer h4 {
@@ -145,6 +258,11 @@ body.has-sidebar .footer-inner {
   body.has-sidebar .footer {
     margin-left: 0 !important;
     width: 100% !important;
+  }
+  .home-sidebar { display: none !important; }
+  body.has-sidebar main {
+    margin-left: 0;
+    width: 100%;
   }
 }
 
