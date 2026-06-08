@@ -48,7 +48,7 @@ img{display:block;max-width:100%}
    ========================================================= */
 .site-header{height:46px;position:sticky;top:0;z-index:50;background:rgba(0,0,0,.88);backdrop-filter:blur(7px);border-bottom:1px solid rgba(216,152,40,.72)}
 .header-inner{height:100%;max-width:var(--max);margin:0 auto;padding:0 var(--side);display:flex;align-items:center;justify-content:space-between;gap:24px}
-.logo{height:58px;width:auto;transform:translateY(2px)}
+.logo{height:48px;width:auto;transform:translateY(2px)}
 .nav{display:flex;align-items:center;gap:24px}
 .nav a{font-family:"Anca Coder",monospace;font-size:9px;letter-spacing:.09em;text-transform:uppercase;color:rgba(255,255,255,.76)}
 .nav a:hover{color:var(--gold-light)}
@@ -122,6 +122,7 @@ h1,h2,h3{font-family:"Bebas Neue",sans-serif;font-weight:400;letter-spacing:.035
    ========================================================= */
 .analysis-layout{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px;margin-top:26px;align-items:stretch}
 .info-panel,.form-panel{border:1px solid rgba(216,152,40,.42);border-radius:9px;background:rgba(0,0,0,.34);padding:18px;min-height:100%}
+.info-panel{padding:48px 58px 92px;border:0;border-radius:0;background-color:transparent;background-image:url("assets/cards/cards_problem_loesung/best_card_single 470x360.png");background-size:100% 100%;background-position:center;background-repeat:no-repeat;filter:drop-shadow(0 8px 14px rgba(0,0,0,.28))}
 .info-panel h3,.form-panel h3{font-size:25px;line-height:1;margin-bottom:12px}
 .info-list{display:grid;gap:8px;list-style:none}
 .info-list li{font-size:12.8px;line-height:1.42;color:rgba(255,255,255,.78);padding:10px 11px;border:1px solid rgba(216,152,40,.24);border-radius:5px;background:rgba(0,0,0,.24)}
@@ -174,26 +175,30 @@ h1,h2,h3{font-family:"Bebas Neue",sans-serif;font-weight:400;letter-spacing:.035
 }
 @media(max-width:620px){
   .site-header{height:42px}
-  .logo{height:50px}
+  .logo{height:46px}
   .header-cta{display:none}
   .hero{padding-top:58px;min-height:auto}
   .check-grid,.steps,.faq-grid,.form-grid{grid-template-columns:1fr}
   .section{padding:44px var(--side)}
 }
+
 </style>
+<link rel="stylesheet" href="shared-header-footer.css"/>
 </head>
 <body>
 <header class="site-header">
-  <div class="header-inner">
-    <a href="index.html" aria-label="Zur Startseite"><img class="logo" src="assets/logo/neurova_logo.png" alt="Nurovelle" /></a>
-    <nav class="nav" aria-label="Hauptmenü">
-      <a href="index.html#problem-loesung">Problem & Lösung</a>
-      <a href="index.html#branchen">Branchen</a>
-      <a href="index.html#leistungen">Services</a>
-      <a href="#analyse-formular">Analyse</a>
-    </nav>
-    <a class="header-cta" href="#analyse-formular">Analyse starten</a>
-  </div>
+<div class="header-inner">
+<a href="index.html" aria-label="Zur Startseite"><img alt="Nurovelle Logo" class="logo" src="assets/hero/nurovelle_logo.png"/></a>
+<nav class="nav" aria-label="Hauptmenü">
+<a href="index.html#top">Home</a>
+<a href="index.html#problem-loesung">Lösungen</a>
+<a href="index.html#branchen">Branchen</a>
+<a href="index.html#leistungen">Services</a>
+<a href="index.html#prozess">Ablauf</a>
+<a href="analyse.html">Kontakt</a>
+</nav>
+<a class="header-cta" href="analyse.html">Potenzialanalyse starten</a>
+</div>
 </header>
 
 <main>
@@ -205,7 +210,7 @@ h1,h2,h3{font-family:"Bebas Neue",sans-serif;font-weight:400;letter-spacing:.035
         <h2>Kurzer Check. Klare Einordnung. Konkrete Einschätzung, unverbindlich.</h2>
         <p>Wir prüfen, wo KI und Automatisierung in Ihrem Unternehmen realistisch entlasten können. Ohne Tool-Hype, ohne pauschale Versprechen und ohne unnötig komplexe Projektstruktur.</p>
         <div class="actions">
-          <a class="btn btn-primary" href="#analyse-formular">Analyse anfragen</a>
+          <a class="btn btn-primary" href="#analyse-formular">Potenzialanalyse starten</a>
           <a class="btn btn-secondary" href="#ablauf">Ablauf ansehen</a>
         </div>
       </div>
@@ -224,8 +229,8 @@ h1,h2,h3{font-family:"Bebas Neue",sans-serif;font-weight:400;letter-spacing:.035
   <section class="section bg" id="nutzen">
     <div class="section-inner">
       <div class="kicker">Einordnung</div>
-      <h2 class="section-title">Wofür die <span class="gold">Analyse</span> gedacht ist.</h2>
-      <p class="section-text">Die Analyse ist kein Verkaufs-Pitch für ein bestimmtes Tool. Sie dient dazu, Prozesse, Engpässe und sinnvolle Einsatzbereiche strukturiert zu prüfen.</p>
+      <h2 class="section-title">Wofür die <span class="gold">Potenzialanalyse</span> gedacht ist.</h2>
+      <p class="section-text">Die Potenzialanalyse ist kein Verkaufs-Pitch für ein bestimmtes Tool. Sie dient dazu, Prozesse, Engpässe und sinnvolle Einsatzbereiche strukturiert zu prüfen.</p>
       <div class="check-grid">
         <article class="check-card">
           <span>01</span>
@@ -262,7 +267,7 @@ h1,h2,h3{font-family:"Bebas Neue",sans-serif;font-weight:400;letter-spacing:.035
 
   <section class="section bg" id="analyse-formular">
     <div class="section-inner">
-      <div class="kicker">Analyse anfragen</div>
+      <div class="kicker">Potenzialanalyse starten</div>
       <h2 class="section-title"><span class="gold">Kostenlose</span> Potenzialanalyse starten.</h2>
       <p class="section-text">Kurze Angaben reichen für die erste Einordnung. Das Formular bleibt bewusst kompakt.</p>
       <div class="analysis-layout">
@@ -276,7 +281,7 @@ h1,h2,h3{font-family:"Bebas Neue",sans-serif;font-weight:400;letter-spacing:.035
           </ul>
         </aside>
         <form class="form-panel" action="analyse.html" method="post">
-          <h3>Analyse anfragen</h3>
+          <h3>Potenzialanalyse starten</h3>
           <div class="form-grid">
             <input type="text" name="vorname" placeholder="Vorname" required />
             <input type="text" name="nachname" placeholder="Nachname" required />
@@ -296,7 +301,7 @@ h1,h2,h3{font-family:"Bebas Neue",sans-serif;font-weight:400;letter-spacing:.035
             </select>
             <input type="text" name="telefon" placeholder="Telefon optional" />
             <textarea name="problem" placeholder="Welcher Prozess kostet aktuell am meisten Zeit?"></textarea>
-            <button class="btn btn-primary" type="submit">Potenzialanalyse anfragen</button>
+            <button class="btn btn-primary" type="submit">Potenzialanalyse starten</button>
           </div>
           <p class="form-note">Ihre Angaben werden nur zur Bearbeitung der Anfrage verwendet. Keine Newsletter-Anmeldung ohne separate Zustimmung.</p>
         </form>
@@ -330,24 +335,13 @@ h1,h2,h3{font-family:"Bebas Neue",sans-serif;font-weight:400;letter-spacing:.035
   </section>
 </main>
 
-<footer class="footer">
-  <div class="footer-inner">
-    <div>
-      <h4>Nurovelle</h4>
-      <p>KI-Automatisierung für reale Unternehmensprozesse.</p>
-    </div>
-    <div>
-      <h4>Links</h4>
-      <a href="index.html">Startseite</a>
-      <a href="index.html#leistungen">Services</a>
-      <a href="index.html#branchen">Branchen</a>
-    </div>
-    <div>
-      <h4>Rechtliches</h4>
-      <a href="impressum.html">Impressum</a>
-      <a href="datenschutz.html">Datenschutz</a>
-    </div>
-  </div>
+<footer class="footer" id="footer">
+<div class="footer-inner">
+<div><h4>Nurovelle</h4><p>KI-Automatisierung für Unternehmen. Fokus: reale Prozesse, saubere Umsetzung und messbare Entlastung.</p></div>
+<div><h4>Seiten</h4><a href="index.html#top">Startseite</a><a href="index.html#problem-loesung">Lösungen</a><a href="index.html#branchen">Branchen</a><a href="index.html#leistungen">Services</a></div>
+<div><h4>Ablauf</h4><a href="index.html#prozess">Zusammenarbeit</a><a href="praxisleitfaden.html">Praxisleitfaden</a><a href="analyse.html">Potenzialanalyse</a></div>
+<div><h4>Kontakt</h4><a href="analyse.html">Potenzialanalyse starten</a><a href="mailto:info@nurovelle.de">info@nurovelle.de</a><a href="impressum.html">Impressum</a><a href="datenschutz.html">Datenschutz</a><p>© 2026 Nurovelle</p></div>
+</div>
 </footer>
 </body>
 </html>

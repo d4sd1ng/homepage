@@ -12,11 +12,26 @@
 <style>
 :root{--bg:#000;--panel:#050505;--gold:#d89828;--gold2:#f0a05a;--gold-light:#ffd7a3;--gold-dark:#7a3518;--text:#f5f1e8;--muted:rgba(255,255,255,.72);--line:rgba(216,152,40,.48);--side:clamp(22px,4vw,56px);--max:1080px;}
 *{box-sizing:border-box;margin:0;padding:0}html{background:#000;scroll-behavior:smooth}body{font-family:Raleway,Arial,sans-serif;background:#000;color:var(--text);line-height:1.55;overflow-x:hidden}a{text-decoration:none;color:inherit}.gold{background:linear-gradient(180deg,var(--gold-light) 0%,var(--gold2) 24%,var(--gold) 60%,var(--gold-dark) 100%);-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent}.site-header{height:44px;background:rgba(0,0,0,.92);border-bottom:1px solid rgba(216,152,40,.75);position:sticky;top:0;z-index:20}.header-inner{height:100%;max-width:var(--max);margin:0 auto;padding:0 var(--side);display:flex;align-items:center;justify-content:space-between}.brand{font-family:"Bebas Neue",sans-serif;font-size:22px;line-height:1;letter-spacing:.04em}.nav{display:flex;gap:22px;align-items:center}.nav a{font-family:"Anca Coder",monospace;font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.74)}.nav a:hover{color:var(--gold2)}.legal-hero{position:relative;padding:64px var(--side) 38px;background:linear-gradient(180deg,rgba(0,0,0,.96),rgba(0,0,0,.92)),url("assets/sections_bg.png");background-size:cover;background-position:center}.legal-hero:before,.legal-section:before{content:"";position:absolute;left:0;right:0;top:0;height:1px;background:linear-gradient(90deg,transparent,rgba(216,152,40,.85),transparent)}.legal-inner{max-width:var(--max);margin:0 auto}.kicker{font-family:"Anca Coder",monospace;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold2);margin-bottom:10px}.legal-title{font-family:"Bebas Neue",sans-serif;font-size:clamp(32px,4vw,52px);line-height:.96;font-weight:400;letter-spacing:.035em;margin-bottom:14px}.legal-subtitle{max-width:740px;font-size:14px;line-height:1.6;color:var(--muted)}.legal-section{position:relative;padding:34px var(--side)}.legal-grid{max-width:var(--max);margin:0 auto;display:grid;grid-template-columns:minmax(0,1fr) 280px;gap:28px;align-items:start}.legal-card{border:1px solid var(--line);border-radius:8px;background:rgba(0,0,0,.32);padding:22px 24px;box-shadow:inset 0 0 0 1px rgba(255,215,163,.04)}.legal-card+ .legal-card{margin-top:14px}.legal-card h2{font-family:"Bebas Neue",sans-serif;font-size:clamp(22px,2.2vw,31px);line-height:1;font-weight:400;letter-spacing:.035em;margin-bottom:12px}.legal-card h3{font-family:"Bebas Neue",sans-serif;font-size:20px;line-height:1;font-weight:400;color:var(--gold2);letter-spacing:.035em;margin:18px 0 8px}.legal-card p,.legal-card li{font-size:13.5px;line-height:1.65;color:rgba(255,255,255,.78)}.legal-card p+p{margin-top:8px}.legal-card ul{padding-left:18px;margin-top:6px}.note-box{border:1px solid rgba(216,152,40,.62);border-radius:6px;background:rgba(216,152,40,.06);padding:14px 16px;margin:14px 0}.note-box strong{font-family:"Bebas Neue",sans-serif;font-size:19px;font-weight:400;color:var(--gold2);letter-spacing:.035em}.side-box{position:sticky;top:66px;border:1px solid rgba(216,152,40,.42);border-radius:8px;padding:16px;background:rgba(0,0,0,.38)}.side-box h2{font-family:"Bebas Neue",sans-serif;font-size:21px;font-weight:400;line-height:1;margin-bottom:10px}.side-box a{display:block;font-family:"Anca Coder",monospace;font-size:9px;letter-spacing:.09em;text-transform:uppercase;color:rgba(255,255,255,.68);padding:7px 0;border-top:1px solid rgba(216,152,40,.18)}.side-box a:hover{color:var(--gold2)}.placeholder{color:#ffd7a3}.footer{padding:30px var(--side);border-top:1px solid rgba(216,152,40,.68);background:#000}.footer-inner{max-width:var(--max);margin:0 auto;display:flex;gap:18px;justify-content:space-between;align-items:center}.footer p,.footer a{font-size:12px;color:rgba(255,255,255,.64)}.footer-links{display:flex;gap:16px}@media(max-width:900px){.nav{display:none}.legal-grid{grid-template-columns:1fr}.side-box{position:relative;top:auto}.legal-hero{padding-top:46px}.legal-card{padding:18px}.footer-inner{display:block}.footer-links{margin-top:12px;flex-wrap:wrap}}
+
 </style>
+<link rel="stylesheet" href="shared-header-footer.css"/>
 </head>
 <body>
 <!-- Rechtstexte: Anbieterangaben auf Nurovelle / Tino Schneider aktualisiert. Vor Veröffentlichung final juristisch prüfen lassen. -->
-<header class="site-header"><div class="header-inner"><a class="brand" href="index.html">Nurovelle</a><nav class="nav"><a href="index.html">Start</a><a href="analyse.html">Analyse</a><a href="impressum.html">Impressum</a><a href="datenschutz.html">Datenschutz</a></nav></div></header>
+<header class="site-header">
+<div class="header-inner">
+<a href="index.html" aria-label="Zur Startseite"><img alt="Nurovelle Logo" class="logo" src="assets/hero/nurovelle_logo.png"/></a>
+<nav class="nav" aria-label="Hauptmenü">
+<a href="index.html#top">Home</a>
+<a href="index.html#problem-loesung">Lösungen</a>
+<a href="index.html#branchen">Branchen</a>
+<a href="index.html#leistungen">Services</a>
+<a href="index.html#prozess">Ablauf</a>
+<a href="analyse.html">Kontakt</a>
+</nav>
+<a class="header-cta" href="analyse.html">Potenzialanalyse starten</a>
+</div>
+</header>
 <section class="legal-hero"><div class="legal-inner"><div class="kicker">Anbieterkennzeichnung</div><h1 class="legal-title">Impressum</h1><p class="legal-subtitle">Pflichtangaben und Kontaktinformationen für die Website.</p></div></section>
 <section class="legal-section"><div class="legal-grid"><main>
 <div class="legal-card" id="anbieter-daten">
@@ -34,5 +49,12 @@ Deutschland</p>
 <div class="legal-card" id="register"><h2>Register, Umsatzsteuer, Aufsicht</h2><p>Registereintrag: nicht angegeben.</p><p>Umsatzsteuer-ID: nicht angegeben.</p><p>Zuständige Aufsichtsbehörde / Kammer: nicht angegeben.</p></div>
 <div class="legal-card" id="haftung"><h2>Haftung für Inhalte und Links</h2><p>Die Inhalte dieser Website werden mit Sorgfalt erstellt. Eine Gewähr für Aktualität, Vollständigkeit und Richtigkeit wird nicht übernommen, soweit gesetzlich zulässig.</p><p>Externe Links führen zu Inhalten Dritter. Für diese Inhalte ist ausschließlich der jeweilige Anbieter verantwortlich. Bei Bekanntwerden rechtswidriger Inhalte werden entsprechende Links geprüft und, soweit erforderlich, entfernt.</p></div>
 </main><aside class="side-box"><h2>Rechtliches</h2><a href="impressum.html">Impressum</a><a href="datenschutz.html">Datenschutz</a><a href="agb.html">AGB</a><a href="cookie-hinweis.html">Cookie-Hinweis</a><a href="analyse-rechtliche-hinweise.html">Analyse-Hinweise</a></aside></div></section>
-<footer class="footer"><div class="footer-inner"><p>© 2026-06-01 Nurovelle. Alle Rechte vorbehalten.</p><div class="footer-links"><a href="impressum.html">Impressum</a><a href="datenschutz.html">Datenschutz</a><a href="agb.html">AGB</a><a href="cookie-hinweis.html">Cookies</a></div></div></footer>
+<footer class="footer" id="footer">
+<div class="footer-inner">
+<div><h4>Nurovelle</h4><p>KI-Automatisierung für Unternehmen. Fokus: reale Prozesse, saubere Umsetzung und messbare Entlastung.</p></div>
+<div><h4>Seiten</h4><a href="index.html#top">Startseite</a><a href="index.html#problem-loesung">Lösungen</a><a href="index.html#branchen">Branchen</a><a href="index.html#leistungen">Services</a></div>
+<div><h4>Ablauf</h4><a href="index.html#prozess">Zusammenarbeit</a><a href="praxisleitfaden.html">Praxisleitfaden</a><a href="analyse.html">Potenzialanalyse</a></div>
+<div><h4>Kontakt</h4><a href="analyse.html">Potenzialanalyse starten</a><a href="mailto:info@nurovelle.de">info@nurovelle.de</a><a href="impressum.html">Impressum</a><a href="datenschutz.html">Datenschutz</a><p>© 2026 Nurovelle</p></div>
+</div>
+</footer>
 </body></html>

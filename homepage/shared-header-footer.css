@@ -1,0 +1,161 @@
+/* Shared header and footer rules for all real pages. */
+.site-header {
+  height: 44px !important;
+  min-height: 44px !important;
+  border-bottom: 1px solid rgba(240,160,90,.72) !important;
+  background: #000 !important;
+  backdrop-filter: blur(6px) !important;
+  position: sticky !important;
+  top: 0 !important;
+  z-index: 60 !important;
+}
+
+.header-inner {
+  height: 44px !important;
+  max-width: none !important;
+  margin: 0 !important;
+  padding: 0 var(--side) !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  gap: 24px !important;
+}
+
+.logo {
+  height: 48px !important;
+  width: auto !important;
+  display: block !important;
+  transform: none !important;
+}
+
+.brand {
+  display: none !important;
+}
+
+.nav {
+  display: flex !important;
+  gap: 24px !important;
+  align-items: center !important;
+}
+
+.nav a {
+  font-family: "Anca Coder", monospace !important;
+  font-size: 10px !important;
+  letter-spacing: 1.05px !important;
+  text-transform: uppercase !important;
+  line-height: 1 !important;
+  color: rgba(255,255,255,.82) !important;
+  text-decoration: none !important;
+}
+
+.nav a:hover,
+.nav a.active {
+  color: var(--gold2, #f0a05a) !important;
+}
+
+.header-cta {
+  height: 28px !important;
+  min-height: 28px !important;
+  padding: 0 12px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  border: 1px solid #d89828 !important;
+  border-radius: 4px !important;
+  font-family: "Bebas Neue", sans-serif !important;
+  font-size: 13px !important;
+  line-height: 1 !important;
+  letter-spacing: .045em !important;
+  color: #050505 !important;
+  text-transform: uppercase !important;
+  background: linear-gradient(180deg,#ffd7a3 0%,#f0a05a 24%,#d89828 60%,#7a3518 100%) !important;
+  box-shadow: none !important;
+  gap: 6px !important;
+  white-space: nowrap !important;
+  text-align: center !important;
+}
+
+.header-cta::after {
+  content: "→";
+  display: inline-block;
+  margin-left: 6px;
+  font-size: 13px;
+  line-height: 1;
+  transform: none;
+}
+
+.footer {
+  padding: 32px var(--side) !important;
+  background: #000 !important;
+  border-top: 1px solid rgba(216,152,40,.7) !important;
+  margin-left: 0 !important;
+  width: 100% !important;
+}
+
+body.has-sidebar .footer {
+  margin-left: var(--sidebar-w) !important;
+  width: calc(100% - var(--sidebar-w)) !important;
+}
+
+.footer-inner {
+  max-width: 1280px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  display: grid !important;
+  grid-template-columns: 2fr 1fr 1fr 1fr !important;
+  gap: 38px !important;
+  align-items: start !important;
+  justify-content: normal !important;
+}
+
+body.has-sidebar .footer-inner {
+  margin-left: 0 !important;
+  margin-right: auto !important;
+}
+
+.footer h4 {
+  margin-bottom: 12px !important;
+  font-family: "Anca Coder", monospace !important;
+  font-size: 11px !important;
+  line-height: 1.2 !important;
+  font-weight: 400 !important;
+  letter-spacing: .08em !important;
+  text-transform: uppercase !important;
+  color: #e8b048 !important;
+}
+
+.footer a,
+.footer p {
+  display: block !important;
+  font-family: Raleway, Arial, sans-serif !important;
+  font-size: 11.5px !important;
+  line-height: 1.65 !important;
+  font-weight: 400 !important;
+  color: rgba(255,255,255,.70) !important;
+  text-decoration: none !important;
+}
+
+.footer-links {
+  display: contents !important;
+}
+
+@media (max-width: 1180px) {
+  .nav { display: none !important; }
+  .footer-inner { grid-template-columns: 1fr 1fr !important; }
+  body.has-sidebar .footer {
+    margin-left: 0 !important;
+    width: 100% !important;
+  }
+}
+
+@media (max-width: 760px) {
+  .site-header {
+    height: 42px !important;
+    min-height: 42px !important;
+  }
+
+  .header-inner { height: 42px !important; }
+  .logo { height: 46px !important; }
+  .header-cta { display: none !important; }
+  .footer-inner { grid-template-columns: 1fr !important; }
+}
