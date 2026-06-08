@@ -89,8 +89,26 @@ Design unterstützt den Inhalt. Design ersetzt keinen klaren Text.
 - saubere Sections
 - klare CTA-Buttons
 - Formularweiterleitung oder Formularspeicherung
+- Potenzialanalyse-Formular nutzt den produktiven Nurovelle-Analyse-Flow
+- keine lokale Fake-Auswertung fuer Analyse-Ergebnisse
 - Tracking optional
 - SEO-Grundstruktur
+
+## Potenzialanalyse-Integration
+
+Die statische Homepage darf keine Scores selbst berechnen.
+
+Verbindlicher Flow fuer `homepage/analyse.html`:
+
+1. `GET https://nurovelle.de/api/v1/questions?industry=<industry>&tier=basic&include_risk=false`
+2. `POST https://nurovelle.de/api/v1/analysis/start`
+3. `POST https://nurovelle.de/api/v1/analysis/<analysis_id>/answers`
+4. `POST https://nurovelle.de/api/v1/analysis/<analysis_id>/score`
+5. `POST https://nurovelle.de/api/v1/analysis/<analysis_id>/report`
+6. Link zu `https://nurovelle.de/results/<analysis_id>`
+
+Das Formular darf kompakt bleiben. Die vollstaendige Fragen-/Score-Logik bleibt
+im Analyse-Backend.
 
 ## Inhaltliche Mindestanforderungen
 

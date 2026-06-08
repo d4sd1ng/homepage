@@ -39,6 +39,9 @@
 - [x] Projektordner anlegen
 - [x] Startseite erstellen
 - [x] Formular einbinden
+- [x] Potenzialanalyse-Formular an produktive Nurovelle-API anbinden
+- [x] Lokale Fake-Auswertung entfernen
+- [x] Ergebnislink zu `/results/<analysis_id>` erzeugen
 - [ ] Danke-Seite erstellen
 - [ ] Whitepaper-Download verlinken
 - [ ] Calendly oder Kontaktlink einbinden
@@ -52,7 +55,7 @@
 
 - [ ] finale Korrektur lesen
 - [ ] Links testen
-- [ ] Formular testen
+- [x] Formular-API-Flow gegen `https://nurovelle.de` testen
 - [ ] Download testen
 - [ ] CTA testen
 - [ ] LinkedIn Featured-Link vorbereiten

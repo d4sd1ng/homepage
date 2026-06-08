@@ -16,3 +16,15 @@ Aktualisiert:
 - Card-Bilder bleiben textfrei.
 - Card-Texte werden separat im HTML gesetzt.
 - Keine freien Texte außerhalb der Project-Files.
+
+## 2026-06-08
+
+Aktualisiert:
+
+- `homepage/analyse.html` an den produktiven Nurovelle-Analyse-Flow angebunden.
+- Alte lokale Fake-Auswertung entfernt.
+- Formular ruft jetzt die echte API unter `https://nurovelle.de/api/v1` auf.
+- Flow: Fragen laden, Analyse starten, Antworten speichern, Scores berechnen, Report erzeugen.
+- Ergebnislink zeigt auf `https://nurovelle.de/results/<analysis_id>`.
+- `homepage/index.html` kann weiterhin per GET auf `analyse.html` weiterleiten; `analyse.html` übernimmt Query-Parameter als Vorbefüllung.
+- Live-Smoke-Test gegen `nurovelle.de` erfolgreich.

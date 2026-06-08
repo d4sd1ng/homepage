@@ -35,6 +35,20 @@ Nurovelle hilft Unternehmen, manuelle Prozesse zu analysieren, Automatisierungsp
 
 Kostenlose KI-Potenzialanalyse anfordern
 
+## Potenzialanalyse-Status
+
+Die Potenzialanalyse ist technisch an den produktiven Nurovelle-Analyse-Flow
+angebunden.
+
+`homepage/analyse.html` nutzt:
+
+- produktive API: `https://nurovelle.de/api/v1`
+- Ergebnisroute: `https://nurovelle.de/results/<analysis_id>`
+- Backend-Scoring statt lokaler Frontend-Berechnung
+
+Das Homepage-Formular ist bewusst kompakt. Die vollstaendige Fragen-,
+Score- und Report-Logik bleibt im Analyse-Backend.
+
 ## Neben-CTA
 
 Praxisleitfaden herunterladen
