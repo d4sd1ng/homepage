@@ -32,7 +32,7 @@
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth;background:#000}
-body{font-family:Raleway,Arial,sans-serif;background:#000;color:var(--text);overflow-x:hidden}
+body{font-family:Raleway,Arial,sans-serif;background:linear-gradient(180deg,rgba(0,0,0,.72),rgba(0,0,0,.82)),url("assets/bg_analyse.png") center top/cover fixed no-repeat;color:var(--text);overflow-x:hidden}
 a{text-decoration:none;color:inherit}
 img{display:block;max-width:100%}
 .gold{
@@ -60,8 +60,8 @@ img{display:block;max-width:100%}
    Einheitlicher, kleiner Section-Rhythmus. Titel bleiben bewusst
    unter 42px, damit die Analyse-Seite ruhig wirkt.
    ========================================================= */
-.section{position:relative;padding:52px var(--side);background:#000}
-.section.bg{background-image:linear-gradient(180deg,rgba(0,0,0,.92),rgba(0,0,0,.96)),url("assets/sections_bg.png");background-size:cover;background-position:center;background-repeat:no-repeat}
+.section{position:relative;padding:52px var(--side);background:linear-gradient(180deg,rgba(0,0,0,.88),rgba(0,0,0,.92))}
+.section.bg{background:linear-gradient(180deg,rgba(0,0,0,.84),rgba(0,0,0,.92))}
 .section:before{content:"";position:absolute;left:0;right:0;top:0;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);opacity:.72}
 .section-inner{max-width:var(--max);margin:0 auto}
 .kicker{font-family:"Anca Coder",monospace;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold-light);margin-bottom:9px}
@@ -79,8 +79,8 @@ h1,h2,h3{font-family:"Bebas Neue",sans-serif;font-weight:400;letter-spacing:.035
    Kompakter Hero. Keine riesige Bildfläche, keine übergroßen
    Schriften, klare Conversion-Orientierung.
    ========================================================= */
-.hero{position:relative;min-height:430px;padding:74px var(--side) 48px;overflow:hidden;background:#000}
-.hero:before{content:"";position:absolute;inset:0;background:url("assets/hero/bg_grid.png") right center/70% auto no-repeat;opacity:.28;filter:brightness(.65) saturate(.7);pointer-events:none}
+.hero{position:relative;min-height:430px;padding:74px var(--side) 48px;overflow:hidden;background:transparent}
+.hero:before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.18),rgba(0,0,0,.34));pointer-events:none}
 .hero:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(0,0,0,.95) 0%,rgba(0,0,0,.76) 48%,rgba(0,0,0,.25) 100%);pointer-events:none}
 .hero-inner{position:relative;z-index:2;max-width:var(--max);margin:0 auto;display:grid;grid-template-columns:minmax(0,620px) minmax(260px,1fr);gap:34px;align-items:center}
 .hero h1{font-size:clamp(36px,4.4vw,58px);line-height:.92;margin-bottom:12px;max-width:640px}
@@ -109,10 +109,12 @@ h1,h2,h3{font-family:"Bebas Neue",sans-serif;font-weight:400;letter-spacing:.035
    Zweck:
    Vier kurze Prozessschritte ohne große Prozessgrafik.
    ========================================================= */
-.steps{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin-top:26px}
-.step{position:relative;border-left:1px solid rgba(216,152,40,.66);border-bottom:1px solid rgba(216,152,40,.42);padding:15px 14px 14px;background:rgba(0,0,0,.26)}
-.step strong{display:block;font-family:"Bebas Neue",sans-serif;font-size:22px;line-height:1;color:var(--gold-light);font-weight:400;margin-bottom:6px}
-.step p{font-size:12.5px;line-height:1.46;color:var(--muted)}
+.steps{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin-top:26px;align-items:start}
+.step{position:relative;padding:0;background:transparent;text-align:center}
+.step-img{width:100%;max-width:142px;margin:0 auto 10px;object-fit:contain;filter:drop-shadow(0 8px 14px rgba(0,0,0,.36))}
+.step-copy{width:100%;max-width:190px;margin:0 auto;padding:10px 11px 11px;border:1px solid rgba(216,152,40,.42);border-radius:6px;background:rgba(0,0,0,.34)}
+.step strong{display:block;font-family:"Bebas Neue",sans-serif;font-size:20px;line-height:1;color:var(--gold-light);font-weight:400;margin-bottom:5px;text-align:center}
+.step p{font-size:12px;line-height:1.42;color:var(--muted);text-align:center}
 
 /* =========================================================
    ANALYSE-FORMULAR
@@ -148,13 +150,14 @@ h1,h2,h3{font-family:"Bebas Neue",sans-serif;font-weight:400;letter-spacing:.035
    Zweck:
    Kompakt, nicht flächig, gleiche Typografie wie Homepage.
    ========================================================= */
-.faq-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-top:24px;align-items:start}
-.faq-item{align-self:start;border:1px solid rgba(216,152,40,.42);border-radius:7px;background:rgba(0,0,0,.28);overflow:hidden}
-.faq-item summary{min-height:34px;display:flex;align-items:center;justify-content:space-between;gap:14px;padding:0 13px;cursor:pointer;list-style:none;font-family:"Bebas Neue",sans-serif;font-size:15px;letter-spacing:.035em;text-transform:uppercase;color:#fff}
+.faq-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-top:24px;width:100%;max-width:100%;align-items:start}
+.faq-item{align-self:start;border:1px solid rgba(255,215,163,.78);border-radius:8px;background:linear-gradient(180deg,#ffd7a3 0%,#f0a05a 24%,#d89828 58%,#7a3518 100%);box-shadow:inset 0 0 0 1px rgba(255,244,199,.20),0 8px 16px rgba(0,0,0,.30);overflow:hidden}
+.faq-item[open]{background:linear-gradient(180deg,#ffe0ad 0%,#f0a05a 28%,#d89828 62%,#7a3518 100%)}
+.faq-item summary{min-height:42px;padding:0 14px;display:flex;align-items:center;justify-content:space-between;gap:18px;cursor:pointer;list-style:none;font-family:"Anca Coder",monospace;font-size:10.5px;line-height:1.3;font-weight:400;color:#050505;text-shadow:none}
 .faq-item summary::-webkit-details-marker{display:none}
-.faq-item summary:after{content:"+";color:var(--gold-light);font-size:18px;line-height:1}
-.faq-item[open] summary:after{content:"–"}
-.faq-item p{padding:0 13px 11px;font-size:12.5px;line-height:1.48;color:var(--muted)}
+.faq-item summary:after{content:"+";font-family:"Bebas Neue",sans-serif;font-size:16px;line-height:1;color:#050505;flex:0 0 auto}
+.faq-item[open] summary:after{content:"-"}
+.faq-item p{padding:0 14px 12px;font-family:Raleway,Arial,sans-serif;font-size:11px;line-height:1.45;color:rgba(5,5,5,.86);text-shadow:none}
 .footer{padding:40px var(--side);background:#000;border-top:1px solid rgba(216,152,40,.58)}
 .footer-inner{max-width:var(--max);margin:0 auto;display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:24px}
 .footer h4{font-family:"Bebas Neue",sans-serif;font-size:20px;font-weight:400;color:var(--gold-light);margin-bottom:8px;text-transform:uppercase}
@@ -257,10 +260,10 @@ h1,h2,h3{font-family:"Bebas Neue",sans-serif;font-weight:400;letter-spacing:.035
       <h2 class="section-title">Vier Schritte bis zur <span class="gold">Empfehlung</span>.</h2>
       <p class="section-text">Der Ablauf bleibt bewusst schlank. Ziel ist eine klare Einschätzung, kein schweres Beratungsprojekt.</p>
       <div class="steps">
-        <div class="step"><strong>01</strong><p>Formular ausfüllen und Ausgangslage kurz beschreiben.</p></div>
-        <div class="step"><strong>02</strong><p>Prozesslage, Datenquellen und Engpässe einordnen.</p></div>
-        <div class="step"><strong>03</strong><p>Potenziale bewerten und Aufwand grob einschätzen.</p></div>
-        <div class="step"><strong>04</strong><p>Klare Empfehlung mit möglichen nächsten Schritten erhalten.</p></div>
+        <div class="step"><img class="step-img" src="assets/analyse/2.png" alt=""/><div class="step-copy"><strong>01</strong><p>Formular ausfüllen und Ausgangslage kurz beschreiben.</p></div></div>
+        <div class="step"><img class="step-img" src="assets/analyse/3.png" alt=""/><div class="step-copy"><strong>02</strong><p>Prozesslage, Datenquellen und Engpässe einordnen.</p></div></div>
+        <div class="step"><img class="step-img" src="assets/analyse/4.png" alt=""/><div class="step-copy"><strong>03</strong><p>Potenziale bewerten und Aufwand grob einschätzen.</p></div></div>
+        <div class="step"><img class="step-img" src="assets/analyse/5.png" alt=""/><div class="step-copy"><strong>04</strong><p>Klare Empfehlung mit möglichen nächsten Schritten erhalten.</p></div></div>
       </div>
     </div>
   </section>
@@ -343,5 +346,15 @@ h1,h2,h3{font-family:"Bebas Neue",sans-serif;font-weight:400;letter-spacing:.035
 <div><h4>Kontakt</h4><a href="analyse.html">Potenzialanalyse starten</a><a href="mailto:info@nurovelle.de">info@nurovelle.de</a><a href="impressum.html">Impressum</a><a href="datenschutz.html">Datenschutz</a><p>© 2026 Nurovelle</p></div>
 </div>
 </footer>
+<script>
+document.querySelectorAll('#faq .faq-item').forEach((item) => {
+  item.addEventListener('toggle', () => {
+    if (!item.open) return;
+    document.querySelectorAll('#faq .faq-item').forEach((other) => {
+      if (other !== item) other.open = false;
+    });
+  });
+});
+</script>
 </body>
 </html>
