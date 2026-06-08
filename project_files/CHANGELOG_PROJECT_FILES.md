@@ -62,3 +62,16 @@ Aktualisiert:
 - Root-Route `/` wurde nicht umgestellt.
 - Keine Public-SSH-Freigabe.
 - Keine Firewall-, Tunnel- oder Netzwerk-Aenderungen.
+
+## 2026-06-08 Root-Aktivierung
+
+Aktualisiert:
+
+- Root `https://nurovelle.de/` leitet jetzt auf `/homepage/index.html`.
+- `https://nurovelle.de/homepage/index.html` live mit HTTP 200 geprueft.
+- `https://nurovelle.de/homepage/analyse.html` live mit HTTP 200 geprueft.
+- `https://nurovelle.de/assets/hero/nurovelle_logo.png` live mit HTTP 200 geprueft.
+- `https://nurovelle.de/results/<analysis_id>` bleibt erreichbar.
+- Aenderung erfolgte nur im Frontend-Container.
+- Keine Public-SSH-Freigabe.
+- Keine Firewall-, Tunnel- oder Netzwerk-Aenderungen.

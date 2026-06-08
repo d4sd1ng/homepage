@@ -3,7 +3,7 @@
 ## Vor Launch zwingend
 
 - [x] Homepage-Dateien auf den VPS deployen.
-- [ ] Root-Route `/` final auf Homepage umstellen oder bewusst bei der Analyse-App lassen.
+- [x] Root-Route `/` final auf Homepage umstellen.
 - [ ] `homepage/index.html` visuell auf Desktop pruefen.
 - [ ] `homepage/index.html` visuell auf Smartphone pruefen.
 - [ ] `homepage/analyse.html` visuell auf Desktop pruefen.
@@ -60,7 +60,7 @@
 
 - [ ] Vor Deploy aktuellen Git-Stand committen.
 - [x] Statische Homepage per HTTPS pruefen.
-- [ ] Nach finaler Root-Aktivierung Live-Seite mit HTTPS pruefen.
+- [x] Nach finaler Root-Aktivierung Live-Seite mit HTTPS pruefen.
 - [ ] Browser-Cache/CDN-Cache nach Deploy beruecksichtigen.
 - [ ] Rollback-Pfad festlegen.
 - [ ] Keine Netzwerk-, Tunnel- oder Heimnetz-Aenderungen fuer diesen Launch durchfuehren.
@@ -74,6 +74,16 @@
 - Live erreichbar:
   - `https://nurovelle.de/homepage/index.html`
   - `https://nurovelle.de/homepage/analyse.html`
-- Root `https://nurovelle.de/` bleibt aktuell die bestehende Next-App.
+- Root `https://nurovelle.de/` wurde danach auf die statische Homepage umgestellt.
 - Public SSH wurde nicht geoeffnet.
 - Firewall-, Tunnel- und Netzwerkkonfiguration wurden nicht geaendert.
+
+## Root-Status 2026-06-08
+
+- `https://nurovelle.de/` leitet per 307 auf `/homepage/index.html`.
+- `https://nurovelle.de/homepage/index.html` liefert 200.
+- `https://nurovelle.de/homepage/analyse.html` liefert 200.
+- `https://nurovelle.de/assets/hero/nurovelle_logo.png` liefert 200 fuer OpenGraph.
+- `https://nurovelle.de/results/<analysis_id>` bleibt erreichbar.
+- Root-Umstellung erfolgte nur im Frontend-Container.
+- Backend, DB, Firewall, Tunnel und Netzwerkkonfiguration wurden nicht geaendert.
