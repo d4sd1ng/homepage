@@ -376,6 +376,84 @@ h1,h2,h3{font-family:"Bebas Neue",sans-serif;font-weight:400;letter-spacing:.035
 </div>
 </footer>
 <script>
+const analysisForm = document.querySelector('#analyse-formular form');
+const resultStrip = document.querySelector('#analyse-ergebnis');
+const resultTitle = document.querySelector('#analysis-result-title');
+const resultCopy = document.querySelector('#analysis-result-copy');
+const resultPoints = document.querySelector('#analysis-result-points');
+
+const timeScores = {
+  'unter 5 Stunden pro Woche': 1,
+  '5–10 Stunden pro Woche': 2,
+  '10–25 Stunden pro Woche': 3,
+  '25+ Stunden pro Woche': 4
+};
+
+const dataScores = {
+  'E-Mails / Dokumente': 2,
+  'Tabellen / CSV': 2,
+  'CRM / ERP / Fachsystem': 3,
+  'mehrere Quellen': 4,
+  'noch unklar': 1
+};
+
+const branchFocus = {
+  'Energie & Versorgung': 'Verbrauchs-, Wartungs- und Meldedaten',
+  'Finanzen & Versicherung': 'Anträge, Belege, Risiken und Reports',
+  'Industrie & Produktion': 'Maschinen-, Qualitäts- und Wartungsprozesse',
+  'Verwaltung, Vertrieb, Einkauf & Marketing': 'Freigaben, Kundenprozesse und Kampagnensteuerung',
+  'Gesundheitswesen & Pflege': 'Dokumentation, Termine und Ressourcenplanung',
+  'Immobilien & Facility Management': 'Objekte, Tickets, Energie- und Wartungsdaten',
+  'Bildung & Forschung': 'Inhalte, Projektdaten und Verwaltungsprozesse',
+  'Dienstleistungen & KMU': 'Anfragen, Angebote, E-Mails und interne Abläufe',
+  'Sonstiges': 'wiederkehrende Abläufe, Datenquellen und Übergaben'
+};
+
+function setResultItems(items) {
+  resultPoints.innerHTML = '';
+  items.forEach((item) => {
+    const li = document.createElement('li');
+    li.textContent = item;
+    resultPoints.appendChild(li);
+  });
+}
+
+function classifyPotential(score) {
+  if (score >= 8) return { label: 'hohes Potenzial', priority: 'Priorität: hoch', next: 'Nächster Schritt: Prozess konkret prüfen' };
+  if (score >= 5) return { label: 'mittleres Potenzial', priority: 'Priorität: mittel', next: 'Nächster Schritt: Datenlage schärfen' };
+  return { label: 'erstes Potenzial', priority: 'Priorität: prüfen', next: 'Nächster Schritt: Ablauf genauer beschreiben' };
+}
+
+if (analysisForm) {
+  analysisForm.addEventListener('submit', (event) => {
+    event.preventDefault();
+    if (!analysisForm.reportValidity()) return;
+
+    const data = new FormData(analysisForm);
+    const branch = data.get('branche') || 'Sonstiges';
+    const time = data.get('zeitaufwand') || '';
+    const dataState = data.get('datenlage') || '';
+    const company = data.get('unternehmen') || 'Ihr Unternehmen';
+    const challenge = String(data.get('herausforderung') || '').trim();
+
+    const score = (timeScores[time] || 0) + (dataScores[dataState] || 0) + (challenge.length > 120 ? 1 : 0);
+    const result = classifyPotential(score);
+    const focus = branchFocus[branch] || branchFocus.Sonstiges;
+
+    resultStrip.classList.add('is-calculated');
+    resultTitle.textContent = `Erste Einschätzung: ${result.label}.`;
+    resultCopy.textContent = `${company}: In der gewählten Branche sind vor allem ${focus} relevant. Bei ${time.toLowerCase()} und der Datenlage „${dataState}“ lohnt sich als Einstieg eine priorisierte Prüfung des beschriebenen Prozesses.`;
+    setResultItems([
+      result.priority,
+      `Fokus: ${focus}`,
+      `Datenlage: ${dataState}`,
+      result.next
+    ]);
+
+    resultStrip.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  });
+}
+
 document.querySelectorAll('#faq .faq-item').forEach((item) => {
   item.addEventListener('toggle', () => {
     if (!item.open) return;
