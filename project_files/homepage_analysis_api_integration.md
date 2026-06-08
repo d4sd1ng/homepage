@@ -28,6 +28,7 @@ POST /analysis/start
 POST /analysis/<analysis_id>/answers
 POST /analysis/<analysis_id>/score
 POST /analysis/<analysis_id>/report
+POST /lead
 ```
 
 Ergebnis:
@@ -59,6 +60,9 @@ Beim Absenden:
 - Formularangaben werden auf gueltige Antwortwerte gemappt.
 - Analyse wird im Backend erstellt.
 - Scores und Report werden im Backend erzeugt.
+- Kontakt-/Follow-up-Daten werden als Lead gespeichert.
+- Bei aktivem Opt-in wird `newsletter=true` gesendet.
+- Notion-Sync laeuft backendseitig ueber die Lead-Queue, wenn aktiviert.
 - Ergebnislink wird angezeigt.
 
 ## Validierung
@@ -84,3 +88,29 @@ Test-Analyse:
 - keine lokalen Score-Regeln in der Homepage
 - keine direkte DB-Verbindung
 - keine Heimnetz-/Pi-/WireGuard-Abhaengigkeit
+
+## Lead / Notion / Nurturing
+
+Nach erfolgreicher Reporterzeugung ruft `analyse.html` zusaetzlich auf:
+
+```text
+POST https://nurovelle.de/api/v1/lead
+```
+
+Payload:
+
+- `name`
+- `email`
+- `phone`
+- `company`
+- `message` mit Analyse-ID, Ergebnislink, Branche, Zeitaufwand, Datenlage und Herausforderung
+- `newsletter`
+
+`newsletter` wird nur `true`, wenn der Besucher die entsprechende Checkbox
+aktiviert.
+
+Die Homepage sendet nicht direkt an Notion oder Resend. Das bleibt Backend-Aufgabe:
+
+```text
+Homepage -> /api/v1/lead -> LeadService -> lokale DB -> optionale Notion Queue -> Newsletter Worker
+```

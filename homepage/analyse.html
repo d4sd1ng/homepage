@@ -156,6 +156,9 @@ h1,h2,h3{font-family:"Bebas Neue",sans-serif;font-weight:400;letter-spacing:.035
 .analysis-result-link{display:inline-flex;margin-top:12px;color:#050505;background:linear-gradient(180deg,#f3c45a 0%,#e2a12f 42%,#b9781f 72%,#7c4f14 100%);border:1px solid var(--gold);border-radius:6px;padding:10px 14px;font-family:"Bebas Neue",sans-serif;font-size:18px;letter-spacing:.04em;text-transform:uppercase}
 .analysis-result-link[hidden]{display:none}
 .btn[disabled]{opacity:.58;cursor:not-allowed}
+.consent-row{grid-column:1/-1;display:flex;gap:10px;align-items:flex-start;border:1px solid rgba(216,152,40,.24);border-radius:8px;padding:12px;background:rgba(0,0,0,.2);font-family:Raleway,Arial,sans-serif;font-size:12px;line-height:1.45;color:rgba(255,255,255,.76)}
+.consent-row input{width:auto;margin-top:2px;accent-color:#e2a12f}
+.consent-row strong{color:rgba(247,215,122,.92);font-weight:600}
 
 /* =========================================================
    FAQ UND FOOTER
@@ -339,6 +342,10 @@ h1,h2,h3{font-family:"Bebas Neue",sans-serif;font-weight:400;letter-spacing:.035
             <textarea name="herausforderung" placeholder="Beschreiben Sie den Prozess, den Sie prüfen möchten: Aufgabe, Zeitaufwand, Datenquellen und aktuelles Problem." required=""></textarea>
             <input autocomplete="tel" name="telefon" placeholder="Telefon optional" type="tel"/>
             <input autocomplete="url" name="website" placeholder="Website optional" type="url"/>
+            <label class="consent-row">
+              <input name="newsletter" type="checkbox" value="yes"/>
+              <span><strong>Auswertung und passende Hinweise per E-Mail erhalten.</strong> Ich möchte, dass Nurovelle meine Angaben für die Auswertung, Rückfragen und passende Follow-up-Hinweise zur Potenzialanalyse nutzt.</span>
+            </label>
             <button class="btn btn-primary" type="submit" id="nurovelle-analysis-submit">Potenzialanalyse starten</button>
           </div>
           <div class="analysis-status" id="nurovelle-analysis-status" aria-live="polite"></div>
@@ -559,7 +566,8 @@ function getFormState(form) {
     datenlage: String(data.get('datenlage') || ''),
     herausforderung: String(data.get('herausforderung') || '').trim(),
     telefon: String(data.get('telefon') || '').trim(),
-    website: String(data.get('website') || '').trim()
+    website: String(data.get('website') || '').trim(),
+    newsletter: data.get('newsletter') === 'yes'
   };
 }
 
@@ -606,7 +614,7 @@ if (analysisForm) {
             last_name: formState.nachname,
             email: formState.email,
             phone: formState.telefon,
-            consent_marketing: false
+            consent_marketing: formState.newsletter
           },
           source: 'nurovelle_homepage_static',
           initial_context: {
@@ -640,6 +648,34 @@ if (analysisForm) {
       });
 
       const resultUrl = `${resultBase}${encodeURIComponent(analysisId)}`;
+      let leadSynced = false;
+      let leadWarning = '';
+
+      setAnalysisStatus('Lead- und Follow-up-Daten werden gespeichert...');
+      try {
+        await apiRequest('/lead', {
+          method: 'POST',
+          body: JSON.stringify({
+            name: `${formState.vorname} ${formState.nachname}`.trim(),
+            email: formState.email,
+            phone: formState.telefon,
+            company: formState.unternehmen,
+            newsletter: formState.newsletter,
+            message: [
+              `Analyse-ID: ${analysisId}`,
+              `Ergebnis: ${resultUrl}`,
+              `Branche: ${formState.branche}`,
+              `Zeitaufwand: ${formState.zeitaufwand}`,
+              `Datenlage: ${formState.datenlage}`,
+              `Herausforderung: ${formState.herausforderung}`
+            ].join('\n')
+          })
+        });
+        leadSynced = true;
+      } catch (leadError) {
+        leadWarning = leadError?.message || 'Lead-/Follow-up-Speicherung nicht bestätigt.';
+      }
+
       const scores = scoreResponse.scores || {};
       const automationScore = Number(scores.automation_score ?? 0);
       const aiScore = Number(scores.ai_readiness_score ?? 0);
@@ -647,12 +683,14 @@ if (analysisForm) {
 
       setResultState({
         title: 'Analyse erfolgreich erstellt.',
-        copy: `${formState.unternehmen}: Die Potenzialanalyse wurde verarbeitet. Öffnen Sie jetzt das Ergebnis mit Scores, Einordnung und nächsten Schritten.`,
+        copy: leadSynced
+          ? `${formState.unternehmen}: Die Potenzialanalyse wurde verarbeitet und die Kontakt-/Follow-up-Daten wurden gespeichert. Öffnen Sie jetzt das Ergebnis mit Scores, Einordnung und nächsten Schritten.`
+          : `${formState.unternehmen}: Die Potenzialanalyse wurde verarbeitet. Die Kontakt-/Follow-up-Speicherung wurde nicht bestätigt: ${leadWarning}`,
         points: [
           `Automation Score: ${automationScore || 'berechnet'}`,
           `KI-Reife: ${aiScore || 'berechnet'}`,
           `Effizienz: ${efficiencyScore || 'berechnet'}`,
-          'Report im Analyse-System verfügbar'
+          leadSynced ? 'Lead/Follow-up gespeichert' : 'Lead/Follow-up nicht bestätigt'
         ],
         link: resultUrl
       });

@@ -28,3 +28,6 @@ Aktualisiert:
 - Ergebnislink zeigt auf `https://nurovelle.de/results/<analysis_id>`.
 - `homepage/index.html` kann weiterhin per GET auf `analyse.html` weiterleiten; `analyse.html` übernimmt Query-Parameter als Vorbefüllung.
 - Live-Smoke-Test gegen `nurovelle.de` erfolgreich.
+- Lead-/Follow-up-Call ergänzt: `POST /api/v1/lead`.
+- Newsletter-/Nurturing-Opt-in als separate Checkbox ergänzt.
+- Lead-Message enthält Analyse-ID und Ergebnislink für Notion/CRM-Nachbearbeitung.

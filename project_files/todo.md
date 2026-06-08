@@ -42,6 +42,8 @@
 - [x] Potenzialanalyse-Formular an produktive Nurovelle-API anbinden
 - [x] Lokale Fake-Auswertung entfernen
 - [x] Ergebnislink zu `/results/<analysis_id>` erzeugen
+- [x] Lead-/Follow-up-Speicherung ueber `/api/v1/lead` anbinden
+- [x] Newsletter-/Nurturing-Opt-in im Formular ergaenzen
 - [ ] Danke-Seite erstellen
 - [ ] Whitepaper-Download verlinken
 - [ ] Calendly oder Kontaktlink einbinden
@@ -56,6 +58,7 @@
 - [ ] finale Korrektur lesen
 - [ ] Links testen
 - [x] Formular-API-Flow gegen `https://nurovelle.de` testen
+- [ ] Lead-/Notion-/Newsletter-Flow nach Backend-Deploy live testen
 - [ ] Download testen
 - [ ] CTA testen
 - [ ] LinkedIn Featured-Link vorbereiten

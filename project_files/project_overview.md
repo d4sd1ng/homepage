@@ -49,6 +49,10 @@ angebunden.
 Das Homepage-Formular ist bewusst kompakt. Die vollstaendige Fragen-,
 Score- und Report-Logik bleibt im Analyse-Backend.
 
+Nach erfolgreicher Reporterzeugung wird zusaetzlich ein Lead im Backend
+angelegt. Dadurch koennen Notion-Sync und Newsletter-/Nurturing-Prozesse
+backendseitig greifen, sofern sie auf dem VPS aktiviert sind.
+
 ## Neben-CTA
 
 Praxisleitfaden herunterladen

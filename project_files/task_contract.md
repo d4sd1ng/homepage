@@ -105,10 +105,18 @@ Verbindlicher Flow fuer `homepage/analyse.html`:
 3. `POST https://nurovelle.de/api/v1/analysis/<analysis_id>/answers`
 4. `POST https://nurovelle.de/api/v1/analysis/<analysis_id>/score`
 5. `POST https://nurovelle.de/api/v1/analysis/<analysis_id>/report`
-6. Link zu `https://nurovelle.de/results/<analysis_id>`
+6. `POST https://nurovelle.de/api/v1/lead`
+7. Link zu `https://nurovelle.de/results/<analysis_id>`
 
 Das Formular darf kompakt bleiben. Die vollstaendige Fragen-/Score-Logik bleibt
 im Analyse-Backend.
+
+Lead-/Nurturing-Regel:
+
+- Kontakt wird nach erfolgreichem Report als Lead gespeichert.
+- Newsletter/Nurturing wird nur bei aktiver Checkbox als Opt-in gesendet.
+- Notion und E-Mail-Versand werden nicht direkt aus der Homepage aufgerufen.
+- Notion/Newsletter bleiben Backend-/Worker-Aufgabe.
 
 ## Inhaltliche Mindestanforderungen
 
