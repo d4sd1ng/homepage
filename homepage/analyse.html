@@ -86,7 +86,7 @@ h1,h2,h3{font-family:"Bebas Neue",sans-serif;font-weight:400;letter-spacing:.035
 .hero h1{font-size:clamp(36px,4.4vw,58px);line-height:.92;margin-bottom:12px;max-width:640px}
 .hero h2{font-family:"Anca Coder",monospace;font-size:13px;line-height:1.45;font-weight:400;color:rgba(255,255,255,.82);text-transform:none;letter-spacing:.02em;max-width:610px;margin-bottom:10px}
 .hero p{font-size:13.5px;line-height:1.65;color:var(--muted);max-width:640px}
-.hero-panel{border:1px solid rgba(216,152,40,.44);border-radius:10px;background:rgba(0,0,0,.46);padding:18px 18px 16px;box-shadow:0 12px 26px rgba(0,0,0,.34)}
+.hero-panel{border:0;border-radius:0;background-color:transparent;background-image:url("assets/cards/cards_problem_loesung/best_card_single 470x360.png");background-size:100% 100%;background-position:center;background-repeat:no-repeat;padding:36px 58px 104px;filter:drop-shadow(0 8px 14px rgba(0,0,0,.28));box-shadow:none}
 .hero-panel h3{font-size:24px;line-height:1;margin-bottom:12px;color:var(--gold-light)}
 .hero-panel ul{list-style:none;display:grid;gap:8px}
 .hero-panel li{font-size:12.5px;line-height:1.4;color:rgba(255,255,255,.78);padding-left:13px;position:relative}
@@ -122,7 +122,7 @@ h1,h2,h3{font-family:"Bebas Neue",sans-serif;font-weight:400;letter-spacing:.035
    ========================================================= */
 .analysis-layout{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px;margin-top:26px;align-items:stretch}
 .info-panel,.form-panel{border:1px solid rgba(216,152,40,.42);border-radius:9px;background:rgba(0,0,0,.34);padding:18px;min-height:100%}
-.info-panel{padding:48px 58px 92px;border:0;border-radius:0;background-color:transparent;background-image:url("assets/cards/cards_problem_loesung/best_card_single 470x360.png");background-size:100% 100%;background-position:center;background-repeat:no-repeat;filter:drop-shadow(0 8px 14px rgba(0,0,0,.28))}
+.info-panel{padding:18px}
 .info-panel h3,.form-panel h3{font-size:25px;line-height:1;margin-bottom:12px}
 .info-list{display:grid;gap:8px;list-style:none}
 .info-list li{font-size:12.8px;line-height:1.42;color:rgba(255,255,255,.78);padding:10px 11px;border:1px solid rgba(216,152,40,.24);border-radius:5px;background:rgba(0,0,0,.24)}
@@ -148,8 +148,8 @@ h1,h2,h3{font-family:"Bebas Neue",sans-serif;font-weight:400;letter-spacing:.035
    Zweck:
    Kompakt, nicht flächig, gleiche Typografie wie Homepage.
    ========================================================= */
-.faq-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-top:24px}
-.faq-item{border:1px solid rgba(216,152,40,.42);border-radius:7px;background:rgba(0,0,0,.28);overflow:hidden}
+.faq-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-top:24px;align-items:start}
+.faq-item{align-self:start;border:1px solid rgba(216,152,40,.42);border-radius:7px;background:rgba(0,0,0,.28);overflow:hidden}
 .faq-item summary{min-height:34px;display:flex;align-items:center;justify-content:space-between;gap:14px;padding:0 13px;cursor:pointer;list-style:none;font-family:"Bebas Neue",sans-serif;font-size:15px;letter-spacing:.035em;text-transform:uppercase;color:#fff}
 .faq-item summary::-webkit-details-marker{display:none}
 .faq-item summary:after{content:"+";color:var(--gold-light);font-size:18px;line-height:1}
