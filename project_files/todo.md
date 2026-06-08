@@ -22,6 +22,8 @@
 - [x] Texte für Branchen schreiben
 - [x] Ablauf in Schritten formulieren
 - [x] Datenschutz-Hinweis ergänzen
+- [x] SEO-Tool-Sektion aus Landing-Pages ableiten
+- [x] Download-Bereich namentlich vorbereiten
 - [ ] Impressum/Datenschutz final verlinken
 
 ## Phase 3 – Design
@@ -46,9 +48,11 @@
 - [x] Newsletter-/Nurturing-Opt-in im Formular ergaenzen
 - [ ] Danke-Seite erstellen
 - [ ] Whitepaper-Download verlinken
+- [ ] Finale Download-Dokumente hinterlegen
+- [ ] SEO-Detailseiten oder Ziel-Links finalisieren
 - [ ] Calendly oder Kontaktlink einbinden
-- [ ] Meta Title setzen
-- [ ] Meta Description setzen
+- [x] Meta Title setzen
+- [x] Meta Description setzen
 - [ ] Open Graph Bild setzen
 - [ ] Test auf Desktop
 - [ ] Test auf Smartphone

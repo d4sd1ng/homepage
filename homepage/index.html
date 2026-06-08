@@ -4,8 +4,15 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Nurovelle | KI-Automatisierung für Unternehmen</title>
-<meta content="KI-Agenten, Automatisierungssysteme und datenbasierte Prozesse für Unternehmen. Kostenlose Potenzialanalyse starten." name="description"/>
+<title>Nurovelle | KI-Automatisierung, SEO-Systeme und Potenzialanalyse</title>
+<meta content="Nurovelle entwickelt KI-Automatisierung, SEO-Systeme und datenbasierte Prozesse für Unternehmen. Kostenlose Potenzialanalyse starten und manuelle Abläufe prüfen." name="description"/>
+<link href="https://nurovelle.de/" rel="canonical"/>
+<meta content="Nurovelle | KI-Automatisierung, SEO-Systeme und Potenzialanalyse" property="og:title"/>
+<meta content="KI-Automatisierung, SEO-Systeme und datenbasierte Prozesse für Unternehmen. Kostenlose Potenzialanalyse starten." property="og:description"/>
+<meta content="https://nurovelle.de/" property="og:url"/>
+<meta content="https://nurovelle.de/assets/hero/nurovelle_logo.png" property="og:image"/>
+<meta content="website" property="og:type"/>
+<meta content="summary_large_image" name="twitter:card"/>
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&amp;family=Raleway:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
@@ -782,6 +789,124 @@ body.has-sidebar .trust-section .trust-inner { width: 100%; max-width: none; min
   white-space: nowrap !important;
 }
 
+.seo-tools-section {
+  padding-top: 44px !important;
+  padding-bottom: 46px !important;
+}
+
+.seo-tool-grid {
+  display: grid;
+  grid-template-columns: repeat(4,minmax(0,1fr));
+  gap: 12px;
+  width: 100%;
+}
+
+.seo-tool-card,
+.download-card {
+  position: relative;
+  min-height: 178px;
+  padding: 18px 16px 16px;
+  border: 1px solid rgba(216,152,40,.38);
+  border-radius: 8px;
+  background:
+    radial-gradient(circle at 18% 0%,rgba(240,160,90,.16),transparent 36%),
+    linear-gradient(145deg,rgba(0,0,0,.62),rgba(7,28,20,.42));
+  box-shadow: inset 0 0 0 1px rgba(255,215,163,.04), 0 10px 22px rgba(0,0,0,.22);
+  overflow: hidden;
+}
+
+.seo-tool-card:before,
+.download-card:before {
+  content: "";
+  position: absolute;
+  left: 16px;
+  right: 16px;
+  top: 0;
+  height: 1px;
+  background: linear-gradient(90deg,transparent,rgba(240,160,90,.86),transparent);
+}
+
+.seo-tool-tag,
+.download-card-status {
+  display: inline-flex;
+  margin-bottom: 12px;
+  padding: 4px 7px;
+  border: 1px solid rgba(240,160,90,.36);
+  border-radius: 999px;
+  font-family: "Anca Coder",monospace;
+  font-size: 8.5px;
+  line-height: 1;
+  letter-spacing: .09em;
+  text-transform: uppercase;
+  color: #e8b048;
+  background: rgba(0,0,0,.34);
+}
+
+.seo-tool-card h3,
+.download-card h3 {
+  margin: 0 0 9px;
+  font-family: "Bebas Neue",sans-serif;
+  font-size: clamp(20px,1.45vw,27px);
+  line-height: 1.02;
+  font-weight: 400;
+  letter-spacing: .035em;
+  text-transform: uppercase;
+  color: #f5f1e8;
+}
+
+.seo-tool-card p,
+.download-card p,
+.seo-tools-cta p {
+  font-family: Raleway,Arial,sans-serif;
+  font-size: 11.3px;
+  line-height: 1.5;
+  color: rgba(255,255,255,.74);
+}
+
+.seo-tool-card a,
+.download-card-action {
+  display: inline-flex;
+  margin-top: 13px;
+  font-family: "Anca Coder",monospace;
+  font-size: 9.5px;
+  line-height: 1.2;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  color: #e8b048;
+}
+
+.download-card-action {
+  color: rgba(255,255,255,.48);
+}
+
+.seo-tools-cta {
+  margin-top: 18px;
+  padding: 14px 16px;
+  display: grid;
+  grid-template-columns: minmax(0,1fr) auto;
+  gap: 18px;
+  align-items: center;
+  border: 1px solid rgba(240,160,90,.28);
+  border-radius: 7px;
+  background: rgba(0,0,0,.30);
+}
+
+.download-grid {
+  display: grid;
+  grid-template-columns: repeat(4,minmax(0,1fr));
+  gap: 12px;
+  margin-top: 14px;
+}
+
+.section-anchor {
+  position: absolute;
+  top: -58px;
+  left: 0;
+  width: 1px;
+  height: 1px;
+  pointer-events: none;
+}
+
 #analyse {
   padding-top: 40px !important;
   padding-bottom: 44px !important;
@@ -1011,6 +1136,9 @@ body.has-sidebar .trust-section .trust-inner { width: 100%; max-width: none; min
   .trust-inner { margin-left: auto; margin-right: auto; }
   .problem-stair-cards { grid-template-columns: repeat(2,minmax(0,1fr)); }
   .service-card-row { width: 100% !important; grid-template-columns: repeat(2,minmax(0,1fr)); }
+  .seo-tool-grid,
+  .download-grid { grid-template-columns: repeat(2,minmax(0,1fr)); }
+  .seo-tools-cta { grid-template-columns: 1fr; }
   #prozess .process-module-labels { grid-template-columns: repeat(3,minmax(0,1fr)) !important; row-gap: 28px !important; }
   .guide-strip { grid-template-columns: 1fr !important; }
   #analyse .analysis-form-layout { grid-template-columns: 1fr !important; }
@@ -1026,6 +1154,8 @@ body.has-sidebar .trust-section .trust-inner { width: 100%; max-width: none; min
   .problem-stair-cards { grid-template-columns: 1fr; max-width: 430px; }
   .problem-stair-card { width: 100%; margin-left: 0; margin-right: 0; aspect-ratio: 470/345; }
   .service-card-row { grid-template-columns: 1fr; }
+  .seo-tool-grid,
+  .download-grid { grid-template-columns: 1fr; }
   #prozess .desktop-process-img { display: none !important; }
   #prozess .mobile-process-assets { display: grid !important; grid-template-columns: 1fr !important; gap: 12px !important; }
   #prozess .mobile-process-assets img { display: block !important; width: 100% !important; border-radius: 8px !important; }
@@ -1046,7 +1176,9 @@ body.has-sidebar .trust-section .trust-inner { width: 100%; max-width: none; min
 <a href="#problem-loesung">Lösungen</a>
 <a href="#branchen">Branchen</a>
 <a href="#leistungen">Services</a>
+<a href="#seo-tools">SEO</a>
 <a href="#prozess">Ablauf</a>
+<a href="#downloads">Downloads</a>
 <a href="#analyse">Kontakt</a>
 </nav>
 <a class="header-cta" href="#analyse">Potenzialanalyse starten</a>
@@ -1094,7 +1226,19 @@ body.has-sidebar .trust-section .trust-inner { width: 100%; max-width: none; min
 </li>
 <li>
 <details>
-<summary><span class="side-num">05</span><span class="side-label">Prozessablauf</span><span class="side-arrow">›</span></summary>
+<summary><span class="side-num">05</span><span class="side-label">SEO-Tools</span><span class="side-arrow">›</span></summary>
+<div class="side-sub">
+<a href="#seo-tools">SEO-Systeme</a>
+<a href="#seo-keyword-navigator">Keyword Navigator</a>
+<a href="#seo-onpage-optimizer">OnPage Optimizer</a>
+<a href="#seo-technical-scanner">Technical SEO Scanner</a>
+<a href="#seo-content-brief">Content Brief Builder</a>
+</div>
+</details>
+</li>
+<li>
+<details>
+<summary><span class="side-num">06</span><span class="side-label">Prozessablauf</span><span class="side-arrow">›</span></summary>
 <div class="side-sub">
 <a href="#prozess">01 Prozessdaten erfassen</a>
 <a href="#prozess">02 Potenzial bewerten</a>
@@ -1107,18 +1251,19 @@ body.has-sidebar .trust-section .trust-inner { width: 100%; max-width: none; min
 </li>
 <li>
 <details>
-<summary><span class="side-num">06</span><span class="side-label">Downloads</span><span class="side-arrow">›</span></summary>
+<summary><span class="side-num">07</span><span class="side-label">Downloads</span><span class="side-arrow">›</span></summary>
 <div class="side-sub">
-<a href="#leitfaden">Praxisleitfaden</a>
-<a href="#leitfaden">ROI-Betrachtung</a>
-<a href="#leitfaden">Prozessanalyse</a>
-<a href="#leitfaden">Tool-Vergleich</a>
+<a href="#downloads">Download-Übersicht</a>
+<a href="#download-praxisleitfaden">Praxisleitfaden</a>
+<a href="#download-roi-guide">ROI-Guide</a>
+<a href="#download-prozessanalyse">Prozessanalyse</a>
+<a href="#download-case-study">Case Study</a>
 </div>
 </details>
 </li>
 <li>
 <details>
-<summary><span class="side-num">07</span><span class="side-label">Potenzialanalyse</span><span class="side-arrow">›</span></summary>
+<summary><span class="side-num">08</span><span class="side-label">Potenzialanalyse</span><span class="side-arrow">›</span></summary>
 <div class="side-sub">
 <a href="#analyse">Analyseformular</a>
 <a href="#analyse">Kosten / Datenschutz</a>
@@ -1126,7 +1271,7 @@ body.has-sidebar .trust-section .trust-inner { width: 100%; max-width: none; min
 </div>
 </details>
 </li>
-<li><a href="#faq"><span class="side-num">08</span><span class="side-label">FAQ</span></a></li>
+<li><a href="#faq"><span class="side-num">09</span><span class="side-label">FAQ</span></a></li>
 </ul>
 </nav>
 </aside>
@@ -1582,6 +1727,87 @@ body.has-sidebar .trust-section .trust-inner { width: 100%; max-width: none; min
 </div></div>
 </div>
 </section>
+<section class="section bg seo-tools-section" id="seo-tools">
+<div class="section-inner">
+<div class="section-head">
+<div class="kicker">SEO &amp; Sichtbarkeit</div>
+<h2 class="section-title">KI-gestützte <span class="gold">SEO-Systeme</span> für bessere Entscheidungen.</h2>
+<p class="section-text">Diese SEO-Bausteine machen Recherche, OnPage-Optimierung, Technikprüfung und Content-Planung strukturierter. Ziel ist nicht mehr Tool-Chaos, sondern ein nachvollziehbarer Prozess von Keyword bis Umsetzung.</p>
+</div>
+<div class="seo-tool-grid">
+<article class="seo-tool-card" id="seo-dominator" data-landing-source="landing_page_seo_dominator.md" data-seo-tool="seo-dominator">
+<span class="seo-tool-tag">Strategie</span>
+<h3>SEO Dominator</h3>
+<p>Verbindet Konkurrenzanalyse, Keyword-Priorisierung und Content-Optimierung zu einem klaren Sichtbarkeitsprozess.</p>
+<a href="#analyse">SEO-Strategie prüfen →</a>
+</article>
+<article class="seo-tool-card" id="seo-keyword-navigator" data-landing-source="landingpage_keyword_navigator.md" data-seo-tool="keyword-navigator">
+<span class="seo-tool-tag">Recherche</span>
+<h3>Keyword Navigator</h3>
+<p>Findet relevante Suchbegriffe, ordnet Suchintention ein und zeigt, welche Themen sich für neue Seiten oder Inhalte eignen.</p>
+<a href="#analyse">SEO-Potenzial prüfen →</a>
+</article>
+<article class="seo-tool-card" id="seo-onpage-optimizer" data-landing-source="landingpage_onpage_optimizer.md" data-seo-tool="onpage-optimizer">
+<span class="seo-tool-tag">OnPage</span>
+<h3>OnPage Optimizer</h3>
+<p>Prüft Titel, Struktur, Inhalte, interne Links und CTA einer Seite und leitet konkrete Verbesserungen ab.</p>
+<a href="#analyse">Seite einordnen →</a>
+</article>
+<article class="seo-tool-card" id="seo-meta-snippet" data-landing-source="landingpage_meta_snippet_builder.md" data-seo-tool="meta-snippet-builder">
+<span class="seo-tool-tag">SERP</span>
+<h3>Meta Snippet Builder</h3>
+<p>Formuliert Meta Title und Description klarer, relevanter und klickstärker für bessere Suchergebnis-Snippets.</p>
+<a href="#analyse">Snippets prüfen →</a>
+</article>
+<article class="seo-tool-card" id="seo-technical-scanner" data-landing-source="landingpage_technical_seo_scanner.md" data-seo-tool="technical-seo-scanner">
+<span class="seo-tool-tag">Technik</span>
+<h3>Technical SEO Scanner</h3>
+<p>Findet technische Probleme, die Sichtbarkeit, Indexierung und Nutzererfahrung blockieren können.</p>
+<a href="#analyse">Technik prüfen →</a>
+</article>
+<article class="seo-tool-card" id="seo-content-brief" data-landing-source="landingpage_content_brief_builder.md" data-seo-tool="content-brief-builder">
+<span class="seo-tool-tag">Content</span>
+<h3>Content Brief Builder</h3>
+<p>Erstellt klare SEO-Briefings für Landingpages, Artikel und Dienstleistungsseiten: Ziel, Suchintention, Aufbau und CTA.</p>
+<a href="#analyse">Content-Prozess prüfen →</a>
+</article>
+<article class="seo-tool-card" id="seo-page-speed" data-landing-source="landingpage_page_speed_auditor.md" data-seo-tool="page-speed-auditor">
+<span class="seo-tool-tag">Performance</span>
+<h3>Page Speed Auditor</h3>
+<p>Zeigt, welche Faktoren eine Seite langsam machen und welche Optimierungen zuerst umgesetzt werden sollten.</p>
+<a href="#analyse">Ladezeit einordnen →</a>
+</article>
+<article class="seo-tool-card" id="seo-image-optimizer" data-landing-source="landingpage_image_seo_optimizer.md" data-seo-tool="image-seo-optimizer">
+<span class="seo-tool-tag">Bilder</span>
+<h3>Image SEO Optimizer</h3>
+<p>Verbessert Dateinamen, Alt-Texte, Größen und Formate, damit Bilder SEO und Ladezeit nicht unnötig belasten.</p>
+<a href="#analyse">Bild-SEO prüfen →</a>
+</article>
+<article class="seo-tool-card" id="seo-broken-link-checker" data-landing-source="landingpage_broken_link_checker.md" data-seo-tool="broken-link-checker">
+<span class="seo-tool-tag">Qualität</span>
+<h3>Broken Link Checker</h3>
+<p>Findet defekte interne und externe Links, die Nutzererfahrung, Crawling und SEO-Signale schwächen.</p>
+<a href="#analyse">Links prüfen →</a>
+</article>
+<article class="seo-tool-card" id="seo-audit-checklist" data-landing-source="landingpage_seo_audit_checklist_generator.md" data-seo-tool="seo-audit-checklist-generator">
+<span class="seo-tool-tag">Audit</span>
+<h3>SEO Audit Checklist</h3>
+<p>Macht aus SEO-Problemen eine klare Aufgabenliste für Website, Inhalte, Technik, Struktur und Prioritäten.</p>
+<a href="#analyse">Audit planen →</a>
+</article>
+<article class="seo-tool-card" id="seo-serp-watcher" data-landing-source="landingpage_serp_watcher.md" data-seo-tool="serp-watcher">
+<span class="seo-tool-tag">Monitoring</span>
+<h3>SERP Watcher</h3>
+<p>Beobachtet wichtige Keywords, Ranking-Veränderungen und Suchergebnis-Entwicklungen, statt blind zu veröffentlichen.</p>
+<a href="#analyse">Monitoring planen →</a>
+</article>
+</div>
+<div class="seo-tools-cta">
+<p>Alle SEO-Bausteine bleiben an die Potenzialanalyse gekoppelt: Erst wird geprüft, welche Engpässe bestehen, dann wird entschieden, welcher Prozess sinnvoll automatisiert wird.</p>
+<a class="btn btn-primary" href="#analyse">SEO-Automatisierung prüfen</a>
+</div>
+</div>
+</section>
 <section class="section bg" id="prozess">
 <div class="section-inner">
 <div class="section-head">
@@ -1602,15 +1828,42 @@ body.has-sidebar .trust-section .trust-inner { width: 100%; max-width: none; min
 <div class="process-module-labels"><div class="process-module-label"><span>Modul 1</span><h3>Prozessdaten erfassen</h3><p>Branche, Ablauf, Zeitaufwand und Engpass werden strukturiert aufgenommen.</p></div><div class="process-module-label"><span>Modul 2</span><h3>Potenzialcheck durchführen</h3><p>Die Angaben werden nach Potenzial, Aufwand, Datenlage und Nutzen geordnet.</p></div><div class="process-module-label"><span>Modul 3</span><h3>Ergebnis einordnen</h3><p>Sie erhalten eine erste Einschätzung, welche KI-Ansätze realistisch passen.</p></div><div class="process-module-label"><span>Modul 4</span><h3>Potenziale priorisieren</h3><p>Die Ergebnisse werden nach Aufwand, Nutzen und Datenlage eingeordnet.</p></div><div class="process-module-label"><span>Modul 5</span><h3>Lösungspfad festlegen</h3><p>Der passende nächste Schritt wird aus dem Analyseergebnis abgeleitet.</p></div><div class="process-module-label"><span>Modul 6</span><h3>Umsetzung starten</h3><p>Je nach Ergebnis folgt ein SaaS-Tool, ein KI-Agent oder eine individuelle Automatisierung.</p></div></div></div>
 </div>
 </section>
-<section class="section bg guide-strip-section" id="leitfaden">
+<section class="section bg guide-strip-section downloads-section" id="downloads">
+<span class="section-anchor" id="leitfaden"></span>
 <div class="section-inner">
 <div class="guide-strip">
 <div>
-<div class="kicker">Praxisleitfaden</div>
-<h2>KI-Automatisierung <span class="gold">besser</span> einschätzen.</h2>
-<p>Der Leitfaden erklärt typische Einsatzfelder, Fehlerquellen, ROI-Fragen und erste Prüfpunkte für Unternehmen.</p>
+<div class="kicker">Download-Bereich</div>
+<h2>Lead-Magnete für <span class="gold">KI-Automatisierung</span> vorbereiten.</h2>
+<p>Die finalen Dokumente werden später hinterlegt. Bis dahin ist der Bereich namentlich vorbereitet und auf die Potenzialanalyse ausgerichtet.</p>
 </div>
-<a class="btn btn-primary" href="praxisleitfaden.html">Praxisleitfaden herunterladen</a>
+<a class="btn btn-primary" href="#analyse">Potenzialanalyse starten</a>
+</div>
+<div class="download-grid">
+<article class="download-card" id="download-praxisleitfaden" data-download-key="praxisleitfaden-ki-automatisierung-mittelstand" data-final-asset="">
+<span class="download-card-status">In Vorbereitung</span>
+<h3>Praxisleitfaden KI-Automatisierung im Mittelstand</h3>
+<p>Grundlagen, typische Einsatzfelder, Fehlerquellen und erste Prüfpunkte für Unternehmen.</p>
+<span class="download-card-action" aria-disabled="true">Download folgt</span>
+</article>
+<article class="download-card" id="download-roi-guide" data-download-key="roi-guide-ki-automatisierung" data-final-asset="">
+<span class="download-card-status">In Vorbereitung</span>
+<h3>ROI-Guide für KI-Automatisierung</h3>
+<p>Einordnung von Zeitersparnis, Aufwand, Nutzen, Priorisierung und wirtschaftlicher Wirkung.</p>
+<span class="download-card-action" aria-disabled="true">Download folgt</span>
+</article>
+<article class="download-card" id="download-prozessanalyse" data-download-key="mini-guide-prozessanalyse" data-final-asset="">
+<span class="download-card-status">In Vorbereitung</span>
+<h3>Mini-Guide Prozessanalyse</h3>
+<p>Praktische Checkliste zur Beschreibung von Abläufen, Medienbrüchen, Datenquellen und Engpässen.</p>
+<span class="download-card-action" aria-disabled="true">Download folgt</span>
+</article>
+<article class="download-card" id="download-case-study" data-download-key="case-study-ki-automatisierung" data-final-asset="">
+<span class="download-card-status">In Vorbereitung</span>
+<h3>Case Study KI-Automatisierung</h3>
+<p>Beispielhafte Darstellung, wie ein manueller Prozess bewertet, priorisiert und automatisiert werden kann.</p>
+<span class="download-card-action" aria-disabled="true">Download folgt</span>
+</article>
 </div>
 </div>
 </section>

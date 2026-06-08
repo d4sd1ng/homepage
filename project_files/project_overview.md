@@ -57,6 +57,42 @@ backendseitig greifen, sofern sie auf dem VPS aktiviert sind.
 
 Praxisleitfaden herunterladen
 
+## SEO-Sektion
+
+Die Startseite enthaelt eine SEO-Sektion fuer KI-gestuetzte SEO-Systeme.
+
+Quelle fuer die Inhalte:
+
+- `Landing_pages/landing_page_seo_dominator.md`
+- `Landing_pages/landingpage_keyword_navigator.md`
+- `Landing_pages/landingpage_onpage_optimizer.md`
+- `Landing_pages/landingpage_meta_snippet_builder.md`
+- `Landing_pages/landingpage_technical_seo_scanner.md`
+- `Landing_pages/landingpage_content_brief_builder.md`
+- `Landing_pages/landingpage_page_speed_auditor.md`
+- `Landing_pages/landingpage_image_seo_optimizer.md`
+- `Landing_pages/landingpage_broken_link_checker.md`
+- `Landing_pages/landingpage_seo_audit_checklist_generator.md`
+- `Landing_pages/landingpage_serp_watcher.md`
+
+Aktueller Status:
+
+- Startseiten-Sektion ist eingebaut.
+- Karten verlinken vorerst auf die Potenzialanalyse.
+- Stabile Karten-IDs und `data-landing-source` sind gesetzt.
+- Detailseiten oder finale SEO-Ziellinks koennen spaeter ohne Layout-Umbau nachgezogen werden.
+
+## Download-Sektion
+
+Die Download-Sektion ist namentlich vorbereitet, aber noch ohne finale Dokumente.
+
+Regel:
+
+- Keine unfertigen Dokumente aus `G:\Projects\Dokumente_lead` auf der Homepage ablegen.
+- Download-Karten bleiben mit Status `In Vorbereitung`.
+- Finale Dateien werden spaeter gezielt verlinkt.
+- Stabile `data-download-key` Werte bleiben erhalten, damit Lead-/Tracking-/Nurturing-Flows spaeter eindeutig zugeordnet werden koennen.
+
 ## Finale Branchen
 
 1. Energie & Versorgung

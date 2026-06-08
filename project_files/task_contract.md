@@ -34,11 +34,19 @@ Die Homepage ist fertig, wenn folgende Punkte erfüllt sind:
 - Ablauf ist einfach erklärt
 - Leadformular ist eingebunden
 - Whitepaper-CTA ist vorhanden
+- SEO-Sektion ist vorhanden
+- Download-Bereich ist namentlich vorbereitet
 - Datenschutzlink ist vorhanden
 - Impressumlink ist vorhanden
 - Seite funktioniert auf Desktop und Mobil
 - keine Platzhaltertexte mehr vorhanden
 - keine veralteten Branchen- oder Servicebegriffe mehr vorhanden
+
+Hinweis fuer Download-Bereich:
+
+- Download-Karten duerfen vor finaler Freigabe als Platzhalter sichtbar sein.
+- Unfertige Dokumente aus `G:\Projects\Dokumente_lead` duerfen nicht auf die Homepage kopiert werden.
+- Sobald finale Dokumente vorhanden sind, werden nur die finalen Dateien verlinkt.
 
 ## Finale Branchen
 
@@ -93,6 +101,22 @@ Design unterstützt den Inhalt. Design ersetzt keinen klaren Text.
 - keine lokale Fake-Auswertung fuer Analyse-Ergebnisse
 - Tracking optional
 - SEO-Grundstruktur
+
+## SEO- und Download-Regeln
+
+SEO-Sektion:
+
+- Inhalte werden aus `Landing_pages/` abgeleitet.
+- Karten muessen stabile IDs behalten.
+- `data-landing-source` dokumentiert die jeweilige Quell-Datei.
+- Karten duerfen bis zur finalen Detailseiten-Entscheidung auf die Potenzialanalyse zeigen.
+
+Download-Sektion:
+
+- Vor finaler Dokumentfreigabe keine Download-Dateien hinterlegen.
+- Karten nutzen stabile `data-download-key` Werte.
+- Sichtbarer Status bleibt `In Vorbereitung`, solange kein finales Asset existiert.
+- Spaetere finale Downloads sollen ohne Layout-Umbau ergaenzt werden.
 
 ## Potenzialanalyse-Integration
 
