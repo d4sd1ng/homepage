@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Nurovelle | KI-Potenzialanalyse</title>
+<meta name="description" content="Kompakte KI-Potenzialanalyse für Unternehmen. Prozesse prüfen, Automatisierungspotenziale erkennen und eine klare Einschätzung erhalten." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Raleway:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+/* =========================================================
+   ANALYSE-SEITE V01
+   Zweck:
+   Eigenständige Detailseite für die kostenlose KI-Potenzialanalyse.
+   Layout orientiert sich an der Homepage, bleibt aber bewusst kompakt,
+   damit die Seite nicht überladen oder erdrückend wirkt.
+   ========================================================= */
+:root{
+  --bg:#000;
+  --panel:#050505;
+  --panel-soft:rgba(0,0,0,.34);
+  --gold:#d89828;
+  --gold-light:#f0a05a;
+  --gold-pale:#ffd7a3;
+  --gold-dark:#7a3518;
+  --text:#f5f1e8;
+  --muted:rgba(255,255,255,.72);
+  --line:rgba(216,152,40,.52);
+  --max:1080px;
+  --side:clamp(22px,4vw,52px);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;background:#000}
+body{font-family:Raleway,Arial,sans-serif;background:#000;color:var(--text);overflow-x:hidden}
+a{text-decoration:none;color:inherit}
+img{display:block;max-width:100%}
+.gold{
+  background:linear-gradient(180deg,var(--gold-pale) 0%,var(--gold-light) 24%,var(--gold) 58%,var(--gold-dark) 100%);
+  -webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent;
+}
+
+/* =========================================================
+   HEADER
+   Zweck:
+   Kompakte Navigation im Homepage-Stil. Keine große Höhe,
+   keine dominante Navigation.
+   ========================================================= */
+.site-header{height:46px;position:sticky;top:0;z-index:50;background:rgba(0,0,0,.88);backdrop-filter:blur(7px);border-bottom:1px solid rgba(216,152,40,.72)}
+.header-inner{height:100%;max-width:var(--max);margin:0 auto;padding:0 var(--side);display:flex;align-items:center;justify-content:space-between;gap:24px}
+.logo{height:58px;width:auto;transform:translateY(2px)}
+.nav{display:flex;align-items:center;gap:24px}
+.nav a{font-family:"Anca Coder",monospace;font-size:9px;letter-spacing:.09em;text-transform:uppercase;color:rgba(255,255,255,.76)}
+.nav a:hover{color:var(--gold-light)}
+.header-cta{height:28px;padding:0 12px;display:inline-flex;align-items:center;justify-content:center;border:1px solid var(--gold);border-radius:4px;font-family:"Bebas Neue",sans-serif;font-size:13px;letter-spacing:.045em;text-transform:uppercase;color:#050505;background:linear-gradient(180deg,var(--gold-pale) 0%,var(--gold-light) 24%,var(--gold) 60%,var(--gold-dark) 100%)}
+
+/* =========================================================
+   BASIS-SECTIONS
+   Zweck:
+   Einheitlicher, kleiner Section-Rhythmus. Titel bleiben bewusst
+   unter 42px, damit die Analyse-Seite ruhig wirkt.
+   ========================================================= */
+.section{position:relative;padding:52px var(--side);background:#000}
+.section.bg{background-image:linear-gradient(180deg,rgba(0,0,0,.92),rgba(0,0,0,.96)),url("assets/sections_bg.png");background-size:cover;background-position:center;background-repeat:no-repeat}
+.section:before{content:"";position:absolute;left:0;right:0;top:0;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);opacity:.72}
+.section-inner{max-width:var(--max);margin:0 auto}
+.kicker{font-family:"Anca Coder",monospace;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold-light);margin-bottom:9px}
+h1,h2,h3{font-family:"Bebas Neue",sans-serif;font-weight:400;letter-spacing:.035em;text-transform:uppercase}
+.section-title{font-size:clamp(28px,3vw,42px);line-height:.98;max-width:760px;margin-bottom:12px}
+.section-text{font-size:14px;line-height:1.62;color:var(--muted);max-width:760px}
+.actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:20px}
+.btn{height:34px;padding:0 15px;display:inline-flex;align-items:center;justify-content:center;border-radius:4px;font-family:"Bebas Neue",sans-serif;font-size:15px;letter-spacing:.045em;text-transform:uppercase}
+.btn-primary{color:#050505;border:1px solid var(--gold);background:linear-gradient(180deg,var(--gold-pale) 0%,var(--gold-light) 24%,var(--gold) 60%,var(--gold-dark) 100%)}
+.btn-secondary{color:var(--gold-light);border:1px solid rgba(216,152,40,.76);background:rgba(0,0,0,.32)}
+
+/* =========================================================
+   HERO
+   Zweck:
+   Kompakter Hero. Keine riesige Bildfläche, keine übergroßen
+   Schriften, klare Conversion-Orientierung.
+   ========================================================= */
+.hero{position:relative;min-height:430px;padding:74px var(--side) 48px;overflow:hidden;background:#000}
+.hero:before{content:"";position:absolute;inset:0;background:url("assets/hero/bg_grid.png") right center/70% auto no-repeat;opacity:.28;filter:brightness(.65) saturate(.7);pointer-events:none}
+.hero:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(0,0,0,.95) 0%,rgba(0,0,0,.76) 48%,rgba(0,0,0,.25) 100%);pointer-events:none}
+.hero-inner{position:relative;z-index:2;max-width:var(--max);margin:0 auto;display:grid;grid-template-columns:minmax(0,620px) minmax(260px,1fr);gap:34px;align-items:center}
+.hero h1{font-size:clamp(36px,4.4vw,58px);line-height:.92;margin-bottom:12px;max-width:640px}
+.hero h2{font-family:"Anca Coder",monospace;font-size:13px;line-height:1.45;font-weight:400;color:rgba(255,255,255,.82);text-transform:none;letter-spacing:.02em;max-width:610px;margin-bottom:10px}
+.hero p{font-size:13.5px;line-height:1.65;color:var(--muted);max-width:640px}
+.hero-panel{border:1px solid rgba(216,152,40,.44);border-radius:10px;background:rgba(0,0,0,.46);padding:18px 18px 16px;box-shadow:0 12px 26px rgba(0,0,0,.34)}
+.hero-panel h3{font-size:24px;line-height:1;margin-bottom:12px;color:var(--gold-light)}
+.hero-panel ul{list-style:none;display:grid;gap:8px}
+.hero-panel li{font-size:12.5px;line-height:1.4;color:rgba(255,255,255,.78);padding-left:13px;position:relative}
+.hero-panel li:before{content:"";position:absolute;left:0;top:.55em;width:4px;height:4px;border-radius:1px;background:var(--gold)}
+
+/* =========================================================
+   KOMPAKTE CHECK-KARTEN
+   Zweck:
+   Kleine, klare Karten. Drei Spalten auf Desktop, keine hohen
+   Kacheln, keine überladene Dashboard-Optik.
+   ========================================================= */
+.check-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin-top:26px}
+.check-card{border:1px solid rgba(216,152,40,.42);border-radius:8px;background:rgba(0,0,0,.36);padding:18px;min-height:142px}
+.check-card span{font-family:"Anca Coder",monospace;font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold-light)}
+.check-card h3{font-size:24px;line-height:1;margin:8px 0 9px}
+.check-card p{font-size:12.8px;line-height:1.52;color:var(--muted)}
+
+/* =========================================================
+   ABLAUF
+   Zweck:
+   Vier kurze Prozessschritte ohne große Prozessgrafik.
+   ========================================================= */
+.steps{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin-top:26px}
+.step{position:relative;border-left:1px solid rgba(216,152,40,.66);border-bottom:1px solid rgba(216,152,40,.42);padding:15px 14px 14px;background:rgba(0,0,0,.26)}
+.step strong{display:block;font-family:"Bebas Neue",sans-serif;font-size:22px;line-height:1;color:var(--gold-light);font-weight:400;margin-bottom:6px}
+.step p{font-size:12.5px;line-height:1.46;color:var(--muted)}
+
+/* =========================================================
+   ANALYSE-FORMULAR
+   Zweck:
+   Formular und Prüfliste gleich groß. Beide Bereiche wirken
+   ruhig und nicht zu dominant.
+   ========================================================= */
+.analysis-layout{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px;margin-top:26px;align-items:stretch}
+.info-panel,.form-panel{border:1px solid rgba(216,152,40,.42);border-radius:9px;background:rgba(0,0,0,.34);padding:18px;min-height:100%}
+.info-panel h3,.form-panel h3{font-size:25px;line-height:1;margin-bottom:12px}
+.info-list{display:grid;gap:8px;list-style:none}
+.info-list li{font-size:12.8px;line-height:1.42;color:rgba(255,255,255,.78);padding:10px 11px;border:1px solid rgba(216,152,40,.24);border-radius:5px;background:rgba(0,0,0,.24)}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.form-grid input,.form-grid select,.form-grid textarea{height:38px;border:1px solid var(--gold);border-radius:4px;background:#c7c7c7;color:#111;font-family:Raleway,Arial,sans-serif;font-size:12.5px;font-weight:600;padding:0 10px;outline:none}
+.form-grid textarea{grid-column:1/-1;height:86px;padding-top:9px;resize:none}
+.form-grid button{grid-column:1/-1;margin-top:2px;border:0;cursor:pointer}
+.form-note{margin-top:10px;font-size:10.5px;line-height:1.45;color:rgba(255,255,255,.56)}
+
+/* =========================================================
+   ERGEBNIS-SECTION
+   Zweck:
+   Erwartung klar machen, ohne große Versprechen oder Hype.
+   ========================================================= */
+.result-strip{margin-top:26px;border:1px solid rgba(216,152,40,.48);border-radius:9px;background:linear-gradient(135deg,rgba(216,152,40,.12),rgba(0,0,0,.36));padding:18px;display:grid;grid-template-columns:1.4fr .9fr;gap:18px;align-items:center}
+.result-strip h3{font-size:28px;line-height:1;margin-bottom:8px}
+.result-strip p{font-size:13px;line-height:1.55;color:var(--muted)}
+.result-points{display:grid;gap:7px;list-style:none}
+.result-points li{font-family:"Anca Coder",monospace;font-size:10px;letter-spacing:.04em;text-transform:uppercase;color:rgba(255,255,255,.78)}
+
+/* =========================================================
+   FAQ UND FOOTER
+   Zweck:
+   Kompakt, nicht flächig, gleiche Typografie wie Homepage.
+   ========================================================= */
+.faq-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-top:24px}
+.faq-item{border:1px solid rgba(216,152,40,.42);border-radius:7px;background:rgba(0,0,0,.28);overflow:hidden}
+.faq-item summary{min-height:34px;display:flex;align-items:center;justify-content:space-between;gap:14px;padding:0 13px;cursor:pointer;list-style:none;font-family:"Bebas Neue",sans-serif;font-size:15px;letter-spacing:.035em;text-transform:uppercase;color:#fff}
+.faq-item summary::-webkit-details-marker{display:none}
+.faq-item summary:after{content:"+";color:var(--gold-light);font-size:18px;line-height:1}
+.faq-item[open] summary:after{content:"–"}
+.faq-item p{padding:0 13px 11px;font-size:12.5px;line-height:1.48;color:var(--muted)}
+.footer{padding:40px var(--side);background:#000;border-top:1px solid rgba(216,152,40,.58)}
+.footer-inner{max-width:var(--max);margin:0 auto;display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:24px}
+.footer h4{font-family:"Bebas Neue",sans-serif;font-size:20px;font-weight:400;color:var(--gold-light);margin-bottom:8px;text-transform:uppercase}
+.footer p,.footer a{display:block;font-size:12px;line-height:1.65;color:rgba(255,255,255,.68)}
+
+/* =========================================================
+   RESPONSIVE
+   Zweck:
+   Mobile bleibt einfach gestapelt. Keine Scroll- oder Miniatur-Layouts,
+   die Inhalt unlesbar machen.
+   ========================================================= */
+@media(max-width:900px){
+  .nav{display:none}
+  .hero-inner,.analysis-layout,.result-strip{grid-template-columns:1fr}
+  .check-grid{grid-template-columns:1fr 1fr}
+  .steps{grid-template-columns:1fr 1fr}
+  .footer-inner{grid-template-columns:1fr}
+}
+@media(max-width:620px){
+  .site-header{height:42px}
+  .logo{height:50px}
+  .header-cta{display:none}
+  .hero{padding-top:58px;min-height:auto}
+  .check-grid,.steps,.faq-grid,.form-grid{grid-template-columns:1fr}
+  .section{padding:44px var(--side)}
+}
+</style>
+</head>
+<body>
+<header class="site-header">
+  <div class="header-inner">
+    <a href="index.html" aria-label="Zur Startseite"><img class="logo" src="assets/logo/neurova_logo.png" alt="Nurovelle" /></a>
+    <nav class="nav" aria-label="Hauptmenü">
+      <a href="index.html#problem-loesung">Problem & Lösung</a>
+      <a href="index.html#branchen">Branchen</a>
+      <a href="index.html#leistungen">Services</a>
+      <a href="#analyse-formular">Analyse</a>
+    </nav>
+    <a class="header-cta" href="#analyse-formular">Analyse starten</a>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="hero-inner">
+      <div>
+        <div class="kicker">KI-Potenzialanalyse</div>
+        <h1><span class="gold">Kostenlose</span> Analyse für Ihre Prozesse.</h1>
+        <h2>Kurzer Check. Klare Einordnung. Konkrete Einschätzung, unverbindlich.</h2>
+        <p>Wir prüfen, wo KI und Automatisierung in Ihrem Unternehmen realistisch entlasten können. Ohne Tool-Hype, ohne pauschale Versprechen und ohne unnötig komplexe Projektstruktur.</p>
+        <div class="actions">
+          <a class="btn btn-primary" href="#analyse-formular">Analyse anfragen</a>
+          <a class="btn btn-secondary" href="#ablauf">Ablauf ansehen</a>
+        </div>
+      </div>
+      <aside class="hero-panel" aria-label="Analyse-Schwerpunkte">
+        <h3>Was geprüft wird</h3>
+        <ul>
+          <li>Wiederkehrende manuelle Aufgaben</li>
+          <li>Dokumente, Daten und Systembrüche</li>
+          <li>Automatisierungspotenzial mit realistischem Nutzen</li>
+          <li>Mögliche Ansatzpunkte ohne unnötige Komplexität</li>
+        </ul>
+      </aside>
+    </div>
+  </section>
+
+  <section class="section bg" id="nutzen">
+    <div class="section-inner">
+      <div class="kicker">Einordnung</div>
+      <h2 class="section-title">Wofür die <span class="gold">Analyse</span> gedacht ist.</h2>
+      <p class="section-text">Die Analyse ist kein Verkaufs-Pitch für ein bestimmtes Tool. Sie dient dazu, Prozesse, Engpässe und sinnvolle Einsatzbereiche strukturiert zu prüfen.</p>
+      <div class="check-grid">
+        <article class="check-card">
+          <span>01</span>
+          <h3>Prozesse</h3>
+          <p>Welche Abläufe wiederholen sich häufig und binden Fachzeit, obwohl sie klaren Regeln folgen?</p>
+        </article>
+        <article class="check-card">
+          <span>02</span>
+          <h3>Daten</h3>
+          <p>Wo liegen Informationen verteilt in Tabellen, E-Mails, Dokumenten oder verschiedenen Systemen?</p>
+        </article>
+        <article class="check-card">
+          <span>03</span>
+          <h3>Entlastung</h3>
+          <p>Welche Aufgaben können vorbereitet, geprüft, sortiert oder automatisch angestoßen werden?</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="ablauf">
+    <div class="section-inner">
+      <div class="kicker">Ablauf</div>
+      <h2 class="section-title">Vier Schritte bis zur <span class="gold">Empfehlung</span>.</h2>
+      <p class="section-text">Der Ablauf bleibt bewusst schlank. Ziel ist eine klare Einschätzung, kein schweres Beratungsprojekt.</p>
+      <div class="steps">
+        <div class="step"><strong>01</strong><p>Formular ausfüllen und Ausgangslage kurz beschreiben.</p></div>
+        <div class="step"><strong>02</strong><p>Prozesslage, Datenquellen und Engpässe einordnen.</p></div>
+        <div class="step"><strong>03</strong><p>Potenziale bewerten und Aufwand grob einschätzen.</p></div>
+        <div class="step"><strong>04</strong><p>Klare Empfehlung mit möglichen nächsten Schritten erhalten.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section bg" id="analyse-formular">
+    <div class="section-inner">
+      <div class="kicker">Analyse anfragen</div>
+      <h2 class="section-title"><span class="gold">Kostenlose</span> Potenzialanalyse starten.</h2>
+      <p class="section-text">Kurze Angaben reichen für die erste Einordnung. Das Formular bleibt bewusst kompakt.</p>
+      <div class="analysis-layout">
+        <aside class="info-panel">
+          <h3>Was geprüft wird</h3>
+          <ul class="info-list">
+            <li>Welche Aufgaben aktuell manuell Zeit kosten.</li>
+            <li>Welche Systeme, Tabellen oder Dokumente beteiligt sind.</li>
+            <li>Ob KI, Automatisierung oder ein normaler Prozessumbau sinnvoller ist.</li>
+            <li>Welche Umsetzung zuerst den größten Nutzen bringt.</li>
+          </ul>
+        </aside>
+        <form class="form-panel" action="analyse.html" method="post">
+          <h3>Analyse anfragen</h3>
+          <div class="form-grid">
+            <input type="text" name="vorname" placeholder="Vorname" required />
+            <input type="text" name="nachname" placeholder="Nachname" required />
+            <input type="email" name="email" placeholder="E-Mail" required />
+            <input type="text" name="unternehmen" placeholder="Unternehmen" />
+            <select name="branche" aria-label="Branche">
+              <option value="">Branche wählen</option>
+              <option>Energie & Versorgung</option>
+              <option>Finanzen & Versicherung</option>
+              <option>Industrie & Produktion</option>
+              <option>Verwaltung / Vertrieb / Einkauf</option>
+              <option>Gesundheit & Pflege</option>
+              <option>Immobilien & Facility</option>
+              <option>Bildung & Forschung</option>
+              <option>Dienstleistung / KMU</option>
+              <option>Sonstiges</option>
+            </select>
+            <input type="text" name="telefon" placeholder="Telefon optional" />
+            <textarea name="problem" placeholder="Welcher Prozess kostet aktuell am meisten Zeit?"></textarea>
+            <button class="btn btn-primary" type="submit">Potenzialanalyse anfragen</button>
+          </div>
+          <p class="form-note">Ihre Angaben werden nur zur Bearbeitung der Anfrage verwendet. Keine Newsletter-Anmeldung ohne separate Zustimmung.</p>
+        </form>
+      </div>
+      <div class="result-strip">
+        <div>
+          <h3>Was Sie danach erhalten</h3>
+          <p>Eine klare erste Einschätzung, ob und wo sich KI-Automatisierung lohnt. Fokus: Aufwand, Nutzen, Priorität und ein sinnvoller nächster Schritt.</p>
+        </div>
+        <ul class="result-points">
+          <li>Prozess-Einschätzung</li>
+          <li>Automatisierungs-Potenzial</li>
+          <li>Priorisierte Empfehlung</li>
+          <li>Nächster Schritt</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="faq">
+    <div class="section-inner">
+      <div class="kicker">FAQ</div>
+      <h2 class="section-title">Häufige <span class="gold">Fragen</span>.</h2>
+      <div class="faq-grid">
+        <details class="faq-item"><summary>Ist die Analyse wirklich kostenlos?</summary><p>Ja. Die erste Einschätzung ist kostenlos und dient dazu, sinnvolle Potenziale zu erkennen.</p></details>
+        <details class="faq-item"><summary>Muss bereits ein KI-System vorhanden sein?</summary><p>Nein. Die Analyse startet bei Ihren bestehenden Abläufen, Daten und Aufgaben.</p></details>
+        <details class="faq-item"><summary>Für welche Unternehmen passt das?</summary><p>Für Unternehmen mit wiederkehrenden Aufgaben, manuellen Dokumentenprozessen oder verteilten Datenquellen.</p></details>
+        <details class="faq-item"><summary>Was passiert nach der Anfrage?</summary><p>Die Angaben werden geprüft. Danach folgt eine kurze Einordnung und bei Bedarf ein Gespräch zur Vertiefung.</p></details>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div>
+      <h4>Nurovelle</h4>
+      <p>KI-Automatisierung für reale Unternehmensprozesse.</p>
+    </div>
+    <div>
+      <h4>Links</h4>
+      <a href="index.html">Startseite</a>
+      <a href="index.html#leistungen">Services</a>
+      <a href="index.html#branchen">Branchen</a>
+    </div>
+    <div>
+      <h4>Rechtliches</h4>
+      <a href="impressum.html">Impressum</a>
+      <a href="datenschutz.html">Datenschutz</a>
+    </div>
+  </div>
+</footer>
+</body>
+</html>

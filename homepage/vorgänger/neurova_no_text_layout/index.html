@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title></title>
+  <style>
+    :root{
+      --bg:#020505;
+      --line:rgba(212,175,95,.34);
+      --green:rgba(0,255,170,.15);
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;background:var(--bg);min-height:100%;overflow-x:hidden}
+    body{font-family:Arial, sans-serif;color:transparent}
+    .page{width:100%;background:#020505}
+    .section{position:relative;width:100%;overflow:hidden;background:#020505;border-bottom:1px solid rgba(212,175,95,.12)}
+    .section-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.92;pointer-events:none}
+    .inner{position:relative;max-width:1672px;margin:0 auto;padding:0 22px}
+    .hero{min-height:820px;background:radial-gradient(circle at 70% 48%,rgba(0,120,82,.16),transparent 32%),#020505}
+    .hero-visual{position:absolute;right:8%;top:16%;width:min(48vw,720px);aspect-ratio:1/1;object-fit:contain;mix-blend-mode:screen;filter:drop-shadow(0 0 36px rgba(0,255,170,.18)) drop-shadow(0 0 22px rgba(212,175,95,.13))}
+    .asset-section{padding:52px 0;background:linear-gradient(180deg,#030706,#06110f)}
+    .asset{display:block;width:100%;max-width:1672px;height:auto;margin:0 auto}
+    .asset.transparent{filter:drop-shadow(0 0 28px rgba(0,255,170,.06)) drop-shadow(0 0 18px rgba(212,175,95,.08))}
+    .problems{padding:62px 28px;background:radial-gradient(circle at 50% 10%,rgba(212,175,95,.07),transparent 45%),linear-gradient(180deg,#030706,#06110f)}
+    .problem-grid{max-width:1672px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
+    .problem-grid img{width:100%;height:auto;display:block;filter:drop-shadow(0 0 18px rgba(212,175,95,.08))}
+    .process{padding:42px 0 36px;background:#020505}
+    .process img{display:block;width:100%;max-width:1536px;height:auto;margin:0 auto}
+    .faq{position:relative;padding:90px 24px;min-height:660px;background:transparent}
+    .faq-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:1;pointer-events:none}
+    .faq-panel{position:relative;display:block;width:min(96vw,1500px);height:auto;margin:0 auto;filter:drop-shadow(0 0 18px rgba(212,175,95,.18))}
+    .spacer{height:64px;background:linear-gradient(90deg,transparent,rgba(212,175,95,.16),transparent)}
+    @media (max-width:980px){
+      .hero{min-height:620px}.hero-visual{right:50%;transform:translateX(50%);top:12%;width:min(82vw,520px)}
+      .problem-grid{grid-template-columns:1fr 1fr}.asset-section{padding:32px 0}.problems{padding:36px 18px}.faq{padding:56px 12px;min-height:460px}
+    }
+    @media (max-width:560px){.problem-grid{grid-template-columns:1fr}.hero{min-height:520px}}
+  </style>
+</head>
+<body>
+  <main class="page">
+    <section class="section hero">
+      <img class="section-bg" src="assets/section_hintergrund.png" alt="" />
+      <img class="hero-visual" src="assets/neurova_dark_mode_v3_transparent.png" alt="" />
+    </section>
+    <section class="section asset-section"><img class="asset transparent" src="assets/service_cards_grid_transparent.png" alt="" /></section>
+    <section class="section asset-section"><img class="asset transparent" src="assets/branchen_cards_final.png" alt="" /></section>
+    <section class="section problems"><div class="problem-grid"><img src="assets/problem-lösung1.png" alt="" /><img src="assets/problem-lösung2.png" alt="" /><img src="assets/problem-lösung3.png" alt="" /><img src="assets/problem-lösung4.png" alt="" /></div></section>
+    <section class="section process"><img src="assets/so_arbeiten_wir_nur_text_entfernt.png" alt="" /></section>
+    <section class="section asset-section"><img class="asset transparent" src="assets/ihre_vorteile.png" alt="" /></section>
+    <section class="section faq"><img class="faq-bg" src="assets/section_faq.png" alt="" /><img class="faq-panel" src="assets/fragen.png" alt="" /></section>
+  </main>
+</body>
+</html>
