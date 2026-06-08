@@ -46,3 +46,19 @@ Aktualisiert:
 - OpenGraph-Basisdaten ergaenzt; finales OG-Bild bleibt offen.
 - `project_files/seo_download_sections.md` als technische Notiz ergaenzt.
 - `project_files/launch_todo.md` als Launch-Checkliste ergaenzt.
+
+## 2026-06-08 VPS-Deploy
+
+Aktualisiert:
+
+- Homepage-Stand nach GitHub gepusht: `5f0904e`.
+- Statische Homepage-Dateien auf den VPS uebertragen.
+- VPS-Ablage: `/opt/homepage_repo`.
+- Next-Frontend-Static-Ablage: `/opt/nurovell-potential-analysis/frontend/public/homepage`.
+- `nurovell_frontend` neu gebaut und gestartet.
+- Live-Pfade geprueft:
+  - `https://nurovelle.de/homepage/index.html`
+  - `https://nurovelle.de/homepage/analyse.html`
+- Root-Route `/` wurde nicht umgestellt.
+- Keine Public-SSH-Freigabe.
+- Keine Firewall-, Tunnel- oder Netzwerk-Aenderungen.

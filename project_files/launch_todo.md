@@ -2,7 +2,8 @@
 
 ## Vor Launch zwingend
 
-- [ ] Homepage-Dateien auf den finalen Server/Hosting-Pfad deployen.
+- [x] Homepage-Dateien auf den VPS deployen.
+- [ ] Root-Route `/` final auf Homepage umstellen oder bewusst bei der Analyse-App lassen.
 - [ ] `homepage/index.html` visuell auf Desktop pruefen.
 - [ ] `homepage/index.html` visuell auf Smartphone pruefen.
 - [ ] `homepage/analyse.html` visuell auf Desktop pruefen.
@@ -58,7 +59,21 @@
 ## Deployment / Betrieb
 
 - [ ] Vor Deploy aktuellen Git-Stand committen.
-- [ ] Nach Deploy Live-Seite mit HTTPS pruefen.
+- [x] Statische Homepage per HTTPS pruefen.
+- [ ] Nach finaler Root-Aktivierung Live-Seite mit HTTPS pruefen.
 - [ ] Browser-Cache/CDN-Cache nach Deploy beruecksichtigen.
 - [ ] Rollback-Pfad festlegen.
 - [ ] Keine Netzwerk-, Tunnel- oder Heimnetz-Aenderungen fuer diesen Launch durchfuehren.
+
+## Deploy-Status 2026-06-08
+
+- GitHub-Stand `5f0904e` ist gepusht.
+- VPS-Dateien liegen unter `/opt/homepage_repo`.
+- Next-Frontend-Static-Pfad liegt unter `/opt/nurovell-potential-analysis/frontend/public/homepage`.
+- Container `nurovell_frontend` wurde neu gebaut und gestartet.
+- Live erreichbar:
+  - `https://nurovelle.de/homepage/index.html`
+  - `https://nurovelle.de/homepage/analyse.html`
+- Root `https://nurovelle.de/` bleibt aktuell die bestehende Next-App.
+- Public SSH wurde nicht geoeffnet.
+- Firewall-, Tunnel- und Netzwerkkonfiguration wurden nicht geaendert.
