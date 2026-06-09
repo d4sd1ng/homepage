@@ -1010,6 +1010,39 @@ body.has-sidebar .trust-section .trust-inner { width: 100%; max-width: none; min
   justify-content: center !important;
 }
 
+#analyse .consent-row {
+  grid-column: 1 / -1 !important;
+  display: flex !important;
+  align-items: flex-start !important;
+  gap: 10px !important;
+  border: 1px solid rgba(216,152,40,.28) !important;
+  border-radius: 5px !important;
+  background: rgba(0,0,0,.22) !important;
+  padding: 10px 11px !important;
+  font-size: 11px !important;
+  line-height: 1.4 !important;
+  color: rgba(255,255,255,.72) !important;
+}
+
+#analyse .consent-row input {
+  width: auto !important;
+  height: auto !important;
+  flex: 0 0 auto !important;
+  margin-top: 2px !important;
+  accent-color: #d89828 !important;
+}
+
+#analyse .consent-row span {
+  display: block !important;
+}
+
+#analyse .consent-row strong {
+  display: block !important;
+  margin-bottom: 2px !important;
+  color: rgba(247,215,122,.92) !important;
+  font-weight: 600 !important;
+}
+
 #analyse .form-note {
   margin-top: 10px !important;
   font-family: Raleway,Arial,sans-serif !important;
@@ -1914,6 +1947,10 @@ body.has-sidebar .trust-section .trust-inner { width: 100%; max-width: none; min
 <select name="zeitaufwand" required=""><option value="">Aktuellen Zeitaufwand auswählen</option><option>unter 5 Stunden pro Woche</option><option>5–10 Stunden pro Woche</option><option>10–25 Stunden pro Woche</option><option>25+ Stunden pro Woche</option></select><select name="datenlage" required=""><option value="">Datenlage auswählen</option><option>E-Mails / Dokumente</option><option>Tabellen / CSV</option><option>CRM / ERP / Fachsystem</option><option>mehrere Quellen</option><option>noch unklar</option></select><textarea name="herausforderung" placeholder="Beschreiben Sie den Prozess, den Sie prüfen möchten: Aufgabe, Zeitaufwand, Datenquellen und aktuelles Problem." required=""></textarea>
 <input autocomplete="tel" name="telefon" placeholder="Telefon optional" type="tel"/>
 <input autocomplete="url" name="website" placeholder="Website optional" type="url"/>
+<label class="consent-row">
+<input name="newsletter" type="checkbox" value="yes"/>
+<span><strong>Newsletter und Follow-up-Hinweise erhalten.</strong> Ich möchte passende Hinweise zur Potenzialanalyse per E-Mail erhalten.</span>
+</label>
 <button class="btn btn-primary" type="submit">Potenzialanalyse starten</button>
 </div>
 <p class="form-note">Ihre Angaben werden ausschließlich zur Durchführung und Auswertung der Potenzialanalyse verwendet. Personenbezogene Angaben werden nach Abschluss gelöscht; interne Auswertungen erfolgen nur anonymisiert. Details stehen in der <a href="datenschutz.html">Datenschutzerklärung</a>.</p>
