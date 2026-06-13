@@ -75,3 +75,13 @@ Aktualisiert:
 - Aenderung erfolgte nur im Frontend-Container.
 - Keine Public-SSH-Freigabe.
 - Keine Firewall-, Tunnel- oder Netzwerk-Aenderungen.
+
+## 2026-06-13 Analyse-Branchenabgleich
+
+Aktualisiert:
+
+- `homepage/analyse.html` Branchen-Dropdown an die finale Branchenliste aus `BRANCHEN_FINAL.md` und `task_contract.md` angeglichen.
+- Alte kombinierte Option `Verwaltung, Vertrieb, Einkauf & Marketing` durch `Verwaltung & HR` und `Marketing & Vertrieb` ersetzt.
+- Ausgeschlossene Immobilien-Branche aus dem Analyse-Dropdown entfernt.
+- Fallback-Wert auf `Sonstige Branchen` vereinheitlicht.
+- Nicht-schreibender Live-Check gegen `/api/v1/questions` erfolgreich: 48 Fragen fuer `industry=service` geladen.
