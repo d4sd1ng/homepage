@@ -76,12 +76,20 @@ Aktualisiert:
 - Keine Public-SSH-Freigabe.
 - Keine Firewall-, Tunnel- oder Netzwerk-Aenderungen.
 
-## 2026-06-13 Analyse-Branchenabgleich
+## 2026-06-13 Korrektur Analyse-Branchenliste
 
 Aktualisiert:
 
-- `homepage/analyse.html` Branchen-Dropdown an die finale Branchenliste aus `BRANCHEN_FINAL.md` und `task_contract.md` angeglichen.
-- Alte kombinierte Option `Verwaltung, Vertrieb, Einkauf & Marketing` durch `Verwaltung & HR` und `Marketing & Vertrieb` ersetzt.
-- Ausgeschlossene Immobilien-Branche aus dem Analyse-Dropdown entfernt.
-- Fallback-Wert auf `Sonstige Branchen` vereinheitlicht.
-- Nicht-schreibender Live-Check gegen `/api/v1/questions` erfolgreich: 48 Fragen fuer `industry=service` geladen.
+- Fehlinterpretation korrigiert: `Immobilien & Facility Management` bleibt eine aktive Branche.
+- Alte getrennte Labels `Verwaltung & HR` und `Marketing & Vertrieb` nicht fuer die aktuelle Analyse-Seite verwenden.
+- `homepage/analyse.html`, `BRANCHEN_FINAL.md`, `task_contract.md` und `project_overview.md` auf die aktuelle Branchenliste synchronisiert.
+- Aktuelle Analyse-Branchen: Energie & Versorgung; Finanzen & Versicherung; Industrie & Produktion; Verwaltung, Vertrieb, Einkauf & Marketing; Gesundheitswesen & Pflege; Immobilien & Facility Management; Bildung & Forschung; Dienstleistungen & KMU; Sonstiges.
+
+## 2026-06-13 Postgres-Datenvertrag Analyse
+
+Ergaenzt:
+
+- `project_files/homepage_postgres_data_contract.md` beschreibt die Postgres-Daten fuer Analyse-Submissions, Antworten, Ergebnisse, Leads und Lead-Events.
+- Festgelegt: Homepage sendet nur an die API; Postgres, Notion-Sync und Newsletter-/Nurturing-Prozesse bleiben Backend-Aufgabe.
+- `project_files/nurovelle_postgres_core_architecture.md` definiert `nurovelle_core` als zentrale Postgres-Datenbank mit Schemas fuer Homepage, Analyse, n8n-Memory, Content-System und Ops.
+- Analyse-Tabellen im Datenvertrag auf Schema-Namen `analysis.*` und `homepage.*` ausgerichtet.

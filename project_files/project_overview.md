@@ -98,12 +98,12 @@ Regel:
 1. Energie & Versorgung
 2. Finanzen & Versicherung
 3. Industrie & Produktion
-4. Verwaltung & HR
-5. Marketing & Vertrieb
-6. Gesundheitswesen & Pflege
+4. Verwaltung, Vertrieb, Einkauf & Marketing
+5. Gesundheitswesen & Pflege
+6. Immobilien & Facility Management
 7. Bildung & Forschung
-8. Dienstleistung & KMU
-9. Sonstige Branchen
+8. Dienstleistungen & KMU
+9. Sonstiges
 
 ## Finale Services
 

@@ -324,12 +324,12 @@ h1,h2,h3{font-family:"Bebas Neue",sans-serif;font-weight:400;letter-spacing:.035
               <option>Energie &amp; Versorgung</option>
               <option>Finanzen &amp; Versicherung</option>
               <option>Industrie &amp; Produktion</option>
-              <option>Verwaltung &amp; HR</option>
-              <option>Marketing &amp; Vertrieb</option>
+              <option>Verwaltung, Vertrieb, Einkauf &amp; Marketing</option>
               <option>Gesundheitswesen &amp; Pflege</option>
+              <option>Immobilien &amp; Facility Management</option>
               <option>Bildung &amp; Forschung</option>
-              <option>Dienstleistung &amp; KMU</option>
-              <option>Sonstige Branchen</option>
+              <option>Dienstleistungen &amp; KMU</option>
+              <option>Sonstiges</option>
             </select>
             <select name="mitarbeiteranzahl">
               <option value="">Unternehmensgröße optional</option>
@@ -408,13 +408,13 @@ const analysisResultPoints = document.querySelector('#nurovelle-analysis-result-
 const branchToIndustry = {
   'Industrie & Produktion': 'manufacturing',
   'Gesundheitswesen & Pflege': 'care',
-  'Dienstleistung & KMU': 'service',
-  'Verwaltung & HR': 'service',
-  'Marketing & Vertrieb': 'service',
+  'Dienstleistungen & KMU': 'service',
+  'Verwaltung, Vertrieb, Einkauf & Marketing': 'service',
   'Finanzen & Versicherung': 'service',
   'Energie & Versorgung': 'service',
+  'Immobilien & Facility Management': 'service',
   'Bildung & Forschung': 'service',
-  'Sonstige Branchen': 'service'
+  'Sonstiges': 'service'
 };
 
 const sizeToApiValue = {
@@ -548,7 +548,7 @@ function getFormState(form) {
     nachname: String(data.get('nachname') || '').trim(),
     email: String(data.get('email') || '').trim(),
     unternehmen: String(data.get('unternehmen') || '').trim(),
-    branche: String(data.get('branche') || 'Sonstige Branchen'),
+    branche: String(data.get('branche') || 'Sonstiges'),
     mitarbeiteranzahl: String(data.get('mitarbeiteranzahl') || ''),
     zeitaufwand: String(data.get('zeitaufwand') || ''),
     datenlage: String(data.get('datenlage') || ''),
