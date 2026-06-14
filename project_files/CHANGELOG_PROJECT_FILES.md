@@ -91,5 +91,14 @@ Ergaenzt:
 
 - `project_files/homepage_postgres_data_contract.md` beschreibt die Postgres-Daten fuer Analyse-Submissions, Antworten, Ergebnisse, Leads und Lead-Events.
 - Festgelegt: Homepage sendet nur an die API; Postgres, Notion-Sync und Newsletter-/Nurturing-Prozesse bleiben Backend-Aufgabe.
-- `project_files/nurovelle_postgres_core_architecture.md` definiert `nurovelle_core` als zentrale Postgres-Datenbank mit Schemas fuer Homepage, Analyse, n8n-Memory, Content-System und Ops.
+- `project_files/nurovelle_postgres_core_architecture.md` definiert `nurovelle_core` als zentrale Postgres-Datenbank mit Schemas fuer Homepage, Analyse, Content-System und Ops.
 - Analyse-Tabellen im Datenvertrag auf Schema-Namen `analysis.*` und `homepage.*` ausgerichtet.
+
+## 2026-06-14 Postgres-Architektur ohne n8n
+
+Aktualisiert:
+
+- n8n als aktiven Integrationspfad aus der Postgres-Core-Architektur entfernt.
+- Schema `n8n_memory`, n8n-Memory-Tabellen und Rolle `nurovelle_n8n_user` entfernt.
+- Zentrale Postgres-Strategie bleibt bestehen: eine Datenbank `nurovelle_core`, getrennte Schemas fuer Homepage, Analyse, Content-System und Ops.
+- Homepage bleibt weiterhin ohne direkte Postgres-Verbindung; Speicherung erfolgt ueber Backend/API.

@@ -12,10 +12,10 @@ Zielbild:
 eine zentrale Postgres-Instanz
 eine zentrale Datenbank: nurovelle_core
 getrennte Schemas pro Systembereich
-klare Rollen fuer Backend, n8n und spaetere Services
+klare Rollen fuer Backend, Auswertung und spaetere Services
 ```
 
-Dadurch bleiben Daten wiederverwendbar, Backups einfacher und n8n kann als Workflow-Orchestrator systemuebergreifend arbeiten.
+Dadurch bleiben Daten wiederverwendbar, Backups einfacher und neue Systembereiche erzeugen nicht jeweils eigene Datenbanken.
 
 ## Grundregel
 
@@ -27,10 +27,6 @@ Die statische Homepage verbindet sich nicht direkt mit Postgres.
 Homepage
   -> Backend API
   -> Postgres nurovelle_core
-
-n8n
-  -> Postgres nurovelle_core
-  -> Notion / E-Mail / Follow-up / interne Workflows
 ```
 
 ## Empfohlene Datenbank
@@ -44,7 +40,6 @@ create database nurovelle_core;
 ```sql
 create schema if not exists homepage;
 create schema if not exists analysis;
-create schema if not exists n8n_memory;
 create schema if not exists content_system;
 create schema if not exists ops;
 ```
@@ -88,21 +83,6 @@ Der konkrete Datenvertrag fuer `homepage/analyse.html` liegt in:
 project_files/homepage_postgres_data_contract.md
 ```
 
-### `n8n_memory`
-
-Zweck:
-
-- Workflow-Memory
-- Follow-up-State
-- Retry-State
-- n8n-Ausfuehrungsbezug zu Leads, Analysen, Content und Syncs
-
-Typische Tabellen:
-
-- `n8n_memory.workflow_memory`
-- `n8n_memory.workflow_runs`
-- `n8n_memory.workflow_events`
-
 ### `content_system`
 
 Zweck:
@@ -133,89 +113,14 @@ Typische Tabellen:
 - `ops.sync_jobs`
 - `ops.audit_events`
 
-## n8n Memory Tabellen
-
-### `n8n_memory.workflow_memory`
-
-Generischer Memory-Key-Value-Speicher fuer n8n.
-
-```sql
-create table if not exists n8n_memory.workflow_memory (
-  memory_id uuid primary key default gen_random_uuid(),
-  entity_type text not null,
-  entity_id text not null,
-  memory_key text not null,
-  memory_value jsonb not null,
-  source text not null default 'n8n',
-  created_at timestamptz not null default now(),
-  updated_at timestamptz not null default now(),
-  unique (entity_type, entity_id, memory_key)
-);
-```
-
-Beispiel:
-
-```json
-{
-  "entity_type": "lead",
-  "entity_id": "lead_uuid",
-  "memory_key": "followup_state",
-  "memory_value": {
-    "step": "email_1_sent",
-    "last_contacted_at": "2026-06-13T10:00:00+02:00",
-    "next_action": "wait_3_days"
-  }
-}
-```
-
-### `n8n_memory.workflow_runs`
-
-Speichert konkrete n8n-Ausfuehrungen pro Workflow.
-
-```sql
-create table if not exists n8n_memory.workflow_runs (
-  run_id uuid primary key default gen_random_uuid(),
-  workflow_name text not null,
-  workflow_key text not null,
-  n8n_execution_id text,
-  status text not null default 'started',
-  entity_type text,
-  entity_id text,
-  started_at timestamptz not null default now(),
-  finished_at timestamptz,
-  error_message text,
-  payload jsonb
-);
-```
-
-### `n8n_memory.workflow_events`
-
-Audit-Log fuer einzelne Schritte innerhalb eines Workflows.
-
-```sql
-create table if not exists n8n_memory.workflow_events (
-  event_id bigserial primary key,
-  run_id uuid references n8n_memory.workflow_runs(run_id) on delete set null,
-  workflow_key text not null,
-  event_type text not null,
-  event_status text not null,
-  entity_type text,
-  entity_id text,
-  payload jsonb,
-  error_message text,
-  created_at timestamptz not null default now()
-);
-```
-
 ## Rollenmodell
 
-Keine Workflows sollen als Postgres-Superuser arbeiten.
+Keine Runtime-Prozesse sollen als Postgres-Superuser arbeiten.
 
 Empfohlene Rollen:
 
 ```text
 nurovelle_backend_user
-nurovelle_n8n_user
 nurovelle_readonly_user
 nurovelle_migration_user
 ```
@@ -230,24 +135,7 @@ Darf:
 
 Darf nicht:
 
-- n8n-Memory direkt manipulieren, ausser es gibt einen bewussten Backend-Use-Case
 - Datenbankstruktur migrieren
-
-### `nurovelle_n8n_user`
-
-Darf:
-
-- in `n8n_memory` lesen/schreiben
-- relevante `analysis`- und `homepage`-Daten lesen
-- Follow-up-Status in dafuer vorgesehenen Feldern aktualisieren
-- Events in `ops` schreiben
-
-Darf nicht:
-
-- Tabellen droppen
-- Schemas veraendern
-- Rohdaten loeschen
-- als Superuser laufen
 
 ### `nurovelle_readonly_user`
 
@@ -277,10 +165,12 @@ Soll:
 Beispiel:
 
 ```sql
-grant usage on schema homepage, analysis, n8n_memory, ops to nurovelle_n8n_user;
-grant select on all tables in schema homepage, analysis to nurovelle_n8n_user;
-grant select, insert, update on all tables in schema n8n_memory to nurovelle_n8n_user;
-grant insert on all tables in schema ops to nurovelle_n8n_user;
+grant usage on schema homepage, analysis, ops to nurovelle_backend_user;
+grant select, insert, update on all tables in schema homepage, analysis to nurovelle_backend_user;
+grant insert on all tables in schema ops to nurovelle_backend_user;
+
+grant usage on schema homepage, analysis, content_system, ops to nurovelle_readonly_user;
+grant select on all tables in schema homepage, analysis, content_system, ops to nurovelle_readonly_user;
 ```
 
 Finale Grants muessen nach den echten Tabellennamen gesetzt werden.
@@ -307,7 +197,7 @@ nurovelle_core_backup_YYYYMMDD_HHMMSS.dump
 
 ## Keine 20 Postgres-Regel
 
-Neue Workflows bekommen zuerst:
+Neue Systembereiche bekommen zuerst:
 
 1. ein vorhandenes Schema, wenn fachlich passend
 2. ein neues Schema innerhalb `nurovelle_core`, wenn wirklich noetig
@@ -330,11 +220,8 @@ Auch dann bleibt eine eigene Instanz die Ausnahme.
 
 Die Postgres-Core-Architektur gilt als eingehalten, wenn:
 
-- n8n nicht fuer jeden Workflow eine eigene Datenbank erzeugt
 - Runtime-User keine Superuser-Rechte haben
 - Homepage nicht direkt mit Postgres spricht
 - Analyse- und Lead-Daten ueber Backend-API gespeichert werden
-- n8n-Memory in `n8n_memory` liegt
 - Content-System-Daten spaeter in `content_system` statt in einer separaten Datenbank landen
 - Backups fuer `nurovelle_core` definiert sind
-
