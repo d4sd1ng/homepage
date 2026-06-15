@@ -130,3 +130,4 @@ Ergaenzt:
 - `project_files/PRODUCTION_READINESS_AUDIT.md` als uebergeordnetes Readiness-Dokument im Homepage-Repo.
 - Bewertet Homepage, Potenzialanalyse, Notion Integration, Postgres Core, Multi-Processor, Atomizer, Repurposing, Approval sowie spaetere Sales-/Proposal-/Customer-Success-Agenten.
 - Festgelegt: Vor neuen Sales-/Proposal-/Customer-Success-Features muessen bestehende gelbe Module produktionsreifer gemacht werden.
+- `project_files/PRODUCTION_READINESS_ACTION_PLAN.md` als konkrete Abarbeitungsreihenfolge aus dem Audit ergaenzt.
