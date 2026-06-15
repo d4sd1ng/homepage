@@ -1,6 +1,6 @@
 # Nurovelle Postgres Core Architecture
 
-Stand: 2026-06-13
+Stand: 2026-06-15
 
 ## Ziel
 
@@ -34,6 +34,16 @@ Homepage
 ```sql
 create database nurovelle_core;
 ```
+
+Die ausfuehrbare Initialisierung liegt in:
+
+```text
+database/migrations/001_nurovelle_core_init.sql
+```
+
+Hinweis:
+
+Die SQL-Datei enthaelt keine Passwoerter. Runtime-Zugangsdaten werden auf dem Server gesetzt und nicht im Repository gespeichert.
 
 ## Empfohlene Schemas
 
@@ -155,6 +165,7 @@ Darf:
 
 - Migrationen ausfuehren
 - Schemas und Tabellen veraendern
+- bestehende Tabellen, Sequenzen und Ops-Funktionen fuer Migrationen verwalten
 
 Soll:
 
@@ -220,6 +231,7 @@ Auch dann bleibt eine eigene Instanz die Ausnahme.
 
 Die Postgres-Core-Architektur gilt als eingehalten, wenn:
 
+- `database/migrations/001_nurovelle_core_init.sql` fuer `nurovelle_core` vorhanden ist
 - Runtime-User keine Superuser-Rechte haben
 - Homepage nicht direkt mit Postgres spricht
 - Analyse- und Lead-Daten ueber Backend-API gespeichert werden

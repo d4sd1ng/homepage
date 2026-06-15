@@ -102,3 +102,23 @@ Aktualisiert:
 - Schema `n8n_memory`, n8n-Memory-Tabellen und Rolle `nurovelle_n8n_user` entfernt.
 - Zentrale Postgres-Strategie bleibt bestehen: eine Datenbank `nurovelle_core`, getrennte Schemas fuer Homepage, Analyse, Content-System und Ops.
 - Homepage bleibt weiterhin ohne direkte Postgres-Verbindung; Speicherung erfolgt ueber Backend/API.
+
+## 2026-06-15 Postgres-Initialisierung
+
+Ergaenzt:
+
+- `database/migrations/001_nurovelle_core_init.sql` als ausfuehrbare Initialisierung fuer `nurovelle_core`.
+- Schemas `homepage`, `analysis`, `content_system` und `ops` werden angelegt.
+- Tabellen fuer Analyse-Submissions, Antworten, Ergebnisse, Leads, Lead-Events und Ops-Logs werden angelegt.
+- Rollen `nurovelle_backend_user`, `nurovelle_readonly_user` und `nurovelle_migration_user` werden ohne Passwoerter vorbereitet.
+- Projektdateien auf die SQL-Initialisierung verlinkt.
+- SQL-Migration auf dem VPS mit `psql` transaktional geprueft: `BEGIN`, Migration, `ROLLBACK`; keine dauerhaften Datenbankobjekte angelegt.
+- Aktuell existiert auf dem VPS noch keine Datenbank `nurovelle_core`; vorhandene relevante Datenbank ist `nurovell_potential_analysis`.
+
+Umgesetzt:
+
+- Datenbank `nurovelle_core` auf dem VPS angelegt.
+- `database/migrations/001_nurovelle_core_init.sql` produktiv gegen `nurovelle_core` ausgefuehrt.
+- Verifiziert: Tabellen in `analysis`, `homepage` und `ops` vorhanden.
+- Verifiziert: Rollen `nurovelle_backend_user`, `nurovelle_readonly_user` und `nurovelle_migration_user` vorhanden.
+- Keine Passwoerter im Repository gespeichert.

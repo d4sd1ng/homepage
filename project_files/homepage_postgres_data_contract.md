@@ -1,6 +1,6 @@
 # Homepage Postgres Data Contract
 
-Stand: 2026-06-13
+Stand: 2026-06-15
 
 ## Zweck
 
@@ -12,6 +12,7 @@ Wichtig:
 - Die Homepage sendet nur an `https://nurovelle.de/api/v1`.
 - Speicherung, Notion-Sync und Newsletter-/Nurturing-Prozesse bleiben Backend-Aufgabe.
 - Zentrale Datenbank- und Schema-Strategie siehe `project_files/nurovelle_postgres_core_architecture.md`.
+- Ausfuehrbare Tabelleninitialisierung siehe `database/migrations/001_nurovelle_core_init.sql`.
 
 ## Frontend-Quelle
 
