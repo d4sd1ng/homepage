@@ -10,7 +10,7 @@ Dieses Dokument haelt fest, welche Postgres-Instanz der Live-Backend-Container a
 
 Der Live-Backend-Container `nurovell_backend` liest seine Datenbankverbindung aus `DATABASE_URL`.
 
-Redacted Runtime-Ergebnis:
+Redacted Runtime-Ergebnis vor Cutover:
 
 ```text
 DATABASE_URL:
@@ -18,6 +18,17 @@ DATABASE_URL:
   host=postgres
   port=5432
   db=nurovell_potential_analysis
+  user=nurovell_potential_user
+```
+
+Redacted Runtime-Ergebnis nach Cutover am 2026-06-15:
+
+```text
+DATABASE_URL:
+  scheme=postgresql
+  host=postgres
+  port=5432
+  db=nurovelle_core
   user=nurovell_potential_user
 ```
 
@@ -77,10 +88,11 @@ Zusaetzlich wurde `nurovelle_core` legacy-kompatibel fuer das aktuelle Backend v
 - Alembic-Version `2026060801` verifiziert
 - Daten aus `nurovell_potential_analysis.public` nach `nurovelle_core.public` kopiert
 - Read-only Backend-Smoke gegen `nurovelle_core` erfolgreich
+- Schreibender Backend-E2E gegen `nurovelle_core` erfolgreich und Testdatensatz bereinigt
 
 ## Wichtige Einschraenkung
 
-Das Backend darf noch nicht blind auf `nurovelle_core` umgestellt werden.
+Das Backend wurde nicht blind umgestellt, sondern nach Backup, Restore-Test, Tabellenabgleich, Preflight und schreibendem E2E auf `nurovelle_core` umgeschaltet.
 
 Grund:
 
@@ -109,7 +121,7 @@ ops.*
 content_system.*
 ```
 
-Eine reine Aenderung von `DATABASE_URL` ist weiterhin nicht freigegeben, obwohl die Legacy-Tabellen inzwischen in `nurovelle_core.public` vorhanden sind. Es fehlen noch Restore-Test und schreibender E2E mit markiertem Testdatensatz.
+Die Live-Aenderung von `DATABASE_URL` ist erfolgt. Restore-Test, schreibender E2E gegen `nurovelle_core`, finaler Live-Smoke und Rollback-Sicherung sind erfolgreich dokumentiert.
 
 ## Empfohlener Migrationspfad
 
@@ -171,7 +183,7 @@ Schema-Export der bestehenden Backend-DB ohne Daten:
 pg_dump --schema-only nurovell_potential_analysis
 ```
 
-Danach entscheiden:
+Naechste technische Entscheidung nach Cutover:
 
-- Legacy-kompatibler Aufbau in `nurovelle_core`
-- oder saubere Model-Migration auf `analysis.*`, `homepage.*`, `ops.*`
+- Legacy-kompatiblen Betrieb in `nurovelle_core.public` stabil beobachten.
+- Spaeter saubere Model-Migration auf `analysis.*`, `homepage.*`, `ops.*` planen.

@@ -34,7 +34,7 @@ Rot    = nicht gebaut oder nicht einsatzbereit
 | Homepage | Gelb | MVP vorhanden; Responsive, DSGVO, Monitoring, Spam-Schutz und Fehlerseiten muessen final geprueft werden |
 | Potenzialanalyse | Gelb/Gruen | API-Flow angebunden und live smoke-getestet; Score-Validierung, Branchenzweige, PDF und Edge Cases brauchen noch Abnahme |
 | Notion Integration | Gelb | Lokale Mapping-Strategie existiert; echte Notion-API-Synchronisation ist noch nicht production ready |
-| Postgres Core | Gelb/Gruen | Zentrale DB `nurovelle_core` ist vorbereitet; Backend-Umschaltung und Betriebskonzept fehlen noch |
+| Postgres Core | Gruen/Gelb | Live-Backend schreibt in `nurovelle_core`; Backup, Rollback, Preflight und schreibender E2E sind geprueft. Saubere Schema-Migration aus `public` nach `analysis.*`/`homepage.*` bleibt offen |
 | Multi-Processor | Gelb | Viele Eingabetypen und E2E-Smokes vorhanden; Betrieb, Fehlerpfade, Monitoring und echte Summarizer-Konfiguration offen |
 | Atomizer | Gelb | Funktionaler deterministischer MVP; noch nicht semantisch/modelgestuetzt |
 | Repurposing Agent | Gelb | Newsletter, Sequenzen, LinkedIn, Karussell und Onepager als MVP; Contentqualitaet noch nicht final marketingreif |
@@ -120,14 +120,16 @@ Vorhanden:
 - zentrale Datenbankstrategie `nurovelle_core`
 - Schemas fuer `homepage`, `analysis`, `content_system`, `ops`
 - Initial-SQL fuer Tabellen und Rollen
+- Legacy-kompatible Runtime-Tabellen in `nurovelle_core.public`
+- Backup, Restore-Test, Read-only-Smoke und schreibender E2E gegen `nurovelle_core`
+- Live-Cutover auf `nurovelle_core`
+- Rollback-Datei und Pre-Cutover-Dump
 - keine n8n-Abhaengigkeit
 
 Offen:
 
-- Backend schreibt noch nicht nachweislich in `nurovelle_core`
-- Runtime-Passwoerter/Secrets muessen serverseitig gesetzt werden
-- Backup-/Restore-Test
-- Migration bestehender Analyse-/Lead-Daten klaeren
+- aktuelle Backend-Models schreiben noch in `nurovelle_core.public`
+- saubere Zielmigration auf `analysis.*`, `homepage.*`, `ops.*`
 - Monitoring fuer DB-Verbindungen und Fehler
 
 ### Multi-Processor

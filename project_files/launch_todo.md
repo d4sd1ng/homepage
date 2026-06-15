@@ -8,8 +8,8 @@
 - [ ] `homepage/index.html` visuell auf Smartphone pruefen.
 - [ ] `homepage/analyse.html` visuell auf Desktop pruefen.
 - [ ] `homepage/analyse.html` visuell auf Smartphone pruefen.
-- [ ] Potenzialanalyse-End-to-End live testen.
-- [ ] Lead-Speicherung nach Analyse live pruefen.
+- [x] Potenzialanalyse-End-to-End live testen.
+- [x] Lead-Speicherung nach Analyse live pruefen.
 - [ ] Newsletter-/Nurturing-Opt-in live pruefen.
 - [x] Analyse-Frontend mit API-Timeout absichern.
 - [x] Analyse-Frontend auf direkte DB-/Secret-Bezuege pruefen.
@@ -64,7 +64,7 @@
 - [x] Statische Homepage per HTTPS pruefen.
 - [x] Nach finaler Root-Aktivierung Live-Seite mit HTTPS pruefen.
 - [ ] Browser-Cache/CDN-Cache nach Deploy beruecksichtigen.
-- [ ] Rollback-Pfad festlegen.
+- [x] Rollback-Pfad festlegen.
 - [ ] Keine Netzwerk-, Tunnel- oder Heimnetz-Aenderungen fuer diesen Launch durchfuehren.
 
 ## Deploy-Status 2026-06-08
@@ -89,3 +89,27 @@
 - `https://nurovelle.de/results/<analysis_id>` bleibt erreichbar.
 - Root-Umstellung erfolgte nur im Frontend-Container.
 - Backend, DB, Firewall, Tunnel und Netzwerkkonfiguration wurden nicht geaendert.
+
+## Backend-DB-Cutover-Status 2026-06-15
+
+- Live-Backend schreibt jetzt in `nurovelle_core`.
+- Alte Datenbank `nurovell_potential_analysis` bleibt als Rollback-Quelle erhalten.
+- Pre-Cutover-Backup:
+  - `/opt/nurovell-potential-analysis/backups/postgres/nurovell_potential_analysis_precutover_20260615_181902.dump`
+- Runtime-Rollback-Datei:
+  - `/opt/nurovell-potential-analysis/compose/.env.vps.pre_nurovelle_core_20260615_181902`
+- Post-Cutover-Preflight erfolgreich:
+  - Backend laeuft
+  - Postgres ist healthy
+  - Runtime DB ist `nurovelle_core`
+  - Tabellen-Counts zwischen alter DB und `nurovelle_core` stimmen ueberein
+  - Live-GETs sind gruen
+- Schreibender Live-E2E erfolgreich:
+  - Fragen geladen
+  - Analyse gestartet
+  - Antworten gespeichert
+  - Score berechnet
+  - Report erzeugt
+  - Lead gespeichert
+- Markierter Testdatensatz wurde danach bereinigt und mit Count `0` verifiziert.
+- Backend-Logs nach Neustart zeigen keine kritischen Fehler.

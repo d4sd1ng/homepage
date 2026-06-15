@@ -142,3 +142,27 @@ Ergaenzt:
 - Alembic-Migrationen zuerst gegen isolierte Testdatenbank und danach gegen `nurovelle_core` erfolgreich ausgefuehrt; Legacy-Tabellen liegen nun in `nurovelle_core.public`.
 - Legacy-Daten serverintern nach `nurovelle_core.public` kopiert; Row-Counts stimmen mit `nurovell_potential_analysis.public` ueberein.
 - Read-only Backend-Smoke gegen `nurovelle_core` erfolgreich: DB-Lesezugriff und API-Fragenzweige `service`, `manufacturing`, `care`.
+- Restore-Test erfolgreich: Backup in temporaere Datenbank eingespielt, Kerncounts geprueft und Restore-Datenbank wieder entfernt.
+- Schreibender Backend-E2E gegen `nurovelle_core` erfolgreich: Fragen, Analyse-Start, Antworten, Score, Report und Lead-Speicherung; markierter Testdatensatz danach bereinigt und Cleanup verifiziert.
+- `project_files/backend_database_cutover_plan.md` ergaenzt: sicherer Ablauf fuer spaetere `DATABASE_URL`-Umschaltung inklusive Pre-Cutover-Backup, Smoke-Test und Rollback.
+
+## 2026-06-15 Backend Cutover auf nurovelle_core
+
+Umgesetzt:
+
+- Geschuetzten Cutover-Preflight `tools/vps_backend_core_preflight.py` ergaenzt.
+- Geschuetzten Cutover-Runner `tools/vps_backend_core_cutover.py` ergaenzt; echte Umschaltung erfordert `--execute --confirm switch-to-nurovelle-core`.
+- Pre-Cutover-Preflight erfolgreich: Backend und Postgres laufen, Live-Backend zeigte vor Cutover auf `nurovell_potential_analysis`, Tabellen-Counts zwischen alter DB und `nurovelle_core` stimmten ueberein, Live-GETs waren gruen.
+- Finaler Pre-Cutover-Dump erstellt: `/opt/nurovell-potential-analysis/backups/postgres/nurovell_potential_analysis_precutover_20260615_181902.dump`.
+- Legacy-Daten-Dump erstellt: `/opt/nurovell-potential-analysis/backups/postgres/nurovell_potential_analysis_legacy_data_20260615_181902.dump`.
+- Runtime-`.env` gesichert: `/opt/nurovell-potential-analysis/compose/.env.vps.pre_nurovelle_core_20260615_181902`.
+- Live-Backend von `nurovell_potential_analysis` auf `nurovelle_core` umgestellt.
+- Post-Cutover-Preflight erfolgreich: Runtime DB ist `nurovelle_core`, Tabellen-Counts stimmen, Live-GETs sind gruen.
+- Schreibender Live-E2E erfolgreich: Fragen, Analyse-Start, Antworten, Score, Report und Lead-Speicherung.
+- Markierter Testdatensatz `readiness-cutover-20260615202145@example.invalid` danach aus `nurovelle_core` bereinigt; Cleanup-Verifikation fuer Lead, Company, Contact, Session, Answers, Score, Report und Notion Jobs jeweils `0`.
+
+Wichtig:
+
+- Alte Datenbank `nurovell_potential_analysis` bleibt als Rollback-Quelle erhalten.
+- Backend nutzt kurzfristig weiter die Legacy-Tabellen in `nurovelle_core.public`.
+- Saubere Migration auf fachliche Schemas `analysis.*`, `homepage.*`, `ops.*` bleibt ein spaeterer Refactoring-Schritt.

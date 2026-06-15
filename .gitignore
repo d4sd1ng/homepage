@@ -73,6 +73,10 @@ jspm_packages/
 # Optional REPL history
 .node_repl_history
 
+# Python generated files
+__pycache__/
+*.py[cod]
+
 # Output of 'npm pack'
 *.tgz
 

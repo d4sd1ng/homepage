@@ -16,7 +16,7 @@ Neue Features wie Sales Agent, Proposal Agent oder Customer Success Agent werden
 |---:|---|---|---|
 | 1 | Homepage | sichtbare Einstiegsstrecke stabilisieren | Homepage Launch-Check bestanden |
 | 2 | Potenzialanalyse | Analyseflow fachlich und technisch absichern | Live-E2E mit Branchen-/Edge-Case-Abdeckung |
-| 3 | Postgres Core | zentralen Schreibpfad klaeren | Backend schreibt kontrolliert in `nurovelle_core` |
+| 3 | Postgres Core | zentralen Schreibpfad klaeren | Backend schreibt live in `nurovelle_core`; Legacy-Schema-Migration bleibt spaeterer Schritt |
 | 4 | Notion Integration | lokale Mappings in echten Sync ueberfuehren | Notion-Seiten werden reproduzierbar erstellt/aktualisiert |
 | 5 | Multi-Processor / Atomizer | Qualitaet messbar machen | Atomizer Evaluation und Fehlerlogging |
 | 6 | Repurposing / Approval | Drafts freigabefaehig machen | Approval-Gate vor Nutzung |
@@ -104,8 +104,8 @@ Tasks:
 - [x] Runtime-DB-Assessment dokumentiert
 - [x] Backup von `nurovell_potential_analysis` erstellen
 - [x] Backup mit `pg_restore --list` pruefen
-- [ ] Runtime-Passwoerter serverseitig setzen
-- [ ] Backend-Konfiguration auf `nurovelle_core` vorbereiten
+- [x] Runtime-Passwoerter serverseitig final pruefen ohne Secrets zu dokumentieren
+- [x] Backend-Konfiguration auf `nurovelle_core` vorbereitet und isoliert getestet
 - [x] Tabellenkompatibilitaet zwischen bestehenden SQLAlchemy-Models und `nurovelle_core` klaeren
 - [x] `project_files/backend_db_compatibility_plan.md` erstellen
 - [x] Entscheidung treffen: Legacy-Tabellen temporaer in `nurovelle_core.public` nutzen
@@ -113,20 +113,28 @@ Tasks:
 - [x] Alembic-Migrationen gegen `nurovelle_core` ausfuehren
 - [x] Legacy-Daten nach `nurovelle_core.public` kopieren
 - [x] Read-only Backend-Smoke gegen `nurovelle_core` ausfuehren
-- [ ] Restore-Test durchfuehren
-- [ ] Schreibenden Backend-E2E mit markiertem Testdatensatz gegen `nurovelle_core` ausfuehren
+- [x] Restore-Test durchfuehren
+- [x] Schreibenden Backend-E2E mit markiertem Testdatensatz gegen `nurovelle_core` ausfuehren
+- [x] Markierten Backend-E2E-Testdatensatz aus `nurovelle_core` bereinigen
+- [x] Rollback-Pfad fuer `DATABASE_URL`-Umschaltung dokumentieren
+- [x] `project_files/backend_database_cutover_plan.md` erstellen
+- [x] Runtime-Umschaltung auf `nurovelle_core` ausfuehren
+- [x] Post-Cutover-Preflight gegen `nurovelle_core` ausfuehren
+- [x] Schreibenden Live-E2E nach Cutover ausfuehren
+- [x] Markierten Live-E2E-Testdatensatz nach Cutover bereinigen
+- [x] Wartungs-/Deploy-Fenster fuer Runtime-Umschaltung festlegen
 - [ ] Schreibpfad fuer `analysis.submissions` testen
 - [ ] Schreibpfad fuer `analysis.answers` testen
 - [ ] Schreibpfad fuer `analysis.results` testen
 - [ ] Schreibpfad fuer `homepage.leads` testen
 - [ ] Schreibpfad fuer `homepage.lead_events` testen
-- [ ] Backup-Befehl dokumentieren
-- [ ] Restore-Test mit Testdump durchfuehren
-- [ ] bestehende DB `nurovell_potential_analysis` auf Migrationsbedarf pruefen
+- [x] Backup-Befehl dokumentieren
+- [x] Restore-Test mit Testdump durchfuehren
+- [x] bestehende DB `nurovell_potential_analysis` auf Migrationsbedarf pruefen
 
 Done:
 
-- Backend schreibt nicht mehr unkontrolliert in getrennte Datenbanken
+- Backend schreibt live in `nurovelle_core.public`; alte Datenbank bleibt als Rollback-Quelle erhalten
 - Runtime-User sind keine Superuser
 - Backup und Restore sind einmal geprueft
 

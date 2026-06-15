@@ -4,11 +4,11 @@ Stand: 2026-06-15
 
 ## Zweck
 
-Dieses Dokument beschreibt, was vor einer Umstellung des Live-Backends von `nurovell_potential_analysis` auf `nurovelle_core` passieren muss.
+Dieses Dokument beschreibt, was fuer die Umstellung des Live-Backends von `nurovell_potential_analysis` auf `nurovelle_core` geprueft wurde und was nach dem Cutover noch offen ist.
 
 Wichtig:
 
-Eine reine Aenderung von `DATABASE_URL` ist aktuell nicht freigegeben.
+Eine reine Aenderung von `DATABASE_URL` war nicht freigegeben. Die Umschaltung wurde erst nach Backup, Restore-Test, Tabellenabgleich, Preflight und schreibendem E2E ausgefuehrt.
 
 ## Ist-Zustand Live-Backend
 
@@ -18,7 +18,7 @@ Runtime:
 Container: nurovell_backend
 DB-Host: postgres
 DB-Container: postgres
-Aktive DB: nurovell_potential_analysis
+Aktive DB: nurovelle_core
 Migration-System: Alembic / Flask-Migrate
 Aktueller Alembic-Stand: 2026060801
 ```
@@ -203,8 +203,8 @@ Fuer MVP/Readiness:
 2. Legacy-Tabellen in `nurovelle_core` mit Alembic aufbauen. Status: erledigt.
 3. Daten aus `nurovell_potential_analysis` in `nurovelle_core` kopieren. Status: erledigt.
 4. Backend in einer Test-/Staging-Session gegen `nurovelle_core` starten. Status: read-only Smoke erledigt.
-5. Schreibenden E2E mit markiertem Testdatensatz pruefen. Status: offen.
-6. Erst danach Runtime-`DATABASE_URL` umstellen. Status: blockiert.
+5. Schreibenden E2E mit markiertem Testdatensatz pruefen. Status: erledigt.
+6. Erst danach Runtime-`DATABASE_URL` umstellen. Status: erledigt am 2026-06-15.
 7. Option B spaeter als kontrollierte Refactoring-/Migrationphase planen. Status: offen.
 
 Grund:
@@ -238,6 +238,16 @@ Status:
 ```
 
 Der Dump wurde mit `pg_restore --list` erfolgreich gelesen.
+
+Restore-Test:
+
+- temporaere Datenbank `nurovell_restore_test_*` erstellt
+- Dump erfolgreich eingespielt
+- Kerncounts verifiziert:
+  - `analysis_sessions`: 8
+  - `analysis_answers`: 336
+  - `leads`: 3
+- temporaere Restore-Datenbank wieder entfernt
 
 ### 3. Alembic gegen `nurovelle_core` testen
 
@@ -313,27 +323,77 @@ Schreibend nur mit bewusstem Testdatensatz:
 
 Status:
 
-- offen
+- erledigt
+
+Ergebnis:
+
+```text
+questions: 200
+analysis_start: 200
+answers: 200
+score: 200
+report: 200
+lead: 201
+```
+
+Verifizierte Schreibcounts im Testlauf:
+
+| Objekt | Count |
+|---|---:|
+| `analysis_sessions` | 1 |
+| `analysis_answers` | 48 |
+| `analysis_scores` | 1 |
+| `analysis_reports` | 1 |
+| `leads` | 1 |
+
+Cleanup:
+
+- markierter Test-Lead entfernt
+- markierte Test-Company entfernt
+- markierter Test-Contact entfernt
+- zugehoerige Analyse-/Answer-/Score-/Report-Zeilen entfernt
+- Cleanup-Verifikation: 0 markierte Test-Leads, 0 markierte Test-Companies, 0 markierte Test-Contacts
 
 ### 6. Umschaltentscheidung
 
-Erst wenn alle Tests gruen sind:
+Status: erledigt am 2026-06-15.
+
+Erst nachdem alle Tests gruen waren, wurde ausgefuehrt:
 
 - `DATABASE_URL` umstellen
 - Backend neu starten
 - Live-Smoke
 - Rollback-Pfad bereithalten
 
+Cutover-Artefakte:
+
+```text
+/opt/nurovell-potential-analysis/backups/postgres/nurovell_potential_analysis_precutover_20260615_181902.dump
+/opt/nurovell-potential-analysis/backups/postgres/nurovell_potential_analysis_legacy_data_20260615_181902.dump
+/opt/nurovell-potential-analysis/compose/.env.vps.pre_nurovelle_core_20260615_181902
+```
+
+Post-Cutover:
+
+- Runtime DB: `nurovelle_core`
+- Live-GETs: gruen
+- Schreibender Live-E2E: erfolgreich
+- Markierter Testdatensatz danach bereinigt und verifiziert
+
 ## Akzeptanzkriterien vor Umschaltung
 
 - Backup von `nurovell_potential_analysis` vorhanden. Status: erledigt.
-- Restore-Test mindestens einmal durchgefuehrt. Status: offen.
+- Restore-Test mindestens einmal durchgefuehrt. Status: erledigt.
 - `nurovelle_core` enthaelt alle Tabellen, die das aktuelle Backend erwartet. Status: erledigt.
 - Alembic-Version in `nurovelle_core` ist konsistent. Status: erledigt.
 - Read-only Backend-Smoke gegen `nurovelle_core` erfolgreich. Status: erledigt.
-- Schreibender E2E mit Testdatensatz erfolgreich. Status: offen.
+- Schreibender E2E mit Testdatensatz erfolgreich. Status: erledigt.
 - Rollback auf alte `DATABASE_URL` dokumentiert
 - keine Secrets in Repo oder Chat dokumentiert
+
+Status:
+
+Alle Kriterien wurden vor dem Cutover erfuellt.
 
 ## Offene Entscheidung
 
