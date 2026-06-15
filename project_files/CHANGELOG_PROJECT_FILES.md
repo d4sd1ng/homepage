@@ -122,3 +122,11 @@ Umgesetzt:
 - Verifiziert: Tabellen in `analysis`, `homepage` und `ops` vorhanden.
 - Verifiziert: Rollen `nurovelle_backend_user`, `nurovelle_readonly_user` und `nurovelle_migration_user` vorhanden.
 - Keine Passwoerter im Repository gespeichert.
+
+## 2026-06-15 Production Readiness Audit
+
+Ergaenzt:
+
+- `project_files/PRODUCTION_READINESS_AUDIT.md` als uebergeordnetes Readiness-Dokument im Homepage-Repo.
+- Bewertet Homepage, Potenzialanalyse, Notion Integration, Postgres Core, Multi-Processor, Atomizer, Repurposing, Approval sowie spaetere Sales-/Proposal-/Customer-Success-Agenten.
+- Festgelegt: Vor neuen Sales-/Proposal-/Customer-Success-Features muessen bestehende gelbe Module produktionsreifer gemacht werden.
