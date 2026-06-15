@@ -395,6 +395,7 @@ h1,h2,h3{font-family:"Bebas Neue",sans-serif;font-weight:400;letter-spacing:.035
 <script>
 const NUROVELLE_API_BASE = window.NUROVELLE_API_BASE || 'https://nurovelle.de/api/v1';
 const NUROVELLE_RESULT_BASE = window.NUROVELLE_RESULT_BASE || 'https://nurovelle.de/results/';
+const NUROVELLE_API_TIMEOUT_MS = Number(window.NUROVELLE_API_TIMEOUT_MS || 20000);
 
 const analysisForm = document.querySelector('#nurovelle-analysis-form');
 const analysisSubmit = document.querySelector('#nurovelle-analysis-submit');
@@ -454,13 +455,26 @@ function setResultState({ title, copy, points, link, error = false }) {
 }
 
 async function apiRequest(path, options = {}) {
-  const response = await fetch(`${NUROVELLE_API_BASE}${path}`, {
-    ...options,
-    headers: {
-      'Content-Type': 'application/json',
-      ...(options.headers || {})
+  const controller = new AbortController();
+  const timeoutId = window.setTimeout(() => controller.abort(), NUROVELLE_API_TIMEOUT_MS);
+  let response;
+  try {
+    response = await fetch(`${NUROVELLE_API_BASE}${path}`, {
+      ...options,
+      signal: controller.signal,
+      headers: {
+        'Content-Type': 'application/json',
+        ...(options.headers || {})
+      }
+    });
+  } catch (error) {
+    if (error?.name === 'AbortError') {
+      throw new Error('Das Analyse-Backend hat nicht rechtzeitig geantwortet. Bitte später erneut versuchen.');
     }
-  });
+    throw error;
+  } finally {
+    window.clearTimeout(timeoutId);
+  }
 
   let payload = null;
   try {
@@ -586,7 +600,7 @@ async function startAnalysis(form) {
   const industry = branchToIndustry[formState.branche] || 'service';
   const resultBase = NUROVELLE_RESULT_BASE.endsWith('/') ? NUROVELLE_RESULT_BASE : `${NUROVELLE_RESULT_BASE}/`;
 
-  analysisSubmit.disabled = true;
+  if (analysisSubmit) analysisSubmit.disabled = true;
   setAnalysisStatus('Analyse wird gestartet...');
 
   try {
@@ -698,7 +712,7 @@ async function startAnalysis(form) {
     });
     setAnalysisStatus('Analyse-Flow fehlgeschlagen.');
   } finally {
-    analysisSubmit.disabled = false;
+    if (analysisSubmit) analysisSubmit.disabled = false;
   }
 }
 

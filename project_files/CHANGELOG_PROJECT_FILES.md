@@ -133,3 +133,12 @@ Ergaenzt:
 - `project_files/PRODUCTION_READINESS_ACTION_PLAN.md` als konkrete Abarbeitungsreihenfolge aus dem Audit ergaenzt.
 - Erste Readiness-Checks dokumentiert: lokale Link-/Asset-Pruefung bestanden, Live-Seiten inkl. Impressum/Datenschutz erreichbar, API-Fragen fuer `service`, `manufacturing` und `care` erreichbar, finale Branchenliste in `index.html` und `analyse.html` synchron.
 - `tools/check_homepage_readiness.py` als reproduzierbarer nicht-schreibender Homepage/API-Readiness-Check ergaenzt und erfolgreich ausgefuehrt.
+- `homepage/analyse.html` um API-Timeout via `AbortController` ergaenzt; Timeout-Fehler werden als Nutzerfehlerzustand angezeigt.
+- Readiness-Check um Frontend-Guardrails erweitert: keine direkten DB-/Secret-Bezuege, Pflichtmarker fuer Timeout, Formularvalidierung, Newsletter-Opt-in und API-Basis.
+- `nurovelle_core` zusaetzlich im Runtime-Postgres-Container `postgres` angelegt und mit `database/migrations/001_nurovelle_core_init.sql` initialisiert.
+- `project_files/backend_postgres_runtime_assessment.md` ergaenzt: Live-Backend nutzt aktuell weiterhin `nurovell_potential_analysis`; direkte Umschaltung auf `nurovelle_core` ist wegen bestehender SQLAlchemy-Models noch nicht freigegeben.
+- `project_files/backend_db_compatibility_plan.md` ergaenzt: Legacy-Tabellen, Alembic-Stand, Datenumfang und empfohlener MVP-Migrationspfad zu `nurovelle_core` dokumentiert.
+- Backup von `nurovell_potential_analysis` im Runtime-Postgres erstellt und mit `pg_restore --list` geprueft.
+- Alembic-Migrationen zuerst gegen isolierte Testdatenbank und danach gegen `nurovelle_core` erfolgreich ausgefuehrt; Legacy-Tabellen liegen nun in `nurovelle_core.public`.
+- Legacy-Daten serverintern nach `nurovelle_core.public` kopiert; Row-Counts stimmen mit `nurovell_potential_analysis.public` ueberein.
+- Read-only Backend-Smoke gegen `nurovelle_core` erfolgreich: DB-Lesezugriff und API-Fragenzweige `service`, `manufacturing`, `care`.

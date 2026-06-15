@@ -151,11 +151,44 @@ def check_live_gets(urls: Iterable[str]) -> list[str]:
     return errors
 
 
+def check_frontend_guardrails() -> list[str]:
+    errors: list[str] = []
+    forbidden_markers = [
+        "postgres://",
+        "postgresql://",
+        "DATABASE_URL",
+        "DB_PASSWORD",
+        "PRIVATE_KEY",
+        "SECRET_KEY",
+        "NOTION_TOKEN",
+        "RESEND_API_KEY",
+    ]
+    for path in HOMEPAGE_DIR.glob("*.html"):
+        text = path.read_text(encoding="utf-8", errors="replace")
+        for marker in forbidden_markers:
+            if marker.lower() in text.lower():
+                errors.append(f"{path.relative_to(ROOT)} contains forbidden frontend marker: {marker}")
+
+    analysis_text = (HOMEPAGE_DIR / "analyse.html").read_text(encoding="utf-8", errors="replace")
+    required_markers = [
+        "AbortController",
+        "NUROVELLE_API_TIMEOUT_MS",
+        "form.reportValidity()",
+        "data.get('newsletter') === 'yes'",
+        "https://nurovelle.de/api/v1",
+    ]
+    for marker in required_markers:
+        if marker not in analysis_text:
+            errors.append(f"homepage/analyse.html missing guardrail marker: {marker}")
+    return errors
+
+
 def main() -> int:
     checks = {
         "local_links_assets": check_local_links(),
         "branch_dropdowns": check_branches(),
         "live_get_endpoints": check_live_gets(LIVE_GET_URLS),
+        "frontend_guardrails": check_frontend_guardrails(),
     }
     passed = all(not errors for errors in checks.values())
     print(json.dumps({"passed": passed, "checks": checks}, indent=2, ensure_ascii=False))

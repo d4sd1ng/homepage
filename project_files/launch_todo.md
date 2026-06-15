@@ -11,6 +11,8 @@
 - [ ] Potenzialanalyse-End-to-End live testen.
 - [ ] Lead-Speicherung nach Analyse live pruefen.
 - [ ] Newsletter-/Nurturing-Opt-in live pruefen.
+- [x] Analyse-Frontend mit API-Timeout absichern.
+- [x] Analyse-Frontend auf direkte DB-/Secret-Bezuege pruefen.
 - [ ] Notion-Integration auf dem VPS aktiv konfigurieren und testen.
 - [ ] Resend/E-Mail-Integration auf dem VPS aktiv konfigurieren und testen.
 - [x] Impressum-Link pruefen.

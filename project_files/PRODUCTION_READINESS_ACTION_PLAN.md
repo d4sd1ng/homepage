@@ -40,9 +40,11 @@ Tasks:
 - [ ] Alle CTAs pruefen
 - [x] Impressum-Link pruefen
 - [x] Datenschutz-Link pruefen
-- [ ] Fehlerverhalten bei API-Ausfall pruefen
-- [ ] Formularvalidierung fuer Pflichtfelder pruefen
-- [ ] Newsletter-Opt-in nur bei aktiv gesetzter Checkbox senden
+- [x] Fehlerverhalten bei API-Ausfall technisch absichern
+- [x] API-Timeout fuer Analyse-Backend setzen
+- [x] Formularvalidierung fuer Pflichtfelder technisch pruefen
+- [x] Newsletter-Opt-in nur bei aktiv gesetzter Checkbox senden
+- [x] Guardrail: keine direkte DB-/Secret-Bezuege im Homepage-Frontend
 - [ ] Spam-Schutz-Entscheidung dokumentieren
 - [ ] Tracking-/Consent-Entscheidung dokumentieren
 - [ ] Mobile Ladezeit pruefen
@@ -71,7 +73,7 @@ Tasks:
 - [x] Nicht-schreibende Live-GET-Pruefung fuer API-Fragenzweige in `tools/check_homepage_readiness.py`
 - [ ] Live-E2E mit gueltigen Formularwerten pruefen
 - [ ] Pflichtfeldfehler pruefen
-- [ ] API-Timeout simulieren oder manuell ausloesen
+- [x] API-Timeout im Frontend implementieren
 - [ ] doppelte E-Mail/Lead-Situation pruefen
 - [ ] Score-Payload fachlich validieren
 - [ ] Report-URL pruefen
@@ -97,8 +99,22 @@ Tasks:
 - [x] `nurovelle_core` auf VPS angelegt
 - [x] Initialmigration ausgefuehrt
 - [x] Tabellen und Rollen verifiziert
+- [x] `nurovelle_core` im Runtime-Postgres-Container angelegt
+- [x] Initialmigration im Runtime-Postgres-Container ausgefuehrt
+- [x] Runtime-DB-Assessment dokumentiert
+- [x] Backup von `nurovell_potential_analysis` erstellen
+- [x] Backup mit `pg_restore --list` pruefen
 - [ ] Runtime-Passwoerter serverseitig setzen
 - [ ] Backend-Konfiguration auf `nurovelle_core` vorbereiten
+- [x] Tabellenkompatibilitaet zwischen bestehenden SQLAlchemy-Models und `nurovelle_core` klaeren
+- [x] `project_files/backend_db_compatibility_plan.md` erstellen
+- [x] Entscheidung treffen: Legacy-Tabellen temporaer in `nurovelle_core.public` nutzen
+- [x] Alembic-Migrationen gegen isolierte Testdatenbank pruefen
+- [x] Alembic-Migrationen gegen `nurovelle_core` ausfuehren
+- [x] Legacy-Daten nach `nurovelle_core.public` kopieren
+- [x] Read-only Backend-Smoke gegen `nurovelle_core` ausfuehren
+- [ ] Restore-Test durchfuehren
+- [ ] Schreibenden Backend-E2E mit markiertem Testdatensatz gegen `nurovelle_core` ausfuehren
 - [ ] Schreibpfad fuer `analysis.submissions` testen
 - [ ] Schreibpfad fuer `analysis.answers` testen
 - [ ] Schreibpfad fuer `analysis.results` testen
