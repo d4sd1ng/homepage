@@ -13,8 +13,8 @@
 - [ ] Newsletter-/Nurturing-Opt-in live pruefen.
 - [ ] Notion-Integration auf dem VPS aktiv konfigurieren und testen.
 - [ ] Resend/E-Mail-Integration auf dem VPS aktiv konfigurieren und testen.
-- [ ] Impressum-Link pruefen.
-- [ ] Datenschutz-Link pruefen.
+- [x] Impressum-Link pruefen.
+- [x] Datenschutz-Link pruefen.
 - [ ] Datenschutzerklaerung gegen Lead-, Notion-, Resend- und Newsletter-Flow pruefen.
 
 ## SEO-Sektion

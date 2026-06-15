@@ -131,3 +131,5 @@ Ergaenzt:
 - Bewertet Homepage, Potenzialanalyse, Notion Integration, Postgres Core, Multi-Processor, Atomizer, Repurposing, Approval sowie spaetere Sales-/Proposal-/Customer-Success-Agenten.
 - Festgelegt: Vor neuen Sales-/Proposal-/Customer-Success-Features muessen bestehende gelbe Module produktionsreifer gemacht werden.
 - `project_files/PRODUCTION_READINESS_ACTION_PLAN.md` als konkrete Abarbeitungsreihenfolge aus dem Audit ergaenzt.
+- Erste Readiness-Checks dokumentiert: lokale Link-/Asset-Pruefung bestanden, Live-Seiten inkl. Impressum/Datenschutz erreichbar, API-Fragen fuer `service`, `manufacturing` und `care` erreichbar, finale Branchenliste in `index.html` und `analyse.html` synchron.
+- `tools/check_homepage_readiness.py` als reproduzierbarer nicht-schreibender Homepage/API-Readiness-Check ergaenzt und erfolgreich ausgefuehrt.

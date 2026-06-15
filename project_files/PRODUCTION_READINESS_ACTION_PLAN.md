@@ -34,9 +34,12 @@ Tasks:
 - [ ] Mobile-Ansicht `homepage/index.html` pruefen
 - [ ] Desktop-Ansicht `homepage/analyse.html` pruefen
 - [ ] Mobile-Ansicht `homepage/analyse.html` pruefen
+- [x] Lokale Link- und Asset-Pruefung fuer `homepage/index.html` und `homepage/analyse.html`
+- [x] Reproduzierbaren nicht-schreibenden Check `tools/check_homepage_readiness.py` anlegen
+- [x] `tools/check_homepage_readiness.py` erfolgreich ausfuehren
 - [ ] Alle CTAs pruefen
-- [ ] Impressum-Link pruefen
-- [ ] Datenschutz-Link pruefen
+- [x] Impressum-Link pruefen
+- [x] Datenschutz-Link pruefen
 - [ ] Fehlerverhalten bei API-Ausfall pruefen
 - [ ] Formularvalidierung fuer Pflichtfelder pruefen
 - [ ] Newsletter-Opt-in nur bei aktiv gesetzter Checkbox senden
@@ -61,10 +64,11 @@ Der Analyseflow muss fuer echte Leads belastbar sein.
 
 Tasks:
 
-- [ ] Fragen fuer `service` laden
-- [ ] Fragen fuer `manufacturing` laden
-- [ ] Fragen fuer `care` laden
-- [ ] Branchenmapping gegen finale Branchenliste pruefen
+- [x] Fragen fuer `service` laden
+- [x] Fragen fuer `manufacturing` laden
+- [x] Fragen fuer `care` laden
+- [x] Branchenmapping gegen finale Branchenliste pruefen
+- [x] Nicht-schreibende Live-GET-Pruefung fuer API-Fragenzweige in `tools/check_homepage_readiness.py`
 - [ ] Live-E2E mit gueltigen Formularwerten pruefen
 - [ ] Pflichtfeldfehler pruefen
 - [ ] API-Timeout simulieren oder manuell ausloesen
@@ -203,5 +207,5 @@ Als naechstes wird Phase 1 gestartet:
 
 1. Homepage lokal und live visuell pruefen.
 2. API-Fehlerverhalten in `homepage/analyse.html` pruefen.
-3. Link- und Datenschutzpfade pruefen.
+3. Formularvalidierung und CTA-Verhalten pruefen.
 4. Ergebnisse in `launch_todo.md` abhaken oder als konkrete Fixes erfassen.
