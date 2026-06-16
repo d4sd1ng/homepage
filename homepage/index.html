@@ -10,7 +10,7 @@
 <meta content="Nurovelle | KI-Automatisierung, SEO-Systeme und Potenzialanalyse" property="og:title"/>
 <meta content="KI-Automatisierung, SEO-Systeme und datenbasierte Prozesse für Unternehmen. Kostenlose Potenzialanalyse starten." property="og:description"/>
 <meta content="https://nurovelle.de/" property="og:url"/>
-<meta content="https://nurovelle.de/assets/hero/nurovelle_logo.png" property="og:image"/>
+<meta content="https://nurovelle.de/assets/hero/1.png" property="og:image"/>
 <meta content="website" property="og:type"/>
 <meta content="summary_large_image" name="twitter:card"/>
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
@@ -1043,6 +1043,15 @@ body.has-sidebar .trust-section .trust-inner { width: 100%; max-width: none; min
   font-weight: 600 !important;
 }
 
+#analyse .hp-field {
+  position: absolute !important;
+  left: -10000px !important;
+  top: auto !important;
+  width: 1px !important;
+  height: 1px !important;
+  overflow: hidden !important;
+}
+
 #analyse .form-note {
   margin-top: 10px !important;
   font-family: Raleway,Arial,sans-serif !important;
@@ -1947,6 +1956,9 @@ body.has-sidebar .trust-section .trust-inner { width: 100%; max-width: none; min
 <select name="zeitaufwand" required=""><option value="">Aktuellen Zeitaufwand auswählen</option><option>unter 5 Stunden pro Woche</option><option>5–10 Stunden pro Woche</option><option>10–25 Stunden pro Woche</option><option>25+ Stunden pro Woche</option></select><select name="datenlage" required=""><option value="">Datenlage auswählen</option><option>E-Mails / Dokumente</option><option>Tabellen / CSV</option><option>CRM / ERP / Fachsystem</option><option>mehrere Quellen</option><option>noch unklar</option></select><textarea name="herausforderung" placeholder="Beschreiben Sie den Prozess, den Sie prüfen möchten: Aufgabe, Zeitaufwand, Datenquellen und aktuelles Problem." required=""></textarea>
 <input autocomplete="tel" name="telefon" placeholder="Telefon optional" type="tel"/>
 <input autocomplete="url" name="website" placeholder="Website optional" type="url"/>
+<div class="hp-field" aria-hidden="true">
+<label>Bitte dieses Feld leer lassen <input autocomplete="off" name="website_confirmation" tabindex="-1" type="text"/></label>
+</div>
 <label class="consent-row">
 <input name="newsletter" type="checkbox" value="yes"/>
 <span><strong>Newsletter und Follow-up-Hinweise erhalten.</strong> Ich möchte passende Hinweise zur Potenzialanalyse per E-Mail erhalten.</span>

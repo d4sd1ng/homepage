@@ -30,10 +30,10 @@ Die Homepage darf keine offensichtlichen Produktionsrisiken mehr haben.
 
 Tasks:
 
-- [ ] Desktop-Ansicht `homepage/index.html` pruefen
-- [ ] Mobile-Ansicht `homepage/index.html` pruefen
-- [ ] Desktop-Ansicht `homepage/analyse.html` pruefen
-- [ ] Mobile-Ansicht `homepage/analyse.html` pruefen
+- [x] Desktop-Ansicht `homepage/index.html` pruefen
+- [x] Mobile-Ansicht `homepage/index.html` pruefen
+- [x] Desktop-Ansicht `homepage/analyse.html` pruefen
+- [x] Mobile-Ansicht `homepage/analyse.html` pruefen
 - [x] Lokale Link- und Asset-Pruefung fuer `homepage/index.html` und `homepage/analyse.html`
 - [x] Reproduzierbaren nicht-schreibenden Check `tools/check_homepage_readiness.py` anlegen
 - [x] `tools/check_homepage_readiness.py` erfolgreich ausfuehren
@@ -45,8 +45,8 @@ Tasks:
 - [x] Formularvalidierung fuer Pflichtfelder technisch pruefen
 - [x] Newsletter-Opt-in nur bei aktiv gesetzter Checkbox senden
 - [x] Guardrail: keine direkte DB-/Secret-Bezuege im Homepage-Frontend
-- [ ] Spam-Schutz-Entscheidung dokumentieren
-- [ ] Tracking-/Consent-Entscheidung dokumentieren
+- [x] Spam-Schutz-Entscheidung dokumentieren
+- [x] Tracking-/Consent-Entscheidung dokumentieren
 - [ ] Mobile Ladezeit pruefen
 - [ ] OpenGraph-Bild final setzen und testen
 
@@ -57,6 +57,9 @@ Done:
 - Formular zeigt bei Fehlern klare Meldungen
 - Datenschutz-/Impressum-Pfade erreichbar
 - keine direkte DB-Verbindung aus dem Frontend
+- Spam-Schutz ist als Honeypot dokumentiert
+- Tracking/Consent ist als "keine aktiven Analyse-/Marketing-Cookies" dokumentiert
+- Homepage ist visuell fuer Desktop und Mobile abgenommen
 
 ## Phase 2: Potenzialanalyse Readiness
 
@@ -71,15 +74,15 @@ Tasks:
 - [x] Fragen fuer `care` laden
 - [x] Branchenmapping gegen finale Branchenliste pruefen
 - [x] Nicht-schreibende Live-GET-Pruefung fuer API-Fragenzweige in `tools/check_homepage_readiness.py`
-- [ ] Live-E2E mit gueltigen Formularwerten pruefen
-- [ ] Pflichtfeldfehler pruefen
+- [x] Live-E2E mit gueltigen Formularwerten pruefen
+- [x] Pflichtfeldfehler pruefen
 - [x] API-Timeout im Frontend implementieren
-- [ ] doppelte E-Mail/Lead-Situation pruefen
-- [ ] Score-Payload fachlich validieren
-- [ ] Report-URL pruefen
-- [ ] Ergebnislink `/results/<analysis_id>` pruefen
-- [ ] `/lead` Call nach Reporterzeugung pruefen
-- [ ] Fehlerlogs fuer gescheiterte Analyse/Lead-Speicherung pruefen
+- [x] doppelte E-Mail/Lead-Situation pruefen
+- [x] Score-Payload fachlich validieren
+- [x] Report-URL pruefen
+- [x] Ergebnislink `/results/<analysis_id>` pruefen
+- [x] `/lead` Call nach Reporterzeugung pruefen
+- [x] Fehlerlogs fuer gescheiterte Analyse/Lead-Speicherung pruefen
 
 Done:
 
@@ -87,6 +90,10 @@ Done:
 - Analyse kann erfolgreich abgeschlossen werden
 - Fehler brechen nicht still ab
 - Lead-Speicherung ist nachvollziehbar
+- Pflichtfelder werden mit 400/VALIDATION_ERROR abgewiesen
+- doppelte `/lead`-Submits erzeugen aktuell separate Leads, also kein automatisches Dedupe
+- Ergebnis-URL `https://nurovelle.de/results/<analysis_id>` liefert 200
+- Backend-Logs zeigen bei Pflichtfeldfehlern keine unkontrollierten 500er mehr
 
 ## Phase 3: Postgres Core Readiness
 

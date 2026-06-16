@@ -170,16 +170,25 @@ def check_frontend_guardrails() -> list[str]:
                 errors.append(f"{path.relative_to(ROOT)} contains forbidden frontend marker: {marker}")
 
     analysis_text = (HOMEPAGE_DIR / "analyse.html").read_text(encoding="utf-8", errors="replace")
+    index_text = (HOMEPAGE_DIR / "index.html").read_text(encoding="utf-8", errors="replace")
+    cookie_text = (HOMEPAGE_DIR / "cookie-hinweis.html").read_text(encoding="utf-8", errors="replace")
     required_markers = [
         "AbortController",
         "NUROVELLE_API_TIMEOUT_MS",
         "form.reportValidity()",
         "data.get('newsletter') === 'yes'",
         "https://nurovelle.de/api/v1",
+        "website_confirmation",
+        "hp-field",
     ]
     for marker in required_markers:
         if marker not in analysis_text:
             errors.append(f"homepage/analyse.html missing guardrail marker: {marker}")
+    for marker in ["website_confirmation", "hp-field"]:
+        if marker not in index_text:
+            errors.append(f"homepage/index.html missing guardrail marker: {marker}")
+    if "[Tracking aktiv: ja/nein einsetzen]" in cookie_text:
+        errors.append("homepage/cookie-hinweis.html contains unresolved tracking placeholder")
     return errors
 
 

@@ -166,3 +166,14 @@ Wichtig:
 - Alte Datenbank `nurovell_potential_analysis` bleibt als Rollback-Quelle erhalten.
 - Backend nutzt kurzfristig weiter die Legacy-Tabellen in `nurovelle_core.public`.
 - Saubere Migration auf fachliche Schemas `analysis.*`, `homepage.*`, `ops.*` bleibt ein spaeterer Refactoring-Schritt.
+
+## 2026-06-16 Analysepflichtfeld-Validierung
+
+Ergaenzt:
+
+- `POST /api/v1/analysis/start` validiert Pflichtfelder jetzt vor dem DB-Flush.
+- Fehlende `contact.email` fuehren jetzt zu `400/VALIDATION_ERROR` statt zu einem `500`.
+- Backend-Service `backend/services/analysis/analysis_service.py` validiert jetzt `company.company_name`, `company.industry`, `contact.first_name`, `contact.last_name` und `contact.email`.
+- `backend/api/routes/analysis_routes.py` gibt bei `ValueError` aus `AnalysisService` nun eine strukturierte 400-Response zurueck.
+- `backend/tests/test_analysis_service_validation.py` deckt die Pflichtfeld-Validierung mit Unit-Checks ab.
+- Live-Analyse-Happy-Path wurde nach dem Fix erneut erfolgreich geprueft; `analysis/start`, `answers`, `score`, `report`, `lead` und `results/<analysis_id>` liefern erwartete Antworten.

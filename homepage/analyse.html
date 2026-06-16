@@ -142,6 +142,7 @@ h1,h2,h3{font-family:"Bebas Neue",sans-serif;font-weight:400;letter-spacing:.035
 .consent-row input{width:auto;flex:0 0 auto;margin-top:2px;accent-color:#d89828}
 .consent-row span{display:block}
 .consent-row strong{display:block;margin-bottom:2px;color:rgba(247,215,122,.92);font-weight:600}
+.hp-field{position:absolute;left:-10000px;top:auto;width:1px;height:1px;overflow:hidden}
 .analysis-status{margin-top:10px;min-height:17px;font-family:"Anca Coder",monospace;font-size:10px;line-height:1.45;letter-spacing:.045em;text-transform:uppercase;color:rgba(247,215,122,.9)}
 .form-note{margin-top:10px;font-family:Raleway,Arial,sans-serif;font-size:9.5px;line-height:1.45;color:rgba(255,255,255,.68)}
 .form-note a{color:#e8b048;text-decoration:underline}
@@ -344,6 +345,9 @@ h1,h2,h3{font-family:"Bebas Neue",sans-serif;font-weight:400;letter-spacing:.035
             <textarea name="herausforderung" placeholder="Beschreiben Sie den Prozess, den Sie prüfen möchten: Aufgabe, Zeitaufwand, Datenquellen und aktuelles Problem." required=""></textarea>
             <input autocomplete="tel" name="telefon" placeholder="Telefon optional" type="tel"/>
             <input autocomplete="url" name="website" placeholder="Website optional" type="url"/>
+            <div class="hp-field" aria-hidden="true">
+              <label>Bitte dieses Feld leer lassen <input autocomplete="off" name="website_confirmation" tabindex="-1" type="text"/></label>
+            </div>
             <label class="consent-row">
               <input name="newsletter" type="checkbox" value="yes"/>
               <span><strong>Newsletter und Follow-up-Hinweise erhalten.</strong> Ich möchte passende Hinweise zur Potenzialanalyse per E-Mail erhalten.</span>
@@ -595,6 +599,11 @@ function hasRequiredFormData(form) {
 
 async function startAnalysis(form) {
   if (!form.reportValidity()) return;
+
+  if (String(new FormData(form).get('website_confirmation') || '').trim()) {
+    setAnalysisStatus('Anfrage konnte nicht verarbeitet werden.');
+    return;
+  }
 
   const formState = getFormState(form);
   const industry = branchToIndustry[formState.branche] || 'service';

@@ -4,15 +4,21 @@
 
 - [x] Homepage-Dateien auf den VPS deployen.
 - [x] Root-Route `/` final auf Homepage umstellen.
-- [ ] `homepage/index.html` visuell auf Desktop pruefen.
-- [ ] `homepage/index.html` visuell auf Smartphone pruefen.
-- [ ] `homepage/analyse.html` visuell auf Desktop pruefen.
-- [ ] `homepage/analyse.html` visuell auf Smartphone pruefen.
+- [x] `homepage/index.html` visuell auf Desktop pruefen.
+- [x] `homepage/index.html` visuell auf Smartphone pruefen.
+- [x] `homepage/analyse.html` visuell auf Desktop pruefen.
+- [x] `homepage/analyse.html` visuell auf Smartphone pruefen.
 - [x] Potenzialanalyse-End-to-End live testen.
 - [x] Lead-Speicherung nach Analyse live pruefen.
+- [x] Pflichtfeldfehler gegen Analyse-Start pruefen.
+- [x] Ergebnislink `https://nurovelle.de/results/<analysis_id>` live pruefen.
+- [x] `/lead` nach Reporterzeugung pruefen.
+- [x] Doppelte `/lead`-Submits beobachten.
 - [ ] Newsletter-/Nurturing-Opt-in live pruefen.
 - [x] Analyse-Frontend mit API-Timeout absichern.
 - [x] Analyse-Frontend auf direkte DB-/Secret-Bezuege pruefen.
+- [x] Spam-Schutz als Honeypot dokumentieren.
+- [x] Tracking-/Consent-Entscheidung dokumentieren.
 - [ ] Notion-Integration auf dem VPS aktiv konfigurieren und testen.
 - [ ] Resend/E-Mail-Integration auf dem VPS aktiv konfigurieren und testen.
 - [x] Impressum-Link pruefen.
@@ -41,8 +47,8 @@
 
 ## Technisches SEO
 
-- [ ] Finales OpenGraph-Bild erstellen.
-- [ ] `og:image` auf finales Bild umstellen.
+- [x] Finales OpenGraph-Bild erstellen.
+- [x] `og:image` auf finales Hero-Bild umstellen.
 - [ ] OpenGraph-Vorschau testen.
 - [ ] LinkedIn-Vorschau testen.
 - [ ] Page Title und Meta Description nach finalem Copy-Review pruefen.
@@ -85,7 +91,7 @@
 - `https://nurovelle.de/` leitet per 307 auf `/homepage/index.html`.
 - `https://nurovelle.de/homepage/index.html` liefert 200.
 - `https://nurovelle.de/homepage/analyse.html` liefert 200.
-- `https://nurovelle.de/assets/hero/nurovelle_logo.png` liefert 200 fuer OpenGraph.
+- `https://nurovelle.de/assets/hero/1.png` liefert 200 fuer OpenGraph.
 - `https://nurovelle.de/results/<analysis_id>` bleibt erreichbar.
 - Root-Umstellung erfolgte nur im Frontend-Container.
 - Backend, DB, Firewall, Tunnel und Netzwerkkonfiguration wurden nicht geaendert.
@@ -113,3 +119,9 @@
   - Lead gespeichert
 - Markierter Testdatensatz wurde danach bereinigt und mit Count `0` verifiziert.
 - Backend-Logs nach Neustart zeigen keine kritischen Fehler.
+- Formular-Honeypot ist aktiv.
+- Cookie-Hinweis nennt keine aktiven Analyse-/Marketing-Cookies.
+- Homepage visuell auf Desktop und Smartphone abgenommen.
+- Analyse-End-to-End ist live geprueft, inklusive Ergebnis-URL und `/lead`.
+- Pflichtfeldfehler bei fehlender Kontakt-E-Mail liefern jetzt `400/VALIDATION_ERROR`.
+- Doppelte `/lead`-Submits erzeugen aktuell separate Leads.
