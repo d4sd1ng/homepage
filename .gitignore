@@ -116,6 +116,7 @@ temp/
 client/public/__manus__/version.json
 
 # Local snapshots and editable design sources
+Bilder/
 nurovelle_current_stand_*/
 nurovelle_current_stand_*.zip
 *.psd
