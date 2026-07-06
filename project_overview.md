@@ -92,6 +92,22 @@ Zweck der Danke-Seite:
 11. Footer
 12. Danke-Seite
 
+## Navigation, Breadcrumbs und Social Buttons
+
+Die Navigation wird nicht mehr blind aus dem Bestand übernommen.
+
+Verbindlich sind:
+
+- klare Desktop-Navigation
+- mobile Navigation mit Burger-Menü
+- Breadcrumbs für Unterseiten und Detailseiten
+- Social Buttons für Portrait-/Kontaktkarte und relevante Kontaktbereiche
+- aktive Zustände, Hover-Zustände und zugängliche Bedienung
+
+Social Buttons folgen der ausgewählten minimalistischen Icon-Referenz: nur das Symbol, keine sichtbaren Textlabels, richtige Plattformfarbe oder freigegebene Nurovelle-kompatible Markenfarb-Variante, Animation per CSS, keine Bildgenerierung.
+
+Bestandselemente dürfen übernommen werden, wenn sie UX, Responsiveness, Conversion, Accessibility, Wartbarkeit und visuelle Konsistenz erfüllen.
+
 ## Detailseiten-Ziel
 
 Es wird eine einzige Detailseiten-Vorlage erstellt.
@@ -149,6 +165,25 @@ Grund:
 - Punkt 7 wie Homepage
 - Punkt 8 wie Card auf Homepage
 - Punkt 10 als rechteckige Kontaktkarte mit rundem Portrait, Social-Media-Icons und Kontaktdaten
+
+
+## Hero-Animation – Prüfstand
+
+Für den Startseiten-Hero sind zwei CSS-first-Animationsvarianten zu prüfen, aber noch nicht final freigegeben:
+
+- Partikel-Orb hinter dem Cube oder als Entstehungseffekt des Cubes
+- maskierter Conic-/Noise-Lichteffekt ohne Text als ruhiger Hintergrund
+
+Der Cube bleibt Hauptmotiv. Text und CTAs bleiben oberste Ebene. Farben werden auf Gold, dunkles Emerald und warmes Licht begrenzt. Cyan, Blau, Violett, Regenbogen- und Neonwirkung bleiben ausgeschlossen.
+
+Final zu prüfen:
+
+- welche Variante den Cube besser zur Geltung bringt
+- ob die Animation dauerhaft läuft oder nur als kurzer Entstehungseffekt genutzt wird
+- ob die Performance auf Desktop stabil bleibt
+- ob Mobile reduziert oder deaktiviert werden muss
+- ob `prefers-reduced-motion` sauber berücksichtigt ist
+
 
 ## Hero-Grafiken Detailseiten
 
@@ -255,3 +290,190 @@ Modern.
 Kontrolliert.
 Nicht verspielt.
 Nicht futuristisch-chaotisch.
+
+## Section-Divider
+
+Für die Homepage werden Section-Divider eingesetzt.
+
+Status:
+- Einsatz verbindlich vorgesehen
+- konkrete Divider-Form noch zu prüfen
+- erste Prüfvariante: schräger SVG-Separator mit zwei überlagerten Flächen
+
+Regeln:
+- Umsetzung per HTML/CSS/SVG
+- keine Bildgenerierung
+- keine fremden Beispiel-Farbwerte übernehmen
+- Nurovelle-Farben verwenden: mattes Schwarz, dunkles Emerald/Petrol, Gold nur als feiner Akzent
+- keine hellgrünen, cyanfarbenen, blauen, violetten, bunten oder neonartigen Divider
+- Divider dürfen keine Inhalte verdecken
+- responsive Verhalten muss geprüft werden
+
+## Section-Divider – Prüfvariante B: Pure-CSS-Angled-Sections
+
+Zusätzlich zur SVG-Separator-Prüfvariante wird eine zweite Divider-/Section-Übergangsvariante geprüft:
+
+- Pure-CSS-Angled-Sections mit `clip-path` und CSS-/SCSS-berechneten Winkeln
+- Einsatz von CSS-Variablen für Winkel, Abstand und Hypotenuse
+- optionaler Einsatz von CSS-Trigonometrie (`tan()`, `cos()`, `atan2()`) nur mit Fallback
+- wechselnde schräge Section-Kanten statt separatem SVG-Divider
+- dezenter Schatten entlang der schrägen Kante möglich
+
+Regeln:
+
+- Der Beispielcode wird nicht 1:1 visuell übernommen.
+- Beispiel-Farben, Demo-Texte, Header-/Footer-Demo und interaktive Codebox werden nicht übernommen.
+- Farben werden auf das Nurovelle-System reduziert: mattes Schwarz, Deep Green, Emerald, dunkles Petrol, Gold nur als feiner Akzent.
+- Browser-Support und Mobile-Verhalten müssen geprüft werden.
+- Falls CSS-Trigonometrie nicht stabil genug ist, wird die SCSS-berechnete Fallback-Variante oder die SVG-Separator-Variante bevorzugt.
+
+## Section-Divider – Prüfvariante C: Diagonal Box / SkewY + Clip-Path
+
+Zusätzlich zu Prüfvariante A und B wird eine dritte Divider-/Section-Übergangsvariante geprüft:
+
+- Diagonal-Box-Technik mit `skewY()` auf einem `::before`-Pseudo-Element
+- Content bleibt horizontal und wird nicht mitverzerrt
+- optionaler `clip-path`-Ansatz für schräge Section-Anschlüsse
+- CSS-Variablen für Winkel, Breite, Padding und Clip-Abstände
+- Berechnung des sicheren Inhaltsbereichs über `tan()` beziehungsweise SCSS-/Fallback-Werte
+
+Wichtig:
+
+- Die Demo-Farben werden nicht übernommen.
+- Die gezeigten Verläufe in Lila, Pink, Cyan oder Blau sind gesperrt.
+- Die Technik wird ausschließlich mit Nurovelle-Farben geprüft: mattes Schwarz, Deep Green, Emerald, dunkles Petrol und Gold nur als feiner Akzent.
+- Demo-Inhalte, Controls, Beispieltexte, Formeln und Illustrationen werden nicht übernommen.
+- Ziel ist nur die technische Section-Übergangslogik.
+
+
+## Breadcrumbs – CSS-Pfeilvariante
+
+Die vom Nutzer bereitgestellte Breadcrumb-Referenz wird als technische Prüfvariante für Unterseiten und Detailseiten aufgenommen.
+
+Verwendung:
+
+- Breadcrumbs als HTML/CSS-Komponente
+- Pfeil-/Chevron-Form über `::after`-Pseudo-Elemente
+- Hover-/Active-Zustände animiert per CSS
+- optional flache Variante ohne schwere Schatten
+- semantische Umsetzung als Navigation mit `aria-label="Breadcrumb"`
+
+Nicht übernehmen:
+
+- Demo-Farben
+- hellgrüner Hover
+- Google-Font-Import
+- Prefixfree-Script
+- Beispieltexte
+- externe Demo-Skripte
+- Nummernkreise als Pflichtbestandteil
+
+Farbregel:
+
+- Hintergrund dunkel: mattes Schwarz, Deep Green, dunkles Petrol
+- aktive oder aktuelle Seite mit Gold-Akzent
+- Hover dezent mit Goldlinie, leichter Aufhellung oder technischem Glow
+- keine Cyan-, Blau-, Lila-, Pastell- oder Neonwirkung
+
+Zusatzreferenz:
+
+- `https://freefrontend.com/css-infographics/` kann bei Bedarf als Inspirationsquelle für CSS-Infografik- und UI-Mikroelemente geprüft werden.
+- Diese Quelle ist keine automatische Designfreigabe und ersetzt nicht das Nurovelle-Farbsystem.
+
+
+## Card-Prüfvariante – Frosted Glass Overlay Cards
+
+Für Cards wird zusätzlich eine vom Nutzer benannte Referenz als technische Prüfoption aufgenommen: Frosted-Glass-Card-Overlay mit Hover-/Tap-Öffnung.
+
+Verwendung möglich für:
+
+- Leistungs-Cards
+- Nutzen-Cards
+- Einsatzbereich-Cards
+- Detailseiten-Cards
+- Download-/Teaser-Cards, falls passend
+
+Verbindlich:
+
+- Umsetzung per HTML/CSS, nicht als Bild
+- Card-Inhalte bleiben echter HTML-Text
+- Hover auf Desktop, Tap/Focus auf Mobile
+- keine fremden Hintergrundbilder
+- keine Demo-Farben und keine Demo-Typografie übernehmen
+- Nurovelle-Farbsystem verwenden
+- Blur-/Glass-Effekt nur dunkel, technisch und kontrolliert
+- Gold nur als feiner Akzent, Kante, Hover-Linie oder aktiver Zustand
+- Lesbarkeit hat Vorrang vor Effekt
+
+Die Variante ist eine Prüfoption und keine finale Festlegung für alle Cards.
+
+## Dashboard-Board-Section-Prüfvariante
+
+Die vom Nutzer benannte CodePen-Referenz `https://codepen.io/josephrexme/pen/oNNpZYJ` wird als mögliche Section- beziehungsweise Board-Variante für technische Darstellungen aufgenommen.
+
+Status: Prüfvariante, nicht final freigegeben.
+
+Mögliche Verwendung:
+
+- technische Section mit Board-/Dashboard-Anmutung
+- Workflow- oder Modulübersicht
+- visuelle Systemarchitektur
+- Prozess-/Analysebereich
+- einzelne Premium-Erklärsektion, sofern sie nicht wie ein fremdes SaaS-Dashboard wirkt
+
+Verbindlich:
+
+- keine Demo-Farben übernehmen
+- keine blauen Hauptflächen
+- keine Beispieltexte, Demo-Logos, Demo-Namen oder Demo-Zahlen übernehmen
+- keine externen Avatar-/Bild-URLs übernehmen
+- Umsetzung per HTML/CSS/SVG
+- keine Bildgenerierung
+- Nurovelle-Farben bleiben verbindlich: mattes Schwarz, Deep Green, Emerald, dunkles Petrol, Gold nur als feiner Akzent
+- Perspektive/3D-Board nur verwenden, wenn Lesbarkeit, Responsiveness und Performance sauber bleiben
+
+
+## CTA-Button-Prüfvariante
+
+Für wichtige CTAs wird eine animierte CSS-Button-Variante geprüft.
+
+Grundlogik:
+
+- Start mit Arrow-/Circle-Reveal-Animation
+- Übergang in haptischen Press-/Button-Base-Zustand möglich
+- nur Bewegungslogik übernehmen
+- keine Demo-Farben übernehmen
+- CTA-Texte bleiben Nurovelle-spezifisch
+
+Farben bleiben Nurovelle-konform: Gold, mattes Schwarz, Deep Green, Emerald und dunkles Petrol.
+
+## CTA-Button-Farbe
+
+Für Primär-CTAs wird eine konkrete Gold-Farbgrundlage geprüft. Grundlage ist die vom Nutzer gelieferte Golden-Button-Logik mit warmem Goldverlauf, Lichtkante, Innenkante und haptischem Press-State. Demo-Text, Demo-Implementierung und übertriebene Glanzwirkung werden nicht übernommen.
+
+## Download-Button / Danke-Zustand – Prüfhinweis
+
+Für Download-CTAs ist eine zusätzliche Interaktionsidee zu prüfen: Ein Downloadbutton transformiert nach erfolgreicher Aktion in einen größeren Danke-Button beziehungsweise Bestätigungszustand.
+
+Status: Prüfhinweis, noch keine finale Referenzquelle gefunden.
+
+Regeln:
+
+- Umsetzung per HTML/CSS/JS, nicht als Bild.
+- Ausgangszustand: klarer Download-CTA.
+- Erfolgszustand: größerer Danke-/Bestätigungsbutton oder bestätigende Buttonfläche.
+- Keine Demo-Farben, keine fremden Texte, keine externe Abhängigkeit.
+- Nurovelle-Farben und Button-Goldlogik bleiben verbindlich.
+- Zustand muss barrierearm, tastaturbedienbar und mobil verständlich sein.
+
+
+## Statuskorrektur – Prüf- und Festlegungsstand UX/CSS-Komponenten 2026-07-02
+
+Aus der letzten Abstimmung gilt:
+
+1. Divider-Auswahl: noch nicht final, muss live geprüft werden.
+2. Button-Animation: bereits bestimmt. Grundlage ist die Arrow-/Circle-Reveal-Logik mit Übergang in Press-Button-Logik und Golden-Button-Farbsystem.
+3. Breadcrumb-Ausführung: bereits bestimmt. Grundlage ist die CSS-Chevron-/Pfeil-Breadcrumb-Logik, angepasst an Nurovelle-Farben, Semantik und Accessibility.
+4. Hero-Animationslösung: noch nicht final, muss live geprüft werden.
+5. Konkrete Zuordnung der Komponenten zu Sections bleibt korrekt als offener Arbeitsschritt.
+6. Prüfung von Temkuri/Zra als Basis beziehungsweise reine Strukturreferenz bleibt korrekt als offener Arbeitsschritt.

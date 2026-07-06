@@ -46,9 +46,9 @@ Regel für den Programmierer:
 Gebaut wird:
 
 - eine responsive Nurovelle-Startseite
-- vorhandener Header
-- vorhandene Sidebar
-- vorhandener Footer
+- geprüfter Header / Navigation
+- geprüfte Sidebar, sofern weiterhin sinnvoll
+- vorhandener Footer, sofern technisch und gestalterisch geeignet
 - Hero-Bereich
 - Sections 2 bis 8 gemäß dieser Datei
 - keine zusätzliche Formular-/Kontaktsektion auf der Startseite
@@ -67,10 +67,10 @@ Nicht bauen:
 
 - keine neue Markenlogik
 - kein neues Farbsystem
-- kein neuer Header
-- kein neuer Footer
-- keine neue Sidebar
-- kein neues Formular
+- kein neuer Header ohne UX-/Responsiveness-Grund
+- kein neuer Footer ohne UX-/Responsiveness-Grund
+- keine neue Sidebar ohne UX-/Responsiveness-Grund
+- kein neues Formular ohne Conversion-/UX-Grund
 - kein Loginbereich
 - kein Kundenportal
 - kein Blogsystem
@@ -248,16 +248,18 @@ Sekundärbutton:
 
 ## 0.10 Header / Footer / Sidebar
 
-Header, Footer und Sidebar werden aus dem vorhandenen Bestand übernommen.
+Header, Footer, Sidebar und Navigation werden nicht mehr blind aus dem vorhandenen Bestand übernommen. Bestandselemente werden geprüft und nur übernommen, wenn sie dem aktuellen Nurovelle-Standard für UX, Responsiveness, Conversion, Accessibility, Wartbarkeit und visuelle Konsistenz entsprechen.
 
 Umsetzungsregel:
 
 - bestehendes Markup übernehmen
-- bestehende Navigation übernehmen
-- bestehendes Verhalten übernehmen
-- nur Links/Anker an diese Datei anpassen
-- keine neue Navigation konzipieren
-- keine neue Sidebar-Logik erfinden
+- bestehende Navigation prüfen, nicht blind übernehmen
+- bestehendes Verhalten nur übernehmen, wenn Desktop und Mobile sauber funktionieren
+- Links/Anker an diese Datei anpassen
+- Mobile Navigation mit Burger-Menü vorsehen
+- Breadcrumbs für Unterseiten und Detailseiten vorsehen
+- Social Buttons in Portrait-/Kontaktkarte und relevante Kontaktbereiche einplanen
+- Sidebar-Logik nur übernehmen, wenn sie mobile Navigation nicht ersetzt oder verschlechtert
 
 Wenn der vorhandene Code nicht verfügbar ist, darf der Programmierer **nicht frei neu entwerfen**, sondern muss dies als fehlende Quelle markieren.
 
@@ -271,9 +273,9 @@ Verbindlich:
 
 - Zielseite: `analyse.html`
 - keine neuen Felder
-- Formular in `analyse.html`logik aus `analyse.html` übernehmen
-- keine neue Inhaltsplanung
-- bestehende Formularverarbeitung/API-Logik aus `analyse.html` übernehmen
+- technische Formular-/API-Grundlage aus `analyse.html` übernehmen
+- Formular-UX, Feldstruktur, Microcopy, mobile Darstellung und Nutzerführung conversion-orientiert prüfen und bei Bedarf verbessern
+- bestehende Formularverarbeitung/API-Logik aus `analyse.html` erhalten, sofern keine Freigabe zur technischen Änderung vorliegt
 - nach erfolgreichem Absenden Success-/Error-Zustand in `analyse.html` verwenden; keine separate `danke.html` erstellen
 
 Technisch zu prüfen:
@@ -283,7 +285,7 @@ Technisch zu prüfen:
 - Fehlermeldungen sind mobil lesbar
 - Erfolgsmeldung oder Weiterleitung funktioniert
 
-Wenn die bestehende Formularlogik nicht verfügbar ist, muss sie als fehlende Quelle markiert werden. Nicht frei neu konzipieren.
+Wenn die bestehende Formularlogik nicht verfügbar ist, muss sie als fehlende Quelle markiert werden. UX-Verbesserungen sind erlaubt; technische API-Neukonzeption nur nach Freigabe.
 
 ---
 
@@ -345,8 +347,9 @@ Dabei gilt:
 
 - keine Layoutänderung ohne Freigabe
 - keine Textkürzung ohne Freigabe
-- keine neue Navigationslogik ohne Freigabe
-- keine neuen Formularfelder in `analyse.html` ohne Freigabe ohne Freigabe
+- keine neue Marken- oder Farblogik ohne Freigabe
+- Navigation darf verbessert werden, wenn UX, Mobile, Breadcrumbs oder Burger-Menü dies erfordern
+- keine neuen Formularfelder in `analyse.html` ohne Freigabe
 - keine Farbstiländerung ohne Freigabe
 
 ### Bekannte Bestandscode-Hinweise
@@ -407,7 +410,7 @@ Regel:
 Die Startseite gilt als umgesetzt, wenn:
 
 - alle Sections 1–9 vorhanden sind
-- Header, Sidebar, Footer übernommen sind
+- Header, Navigation, Burger-Menü, Breadcrumb-Logik, Sidebar und Footer geprüft und passend umgesetzt sind
 - alle CTAs korrekt verlinken
 - Downloadbereich vorhanden ist
 - kein zusätzlicher Startseiten-Kontaktbereich gebaut wird und alle Potenzialanalyse-CTAs auf `analyse.html` zeigen
@@ -574,10 +577,12 @@ Hauptziel der Startseite:
 
 Bestandsbereiche:
 
-- Header: 1:1 übernehmen
-- Footer: 1:1 übernehmen
-- Seitenleiste: 1:1 übernehmen
-- Analyse-/Formularflow: aus `analyse.html` übernehmen; auf Startseite kein zusätzlicher Formularbereich
+- Header / Navigation: prüfen und passend übernehmen oder verbessern
+- Mobile Navigation: Burger-Menü vorsehen
+- Breadcrumbs: für Unterseiten und Detailseiten vorsehen
+- Footer: prüfen und passend übernehmen
+- Seitenleiste: prüfen; nicht als Ersatz für mobile Navigation verwenden
+- Analyse-/Formularflow: technische Grundlage aus `analyse.html` übernehmen; UX conversion-orientiert prüfen; auf Startseite kein zusätzlicher Formularbereich
 
 ---
 
@@ -638,6 +643,160 @@ Von der Potenzialanalyse über Prompt Engineering und MCP bis zur Umsetzung maß
 - keine Badge-Leiste
 - keine zusätzlichen Fakten
 - Hero-Text nicht mehr ändern
+
+
+### Hero-Cube-Hintergrundanimation – Prüfvarianten, noch nicht final
+
+Für den Startseiten-Hero werden aktuell **zwei CSS-/SCSS-basierte Animationsvarianten** geprüft. Diese Entscheidung ist **noch nicht final**, weil zuerst getestet werden muss, welche Variante den Cube, Hero-Text und CTA visuell besser unterstützt.
+
+Ziel:
+
+- Cube bleibt zentrales Hero-Visual.
+- Animation erzeugt technische Tiefe.
+- Keine Animation darf Text, CTA oder Lesbarkeit stören.
+- Umsetzung erfolgt CSS-first per HTML/CSS/SCSS, nicht als GIF, Video oder generiertes Hintergrundbild.
+
+#### Variante A – Partikel-Orb hinter dem Cube
+
+Mögliche Verwendung:
+
+- als räumlicher Partikel-Orb hinter dem Cube
+- alternativ als Entstehungs-/Aufbau-Effekt, aus dem der Cube visuell hervorgeht
+
+Zu prüfen:
+
+- wirkt der Orb hinter dem Cube hochwertig oder unruhig?
+- kommt der Cube besser zur Geltung, wenn die Partikel den Cube nur rahmen?
+- ist ein kurzer Entstehungseffekt besser als eine dauerhafte Rotation?
+- bleibt der Hero auf Mobile ruhig genug?
+
+Regeln:
+
+- Partikel-Layer hinter dem Cube platzieren.
+- Cube bleibt visuell führend.
+- Text und CTAs liegen oberhalb von Cube und Animation.
+- Partikel-Layer ohne Interaktion: `pointer-events: none;`.
+- Farben an Nurovelle anpassen: Gold, dunkles Emerald, warmes Licht.
+- Kein Cyan, kein Blau, kein Violett, kein Regenbogen-/Neon-Look.
+- Desktop kann mit bis zu 300 Partikeln arbeiten, sofern Performance stabil bleibt.
+- Tablet/Mobile: Partikelanzahl reduzieren oder Effekt deaktivieren, wenn Lesbarkeit oder Performance leiden.
+- `prefers-reduced-motion` muss die Bewegung stark reduzieren oder deaktivieren.
+
+Empfohlene Layer-Reihenfolge für Variante A:
+
+```text
+Hero-Hintergrund
+→ Partikel-Orb `.hero-orb`
+→ Cube / Hero-Visual
+→ Hero-Text und CTAs
+```
+
+Technischer Hinweis:
+Die vorliegende Vorlage ist SCSS/Haml/Pug-artig und muss vor produktivem Einsatz in normales HTML/CSS kompiliert oder in das bestehende Build-System integriert werden.
+
+Ausgangslogik Variante A:
+
+```scss
+$total: 300;
+$orb-size: 100px;
+$particle-size: 2px;
+$time: 14s;
+$base-hue: 0;
+
+.wrap {
+  position: relative;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  transform-style: preserve-3d;
+  perspective: 1000px;
+  animation: rotate $time infinite linear;
+}
+
+@keyframes rotate {
+  100% {
+    transform: rotateY(360deg) rotateX(360deg);
+  }
+}
+
+.c {
+  position: absolute;
+  width: $particle-size;
+  height: $particle-size;
+  border-radius: 50%;
+  opacity: 0;
+}
+```
+
+#### Variante B – Maskierter Conic-/Noise-Lichteffekt ohne Text
+
+Mögliche Verwendung:
+
+- als abstrakter, maskierter Licht-/Punkt-Hintergrund hinter dem Cube
+- als ruhigerer technischer Flächeneffekt statt 3D-Partikel-Orb
+- ohne Textbestandteil; vorhandener Beispiel-`h1`-Code wird nicht übernommen
+
+Zu prüfen:
+
+- wirkt der maskierte Conic-/Noise-Effekt ruhiger und hochwertiger als der Orb?
+- lässt sich die Farbigkeit sauber auf Gold/Emerald reduzieren?
+- unterstützt der Effekt den Cube, ohne eigenständige Aufmerksamkeit zu ziehen?
+- ist die Browserunterstützung für `mask` / `mask-composite` ausreichend?
+
+Regeln:
+
+- Kein Beispieltext, kein großes `h1`, keine Textanimation.
+- Keine externen Font-Abhängigkeiten aus CodePen übernehmen.
+- Externe Masken-/Noise-Dateien lokal speichern oder durch eigene lokale Assets ersetzen.
+- Conic-Farben an Nurovelle anpassen: Gold, dunkles Emerald, warmes Licht, sehr dunkle Basis.
+- Rot, Blau, Cyan, Türkis und Regenbogenwirkung aus dem Beispiel entfernen.
+- Effekt nur als Hintergrund-/Lichtebene verwenden.
+- `prefers-reduced-motion` berücksichtigen.
+
+Ausgangslogik Variante B, bereinigt um Text:
+
+```css
+:root {
+  --size: 20px;
+}
+
+.hero-mask-effect {
+  background: conic-gradient(
+    from 180deg at 50% 70%,
+    rgba(245, 247, 244, 0.90) 0deg,
+    #D4AF37 72deg,
+    #112A20 180deg,
+    #EDC967 288deg,
+    rgba(245, 247, 244, 0.90) 1turn
+  );
+  width: 100%;
+  height: 100%;
+  mask:
+    radial-gradient(circle at 50% 50%, white 2px, transparent 2.5px) 50% 50% / var(--size) var(--size),
+    url("assets/effects/noise-mask.png") 256px 50% / 256px 256px;
+  mask-composite: intersect;
+  animation: hero-mask-flicker 20s infinite linear;
+  pointer-events: none;
+}
+
+@keyframes hero-mask-flicker {
+  to {
+    mask-position: 50% 50%, 0 50%;
+  }
+}
+```
+
+#### Status
+
+Noch nicht final freigegeben.
+
+Final zu entscheiden nach visueller Prüfung:
+
+1. Variante A als dauerhafter Orb hinter dem Cube.
+2. Variante A als kurzer Cube-Entstehungseffekt.
+3. Variante B als ruhiger maskierter Hintergrund.
+4. Kombination aus beiden nur, wenn Performance, Lesbarkeit und Premium-Wirkung eindeutig besser sind.
 
 ---
 
@@ -1577,3 +1736,648 @@ Diese Punkte sind keine neuen Konzeptfragen, sondern reine Quellen-/Bestandsfrag
 - `shared-header-footer.css` liegt vor und ist nicht mehr als fehlende Datei zu behandeln.
 
 Diese Punkte blockieren die Übergabe nicht mehr pauschal. Sie sind bei der Umsetzung als Prüfhinweise zu behandeln.
+
+---
+
+## 18. Ergänzung 2026-07-02 – Navigation, Breadcrumbs, Burger-Menü, Social Buttons und Formular-UX
+
+Diese Ergänzung korrigiert die bisherige pauschale Bestandsübernahme.
+
+### 18.1 Bestand nicht blind übernehmen
+
+Header, Sidebar, Navigation und Formularlogik werden nicht mehr automatisch als final bewertet.
+
+Bestandselemente dürfen übernommen werden, wenn sie folgende Kriterien erfüllen:
+
+- UX
+- Responsiveness
+- Conversion
+- Accessibility
+- Wartbarkeit
+- visuelle Konsistenz mit Nurovelle
+
+Wenn Bestandselemente diese Kriterien nicht erfüllen, dürfen sie verbessert oder ersetzt werden, ohne neue Markenlogik, neue Farben oder fremde Template-Stile einzuführen.
+
+### 18.2 Navigation
+
+Verbindlich:
+
+- klare Desktop-Navigation
+- sichtbarer Haupt-CTA
+- aktive Navigationszustände
+- Hover- und Focus-Zustände
+- konsistente Linklogik
+- ausreichend große Tap-Flächen
+- keine überladene Sidebar als Ersatz für mobile Navigation
+
+### 18.3 Mobile Burger-Menü
+
+Für Mobile ist ein echtes Burger-Menü vorzusehen.
+
+Mindestanforderungen:
+
+- semantischer Button
+- `aria-expanded`-Zustand
+- sichtbarer Open-/Close-Zustand
+- Menü darf keine Links abschneiden
+- CTA im mobilen Menü sichtbar
+- Impressum und Datenschutz erreichbar
+- sinnvolle Tastatur- und Fokusbedienung
+
+### 18.4 Breadcrumbs
+
+Breadcrumbs sind für Unterseiten und Detailseiten verbindlich vorzusehen.
+
+Geltungsbereich:
+
+- Detailseiten
+- Analyse-Seite
+- Praxisleitfaden-/Download-Seite
+- spätere SEO-/Leistungsseiten
+
+Die Startseite benötigt keine Breadcrumbs.
+
+Breadcrumbs werden semantisch als Navigation umgesetzt und nicht als rein dekoratives Element.
+
+### 18.5 Social Buttons
+
+Social Buttons sind für Portrait-/Kontaktkarte und relevante Kontaktbereiche vorzusehen.
+
+Verbindliche Vorgabe aus der ausgewählten Referenz:
+
+- Stil: reine Social-Media-Symbole auf dunklem Hintergrund
+- keine sichtbaren Textlabels im Button
+- keine Bildgenerierung für Social Icons
+- Umsetzung als SVG, Inline-SVG oder sauber eingebundene Icon-Bibliothek
+- Symbolfarbe in der richtigen Plattformfarbe oder in einer freigegebenen Nurovelle-kompatiblen Markenfarb-Variante
+- keine weißen Standard-Symbole als finale Lösung, wenn die Plattformfarbe gefordert ist
+- gleiche Icongröße, gleiche Grundlinie, gleiche optische Gewichtung
+- ausreichend große Tap-Fläche, auch wenn nur das Symbol sichtbar ist
+- Barrierefreiheit über `aria-label` je Link
+
+Animation:
+
+- per CSS/JS, nicht als GIF, Video oder gerendertes Bild
+- dezente Animation bei Hover/Focus: leichtes Anheben, Skalierung, Glow, Linienimpuls oder kurzer Farbimpuls
+- Animation darf nicht verspielt wirken
+- keine Regenbogen-, Neon-, Bounce- oder Comic-Wirkung
+- `prefers-reduced-motion` berücksichtigen
+
+Plattformen werden nur eingebunden, wenn reale Ziel-URLs vorhanden sind. Platzhalterlinks sind nicht final zulässig.
+
+### 18.6 Formular-UX
+
+Die bestehende `analyse.html` bleibt technische Grundlage für API-Flow, Datenschutz-/Einwilligungshinweis, Honeypot, Success-/Error-Zustände und Lead-Erfassung.
+
+UX, Feldstruktur, Microcopy, mobile Darstellung und Nutzerführung dürfen verbessert werden, wenn dadurch Conversion und Bedienbarkeit steigen.
+
+Nicht erlaubt:
+
+- Datenschutz-/Einwilligungshinweis entfernen
+- API-Endpunkte ohne Freigabe ändern
+- Honeypot entfernen
+- neue Markenlogik oder fremde Template-Stile übernehmen
+
+
+---
+
+## 19. Section-Divider
+
+Für die Startseite sind Section-Divider verbindlich vorgesehen. Die finale Divider-Form ist noch nicht freigegeben und muss visuell geprüft werden.
+
+### 19.1 Prüfvariante A – Schräger SVG-Separator
+
+Der vom Nutzer gelieferte Code dient als technische Vorlage für eine erste Divider-Variante:
+
+- Section mit `position: relative`
+- Divider-Container absolut am unteren Section-Rand
+- SVG über volle Breite
+- zwei überlagerte `path`-Flächen
+- Mobile-Anpassung über breitere SVG-Fläche, Versatz und Rotation möglich
+
+Beispielprinzip:
+
+```html
+<div class="section section--one">
+  <!-- Section-Inhalt -->
+
+  <div class="section-divider section-divider--diagonal" aria-hidden="true">
+    <svg class="section-divider__svg" width="100%" height="400" viewBox="0 0 100 100" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M 100 100 V 10 L 0 100" />
+      <path d="M 30 73 L 100 18 V 10 Z" />
+    </svg>
+  </div>
+</div>
+```
+
+### 19.2 Farbregeln
+
+Die Farben aus dem Beispielcode werden nicht übernommen.
+
+Nicht übernehmen:
+
+- `#5FC18B`
+- `#44A36F`
+- `#308355`
+- helle Grünflächen
+
+Stattdessen verwenden:
+
+- `--color-black`
+- `--color-matte-black`
+- `--color-deep-green`
+- `--color-emerald`
+- `--color-teal-dark`
+- Gold nur als sehr feiner Akzent, Linie, Glow oder zweite Ebene
+
+### 19.3 Umsetzungsregeln
+
+Verbindlich:
+
+- Divider per HTML/CSS/SVG umsetzen
+- keine Divider als Bild, GIF, Video oder KI-generiertes Asset
+- keine zusätzlichen Texte im Divider
+- Divider nicht als neue Markenform interpretieren
+- z-index sauber unter Inhalt und über Hintergrund setzen
+- Inhalt, Cards, CTAs und Hero-Visuals dürfen nicht verdeckt werden
+- Mobile gesondert prüfen
+- horizontales Scrollen vermeiden
+- `overflow-x: hidden` nur kontrolliert auf geeigneter Wrapper-Ebene einsetzen
+- Animation nur dezent und nur nach Performance-Prüfung
+- `prefers-reduced-motion` berücksichtigen, falls animiert
+
+### 19.4 Status
+
+Status: Prüfvariante.
+
+Noch zu entscheiden:
+
+1. Welche Sections Divider erhalten.
+2. Ob der schräge SVG-Divider final genutzt wird.
+3. Ob weitere Divider-Varianten geprüft werden.
+4. Ob Divider statisch oder dezent animiert eingesetzt werden.
+
+### 19.6 Prüfvariante B – Pure-CSS-Angled-Sections
+
+Der vom Nutzer gelieferte Code „Pure CSS angled sections“ wird als zweite Divider-/Section-Übergangsvariante aufgenommen.
+
+Ziel:
+
+- Sections selbst mit schrägen Kanten ausführen
+- Übergänge ohne Bildassets erzeugen
+- CSS-FIRST-Regel konsequent anwenden
+- technische Tiefe durch kontrollierte Section-Geometrie erzeugen
+
+Technische Grundlage:
+
+- `clip-path: polygon(...)` für schräge Section-Kanten
+- CSS-Variablen für Winkel, vertikalen Ausgleich und Kantenlänge
+- SCSS-Berechnung mit `math.tan()` und `math.cos()` möglich
+- native CSS-Trigonometrie (`tan()`, `cos()`, `atan2()`) nur mit `@supports` und Fallback
+- optionaler Schatten entlang der schrägen Kante über Pseudo-Element
+
+Nicht übernehmen:
+
+- Demo-Header
+- Demo-Footer
+- Demo-Texte
+- Support-Hinweisboxen
+- interaktive `contentEditable`-Codebox
+- bunte Beispielverläufe
+- externe Links aus dem Demo-Code
+
+Nurovelle-Anpassung:
+
+- Section-Hintergründe nur in mattem Schwarz, Deep Green, Emerald und dunklem Petrol
+- Gold nur als dezente Kantenlinie, Shadow-Akzent oder Highlight
+- keine Cyan-, Blau-, Violett-, Pastell-, Regenbogen- oder Neonwirkung
+- Überschriften nicht automatisch rotieren; Lesbarkeit und Premium-Wirkung haben Vorrang
+
+Prüfpflicht:
+
+- Desktop, Tablet und Mobile testen
+- horizontales Scrollen verhindern
+- Lesbarkeit von Section-Inhalten prüfen
+- CTA- und Card-Überdeckung ausschließen
+- Browser-Support prüfen
+- bei instabilem Verhalten auf Prüfvariante A oder statische SCSS-Fallback-Werte wechseln
+
+Status:
+
+- Prüfvariante B ist aufgenommen.
+- Keine finale Freigabe.
+- Finale Entscheidung erst nach visueller und technischer Gegenprüfung gegen SVG-Separator-Variante A.
+
+### 19.7 Prüfvariante C – Diagonal Box / SkewY + Clip-Path
+
+Der vom Nutzer gelieferte Code „Pure CSS Diagonal Layouts / Diagonal Box“ wird als dritte Divider-/Section-Übergangsvariante aufgenommen.
+
+Ziel der Variante:
+
+- schräge Section-Hintergründe ohne Bildasset
+- Hintergrund wird über Pseudo-Elemente transformiert
+- eigentlicher Content bleibt unverzerrt, horizontal und lesbar
+- sichere Content-Abstände werden über CSS-Variablen und Winkelberechnung gesteuert
+
+Technische Bestandteile, die geprüft werden dürfen:
+
+```css
+:root {
+  --width: min(100vw, 42rem);
+  --full-width: 100vw;
+  --angle: -11deg;
+  --abs-angle: max(var(--angle), var(--angle) * -1);
+  --tan-alpha: tan(var(--abs-angle));
+  --skew-padding: calc(var(--width) * var(--tan-alpha) / 2);
+  --clip-padding: calc(var(--full-width) * var(--tan-alpha) / 2);
+}
+
+.diagonal-box {
+  position: relative;
+  padding: var(--skew-padding) 0;
+  margin-top: -1px;
+}
+
+.diagonal-box::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  transform: skewY(var(--angle));
+  transform-origin: 50% 0;
+  backface-visibility: hidden;
+}
+
+.diagonal-box__content {
+  max-width: var(--width);
+  margin: 0 auto;
+  padding: 1.5em;
+  position: relative;
+}
+```
+
+Optional zu prüfen:
+
+```css
+.clip-path-section {
+  position: relative;
+  margin-top: calc((var(--clip-padding) * -1) - 2px);
+  padding: calc((var(--clip-padding) * 2) - (var(--clip-padding) - var(--skew-padding))) 0 4em;
+  clip-path: polygon(0% calc(var(--clip-padding) * 2), 100% 0%, 100% 100%, 0% 100%);
+}
+```
+
+Nicht übernehmen:
+
+- keine Demo-Farben
+- keine Lila-, Pink-, Cyan-, Blau-, Pastell-, Regenbogen- oder Neon-Verläufe
+- keine Playground-Controls
+- keine Demo-Texte
+- keine Beispiel-Formeln
+- keine illustrativen Demo-SVGs
+- keine fremden Links oder Tutorial-Hinweise
+- keine 1:1-Übernahme der Demo-Präsentationsstyles
+
+Nurovelle-Anpassung:
+
+- Hintergründe ausschließlich aus dem bestehenden Nurovelle-System ableiten
+- mattes Schwarz, Deep Green, Emerald und dunkles Petrol als Basis
+- Gold nur als feine Lichtkante, Divider-Akzent, Hover-Verstärkung oder sehr schmale Linie
+- Content, CTAs, Cards und Navigation dürfen nicht verzerrt werden
+- Mobile muss geprüft werden; bei instabiler Wirkung auf SVG-Separator oder einfachere statische Divider zurückfallen
+
+Aktueller Status:
+
+- Prüfvariante A: SVG-Schräg-Divider
+- Prüfvariante B: Pure-CSS-Angled-Sections mit `clip-path` und CSS-/SCSS-Winkelberechnung
+- Prüfvariante C: Diagonal Box / `skewY()` + optional `clip-path`
+
+Finale Divider-Auswahl bleibt offen, bis die Varianten visuell und technisch nebeneinander geprüft wurden.
+
+
+### 18.7 Breadcrumb-Prüfvariante – CSS-Pfeil-/Chevron-Leiste
+
+Die vom Nutzer bereitgestellte Breadcrumb-Referenz wird als technische Prüfvariante für Unterseiten und Detailseiten aufgenommen.
+
+Ziel:
+
+- Orientierung auf Detailseiten und Unterseiten verbessern
+- visuell klare Pfadstruktur schaffen
+- Breadcrumbs als echte Navigation umsetzen
+- kein zusätzliches Bildasset erzeugen
+
+Technische Grundlage der Referenz:
+
+- `.breadcrumb` als Wrapper
+- Links horizontal angeordnet
+- Pfeil-/Chevron-Form über rotiertes `::after`-Pseudo-Element
+- Active-/Hover-Zustand pro Link
+- optionale flache Variante
+- CSS-Transition für Animation
+
+Verbindliche Anpassung für Nurovelle:
+
+- keine Demo-Farben übernehmen
+- keine hellgrünen Hoverflächen
+- kein Google-Font-Import aus der Demo
+- kein Prefixfree-Script
+- keine externen Demo-Skripte
+- keine Beispieltexte übernehmen
+- Nummernkreise sind nicht Pflicht und nur nach späterer Freigabe einzusetzen
+- semantisch als `<nav class="breadcrumb" aria-label="Breadcrumb">` umsetzen
+- aktuelle Seite per `aria-current="page"` markieren
+- ausreichend große Tap-Flächen auf Mobile
+
+Farb- und Stilregeln:
+
+- Grundfläche: mattes Schwarz, Deep Green oder dunkles Petrol
+- Text: hell oder gedämpft
+- aktueller Zustand: Goldkante, Goldlinie oder dezenter Gold-Glow
+- Hover: leichte Aufhellung, technische Kantenanimation oder kurzer Goldimpuls
+- keine Cyan-, Blau-, Lila-, Pastell-, Regenbogen- oder Neonwirkung
+
+Animation:
+
+- dezent
+- keine Bounce-Animation
+- keine Comic-Wirkung
+- keine starken Farbwechsel
+- `prefers-reduced-motion` berücksichtigen
+
+Einsatz:
+
+- Startseite braucht keine Breadcrumbs.
+- Detailseiten und Unterseiten sollen Breadcrumbs erhalten.
+- Breadcrumbs dürfen nicht die Hauptnavigation ersetzen.
+
+Optionale Inspirationsquelle:
+
+- `https://freefrontend.com/css-infographics/` darf bei Bedarf für CSS-Infografik- und Mikrointeraktionsideen geprüft werden.
+- Keine automatische Übernahme; jede gefundene Idee muss gegen Nurovelle-Stil, CSS-FIRST-Regel, Accessibility und Responsiveness geprüft werden.
+
+
+### 18.8 Card-Prüfvariante – Frosted Glass Overlay
+
+Die vom Nutzer benannte CodePen-Referenz „Frosted glass card overlay“ wird als technische Card-Prüfvariante aufgenommen.
+
+Technische Grundlage der Referenz:
+
+- `.card` als visuelle Card-Fläche
+- `.info` als einfahrende Informationsfläche
+- Hover öffnet die Infofläche per `transform: translateY(...)`
+- optionaler Blur-Effekt über Pseudo-Element
+- CSS-Transition für Öffnen/Schließen
+
+Mögliche Verwendung in Nurovelle:
+
+- Leistungs-Cards in Section 5
+- Nutzen-Cards auf Detailseiten
+- Einsatzbereich-Cards
+- Download-/Teaser-Cards
+- einzelne hervorgehobene Informationskarten
+
+Verbindliche Anpassung:
+
+- keine externen Demo-Bilder übernehmen
+- keine Unsplash- oder Fremdbild-URLs verwenden
+- keine Demo-Farben übernehmen
+- keine Demo-Schriften übernehmen
+- keine hellen weißen Overlayflächen als Standard, falls sie den Dark-Premium-Stil brechen
+- Card-Inhalte als echter HTML-Text, nicht im Bild
+- Desktop: Hover zulässig
+- Mobile: Tap-/Focus-Zustand erforderlich
+- Tastaturbedienung und sichtbarer Focus-State erforderlich
+- `prefers-reduced-motion` berücksichtigen
+- Textkontrast prüfen
+
+Nurovelle-Farbführung:
+
+- Grundfläche: mattes Schwarz / Deep Green / dunkles Petrol
+- Overlay: dunkles Glas, dunkles Emerald oder petrolfarbener Blur
+- Akzent: Gold nur als Linie, feine Kante, Hover-Glow oder aktiver Zustand
+- kein Cyan, Blau, Violett, Pastell, Regenbogen oder Neon
+
+Status:
+
+Diese Card-Logik ist eine Prüfvariante. Sie wird nur eingesetzt, wenn sie im Vergleich zu einfachen CSS-Cards bessere Lesbarkeit, bessere Interaktion und bessere Premium-Wirkung zeigt.
+
+### 18.9 Section-Prüfvariante – Dashboard-/Board-Komponente
+
+Die vom Nutzer benannte CodePen-Referenz `https://codepen.io/josephrexme/pen/oNNpZYJ` wird als technische Section-Prüfvariante aufgenommen.
+
+Referenzmerkmale:
+
+- perspektivisches `.board`
+- seitliche `.nav` mit SVG-Icon-Buttons
+- Board-interner Header
+- Grid-/Analysebereich
+- Listen-/Tabellenbereiche
+- animierter Highlight-/Scroll-Zustand in einer Liste
+- CSS-/SCSS-basierte Schatten und Tiefenwirkung
+
+Mögliche Verwendung in Nurovelle:
+
+- technische Erklärsektion
+- Workflow-/Modulübersicht
+- Systemarchitektur-Preview
+- Prozess-/Analysebereich
+- visuelle Darstellung von Modulen, Abläufen oder Datenlogik
+
+Nicht übernehmen:
+
+- Demo-Farben
+- blaue/lila Farbpalette
+- Demo-Verläufe
+- Demo-Logo `YOUR COMPANY`
+- Demo-Person, Avatar und externe Avatar-URL
+- Finance-/Wallet-/Profit-Inhalte
+- Beispielzahlen und Beispieltexte
+- externe Dribbble-/Credit-Elemente
+- fremde Dashboard- oder Crypto-Anmutung
+
+Verbindliche Nurovelle-Anpassung:
+
+- Board-Grundfläche: mattes Schwarz, Deep Green oder dunkles Petrol
+- Gridlinien: sehr dezentes Emerald/Petrol
+- Icons: echte SVGs, farblich auf Nurovelle abgestimmt
+- aktive Zustände: Goldkante, Goldpunkt, Goldlinie oder sehr dezenter Gold-Glow
+- Schatten: dunkel, kontrolliert, nicht schwer oder blau
+- Text: echte HTML-Texte, keine Bildtexte
+- Gold nur als feiner Akzent
+- kein Cyan, Blau, Violett, Pastell, Regenbogen oder Neon
+
+Technische Regeln:
+
+- Umsetzung per HTML/CSS/SVG.
+- Keine Bildgenerierung.
+- Keine Screenshot-Lösung.
+- Keine externen Demo-Bilder oder Avatar-URLs.
+- Demo-Fehler `arial-label` muss zu `aria-label` korrigiert werden.
+- Buttons brauchen Focus-State und Tastaturbedienbarkeit.
+- Mobile Darstellung separat prüfen: Board darf abgeflacht, gestapelt oder in Card-/Row-Komponenten übersetzt werden.
+- Perspektive nur verwenden, wenn Inhalte lesbar bleiben.
+- Animationen dezent und mit `prefers-reduced-motion` absichern.
+
+Status:
+
+Diese Section-/Board-Logik ist eine Prüfvariante. Sie wird nur eingesetzt, wenn sie im Vergleich zu einfacheren CSS-Sections, Card-Grids und Workflow-Komponenten bessere technische Wirkung, bessere Lesbarkeit und bessere Premium-Anmutung zeigt.
+
+
+## 24. Ergänzung 2026-07-02 – CTA-Button-Prüfvariante: Arrow-Reveal zu Press-Button
+
+Die vom Nutzer eingefügte Button-Referenz wird als technische Prüfvariante für CTA-Buttons aufgenommen.
+
+### 24.1 Einsatz
+
+Möglicher Einsatz:
+
+- Hero-CTA
+- Potenzialanalyse-CTA
+- Erstgespräch-CTA
+- Download-CTA, falls visuell passend
+
+Kein automatischer Einsatz auf allen Buttons. Wichtige CTAs zuerst prüfen.
+
+### 24.2 Übernommene Logik
+
+Übernommen werden darf nur die Bewegungs- und Zustandslogik:
+
+- rechter Pfeil im Startzustand
+- zweiter Pfeil fährt im Hover-/Focus-Zustand ein
+- Text verschiebt sich leicht
+- Kreis-/Füllfläche expandiert innerhalb des Buttons
+- Button kann in eine haptische Press-Logik mit oberer Fläche, unterer Basis und `:active`-Absenkung übergehen
+
+### 24.3 Nicht übernehmen
+
+Nicht übernehmen:
+
+- Demo-Farben `greenyellow`, Türkis, helles Grün oder sonstige Beispielwerte
+- Demo-Texte „Modern Button“ / „Button“
+- React- oder `styled-components`-Pflicht
+- spielerische Gaming-/Comic-Wirkung
+- übertriebene Skalierung oder Bounce-Effekt
+
+### 24.4 Nurovelle-Anpassung
+
+Verwenden:
+
+- Goldverlauf für Rahmen, Pfeil, Hover-Füllung oder aktive Fläche
+- mattes Schwarz / Deep Green als Grundfläche
+- Emerald / dunkles Petrol für Tiefe, Schatten und Button-Basis
+- dunkle Schrift nur auf heller Goldfläche, sonst helle Schrift
+
+### 24.5 Technische Mindestregeln
+
+- Umsetzung bevorzugt als HTML/CSS/JS-Komponente
+- `<a>` für Link-CTA, `<button>` für echte Formular-/UI-Aktion
+- sichtbarer Focus-State
+- Tastaturbedienbarkeit
+- ausreichende Tap-Fläche
+- `prefers-reduced-motion`
+- Mobile-Variante prüfen und bei Bedarf Animation reduzieren
+
+Status: Prüfvariante, nicht final freigegeben.
+
+---
+
+## CTA-Button-Prüfung – Gold-Farbgrundlage
+
+Für die Button-Prüfvariante „Arrow-Reveal zu Press-Button“ wird die folgende Gold-Farbgrundlage geprüft. Es wird nur die Farb-/Materiallogik übernommen, nicht die React-Implementierung und nicht der Demo-Text.
+
+```css
+:root {
+  --cta-gold-dark: #a54e07;
+  --cta-gold-mid: #b47e11;
+  --cta-gold-light: #fef1a2;
+  --cta-gold-core: #bc881b;
+  --cta-gold-border: #a55d07;
+  --cta-gold-inner-dark: #8b4208;
+  --cta-gold-inner-mid: #b17d10;
+  --cta-gold-highlight: #fae385;
+  --cta-gold-text-dark: rgb(120, 50, 5);
+  --cta-gold-gradient: linear-gradient(160deg, #a54e07, #b47e11, #fef1a2, #bc881b, #a54e07);
+}
+```
+
+Umsetzungsregel:
+
+- Der Primär-CTA darf diese Goldlogik als Verlauf, Innenkante, Lichtkante und Press-State nutzen.
+- Hover darf die Background-Size beziehungsweise Lichtposition dezent verschieben.
+- Active darf eine haptische Absenkung/Press-Wirkung zeigen.
+- Buttons bleiben semantisch korrekt als `<button>` oder `<a>`.
+- Kein Demo-Text, keine React-Pflicht, keine Styled-Components-Pflicht.
+- Wirkung: hochwertig, ruhig, technisch, nicht verspielt.
+
+---
+
+## Ergänzung 2026-07-02 – Downloadbutton transformiert zu größerem Danke-Button
+
+Für Download-CTAs und gegebenenfalls Formular-/Analyse-Bestätigungen wird eine zusätzliche Button-Interaktion geprüft.
+
+### Status
+
+Prüfvariante. Die ursprüngliche Referenzseite wurde noch nicht wiedergefunden. Das Verhalten ist als gewünschte Interaktionslogik festzuhalten, aber noch nicht final umgesetzt.
+
+### Zielverhalten
+
+- Normalzustand: Download- oder Anfrage-CTA.
+- Klick/Tap: Download- oder Anfrageaktion wird ausgelöst.
+- Übergang: Button transformiert kontrolliert in eine größere Bestätigungsfläche.
+- Endzustand: Danke-/Bestätigungszustand mit klarer Microcopy.
+
+Mögliche Microcopy:
+
+- `Danke`
+- `Download startet`
+- `Download bereit`
+- `Anfrage erhalten`
+
+Die finale Microcopy richtet sich nach Kontext: Download, Formular, Potenzialanalyse oder Praxisleitfaden.
+
+### Technische Regeln
+
+- Umsetzung per HTML/CSS/JS.
+- Keine Bildgenerierung.
+- Keine externe Demo-Abhängigkeit.
+- Keine fremden Farben oder fremden Buttontexte übernehmen.
+- Keine React- oder Styled-Components-Pflicht.
+- Semantisch korrekt als `<button>` oder `<a>` umsetzen.
+- Bei Downloads muss der Downloadlink weiterhin technisch korrekt funktionieren.
+- Bei Formularen darf der Button-Zustand Success-/Error-Handling nicht ersetzen.
+- Bei Fehlern darf kein Danke-Zustand angezeigt werden.
+- Mobile muss ohne Hover funktionieren.
+- Tastaturbedienung und Focus-State sind Pflicht.
+- `prefers-reduced-motion` berücksichtigen.
+
+### Visuelle Regeln
+
+- Nurovelle-Gold-/Dark-System verwenden.
+- Goldverlauf darf für Füllung, Rahmen, Lichtkante oder Bestätigungsfläche genutzt werden.
+- Matte schwarze, Deep-Green- oder dunkle Petrol-Basis bleibt möglich.
+- Keine Demo-Farben.
+- Keine Casino-, Comic-, Bounce- oder Spielautomatwirkung.
+- Animation ruhig, hochwertig und kurz halten.
+
+
+---
+
+## Ergänzung 2026-07-02 – Statuskorrektur UX-/CSS-Komponenten
+
+Für den Programmierer gilt ab jetzt folgender Status:
+
+### Live zu prüfen
+
+- Divider-Auswahl: Varianten A, B und C sind zu vergleichen. Keine finale Auswahl ohne Live-Sichtung.
+- Hero-Animation: Orb hinter Cube, Cube-Entstehungseffekt und Conic-/Noise-Variante sind live zu vergleichen. Keine finale Auswahl ohne Sichtprüfung.
+
+### Bereits bestimmt
+
+- Button-Animation: Arrow-/Circle-Reveal-Logik mit Übergang in haptische Press-Button-Logik. Farbgrundlage ist die dokumentierte Golden-Button-Farblogik. Keine Demo-Farben oder Demo-Texte übernehmen.
+- Breadcrumb-Ausführung: CSS-Chevron-/Pfeil-Breadcrumbs als Grundlage. Umsetzung semantisch mit `<nav aria-label="Breadcrumb">`, `aria-current="page"`, Nurovelle-Farben, Focus-State und Mobile-Prüfung.
+
+### Weiter offen
+
+- konkrete Zuordnung, welche Section welche Komponente verwendet.
+- Prüfung, ob Temkuri/Zra als technische Basis oder nur als Strukturreferenz genutzt werden.
+
+Diese Korrektur überschreibt ältere Formulierungen, in denen Button-Animation oder Breadcrumb-Ausführung noch als offen bezeichnet wurden.

@@ -1,9 +1,9 @@
 /* Shared header and footer rules for all real pages. */
 .site-header {
-  height: 48px !important;
-  min-height: 48px !important;
-  border-bottom: 1px solid rgba(240,160,90,.72) !important;
-  background: #000 !important;
+  height: var(--header-height, 48px) !important;
+  min-height: var(--header-height, 48px) !important;
+  border-bottom: var(--border-gold, 1px solid rgba(212,175,55,.72)) !important;
+  background: var(--color-black, #050706) !important;
   backdrop-filter: blur(6px) !important;
   position: sticky !important;
   top: 0 !important;
@@ -11,7 +11,7 @@
 }
 
 .header-inner {
-  height: 48px !important;
+  height: var(--header-height, 48px) !important;
   max-width: none !important;
   margin: 0 !important;
   padding: 0 var(--side) !important;
@@ -39,7 +39,7 @@
 }
 
 .nav a {
-  font-family: "Anca Coder", monospace !important;
+  font-family: var(--font-technical, "Anca Coder", monospace) !important;
   font-size: 10px !important;
   letter-spacing: 1.05px !important;
   text-transform: uppercase !important;
@@ -54,22 +54,22 @@
 }
 
 .header-cta {
-  height: 28px !important;
-  min-height: 28px !important;
-  padding: 0 12px !important;
+  height: var(--control-height, 44px) !important;
+  min-height: var(--control-height, 44px) !important;
+  padding: 0 var(--space-4, 16px) !important;
   display: inline-flex !important;
   align-items: center !important;
   justify-content: center !important;
-  border: 1px solid #d89828 !important;
-  border-radius: 4px !important;
-  font-family: "Bebas Neue", sans-serif !important;
-  font-size: 13px !important;
+  border: var(--border-gold, 1px solid rgba(212,175,55,.72)) !important;
+  border-radius: var(--radius-button, 999px) !important;
+  font-family: var(--font-body, "Raleway", Arial, sans-serif) !important;
+  font-size: var(--font-size-button, 16px) !important;
   line-height: 1 !important;
   letter-spacing: .045em !important;
-  color: #050505 !important;
+  color: var(--color-text-on-gold, #050706) !important;
   text-transform: uppercase !important;
-  background: linear-gradient(180deg,#ffd7a3 0%,#f0a05a 24%,#d89828 60%,#7a3518 100%) !important;
-  box-shadow: none !important;
+  background: var(--gradient-action) !important;
+  box-shadow: var(--shadow-gold, none) !important;
   gap: 6px !important;
   white-space: nowrap !important;
   text-align: center !important;
@@ -86,8 +86,8 @@
 
 .footer {
   padding: 32px var(--side) !important;
-  background: #000 !important;
-  border-top: 1px solid rgba(216,152,40,.7) !important;
+  background: var(--color-black, #050706) !important;
+  border-top: var(--border-gold, 1px solid rgba(212,175,55,.72)) !important;
   margin-left: 0 !important;
   width: 100% !important;
 }
@@ -98,7 +98,7 @@ body.has-sidebar .footer {
 }
 
 .footer-inner {
-  max-width: 1280px !important;
+  max-width: var(--container-max, 1200px) !important;
   margin-left: auto !important;
   margin-right: auto !important;
   display: grid !important;
@@ -120,8 +120,8 @@ body.has-sidebar .footer-inner {
   bottom: 0;
   width: var(--sidebar-w, 235px);
   z-index: 42;
-  background: #010403;
-  border-right: 1px solid rgba(240,160,90,.72);
+  background: var(--color-matte-black, #080b09);
+  border-right: var(--border-gold, 1px solid rgba(212,175,55,.72));
   overflow-y: auto;
   overflow-x: hidden;
   padding: 16px 13px 22px;
@@ -143,7 +143,7 @@ body.has-sidebar .footer-inner {
   font-weight: 400;
   letter-spacing: .045em;
   text-transform: uppercase;
-  background: linear-gradient(180deg,#ffd7a3 0%,#f0a05a 22%,#c76b2b 58%,#7a3518 100%);
+  background: var(--gradient-title);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -228,19 +228,19 @@ body.has-sidebar main {
 
 .footer h4 {
   margin-bottom: 12px !important;
-  font-family: "Anca Coder", monospace !important;
+  font-family: var(--font-technical, "Anca Coder", monospace) !important;
   font-size: 11px !important;
   line-height: 1.2 !important;
   font-weight: 400 !important;
   letter-spacing: .08em !important;
   text-transform: uppercase !important;
-  color: #e8b048 !important;
+  color: var(--color-gold-light, #f7ef8a) !important;
 }
 
 .footer a,
 .footer p {
   display: block !important;
-  font-family: Raleway, Arial, sans-serif !important;
+  font-family: var(--font-body, Raleway, Arial, sans-serif) !important;
   font-size: 11.5px !important;
   line-height: 1.65 !important;
   font-weight: 400 !important;
@@ -252,7 +252,7 @@ body.has-sidebar main {
   display: contents !important;
 }
 
-@media (max-width: 1180px) {
+@media (max-width: 1199px) {
   .nav { display: none !important; }
   .footer-inner { grid-template-columns: 1fr 1fr !important; }
   body.has-sidebar .footer {
