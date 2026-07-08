@@ -345,3 +345,22 @@ Für die aktuelle Umsetzung gilt folgende Korrektur des offenen Status:
 - Hero-Animation: live prüfen, keine finale Auswahl ohne Sichtprüfung.
 - Section-Zuordnung der Komponenten: offen.
 - Rolle von Temkuri/Zra: offen prüfen, ob Basis oder nur Strukturreferenz.
+
+## Arbeitsregel – Keine verstreuten Zusatzdateien für Referenzcode
+
+Referenzcodes, CSS-Prüfvarianten, Buttonlogiken, Divider-Varianten, Hero-Animationen und Board-Referenzen werden nicht als dauerhaft verstreute Einzeldokumente geführt.
+
+Verbindlich:
+
+- Originalreferenzen werden im Referenzarchiv der Projektfiles dokumentiert.
+- Aktive Designregeln stehen im `styleguide.md`.
+- Freigegebene Entscheidungen stehen im `decision_log.md`.
+- Umsetzungsstatus steht im `todo.md`.
+- Tatsächlich ausgeführte Änderungen stehen im `changelog.md`.
+- Produktions-CSS bleibt in `nurovelle-animations.css` beziehungsweise den späteren finalen CSS-Dateien.
+
+Nicht erlaubt:
+
+- neue gleichrangige Designquellen ohne Auftrag
+- unmarkierte Vermischung aus Originalcode und Nurovelle-Adaption
+- Interpretation als finale Freigabe ohne Entscheidungseintrag

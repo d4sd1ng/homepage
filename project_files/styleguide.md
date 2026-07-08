@@ -147,9 +147,12 @@ Hero-Visual:
 
 Animation:
 
+- Hero-Orb kommt hinter den bestehenden Cube / Würfel
+- Originalvorgabe ist die SCSS/HAML-Partikel-Orb-Animation mit `.wrap` und 300 `.c`-Partikeln
 - goldene Cube-Ecken dürfen dezent pulsieren
 - ruhiger technischer Lichtimpuls
 - keine unkontrollierte Bewegung des gesamten Hero-Visuals
+- keine freie Conic-/Noise-Mask-Interpretation als Ersatz für die Original-Orb-Vorgabe
 
 ## 8. CTAs und Buttons
 
@@ -238,13 +241,51 @@ Konkrete CSS-Basis:
 
 ## 13. Divider
 
-Divider-Varianten sind Prüfvarianten und müssen live beurteilt werden:
+Divider werden auf der Homepage verbindlich eingesetzt.
 
-- SVG-Schräg-Divider
-- Pure-CSS-Angled-Sections
-- Diagonal Box / SkewY + Clip-Path
+Die finale Divider-Form ist noch nicht freigegeben und muss live beurteilt werden. Aktive Prüfvarianten:
 
-Keine Demo-Farben übernehmen.
+- Variante A: SVG-Schräg-Divider / Separator
+- Variante B: Pure-CSS-Angled-Sections
+- Variante C: Diagonal Box / SkewY + Clip-Path
+
+Für Variante A liegt die Nutzerreferenz separat als `nurovelle-divider-svg-original-reference.txt` vor.
+Für Variante B liegt die Nutzerreferenz separat als `nurovelle-divider-pure-css-angled-original-reference.scss` vor.
+Für Variante C liegt die Nutzerreferenz separat als `nurovelle-divider-diagonal-original-reference.txt` vor.
+
+Regeln für alle Divider:
+
+- Divider sind Pflichtbestandteil der Homepage, aber die konkrete Variante bleibt Prüfentscheidung.
+- Umsetzung per HTML/CSS/SVG, nicht als Bild, GIF oder Video.
+- Keine Demo-Farben übernehmen.
+- Keine Demo-Texte, fremden Links, Playground-Controls oder Beispielseitenstruktur übernehmen.
+- Farben ausschließlich aus dem Nurovelle-System ableiten: mattes Schwarz, sehr dunkles Petrol/Smaragd, Gold nur als feiner Akzent.
+- Divider dürfen Inhalte, CTAs, Cards, Text und Hero-Visuals nicht verdecken.
+- `overflow-x: hidden` darf kontrolliert eingesetzt werden, um horizontales Scrollen durch breite oder gedrehte Divider zu verhindern.
+- Desktop, Tablet und Mobile müssen geprüft werden.
+
+Regeln für Variante A:
+
+- SVG sitzt als absolut positionierter Separator am unteren Section-Rand.
+- SVG nutzt `preserveAspectRatio="none"`, damit die schräge Fläche über volle Breite skaliert.
+- Mobile darf mit breiterem SVG und leichter Rotation geprüft werden.
+- Demo-Grün aus der Referenz wird nicht übernommen.
+
+Regeln für Variante B:
+
+- Section-Kanten dürfen über `clip-path: polygon(...)` angeschnitten werden.
+- CSS-Trigonometrie (`tan()`, `cos()`, `atan2()`) darf nur als progressive Enhancement mit Fallback geprüft werden.
+- SCSS-Winkelwerte müssen mit Guardrails begrenzt werden.
+- `@property`-Fallbacks für Winkel, Abstand und Hypotenuse dürfen geprüft werden.
+- Content, Text, Cards, CTAs und Hero-Visuals dürfen nicht verzerrt oder aus dem sicheren Bereich gedrückt werden.
+- Demo-Fonts, Demo-Verläufe, Support-Infoboxen, Code-Demos, Linkeffekte und Footer-Lochmuster werden nicht übernommen.
+
+Regeln für Variante C:
+
+- `skewY()` nur auf Hintergrund-/Pseudo-Elemente anwenden.
+- Content, Text, Cards, CTAs und Hero-Visuals bleiben unverzerrt.
+- Winkel-/Padding-Berechnung darf geprüft werden.
+- `clip-path` darf geprüft werden.
 
 ## 14. Detailseiten
 
@@ -289,7 +330,7 @@ Aktive Animationen und Interaktionen liegen in `nurovelle-animations.css`:
 - Press-Button / haptische Absenkung
 - Downloadbutton → Danke-/Bestätigungsbutton
 - Breadcrumb Chevron-Segmente
-- Hero Orb / Cube-Entstehung
+- Hero Orb hinter Cube — Originalvorgabe SCSS/HAML, Adaption nur nach Freigabe
 - Conic-/Noise-Mask
 - Divider-Prüfvarianten
 - Card Overlay-Reveal
@@ -328,3 +369,102 @@ Nicht als aktive Designquelle führen:
 - einzelne fremde CSS-Fragmente ohne Nurovelle-Namen
 - doppelte Token-Dateien
 - separate Animations-Referenz als dauerhafte Pflichtdatei
+
+---
+
+## 19. CSS-First-Regel und Prüfkomponenten – Nachtrag 2026-07-07
+
+Für kontrollierbare Website-Elemente gilt CSS-first.
+
+Das betrifft insbesondere:
+
+- Navigation neu bewerten
+- Burger-Menü
+- Breadcrumbs
+- Social Buttons
+- Hero-Animation hinter dem Cube / Cube-Entstehungseffekt
+- alternative Hero-Hintergrundvariante mit Conic-/Noise-Maske
+- Divider-System
+- SVG-Schräg-Divider
+- Pure-CSS-Angled-Sections
+- Diagonal Box / SkewY + Clip-Path
+- Card-Interaktionen
+- Frosted-Glass-/Overlay-Card als Prüfvariante
+- Section-/Board-Referenz
+- Dashboard-/Board-Komponente als Prüfvariante
+- CTA-Button-System
+- Arrow-Reveal
+- Press-Button-Logik
+- Golden-Button-Farblogik
+- Downloadbutton → größerer Danke-/Bestätigungsbutton
+
+Regel:
+
+- Originalreferenzen werden separat gesichert.
+- Nurovelle-Adaptionen werden klar als Adaptionen gekennzeichnet.
+- Demo-Farben, Demo-Texte, externe Demo-Assets, React-/styled-components-Pflichten und fehlerhafte ARIA-Bezeichnungen werden nicht übernommen.
+- Finale Nutzung erst nach Live-Prüfung und Freigabe.
+
+## 20. CTA-Button-System – Nachtrag 2026-07-07
+
+Die Button-Referenzen liegen zusätzlich separat vor:
+
+```text
+nurovelle-button-original-references.md
+```
+
+Für das Nurovelle-CTA-System gilt:
+
+- Arrow-Reveal / Circle-Fill ist die Start-CTA-Logik.
+- Press-Button ist die haptische Klick-/Active-Logik.
+- Golden-Button-Farblogik liefert die Material-/Farbgrundlage.
+- Es wird nur die Logik der Referenzen übernommen, nicht deren Demo-Farben oder Demo-Struktur.
+- React und styled-components sind keine Pflicht.
+- Die finale Website-Umsetzung erfolgt als HTML/CSS/JS-Komponente.
+
+## 21. Section-/Board-Option – Nachtrag 2026-07-07
+
+Die CodePen-Referenz `https://codepen.io/josephrexme/pen/oNNpZYJ` ist als Option für eine Section-/Board-Komponente aufgenommen.
+
+Status:
+
+- Prüfvariante
+- nicht final
+- keine 1:1-Übernahme
+
+Ausgeschlossen:
+
+- Demo-Texte
+- Demo-Farben
+- Demo-Logo
+- Finanz-/Wallet-Kontext
+- externe Bild-URLs
+- fehlerhafte `arial-label`-Schreibweise
+
+Verbindlich bei Adaption:
+
+- `aria-label` korrekt setzen
+- Nurovelle-Farbsystem verwenden
+- Focus-/Hover-Zustände prüfen
+- Mobile und Desktop prüfen
+
+## 20. Referenzcode-Archiv / übernommene Zusatzdateien
+
+Status: aktiv als Dokumentationsregel seit 2026-07-07
+
+Die zuvor separat erzeugten 8 Arbeits-/Referenzdateien wurden in die Projektfiles übernommen. Maßgebliche Sammelstelle ist:
+
+```text
+NUROVELLE_CSS_ANIMATIONEN_REFERENZ.md
+```
+
+Dort liegen die Originalreferenzen und Arbeitsstände als Archivanhang.
+
+Verbindliche Trennung:
+
+- Originalreferenz: unverändert dokumentierter Ausgangscode oder Arbeitsstand.
+- Nurovelle-Adaption: abgeleitete Umsetzung mit Nurovelle-Farben, Klassen und Regeln.
+- Prüfvariante: noch nicht final freigegeben.
+- Produktionscode: erst nach Sichtprüfung und ausdrücklicher Freigabe.
+
+Die ehemaligen Einzeldateien sind nicht als eigenständige aktive Designquellen zu behandeln. Sie dienen nur noch als Ursprung der übernommenen Archivblöcke.

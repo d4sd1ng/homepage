@@ -318,7 +318,17 @@
 
 /* --------------------------------------------------------------------------
    5. HERO: ORB HINTER CUBE / ENTSTEHUNGSEFFEKT
-   Markup: <div class="nv-hero-orb"><img class="nv-hero-object" ...></div>
+
+   ACHTUNG STATUS:
+   Die folgende .nv-hero-orb-/Conic-Umsetzung ist eine rekonstruierte
+   Nurovelle-Adaption und NICHT die Originalvorgabe aus dem Chat.
+
+   Die Originalvorgabe fuer den Hero-Orb hinter dem Cube ist als SCSS/HAML
+   in NUROVELLE_CSS_ANIMATIONEN_REFERENZ.md dokumentiert und separat unter
+   nurovelle-hero-orb-original.scss / .haml gesichert.
+
+   Keine Produktionsfreigabe dieser Adaption ohne Abgleich mit der
+   Originalvorgabe.
 ---------------------------------------------------------------------------- */
 
 .nv-hero-orb {

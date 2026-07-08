@@ -92,6 +92,10 @@
 
 ## Offene Klärungen
 
+- [ ] Finale Divider-Variante live prüfen
+- [ ] SVG-Schräg-Divider gegen Diagonal-/Skew-Varianten vergleichen
+- [ ] Pure-CSS-Angled-Sections mit CSS-Trigonometrie/Fallbacks gegen SVG- und Skew-Variante vergleichen
+
 - finale Liste der 11 Detailseiten
 - finale Inhalte je Detailseite
 - finale Entscheidung, ob Detailseiten-Hero-Bild komplett ohne Board oder mit minimalem Board generiert wird
@@ -113,3 +117,37 @@
 - [ ] Hero-Formen auf freischwebend / keine Bodenplatte prüfen
 - [ ] Gold nur als Eck-/Knotenhighlight prüfen
 - [ ] Smaragdgrün dezent ergänzen und prüfen
+
+## Nachtrag 2026-07-07 – CSS-first / Animationen / Komponentenprüfung
+
+- [ ] Navigation CSS-first neu bewerten
+- [ ] Burger-Menü CSS-/JS-Interaktion prüfen
+- [ ] Breadcrumbs als CSS-Komponente prüfen
+- [ ] Social Buttons als SVG/CSS-Komponente prüfen
+- [ ] Hero-Orb hinter Cube live prüfen
+- [ ] Cube-Entstehungseffekt aus Orb prüfen
+- [ ] alternative Hero-Hintergrundvariante mit Conic-/Noise-Maske prüfen
+- [ ] Divider-System live vergleichen
+- [ ] SVG-Schräg-Divider prüfen
+- [ ] Pure-CSS-Angled-Sections prüfen
+- [ ] Diagonal Box / SkewY + Clip-Path prüfen
+- [ ] Card-Interaktionen prüfen
+- [ ] Frosted-Glass-/Overlay-Card als Prüfvariante prüfen
+- [ ] Section-/Board-CodePen als Prüfvariante prüfen
+- [ ] Dashboard-/Board-Komponente auf Nurovelle-Stil adaptieren und prüfen
+- [ ] CTA Arrow-Reveal prüfen
+- [ ] CTA Press-Button-Logik prüfen
+- [ ] Golden-Button-Farblogik prüfen
+- [ ] Downloadbutton → größerer Danke-/Bestätigungsbutton mit echter Success-/Error-Logik prüfen
+
+## Nachtrag 2026-07-07 – Referenzdateien konsolidiert
+
+- [x] 8 separat erzeugte Referenz-/Arbeitsdateien in Projektfiles übernehmen
+- [x] Originalreferenzen in `NUROVELLE_CSS_ANIMATIONEN_REFERENZ.md` archivieren
+- [x] Trennung Originalreferenz / Nurovelle-Adaption / Prüfvariante / Produktionscode dokumentieren
+- [x] Entscheidung im `decision_log.md` festhalten
+- [x] Arbeitsregel im `task_contract.md` ergänzen
+- [ ] Finalen Divider nach Sichtprüfung auswählen
+- [ ] Finale CTA-Button-Variante nach Sichtprüfung auswählen
+- [ ] Hero-Orb / Cube-Entstehung live prüfen
+- [ ] Board-/Dashboard-Prüfvariante live prüfen

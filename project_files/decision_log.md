@@ -715,3 +715,142 @@ Der Nutzer hat klargestellt, dass Button-Animation und Breadcrumbs bereits besti
 
 Auswirkung:
 Button- und Breadcrumb-Entscheidungen dürfen nicht weiter als offen behandelt werden. Divider und Hero-Animation bleiben Sichtprüfungsentscheidungen.
+
+---
+
+## 2026-07-07 – Divider werden verbindlich verwendet, finale Variante bleibt Prüfentscheidung
+
+Entscheidung:
+Auf der Homepage werden Divider auf jeden Fall verwendet.
+
+Noch nicht final entschieden ist die konkrete Divider-Variante. Aktive Prüfvarianten sind:
+
+1. SVG-Schräg-Divider / Separator
+2. Pure-CSS-Angled-Sections
+3. Diagonal Box / SkewY + Clip-Path
+
+Zusätzliche Nutzerreferenz:
+Die vom Nutzer gelieferte SVG-Separator-Referenz wird als Original separat gesichert und als Variante A dokumentiert.
+
+Verbindlich:
+
+- Divider sind Bestandteil der Homepage.
+- Die finale Divider-Form muss live geprüft werden.
+- Umsetzung per HTML/CSS/SVG, nicht als Bild, GIF oder Video.
+- Keine Demo-Farben, Demo-Texte oder Beispielseitenstruktur übernehmen.
+- Farben aus Nurovelle-System ableiten.
+- Content, CTAs, Cards, Text und Hero-Visuals dürfen nicht verdeckt, verzerrt oder verschoben werden.
+- Mobile Verhalten und horizontales Scrollen sind zu prüfen.
+
+Auswirkung:
+Der Punkt „ob Divider verwendet werden“ ist entschieden. Offen bleibt nur, welche Divider-Variante auf der produktiven Homepage besser wirkt.
+
+---
+
+## 2026-07-07 – Divider-Prüfvariante B als Originalreferenz ergänzt
+
+Entscheidung:
+Die vom Nutzer gelieferte Pure-CSS-Angled-Sections-Referenz wird als zusätzliche Originalreferenz für Divider-Prüfvariante B gesichert.
+
+Status:
+Nicht final. Die Referenz dient der technischen Prüfung. Divider bleiben verbindlicher Bestandteil der Homepage; die konkrete Variante wird live entschieden.
+
+Technischer Kern:
+
+- `clip-path: polygon(...)` für schräg angeschnittene Section-Kanten.
+- SCSS-Winkelwert mit Guardrails.
+- Berechnung von `--space` und `--hypot` über trigonometrische Funktionen.
+- `@property`-Fallbacks für Browser ohne vollständige CSS-Trigonometrie.
+- `@supports` für progressive Enhancement mit `tan()`, `cos()` und optional `atan2()`.
+
+Nicht übernommen werden:
+
+- Demo-Fonts.
+- Demo-Farben und Pastellverläufe.
+- Support-/Code-Demo-Boxen.
+- Link-XOR-Effekt.
+- Footer-Lochmuster.
+- Beispieltexte und Referenzlinks.
+
+Auswirkung:
+Variante B ist jetzt nicht mehr nur abstrakt dokumentiert, sondern besitzt eine gesicherte Originalreferenz: `nurovelle-divider-pure-css-angled-original-reference.scss`.
+
+---
+
+## 2026-07-07 – CTA-Button-System aus Originalreferenzen neu eingeordnet
+
+Entscheidung:
+Die vom Nutzer gelieferten Buttoncodes werden als Originalreferenzen gesichert und nicht als Produktionscode behandelt.
+
+Festgelegt:
+
+- Arrow-Reveal / Circle-Fill dient als Start-CTA-Logik.
+- Press-Button dient als haptische Klick-/Active-Logik.
+- Golden-Button-Farblogik dient als Material-/Farbgrundlage.
+- Es wird nur die Logik übernommen, nicht Demo-Farben, Demo-Texte, React-Struktur oder styled-components-Pflicht.
+- `role="button"` wird auf echten `<button>`-Elementen nicht übernommen.
+
+Auswirkung:
+Die bestehende `nurovelle-animations.css` ist eine Nurovelle-Adaption und darf nicht als unveränderter Originalcode bezeichnet werden.
+
+Originaldatei:
+
+```text
+nurovelle-button-original-references.md
+```
+
+---
+
+## 2026-07-07 – Section-/Board-CodePen als Prüfoption aufgenommen
+
+Entscheidung:
+Die CodePen-Referenz `https://codepen.io/josephrexme/pen/oNNpZYJ` wird als Option für eine Section-/Board-Komponente aufgenommen.
+
+Status:
+
+- Prüfvariante
+- nicht final
+- keine 1:1-Übernahme
+
+Ausgeschlossen:
+
+- Demo-Logo
+- Demo-Farben
+- Demo-Texte
+- externe Avatar-/Bild-URLs
+- Finanz-/Wallet-Inhalte
+- fehlerhafte `arial-label`-Schreibweise
+
+Auswirkung:
+Die Board-/Dashboard-Komponente darf geprüft werden, aber erst nach Nurovelle-Adaption und Live-Prüfung produktiv eingesetzt werden.
+
+## 2026-07-07 – Zusatzdateien in Projektfiles übernommen
+
+Entscheidung:
+Die 8 separat erzeugten Arbeits-/Referenzdateien werden in die bestehenden Projektfiles übernommen und nicht als eigenständige aktive Designquellen geführt.
+
+Übernommen wurden:
+
+1. `nurovelle_cta_button_preview.html`
+2. `nurovelle-hero-orb-original.scss`
+3. `nurovelle-hero-orb-original.haml`
+4. `nurovelle-divider-diagonal-original-reference.txt`
+5. `nurovelle-divider-svg-original-reference.txt`
+6. `nurovelle-divider-pure-css-angled-original-reference.scss`
+7. `nurovelle-button-original-references.md`
+8. `nurovelle-section-board-codepen-reference.md`
+
+Ziel:
+Die Projektunterlagen bleiben führend. Verstreute Zusatzdateien dürfen nicht als weitere gleichrangige Designquellen entstehen.
+
+Auswirkung:
+
+- `NUROVELLE_CSS_ANIMATIONEN_REFERENZ.md` enthält das konsolidierte Referenzarchiv.
+- `styleguide.md` definiert die Regel zur Trennung von Originalreferenz, Adaption, Prüfvariante und Produktionscode.
+- `index.html` bleibt unverändert.
+- Finale Nutzung einzelner Animationen, Divider oder Board-Varianten bleibt prüfpflichtig.
+
+Status:
+fertig
+
+---

@@ -1,0 +1,14 @@
+{
+	"folders": [
+		{
+			"path": "../Multi-Processor"
+		},
+		{
+			"path": "../atomizer"
+		},
+		{
+			"path": "."
+		}
+	],
+	"settings": {}
+}
