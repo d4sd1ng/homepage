@@ -12,9 +12,8 @@
   --color-gunmetal: #252b2c;
   --color-gunmetal-dark: #15191a;
   --color-deep-green: #0a1913;
-  --color-emerald: #112a20;
-  --color-emerald-bright: #2e8b67;
-  --color-teal-dark: #163a35;
+  --color-emerald: #112b21;
+  --color-emerald-bright: #163A26;
 
   /* Text */
   --color-text-light: #f5f7f4;
@@ -24,7 +23,7 @@
 
   /* Gold palette and approved gradients */
   --color-gold-deep: #926f34;
-  --color-gold: #d4af37;
+  --color-gold: #d2ac47;
   --color-gold-light: #f7ef8a;
   --gradient-gold-border: linear-gradient(135deg, #ae8625, #f7ef8a, #d2ac47, #edc967);
   --gradient-gold-title: linear-gradient(135deg, #dfbd69, #926f34);
@@ -39,14 +38,14 @@
   --gradient-highlight: var(--gradient-gold-cta);    /* Gold 3 */
 
   /* Dark section gradients */
-  --gradient-green-deep: linear-gradient(135deg, #0a1913 0%, #112a20 50%, #1d4234 100%);
+  --gradient-green-deep: linear-gradient(135deg, #0a1913 0%, #112b21 50%, #1d4234 100%);
   --gradient-green-teal: linear-gradient(180deg, #071412 0%, #163a35 100%);
   --gradient-section-black: linear-gradient(180deg, #050706 0%, #080b09 100%);
 
   /* Typography */
-  --font-display: "Bebas Neue", Impact, sans-serif;
-  --font-technical: "Anca Coder", "Coder Pro", monospace;
-  --font-body: "Raleway", "Roboto", Arial, sans-serif;
+  --font-display: "Tappera", Impact, sans-serif;
+  --font-technical:"Coder Pro", monospace;
+  --font-body: "Inter", Arial, sans-serif;
   --font-size-h1: clamp(4rem, 6vw, 5.5rem);
   --font-size-h2: clamp(2.75rem, 4vw, 3.75rem);
   --font-size-h3: clamp(1.125rem, 1.6vw, 1.5rem);

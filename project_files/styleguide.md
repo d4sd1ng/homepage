@@ -12,8 +12,8 @@ Dieser Styleguide bündelt die verbindlichen Designregeln für Homepage und Deta
 
 Nurovelle nutzt eine dunkle, technische Premium-Optik:
 
-- matte schwarze Flächen
-- sehr dunkles Petrol / dunkles Grün-Schwarz
+- matte schwarze Flächen wiie Gun Metal
+- sehr dunkles Emerald/ Smaragdgrün / dunkles Grün-Schwarz
 - Gold als hochwertiger Akzent
 - klare B2B-SaaS-Anmutung
 - kontrollierte technische Animationen
@@ -26,8 +26,8 @@ Nurovelle nutzt eine dunkle, technische Premium-Optik:
 - Schwarz: `#050706`
 - Mattes Schwarz: `#080B09`
 - Tiefgrün: `#0A1913`
-- Smaragd dunkel: `#112A20`
-- Dunkles Teal/Petrol: `#163A35`
+- Smaragd dunkel: `#112b21`
+- Dunkles Teal/Petrol: `#163A26`
 
 ### Text
 
@@ -67,11 +67,6 @@ Aktive Schriftentscheidung:
 - Display / große Headlines: `Tapera`
 - Fließtext, Navigation, Buttons, Formulare, Cards, Footer: `Inter`
 
-Keine Rückkehr zu den alten Font-Stacks aus früheren Zwischenständen:
-
-- Bebas Neue
-- Anca Coder / Coder Pro
-- Raleway / Roboto als Hauptsystem
 
 ## 4. Layoutgrundlagen
 
@@ -87,7 +82,7 @@ Der Header folgt dem freigegebenen Vorgabedesign.
 Aufbau:
 
 - Logo links, klickbar zur Startseite
-- Breadcrumbs im Header
+- Breadcrumbs im Header (css existiert muss farblich nur angepasst werden)
 - Analyse-CTA rechts
 - Hamburger unterhalb des Headers zur Sidebar-Steuerung
 
