@@ -1,0 +1,107 @@
+/* Nurovelle 3D depth card component
+   Source spec: Branding/nurovelle_interactive_3d_tilt_card_component.md
+   Default version is static and safe for preview surfaces.
+   Interactive cursor tracking can be added by setting --tilt-x and --tilt-y from JS.
+*/
+
+.nv-tilt-card {
+  --tilt-x: 0deg;
+  --tilt-y: 0deg;
+  --card-bg: linear-gradient(135deg, #030404 0%, #05070B 52%, #010403 100%);
+  --card-gold: #D9A12F;
+  --card-gold-light: #F0B739;
+  --card-gold-deep: #C8871A;
+  --card-text: #F5F5F2;
+  --card-muted: #B9B6AE;
+  --card-line: rgba(217,161,47,.55);
+  --card-soft-line: rgba(255,255,255,.08);
+  --card-emerald: rgba(80,200,120,.14);
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: clamp(12.5rem, 35vmin, 35rem);
+  aspect-ratio: 2 / 3;
+  overflow: hidden;
+  border: 1px solid var(--card-line);
+  border-radius: 1.25rem;
+  color: var(--card-text);
+  background:
+    linear-gradient(90deg, var(--card-soft-line) 1px, transparent 1px) 0 0 / 1.25rem 1.25rem,
+    linear-gradient(0deg, var(--card-soft-line) 1px, transparent 1px) 0 0 / 1.25rem 1.25rem,
+    radial-gradient(circle at 22% 18%, rgba(217,161,47,.18), transparent 34%),
+    radial-gradient(circle at 82% 78%, var(--card-emerald), transparent 38%),
+    var(--card-bg);
+  box-shadow: 0 30px 60px -12px rgba(0,0,0,.6);
+  transform: perspective(65rem) rotateX(var(--tilt-x)) rotateY(var(--tilt-y));
+  transform-style: preserve-3d;
+  transition: transform .28s cubic-bezier(.175,.885,.32,1.275), box-shadow .28s ease;
+}
+
+.nv-tilt-card::before {
+  content: "";
+  position: absolute;
+  inset: -35%;
+  pointer-events: none;
+  background: radial-gradient(circle, rgba(217,161,47,.16), rgba(80,200,120,.08), transparent 62%);
+  opacity: .78;
+}
+
+.nv-tilt-card__text {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  place-items: center;
+  gap: .75rem;
+  max-width: 82%;
+  text-align: center;
+  transform: translateZ(3rem);
+}
+
+.nv-tilt-card__kicker {
+  margin: 0;
+  font-family: "Anca Coder", monospace;
+  font-size: clamp(.62rem, 3.4cqw, .86rem);
+  line-height: 1.15;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--card-gold);
+}
+
+.nv-tilt-card__title {
+  margin: 0;
+  font-family: "Bebas Neue", sans-serif;
+  font-weight: 400;
+  font-size: clamp(2.2rem, 13cqw, 5.2rem);
+  line-height: .92;
+  letter-spacing: .035em;
+  text-transform: uppercase;
+  background: linear-gradient(180deg, #ffd7a3 0%, #f0a05a 24%, #d89828 60%, #7a3518 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+}
+
+.nv-tilt-card__body {
+  margin: 0;
+  max-width: 24ch;
+  font-family: Raleway, Arial, sans-serif;
+  font-size: clamp(.84rem, 4.6cqw, 1.15rem);
+  line-height: 1.45;
+  color: rgba(245,245,242,.76);
+}
+
+.nv-tilt-card:hover {
+  box-shadow: 0 38px 78px -18px rgba(0,0,0,.72);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .nv-tilt-card {
+    transition: none;
+    transform: none;
+  }
+
+  .nv-tilt-card__text {
+    transform: none;
+  }
+}
