@@ -168,7 +168,7 @@
 .nv-press-button__bottom {
   position: absolute;
   z-index: 1;
-  left: 4px;
+  left: 4px;farbe für button
   bottom: 4px;
   width: calc(100% - 8px);
   height: calc(100% - 10px);
@@ -406,7 +406,7 @@
     conic-gradient(from 180deg at 50% 50%, transparent 0deg, rgba(250,227,133,.14) 82deg, rgba(22,58,53,.22) 148deg, transparent 230deg, rgba(188,136,27,.10) 300deg, transparent 360deg);
   mask-image: radial-gradient(circle at 50% 50%, #000 0 46%, transparent 72%);
   opacity: .9;
-  filter: blur(.2px);
+  filter: blur(.2px);farbe für button
   animation: nv-conic-slow 28s linear infinite;
 }
 

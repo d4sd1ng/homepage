@@ -1,0 +1,382 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Nurovelle Header Preview</title>
+<style>
+:root{
+  --nv-black:#050706;
+  --nv-matte-black:#080B09;
+  --nv-deep-green:#0A1913;
+  --nv-emerald:#112A20;
+  --nv-teal-dark:#163A21;
+  --nv-text-light:#F5F7F4;
+  --nv-text-muted:#B9C3BD;
+  --nv-gold-dark:#a54e07;
+  --nv-gold-mid:#b47e11;
+  --nv-gold-light:#fef1a2;
+  --nv-gold-core:#bc881b;
+  --nv-gold-border:#a55d07;
+  --nv-gold-inner-dark:#8b4208;
+  --nv-gold-inner-mid:#b17d10;
+  --nv-gold-highlight:#fae385;
+  --nv-gold-text-dark:rgb(120,50,5);
+  --nv-gold-gradient:linear-gradient(160deg,#a54e07,#b47e11,#fef1a2,#bc881b,#a54e07);
+  --page-gutter:clamp(20px,4vw,56px);
+  --header-height:56px;
+  --font-ui:Inter,Arial,sans-serif;
+  --font-size: 16px;
+}
+
+*{
+  box-sizing:border-box;
+  margin:0;padding:0
+}
+
+html{
+  font-size:16px;
+}
+
+body{
+  min-height:100vh;
+  background:#0000;
+  color:var(--nv-text-light);
+  font-family:var(--font-ui);
+  font-size:1rem;
+  overflow:hidden;
+}
+
+.preview-stage{
+  min-height:100vh;
+  background:radial-gradient(circle at 75% 30%,rgba(17,42,32,.55),transparent 10%),linear-gradient(180deg,#020403,#000 15%);
+}
+
+.site-header{
+  height:var(--header-height);
+  position:sticky;
+  top:0;z-index:24;
+  background:rgba(5,7,6,1);
+  border-bottom:1px solid rgba(250,227,133,.45);
+  backdrop-filter:blur(8px)
+}
+
+.header-inner{
+  height:100%;
+  padding:0 var(--page-gutter);
+  display:grid;
+  grid-template-columns:auto minmax(0,1fr) auto;
+  align-items:center;gap:24px
+}
+
+.logo-link{
+  display:inline-grid;
+  place-items:center;
+  width:54px;
+  height:54px;
+  perspective:600px;
+  text-decoration:none;
+  flex:0 0 auto
+}
+
+.logo-spin {
+  animation: nv-logo-y-spin 3.8s infinite;
+  transform-style: preserve-3d;
+  transform-origin:center;
+  will-change: transform;
+}
+
+.logo-link:hover .logo-spin,
+.logo-link:focus-visible .logo-spin{
+  animation-play-state:paused;
+}
+
+@keyframes nv-logo-y-spin {
+  0% {
+    transform: rotateY(0deg);
+    animation-timing-function: cubic-bezier(.08, .72, .12, 1);
+  }
+
+  16% {
+    transform: rotateY(540deg);
+    animation-timing-function: cubic-bezier(.16, .78, .26, 1);
+  }
+
+  42% {
+    transform: rotateY(820deg);
+    animation-timing-function: cubic-bezier(.34, .02, .72, .32);
+  }
+
+  62% {
+    transform: rotateY(900deg);
+    animation-timing-function: cubic-bezier(.08, .7, .14, 1);
+  }
+
+  76% {
+    transform: rotateY(1180deg);
+    animation-timing-function: cubic-bezier(.28, .02, .62, .26);
+  }
+
+  92% {
+    transform: rotateY(1248deg);
+    animation-timing-function: cubic-bezier(.16, .86, .28, 1);
+  }
+
+  100% {
+    transform: rotateY(1260deg);
+  }
+}
+.nv-breadcrumb{
+  display:inline-flex;
+  max-width:100%;
+  overflow:visible;
+  justify-self:center;
+  white-space:nowrap;
+  filter:drop-shadow(0 12px 18px rgba(0,0,0,.28));
+}
+
+.nv-breadcrumb a,
+.nv-breadcrumb span{
+  --nv-crumb-point:20px;
+  --nv-crumb-border:rgba(250,227,133,.22);
+  --nv-crumb-bg:linear-gradient(180deg,rgba(17,42,32,.92),rgba(8,11,9,.96));
+  position:relative;
+  display:flex;
+  align-items:center;
+  min-height:40px;
+  padding:0 calc(var(--nv-crumb-point) + 15px);
+  color:var(--nv-text-muted);
+  background:none;
+  font-size:14px;
+  line-height:1;
+  text-decoration:none;
+  transition:color .3s ease,background .3s ease,box-shadow .3s ease;
+  z-index:1;
+}
+
+.nv-breadcrumb a + a,
+.nv-breadcrumb a + span,
+.nv-breadcrumb span + a,
+.nv-breadcrumb span + span{
+  margin-left:calc(var(--nv-crumb-point) * -1);
+}
+
+.nv-breadcrumb a:first-child,
+.nv-breadcrumb span:first-child{
+  padding-left:18px;
+}
+
+.nv-breadcrumb a::before,
+.nv-breadcrumb span::before,
+.nv-breadcrumb a::after,
+.nv-breadcrumb span::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+  transition:background .3s ease,box-shadow .3s ease;
+}
+
+.nv-breadcrumb a::before,
+.nv-breadcrumb span::before{
+  background:linear-gradient(135deg,rgba(250,227,133,.36),rgba(0,0,0,.48) 58%,rgba(250,227,133,.14));
+  clip-path:polygon(0 0,calc(100% - var(--nv-crumb-point)) 0,100% 50%,calc(100% - var(--nv-crumb-point)) 100%,0 100%,var(--nv-crumb-point) 50%);
+  z-index:-2;
+}
+
+.nv-breadcrumb a::after,
+.nv-breadcrumb span::after{
+  inset:1px;
+  background:var(--nv-crumb-bg);
+  clip-path:polygon(0 0,calc(100% - var(--nv-crumb-point)) 0,100% 50%,calc(100% - var(--nv-crumb-point)) 100%,0 100%,var(--nv-crumb-point) 50%);
+  z-index:-1;
+}
+
+.nv-breadcrumb a:first-child::before,
+.nv-breadcrumb span:first-child::before{
+  border-radius:10px 0 0 10px;
+  clip-path:polygon(0 0,calc(100% - var(--nv-crumb-point)) 0,100% 50%,calc(100% - var(--nv-crumb-point)) 100%,0 100%);
+}
+
+.nv-breadcrumb a:first-child::after,
+.nv-breadcrumb span:first-child::after{
+  border-radius:9px 0 0 9px;
+  clip-path:polygon(0 0,calc(100% - var(--nv-crumb-point)) 0,100% 50%,calc(100% - var(--nv-crumb-point)) 100%,0 100%);
+}
+
+.nv-breadcrumb a:hover,
+.nv-breadcrumb a:focus-visible,
+.nv-breadcrumb [aria-current="page"]{
+  color:var(--nv-gold-highlight);
+  --nv-crumb-border:rgba(250,227,133,.52);
+  --nv-crumb-bg:linear-gradient(180deg,rgba(22,58,53,.95),rgba(10,25,19,.98));
+}
+
+.nv-breadcrumb a:hover::before,
+.nv-breadcrumb a:focus-visible::before,
+.nv-breadcrumb [aria-current="page"]::before{
+  background:linear-gradient(135deg,rgba(250,227,133,.62),rgba(188,136,27,.38),rgba(250,227,133,.20));
+  box-shadow:0 0 12px rgba(188,136,27,.20);
+}
+
+.header-cta{
+ justify-self:end;
+ text-decoration:none
+}
+
+.header-cta .nv-press-button {
+  appearance: none;
+  position: relative;
+  border-width: 0;
+  padding: 0 3px 3px;
+  min-width: auto;
+  box-sizing: border-box;
+  background: transparent;
+  font: inherit;
+  cursor: pointer;
+  display: inline-block;
+  outline: none;
+  color: var(--nv-gold-text-dark);
+  text-transform: uppercase;
+  touch-action: manipulation;
+}
+
+.header-cta .nv-press-button__top {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 2;
+  padding: 5px 12px;
+  min-height: 30px;
+  transform: translateY(0);
+  text-align: center;
+  color: var(--nv-gold-text-dark);
+  font-weight: 800;
+  font-size: 9px;
+  letter-spacing: .035em;
+  text-shadow: 0 1px 1px rgba(250,227,133,.55);
+  transition:transform .18s ease,filter .18s ease;
+  user-select: none;
+  white-space: nowrap;
+}
+
+.header-cta .nv-press-button:active .nv-press-button__top {
+  transform: translateY(2px);
+}
+
+.header-cta .nv-press-button__top::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  border-radius: .3em;
+  width: 100%;
+  height: 100%;
+  box-sizing: content-box;
+  background-image: linear-gradient(160deg,#a54e07,#b47e11,#fef1a2,#bc881b,#a54e07);
+  background-size: 120% 120%;
+  background-position: center;
+  text-align: center;
+  box-shadow:
+    0 1px 2px rgba(0,0,0,.22),
+    inset 0 -1px 2px rgba(139,66,8,.72),
+    inset 0 1px 1px rgba(250,227,133,.75);
+  border: 1px solid rgba(165,93,7,.78);
+  transition-property: border-radius,padding,width,transform,background-size,box-shadow;
+  transition-duration: .2s;
+}
+
+.header-cta .nv-press-button:hover .nv-press-button__top::after,
+.header-cta .nv-press-button:focus-visible .nv-press-button__top::after {
+  background-size: 150% 150%;
+  box-shadow:
+    0 2px 5px rgba(0,0,0,.22),
+    inset 0 -1px 2px rgba(139,66,8,.68),
+    inset 0 1px 1px rgba(250,227,133,.82);
+  border-color: rgba(250,227,133,.55);
+}
+
+.header-cta .nv-press-button:active .nv-press-button__top::after {
+  border-radius: 5px;
+  padding: 0 1px;
+  box-shadow:
+    0 1px 2px rgba(0,0,0,.22),
+    inset 0 1px 2px rgba(139,66,8,.62),
+    inset 0 -1px 1px rgba(250,227,133,.62);
+}
+
+.header-cta .nv-press-button__bottom {
+  position: absolute;
+  z-index: 1;
+  bottom: 1px;
+  left: 2px;
+  border-radius: 6px;
+  padding-top: 1px;
+  width: calc(100% - 4px);
+  height: calc(100% - 4px);
+  box-sizing: content-box;
+  background-color: #803;
+  background-image:
+    linear-gradient(180deg,#bc881b,#8b4208);
+  box-shadow:
+    0 1px 2px 0 rgba(0,0,0,.35),
+    inset 0 -1px 1px rgba(0,0,0,.30);
+  transition-property: border-radius,padding-top;
+  transition-duration: .2s;
+}
+
+.header-cta .nv-press-button:active .nv-press-button__bottom {
+  border-radius: 6px;
+  padding-top: 0;
+}
+
+.header-cta .nv-press-button__base {
+  position: absolute;
+  z-index: 0;
+  top: 1px;
+  left: 0;
+  border-radius: 7px;
+  width: 100%;
+  height: calc(100% - 1px);
+  background-color: rgba(0,0,0,.15);
+  box-shadow:
+    0 1px 1px 0 rgba(255,255,255,.22),
+    inset 0 1px 1px rgba(0,0,0,.20);
+}.sidebar-toggle-wrap{position:fixed;left:var(--page-gutter);top:calc(var(--header-height) + 12px);z-index:15}
+.sidebar-toggle{width:42px;height:34px;border:1px solid rgba(250,227,133,.5);border-radius:7px;background:rgba(5,7,6,.8);display:grid;place-items:center;box-shadow:0 10px 28px rgba(0,0,0,.3);cursor:pointer}
+.sidebar-toggle span{display:block;width:19px;height:1px;background:#fef1a2;box-shadow:0 6px 0 #fef1a2,0 -6px 0 #fef1a2}
+.hero-placeholder{padding:120px var(--page-gutter) 0;margin-left:235px}.hero-placeholder h1{font-size:56px;line-height:.9;max-width:660px}.hero-placeholder p{margin-top:18px;color:rgba(255,255,255,.7);max-width:560px;line-height:1.6}
+@media(max-width:1080px){.header-inner{grid-template-columns:auto minmax(0,1fr) auto;gap:14px}.nv-breadcrumb{justify-self:start;max-width:calc(100vw - 390px);overflow-x:auto;overflow-y:hidden;scrollbar-width:none}.nv-breadcrumb::-webkit-scrollbar{display:none}.nv-breadcrumb a,.nv-breadcrumb span{--nv-crumb-point:18px;flex:0 0 auto;font-size:11px;padding-left:28px;padding-right:28px}.header-cta .nv-press-button__top{font-size:9px;padding-left:10px;padding-right:10px}.hero-placeholder{margin-left:0}}
+@media(max-width:760px){:root{--header-height:52px}.header-inner{grid-template-columns:auto minmax(0,1fr);gap:12px}.nv-breadcrumb{max-width:calc(100vw - 94px);justify-self:start;overflow-x:auto;overflow-y:hidden;scrollbar-width:none}.nv-breadcrumb::-webkit-scrollbar{display:none}.nv-breadcrumb a,.nv-breadcrumb span{--nv-crumb-point:17px;flex:0 0 auto;min-height:34px;font-size:10px;padding:0 24px}.nv-breadcrumb a:first-child,.nv-breadcrumb span:first-child{padding-left:14px}.header-cta{display:none}.logo-link{width:48px;height:48px}.logo-spin{width:40px;height:40px}.sidebar-toggle-wrap{top:calc(var(--header-height) + 10px)}.hero-placeholder{padding-top:112px}.hero-placeholder h1{font-size:38px}}
+@media(prefers-reduced-motion:reduce){.logo-spin{animation:none}.nv-breadcrumb *,.nv-press-button *{transition-duration:.001ms!important}}
+</style>
+</head>
+<body>
+<div class="preview-stage">
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="logo-link" href="#hero" aria-label="Nurovelle Startseite"><span class="logo-spin" aria-hidden="true"></span></a>
+      <nav class="nv-breadcrumb" aria-label="Breadcrumb Navigation">
+        <a href="#hero" aria-current="page">Hero</a>
+        <a href="#ki-projekt-start">Erster Schritt</a>
+        <a href="#potenzialanalyse">Potenzialanalyse</a>
+        <a href="#projektidee">Projektidee</a>
+        <a href="#leistungen">Leistungen</a>
+        <a href="#prozess-zur-loesung">Prozess</a>
+        <a href="#warum-nurovelle">Warum Nurovelle</a>
+        <a href="#downloads">Downloads</a>
+      </nav>
+      <a class="header-cta" href="analyse.html" aria-label="Kostenlose KI-Potenzialanalyse öffnen">
+        <span class="nv-press-button" role="button" aria-hidden="true">
+          <span class="nv-press-button__top">Kostenlose KI-Potenzialanalyse</span>
+          <span class="nv-press-button__bottom"></span>
+          <span class="nv-press-button__base"></span>
+        </span>
+      </a>
+    </div>
+  </header>
+  <div class="sidebar-toggle-wrap"><button class="sidebar-toggle" aria-label="Sidebar öffnen"><span></span></button></div>
+  <main class="hero-placeholder" id="hero"><h1>KI-Agenten für echte Geschäftsprozesse.</h1><p>Header-Vorschau: Breadcrumb-Chevrons aus der Referenz, Golden Press Button, Logo-Spin um die eigene vertikale Achse.</p></main>
+</div>
+</body>
+</html>
