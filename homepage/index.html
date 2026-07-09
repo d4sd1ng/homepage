@@ -32,6 +32,13 @@
   --section-kicker-gap: 8px;
   --section-title-gap: 9px;
   --section-head-gap: 24px;
+  --header-height: 56px;
+  --nv-text-muted: #b9c3bd;
+  --nv-gold-dark: #a54e07;
+  --nv-gold-light: #fef1a2;
+  --nv-gold-core: #bc881b;
+  --nv-gold-highlight: #fae385;
+  --nv-gold-text-dark: rgb(120,50,5);
 }
 
 * {
@@ -72,82 +79,300 @@ img {
 }
 
 .site-header {
-  height: 44px;
-  border-bottom: 1px solid rgba(240,160,90,.72);
+  height: var(--header-height);
+  border-bottom: 1px solid rgba(250,227,133,.45);
   background: #000;
-  backdrop-filter: blur(6px);
+  backdrop-filter: blur(8px);
   position: sticky;
   top: 0;
   z-index: 50;
-  min-height: 44px;
+  min-height: var(--header-height);
+}
+
+.site-header::before {
+  content: none;
+}
+
+.site-header::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 1px;
+  z-index: 0;
+  background: linear-gradient(90deg,transparent,rgba(250,227,133,.82),transparent);
 }
 
 .header-inner {
-  height: 44px;
+  position: relative;
+  z-index: 1;
+  height: 100%;
   padding: 0 var(--side);
-  display: flex;
+  display: grid;
+  grid-template-columns: auto minmax(0,1fr) auto;
   align-items: center;
-  justify-content: space-between;
-}
-
-.logo {
-  height: 48px;
-  width: auto;
-  display: block;
-}
-
-.nav {
-  display: flex;
   gap: 24px;
+}
+
+.logo-link {
+  display: inline-grid;
+  place-items: center;
+  width: 54px;
+  height: 54px;
+  perspective: 600px;
+  text-decoration: none;
+  flex: 0 0 auto;
+}
+
+.logo-spin {
+  display: block;
+  width: 46px;
+  height: 36px;
+  animation: nv-logo-y-spin 11.5s linear infinite;
+  background: url("assets/hero/nurovelle_logo.png") center / contain no-repeat;
+  filter: drop-shadow(0 0 8px rgba(250,227,133,.24));
+  transform-style: preserve-3d;
+  transform-origin: center;
+  transition: filter .22s ease-out;
+  will-change: transform;
+}
+
+.logo-link:hover .logo-spin,
+.logo-link:focus-visible .logo-spin {
+  animation: none;
+  transform: rotateY(0deg) !important;
+  filter: drop-shadow(0 0 10px rgba(250,227,133,.32));
+}
+
+@keyframes nv-logo-y-spin {
+  0% { transform: rotateY(0deg); }
+  8% { transform: rotateY(900deg); }
+  18% { transform: rotateY(1800deg); }
+  32% { transform: rotateY(2700deg); }
+  48% { transform: rotateY(3420deg); }
+  64% { transform: rotateY(3960deg); }
+  76% { transform: rotateY(4230deg); }
+  84% { transform: rotateY(4500deg); }
+  91% { transform: rotateY(4860deg); }
+  97% { transform: rotateY(5040deg); }
+  100% { transform: rotateY(5100deg); }
+}
+
+.nv-breadcrumb {
+  display: inline-flex;
+  max-width: 100%;
+  overflow: visible;
+  justify-self: center;
+  white-space: nowrap;
+  filter: drop-shadow(0 12px 18px rgba(0,0,0,.28));
+}
+
+.nv-breadcrumb a,
+.nv-breadcrumb span {
+  --nv-crumb-point: 20px;
+  --nv-crumb-bg: linear-gradient(180deg,rgba(17,42,32,.92),rgba(8,11,9,.96));
+  position: relative;
+  display: flex;
   align-items: center;
-}
-
-.nav a {
-  font-family: "Anca Coder",monospace;
-  font-size: 10px;
-  letter-spacing: 1.05px;
-  text-transform: uppercase;
+  min-height: 40px;
+  padding: 0 calc(var(--nv-crumb-point) + 15px);
+  color: var(--nv-text-muted);
+  background: none;
+  font-family: "Raleway",Arial,sans-serif;
+  font-size: 14px;
   line-height: 1;
+  text-decoration: none;
+  transition: color .3s ease,background .3s ease,box-shadow .3s ease;
+  z-index: 1;
 }
 
-.nav a:hover {
-  color: var(--gold2);
+.nv-breadcrumb a + a,
+.nv-breadcrumb a + span,
+.nv-breadcrumb span + a,
+.nv-breadcrumb span + span {
+  margin-left: calc(var(--nv-crumb-point) * -1);
 }
 
-.nav a.active {
-  color: var(--gold2);
+.nv-breadcrumb a:first-child,
+.nv-breadcrumb span:first-child {
+  padding-left: 18px;
+}
+
+.nv-breadcrumb a::before,
+.nv-breadcrumb span::before,
+.nv-breadcrumb a::after,
+.nv-breadcrumb span::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  transition: background .3s ease,box-shadow .3s ease;
+}
+
+.nv-breadcrumb a::before,
+.nv-breadcrumb span::before {
+  background: linear-gradient(135deg,rgba(250,227,133,.36),rgba(0,0,0,.48) 58%,rgba(250,227,133,.14));
+  clip-path: polygon(0 0,calc(100% - var(--nv-crumb-point)) 0,100% 50%,calc(100% - var(--nv-crumb-point)) 100%,0 100%,var(--nv-crumb-point) 50%);
+  z-index: -2;
+}
+
+.nv-breadcrumb a::after,
+.nv-breadcrumb span::after {
+  inset: 1px;
+  background: var(--nv-crumb-bg);
+  clip-path: polygon(0 0,calc(100% - var(--nv-crumb-point)) 0,100% 50%,calc(100% - var(--nv-crumb-point)) 100%,0 100%,var(--nv-crumb-point) 50%);
+  z-index: -1;
+}
+
+.nv-breadcrumb a:first-child::before,
+.nv-breadcrumb span:first-child::before {
+  border-radius: 10px 0 0 10px;
+  clip-path: polygon(0 0,calc(100% - var(--nv-crumb-point)) 0,100% 50%,calc(100% - var(--nv-crumb-point)) 100%,0 100%);
+}
+
+.nv-breadcrumb a:first-child::after,
+.nv-breadcrumb span:first-child::after {
+  border-radius: 9px 0 0 9px;
+  clip-path: polygon(0 0,calc(100% - var(--nv-crumb-point)) 0,100% 50%,calc(100% - var(--nv-crumb-point)) 100%,0 100%);
+}
+
+.nv-breadcrumb a:hover,
+.nv-breadcrumb a:focus-visible,
+.nv-breadcrumb [aria-current="page"] {
+  color: var(--nv-gold-highlight);
+  --nv-crumb-bg: linear-gradient(180deg,rgba(22,58,53,.95),rgba(10,25,19,.98));
+}
+
+.nv-breadcrumb a:hover::before,
+.nv-breadcrumb a:focus-visible::before,
+.nv-breadcrumb [aria-current="page"]::before {
+  background: linear-gradient(135deg,rgba(250,227,133,.62),rgba(188,136,27,.38),rgba(250,227,133,.20));
+  box-shadow: 0 0 12px rgba(188,136,27,.20);
 }
 
 .header-cta {
-  height: 28px;
-  padding: 0 12px;
-  display: inline-flex;
-  align-items: center;
-  border: 1px solid #d89828;
-  border-radius: 4px;
-  font-family: "Bebas Neue",sans-serif;
-  font-size: 13px;
-  letter-spacing: .045em;
-  color: #050505;
-  text-transform: uppercase;
-  background: linear-gradient(180deg,#ffd7a3 0%,#f0a05a 24%,#d89828 60%,#7a3518 100%);
-  box-shadow: none;
-  line-height: 1;
-  gap: 6px;
-  white-space: nowrap;
-  justify-content: center;
-  min-height: 28px;
-  vertical-align: middle;
-  text-align: center;
+  justify-self: end;
+  text-decoration: none;
 }
 
-.header-cta::after {
-  content: "→";
+.header-cta .nv-press-button {
+  appearance: none;
+  position: relative;
+  border-width: 0;
+  padding: 0 3px 3px;
+  min-width: auto;
+  box-sizing: border-box;
+  background: transparent;
+  font: inherit;
+  cursor: pointer;
   display: inline-block;
-  margin-left: 6px;
-  font-size: 13px;
-  line-height: 1;
-  transform: none;
+  outline: none;
+  color: var(--nv-gold-text-dark);
+  text-transform: uppercase;
+  touch-action: manipulation;
+}
+
+.header-cta .nv-press-button__top {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 2;
+  padding: 5px 12px;
+  min-height: 30px;
+  transform: translateY(0);
+  text-align: center;
+  color: var(--nv-gold-text-dark);
+  font-weight: 800;
+  font-size: 9px;
+  letter-spacing: .035em;
+  text-shadow: 0 1px 1px rgba(250,227,133,.55);
+  transition: transform .18s ease,filter .18s ease;
+  user-select: none;
+  white-space: nowrap;
+}
+
+.header-cta .nv-press-button:active .nv-press-button__top {
+  transform: translateY(2px);
+}
+
+.header-cta .nv-press-button__top::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  border-radius: .3em;
+  width: 100%;
+  height: 100%;
+  box-sizing: content-box;
+  background-image: linear-gradient(160deg,#a54e07,#b47e11,#fef1a2,#bc881b,#a54e07);
+  background-size: 120% 120%;
+  background-position: center;
+  text-align: center;
+  box-shadow:
+    0 1px 2px rgba(0,0,0,.22),
+    inset 0 -1px 2px rgba(139,66,8,.72),
+    inset 0 1px 1px rgba(250,227,133,.75);
+  border: 1px solid rgba(165,93,7,.78);
+  transition-property: border-radius,padding,width,transform,background-size,box-shadow;
+  transition-duration: .2s;
+}
+
+.header-cta .nv-press-button:hover .nv-press-button__top::after,
+.header-cta .nv-press-button:focus-visible .nv-press-button__top::after {
+  background-size: 150% 150%;
+  box-shadow:
+    0 2px 5px rgba(0,0,0,.22),
+    inset 0 -1px 2px rgba(139,66,8,.68),
+    inset 0 1px 1px rgba(250,227,133,.82);
+  border-color: rgba(250,227,133,.55);
+}
+
+.header-cta .nv-press-button:active .nv-press-button__top::after {
+  border-radius: 5px;
+  padding: 0 1px;
+  box-shadow:
+    0 1px 2px rgba(0,0,0,.22),
+    inset 0 1px 2px rgba(139,66,8,.62),
+    inset 0 -1px 1px rgba(250,227,133,.62);
+}
+
+.header-cta .nv-press-button__bottom {
+  position: absolute;
+  z-index: 1;
+  bottom: 1px;
+  left: 2px;
+  border-radius: 6px;
+  padding-top: 1px;
+  width: calc(100% - 4px);
+  height: calc(100% - 4px);
+  box-sizing: content-box;
+  background-color: #803;
+  background-image: linear-gradient(180deg,#bc881b,#8b4208);
+  box-shadow:
+    0 1px 2px 0 rgba(0,0,0,.35),
+    inset 0 -1px 1px rgba(0,0,0,.30);
+  transition-property: border-radius,padding-top;
+  transition-duration: .2s;
+}
+
+.header-cta .nv-press-button:active .nv-press-button__bottom {
+  border-radius: 6px;
+  padding-top: 0;
+}
+
+.header-cta .nv-press-button__base {
+  position: absolute;
+  z-index: 0;
+  top: 1px;
+  left: 0;
+  border-radius: 7px;
+  width: 100%;
+  height: calc(100% - 1px);
+  background-color: rgba(0,0,0,.15);
+  box-shadow:
+    0 1px 1px 0 rgba(255,255,255,.22),
+    inset 0 1px 1px rgba(0,0,0,.20);
 }
 
 body.has-sidebar .site-header {
@@ -157,7 +382,7 @@ body.has-sidebar .site-header {
 .home-sidebar {
   position: fixed;
   left: 0;
-  top: 44px;
+  top: var(--header-height);
   bottom: 0;
   width: var(--sidebar-w);
   z-index: 42;
@@ -1169,7 +1394,12 @@ body.has-sidebar .trust-section .trust-inner { width: 100%; max-width: none; min
 }
 
 @media (max-width: 1180px) {
-  .nav { display: none; }
+  .header-inner { grid-template-columns: auto minmax(0,1fr) auto; gap: 14px; }
+  .nv-breadcrumb { justify-self: start; max-width: calc(100vw - 390px); overflow-x: auto; overflow-y: hidden; scrollbar-width: none; }
+  .nv-breadcrumb::-webkit-scrollbar { display: none; }
+  .nv-breadcrumb a,
+  .nv-breadcrumb span { --nv-crumb-point: 18px; flex: 0 0 auto; font-size: 11px; padding-left: 28px; padding-right: 28px; }
+  .header-cta .nv-press-button__top { font-size: 9px; padding-left: 10px; padding-right: 10px; }
   .home-sidebar { display: none; }
   body.has-sidebar main { margin-left: 0; width: 100%; }
   .footer { margin-left: 0; width: 100%; }
@@ -1188,10 +1418,16 @@ body.has-sidebar .trust-section .trust-inner { width: 100%; max-width: none; min
 }
 
 @media (max-width: 760px) {
-  :root { --side: 22px; }
-  .site-header { height: 42px; min-height: 42px; }
-  .header-inner { height: 42px; }
-  .logo { height: 46px; }
+  :root { --side: 22px; --header-height: 52px; }
+  .header-inner { grid-template-columns: auto minmax(0,1fr); gap: 12px; }
+  .nv-breadcrumb { max-width: calc(100vw - 94px); justify-self: start; overflow-x: auto; overflow-y: hidden; scrollbar-width: none; }
+  .nv-breadcrumb::-webkit-scrollbar { display: none; }
+  .nv-breadcrumb a,
+  .nv-breadcrumb span { --nv-crumb-point: 17px; flex: 0 0 auto; min-height: 34px; font-size: 10px; padding: 0 24px; }
+  .nv-breadcrumb a:first-child,
+  .nv-breadcrumb span:first-child { padding-left: 14px; }
+  .logo-link { width: 48px; height: 48px; }
+  .logo-spin { width: 42px; height: 33px; }
   .header-cta { display: none; }
   .problem-stair-cards { grid-template-columns: 1fr; max-width: 430px; }
   .problem-stair-card { width: 100%; margin-left: 0; margin-right: 0; aspect-ratio: 470/345; }
@@ -1208,13 +1444,69 @@ body.has-sidebar .trust-section .trust-inner { width: 100%; max-width: none; min
 
 </style>
 <link rel="stylesheet" href="shared-header-footer.css"/>
+<style>
+.site-header {
+  height: var(--header-height) !important;
+  min-height: var(--header-height) !important;
+  background: #000 !important;
+  border-bottom: 1px solid rgba(250,227,133,.45) !important;
+  backdrop-filter: blur(8px) !important;
+}
+
+.site-header::before { content: none !important; }
+
+.site-header::after {
+  content: "" !important;
+  position: absolute !important;
+  left: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  height: 1px !important;
+  background: linear-gradient(90deg,transparent,rgba(250,227,133,.82),transparent) !important;
+}
+
+.header-inner {
+  height: 100% !important;
+  display: grid !important;
+  grid-template-columns: auto minmax(0,1fr) auto !important;
+  justify-content: normal !important;
+}
+
+.site-header .header-cta {
+  height: auto !important;
+  min-height: 0 !important;
+  padding: 0 !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+.site-header .header-cta::after { content: none !important; }
+
+@media (max-width: 1180px) {
+  .header-inner { grid-template-columns: auto minmax(0,1fr) auto !important; }
+}
+
+@media (max-width: 760px) {
+  .site-header {
+    height: var(--header-height) !important;
+    min-height: var(--header-height) !important;
+  }
+
+  .header-inner {
+    height: 100% !important;
+    grid-template-columns: auto minmax(0,1fr) !important;
+  }
+}
+</style>
 </head>
 <body class="has-sidebar" id="top">
 <header class="site-header">
 <div class="header-inner">
-<a href="#top" aria-label="Zur Startseite"><img alt="Nurovelle Logo" class="logo" src="assets/hero/nurovelle_logo.png"/></a>
-<nav class="nav" aria-label="Hauptmenü">
-<a class="active" href="#top">Home</a>
+<a class="logo-link" href="#top" aria-label="Zur Startseite"><span class="logo-spin" aria-hidden="true"></span></a>
+<nav class="nv-breadcrumb" aria-label="Hauptmenü">
+<a aria-current="page" href="#top">Home</a>
 <a href="#problem-loesung">Lösungen</a>
 <a href="#branchen">Branchen</a>
 <a href="#leistungen">Services</a>
@@ -1223,7 +1515,13 @@ body.has-sidebar .trust-section .trust-inner { width: 100%; max-width: none; min
 <a href="#downloads">Downloads</a>
 <a href="#analyse">Kontakt</a>
 </nav>
-<a class="header-cta" href="#analyse">Potenzialanalyse starten</a>
+<a class="header-cta" href="#analyse" aria-label="Potenzialanalyse starten">
+<span class="nv-press-button" role="button" aria-hidden="true">
+<span class="nv-press-button__top">Potenzialanalyse starten</span>
+<span class="nv-press-button__bottom"></span>
+<span class="nv-press-button__base"></span>
+</span>
+</a>
 </div>
 </header>
 <aside aria-label="Zusätzliche Navigation" class="home-sidebar">
