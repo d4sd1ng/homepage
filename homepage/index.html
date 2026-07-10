@@ -577,17 +577,7 @@ body.has-sidebar main {
 }
 
 .hero:before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background-image: url("assets/hero/bg_grid.png");
-  background-size: 88% auto;
-  background-position: right center;
-  background-repeat: no-repeat;
-  z-index: 0;
-  pointer-events: none;
-  opacity: 0.36;
-  filter: blur(0.35px) brightness(0.58) saturate(0.7);
+  content: none;
 }
 
 .hero:after {
@@ -596,6 +586,16 @@ body.has-sidebar main {
   inset: 0;
   background: linear-gradient(90deg, rgba(0,0,0,.9) 0%, rgba(0,0,0,.72) 36%, rgba(0,0,0,.42) 62%, rgba(0,0,0,.12) 100%);
   z-index: 2;
+  pointer-events: none;
+}
+
+.hero-particle-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
   pointer-events: none;
 }
 
@@ -1617,6 +1617,7 @@ body.has-sidebar .trust-section .trust-inner { width: 100%; max-width: none; min
 </aside>
 <main>
 <section class="hero">
+<canvas class="hero-particle-bg" aria-hidden="true"></canvas>
 <img alt="" class="hero-cube" src="assets/hero/1.png"/>
 <div class="hero-inner">
 <div>
@@ -2285,6 +2286,169 @@ body.has-sidebar .trust-section .trust-inner { width: 100%; max-width: none; min
 <div><h4>Kontakt</h4><a href="#analyse">Potenzialanalyse starten</a><a href="mailto:info@nurovelle.de">info@nurovelle.de</a><a href="impressum.html">Impressum</a><a href="datenschutz.html">Datenschutz</a><p>© 2026 Nurovelle</p></div>
 </div>
 </footer>
+
+
+<script>
+(() => {
+  'use strict';
+
+  const canvas = document.querySelector('.hero-particle-bg');
+  if (!canvas) return;
+
+  const gl = canvas.getContext('webgl', {
+    alpha: false,
+    antialias: false,
+    depth: false,
+    stencil: false,
+    powerPreference: 'high-performance'
+  });
+
+  if (!gl) return;
+
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  const vertexSource = `
+    attribute vec2 aPosition;
+    void main(){
+      gl_Position = vec4(aPosition, 0.0, 1.0);
+    }
+  `;
+
+  const fragmentSource = `
+    precision highp float;
+
+    uniform vec2 uRes;
+    uniform float uTime;
+
+    float hash31(vec3 p){
+      p = fract(p * 0.1031);
+      p += dot(p, p.zyx + 31.32);
+      return fract((p.x + p.y) * p.z);
+    }
+
+    vec3 particulasFondo(vec3 rd){
+      vec3 col = vec3(0.0);
+
+      for(int capa = 0; capa < 4; capa++){
+        float fc = float(capa);
+        float esc = 140.0 + fc * 200.0;
+        vec3 q = rd * esc;
+
+        q.x += uTime * (0.55 + fc * 0.12);
+        q.y += uTime * (0.08 + fc * 0.04);
+
+        vec3 id = floor(q);
+        float h = hash31(id);
+
+        if(h > 0.990 - fc * 0.0025){
+          vec3 c = fract(q) - 0.5;
+          float d = length(c);
+          float b = 1.0 - smoothstep(0.0, 0.5, d);
+          b = pow(b, 12.0) * (0.5 + 1.6 * fract(h * 91.7));
+          vec3 tinte = mix(vec3(0.65, 0.78, 1.0), vec3(1.0, 0.83, 0.62), fract(h * 53.1));
+          if(fract(h * 17.3) > 0.90) b *= 6.0;
+          col += b * tinte * 2.0;
+        }
+      }
+
+      return col;
+    }
+
+    void main(){
+      vec2 uv = (gl_FragCoord.xy - 0.5 * uRes) / uRes.y;
+      vec3 rd = normalize(vec3(uv.x, uv.y, 1.0));
+
+      float yaw = uTime * 0.012;
+      float cy = cos(yaw);
+      float sy = sin(yaw);
+      rd.xz = mat2(cy, -sy, sy, cy) * rd.xz;
+
+      vec3 col = particulasFondo(rd);
+      col = col / (1.0 + col);
+
+      gl_FragColor = vec4(col, 1.0);
+    }
+  `;
+
+  function compile(type, source) {
+    const shader = gl.createShader(type);
+    gl.shaderSource(shader, source);
+    gl.compileShader(shader);
+
+    if (!gl.getShaderParameter(shader, gl.COMPILE_STATUS)) {
+      console.error(gl.getShaderInfoLog(shader));
+      gl.deleteShader(shader);
+      return null;
+    }
+
+    return shader;
+  }
+
+  const vertexShader = compile(gl.VERTEX_SHADER, vertexSource);
+  const fragmentShader = compile(gl.FRAGMENT_SHADER, fragmentSource);
+  if (!vertexShader || !fragmentShader) return;
+
+  const program = gl.createProgram();
+  gl.attachShader(program, vertexShader);
+  gl.attachShader(program, fragmentShader);
+  gl.linkProgram(program);
+
+  if (!gl.getProgramParameter(program, gl.LINK_STATUS)) {
+    console.error(gl.getProgramInfoLog(program));
+    return;
+  }
+
+  gl.useProgram(program);
+
+  const vertices = new Float32Array([
+    -1, -1,
+     1, -1,
+    -1,  1,
+    -1,  1,
+     1, -1,
+     1,  1
+  ]);
+
+  const buffer = gl.createBuffer();
+  gl.bindBuffer(gl.ARRAY_BUFFER, buffer);
+  gl.bufferData(gl.ARRAY_BUFFER, vertices, gl.STATIC_DRAW);
+
+  const aPosition = gl.getAttribLocation(program, 'aPosition');
+  gl.enableVertexAttribArray(aPosition);
+  gl.vertexAttribPointer(aPosition, 2, gl.FLOAT, false, 0, 0);
+
+  const uRes = gl.getUniformLocation(program, 'uRes');
+  const uTime = gl.getUniformLocation(program, 'uTime');
+
+  function resize() {
+    const rect = canvas.getBoundingClientRect();
+    const dpr = Math.min(window.devicePixelRatio || 1, 2);
+    const width = Math.max(2, Math.floor(rect.width * dpr));
+    const height = Math.max(2, Math.floor(rect.height * dpr));
+
+    if (canvas.width !== width || canvas.height !== height) {
+      canvas.width = width;
+      canvas.height = height;
+      gl.viewport(0, 0, width, height);
+    }
+  }
+
+  function render(now) {
+    resize();
+    gl.uniform2f(uRes, canvas.width, canvas.height);
+    gl.uniform1f(uTime, reduceMotion ? 0.0 : now * 0.001);
+    gl.drawArrays(gl.TRIANGLES, 0, 6);
+
+    if (!reduceMotion) {
+      requestAnimationFrame(render);
+    }
+  }
+
+  window.addEventListener('resize', resize, { passive: true });
+  requestAnimationFrame(render);
+})();
+</script>
+
 <script>
 document.querySelectorAll('.problem-depth-feature').forEach((feature) => {
   const cards = feature.querySelectorAll('.problem-stair-card');
