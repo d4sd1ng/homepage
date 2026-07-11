@@ -81,16 +81,32 @@ Zweck der Danke-Seite:
 
 1. Header / Navigation
 2. Hero
-3. Nutzen / Problemverständnis
-4. Problem-Lösung-Matrix
-5. Leistungen / Servicebereiche
-6. Potenzialanalyse-CTA
-7. Whitepaper / Downloads
-8. Vertrauen
-9. Formular
-10. Final CTA
-11. Footer
-12. Danke-Seite
+3. Der erste Schritt zu Ihrem KI-Projekt
+4. Sie haben bereits eine konkrete KI-Idee?
+5. Kostenlose KI-Potenzialanalyse
+6. KI-Leistungen von Nurovelle
+7. Vom Geschäftsprozess zur KI-Lösung
+8. Warum Nurovelle
+9. Download-Bereich
+10. Analyse-Seite / Formularweiterleitung
+11. Success-/Error-Zustand in `analyse.html`
+12. Footer
+
+Aktuelle Ausführungsentscheidung vom 2026-07-10:
+
+- Projektidee steht vor Potenzialanalyse.
+- Potenzialanalyse kommt eine Sektion später.
+- Diese Reihenfolge überschreibt ältere Strukturstände.
+
+## Aktuelle Divider-Abfolge
+
+Status: in Arbeit
+
+- Hero → Section 2: Divider A – SVG-Schräg-Divider / Separator
+- Section 2 / Der erste Schritt → Section 3 / Projektidee: Divider A erneut
+- Section 3 / Projektidee → Section 4 / Potenzialanalyse: Divider B normal
+- Section 4 / Potenzialanalyse → Section 5 / Leistungen: Divider B reverse
+- Section 5 / Leistungen → Section 6 / Prozess: Divider C
 
 ## Detailseiten-Ziel
 
@@ -267,3 +283,16 @@ NUROVELLE_CSS_ANIMATIONEN_REFERENZ.md
 ```
 
 Die produktive Nutzung einzelner Varianten erfolgt erst nach Sichtprüfung und Freigabe.
+
+
+### Korrektur 2026-07-10 – Divider-A-Doppelprüfung
+
+Für die aktuelle Live-Prüfung ist die Divider-Abfolge testweise. Variante A muss zweimal direkt nacheinander über aufeinanderfolgende Section-Übergänge dargestellt werden, damit ihre Wirkung im wiederholten Einsatz beurteilt werden kann. Erst nach Sichtprüfung wird festgelegt, welcher Divider tatsächlich verwendet wird.
+
+Testabfolge:
+
+1. Hero → Section 2: Divider A
+2. Section 2 → Section 3: Divider A erneut
+3. Section 3 → Section 4: Divider B normal
+4. Section 4 → Section 5: Divider B reverse
+5. Section 5 → Section 6: Divider C

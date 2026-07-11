@@ -1,5 +1,24 @@
 # Changelog
 
+## 2026-07-11 – Sektion 2 mit drei Glaskarten implementiert
+
+Status: fertig
+
+Geändert:
+
+- `index.html`: neue Sektion `#ki-projekt-start` direkt nach dem Hero eingefügt.
+- Sektion 2 gemäß Brief umgesetzt: drei Glaskarten links, Textblock rechts, CTA zu `analyse.html`.
+- Kartenreihenfolge verbindlich als 2, 1, 3 umgesetzt.
+- Responsive Darstellung für Desktop, Tablet und Mobile ergänzt.
+- Kartenassets unter `assets/cards/section2/` abgelegt.
+
+Nicht geändert:
+
+- Hero
+- Header, Sidebar und Footer
+- bestehende nachfolgende Sections
+- Inhalte der drei Kartenbilder
+
 ## 2026-07-07 – Hero-Orb-Originalvorgabe gesichert
 
 Status: fertig

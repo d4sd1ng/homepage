@@ -1,7 +1,7 @@
 # NUROVELLE HOMEPAGE IMPLEMENTATION BRIEF
 
 Status: konsolidierte Arbeitsfassung für HTML/CSS/JS-Umsetzung; CTA-/Formular-/Success-Logik final festgelegt; Bestandscode und Rechts-/Analyse-Seiten ergänzt; Assetliste und Modultabelle sind Referenzanlagen, aber nicht mehr kritische Freigabeblocker  
-Stand: 2026-06-30  
+Stand: 2026-07-10  
 Zweck: Diese Datei ist die **eine Haupt-Brief-Datei** für den HTML-Programmierer. Sie wird zusammen mit genau zwei Anlagen übergeben: **Assetliste** und **Workflow-Modultabelle**.
 
 ---
@@ -566,14 +566,32 @@ Hauptziel der Startseite:
 
 1. Hero
 2. Der erste Schritt zu Ihrem KI-Projekt
-3. Kostenlose KI-Potenzialanalyse
-4. Sie haben bereits eine konkrete KI-Idee?
+3. Sie haben bereits eine konkrete KI-Idee?
+4. Kostenlose KI-Potenzialanalyse
 5. KI-Leistungen von Nurovelle
 6. Vom Geschäftsprozess zur KI-Lösung
 7. Warum Nurovelle
 8. Download-Bereich
 9. Analyse-Seite / Formularweiterleitung
 10. Success-/Error-Zustand in `analyse.html`
+
+Aktuelle Ausführungsentscheidung vom 2026-07-10:
+
+- Die Projektidee-Section steht vor der Potenzialanalyse-Section.
+- Die Potenzialanalyse kommt eine Sektion später.
+- Diese Reihenfolge überschreibt ältere Briefstellen, in denen Potenzialanalyse vor Projektidee stand.
+
+### Divider-Abfolge für die aktuelle Live-Übersicht
+
+Status: in Arbeit
+
+- Hero → Section 2: Divider A – SVG-Schräg-Divider / Separator
+- Section 2 „Der erste Schritt zu Ihrem KI-Projekt“ → Section 3 „Sie haben bereits eine konkrete KI-Idee?“: Divider A erneut
+- Section 3 „Sie haben bereits eine konkrete KI-Idee?“ → Section 4 „Kostenlose KI-Potenzialanalyse“: Divider B normal
+- Section 4 „Kostenlose KI-Potenzialanalyse“ → Section 5 „KI-Leistungen von Nurovelle“: Divider B reverse
+- Section 5 „KI-Leistungen von Nurovelle“ → Section 6 „Vom Geschäftsprozess zur KI-Lösung“: Divider C
+
+Hinweis: Diese Abfolge dient der Live-Übersicht und Prüfung. Sie ist keine finale Auswahl einer einzigen Divider-Variante.
 
 Bestandsbereiche:
 
@@ -835,7 +853,35 @@ So entsteht aus einer ersten Idee ein belastbarer nächster Schritt: vom Erstges
 
 ---
 
-## 7. Section 3 – Kostenlose KI-Potenzialanalyse
+## 7. Section 3 – Sie haben bereits eine konkrete KI-Idee?
+
+### Titel
+
+```text
+Sie haben bereits eine konkrete KI-Idee?
+```
+
+### Text
+
+```text
+Wenn Sie bereits wissen, welcher Prozess verbessert, welche Datenquelle nutzbar gemacht oder welche interne Aufgabe unterstützt werden soll, ist der nächste Schritt keine allgemeine Orientierung.
+
+Nurovelle prüft mit Ihnen, ob die Idee technisch realistisch ist, welche Systeme, Daten oder Schnittstellen benötigt werden und welcher Umsetzungsweg sinnvoll ist.
+
+So wird aus einer ersten Idee ein konkreter Projektansatz für KI-Agenten, Automatisierung, Datenverarbeitung oder individuelle Software.
+```
+
+### CTA
+
+- Projektidee prüfen lassen → `analyse.html`
+
+### Divider danach
+
+- Divider B reverse als Übergang zur Potenzialanalyse-Section.
+
+---
+
+## 8. Section 4 – Kostenlose KI-Potenzialanalyse
 
 ### Titel
 
@@ -865,29 +911,9 @@ Bei erkennbarem Potenzial kann daraus im nächsten Schritt eine vertiefende Anal
 - vertiefende Analyse nur dezent erwähnen
 - spätere Angebotsseite möglich
 
----
+### Divider danach
 
-## 8. Section 4 – Sie haben bereits eine konkrete KI-Idee?
-
-### Titel
-
-```text
-Sie haben bereits eine konkrete KI-Idee?
-```
-
-### Text
-
-```text
-Wenn Sie bereits wissen, welcher Prozess verbessert, welche Datenquelle nutzbar gemacht oder welche interne Aufgabe unterstützt werden soll, ist der nächste Schritt keine allgemeine Orientierung.
-
-Nurovelle prüft mit Ihnen, ob die Idee technisch realistisch ist, welche Systeme, Daten oder Schnittstellen benötigt werden und welcher Umsetzungsweg sinnvoll ist.
-
-So wird aus einer ersten Idee ein konkreter Projektansatz für KI-Agenten, Automatisierung, Datenverarbeitung oder individuelle Software.
-```
-
-### CTA
-
-- Projektidee prüfen lassen → `analyse.html`
+- Danach folgt Divider C zur nächsten Trennung.
 
 ---
 
@@ -2381,3 +2407,16 @@ Für den Programmierer gilt ab jetzt folgender Status:
 - Prüfung, ob Temkuri/Zra als technische Basis oder nur als Strukturreferenz genutzt werden.
 
 Diese Korrektur überschreibt ältere Formulierungen, in denen Button-Animation oder Breadcrumb-Ausführung noch als offen bezeichnet wurden.
+
+
+### Korrektur 2026-07-10 – Divider-A-Doppelprüfung
+
+Für die aktuelle Live-Prüfung ist die Divider-Abfolge testweise. Variante A muss zweimal direkt nacheinander über aufeinanderfolgende Section-Übergänge dargestellt werden, damit ihre Wirkung im wiederholten Einsatz beurteilt werden kann. Erst nach Sichtprüfung wird festgelegt, welcher Divider tatsächlich verwendet wird.
+
+Testabfolge:
+
+1. Hero → Section 2: Divider A
+2. Section 2 → Section 3: Divider A erneut
+3. Section 3 → Section 4: Divider B normal
+4. Section 4 → Section 5: Divider B reverse
+5. Section 5 → Section 6: Divider C

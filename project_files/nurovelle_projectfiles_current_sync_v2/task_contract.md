@@ -364,3 +364,35 @@ Nicht erlaubt:
 - neue gleichrangige Designquellen ohne Auftrag
 - unmarkierte Vermischung aus Originalcode und Nurovelle-Adaption
 - Interpretation als finale Freigabe ohne Entscheidungseintrag
+---
+
+## Nachtrag 2026-07-10 – Aktuelle Startseiten-Reihenfolge und Divider-Abfolge
+
+Verbindlich für den aktuellen Stand:
+
+- Aktuelle ausdrücklich freigegebene Benutzervorgaben überschreiben ältere Reihenfolgen in Brief, Overview oder Zwischenständen.
+- Für die Startseite gilt jetzt: Projektidee vor Potenzialanalyse.
+- Die Potenzialanalyse kommt eine Sektion später.
+- Die aktuelle Divider-Prüfabfolge lautet: A nach Hero, A erneut nach Section 2, B normal nach Projektidee, B reverse nach Potenzialanalyse und C nach Leistungen zur nächsten Trennung.
+- Diese Abfolge ist eine Live-Prüfansicht und noch keine finale Auswahl einer einzigen Divider-Variante.
+
+Nicht geändert:
+
+- keine Demo-Farben
+- keine Bild-/GIF-/Video-Divider
+- keine Verzerrung von Content, Text, Cards oder CTAs
+- keine neue Startseiten-Section ohne gesonderte Freigabe
+
+
+
+### Korrektur 2026-07-10 – Divider-A-Doppelprüfung
+
+Für die aktuelle Live-Prüfung ist die Divider-Abfolge testweise. Variante A muss zweimal direkt nacheinander über aufeinanderfolgende Section-Übergänge dargestellt werden, damit ihre Wirkung im wiederholten Einsatz beurteilt werden kann. Erst nach Sichtprüfung wird festgelegt, welcher Divider tatsächlich verwendet wird.
+
+Testabfolge:
+
+1. Hero → Section 2: Divider A
+2. Section 2 → Section 3: Divider A erneut
+3. Section 3 → Section 4: Divider B normal
+4. Section 4 → Section 5: Divider B reverse
+5. Section 5 → Section 6: Divider C

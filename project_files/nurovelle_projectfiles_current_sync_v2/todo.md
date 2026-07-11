@@ -14,6 +14,8 @@
 - [x] Detailseiten-Vorlage als gemeinsames Template festlegen
 - [x] Detailseiten-Reihenfolge festlegen
 - [x] Header / Sidebar / Footer für Detailseiten wie Homepage festlegen
+- [x] Startseiten-Reihenfolge Projektidee vor Potenzialanalyse dokumentieren
+- [x] Divider-Testabfolge A → A → B normal → B reverse → C als aktuelle Live-Übersicht dokumentieren
 - [ ] Detailseiten-Template final ausformulieren
 - [ ] 11 Detailseiten namentlich final festlegen
 - [ ] Verwandte-Leistungen-Logik final festlegen
@@ -95,6 +97,7 @@
 - [ ] Finale Divider-Variante live prüfen
 - [ ] SVG-Schräg-Divider gegen Diagonal-/Skew-Varianten vergleichen
 - [ ] Pure-CSS-Angled-Sections mit CSS-Trigonometrie/Fallbacks gegen SVG- und Skew-Variante vergleichen
+- [ ] Divider-Testabfolge A → A → B normal → B reverse → C live prüfen
 
 - finale Liste der 11 Detailseiten
 - finale Inhalte je Detailseite
@@ -147,6 +150,7 @@
 - [x] Trennung Originalreferenz / Nurovelle-Adaption / Prüfvariante / Produktionscode dokumentieren
 - [x] Entscheidung im `decision_log.md` festhalten
 - [x] Arbeitsregel im `task_contract.md` ergänzen
+- [ ] Prüfen, wie Divider A über zwei direkt aufeinanderfolgende Section-Übergänge wirkt
 - [ ] Finalen Divider nach Sichtprüfung auswählen
 - [ ] Finale CTA-Button-Variante nach Sichtprüfung auswählen
 - [ ] Hero-Orb / Cube-Entstehung live prüfen

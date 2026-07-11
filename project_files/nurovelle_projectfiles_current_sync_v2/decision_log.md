@@ -854,3 +854,55 @@ Status:
 fertig
 
 ---
+
+## 2026-07-10 – Startseiten-Reihenfolge und Divider-Abfolge aktualisiert
+
+Entscheidung:
+Die Startseiten-Reihenfolge wird für den aktuellen Stand geändert:
+
+1. Hero
+2. Der erste Schritt zu Ihrem KI-Projekt
+3. Sie haben bereits eine konkrete KI-Idee?
+4. Kostenlose KI-Potenzialanalyse
+5. KI-Leistungen von Nurovelle
+6. Vom Geschäftsprozess zur KI-Lösung
+7. Warum Nurovelle
+8. Download-Bereich
+9. Analyse-Seite / Formularweiterleitung
+10. Success-/Error-Zustand in `analyse.html`
+
+Zusätzlich wird für die aktuelle Live-Übersicht folgende Divider-Abfolge festgelegt:
+
+- Hero → Section 2: Divider A – SVG-Schräg-Divider / Separator
+- Section 2 → Section 3 / Projektidee: Divider A erneut
+- Section 3 / Projektidee → Section 4 / Potenzialanalyse: Divider B normal
+- Section 4 / Potenzialanalyse → Section 5 / Leistungen: Divider B reverse
+- Section 5 / Leistungen → Section 6 / Prozess: Divider C
+
+Grund:
+Die aktuelle Benutzervorgabe legt fest, dass die Projektidee vor der Potenzialanalyse steht und dass zuerst A zweimal direkt nacheinander, danach B normal, danach B reverse und anschließend C sichtbar geprüft werden soll.
+
+Auswirkung:
+Ältere Dokumentstellen, in denen die Potenzialanalyse vor der Projektidee steht, sind überholt. Die Dokumentation wird auf diesen Stand nachgezogen. Die finale Auswahl einer einzelnen Divider-Variante bleibt weiterhin Prüfung nach Live-Sicht.
+
+
+---
+
+## 2026-07-10 – Korrektur: Divider A zweimal direkt nacheinander prüfen
+
+Entscheidung:
+Die Divider-Abfolge ist eine Live-Prüfansicht und keine finale Produktionsentscheidung. Variante A muss testweise zweimal direkt nacheinander dargestellt werden, damit beurteilt werden kann, wie der SVG-Schräg-Divider über aufeinanderfolgende Section-Übergänge wirkt.
+
+Aktuelle Testabfolge:
+
+1. Hero → Section 2: Divider A
+2. Section 2 → Section 3: Divider A erneut
+3. Section 3 → Section 4: Divider B normal
+4. Section 4 → Section 5: Divider B reverse
+5. Section 5 → Section 6: Divider C
+
+Grund:
+Die Wirkung von Variante A kann nicht beurteilt werden, wenn sie nur einmal gezeigt wird. Sie muss über zwei direkt aufeinanderfolgende Übergänge sichtbar sein.
+
+Auswirkung:
+Ältere Dokumentstellen mit der Abfolge A → B normal → B reverse → C sind für die aktuelle Prüfung überholt. Die finale Festlegung des zu verwendenden Dividers erfolgt erst nach Sichtprüfung.

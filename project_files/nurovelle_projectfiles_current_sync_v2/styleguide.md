@@ -12,8 +12,8 @@ Dieser Styleguide bündelt die verbindlichen Designregeln für Homepage und Deta
 
 Nurovelle nutzt eine dunkle, technische Premium-Optik:
 
-- matte schwarze Flächen wiie Gun Metal
-- sehr dunkles Emerald/ Smaragdgrün / dunkles Grün-Schwarz
+- matte schwarze Flächen
+- sehr dunkles Petrol / dunkles Grün-Schwarz
 - Gold als hochwertiger Akzent
 - klare B2B-SaaS-Anmutung
 - kontrollierte technische Animationen
@@ -26,8 +26,8 @@ Nurovelle nutzt eine dunkle, technische Premium-Optik:
 - Schwarz: `#050706`
 - Mattes Schwarz: `#080B09`
 - Tiefgrün: `#0A1913`
-- Smaragd dunkel: `#112b21`
-- Dunkles Teal/Petrol: `#163A26`
+- Smaragd dunkel: `#112A20`
+- Dunkles Teal/Petrol: `#163A35`
 
 ### Text
 
@@ -67,6 +67,11 @@ Aktive Schriftentscheidung:
 - Display / große Headlines: `Tapera`
 - Fließtext, Navigation, Buttons, Formulare, Cards, Footer: `Inter`
 
+Keine Rückkehr zu den alten Font-Stacks aus früheren Zwischenständen:
+
+- Bebas Neue
+- Anca Coder / Coder Pro
+- Raleway / Roboto als Hauptsystem
 
 ## 4. Layoutgrundlagen
 
@@ -82,7 +87,7 @@ Der Header folgt dem freigegebenen Vorgabedesign.
 Aufbau:
 
 - Logo links, klickbar zur Startseite
-- Breadcrumbs im Header (css existiert muss farblich nur angepasst werden)
+- Breadcrumbs im Header
 - Analyse-CTA rechts
 - Hamburger unterhalb des Headers zur Sidebar-Steuerung
 
@@ -148,6 +153,34 @@ Animation:
 - ruhiger technischer Lichtimpuls
 - keine unkontrollierte Bewegung des gesamten Hero-Visuals
 - keine freie Conic-/Noise-Mask-Interpretation als Ersatz für die Original-Orb-Vorgabe
+
+
+## 7.1 Aktuelle Startseiten-Reihenfolge
+
+Für die laufende Homepage-Umsetzung gilt die aktuell freigegebene Reihenfolge:
+
+1. Hero
+2. Der erste Schritt zu Ihrem KI-Projekt
+3. Sie haben bereits eine konkrete KI-Idee?
+4. Kostenlose KI-Potenzialanalyse
+5. KI-Leistungen von Nurovelle
+6. Vom Geschäftsprozess zur KI-Lösung
+7. Warum Nurovelle
+8. Download-Bereich
+9. Analyse-Seite / Formularweiterleitung
+10. Success-/Error-Zustand in `analyse.html`
+
+Diese Reihenfolge überschreibt ältere Zwischenstände, in denen die Potenzialanalyse vor der Projektidee stand. Projektidee steht vor Potenzialanalyse; die Potenzialanalyse kommt eine Sektion später.
+
+### Aktuelle Divider-Abfolge für die Live-Übersicht
+
+- Hero → Section 2: Divider A – SVG-Schräg-Divider / Separator
+- Section 2 „Der erste Schritt zu Ihrem KI-Projekt“ → Section 3 „Sie haben bereits eine konkrete KI-Idee?“: Divider A erneut
+- Section 3 „Sie haben bereits eine konkrete KI-Idee?“ → Section 4 „Kostenlose KI-Potenzialanalyse“: Divider B normal
+- Section 4 „Kostenlose KI-Potenzialanalyse“ → Section 5 „KI-Leistungen von Nurovelle“: Divider B reverse
+- Section 5 „KI-Leistungen von Nurovelle“ → Section 6 „Vom Geschäftsprozess zur KI-Lösung“: Divider C
+
+Die Abfolge dient der Live-Prüfung und ist noch keine finale Auswahl einer einzigen Divider-Variante.
 
 ## 8. CTAs und Buttons
 
@@ -463,3 +496,16 @@ Verbindliche Trennung:
 - Produktionscode: erst nach Sichtprüfung und ausdrücklicher Freigabe.
 
 Die ehemaligen Einzeldateien sind nicht als eigenständige aktive Designquellen zu behandeln. Sie dienen nur noch als Ursprung der übernommenen Archivblöcke.
+
+
+### Korrektur 2026-07-10 – Divider-A-Doppelprüfung
+
+Für die aktuelle Live-Prüfung ist die Divider-Abfolge testweise. Variante A muss zweimal direkt nacheinander über aufeinanderfolgende Section-Übergänge dargestellt werden, damit ihre Wirkung im wiederholten Einsatz beurteilt werden kann. Erst nach Sichtprüfung wird festgelegt, welcher Divider tatsächlich verwendet wird.
+
+Testabfolge:
+
+1. Hero → Section 2: Divider A
+2. Section 2 → Section 3: Divider A erneut
+3. Section 3 → Section 4: Divider B normal
+4. Section 4 → Section 5: Divider B reverse
+5. Section 5 → Section 6: Divider C

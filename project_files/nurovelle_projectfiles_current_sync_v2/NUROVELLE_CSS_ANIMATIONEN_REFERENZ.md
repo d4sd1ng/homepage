@@ -311,6 +311,21 @@ body {
 
 Status: muss live gesehen werden.
 
+
+### Aktuelle Divider-Abfolge für die Live-Übersicht
+
+Stand: 2026-07-10.
+
+Für die aktuelle Startseitenprüfung gilt folgende Abfolge:
+
+1. Hero → Section 2: Divider A – SVG-Schräg-Divider / Separator.
+2. Section 2 „Der erste Schritt zu Ihrem KI-Projekt“ → Section 3 „Sie haben bereits eine konkrete KI-Idee?“: Divider A erneut.
+3. Section 3 „Sie haben bereits eine konkrete KI-Idee?“ → Section 4 „Kostenlose KI-Potenzialanalyse“: Divider B normal.
+4. Section 4 „Kostenlose KI-Potenzialanalyse“ → Section 5 „KI-Leistungen von Nurovelle“: Divider B reverse.
+5. Section 5 „KI-Leistungen von Nurovelle“ → Section 6 „Vom Geschäftsprozess zur KI-Lösung“: Divider C.
+
+Diese Abfolge dient der Live-Übersicht über die Varianten A, B und C. Variante A wird bewusst zweimal hintereinander gezeigt, damit ihre Wirkung über aufeinanderfolgende Sections beurteilt werden kann. Die Abfolge ist noch keine finale Auswahl einer einzigen Divider-Variante.
+
 ### Variante A – SVG-Schräg-Divider / Separator
 
 Status: technische Prüfvariante, nicht final als konkrete Form freigegeben. Divider selbst sind verbindlich vorgesehen.
@@ -2410,3 +2425,16 @@ Nicht übernehmen:
 - fehlerhafte ARIA-Schreibweise
 
 ```
+
+
+### Korrektur 2026-07-10 – Divider-A-Doppelprüfung
+
+Für die aktuelle Live-Prüfung ist die Divider-Abfolge testweise. Variante A muss zweimal direkt nacheinander über aufeinanderfolgende Section-Übergänge dargestellt werden, damit ihre Wirkung im wiederholten Einsatz beurteilt werden kann. Erst nach Sichtprüfung wird festgelegt, welcher Divider tatsächlich verwendet wird.
+
+Testabfolge:
+
+1. Hero → Section 2: Divider A
+2. Section 2 → Section 3: Divider A erneut
+3. Section 3 → Section 4: Divider B normal
+4. Section 4 → Section 5: Divider B reverse
+5. Section 5 → Section 6: Divider C
