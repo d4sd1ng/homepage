@@ -64,11 +64,12 @@ Nicht verwenden:
 
 Aktive Schriftentscheidung:
 
-- Display / große Headlines: `Tapera`
+- Display / große Headlines: `Eastman Grotesque Alt`
 - Fließtext, Navigation, Buttons, Formulare, Cards, Footer: `Inter`
 
 Keine Rückkehr zu den alten Font-Stacks aus früheren Zwischenständen:
 
+- Tapera / Tappera
 - Bebas Neue
 - Anca Coder / Coder Pro
 - Raleway / Roboto als Hauptsystem
@@ -160,25 +161,56 @@ Animation:
 Für die laufende Homepage-Umsetzung gilt die aktuell freigegebene Reihenfolge:
 
 1. Hero
-2. Der erste Schritt zu Ihrem KI-Projekt
-3. Sie haben bereits eine konkrete KI-Idee?
-4. Kostenlose KI-Potenzialanalyse
-5. KI-Leistungen von Nurovelle
-6. Vom Geschäftsprozess zur KI-Lösung
-7. Warum Nurovelle
-8. Download-Bereich
-9. Analyse-Seite / Formularweiterleitung
-10. Success-/Error-Zustand in `analyse.html`
+2. Über Nurovelle
+3. Der erste Schritt zu Ihrem KI-Projekt
+4. Sie haben bereits eine konkrete KI-Idee?
+5. Kostenlose KI-Potenzialanalyse
+6. KI-Leistungen von Nurovelle
+7. Vom Geschäftsprozess zur KI-Lösung
+8. Warum Nurovelle
+9. Download-Bereich
+10. Analyse-Seite / Formularweiterleitung
+11. Success-/Error-Zustand in `analyse.html`
 
-Diese Reihenfolge überschreibt ältere Zwischenstände, in denen die Potenzialanalyse vor der Projektidee stand. Projektidee steht vor Potenzialanalyse; die Potenzialanalyse kommt eine Sektion später.
+Diese Reihenfolge überschreibt ältere Zwischenstände, in denen die Potenzialanalyse vor der Projektidee stand. Neu ergänzt ist eine About-Nurovelle-Section direkt nach dem Hero. Projektidee steht vor Potenzialanalyse; die Potenzialanalyse kommt eine Sektion später.
+
+### Section 2 – Über Nurovelle
+
+Layout:
+
+- links Video- oder Video-Preview-Fläche
+- rechts Text
+- keine neue Farbwelt
+- CTA optional zu `analyse.html`
+
+Text:
+
+```text
+ÜBER NUROVELLE
+KI-LÖSUNGEN, DIE IN REALEN PROZESSEN FUNKTIONIEREN
+
+Nurovelle entwickelt individuelle KI-Systeme, die sich an konkreten Geschäftsprozessen orientieren. Wir analysieren bestehende Abläufe, identifizieren sinnvolle Potenziale und setzen Lösungen um, die im Arbeitsalltag tatsächlich entlasten.
+
+PROZESSE VERSTEHEN
+Bestehende Abläufe, Engpässe und manuelle Arbeitsschritte werden systematisch analysiert.
+
+POTENZIALE ERKENNEN
+Wir prüfen, wo KI, Automatisierung oder intelligente Datenverarbeitung einen echten Nutzen schaffen.
+
+INDIVIDUELL ENTWICKELN
+Lösungen werden passend zu den vorhandenen Systemen, Anforderungen und Arbeitsweisen konzipiert.
+
+NACHHALTIG INTEGRIEREN
+Das Ergebnis sind nutzbare KI-Systeme, die Prozesse vereinfachen und langfristig weiterentwickelt werden können.
+```
 
 ### Aktuelle Divider-Abfolge für die Live-Übersicht
 
-- Hero → Section 2: Divider A – SVG-Schräg-Divider / Separator
-- Section 2 „Der erste Schritt zu Ihrem KI-Projekt“ → Section 3 „Sie haben bereits eine konkrete KI-Idee?“: Divider A erneut
-- Section 3 „Sie haben bereits eine konkrete KI-Idee?“ → Section 4 „Kostenlose KI-Potenzialanalyse“: Divider B normal
-- Section 4 „Kostenlose KI-Potenzialanalyse“ → Section 5 „KI-Leistungen von Nurovelle“: Divider B reverse
-- Section 5 „KI-Leistungen von Nurovelle“ → Section 6 „Vom Geschäftsprozess zur KI-Lösung“: Divider C
+- Hero → Section 2 „Über Nurovelle“: Divider A – SVG-Schräg-Divider / Separator
+- Section 2 „Über Nurovelle“ → Section 3 „Der erste Schritt zu Ihrem KI-Projekt“: Divider A erneut
+- Section 3 „Der erste Schritt zu Ihrem KI-Projekt“ → Section 4 „Sie haben bereits eine konkrete KI-Idee?“: Divider B normal
+- Section 4 „Sie haben bereits eine konkrete KI-Idee?“ → Section 5 „Kostenlose KI-Potenzialanalyse“: Divider B reverse
+- Section 5 „Kostenlose KI-Potenzialanalyse“ → Section 6 „KI-Leistungen von Nurovelle“: Divider C
 
 Die Abfolge dient der Live-Prüfung und ist noch keine finale Auswahl einer einzigen Divider-Variante.
 

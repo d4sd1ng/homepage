@@ -112,6 +112,7 @@ Diese IDs müssen existieren:
 | Bereich | ID | Zweck |
 |---|---|---|
 | Hero | `#hero` | Startbereich |
+| Über Nurovelle | `#about-nurovelle` | kurze Marken-/Arbeitsweise-Einordnung mit Video/Text |
 | Erster Schritt | `#ki-projekt-start` | Einstiegserklärung |
 | Potenzialanalyse | `#potenzialanalyse` | Analyse-Angebot |
 | Projektidee | `#projektidee` | konkrete Idee prüfen |
@@ -176,19 +177,18 @@ Nicht verwenden:
 
 | Element | Schrift | Desktop | Mobile | Regel |
 |---|---:|---:|---:|---|
-| H1 | Bebas Neue | 64–88 px | 42–56 px | All Caps möglich, Goldverlauf erlaubt |
-| Section-H2 | Bebas Neue | 44–60 px | 34–42 px | Goldverlauf oder hell auf dunkel |
-| H3 / Card-Titel | Anca Coder / Coder Pro | 18–24 px | 17–21 px | technische Labels / Cards |
-| Body | Raleway oder Roboto | 17–19 px | 16–18 px | gut lesbar, keine zu engen Zeilen |
-| Label / Zahlen | Anca Coder / Coder Pro | 12–15 px | 12–14 px | technische Akzente |
-| Button | Raleway oder Roboto | 15–17 px | 15–16 px | klar, klickbar |
+| H1 | Eastman Grotesque Alt | 64–88 px | 42–56 px | kräftig, technisch, Goldverlauf erlaubt |
+| Section-H2 | Eastman Grotesque Alt | 44–60 px | 34–42 px | Goldverlauf oder hell auf dunkel |
+| H3 / Card-Titel | Eastman Grotesque Alt oder Inter | 18–24 px | 17–21 px | technische Labels / Cards |
+| Body | Inter | 17–19 px | 16–18 px | gut lesbar, keine zu engen Zeilen |
+| Label / Zahlen | Inter | 12–15 px | 12–14 px | technische Akzente |
+| Button | Inter | 15–17 px | 15–16 px | klar, klickbar |
 
 Fallbacks:
 
 ```css
-font-family: 'Bebas Neue', Impact, sans-serif;
-font-family: 'Anca Coder', 'Coder Pro', monospace;
-font-family: 'Raleway', 'Roboto', Arial, sans-serif;
+font-family: 'Eastman Grotesque Alt', 'Eastman Grotesque', 'Inter', Arial, sans-serif;
+font-family: 'Inter', Arial, sans-serif;
 ```
 
 ---
@@ -546,9 +546,8 @@ Hauptziel der Startseite:
 
 ### Schriften
 
-- Bebas Neue: große Titel, Hero, Section-Titel
-- Anca Coder / Coder Pro: technische Labels, kleine Akzente, Zahlen
-- Raleway / Roboto: Fließtext, Navigation, normale UI-Texte
+- Eastman Grotesque Alt: große Titel, Hero, Section-Titel, starke Labels
+- Inter: Fließtext, Navigation, Buttons, Formulare, Cards, Footer und Zahlen
 
 ### Inhaltsregeln
 
@@ -565,15 +564,16 @@ Hauptziel der Startseite:
 ## 3. Finale Seitenstruktur
 
 1. Hero
-2. Der erste Schritt zu Ihrem KI-Projekt
-3. Sie haben bereits eine konkrete KI-Idee?
-4. Kostenlose KI-Potenzialanalyse
-5. KI-Leistungen von Nurovelle
-6. Vom Geschäftsprozess zur KI-Lösung
-7. Warum Nurovelle
-8. Download-Bereich
-9. Analyse-Seite / Formularweiterleitung
-10. Success-/Error-Zustand in `analyse.html`
+2. Über Nurovelle
+3. Der erste Schritt zu Ihrem KI-Projekt
+4. Sie haben bereits eine konkrete KI-Idee?
+5. Kostenlose KI-Potenzialanalyse
+6. KI-Leistungen von Nurovelle
+7. Vom Geschäftsprozess zur KI-Lösung
+8. Warum Nurovelle
+9. Download-Bereich
+10. Analyse-Seite / Formularweiterleitung
+11. Success-/Error-Zustand in `analyse.html`
 
 Aktuelle Ausführungsentscheidung vom 2026-07-10:
 
@@ -1648,7 +1648,7 @@ Diese Regeln gelten für Content-Dokumente, Guides, PDFs, Arbeitsdokumente und D
 
 | Elementtyp | Schrift | Stil / Gewicht | Farbe / Mapping |
 |---|---|---|---|
-| Title / H1 | Bebas Neue | Bold, All Caps, ca. 26 pt | Gold Gradient / Fallback Gold `#D4AF37` |
+| Title / H1 | Eastman Grotesque Alt | Bold, ca. 26 pt | Gold Gradient / Fallback Gold `#D4AF37` |
 | Section Header / H2 | Plus Jakarta Sans | Semi-Bold, ca. 18 pt | Deep Emerald Green `#112A20` |
 | Sub-Header / H3 | Plus Jakarta Sans | Medium, ca. 14 pt | Muted Matte Gold `#B38F4D` |
 | Small Header / H4 | Plus Jakarta Sans | Bold, All Caps, ca. 10.5 pt | Deep Emerald Green `#112A20` |
@@ -1662,7 +1662,7 @@ Diese Regeln gelten für Content-Dokumente, Guides, PDFs, Arbeitsdokumente und D
 
 ### Verbindliche Dokument-Regeln
 
-- H1 nutzt Bebas Neue in Versalien.
+- H1 nutzt Eastman Grotesque Alt.
 - H2, H3, H4 und Bulletpoint-Header nutzen Plus Jakarta Sans.
 - Fließtext, Listen, Nummerierungen und Hervorhebungen nutzen Inter.
 - Farbverläufe werden in Content-Dokumenten nur für H1 beziehungsweise Titel eingesetzt.

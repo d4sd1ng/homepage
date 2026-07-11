@@ -43,8 +43,8 @@
   --gradient-section-black: linear-gradient(180deg, #050706 0%, #080b09 100%);
 
   /* Typography */
-  --font-display: "Tappera", Impact, sans-serif;
-  --font-technical:"Coder Pro", monospace;
+  --font-display: "Eastman Grotesque Alt", "Eastman Grotesque", "Inter", Arial, sans-serif;
+  --font-technical: "Eastman Grotesque Alt", "Eastman Grotesque", "Inter", Arial, sans-serif;
   --font-body: "Inter", Arial, sans-serif;
   --font-size-h1: clamp(4rem, 6vw, 5.5rem);
   --font-size-h2: clamp(2.75rem, 4vw, 3.75rem);

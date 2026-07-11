@@ -81,21 +81,23 @@ Zweck der Danke-Seite:
 
 1. Header / Navigation
 2. Hero
-3. Der erste Schritt zu Ihrem KI-Projekt
-4. Sie haben bereits eine konkrete KI-Idee?
-5. Kostenlose KI-Potenzialanalyse
-6. KI-Leistungen von Nurovelle
-7. Vom Geschäftsprozess zur KI-Lösung
-8. Warum Nurovelle
-9. Download-Bereich
-10. Analyse-Seite / Formularweiterleitung
-11. Success-/Error-Zustand in `analyse.html`
-12. Footer
+3. Über Nurovelle
+4. Der erste Schritt zu Ihrem KI-Projekt
+5. Sie haben bereits eine konkrete KI-Idee?
+6. Kostenlose KI-Potenzialanalyse
+7. KI-Leistungen von Nurovelle
+8. Vom Geschäftsprozess zur KI-Lösung
+9. Warum Nurovelle
+10. Download-Bereich
+11. Analyse-Seite / Formularweiterleitung
+12. Success-/Error-Zustand in `analyse.html`
+13. Footer
 
 Aktuelle Ausführungsentscheidung vom 2026-07-10:
 
 - Projektidee steht vor Potenzialanalyse.
 - Potenzialanalyse kommt eine Sektion später.
+- Über Nurovelle wird direkt nach dem Hero als neue About-Section ergänzt.
 - Diese Reihenfolge überschreibt ältere Strukturstände.
 
 ## Aktuelle Divider-Abfolge
@@ -249,9 +251,9 @@ Dunkles Petrol beziehungsweise dunkles Smaragdgrün wird nur kontrolliert einges
 
 ## Schriften
 
-- Bebas Neue für Titel und starke Kapitel-/Hero-Überschriften
-- Anca Coder / Coder-Schrift für technische Überschriften und Akzente
-- Raleway oder Roboto für Fließtext
+- Eastman Grotesque Alt für Titel und starke Kapitel-/Hero-Überschriften
+- Eastman Grotesque Alt oder Inter für technische Überschriften und Akzente
+- Inter für Fließtext, Navigation, Buttons, Formulare, Cards und Footer
 
 ## Tonalität
 

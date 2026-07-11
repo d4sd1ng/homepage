@@ -2069,6 +2069,11 @@ body {
   overflow: hidden;
 }
 
+body.has-sidebar .nv-section-step {
+  width: calc(100% - var(--sidebar-w));
+  margin-left: var(--sidebar-w);
+}
+
 .nv-section-step::before {
   content: "";
   position: absolute;
@@ -2104,46 +2109,117 @@ body {
 }
 
 .nv-step-cards {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 18px;
-  align-items: stretch;
+  position: relative;
+  width: min(100%, 610px);
+  min-height: 520px;
+  display: block;
+  padding-left: 0;
 }
 
 .nv-step-card {
-  position: relative;
-  min-height: 274px;
-  padding: 24px 20px 22px;
+  position: absolute;
+  width: 200px;
+  min-height: 330px;
+  padding: 76px 20px 28px;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  background:
-    linear-gradient(180deg, #101813D9 0%, #050706FA 100%);
-  border: 1px solid #1F5F3B;
-  border-radius: 18px;
-  box-shadow:
-    0 22px 42px #0000008F,
-    0 18px 32px #BC881B2B,
-    inset 0 1px 0 #FFFFFF18,
-    inset 0 -1px 0 #1F5F3B99;
-  overflow: hidden;
+  background: transparent;
+  border: 0;
+  border-radius: 34px;
+  box-shadow: none;
+  overflow: visible;
+  transform-style: preserve-3d;
+  transform-origin: 50% 68%;
 }
 
 .nv-step-card::before {
   content: "";
   position: absolute;
-  left: 18px;
-  right: 18px;
-  bottom: 0;
-  height: 2px;
-  background: linear-gradient(90deg, #00000000, #FAE385B8, #00000000);
+  inset: 0;
+  z-index: 0;
+  border: 1px solid #A7F2AD59;
+  border-radius: 34px;
+  clip-path: var(--nv-step-card-shape, polygon(7% 0, 100% 3%, 93% 100%, 0 96%));
+  background:
+    linear-gradient(var(--nv-step-shine-angle, 118deg), #FFFFFF24 0%, #FFFFFF0D 24%, #00000000 25%, #00000000 100%),
+    linear-gradient(var(--nv-step-edge-angle, 110deg), #8FECA929 0%, #00000000 18%),
+    linear-gradient(var(--nv-step-side-angle, 270deg), #9BFF6B2E 0%, #00000000 16%),
+    radial-gradient(circle at 50% 104%, #9BFF6B82 0%, #2F7E3445 17%, #00000000 38%),
+    linear-gradient(150deg, #26362FE8 0%, #101A15F6 42%, #020403 100%);
+  box-shadow:
+    inset 0 1px 0 #FFFFFF2E,
+    inset var(--nv-step-edge-shadow, 10px) 0 0 #8FECA91F,
+    inset var(--nv-step-opposite-shadow, -8px) 0 0 #9BFF6B24,
+    inset 0 -1px 0 #9BFF6B66,
+    0 26px 46px #000000B8,
+    var(--nv-step-cast-shadow, 18px 20px 34px #00000096),
+    0 0 34px #1F5F3B42;
+  transform: translateZ(-2px);
   pointer-events: none;
+}
+
+.nv-step-card::after {
+  content: "";
+  position: absolute;
+  left: 34px;
+  right: 34px;
+  bottom: 0;
+  height: 68px;
+  z-index: 1;
+  border-radius: 999px;
+  clip-path: var(--nv-step-card-shape, polygon(7% 0, 100% 3%, 93% 100%, 0 96%));
+  background: radial-gradient(ellipse at center, #9BFF6B94 0%, #2F7E3445 35%, #00000000 74%);
+  filter: blur(12px);
+  opacity: .72;
+  pointer-events: none;
+}
+
+.nv-step-card:nth-child(1) {
+  left: 0;
+  top: 0;
+  z-index: 1;
+  --nv-step-card-shape: polygon(13% 0, 100% 5%, 88% 100%, 0 94%);
+  --nv-step-shine-angle: 120deg;
+  --nv-step-edge-angle: 106deg;
+  --nv-step-side-angle: 90deg;
+  --nv-step-edge-shadow: 14px;
+  --nv-step-opposite-shadow: -5px;
+  --nv-step-cast-shadow: 24px 22px 36px #0000009E;
+  transform: perspective(1000px) rotateX(4deg) rotateY(-12deg) rotateZ(-2.4deg);
+}
+
+.nv-step-card:nth-child(2) {
+  left: 205px;
+  top: 82px;
+  z-index: 2;
+  --nv-step-card-shape: polygon(7% 0, 94% 0, 100% 100%, 0 100%);
+  --nv-step-shine-angle: 118deg;
+  --nv-step-edge-angle: 105deg;
+  --nv-step-side-angle: 270deg;
+  --nv-step-cast-shadow: 16px 22px 34px #0000009A;
+  transform: perspective(1000px) rotateX(3deg) rotateY(0deg) rotateZ(0deg);
+}
+
+.nv-step-card:nth-child(3) {
+  left: 410px;
+  top: 164px;
+  z-index: 1;
+  --nv-step-card-shape: polygon(0 5%, 87% 0, 100% 94%, 12% 100%);
+  --nv-step-shine-angle: 116deg;
+  --nv-step-edge-angle: 260deg;
+  --nv-step-side-angle: 270deg;
+  --nv-step-edge-shadow: 5px;
+  --nv-step-opposite-shadow: -14px;
+  --nv-step-cast-shadow: -18px 22px 36px #0000009E;
+  transform: perspective(1000px) rotateX(4deg) rotateY(12deg) rotateZ(2.4deg);
 }
 
 .nv-step-card__num {
   position: absolute;
-  top: 18px;
-  left: 18px;
+  z-index: 2;
+  top: 28px;
+  left: 28px;
   font-family: "Eastman Grotesque Alt", "Eastman Grotesque", "Inter", Arial, sans-serif;
   font-size: 42px;
   line-height: .82;
@@ -2155,19 +2231,20 @@ body {
 
 .nv-step-card__line {
   position: absolute;
-  top: 25px;
-  right: 20px;
-  width: 38px;
+  z-index: 2;
+  top: 38px;
+  right: 28px;
+  width: 44px;
   height: 1px;
   background: #1F5F3B;
 }
 
-.nv-step-card h3 {
-  position: relative;
-  z-index: 2;
-  margin: 0 0 12px;
+  .nv-step-card h3 {
+    position: relative;
+    z-index: 2;
+    margin: 0 0 12px;
   font-family: "Eastman Grotesque Alt", "Eastman Grotesque", "Inter", Arial, sans-serif;
-  font-size: 25px;
+  font-size: 21px;
   line-height: 1;
   font-weight: 700;
   letter-spacing: .025em;
@@ -2179,21 +2256,105 @@ body {
   z-index: 2;
   margin: 0;
   font-family: "Inter", Arial, sans-serif;
-  font-size: 13px;
-  line-height: 1.48;
+  font-size: 12px;
+  line-height: 1.46;
   font-weight: 500;
   color: #B9C3BD;
 }
 
+@media (max-width: 899px) {
+  body.has-sidebar .nv-section-step {
+    width: 100%;
+    margin-left: 0;
+  }
+
+  .nv-section-step__inner {
+    grid-template-columns: 1fr;
+    gap: 44px;
+  }
+
+  .nv-step-cards {
+    width: min(100%, 560px);
+    min-height: 500px;
+    margin: 0 auto;
+    padding-left: 0;
+  }
+
+  .nv-step-card {
+    width: 184px;
+    min-height: 315px;
+    padding: 74px 18px 26px;
+  }
+
+  .nv-step-card:nth-child(2) {
+    left: 188px;
+    top: 78px;
+  }
+
+  .nv-step-card:nth-child(3) {
+    left: 376px;
+    top: 156px;
+  }
+
+  .nv-step-card h3 {
+    font-size: 21px;
+  }
+
+  .nv-step-card p {
+    font-size: 12px;
+  }
+
+}
+
+@media (max-width: 639px) {
+  .nv-step-cards {
+    width: 560px;
+    max-width: none;
+    min-height: 330px;
+    margin: 0;
+    transform: scale(.64);
+    transform-origin: top left;
+  }
+
+  .nv-step-card {
+    width: 184px;
+    min-height: 315px;
+    padding: 74px 18px 26px;
+  }
+
+  .nv-step-card:nth-child(1) {
+    left: 0;
+    top: 0;
+    transform: perspective(900px) rotateX(4deg) rotateY(-10deg) rotateZ(-2deg);
+  }
+
+  .nv-step-card:nth-child(2) {
+    left: 188px;
+    top: 78px;
+    transform: perspective(900px) rotateX(3deg) rotateY(0deg) rotateZ(0deg);
+  }
+
+  .nv-step-card:nth-child(3) {
+    left: 376px;
+    top: 156px;
+    transform: perspective(900px) rotateX(4deg) rotateY(10deg) rotateZ(2deg);
+  }
+
+  .nv-step-card__line {
+    top: 35px;
+    right: 24px;
+  }
+}
+
 .nv-section-step__copy {
-  max-width: 560px;
+  max-width: 460px;
 }
 
 .nv-section-step__copy h2 {
-  margin: 0 0 28px;
+  margin: 0 0 18px;
   font-family: "Eastman Grotesque Alt", "Eastman Grotesque", "Inter", Arial, sans-serif;
-  font-size: clamp(42px, 3.8vw, 64px);
-  line-height: .98;
+  font-size: clamp(30px, 2.65vw, 44px);
+  line-height: 1.04;
   font-weight: 700;
   letter-spacing: .01em;
   color: #00000000;
@@ -2204,16 +2365,16 @@ body {
 }
 
 .nv-section-step__copy p {
-  margin: 0 0 18px;
+  margin: 0 0 12px;
   font-family: "Inter", Arial, sans-serif;
-  font-size: clamp(15px, 1.05vw, 18px);
-  line-height: 1.64;
+  font-size: clamp(13px, .86vw, 14.5px);
+  line-height: 1.52;
   font-weight: 500;
   color: #B9C3BD;
 }
 
 .nv-section-step__copy p:last-of-type {
-  margin-bottom: 36px;
+  margin-bottom: 24px;
 }
 
 .nv-section-step__actions {
@@ -2229,17 +2390,17 @@ body {
     <div class="nv-step-cards" aria-label="Bausteine des ersten KI-Projektschritts">
 
       <article class="nv-step-card">
-        <span class="nv-step-card__num">02</span>
-        <span class="nv-step-card__line" aria-hidden="true"></span>
-        <h3>Daten prüfen</h3>
-        <p>Welche Daten, Systeme und Wissensquellen bereits vorhanden sind und technisch nutzbar gemacht werden können.</p>
-      </article>
-
-      <article class="nv-step-card">
         <span class="nv-step-card__num">01</span>
         <span class="nv-step-card__line" aria-hidden="true"></span>
         <h3>Prozess klären</h3>
         <p>Welcher Geschäftsprozess verbessert werden soll und welches konkrete Ergebnis durch KI entstehen muss.</p>
+      </article>
+
+      <article class="nv-step-card">
+        <span class="nv-step-card__num">02</span>
+        <span class="nv-step-card__line" aria-hidden="true"></span>
+        <h3>Daten prüfen</h3>
+        <p>Welche Daten, Systeme und Wissensquellen bereits vorhanden sind und technisch nutzbar gemacht werden können.</p>
       </article>
 
       <article class="nv-step-card">
