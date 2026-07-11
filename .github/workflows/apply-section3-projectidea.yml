@@ -1,0 +1,143 @@
+name: Sektion 3 Projektidee implementieren
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/apply-section3-projectidea.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  apply-section3:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Sektion 3 exakt nach Dokumentation einsetzen
+        run: |
+          python3 <<'PY'
+          from pathlib import Path
+
+          path = Path("homepage/sektion2_implementierung/index.html")
+          text = path.read_text(encoding="utf-8")
+
+          section_id = 'id="projektidee"'
+          if section_id not in text:
+              section2 = '''<section class="section bg" id="ki-projekt-start">
+  <div class="ki-project-start-inner">
+    <div class="ki-project-card-row" aria-label="Drei Glaskarten zum Einstieg in ein KI-Projekt">
+      <figure class="ki-project-card">
+        <img src="assets/cards/section2/card-2.jpeg" alt="Schwarze Glaskarte mit grünem Rahmen"/>
+      </figure>
+      <figure class="ki-project-card">
+        <img src="assets/cards/section2/card-1.jpeg" alt="Schwarze Glaskarte mit grünem Rahmen"/>
+      </figure>
+      <figure class="ki-project-card">
+        <img src="assets/cards/section2/card-3.jpeg" alt="Schwarze Glaskarte mit grünem Rahmen"/>
+      </figure>
+    </div>
+
+    <div class="ki-project-start-copy">
+      <div class="kicker">Der erste Schritt</div>
+      <h2 class="section-title">Der erste Schritt zu Ihrem <span class="gold">KI-Projekt</span></h2>
+      <div class="section-text">
+        <p>Ein KI-Projekt beginnt nicht mit der Auswahl eines Tools. Es beginnt mit der Frage, welcher Prozess verbessert, welche Daten nutzbar gemacht und welches Ergebnis erreicht werden soll.</p>
+        <p>Nurovelle prüft, wo KI-Agenten, Automatisierung, Wissenssysteme oder individuelle Software tatsächlich Mehrwert schaffen. Dabei geht es nicht um allgemeine KI-Ideen, sondern um konkrete Geschäftsprozesse, technische Machbarkeit und eine realistische Umsetzung.</p>
+        <p>So entsteht aus einer ersten Idee ein belastbarer nächster Schritt: vom Erstgespräch über die Potenzialanalyse bis zur Entwicklung eines Prototyps oder einer fertigen Lösung.</p>
+      </div>
+      <div class="actions">
+        <a class="btn btn-primary" href="analyse.html">Kostenloses Erstgespräch vereinbaren</a>
+      </div>
+    </div>
+  </div>
+</section>'''
+
+              section3 = '''
+<section class="section bg nv-section-angled nv-section-angled--reverse" id="projektidee">
+  <div class="section-inner">
+    <div class="section-head">
+      <div class="kicker">Konkrete Projektidee</div>
+      <h2 class="section-title">Sie haben bereits eine konkrete <span class="gold">KI-Idee?</span></h2>
+      <div class="section-text">
+        <p>Wenn Sie bereits wissen, welcher Prozess verbessert, welche Datenquelle nutzbar gemacht oder welche interne Aufgabe unterstützt werden soll, ist der nächste Schritt keine allgemeine Orientierung.</p>
+        <p>Nurovelle prüft mit Ihnen, ob die Idee technisch realistisch ist, welche Systeme, Daten oder Schnittstellen benötigt werden und welcher Umsetzungsweg sinnvoll ist.</p>
+        <p>So wird aus einer ersten Idee ein konkreter Projektansatz für KI-Agenten, Automatisierung, Datenverarbeitung oder individuelle Software.</p>
+      </div>
+      <div class="actions">
+        <a class="btn btn-primary" href="analyse.html">Projektidee prüfen lassen</a>
+      </div>
+    </div>
+  </div>
+</section>'''
+
+              if section2 not in text:
+                  raise SystemExit("Abbruch: geprüfter Section-2-Anker wurde nicht gefunden.")
+              text = text.replace(section2, section2 + section3, 1)
+
+          css_marker = "/* SECTION 3: PROJEKTIDEE – DOKUMENTIERTER DIVIDER B REVERSE */"
+          if css_marker not in text:
+              css = '''
+
+/* SECTION 3: PROJEKTIDEE – DOKUMENTIERTER DIVIDER B REVERSE */
+#projektidee.nv-section-angled {
+  position: relative;
+  margin-top: -1px;
+  padding: clamp(72px, 9vw, 132px) var(--side);
+  background: linear-gradient(180deg, #080b09, #0a1913);
+  clip-path: polygon(0 0, 100% 4vw, 100% 100%, 0 calc(100% - 4vw));
+}
+
+#projektidee .section-head {
+  margin-bottom: 0;
+}
+
+#projektidee .section-text {
+  display: grid;
+  gap: 12px;
+}
+
+#projektidee .actions {
+  margin-top: 24px;
+}
+
+@media (max-width: 899px) {
+  #projektidee.nv-section-angled {
+    padding: 88px var(--side);
+    clip-path: polygon(0 28px, 100% 0, 100% calc(100% - 28px), 0 100%);
+  }
+}
+
+@media (max-width: 639px) {
+  #projektidee.nv-section-angled {
+    padding: 64px 18px;
+    clip-path: polygon(0 20px, 100% 0, 100% calc(100% - 20px), 0 100%);
+  }
+}
+'''
+              if "</style>" not in text:
+                  raise SystemExit("Abbruch: </style>-Anker wurde nicht gefunden.")
+              text = text.replace("</style>", css + "\n</style>", 1)
+
+          path.write_text(text, encoding="utf-8")
+          PY
+
+      - name: Änderung prüfen
+        run: |
+          grep -n 'id="projektidee"' homepage/sektion2_implementierung/index.html
+          grep -n 'Projektidee prüfen lassen' homepage/sektion2_implementierung/index.html
+          grep -n 'SECTION 3: PROJEKTIDEE' homepage/sektion2_implementierung/index.html
+
+      - name: Änderung committen
+        run: |
+          if git diff --quiet; then
+            echo "Keine Änderung erforderlich."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add homepage/sektion2_implementierung/index.html
+          git commit -m "Sektion 3 Projektidee implementieren"
+          git push
