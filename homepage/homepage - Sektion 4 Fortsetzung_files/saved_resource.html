@@ -1,21 +1,20 @@
 <!DOCTYPE html>
+<!-- saved from url=(0040)https://web-sandbox.oaiusercontent.com/? -->
+<html lang="de"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
-<html lang="de">
-<head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
 <title>Nurovelle | KI-Automatisierung, SEO-Systeme und Potenzialanalyse</title>
-<meta content="Nurovelle entwickelt KI-Automatisierung, SEO-Systeme und datenbasierte Prozesse für Unternehmen. Kostenlose Potenzialanalyse starten und manuelle Abläufe prüfen." name="description"/>
-<link href="https://nurovelle.de/" rel="canonical"/>
-<meta content="Nurovelle | KI-Automatisierung, SEO-Systeme und Potenzialanalyse" property="og:title"/>
-<meta content="KI-Automatisierung, SEO-Systeme und datenbasierte Prozesse für Unternehmen. Kostenlose Potenzialanalyse starten." property="og:description"/>
-<meta content="https://nurovelle.de/" property="og:url"/>
-<meta content="https://nurovelle.de/assets/hero/1.png" property="og:image"/>
-<meta content="website" property="og:type"/>
-<meta content="summary_large_image" name="twitter:card"/>
-<link href="https://fonts.googleapis.com" rel="preconnect"/>
-<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<meta content="Nurovelle entwickelt KI-Automatisierung, SEO-Systeme und datenbasierte Prozesse für Unternehmen. Kostenlose Potenzialanalyse starten und manuelle Abläufe prüfen." name="description">
+<link href="https://nurovelle.de/" rel="canonical">
+<meta content="Nurovelle | KI-Automatisierung, SEO-Systeme und Potenzialanalyse" property="og:title">
+<meta content="KI-Automatisierung, SEO-Systeme und datenbasierte Prozesse für Unternehmen. Kostenlose Potenzialanalyse starten." property="og:description">
+<meta content="https://nurovelle.de/" property="og:url">
+<meta content="https://nurovelle.de/assets/hero/1.png" property="og:image">
+<meta content="website" property="og:type">
+<meta content="summary_large_image" name="twitter:card">
+<link href="https://fonts.googleapis.com/" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com/" rel="preconnect">
+<link href="./css2" rel="stylesheet">
 <style>
 @font-face {
   font-family: "Eastman Grotesque Alt";
@@ -1157,10 +1156,16 @@ body {
 .nvp4-projectidea {
   position: relative;
   overflow: hidden;
-  padding: 42px var(--side);
+  min-height: 760px;
+  padding: 112px var(--page-gutter) 118px;
   background:
-    radial-gradient(circle at 78% 48%, #112A206B 0%, #071C142E 34%, #00000000 68%),
-    #000000;
+    radial-gradient(circle at 78% 48%, #112A2061 0%, #112A2000 42%),
+    linear-gradient(180deg, #050706 0%, #080B09 100%);
+}
+
+body.has-sidebar .nvp4-projectidea {
+  margin-left: var(--sidebar-w);
+  width: calc(100% - var(--sidebar-w));
 }
 
 .nvp4-projectidea::before {
@@ -1168,76 +1173,61 @@ body {
   position: absolute;
   inset: 0 0 auto;
   height: 1px;
-  background: linear-gradient(
-    90deg,
-    #00000000 0%,
-    #F0A05A5C 4%,
-    #F0A05AB8 12%,
-    #F0A05AB8 88%,
-    #F0A05A5C 96%,
-    #00000000 100%
-  );
+  background: linear-gradient(90deg, #00000000, #FAE385A8, #00000000);
 }
 
 .nvp4-projectidea__inner {
   position: relative;
   z-index: 1;
   display: grid;
-  grid-template-columns: minmax(0, 0.86fr) minmax(420px, 1.14fr);
-  gap: clamp(34px, 5vw, 72px);
+  grid-template-columns: minmax(0, .92fr) minmax(520px, 1.08fr);
+  gap: clamp(54px, 6vw, 92px);
   align-items: center;
-  width: 100%;
-  max-width: 1280px;
-  margin: 0 auto 0 0;
+  width: min(100%, 1180px);
+  margin: 0 auto;
 }
 
 .nvp4-projectidea__copy {
-  max-width: 620px;
+  max-width: 590px;
 }
 
 .nvp4-projectidea__kicker {
-  margin: 0 0 var(--section-kicker-gap);
-  color: #E8B048;
-  font-family: "Anca Coder", monospace;
-  font-size: 10.5px;
-  line-height: 1.4;
-  letter-spacing: 1.8px;
+  margin: 0 0 14px;
+  color: var(--nv-gold-highlight);
+  font-family: var(--font-ui);
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.35;
+  letter-spacing: .12em;
   text-transform: uppercase;
 }
 
 .nvp4-projectidea__title {
-  max-width: 720px;
-  margin: 0 0 var(--section-title-gap);
-  color: #F5F1E8;
-  font-family: "Bebas Neue", sans-serif;
-  font-size: clamp(20px, 1.55vw, 31px);
-  font-weight: 400;
-  line-height: 1.04;
-  letter-spacing: 0.035em;
-  text-transform: uppercase;
+  margin: 0 0 28px;
+  max-width: 620px;
+  font-family: "Eastman Grotesque Alt", "Eastman Grotesque", var(--font-ui);
+  font-size: clamp(42px, 3.8vw, 64px);
+  font-weight: 700;
+  line-height: .98;
+  letter-spacing: .01em;
+  color: var(--nv-text-light);
 }
 
 .nvp4-projectidea__title-accent {
-  color: transparent;
-  background: linear-gradient(
-    180deg,
-    #FFD7A3 0%,
-    #F0A05A 24%,
-    #D89828 58%,
-    #7A3518 100%
-  );
+  color: #00000000;
+  background: linear-gradient(180deg, #C5A059 0%, #FDF0CD 50%, #D4AF37 100%);
   background-clip: text;
   -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  -webkit-text-fill-color: #00000000;
 }
 
 .nvp4-projectidea__text {
-  max-width: 620px;
-  color: #FFFFFFC7;
-  font-family: "Anca Coder", monospace;
-  font-size: 12px;
-  font-weight: 400;
-  line-height: 1.48;
+  max-width: 590px;
+  color: var(--nv-text-muted);
+  font-family: var(--font-ui);
+  font-size: clamp(15px, 1.05vw, 18px);
+  font-weight: 500;
+  line-height: 1.64;
 }
 
 .nvp4-projectidea__text p {
@@ -1245,112 +1235,73 @@ body {
 }
 
 .nvp4-projectidea__text p + p {
-  margin-top: 14px;
+  margin-top: 18px;
 }
 
-.nvp4-projectidea__cta {
-  display: inline-flex;
-  min-height: 36px;
-  align-items: center;
-  justify-content: center;
-  gap: 7px;
-  margin-top: 24px;
-  padding: 0 16px;
-  border: 1px solid #D89828;
-  border-radius: 4px;
-  color: #050505;
-  background: linear-gradient(
-    180deg,
-    #FFD7A3 0%,
-    #F0A05A 24%,
-    #D89828 60%,
-    #7A3518 100%
-  );
-  font-family: "Bebas Neue", sans-serif;
-  font-size: 16px;
-  line-height: 1;
-  letter-spacing: 0.045em;
-  text-decoration: none;
-  text-transform: uppercase;
-  transition: transform 180ms ease, filter 180ms ease;
-}
-
-.nvp4-projectidea__cta::after {
-  content: "→";
-  margin-left: 8px;
-  font-size: 15px;
-  line-height: 1;
-}
-
-.nvp4-projectidea__cta:hover,
-.nvp4-projectidea__cta:focus-visible {
-  filter: brightness(1.06);
-  transform: translateY(-2px);
-}
-
-.nvp4-projectidea__cta:focus-visible {
-  outline: 2px solid #F7EF8A;
-  outline-offset: 4px;
+.nvp4-projectidea__actions {
+  margin-top: 36px;
 }
 
 .nvp4-projectidea__visual {
   position: relative;
-  min-height: clamp(430px, 42vw, 590px);
+  min-height: 620px;
   isolation: isolate;
 }
 
 .nvp4-projectidea__photo {
   position: absolute;
   margin: 0;
-  overflow: hidden;
-  border-radius: 12px;
-  background: #010403;
   opacity: 0;
-  transform: translateY(72px);
+  transform: translateY(70px);
   will-change: opacity, transform;
 }
 
 .nvp4-projectidea__photo img {
   display: block;
   width: 100%;
-  height: 100%;
-  object-fit: cover;
+  height: auto;
+  object-fit: contain;
+  border-radius: 18px;
 }
 
 .nvp4-projectidea__photo--back {
   z-index: 1;
   left: 0;
-  bottom: 3%;
-  width: 76%;
-  aspect-ratio: 3 / 2;
-  border: 1px solid #F0A05A42;
-  box-shadow: 0 18px 42px #0000006B;
+  bottom: 8px;
+  width: 72%;
+}
+
+.nvp4-projectidea__photo--back img {
+  border: 1px solid #2E8B6757;
+  box-shadow: 0 24px 56px #0000008A;
 }
 
 .nvp4-projectidea__photo--front {
   z-index: 2;
-  top: 2%;
+  top: 0;
   right: 0;
-  width: 72%;
-  aspect-ratio: 3 / 2;
-  border: 1px solid #F0A05AB8;
+  width: 70%;
+}
+
+.nvp4-projectidea__photo--front img {
+  border: 1px solid #D4AF37B8;
   box-shadow:
-    0 22px 50px #00000080,
-    0 0 20px #F0A05A29;
+    0 28px 64px #000000A3,
+    0 0 28px #D4AF372E;
 }
 
 .nvp4-projectidea__visual.is-visible .nvp4-projectidea__photo--back {
-  animation: nvp4-projectidea-rise 760ms cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  animation: nvp4-projectidea-rise 820ms cubic-bezier(.22,1,.36,1) forwards;
 }
 
 .nvp4-projectidea__visual.is-visible .nvp4-projectidea__photo--front {
-  animation: nvp4-projectidea-rise 760ms cubic-bezier(0.22, 1, 0.36, 1) 260ms forwards;
+  animation: nvp4-projectidea-rise 820ms cubic-bezier(.22,1,.36,1) 280ms forwards;
 }
 
 @keyframes nvp4-projectidea-rise {
   from {
     opacity: 0;
-    transform: translateY(72px);
+    transform: translateY(70px);
   }
 
   to {
@@ -1359,32 +1310,56 @@ body {
   }
 }
 
+@media (max-width: 1100px) {
+  .nvp4-projectidea__inner {
+    grid-template-columns: minmax(0, .9fr) minmax(430px, 1.1fr);
+    gap: 42px;
+  }
+
+  .nvp4-projectidea__visual {
+    min-height: 560px;
+  }
+}
+
 @media (max-width: 899px) {
+  body.has-sidebar .nvp4-projectidea {
+    margin-left: 0;
+    width: 100%;
+  }
+
+  .nvp4-projectidea {
+    min-height: 0;
+    padding: 88px var(--page-gutter);
+  }
+
   .nvp4-projectidea__inner {
     grid-template-columns: 1fr;
   }
 
   .nvp4-projectidea__visual {
-    min-height: clamp(370px, 95vw, 520px);
+    min-height: clamp(430px, 92vw, 620px);
   }
 }
 
 @media (max-width: 639px) {
-  .nvp4-projectidea__cta {
-    width: 100%;
-    min-height: 44px;
+  .nvp4-projectidea {
+    padding: 72px var(--page-gutter);
+  }
+
+  .nvp4-projectidea__title {
+    font-size: clamp(36px, 11vw, 48px);
   }
 
   .nvp4-projectidea__visual {
-    min-height: clamp(310px, 105vw, 430px);
+    min-height: clamp(360px, 105vw, 500px);
   }
 
   .nvp4-projectidea__photo--back {
-    width: 82%;
+    width: 78%;
   }
 
   .nvp4-projectidea__photo--front {
-    width: 80%;
+    width: 76%;
   }
 }
 
@@ -1394,10 +1369,6 @@ body {
     transform: none;
     animation: none;
   }
-
-  .nvp4-projectidea__cta {
-    transition: none;
-  }
 }
 /* NUROVELLE SECTION 4 END */
 
@@ -1406,10 +1377,16 @@ body {
 .nvp5-analysis {
   position: relative;
   overflow: hidden;
-  padding: 42px var(--side);
+  min-height: 920px;
+  padding: 104px var(--page-gutter) 112px;
   background:
-    radial-gradient(circle at 50% 52%, #112A2052 0%, #0A191326 34%, #00000000 70%),
-    #000000;
+    radial-gradient(circle at 50% 56%, #112A206B 0%, #112A2000 38%),
+    linear-gradient(180deg, #080B09 0%, #050706 100%);
+}
+
+body.has-sidebar .nvp5-analysis {
+  margin-left: var(--sidebar-w);
+  width: calc(100% - var(--sidebar-w));
 }
 
 .nvp5-analysis::before {
@@ -1417,65 +1394,61 @@ body {
   position: absolute;
   inset: 0 0 auto;
   height: 1px;
-  background: linear-gradient(
-    90deg,
-    #00000000 0%,
-    #F0A05A5C 4%,
-    #F0A05AB8 12%,
-    #F0A05AB8 88%,
-    #F0A05A5C 96%,
-    #00000000 100%
-  );
+  background: linear-gradient(90deg, #00000000, #FAE385A8, #00000000);
 }
 
 .nvp5-analysis__inner {
   position: relative;
   z-index: 1;
-  width: 100%;
-  max-width: 1280px;
-  margin: 0 auto 0 0;
+  width: min(100%, 1180px);
+  margin: 0 auto;
 }
 
 .nvp5-analysis__head {
-  max-width: 760px;
-  margin: 0 auto 26px;
+  max-width: 860px;
+  margin: 0 auto 42px;
   text-align: center;
 }
 
 .nvp5-analysis__kicker {
-  margin: 0 0 var(--section-kicker-gap);
-  color: #E8B048;
-  font-family: "Anca Coder", monospace;
-  font-size: 10.5px;
-  line-height: 1.4;
-  letter-spacing: 1.8px;
+  margin: 0 0 14px;
+  color: var(--nv-gold-highlight);
+  font-family: var(--font-ui);
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.35;
+  letter-spacing: .12em;
   text-transform: uppercase;
 }
 
 .nvp5-analysis__title {
-  margin: 0 0 var(--section-title-gap);
-  color: #F5F1E8;
-  font-family: "Bebas Neue", sans-serif;
-  font-size: clamp(24px, 2.1vw, 36px);
-  font-weight: 400;
-  line-height: 1.04;
-  letter-spacing: 0.035em;
-  text-transform: uppercase;
+  margin: 0 0 22px;
+  font-family: "Eastman Grotesque Alt", "Eastman Grotesque", var(--font-ui);
+  font-size: clamp(42px, 3.8vw, 64px);
+  font-weight: 700;
+  line-height: .98;
+  letter-spacing: .01em;
+  color: #00000000;
+  background: linear-gradient(180deg, #C5A059 0%, #FDF0CD 50%, #D4AF37 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: #00000000;
 }
 
 .nvp5-analysis__intro {
+  max-width: 760px;
   margin: 0 auto;
-  max-width: 680px;
-  color: #FFFFFFC7;
-  font-family: "Anca Coder", monospace;
-  font-size: 12px;
-  line-height: 1.48;
+  color: var(--nv-text-muted);
+  font-family: var(--font-ui);
+  font-size: clamp(15px, 1.05vw, 18px);
+  font-weight: 500;
+  line-height: 1.64;
 }
 
 .nvp5-analysis__diagram {
   position: relative;
   width: min(100%, 1120px);
-  min-height: 600px;
+  height: 590px;
   margin: 0 auto;
 }
 
@@ -1483,8 +1456,8 @@ body {
   position: absolute;
   left: 50%;
   top: 50%;
-  width: min(42vw, 470px);
-  min-width: 360px;
+  width: 470px;
+  height: 470px;
   transform: translate(-50%, -50%);
   overflow: visible;
 }
@@ -1493,6 +1466,8 @@ body {
   opacity: 0;
   transform-box: fill-box;
   transform-origin: center;
+  stroke-width: 2;
+  vector-effect: non-scaling-stroke;
 }
 
 .nvp5-analysis__part--1 {
@@ -1515,11 +1490,6 @@ body {
   stroke: #D4AF37;
 }
 
-.nvp5-analysis__part {
-  stroke-width: 2;
-  vector-effect: non-scaling-stroke;
-}
-
 .nvp5-analysis__diagram.is-visible .nvp5-analysis__part--1 {
   animation: nvp5-puzzle-reveal 420ms ease forwards;
 }
@@ -1539,79 +1509,9 @@ body {
 @keyframes nvp5-puzzle-reveal {
   from {
     opacity: 0;
-    transform: scale(0.97);
+    transform: scale(.96);
   }
 
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
-
-.nvp5-analysis__icon {
-  position: absolute;
-  z-index: 3;
-  display: grid;
-  place-items: center;
-  width: 92px;
-  aspect-ratio: 1;
-  border: 2px solid #D4AF37;
-  border-radius: 50%;
-  background: #080B09;
-  box-shadow:
-    0 0 0 8px #112A20,
-    0 12px 28px #00000080;
-  opacity: 0;
-  transform: scale(0.92);
-}
-
-.nvp5-analysis__icon svg {
-  width: 48px;
-  height: 48px;
-  fill: none;
-  stroke: #F7EF8A;
-  stroke-width: 1.8;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-}
-
-.nvp5-analysis__icon--1 {
-  left: calc(50% - 300px);
-  top: 88px;
-}
-
-.nvp5-analysis__icon--2 {
-  right: calc(50% - 300px);
-  top: 88px;
-}
-
-.nvp5-analysis__icon--3 {
-  left: calc(50% - 300px);
-  bottom: 88px;
-}
-
-.nvp5-analysis__icon--4 {
-  right: calc(50% - 300px);
-  bottom: 88px;
-}
-
-.nvp5-analysis__diagram.is-visible .nvp5-analysis__icon--1 {
-  animation: nvp5-icon-reveal 320ms ease 260ms forwards;
-}
-
-.nvp5-analysis__diagram.is-visible .nvp5-analysis__icon--2 {
-  animation: nvp5-icon-reveal 320ms ease 440ms forwards;
-}
-
-.nvp5-analysis__diagram.is-visible .nvp5-analysis__icon--3 {
-  animation: nvp5-icon-reveal 320ms ease 620ms forwards;
-}
-
-.nvp5-analysis__diagram.is-visible .nvp5-analysis__icon--4 {
-  animation: nvp5-icon-reveal 320ms ease 800ms forwards;
-}
-
-@keyframes nvp5-icon-reveal {
   to {
     opacity: 1;
     transform: scale(1);
@@ -1620,236 +1520,263 @@ body {
 
 .nvp5-analysis__gold-button {
   position: absolute;
-  z-index: 2;
+  z-index: 1;
   width: 270px;
-  min-height: 56px;
-  border: 1px solid #D4AF37;
+  height: 66px;
+  border: 1px solid #A55D07C7;
   border-radius: 999px;
-  background: linear-gradient(
-    135deg,
-    #F9F295 0%,
-    #E0AA3E 38%,
-    #FAF398 68%,
-    #B88A44 100%
-  );
+  background: linear-gradient(160deg, #A54E07, #B47E11, #FEF1A2, #BC881B, #A54E07);
   box-shadow:
-    0 0 18px #D4AF372E,
-    0 12px 26px #0000005C;
+    0 16px 34px #00000073,
+    inset 0 1px 1px #FAE385BF,
+    inset 0 -2px 3px #8B4208B8;
   opacity: 0;
   transform: translateY(16px);
 }
 
 .nvp5-analysis__gold-button--1 {
   left: 0;
-  top: 116px;
+  top: 112px;
 }
 
 .nvp5-analysis__gold-button--2 {
   right: 0;
-  top: 116px;
+  top: 112px;
 }
 
 .nvp5-analysis__gold-button--3 {
   left: 0;
-  bottom: 116px;
+  bottom: 112px;
 }
 
 .nvp5-analysis__gold-button--4 {
   right: 0;
-  bottom: 116px;
+  bottom: 112px;
 }
 
-.nvp5-analysis__diagram.is-visible .nvp5-analysis__gold-button--1 {
-  animation: nvp5-button-reveal 340ms ease 320ms forwards;
+.nvp5-analysis__icon {
+  position: absolute;
+  z-index: 3;
+  display: grid;
+  place-items: center;
+  width: 96px;
+  height: 96px;
+  border: 2px solid #D4AF37;
+  border-radius: 50%;
+  background: #080B09;
+  box-shadow:
+    0 0 0 8px #112A20,
+    0 18px 34px #0000008A;
+  opacity: 0;
+  transform: scale(.92);
 }
 
-.nvp5-analysis__diagram.is-visible .nvp5-analysis__gold-button--2 {
-  animation: nvp5-button-reveal 340ms ease 500ms forwards;
+.nvp5-analysis__icon svg {
+  width: 50px;
+  height: 50px;
+  fill: none;
+  stroke: #F7EF8A;
+  stroke-width: 1.9;
+  stroke-linecap: round;
+  stroke-linejoin: round;
 }
 
-.nvp5-analysis__diagram.is-visible .nvp5-analysis__gold-button--3 {
-  animation: nvp5-button-reveal 340ms ease 680ms forwards;
+.nvp5-analysis__icon--1 {
+  left: calc(50% - 295px);
+  top: 74px;
 }
 
-.nvp5-analysis__diagram.is-visible .nvp5-analysis__gold-button--4 {
-  animation: nvp5-button-reveal 340ms ease 860ms forwards;
+.nvp5-analysis__icon--2 {
+  right: calc(50% - 295px);
+  top: 74px;
 }
 
-@keyframes nvp5-button-reveal {
+.nvp5-analysis__icon--3 {
+  left: calc(50% - 295px);
+  bottom: 74px;
+}
+
+.nvp5-analysis__icon--4 {
+  right: calc(50% - 295px);
+  bottom: 74px;
+}
+
+.nvp5-analysis__diagram.is-visible .nvp5-analysis__gold-button--1,
+.nvp5-analysis__diagram.is-visible .nvp5-analysis__icon--1 {
+  animation: nvp5-item-reveal 360ms ease 220ms forwards;
+}
+
+.nvp5-analysis__diagram.is-visible .nvp5-analysis__gold-button--2,
+.nvp5-analysis__diagram.is-visible .nvp5-analysis__icon--2 {
+  animation: nvp5-item-reveal 360ms ease 400ms forwards;
+}
+
+.nvp5-analysis__diagram.is-visible .nvp5-analysis__gold-button--3,
+.nvp5-analysis__diagram.is-visible .nvp5-analysis__icon--3 {
+  animation: nvp5-item-reveal 360ms ease 580ms forwards;
+}
+
+.nvp5-analysis__diagram.is-visible .nvp5-analysis__gold-button--4,
+.nvp5-analysis__diagram.is-visible .nvp5-analysis__icon--4 {
+  animation: nvp5-item-reveal 360ms ease 760ms forwards;
+}
+
+@keyframes nvp5-item-reveal {
   to {
     opacity: 1;
-    transform: translateY(0);
+    transform: translateY(0) scale(1);
   }
 }
 
 .nvp5-analysis__cta-row {
   display: flex;
   justify-content: center;
-  margin-top: 8px;
+  margin-top: 18px;
 }
 
-.nvp5-analysis__cta {
-  display: inline-flex;
-  min-height: 44px;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  padding: 0 22px;
-  border: 1px solid #D89828;
-  border-radius: 4px;
-  color: #050505;
-  background: linear-gradient(
-    180deg,
-    #FFD7A3 0%,
-    #F0A05A 24%,
-    #D89828 60%,
-    #7A3518 100%
-  );
-  font-family: "Bebas Neue", sans-serif;
-  font-size: 16px;
-  line-height: 1;
-  letter-spacing: 0.045em;
-  text-decoration: none;
-  text-transform: uppercase;
-  transition: transform 180ms ease, filter 180ms ease;
-}
-
-.nvp5-analysis__cta::after {
-  content: "→";
-  margin-left: 8px;
-  font-size: 15px;
-  line-height: 1;
-}
-
-.nvp5-analysis__cta:hover,
-.nvp5-analysis__cta:focus-visible {
-  filter: brightness(1.06);
-  transform: translateY(-2px);
-}
-
-.nvp5-analysis__cta:focus-visible {
-  outline: 2px solid #F7EF8A;
-  outline-offset: 4px;
-}
-
-@media (max-width: 1099px) {
+@media (max-width: 1120px) {
   .nvp5-analysis__diagram {
-    min-height: 540px;
+    height: 560px;
   }
 
   .nvp5-analysis__puzzle {
     width: 420px;
-    min-width: 0;
-  }
-
-  .nvp5-analysis__icon--1,
-  .nvp5-analysis__icon--3 {
-    left: calc(50% - 265px);
-  }
-
-  .nvp5-analysis__icon--2,
-  .nvp5-analysis__icon--4 {
-    right: calc(50% - 265px);
+    height: 420px;
   }
 
   .nvp5-analysis__gold-button {
     width: 220px;
   }
+
+  .nvp5-analysis__icon--1,
+  .nvp5-analysis__icon--3 {
+    left: calc(50% - 260px);
+  }
+
+  .nvp5-analysis__icon--2,
+  .nvp5-analysis__icon--4 {
+    right: calc(50% - 260px);
+  }
 }
 
 @media (max-width: 899px) {
-  .nvp5-analysis__diagram {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 22px 18px;
+  body.has-sidebar .nvp5-analysis {
+    margin-left: 0;
+    width: 100%;
+  }
+
+  .nvp5-analysis {
     min-height: 0;
-    padding-top: 390px;
+    padding: 88px var(--page-gutter);
+  }
+
+  .nvp5-analysis__diagram {
+    height: 760px;
   }
 
   .nvp5-analysis__puzzle {
-    top: 180px;
-    width: 340px;
-  }
-
-  .nvp5-analysis__icon {
-    width: 76px;
-    position: relative;
-    inset: auto;
-    justify-self: center;
+    top: 235px;
+    width: 380px;
+    height: 380px;
   }
 
   .nvp5-analysis__gold-button {
-    position: relative;
-    inset: auto;
-    width: 100%;
-    min-height: 50px;
+    width: 42%;
+  }
+
+  .nvp5-analysis__gold-button--1,
+  .nvp5-analysis__gold-button--2 {
+    top: 486px;
+  }
+
+  .nvp5-analysis__gold-button--3,
+  .nvp5-analysis__gold-button--4 {
+    bottom: 92px;
   }
 
   .nvp5-analysis__icon--1,
-  .nvp5-analysis__icon--2,
+  .nvp5-analysis__icon--2 {
+    top: 446px;
+  }
+
   .nvp5-analysis__icon--3,
   .nvp5-analysis__icon--4 {
-    grid-row: auto;
+    bottom: 52px;
   }
 
-  .nvp5-analysis__icon--1 {
-    grid-column: 1;
-  }
-
-  .nvp5-analysis__gold-button--1 {
-    grid-column: 1;
-  }
-
-  .nvp5-analysis__icon--2 {
-    grid-column: 2;
-    grid-row: 1;
-  }
-
-  .nvp5-analysis__gold-button--2 {
-    grid-column: 2;
-  }
-
+  .nvp5-analysis__icon--1,
   .nvp5-analysis__icon--3 {
-    grid-column: 1;
+    left: calc(21% - 48px);
   }
 
-  .nvp5-analysis__gold-button--3 {
-    grid-column: 1;
-  }
-
+  .nvp5-analysis__icon--2,
   .nvp5-analysis__icon--4 {
-    grid-column: 2;
-  }
-
-  .nvp5-analysis__gold-button--4 {
-    grid-column: 2;
+    right: calc(21% - 48px);
   }
 }
 
 @media (max-width: 639px) {
   .nvp5-analysis {
-    padding-left: var(--side);
-    padding-right: var(--side);
+    padding: 72px var(--page-gutter);
+  }
+
+  .nvp5-analysis__title {
+    font-size: clamp(36px, 11vw, 48px);
   }
 
   .nvp5-analysis__diagram {
-    grid-template-columns: 1fr;
-    gap: 18px;
-    padding-top: 330px;
+    height: 690px;
   }
 
   .nvp5-analysis__puzzle {
-    top: 150px;
-    width: 290px;
+    top: 200px;
+    width: 320px;
+    height: 320px;
   }
 
-  .nvp5-analysis__icon,
   .nvp5-analysis__gold-button {
-    grid-column: 1;
+    width: calc(50% - 12px);
+    height: 58px;
   }
 
-  .nvp5-analysis__cta {
-    width: 100%;
+  .nvp5-analysis__gold-button--1,
+  .nvp5-analysis__gold-button--2 {
+    top: 418px;
+  }
+
+  .nvp5-analysis__gold-button--3,
+  .nvp5-analysis__gold-button--4 {
+    bottom: 74px;
+  }
+
+  .nvp5-analysis__icon {
+    width: 78px;
+    height: 78px;
+  }
+
+  .nvp5-analysis__icon svg {
+    width: 40px;
+    height: 40px;
+  }
+
+  .nvp5-analysis__icon--1,
+  .nvp5-analysis__icon--2 {
+    top: 388px;
+  }
+
+  .nvp5-analysis__icon--3,
+  .nvp5-analysis__icon--4 {
+    bottom: 44px;
+  }
+
+  .nvp5-analysis__icon--1,
+  .nvp5-analysis__icon--3 {
+    left: calc(25% - 39px);
+  }
+
+  .nvp5-analysis__icon--2,
+  .nvp5-analysis__icon--4 {
+    right: calc(25% - 39px);
   }
 }
 
@@ -1861,15 +1788,10 @@ body {
     transform: none;
     animation: none;
   }
-
-  .nvp5-analysis__cta {
-    transition: none;
-  }
 }
 /* NUROVELLE SECTION 5 END */
 
 </style>
-</head>
 <script>
   document.addEventListener("DOMContentLoaded", function () {
     const body = document.body;
@@ -1887,31 +1809,32 @@ body {
       toggle.setAttribute("aria-label", isOpen ? "Sidebar schließen" : "Sidebar öffnen");
     });
   });
-</script>
-<body>
+</script><style>html,body,#root{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;margin:0;padding:0}html,body{font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Helvetica Neue,Arial,sans-serif!important}button,input,textarea,select{font-family:inherit}html{background-color:transparent}html.chatgptOled.dark,html.mobileSkybridge.dark{background-color:#000}@supports (font: -apple-system-body){html.mobileSkybridge{font:-apple-system-body}}html.desktopSkybridge.dark{background-color:#1e1e1e}html.transparentSkybridgeBackground,html.transparentSkybridgeBackground.dark{background-color:transparent}html.androidSkybridge,html.androidSkybridge body,html.androidSkybridge *{-webkit-tap-highlight-color:rgba(255,255,255,0)}html.androidSkybridge *::selection,html.androidSkybridge *::-moz-selection{background:#fff0;color:inherit}</style></head>
+
+<body class="has-sidebar">
   <div class="preview-stage">
     <header class="site-header">
       <div class="header-inner">
-        <a class="logo-link" href="#hero" aria-label="Nurovelle Startseite">
+        <a class="logo-link" href="https://web-sandbox.oaiusercontent.com/?#hero" aria-label="Nurovelle Startseite">
           <span class="logo-spin" aria-hidden="true"></span>
         </a>
 
         <nav class="nv-breadcrumb" aria-label="Breadcrumb Navigation">
-          <a href="#hero" aria-current="page">Hero</a>
-          <a href="#ki-projekt-start">Erster Schritt</a>
-          <a href="#projektidee">Projektidee</a>
-          <a href="#potenzialanalyse">Potenzialanalyse</a>
-          <a href="#branchen">Branchen</a>
-          <a href="#leistungen">Leistungen</a>
-          <a href="#prozess-zur-loesung">Prozess</a>
-          <a href="#warum-nurovelle">Warum Nurovelle</a>
-          <a href="#kontakt">Kontakt</a>
-          <a href="#downloads">Downloads</a>
-          <a href="#faq">FAQ</a>
-          <a href="#formular">Formular</a>
+          <a href="https://web-sandbox.oaiusercontent.com/?#hero" aria-current="page">Hero</a>
+          <a href="https://web-sandbox.oaiusercontent.com/?#ki-projekt-start">Erster Schritt</a>
+          <a href="https://web-sandbox.oaiusercontent.com/?#projektidee">Projektidee</a>
+          <a href="https://web-sandbox.oaiusercontent.com/?#potenzialanalyse">Potenzialanalyse</a>
+          <a href="https://web-sandbox.oaiusercontent.com/?#branchen">Branchen</a>
+          <a href="https://web-sandbox.oaiusercontent.com/?#leistungen">Leistungen</a>
+          <a href="https://web-sandbox.oaiusercontent.com/?#prozess-zur-loesung">Prozess</a>
+          <a href="https://web-sandbox.oaiusercontent.com/?#warum-nurovelle">Warum Nurovelle</a>
+          <a href="https://web-sandbox.oaiusercontent.com/?#kontakt">Kontakt</a>
+          <a href="https://web-sandbox.oaiusercontent.com/?#downloads">Downloads</a>
+          <a href="https://web-sandbox.oaiusercontent.com/?#faq">FAQ</a>
+          <a href="https://web-sandbox.oaiusercontent.com/?#formular">Formular</a>
         </nav>
 
-<a class="header-cta" href="analyse.html" aria-label="Kostenlose KI-Potenzialanalyse öffnen">
+<a class="header-cta" href="https://web-sandbox.oaiusercontent.com/analyse.html" aria-label="Kostenlose KI-Potenzialanalyse öffnen">
   <span class="nv-press-button">
     <span class="nv-press-button__top">Unverbindliches Erstgespräch</span>
     <span class="nv-press-button__bottom" aria-hidden="true"></span>
@@ -1922,11 +1845,7 @@ body {
     </header>
 
     <div class="sidebar-toggle-wrap">
-      <button class="sidebar-toggle"
-        aria-label="Sidebar öffnen"
-        aria-controls="homeSidebar"
-        aria-expanded="false"
-        >
+      <button class="sidebar-toggle" aria-label="Sidebar öffnen" aria-controls="homeSidebar" aria-expanded="true">
         <span></span>
       </button>
     </div>
@@ -1938,28 +1857,28 @@ body {
   <nav aria-label="Homepage-Seitenstruktur">
     <ul class="side-list">
       <li>
-        <a class="is-active" href="#hero">
+        <a class="is-active" href="https://web-sandbox.oaiusercontent.com/?#hero">
           <span class="side-num">01</span>
           <span class="side-label">Hero</span>
         </a>
       </li>
 
       <li>
-        <a href="#ki-projekt-start">
+        <a href="https://web-sandbox.oaiusercontent.com/?#ki-projekt-start">
           <span class="side-num">02</span>
           <span class="side-label">Erster Schritt</span>
         </a>
       </li>
 
       <li>
-        <a href="#projektidee">
+        <a href="https://web-sandbox.oaiusercontent.com/?#projektidee">
           <span class="side-num">03</span>
           <span class="side-label">Projektidee</span>
         </a>
       </li>
 
       <li>
-        <a href="#potenzialanalyse">
+        <a href="https://web-sandbox.oaiusercontent.com/?#potenzialanalyse">
           <span class="side-num">04</span>
           <span class="side-label">Potenzialanalyse</span>
         </a>
@@ -1974,13 +1893,13 @@ body {
           </summary>
 
           <div class="side-sub">
-            <a href="#leistungen">KI-Leistungen Übersicht</a>
-            <a href="#leistungen">KI-Agenten</a>
-            <a href="#leistungen">Prozessautomatisierung</a>
-            <a href="#leistungen">Datenanalyse &amp; BI</a>
-            <a href="#leistungen">Dokumentenverarbeitung</a>
-            <a href="#leistungen">SEO, Content &amp; Marketing</a>
-            <a href="#leistungen">Systemintegration</a>
+            <a href="https://web-sandbox.oaiusercontent.com/?#leistungen">KI-Leistungen Übersicht</a>
+            <a href="https://web-sandbox.oaiusercontent.com/?#leistungen">KI-Agenten</a>
+            <a href="https://web-sandbox.oaiusercontent.com/?#leistungen">Prozessautomatisierung</a>
+            <a href="https://web-sandbox.oaiusercontent.com/?#leistungen">Datenanalyse &amp; BI</a>
+            <a href="https://web-sandbox.oaiusercontent.com/?#leistungen">Dokumentenverarbeitung</a>
+            <a href="https://web-sandbox.oaiusercontent.com/?#leistungen">SEO, Content &amp; Marketing</a>
+            <a href="https://web-sandbox.oaiusercontent.com/?#leistungen">Systemintegration</a>
           </div>
         </details>
       </li>
@@ -1994,16 +1913,16 @@ body {
           </summary>
 
           <div class="side-sub">
-            <a href="#prozess-zur-loesung">Vom Geschäftsprozess zur KI-Lösung</a>
-            <a href="#prozess-zur-loesung">Prozess erfassen</a>
-            <a href="#prozess-zur-loesung">Potenzial bewerten</a>
-            <a href="#prozess-zur-loesung">Lösungspfad festlegen</a>
+            <a href="https://web-sandbox.oaiusercontent.com/?#prozess-zur-loesung">Vom Geschäftsprozess zur KI-Lösung</a>
+            <a href="https://web-sandbox.oaiusercontent.com/?#prozess-zur-loesung">Prozess erfassen</a>
+            <a href="https://web-sandbox.oaiusercontent.com/?#prozess-zur-loesung">Potenzial bewerten</a>
+            <a href="https://web-sandbox.oaiusercontent.com/?#prozess-zur-loesung">Lösungspfad festlegen</a>
           </div>
         </details>
       </li>
 
       <li>
-        <a href="#warum-nurovelle">
+        <a href="https://web-sandbox.oaiusercontent.com/?#warum-nurovelle">
           <span class="side-num">07</span>
           <span class="side-label">Warum Nurovelle</span>
         </a>
@@ -2018,11 +1937,11 @@ body {
           </summary>
 
           <div class="side-sub">
-            <a href="#downloads">Download-Übersicht</a>
-            <a href="#downloads">Praxisleitfaden</a>
-            <a href="#downloads">ROI-Guide</a>
-            <a href="#downloads">Checklisten</a>
-            <a href="#downloads">Prompt-Guide</a>
+            <a href="https://web-sandbox.oaiusercontent.com/?#downloads">Download-Übersicht</a>
+            <a href="https://web-sandbox.oaiusercontent.com/?#downloads">Praxisleitfaden</a>
+            <a href="https://web-sandbox.oaiusercontent.com/?#downloads">ROI-Guide</a>
+            <a href="https://web-sandbox.oaiusercontent.com/?#downloads">Checklisten</a>
+            <a href="https://web-sandbox.oaiusercontent.com/?#downloads">Prompt-Guide</a>
           </div>
         </details>
       </li>
@@ -2030,18 +1949,13 @@ body {
   </nav>
 </aside>
     <main class="hero hero-placeholder" id="hero">
-      <canvas class="hero-particle-bg" id="heroParticleCanvas" aria-hidden="true"></canvas>
-      <img
-        class="hero-cube"
-        src="assets/hero/1.png"
-        alt=""
-        aria-hidden="true"
-      >
+      <canvas class="hero-particle-bg" id="heroParticleCanvas" aria-hidden="true" width="1436" height="560"></canvas>
+      <img class="hero-cube" src="./1.png" alt="" aria-hidden="true">
       <h1>KI-Agenten für echte Geschäftsprozesse.</h1>
       <h2>Nurovelle entwickelt individuelle KI-Systeme für Datenverarbeitung,<br>Wissenszugriff, Prozessautomatisierung und Unternehmenssoftware.</h2>
       <p>Von der Potenzialanalyse über Prompt Engineering und MCP bis zur Umsetzung maßgeschneiderter KI-Lösungen.</p>
       <div class="actions hero-actions">
-        <a class="hero-cta" href="analyse.html" aria-label="Kostenlose KI-Potenzialanalyse öffnen">
+        <a class="hero-cta" href="https://web-sandbox.oaiusercontent.com/analyse.html" aria-label="Kostenlose KI-Potenzialanalyse öffnen">
           <span class="nv-press-button">
             <span class="nv-press-button__top">Kostenlose KI-Potenzialanalyse</span>
             <span class="nv-press-button__bottom" aria-hidden="true"></span>
@@ -2049,7 +1963,7 @@ body {
           </span>
         </a>
 
-        <a class="hero-cta" href="#downloads" aria-label="Praxisleitfaden herunterladen">
+        <a class="hero-cta" href="https://web-sandbox.oaiusercontent.com/?#downloads" aria-label="Praxisleitfaden herunterladen">
           <span class="nv-press-button">
             <span class="nv-press-button__top">Praxisleitfaden herunterladen</span>
             <span class="nv-press-button__bottom" aria-hidden="true"></span>
@@ -2261,7 +2175,7 @@ body {
       <p>So entsteht aus einer ersten Idee ein belastbarer nächster Schritt: vom Erstgespräch über die Potenzialanalyse bis zur Entwicklung eines Prototyps oder einer fertigen Lösung.</p>
 
       <div class="nv-section-step__actions">
-        <a class="hero-cta" href="analyse.html" aria-label="Kostenloses Erstgespräch vereinbaren">
+        <a class="hero-cta" href="https://web-sandbox.oaiusercontent.com/analyse.html" aria-label="Kostenloses Erstgespräch vereinbaren">
           <span class="nv-press-button">
             <span class="nv-press-button__top">Kostenloses Erstgespräch vereinbaren</span>
             <span class="nv-press-button__bottom" aria-hidden="true"></span>
@@ -2287,22 +2201,28 @@ body {
 
       <div class="nvp4-projectidea__text">
         <p>Wenn Sie bereits wissen, welcher Prozess verbessert, welche Datenquelle nutzbar gemacht oder welche interne Aufgabe unterstützt werden soll, ist der nächste Schritt keine allgemeine Orientierung.</p>
-
         <p>Nurovelle prüft mit Ihnen, ob die Idee technisch realistisch ist, welche Systeme, Daten oder Schnittstellen benötigt werden und welcher Umsetzungsweg sinnvoll ist.</p>
-
         <p>So wird aus einer ersten Idee ein konkreter Projektansatz für KI-Agenten, Automatisierung, Datenverarbeitung oder individuelle Software.</p>
       </div>
 
-      <a class="nvp4-projectidea__cta" href="analyse.html">Projektidee prüfen lassen</a>
+      <div class="nvp4-projectidea__actions">
+        <a class="hero-cta" href="https://web-sandbox.oaiusercontent.com/analyse.html" aria-label="Projektidee prüfen lassen">
+          <span class="nv-press-button">
+            <span class="nv-press-button__top">Projektidee prüfen lassen</span>
+            <span class="nv-press-button__bottom" aria-hidden="true"></span>
+            <span class="nv-press-button__base" aria-hidden="true"></span>
+          </span>
+        </a>
+      </div>
     </div>
 
-    <div class="nvp4-projectidea__visual" data-nvp4-projectidea-visual>
+    <div class="nvp4-projectidea__visual is-visible" data-nvp4-projectidea-visual="">
       <figure class="nvp4-projectidea__photo nvp4-projectidea__photo--back">
-        <img src="assets/Fotos/16.png" alt="" loading="lazy" decoding="async">
+        <img src="./16.png" alt="" loading="lazy" decoding="async">
       </figure>
 
       <figure class="nvp4-projectidea__photo nvp4-projectidea__photo--front">
-        <img src="assets/Fotos/9.png" alt="Beratung zu einer konkreten KI-Projektidee" loading="lazy" decoding="async">
+        <img src="./9.png" alt="Beratung zu einer konkreten KI-Projektidee" loading="lazy" decoding="async">
       </figure>
     </div>
   </div>
@@ -2318,42 +2238,54 @@ body {
       <p class="nvp5-analysis__intro">Finden Sie heraus, wo KI in Ihrem Unternehmen sinnvoll ansetzen kann.</p>
     </header>
 
-    <div class="nvp5-analysis__diagram" data-nvp5-analysis-diagram>
-      <svg class="nvp5-analysis__puzzle" viewBox="0 0 400 400" role="img" aria-label="Vierteiliger Puzzle-Kreis für die KI-Potenzialanalyse">
-        <path class="nvp5-analysis__part nvp5-analysis__part--1"
-          d="M200 20 A180 180 0 0 0 20 200 H92
-             C92 180 108 164 128 164
-             C148 164 164 180 164 200
-             H200 V128
-             C220 128 236 112 236 92
-             C236 72 220 56 200 56 Z"/>
-        <path class="nvp5-analysis__part nvp5-analysis__part--2"
-          d="M200 20 A180 180 0 0 1 380 200 H308
-             C308 180 292 164 272 164
-             C252 164 236 180 236 200
-             H200 V128
-             C220 128 236 112 236 92
-             C236 72 220 56 200 56 Z"/>
-        <path class="nvp5-analysis__part nvp5-analysis__part--3"
-          d="M20 200 A180 180 0 0 0 200 380 V308
-             C180 308 164 292 164 272
-             C164 252 180 236 200 236
-             V200 H128
-             C128 180 112 164 92 164
-             C72 164 56 180 56 200 Z"/>
-        <path class="nvp5-analysis__part nvp5-analysis__part--4"
-          d="M380 200 A180 180 0 0 1 200 380 V308
-             C220 308 236 292 236 272
-             C236 252 220 236 200 236
-             V200 H272
-             C272 220 288 236 308 236
-             C328 236 344 220 344 200 Z"/>
-      </svg>
-
+    <div class="nvp5-analysis__diagram is-visible" data-nvp5-analysis-diagram="">
       <span class="nvp5-analysis__gold-button nvp5-analysis__gold-button--1" aria-hidden="true"></span>
       <span class="nvp5-analysis__gold-button nvp5-analysis__gold-button--2" aria-hidden="true"></span>
       <span class="nvp5-analysis__gold-button nvp5-analysis__gold-button--3" aria-hidden="true"></span>
       <span class="nvp5-analysis__gold-button nvp5-analysis__gold-button--4" aria-hidden="true"></span>
+
+      <svg class="nvp5-analysis__puzzle" viewBox="0 0 400 400" role="img" aria-label="Vierteiliger Puzzle-Kreis für die KI-Potenzialanalyse">
+        <path class="nvp5-analysis__part nvp5-analysis__part--1" d="M200 20
+             A180 180 0 0 0 20 200
+             H72
+             C72 170 92 150 116 150
+             C140 150 160 170 160 200
+             H200
+             V176
+             C230 176 250 156 250 132
+             C250 108 230 88 200 88
+             Z"></path>
+        <path class="nvp5-analysis__part nvp5-analysis__part--2" d="M200 20
+             A180 180 0 0 1 380 200
+             H328
+             C328 230 308 250 284 250
+             C260 250 240 230 240 200
+             H200
+             V176
+             C230 176 250 156 250 132
+             C250 108 230 88 200 88
+             Z"></path>
+        <path class="nvp5-analysis__part nvp5-analysis__part--3" d="M20 200
+             A180 180 0 0 0 200 380
+             V328
+             C170 328 150 308 150 284
+             C150 260 170 240 200 240
+             V200
+             H160
+             C160 170 140 150 116 150
+             C92 150 72 170 72 200
+             Z"></path>
+        <path class="nvp5-analysis__part nvp5-analysis__part--4" d="M380 200
+             A180 180 0 0 1 200 380
+             V328
+             C230 328 250 308 250 284
+             C250 260 230 240 200 240
+             V200
+             H240
+             C240 230 260 250 284 250
+             C308 250 328 230 328 200
+             Z"></path>
+      </svg>
 
       <span class="nvp5-analysis__icon nvp5-analysis__icon--1" role="img" aria-label="Abläufe analysieren">
         <svg viewBox="0 0 48 48" aria-hidden="true">
@@ -2395,7 +2327,13 @@ body {
     </div>
 
     <div class="nvp5-analysis__cta-row">
-      <a class="nvp5-analysis__cta" href="analyse.html">Kostenlose KI-Potenzialanalyse anfordern</a>
+      <a class="hero-cta" href="https://web-sandbox.oaiusercontent.com/analyse.html" aria-label="Kostenlose KI-Potenzialanalyse anfordern">
+        <span class="nv-press-button">
+          <span class="nv-press-button__top">Kostenlose KI-Potenzialanalyse anfordern</span>
+          <span class="nv-press-button__bottom" aria-hidden="true"></span>
+          <span class="nv-press-button__base" aria-hidden="true"></span>
+        </span>
+      </a>
     </div>
   </div>
 </section>
@@ -2403,7 +2341,7 @@ body {
 
 
   </div>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="./three.min.js"></script>
   <script>
   (function(){
     'use strict';
@@ -2633,5 +2571,5 @@ void main(){
 /* NUROVELLE SECTION 5 JS END */
 
 </script>
-</body>
-</html>
+
+</body></html>
