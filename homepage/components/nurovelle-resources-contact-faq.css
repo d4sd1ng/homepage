@@ -1,0 +1,585 @@
+/* Downloads, Potenzialanalyse-Formular und FAQ */
+.nv-resource-section {
+  margin-left: var(--sidebar-w);
+  padding: var(--nv-section-pad-y) var(--side);
+  color: #f5f7f4;
+  background: #020504;
+}
+
+.nv-resource-section + .nv-resource-section {
+  border-top: 1px solid rgba(212, 175, 55, .22);
+}
+
+.nv-resource-section__inner {
+  width: 100%;
+  max-width: 1650px;
+  margin: 0;
+}
+
+.nv-resource-section__head {
+  max-width: 900px;
+}
+
+.nv-resource-section__kicker {
+  color: #e8b048;
+  font: 700 var(--nv-section-kicker-size)/1.4 Inter, Arial, sans-serif;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+}
+
+.nv-resource-section__title {
+  color: transparent;
+  background: linear-gradient(180deg, #c5a059 0%, #fdf0cd 50%, #d4af37 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font: 700 var(--nv-section-title-size)/1 "Eastman Grotesque Alt", "Eastman Grotesque", Inter, Arial, sans-serif;
+  letter-spacing: .01em;
+}
+
+.nv-resource-section__intro {
+  max-width: 850px;
+  margin: 0;
+  color: #b9c3bd;
+  font: 500 var(--nv-section-body-size)/var(--nv-section-body-line) Inter, Arial, sans-serif;
+}
+
+/* Download-Bibliothek */
+.nv-download-library {
+  overflow: hidden;
+  padding: 24px;
+  border: 1px solid #d4af37;
+  border-radius: 20px;
+  background: linear-gradient(135deg, rgba(57, 62, 56, .94), rgba(29, 35, 31, .96));
+  box-shadow: 0 20px 55px rgba(0, 0, 0, .45), inset 0 0 0 1px rgba(247, 239, 138, .05);
+}
+
+.nv-download-library__bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  margin-bottom: 18px;
+  padding: 0 2px 16px;
+  border-bottom: 1px solid rgba(212, 175, 55, .45);
+}
+
+.nv-download-library__label {
+  color: #c8ceca;
+  font: 700 10px/1.2 Inter, Arial, sans-serif;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+}
+
+.nv-download-library__types {
+  display: flex;
+  gap: 10px;
+}
+
+.nv-download-library__types span,
+.nv-download-card__type {
+  display: inline-flex;
+  align-items: center;
+  min-height: 23px;
+  padding: 0 11px;
+  border: 1px solid rgba(212, 175, 55, .38);
+  border-radius: 999px;
+  color: #d4af37;
+  background: #09231a;
+  font: 700 9px/1 Inter, Arial, sans-serif;
+  letter-spacing: .09em;
+  text-transform: uppercase;
+}
+
+.nv-download-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.nv-download-card {
+  display: grid;
+  grid-template-rows: 1fr auto;
+  min-height: 250px;
+  padding: 20px;
+  border: 1px solid rgba(31, 112, 82, .58);
+  border-radius: 15px;
+  background: linear-gradient(145deg, #0a100e, #111614);
+}
+
+.nv-download-card__content {
+  display: grid;
+  grid-template-columns: 62px minmax(0, 1fr);
+  gap: 18px;
+  align-items: start;
+}
+
+.nv-download-card__icon {
+  display: grid;
+  place-items: center;
+  width: 62px;
+  height: 62px;
+  border: 1px solid rgba(212, 175, 55, .55);
+  border-radius: 10px;
+  background: rgba(0, 0, 0, .24);
+}
+
+.nv-download-card__icon img {
+  width: 38px;
+  height: 38px;
+  object-fit: contain;
+}
+
+.nv-download-card__meta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0 0 9px;
+}
+
+.nv-download-card__display {
+  color: #7f8983;
+  font: 600 8px/1 Inter, Arial, sans-serif;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+.nv-download-card h3 {
+  margin: 0 0 10px;
+  color: #f5f7f4;
+  font: 700 clamp(19px, 1.45vw, 27px)/1.08 "Eastman Grotesque Alt", Inter, Arial, sans-serif;
+  text-transform: uppercase;
+}
+
+.nv-download-card p {
+  max-width: 620px;
+  margin: 0;
+  color: #aeb7b2;
+  font: 500 12px/1.5 Inter, Arial, sans-serif;
+}
+
+.nv-download-card__footer {
+  margin-top: 18px;
+  padding-top: 12px;
+  border-top: 3px solid rgba(86, 94, 89, .25);
+}
+
+.nv-download-button,
+.nv-analysis-form button {
+  display: block;
+  width: 100%;
+  cursor: pointer;
+}
+
+.nv-download-button .nv-press-button,
+.nv-analysis-form button .nv-press-button {
+  display: block;
+  width: 100%;
+}
+
+.nv-download-button[data-state="loading"] { cursor: wait; }
+.nv-download-button[data-state="error"] .nv-press-button__top { color: #5a170f; }
+
+/* Formular – Struktur der alten Fassung */
+#downloads {
+  position: relative;
+  margin-left: var(--sidebar-w);
+  padding: var(--nv-section-pad-y) var(--side);
+  color: #f5f7f4;
+  background: radial-gradient(circle at 50% 15%, rgba(17, 42, 32, .42), transparent 48%), #050706;
+}
+
+#downloads .section-inner {
+  width: 100%;
+  max-width: 1650px;
+  margin: 0;
+}
+
+#downloads .section-head {
+  width: 100%;
+  max-width: 780px;
+}
+
+#downloads .kicker {
+  color: #e8b048;
+  font: 700 var(--nv-section-kicker-size)/1.4 Inter, Arial, sans-serif;
+  letter-spacing: .14em;
+}
+
+#downloads .section-title {
+  color: transparent;
+  background: linear-gradient(180deg, #c5a059 0%, #fdf0cd 50%, #d4af37 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font: 700 var(--nv-section-title-size)/1 "Eastman Grotesque Alt", "Eastman Grotesque", Inter, Arial, sans-serif;
+}
+
+#downloads .section-text {
+  max-width: 780px;
+  margin: 0;
+  color: #b9c3bd;
+  font: 500 var(--nv-section-body-size)/var(--nv-section-body-line) Inter, Arial, sans-serif;
+}
+
+.download-display {
+  padding: 16px;
+  overflow: hidden;
+  border: 1px solid rgba(212, 175, 55, .72);
+  border-radius: 18px;
+  background: linear-gradient(145deg, rgba(37, 43, 44, .92), rgba(10, 25, 19, .96));
+  box-shadow: 0 24px 60px rgba(0, 0, 0, .46), inset 0 0 0 1px rgba(247, 239, 138, .08);
+}
+
+.download-display__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  min-height: 38px;
+  padding: 0 10px 14px;
+  border-bottom: 1px solid rgba(212, 175, 55, .26);
+  color: #d4af37;
+  font: 700 10px/1 Inter, Arial, sans-serif;
+  letter-spacing: .12em;
+}
+
+.download-display__grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  align-items: start;
+  gap: 14px;
+  padding-top: 16px;
+}
+
+.download-item {
+  display: grid;
+  grid-template-columns: 58px minmax(0, 1fr);
+  grid-template-rows: auto auto;
+  align-content: start;
+  column-gap: 14px;
+  min-width: 0;
+  min-height: 0;
+  padding: 14px;
+  overflow: hidden;
+  border: 1px solid rgba(46, 139, 103, .34);
+  border-radius: 12px;
+  background: linear-gradient(145deg, rgba(5, 7, 6, .96), rgba(21, 25, 26, .92));
+  box-shadow: 0 14px 28px rgba(0, 0, 0, .3), inset 0 0 0 1px rgba(255, 255, 255, .025);
+}
+
+.download-item__type {
+  grid-row: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding-right: 10px;
+  border-right: 1px solid rgba(212, 175, 55, .24);
+  color: #d4af37;
+  font: 700 9px/1 Inter, Arial, sans-serif;
+  letter-spacing: .1em;
+}
+
+.download-item__type img {
+  width: 42px;
+  height: 42px;
+  object-fit: contain;
+}
+
+.download-item__content { min-width: 0; }
+
+.download-item h3 {
+  margin: 0 0 7px;
+  color: #f5f7f4;
+  font: 700 20px/1.08 "Eastman Grotesque Alt", Inter, Arial, sans-serif;
+  text-transform: uppercase;
+}
+
+.download-item p {
+  margin: 0;
+  color: #b9c3bd;
+  font: 500 11px/1.5 Inter, Arial, sans-serif;
+}
+
+.download-button {
+  position: relative;
+  grid-column: 1 / -1;
+  display: grid;
+  place-items: center;
+  width: 100%;
+  min-height: 30px;
+  margin-top: 8px;
+  padding: 0 8px;
+  overflow: hidden;
+  border: 1px solid rgba(250, 227, 133, .4);
+  border-radius: 8px;
+  color: var(--nv-gold-text-dark);
+  background-color: var(--nv-gold-core);
+  background-image: var(--nv-gold-gradient);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 120% 120%;
+  box-shadow: 0 4px 0 #8b620c, 0 8px 18px rgba(0, 0, 0, .32), inset 0 1px 1px rgba(250, 227, 133, .28);
+  font: 800 9px/1.15 Inter, Arial, sans-serif;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: color .45s ease, background-size .68s cubic-bezier(.22, 1, .36, 1), transform .18s ease, box-shadow .18s ease;
+}
+
+.download-button__idle,
+.download-button__success,
+.download-button__error {
+  grid-area: 1 / 1;
+  transition: opacity .18s ease, transform .24s ease;
+}
+
+.download-button__idle { padding: 0 24px; }
+.download-button__idle::before,
+.download-button__idle::after {
+  position: absolute;
+  top: 50%;
+  color: currentColor;
+  font-size: 18px;
+  transform: translateY(-50%);
+  transition: left .58s cubic-bezier(.22, 1, .36, 1), right .58s cubic-bezier(.22, 1, .36, 1);
+}
+.download-button__idle::before { content: "→"; left: -26px; }
+.download-button__idle::after { content: "→"; right: 12px; }
+.download-button:hover,
+.download-button:focus-visible {
+  color: var(--nv-gold-text-dark);
+  background-size: 155% 155%;
+  outline: none;
+}
+.download-button:hover .download-button__idle::before,
+.download-button:focus-visible .download-button__idle::before { left: 12px; }
+.download-button:hover .download-button__idle::after,
+.download-button:focus-visible .download-button__idle::after { right: -26px; }
+.download-button:active {
+  transform: translateY(4px);
+  box-shadow: 0 1px 0 #8b620c, 0 4px 10px rgba(0, 0, 0, .28);
+}
+.download-button__success,
+.download-button__error { opacity: 0; transform: translateY(16px); }
+.download-button.is-success .download-button__idle { opacity: 0; transform: translateY(-16px); }
+.download-button.is-success .download-button__success { opacity: 1; transform: none; }
+.download-button.is-error .download-button__idle { opacity: 0; transform: translateY(-16px); }
+.download-button.is-error .download-button__error { opacity: 1; transform: none; }
+
+@media (max-width: 899px) {
+  #downloads { margin-left: 0; }
+}
+
+@media (max-width: 639px) {
+  #downloads { padding: 42px 18px; }
+  .download-display__grid { grid-template-columns: 1fr; }
+}
+
+.nv-analysis-layout {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 34px;
+  align-items: stretch;
+}
+
+.nv-analysis-copy {
+  padding: 24px;
+  border: 1px solid rgba(212, 175, 55, .58);
+  border-radius: 10px;
+  background: rgba(0, 0, 0, .34);
+}
+
+.nv-analysis-copy__eyebrow {
+  margin: 0 0 8px;
+  color: #d3d8d4;
+  font: 600 11px/1.3 Inter, Arial, sans-serif;
+  letter-spacing: .08em;
+}
+
+.nv-analysis-copy h3 {
+  margin: 0 0 16px;
+  color: #f5f7f4;
+  font: 700 clamp(22px, 1.8vw, 32px)/1.05 "Eastman Grotesque Alt", Inter, Arial, sans-serif;
+  text-transform: uppercase;
+}
+
+.nv-analysis-copy p,
+.nv-analysis-copy li {
+  color: #b9c3bd;
+  font: 500 12px/1.55 Inter, Arial, sans-serif;
+}
+
+.nv-analysis-copy ul {
+  margin: 14px 0;
+  padding-left: 18px;
+}
+
+.nv-analysis-copy li { margin: 6px 0; }
+.nv-analysis-copy li strong {
+  display: block;
+  margin-bottom: 2px;
+  color: #f5f7f4;
+}
+
+.nv-analysis-copy h4 {
+  margin: 20px 0 8px;
+  color: #d4af37;
+  font: 700 14px/1.3 Inter, Arial, sans-serif;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+}
+
+.nv-analysis-copy .nv-analysis-copy__note { color: #e8b048; }
+
+.nv-analysis-form__grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.nv-analysis-form {
+  padding: 24px;
+  border-radius: 10px;
+  background: #000;
+}
+
+.nv-analysis-form input,
+.nv-analysis-form select,
+.nv-analysis-form textarea {
+  width: 100%;
+  height: 42px;
+  padding: 0 10px;
+  border: 1px solid rgba(240, 160, 90, .82);
+  border-radius: 5px;
+  color: #111;
+  background: rgba(235, 235, 226, .96);
+  font: 500 12px/1.3 Inter, Arial, sans-serif;
+  outline: none;
+}
+
+.nv-analysis-form textarea {
+  grid-column: 1 / -1;
+  height: 72px;
+  padding-top: 10px;
+  resize: vertical;
+}
+
+.nv-analysis-form input:focus,
+.nv-analysis-form select:focus,
+.nv-analysis-form textarea:focus { box-shadow: 0 0 0 2px rgba(212, 175, 55, .34); }
+
+.nv-analysis-form__hp {
+  position: absolute;
+  left: -10000px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+.nv-analysis-form__consent {
+  grid-column: 1 / -1;
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 10px 11px;
+  border: 1px solid rgba(212, 175, 55, .36);
+  border-radius: 5px;
+  color: #aeb7b2;
+  background: #000;
+  font: 500 10px/1.4 Inter, Arial, sans-serif;
+}
+
+.nv-analysis-form__consent input {
+  width: auto;
+  height: auto;
+  margin-top: 2px;
+  accent-color: #d4af37;
+}
+
+.nv-analysis-form__consent strong {
+  display: block;
+  margin-bottom: 2px;
+  color: #f7d77a;
+}
+
+.nv-analysis-form button {
+  grid-column: 1 / -1;
+  text-transform: uppercase;
+}
+
+.nv-analysis-form__note {
+  margin: 12px 0 0;
+  color: #aeb7b2;
+  font: 500 11px/1.5 Inter, Arial, sans-serif;
+}
+
+.nv-analysis-form__note a { color: #e8b048; }
+
+/* FAQ */
+.nv-faq-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+  align-items: start;
+}
+
+.nv-faq-item {
+  align-self: start;
+  overflow: hidden;
+  border: 1px solid rgba(247, 239, 138, .86);
+  border-radius: 8px;
+  background: var(--nv-gold-gradient);
+  box-shadow: 0 4px 0 #8b620c, 0 8px 16px rgba(0, 0, 0, .3), inset 0 0 0 1px rgba(250, 227, 133, .12);
+}
+
+.nv-faq-item summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  min-height: 46px;
+  padding: 0 15px;
+  color: var(--nv-gold-text-dark);
+  background: var(--nv-gold-gradient);
+  font: 800 11px/1.35 Inter, Arial, sans-serif;
+  letter-spacing: .025em;
+  text-transform: uppercase;
+  cursor: pointer;
+  list-style: none;
+}
+
+.nv-faq-item summary::-webkit-details-marker { display: none; }
+.nv-faq-item summary::after { content: "+"; flex: 0 0 auto; font-size: 18px; }
+.nv-faq-item[open] summary::after { content: "−"; }
+.nv-faq-item p {
+  margin: 0;
+  padding: 0 15px 15px;
+  color: rgba(57, 25, 4, .9);
+  font: 500 11px/1.5 Inter, Arial, sans-serif;
+}
+
+@media (max-width: 1100px) {
+  .nv-download-grid,
+  .nv-analysis-layout,
+  .nv-faq-grid { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 899px) {
+  .nv-resource-section { margin-left: 0; }
+}
+
+@media (max-width: 640px) {
+  .nv-resource-section { padding: 54px 16px; }
+  .nv-download-library { padding: 14px; }
+  .nv-download-library__bar { align-items: flex-start; }
+  .nv-download-card { min-height: 280px; padding: 16px; }
+  .nv-download-card__content { grid-template-columns: 48px minmax(0, 1fr); gap: 12px; }
+  .nv-download-card__icon { width: 48px; height: 48px; }
+  .nv-download-card__icon img { width: 30px; height: 30px; }
+  .nv-analysis-form__grid { grid-template-columns: 1fr; }
+  .nv-analysis-form textarea,
+  .nv-analysis-form__consent,
+  .nv-analysis-form button { grid-column: auto; }
+}

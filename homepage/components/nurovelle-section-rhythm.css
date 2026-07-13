@@ -1,0 +1,120 @@
+/* Einheitlicher Rhythmus und alternierende Sektionsflächen */
+:root {
+  --nv-kicker-title-gap: 28px;
+  --nv-title-text-gap: 64px;
+  --nv-section-text-content-gap: 76px;
+  --nv-section-divider-before-gap: 220px;
+  --nv-section-divider-after-gap: 220px;
+  --nv-section-black: #020403;
+  --nv-section-emerald: #071b15;
+}
+
+.nv-about__kicker,
+.nv-section-step__kicker,
+.nvp4-projectidea__kicker,
+.nvp5-analysis__kicker,
+.nv-s7__kicker,
+#downloads .kicker,
+.nv-resource-section__kicker {
+  margin: 0 0 var(--nv-kicker-title-gap);
+}
+
+.nv-about__title,
+.nv-section-step__copy h2,
+.nvp4-projectidea__title,
+.nvp5-analysis__title,
+.nv-s7__title,
+#downloads .section-title,
+.nv-resource-section__title {
+  margin: 0 0 var(--nv-title-text-gap);
+}
+
+#about-nurovelle,
+#ki-projekt-start,
+#projektidee,
+#potenzialanalyse,
+#leistungen,
+#downloads,
+#formular,
+#faq {
+  position: relative;
+  padding-top: var(--nv-section-divider-after-gap);
+  padding-bottom: var(--nv-section-divider-before-gap);
+}
+
+.nv-about__inner {
+  gap: var(--nv-section-text-content-gap);
+}
+
+.nv-section-step__copy,
+.nvp4-projectidea__copy,
+.nvp5-analysis__head,
+.nv-s7__head,
+#downloads .section-head,
+.nv-resource-section__head {
+  margin-bottom: var(--nv-section-text-content-gap);
+}
+
+#about-nurovelle::before,
+#ki-projekt-start::before,
+#projektidee::before,
+#potenzialanalyse::before,
+#leistungen::before,
+#downloads::before,
+#formular::before,
+#faq::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: var(--side);
+  left: var(--side);
+  z-index: 8;
+  height: 1px;
+  background: linear-gradient(90deg, transparent 0%, rgba(212, 175, 55, .72) 8%, #d4af37 50%, rgba(212, 175, 55, .72) 92%, transparent 100%);
+  box-shadow: 0 0 12px rgba(212, 175, 55, .2);
+  pointer-events: none;
+}
+
+#about-nurovelle,
+#projektidee,
+#leistungen,
+#formular {
+  background-color: var(--nv-section-emerald);
+}
+
+#ki-projekt-start,
+#potenzialanalyse,
+#downloads,
+#faq {
+  background-color: var(--nv-section-black);
+}
+
+@media (max-width: 899px) {
+  :root {
+    --nv-title-text-gap: 52px;
+    --nv-section-text-content-gap: 64px;
+    --nv-section-divider-before-gap: 132px;
+    --nv-section-divider-after-gap: 132px;
+  }
+
+  #about-nurovelle::before,
+  #ki-projekt-start::before,
+  #projektidee::before,
+  #potenzialanalyse::before,
+  #leistungen::before,
+  #downloads::before,
+  #formular::before,
+  #faq::before {
+    right: 18px;
+    left: 18px;
+  }
+}
+
+@media (max-width: 639px) {
+  :root {
+    --nv-title-text-gap: 44px;
+    --nv-section-text-content-gap: 54px;
+    --nv-section-divider-before-gap: 104px;
+    --nv-section-divider-after-gap: 104px;
+  }
+}
