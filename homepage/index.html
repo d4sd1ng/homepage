@@ -121,9 +121,21 @@
 
   --side: var(--page-gutter);
 
-  --sidebar-w: 235px;
+  --sidebar-w: 205px;
 
   --font-ui: "Inter", Arial, sans-serif;
+
+  --nv-section-kicker-size: clamp(12px, .82vw, 15px);
+
+  --nv-section-title-size: clamp(42px, 4.2vw, 74px);
+
+  --nv-section-title-gap: 24px;
+
+  --nv-section-body-size: 16px;
+
+  --nv-section-body-line: 1.58;
+
+  --nv-section-pad-y: 104px;
 
 }
 
@@ -660,7 +672,7 @@ body {
 
   overflow-x: hidden;
 
-  padding: 16px 13px 22px;
+  padding: 14px 10px 20px;
 
   scrollbar-width: thin;
 
@@ -692,7 +704,7 @@ body {
 
 .sidebar-label {
 
-  padding: 0 9px 12px;
+  padding: 0 8px 10px;
 
   margin-bottom: 10px;
 
@@ -706,7 +718,7 @@ body {
 
   font-family: "Eastman Grotesque Alt", "Eastman Grotesque", "Inter", Arial, sans-serif;
 
-  font-size: 16px;
+  font-size: 14px;
 
   line-height: 1;
 
@@ -744,15 +756,15 @@ body {
 
 .side-list a {
 
-  min-height: 32px;
+  min-height: 30px;
 
-  padding: 0 9px;
+  padding: 0 8px;
 
   display: flex;
 
   align-items: center;
 
-  gap: 8px;
+  gap: 7px;
 
   list-style: none;
 
@@ -764,7 +776,7 @@ body {
 
   font-family: "Inter",Arial, sans-serif;
 
-  font-size: 14px;
+  font-size: 12.5px;
 
   line-height: 1.18;
 
@@ -780,15 +792,15 @@ body {
 
 .side-list summary {
 
-  min-height: 32px;
+  min-height: 30px;
 
-  padding: 0 9px;
+  padding: 0 8px;
 
   display: flex;
 
   align-items: center;
 
-  gap: 8px;
+  gap: 7px;
 
   list-style: none;
 
@@ -800,7 +812,7 @@ body {
 
   font-family: "Inter", Arial, sans-serif;
 
-  font-size: 14px;
+  font-size: 12.5px;
 
   line-height: 1.18;
 
@@ -822,13 +834,13 @@ body {
 
 .side-num {
 
-  width: 24px;
+  width: 20px;
 
-  flex: 0 0 24px;
+  flex: 0 0 20px;
 
   font-family: "Eastman Grotesque Alt", "Eastman Grotesque", "Inter", Arial, sans-serif;
 
-  font-size: 14px;
+  font-size: 12px;
 
   line-height: 1;
 
@@ -856,7 +868,7 @@ body {
 
   color: var(--sidebar-gold);
 
-  font-size: 12px;
+  font-size: 11px;
 
   transform: translateY(-1px);
 
@@ -874,7 +886,7 @@ body {
 
   gap: 2px;
 
-  padding-left: 12px;
+  padding-left: 10px;
 
   transition: max-height .18s ease,padding-top .18s ease,padding-bottom .18s ease;
 
@@ -886,7 +898,7 @@ body {
 
   display: block;
 
-  padding: 5px 8px;
+  padding: 4px 7px;
 
   border-left: 1px solid #F0A05A33;
 
@@ -894,7 +906,7 @@ body {
 
   font-family: "Inter",Arial,sans-serif;
 
-  font-size: 10px;
+  font-size: 9.5px;
 
   line-height: 1.25;
 
@@ -1024,42 +1036,13 @@ body {
 }
 
 .hero .kicker {
-
-  font-size: clamp(12px,.82vw,15px);
-
-  letter-spacing: 1.8px;
-
-  margin-bottom: var(--section-kicker-gap);
-
-  color: #E8B048;
-
   text-shadow: none;
-
 }
 
 .hero h1 {
-
-  font-family: "Eastman Grotesque Alt", "Eastman Grotesque", "Inter", Arial, sans-serif;
-
-  font-size: clamp(48px,4.2vw,74px);
-
-  line-height: 1.1;
-
-  font-weight: 700;
-
   margin-bottom: 30px;
 
   max-width: 760px;
-
-  background: linear-gradient(180deg, #C5A059 0%, #FDF0CD 50%, #D4AF37 100%);
-
-  -webkit-background-clip: text;
-
-  background-clip: text;
-
-  color: #00000000;
-
-  -webkit-text-fill-color: #00000000;
 
 }
 
@@ -1095,9 +1078,9 @@ body {
 
   font-family: "Inter", Arial, sans-serif;
 
-  font-size: clamp(14px, 1vw, 17px);
+  font-size: var(--nv-section-body-size);
 
-  line-height: 1.55;
+  line-height: var(--nv-section-body-line);
 
   color: var(--nv-text-muted);
 
@@ -1153,13 +1136,514 @@ body {
 
 }
 
+.hero .kicker,
+.nv-about__kicker,
+.nv-section-step__kicker,
+.nvp4-projectidea__kicker,
+.nvp5-analysis__kicker,
+.nv-services__kicker {
+  margin: 0 0 14px;
+  color: #E8B048;
+  font-family: "Inter", Arial, sans-serif;
+  font-size: var(--nv-section-kicker-size);
+  font-weight: 700;
+  line-height: 1.4;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+}
+
+.hero h1,
+.nv-about__title,
+.nv-section-step__copy h2,
+.nvp4-projectidea__title,
+.nvp4-projectidea__title-accent,
+.nvp5-analysis__title,
+.nv-services__title,
+.nv-services__title span {
+  margin: 0 0 var(--nv-section-title-gap);
+  font-size: var(--nv-section-title-size);
+  font-family: "Eastman Grotesque Alt", "Eastman Grotesque", "Inter", Arial, sans-serif;
+  line-height: 1;
+  font-weight: 700;
+  letter-spacing: .01em;
+  color: #00000000;
+  background: linear-gradient(180deg, #C5A059 0%, #FDF0CD 50%, #D4AF37 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: #00000000;
+}
+
+.nv-about__text,
+.nv-about__point p,
+.nv-section-step__copy p,
+.nv-step-note,
+.nvp4-projectidea__text,
+.nvp4-projectidea__idea p,
+.nvp5-analysis__intro,
+.nvp5-analysis__copy {
+  color: #B9C3BD;
+  font-family: "Inter", Arial, sans-serif;
+  font-size: var(--nv-section-body-size);
+  line-height: var(--nv-section-body-line);
+}
+
+.nv-about__point h3 {
+  font-size: 18px;
+}
+
+.nvp4-projectidea__idea h3 {
+  font-size: 14px;
+}
+
+.nv-step-card h3 {
+  font-size: 20px;
+}
+
+.nv-step-card p {
+  font-size: 12px;
+}
+
+.nv-about {
+  position: relative;
+  padding: var(--nv-section-pad-y) var(--side);
+  margin-left: var(--sidebar-w);
+  background:
+    radial-gradient(circle at 20% 45%, #112A2082 0%, #112A2000 36%),
+    linear-gradient(180deg, #000000 0%, #050706 58%, #000000 100%);
+  overflow: hidden;
+}
+
+.nv-about::before,
+.nv-about::after {
+  content: "";
+  position: absolute;
+  left: 7%;
+  right: 7%;
+  height: 1px;
+  background: linear-gradient(90deg, #00000000, #FAE3859E, #00000000);
+  pointer-events: none;
+}
+
+.nv-about::before {
+  top: 0;
+}
+
+.nv-about::after {
+  bottom: 0;
+}
+
+.nv-about__inner {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 1180px;
+  margin: 0 auto;
+  display: grid;
+  gap: 48px;
+}
+
+.nv-about__intro {
+  max-width: 980px;
+}
+
+.nv-about__body {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(360px, 420px);
+  gap: clamp(72px, 7vw, 112px);
+  align-items: center;
+}
+
+.nv-about__media {
+  position: relative;
+  min-height: 290px;
+  border: 1px solid #1F5F3B;
+  border-radius: 8px;
+  background:
+    linear-gradient(135deg, #FFFFFF12 0%, #FFFFFF03 28%, #00000000 29%),
+    radial-gradient(circle at 52% 72%, #9BFF6B4D 0%, #1F5F3B1F 28%, #00000000 60%),
+    linear-gradient(150deg, #101A15 0%, #020403 100%);
+  box-shadow:
+    0 28px 56px #000000A8,
+    inset 0 1px 0 #FFFFFF1F,
+    inset 0 -1px 0 #8FECA93D;
+  overflow: hidden;
+}
+
+.nv-about__media img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  opacity: .86;
+  filter: brightness(.62) contrast(1.05) saturate(.9);
+}
+
+.nv-about__play {
+  position: absolute;
+  left: 28px;
+  bottom: 26px;
+  width: 56px;
+  aspect-ratio: 1;
+  border: 1px solid #FAE385A8;
+  border-radius: 50%;
+  background: #050706D9;
+  box-shadow: 0 0 22px #BC881B45;
+}
+
+.nv-about__play::before {
+  content: "";
+  position: absolute;
+  left: 22px;
+  top: 17px;
+  border-style: solid;
+  border-width: 11px 0 11px 16px;
+  border-color: transparent transparent transparent #FAE385;
+}
+
+.nv-about__title {
+  margin: 0 0 var(--nv-section-title-gap);
+  max-width: 760px;
+}
+
+.nv-about__text {
+  margin: 0 0 34px;
+  max-width: 760px;
+}
+
+.nv-about__points {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+}
+
+.nv-about__point {
+  position: relative;
+  padding-left: 26px;
+}
+
+.nv-about__point::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 12px;
+  height: 12px;
+  background: url("assets/bulletpoint.png") center / contain no-repeat;
+}
+
+.nv-about__point h3 {
+  margin: 0 0 7px;
+  color: #FAE385;
+  font-family: "Eastman Grotesque Alt", "Eastman Grotesque", "Inter", Arial, sans-serif;
+  line-height: 1.1;
+  text-transform: uppercase;
+}
+
+.nv-about__point p {
+  margin: 0;
+  color: #B9C3BD;
+  font-family: "Inter", Arial, sans-serif;
+  line-height: 1.5;
+}
+
+@media (max-width: 899px) {
+  .nv-about {
+    margin-left: 0;
+    padding: 84px var(--side) 88px;
+  }
+
+  .nv-about__inner {
+    grid-template-columns: 1fr;
+  }
+
+  .nv-about__body {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 639px) {
+  .nv-about__media {
+    min-height: 300px;
+  }
+
+  .nv-about__points {
+    grid-template-columns: 1fr;
+  }
+}
+
+.nv-section-step {
+  position: relative;
+  min-height: 640px;
+  padding: var(--nv-section-pad-y) var(--side);
+  background:
+    radial-gradient(circle at 24% 52%, #112A207A 0%, #112A2000 34%),
+    linear-gradient(180deg, #000000 0%, #050706 48%, #0A1913 100%);
+  overflow: hidden;
+}
+
+body.has-sidebar .nv-section-step {
+  width: calc(100% - var(--sidebar-w));
+  margin-left: var(--sidebar-w);
+}
+
+.nv-section-step::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 1px;
+  background: linear-gradient(90deg, #00000000, #FAE385A8, #00000000);
+  pointer-events: none;
+}
+
+.nv-section-step::after {
+  content: "";
+  position: absolute;
+  left: 7%;
+  right: 7%;
+  bottom: 0;
+  height: 1px;
+  background: linear-gradient(90deg, #00000000, #BC881B73, #00000000);
+  pointer-events: none;
+}
+
+.nv-section-step__inner {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 1180px;
+  margin: 0 auto;
+  display: block;
+}
+
+.nv-section-step__copy {
+  max-width: 820px;
+  margin: 0 0 52px;
+  text-align: left;
+}
+
+.nv-section-step__copy h2 {
+  margin: 0 0 var(--nv-section-title-gap);
+}
+
+.nv-step-ladder {
+  display: grid;
+  gap: 8px;
+  width: min(100%, 1120px);
+}
+
+.nv-step-item {
+  display: grid;
+  grid-template-columns: 430px minmax(260px, 360px);
+  gap: 18px;
+  align-items: center;
+}
+
+.nv-step-item:nth-child(2) {
+  margin-left: clamp(44px, 5vw, 88px);
+}
+
+.nv-step-item:nth-child(3) {
+  margin-left: clamp(88px, 10vw, 176px);
+}
+
+.nv-step-card {
+  position: relative;
+  width: 430px;
+  aspect-ratio: 470 / 360;
+  padding: 46px 30px 32px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  background: transparent;
+  border: 0;
+  border-radius: 8px;
+  box-shadow: none;
+  overflow: hidden;
+}
+
+.nv-step-card h3 {
+  margin: 0 0 10px;
+  font-family: "Eastman Grotesque Alt", "Eastman Grotesque", "Inter", Arial, sans-serif;
+  line-height: 1;
+  font-weight: 700;
+  letter-spacing: .025em;
+  color: #FAE385;
+}
+
+.nv-step-card p {
+  margin: 0;
+  font-family: "Inter", Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 500;
+  color: #F5F1E8;
+}
+
+.nv-step-card__more {
+  display: block;
+  margin-top: 18px;
+  color: #FAE385;
+  font-family: "Inter", Arial, sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+.nv-step-card__more::before {
+  content: "";
+  display: block;
+  width: 22px;
+  height: 1px;
+  margin-bottom: 8px;
+  background: #FAE385A8;
+}
+
+.nv-step-card::before,
+.nv-step-card::after {
+  content: none;
+}
+
+.nv-step-card__asset {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+  pointer-events: none;
+}
+
+.nv-step-card__content {
+  position: absolute;
+  z-index: 2;
+  left: calc(139px - 5ch);
+  right: 34px;
+  bottom: 154px;
+}
+
+.nv-step-card__content h3,
+.nv-step-card__content p {
+  z-index: 2;
+}
+
+.nv-step-item {
+  animation: nv-step-enter 720ms cubic-bezier(.22, 1, .36, 1) both;
+}
+
+.nv-step-item:nth-child(2) {
+  animation-delay: 140ms;
+}
+
+.nv-step-item:nth-child(3) {
+  animation-delay: 280ms;
+}
+
+@keyframes nv-step-enter {
+  from {
+    opacity: 0;
+    transform: translateX(-90px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .nv-step-item {
+    animation: none;
+  }
+}
+
+.nv-step-note {
+  max-width: 360px;
+  margin: 0;
+  color: #B9C3BD;
+  font-family: "Inter", Arial, sans-serif;
+  line-height: 1.56;
+  font-weight: 500;
+}
+
+@media (max-width: 899px) {
+  body.has-sidebar .nv-section-step {
+    width: 100%;
+    margin-left: 0;
+  }
+
+  .nv-step-item,
+  .nv-step-item:nth-child(2),
+  .nv-step-item:nth-child(3) {
+    grid-template-columns: 1fr;
+    gap: 16px;
+    width: min(100%, 430px);
+    margin: 0 auto;
+  }
+
+  .nv-step-card {
+    width: min(100%, 430px);
+    padding: 46px 30px 32px;
+  }
+
+  .nv-step-card__content {
+    left: calc(126px - 5ch);
+    right: 30px;
+  }
+
+  .nv-section-step__actions {
+    margin-left: auto;
+    margin-right: auto;
+    justify-content: center;
+  }
+
+}
+
+@media (max-width: 639px) {
+  .nv-step-card {
+    width: min(100%, 340px);
+    padding: 44px 24px 30px;
+  }
+
+  .nv-step-card__content {
+    left: calc(98px - 5ch);
+    right: 24px;
+  }
+}
+
+.nv-section-step__actions {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  margin-top: 58px;
+  margin-left: 0;
+}
+
+.nv-section-step__actions .hero-cta {
+  transform: translateX(clamp(340px, 31vw, 480px));
+}
+
+@media (max-width: 899px) {
+  .nv-section-step__actions .hero-cta {
+    transform: none;
+  }
+}
+
+
+
+
 /* NUROVELLE SECTION 4 START */
 .nvp4-projectidea {
   position: relative;
   overflow: hidden;
-  padding: 42px var(--side);
+  padding: var(--nv-section-pad-y) var(--side);
+  margin-left: var(--sidebar-w);
   background:
-    radial-gradient(circle at 78% 48%, #112A206B 0%, #071C142E 34%, #00000000 68%),
+    radial-gradient(circle at 72% 72%, #112A206B 0%, #071C142E 34%, #00000000 68%),
     #000000;
 }
 
@@ -1182,62 +1666,26 @@ body {
 .nvp4-projectidea__inner {
   position: relative;
   z-index: 1;
-  display: grid;
-  grid-template-columns: minmax(0, 0.86fr) minmax(420px, 1.14fr);
-  gap: clamp(34px, 5vw, 72px);
-  align-items: center;
   width: 100%;
   max-width: 1280px;
-  margin: 0 auto 0 0;
+  margin: 0 auto;
 }
 
 .nvp4-projectidea__copy {
-  max-width: 620px;
-}
-
-.nvp4-projectidea__kicker {
-  margin: 0 0 var(--section-kicker-gap);
-  color: #E8B048;
-  font-family: "Anca Coder", monospace;
-  font-size: 10.5px;
-  line-height: 1.4;
-  letter-spacing: 1.8px;
-  text-transform: uppercase;
+  max-width: 780px;
+  margin: 0 0 52px;
+  text-align: left;
 }
 
 .nvp4-projectidea__title {
-  max-width: 720px;
-  margin: 0 0 var(--section-title-gap);
-  color: #F5F1E8;
-  font-family: "Bebas Neue", sans-serif;
-  font-size: clamp(20px, 1.55vw, 31px);
-  font-weight: 400;
-  line-height: 1.04;
-  letter-spacing: 0.035em;
-  text-transform: uppercase;
-}
-
-.nvp4-projectidea__title-accent {
-  color: transparent;
-  background: linear-gradient(
-    180deg,
-    #FFD7A3 0%,
-    #F0A05A 24%,
-    #D89828 58%,
-    #7A3518 100%
-  );
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  max-width: 780px;
+  margin: 0 0 var(--nv-section-title-gap);
 }
 
 .nvp4-projectidea__text {
-  max-width: 620px;
-  color: #FFFFFFC7;
-  font-family: "Anca Coder", monospace;
-  font-size: 12px;
+  max-width: 740px;
+  margin: 0;
   font-weight: 400;
-  line-height: 1.48;
 }
 
 .nvp4-projectidea__text p {
@@ -1248,155 +1696,244 @@ body {
   margin-top: 14px;
 }
 
-.nvp4-projectidea__cta {
-  display: inline-flex;
-  min-height: 36px;
-  align-items: center;
+.nvp4-projectidea__actions {
+  margin-top: 34px;
+  display: flex;
   justify-content: center;
-  gap: 7px;
-  margin-top: 24px;
-  padding: 0 16px;
-  border: 1px solid #D89828;
-  border-radius: 4px;
-  color: #050505;
-  background: linear-gradient(
-    180deg,
-    #FFD7A3 0%,
-    #F0A05A 24%,
-    #D89828 60%,
-    #7A3518 100%
-  );
-  font-family: "Bebas Neue", sans-serif;
-  font-size: 16px;
-  line-height: 1;
-  letter-spacing: 0.045em;
-  text-decoration: none;
-  text-transform: uppercase;
-  transition: transform 180ms ease, filter 180ms ease;
 }
 
-.nvp4-projectidea__cta::after {
-  content: "→";
-  margin-left: 8px;
-  font-size: 15px;
-  line-height: 1;
-}
-
-.nvp4-projectidea__cta:hover,
-.nvp4-projectidea__cta:focus-visible {
-  filter: brightness(1.06);
-  transform: translateY(-2px);
-}
-
-.nvp4-projectidea__cta:focus-visible {
-  outline: 2px solid #F7EF8A;
-  outline-offset: 4px;
-}
-
-.nvp4-projectidea__visual {
+.nvp4-projectidea__slider {
   position: relative;
-  min-height: clamp(430px, 42vw, 590px);
+  min-height: 390px;
+  width: min(100%, 760px);
+  margin: 44px auto 0;
+  overflow: hidden;
   isolation: isolate;
 }
 
-.nvp4-projectidea__photo {
+.nvp4-projectidea__slide {
   position: absolute;
-  margin: 0;
-  overflow: hidden;
-  border-radius: 12px;
-  background: #010403;
+  inset: 0;
+  display: grid;
+  grid-template-columns: 250px 320px;
+  gap: 22px;
+  align-items: center;
+  justify-content: start;
   opacity: 0;
-  transform: translateY(72px);
-  will-change: opacity, transform;
+  transform: translateX(-100%);
+  animation: nvp4-projectidea-slide 12s linear infinite;
 }
 
-.nvp4-projectidea__photo img {
+.nvp4-projectidea__slide:nth-child(2) {
+  animation-delay: 4s;
+}
+
+.nvp4-projectidea__slide:nth-child(3) {
+  animation-delay: 8s;
+  grid-template-columns: 340px 320px;
+}
+
+.nvp4-projectidea__image {
+  position: relative;
+  margin: 0;
+  width: 240px;
+  aspect-ratio: 1;
+  border: 1px solid #1F5F3B;
+  border-radius: 8px;
+  background: #000000;
+  box-shadow:
+    0 22px 44px #00000099,
+    inset 0 1px 0 #FFFFFF1F;
+  overflow: hidden;
+  justify-self: center;
+}
+
+.nvp4-projectidea__image--wide {
+  width: 340px;
+  aspect-ratio: 16 / 9;
+}
+
+.nvp4-projectidea__image img {
   display: block;
   width: 100%;
   height: 100%;
+  object-fit: contain;
+  object-position: center;
+  background: #000000;
+}
+
+.nvp4-projectidea__slide:nth-child(3) .nvp4-projectidea__image img {
+  background: #00000000;
   object-fit: cover;
+  transform: scale(1.18);
 }
 
-.nvp4-projectidea__photo--back {
-  z-index: 1;
+.nvp4-projectidea__slide:nth-child(3) .nvp4-projectidea__image {
+  border-color: #00000000;
+  background: #00000000;
+  box-shadow: none;
+}
+
+.nvp4-projectidea__idea {
+  max-width: 300px;
+  text-align: left;
+}
+
+.nvp4-projectidea__idea h3 {
+  margin: 0 0 12px;
+  color: #FAE385;
+  font-family: "Eastman Grotesque Alt", "Eastman Grotesque", "Inter", Arial, sans-serif;
+  line-height: 1.05;
+  font-weight: 700;
+}
+
+.nvp4-projectidea__idea p {
+  margin: 0;
+}
+
+.nvp4-projectidea__dots {
+  position: absolute;
   left: 0;
-  bottom: 3%;
-  width: 76%;
-  aspect-ratio: 3 / 2;
-  border: 1px solid #F0A05A42;
-  box-shadow: 0 18px 42px #0000006B;
+  bottom: 18px;
+  display: flex;
+  gap: 8px;
 }
 
-.nvp4-projectidea__photo--front {
-  z-index: 2;
-  top: 2%;
-  right: 0;
-  width: 72%;
-  aspect-ratio: 3 / 2;
-  border: 1px solid #F0A05AB8;
-  box-shadow:
-    0 22px 50px #00000080,
-    0 0 20px #F0A05A29;
+.nvp4-projectidea__dot {
+  width: 32px;
+  height: 2px;
+  background: #1F5F3B;
+  animation: nvp4-projectidea-dot 12s linear infinite;
 }
 
-.nvp4-projectidea__visual.is-visible .nvp4-projectidea__photo--back {
-  animation: nvp4-projectidea-rise 760ms cubic-bezier(0.22, 1, 0.36, 1) forwards;
+.nvp4-projectidea__dot:nth-child(2) {
+  animation-delay: 4s;
 }
 
-.nvp4-projectidea__visual.is-visible .nvp4-projectidea__photo--front {
-  animation: nvp4-projectidea-rise 760ms cubic-bezier(0.22, 1, 0.36, 1) 260ms forwards;
+.nvp4-projectidea__dot:nth-child(3) {
+  animation-delay: 8s;
 }
 
-@keyframes nvp4-projectidea-rise {
-  from {
+@keyframes nvp4-projectidea-slide {
+  0% {
     opacity: 0;
-    transform: translateY(72px);
+    transform: translateX(-100%);
   }
 
-  to {
+  10% {
     opacity: 1;
-    transform: translateY(0);
+    transform: translateX(0);
+  }
+
+  32% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  42% {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+
+  43%,
+  100% {
+    opacity: 0;
+    transform: translateX(-100%);
   }
 }
 
-@media (max-width: 899px) {
-  .nvp4-projectidea__inner {
-    grid-template-columns: 1fr;
+@keyframes nvp4-projectidea-dot {
+  0%,
+  42% {
+    background: #FAE385;
   }
 
-  .nvp4-projectidea__visual {
-    min-height: clamp(370px, 95vw, 520px);
-  }
-}
-
-@media (max-width: 639px) {
-  .nvp4-projectidea__cta {
-    width: 100%;
-    min-height: 44px;
-  }
-
-  .nvp4-projectidea__visual {
-    min-height: clamp(310px, 105vw, 430px);
-  }
-
-  .nvp4-projectidea__photo--back {
-    width: 82%;
-  }
-
-  .nvp4-projectidea__photo--front {
-    width: 80%;
+  43%,
+  100% {
+    background: #1F5F3B;
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .nvp4-projectidea__photo {
+  .nvp4-projectidea__slider {
+    display: grid;
+    gap: 28px;
+    min-height: 0;
+  }
+
+  .nvp4-projectidea__slide {
+    position: relative;
     opacity: 1;
-    transform: none;
+    transform: translateY(0);
     animation: none;
   }
 
-  .nvp4-projectidea__cta {
-    transition: none;
+  .nvp4-projectidea__dots {
+    display: none;
+  }
+}
+
+@media (max-width: 899px) {
+  .nvp4-projectidea {
+    margin-left: 0;
+  }
+
+  .nvp4-projectidea__slide {
+    grid-template-columns: 230px minmax(0, 270px);
+    gap: 20px;
+  }
+
+  .nvp4-projectidea__slide:nth-child(3) {
+    grid-template-columns: 340px minmax(0, 270px);
+  }
+
+  .nvp4-projectidea__image {
+    width: 220px;
+  }
+
+  .nvp4-projectidea__image--wide {
+    width: 340px;
+  }
+}
+
+@media (max-width: 639px) {
+  .nvp4-projectidea {
+    padding-top: 72px;
+    padding-bottom: 84px;
+    margin-left: 0;
+  }
+
+  .nvp4-projectidea__copy {
+    text-align: left;
+    margin-bottom: 34px;
+  }
+
+  .nvp4-projectidea__slider {
+    min-height: 430px;
+  }
+
+  .nvp4-projectidea__slide {
+    grid-template-columns: 1fr;
+    gap: 18px;
+    align-content: start;
+  }
+
+  .nvp4-projectidea__idea {
+    max-width: none;
+  }
+
+  .nvp4-projectidea__image {
+    width: min(100%, 220px);
+    justify-self: center;
+  }
+
+  .nvp4-projectidea__image--wide {
+    width: min(100%, 320px);
+  }
+
+  .nvp4-projectidea__dots {
+    left: 0;
+    bottom: 10px;
   }
 }
 /* NUROVELLE SECTION 4 END */
@@ -1406,9 +1943,10 @@ body {
 .nvp5-analysis {
   position: relative;
   overflow: hidden;
-  padding: 42px var(--side);
+  padding: var(--nv-section-pad-y) var(--side);
+  margin-left: var(--sidebar-w);
   background:
-    radial-gradient(circle at 50% 52%, #112A2052 0%, #0A191326 34%, #00000000 70%),
+    radial-gradient(circle at 26% 58%, #112A2052 0%, #0A191326 32%, #00000000 68%),
     #000000;
 }
 
@@ -1432,438 +1970,245 @@ body {
   position: relative;
   z-index: 1;
   width: 100%;
-  max-width: 1280px;
-  margin: 0 auto 0 0;
+  max-width: 1180px;
+  margin: 0 auto;
 }
 
 .nvp5-analysis__head {
   max-width: 760px;
-  margin: 0 auto 26px;
-  text-align: center;
-}
-
-.nvp5-analysis__kicker {
-  margin: 0 0 var(--section-kicker-gap);
-  color: #E8B048;
-  font-family: "Anca Coder", monospace;
-  font-size: 10.5px;
-  line-height: 1.4;
-  letter-spacing: 1.8px;
-  text-transform: uppercase;
+  margin: 0 0 34px;
+  text-align: left;
 }
 
 .nvp5-analysis__title {
-  margin: 0 0 var(--section-title-gap);
-  color: #F5F1E8;
-  font-family: "Bebas Neue", sans-serif;
-  font-size: clamp(24px, 2.1vw, 36px);
-  font-weight: 400;
-  line-height: 1.04;
-  letter-spacing: 0.035em;
-  text-transform: uppercase;
+  margin: 0 0 var(--nv-section-title-gap);
 }
 
 .nvp5-analysis__intro {
-  margin: 0 auto;
+  margin: 0;
   max-width: 680px;
-  color: #FFFFFFC7;
-  font-family: "Anca Coder", monospace;
-  font-size: 12px;
-  line-height: 1.48;
 }
 
-.nvp5-analysis__diagram {
+.nvp5-analysis__copy {
+  max-width: 760px;
+  margin: 0;
+  text-align: left;
+}
+
+.nvp5-analysis__copy p {
+  margin: 0;
+}
+
+.nvp5-analysis__copy p + p {
+  margin-top: 14px;
+}
+
+.nvp5-analysis__layout {
+  display: grid;
+  grid-template-columns: minmax(280px, 420px) minmax(0, 1fr);
+  gap: clamp(54px, 6vw, 92px);
+  align-items: center;
+}
+
+.nvp5-analysis__workflow {
   position: relative;
-  width: min(100%, 1120px);
-  min-height: 600px;
-  margin: 0 auto;
+  min-height: 440px;
+  isolation: isolate;
 }
 
-.nvp5-analysis__puzzle {
+.nvp5-analysis__workflow::before {
+  content: "";
+  position: absolute;
+  inset: 54px 2% 34px;
+  z-index: 0;
+  background:
+    radial-gradient(circle at 50% 22%, #FAE38524 0%, #BC881B14 28%, #00000000 58%),
+    radial-gradient(circle at 50% 76%, #1F5F3B4D 0%, #0A191326 42%, #00000000 72%);
+  filter: blur(2px);
+  pointer-events: none;
+}
+
+.nvp5-analysis__sockel {
   position: absolute;
   left: 50%;
-  top: 50%;
-  width: min(42vw, 470px);
-  min-width: 360px;
-  transform: translate(-50%, -50%);
-  overflow: visible;
+  bottom: 0;
+  z-index: 1;
+  width: min(100%, 760px);
+  transform: translateX(-50%);
+  opacity: .78;
+  filter:
+    saturate(.72)
+    brightness(.72)
+    contrast(1.18)
+    sepia(.16)
+    hue-rotate(12deg)
+    drop-shadow(0 34px 34px #000000B8);
+  pointer-events: none;
 }
 
-.nvp5-analysis__part {
-  opacity: 0;
-  transform-box: fill-box;
-  transform-origin: center;
-}
-
-.nvp5-analysis__part--1 {
-  fill: #112A20;
-  stroke: #2E8B67;
-}
-
-.nvp5-analysis__part--2 {
-  fill: #252B2C;
-  stroke: #D4AF37;
-}
-
-.nvp5-analysis__part--3 {
-  fill: #163A35;
-  stroke: #2E8B67;
-}
-
-.nvp5-analysis__part--4 {
-  fill: #15191A;
-  stroke: #D4AF37;
-}
-
-.nvp5-analysis__part {
-  stroke-width: 2;
-  vector-effect: non-scaling-stroke;
-}
-
-.nvp5-analysis__diagram.is-visible .nvp5-analysis__part--1 {
-  animation: nvp5-puzzle-reveal 420ms ease forwards;
-}
-
-.nvp5-analysis__diagram.is-visible .nvp5-analysis__part--2 {
-  animation: nvp5-puzzle-reveal 420ms ease 180ms forwards;
-}
-
-.nvp5-analysis__diagram.is-visible .nvp5-analysis__part--3 {
-  animation: nvp5-puzzle-reveal 420ms ease 360ms forwards;
-}
-
-.nvp5-analysis__diagram.is-visible .nvp5-analysis__part--4 {
-  animation: nvp5-puzzle-reveal 420ms ease 540ms forwards;
-}
-
-@keyframes nvp5-puzzle-reveal {
-  from {
-    opacity: 0;
-    transform: scale(0.97);
-  }
-
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
-
-.nvp5-analysis__icon {
+.nvp5-analysis__flowline {
   position: absolute;
+  left: 8%;
+  right: 8%;
+  top: 158px;
+  z-index: 2;
+  height: 2px;
+  background: linear-gradient(90deg, #00000000, #FAE385, #BC881B, #FAE385, #00000000);
+  box-shadow: 0 0 18px #BC881B52;
+}
+
+.nvp5-analysis__steps {
+  position: relative;
   z-index: 3;
   display: grid;
-  place-items: center;
-  width: 92px;
-  aspect-ratio: 1;
-  border: 2px solid #D4AF37;
-  border-radius: 50%;
-  background: #080B09;
-  box-shadow:
-    0 0 0 8px #112A20,
-    0 12px 28px #00000080;
-  opacity: 0;
-  transform: scale(0.92);
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
 }
 
-.nvp5-analysis__icon svg {
-  width: 48px;
-  height: 48px;
-  fill: none;
-  stroke: #F7EF8A;
-  stroke-width: 1.8;
-  stroke-linecap: round;
-  stroke-linejoin: round;
+.nvp5-analysis__step {
+  position: relative;
+  display: grid;
+  justify-items: center;
+  align-content: start;
+  min-height: 245px;
+  text-align: center;
 }
 
-.nvp5-analysis__icon--1 {
-  left: calc(50% - 300px);
-  top: 88px;
-}
-
-.nvp5-analysis__icon--2 {
-  right: calc(50% - 300px);
-  top: 88px;
-}
-
-.nvp5-analysis__icon--3 {
-  left: calc(50% - 300px);
-  bottom: 88px;
-}
-
-.nvp5-analysis__icon--4 {
-  right: calc(50% - 300px);
-  bottom: 88px;
-}
-
-.nvp5-analysis__diagram.is-visible .nvp5-analysis__icon--1 {
-  animation: nvp5-icon-reveal 320ms ease 260ms forwards;
-}
-
-.nvp5-analysis__diagram.is-visible .nvp5-analysis__icon--2 {
-  animation: nvp5-icon-reveal 320ms ease 440ms forwards;
-}
-
-.nvp5-analysis__diagram.is-visible .nvp5-analysis__icon--3 {
-  animation: nvp5-icon-reveal 320ms ease 620ms forwards;
-}
-
-.nvp5-analysis__diagram.is-visible .nvp5-analysis__icon--4 {
-  animation: nvp5-icon-reveal 320ms ease 800ms forwards;
-}
-
-@keyframes nvp5-icon-reveal {
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
-
-.nvp5-analysis__gold-button {
+.nvp5-analysis__step::after {
+  content: "";
   position: absolute;
-  z-index: 2;
-  width: 270px;
-  min-height: 56px;
-  border: 1px solid #D4AF37;
-  border-radius: 999px;
-  background: linear-gradient(
-    135deg,
-    #F9F295 0%,
-    #E0AA3E 38%,
-    #FAF398 68%,
-    #B88A44 100%
-  );
-  box-shadow:
-    0 0 18px #D4AF372E,
-    0 12px 26px #0000005C;
-  opacity: 0;
-  transform: translateY(16px);
+  top: 151px;
+  left: 50%;
+  width: 10px;
+  height: 10px;
+  border: 1px solid #FAE385;
+  border-radius: 50%;
+  background: #050706;
+  box-shadow: 0 0 16px #FAE38580;
+  transform: translate(-50%, -50%);
 }
 
-.nvp5-analysis__gold-button--1 {
-  left: 0;
-  top: 116px;
+.nvp5-analysis__module {
+  width: clamp(104px, 9vw, 132px);
+  height: auto;
+  object-fit: contain;
+  filter:
+    saturate(.64)
+    brightness(.82)
+    contrast(1.12)
+    sepia(.22)
+    hue-rotate(8deg)
+    drop-shadow(0 18px 20px #000000A8)
+    drop-shadow(0 0 12px #BC881B38);
 }
 
-.nvp5-analysis__gold-button--2 {
-  right: 0;
-  top: 116px;
+.nvp5-analysis__step:nth-child(2) .nvp5-analysis__module,
+.nvp5-analysis__step:nth-child(3) .nvp5-analysis__module {
+  filter:
+    saturate(.58)
+    brightness(.80)
+    contrast(1.16)
+    sepia(.18)
+    hue-rotate(18deg)
+    drop-shadow(0 18px 20px #000000A8)
+    drop-shadow(0 0 14px #1F5F3B5C);
 }
 
-.nvp5-analysis__gold-button--3 {
-  left: 0;
-  bottom: 116px;
+.nvp5-analysis__step:nth-child(2) .nvp5-analysis__module,
+.nvp5-analysis__step:nth-child(4) .nvp5-analysis__module {
+  margin-top: 34px;
 }
 
-.nvp5-analysis__gold-button--4 {
-  right: 0;
-  bottom: 116px;
+.nvp5-analysis__step-title {
+  margin-top: 18px;
+  color: #FAE385;
+  font-family: "Eastman Grotesque Alt", "Eastman Grotesque", "Inter", Arial, sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 1.05;
 }
 
-.nvp5-analysis__diagram.is-visible .nvp5-analysis__gold-button--1 {
-  animation: nvp5-button-reveal 340ms ease 320ms forwards;
-}
-
-.nvp5-analysis__diagram.is-visible .nvp5-analysis__gold-button--2 {
-  animation: nvp5-button-reveal 340ms ease 500ms forwards;
-}
-
-.nvp5-analysis__diagram.is-visible .nvp5-analysis__gold-button--3 {
-  animation: nvp5-button-reveal 340ms ease 680ms forwards;
-}
-
-.nvp5-analysis__diagram.is-visible .nvp5-analysis__gold-button--4 {
-  animation: nvp5-button-reveal 340ms ease 860ms forwards;
-}
-
-@keyframes nvp5-button-reveal {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+.nvp5-analysis__step-text {
+  margin-top: 8px;
+  max-width: 132px;
+  color: #B9C3BD;
+  font-family: "Inter", Arial, sans-serif;
+  font-size: 12px;
+  line-height: 1.35;
 }
 
 .nvp5-analysis__cta-row {
   display: flex;
-  justify-content: center;
-  margin-top: 8px;
-}
-
-.nvp5-analysis__cta {
-  display: inline-flex;
-  min-height: 44px;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  padding: 0 22px;
-  border: 1px solid #D89828;
-  border-radius: 4px;
-  color: #050505;
-  background: linear-gradient(
-    180deg,
-    #FFD7A3 0%,
-    #F0A05A 24%,
-    #D89828 60%,
-    #7A3518 100%
-  );
-  font-family: "Bebas Neue", sans-serif;
-  font-size: 16px;
-  line-height: 1;
-  letter-spacing: 0.045em;
-  text-decoration: none;
-  text-transform: uppercase;
-  transition: transform 180ms ease, filter 180ms ease;
-}
-
-.nvp5-analysis__cta::after {
-  content: "→";
-  margin-left: 8px;
-  font-size: 15px;
-  line-height: 1;
-}
-
-.nvp5-analysis__cta:hover,
-.nvp5-analysis__cta:focus-visible {
-  filter: brightness(1.06);
-  transform: translateY(-2px);
-}
-
-.nvp5-analysis__cta:focus-visible {
-  outline: 2px solid #F7EF8A;
-  outline-offset: 4px;
-}
-
-@media (max-width: 1099px) {
-  .nvp5-analysis__diagram {
-    min-height: 540px;
-  }
-
-  .nvp5-analysis__puzzle {
-    width: 420px;
-    min-width: 0;
-  }
-
-  .nvp5-analysis__icon--1,
-  .nvp5-analysis__icon--3 {
-    left: calc(50% - 265px);
-  }
-
-  .nvp5-analysis__icon--2,
-  .nvp5-analysis__icon--4 {
-    right: calc(50% - 265px);
-  }
-
-  .nvp5-analysis__gold-button {
-    width: 220px;
-  }
+  justify-content: flex-start;
+  margin-top: 34px;
 }
 
 @media (max-width: 899px) {
-  .nvp5-analysis__diagram {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 22px 18px;
-    min-height: 0;
-    padding-top: 390px;
+  .nvp5-analysis {
+    margin-left: 0;
   }
 
-  .nvp5-analysis__puzzle {
-    top: 180px;
-    width: 340px;
+  .nvp5-analysis__layout {
+    grid-template-columns: 1fr;
+    gap: 44px;
   }
 
-  .nvp5-analysis__icon {
-    width: 76px;
-    position: relative;
-    inset: auto;
-    justify-self: center;
-  }
-
-  .nvp5-analysis__gold-button {
-    position: relative;
-    inset: auto;
-    width: 100%;
-    min-height: 50px;
-  }
-
-  .nvp5-analysis__icon--1,
-  .nvp5-analysis__icon--2,
-  .nvp5-analysis__icon--3,
-  .nvp5-analysis__icon--4 {
-    grid-row: auto;
-  }
-
-  .nvp5-analysis__icon--1 {
-    grid-column: 1;
-  }
-
-  .nvp5-analysis__gold-button--1 {
-    grid-column: 1;
-  }
-
-  .nvp5-analysis__icon--2 {
-    grid-column: 2;
-    grid-row: 1;
-  }
-
-  .nvp5-analysis__gold-button--2 {
-    grid-column: 2;
-  }
-
-  .nvp5-analysis__icon--3 {
-    grid-column: 1;
-  }
-
-  .nvp5-analysis__gold-button--3 {
-    grid-column: 1;
-  }
-
-  .nvp5-analysis__icon--4 {
-    grid-column: 2;
-  }
-
-  .nvp5-analysis__gold-button--4 {
-    grid-column: 2;
+  .nvp5-analysis__workflow {
+    min-height: 410px;
   }
 }
 
 @media (max-width: 639px) {
   .nvp5-analysis {
-    padding-left: var(--side);
-    padding-right: var(--side);
+    padding-top: 76px;
+    padding-bottom: 88px;
   }
 
-  .nvp5-analysis__diagram {
+  .nvp5-analysis__workflow {
+    min-height: 0;
+  }
+
+  .nvp5-analysis__sockel,
+  .nvp5-analysis__flowline {
+    display: none;
+  }
+
+  .nvp5-analysis__steps {
     grid-template-columns: 1fr;
-    gap: 18px;
-    padding-top: 330px;
+    gap: 24px;
   }
 
-  .nvp5-analysis__puzzle {
-    top: 150px;
-    width: 290px;
+  .nvp5-analysis__step {
+    min-height: 0;
+    grid-template-columns: 84px minmax(0, 1fr);
+    column-gap: 18px;
+    justify-items: start;
+    text-align: left;
   }
 
-  .nvp5-analysis__icon,
-  .nvp5-analysis__gold-button {
-    grid-column: 1;
+  .nvp5-analysis__step::after {
+    content: none;
   }
 
-  .nvp5-analysis__cta {
-    width: 100%;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .nvp5-analysis__part,
-  .nvp5-analysis__icon,
-  .nvp5-analysis__gold-button {
-    opacity: 1;
-    transform: none;
-    animation: none;
+  .nvp5-analysis__module {
+    width: 84px;
+    grid-row: 1 / 3;
   }
 
-  .nvp5-analysis__cta {
-    transition: none;
+  .nvp5-analysis__step:nth-child(2) .nvp5-analysis__module,
+  .nvp5-analysis__step:nth-child(4) .nvp5-analysis__module {
+    margin-top: 0;
+  }
+
+  .nvp5-analysis__step-title {
+    margin-top: 4px;
+  }
+
+  .nvp5-analysis__step-text {
+    max-width: none;
   }
 }
 /* NUROVELLE SECTION 5 END */
@@ -1898,6 +2243,7 @@ body {
 
         <nav class="nv-breadcrumb" aria-label="Breadcrumb Navigation">
           <a href="#hero" aria-current="page">Hero</a>
+          <a href="#about-nurovelle">Über Nurovelle</a>
           <a href="#ki-projekt-start">Erster Schritt</a>
           <a href="#projektidee">Projektidee</a>
           <a href="#potenzialanalyse">Potenzialanalyse</a>
@@ -1945,22 +2291,29 @@ body {
       </li>
 
       <li>
-        <a href="#ki-projekt-start">
+        <a href="#about-nurovelle">
           <span class="side-num">02</span>
+          <span class="side-label">Über Nurovelle</span>
+        </a>
+      </li>
+
+      <li>
+        <a href="#ki-projekt-start">
+          <span class="side-num">03</span>
           <span class="side-label">Erster Schritt</span>
         </a>
       </li>
 
       <li>
         <a href="#projektidee">
-          <span class="side-num">03</span>
+          <span class="side-num">04</span>
           <span class="side-label">Projektidee</span>
         </a>
       </li>
 
       <li>
         <a href="#potenzialanalyse">
-          <span class="side-num">04</span>
+          <span class="side-num">05</span>
           <span class="side-label">Potenzialanalyse</span>
         </a>
       </li>
@@ -1968,7 +2321,7 @@ body {
       <li>
         <details>
           <summary>
-            <span class="side-num">05</span>
+            <span class="side-num">06</span>
             <span class="side-label">Leistungen</span>
             <span class="side-arrow">›</span>
           </summary>
@@ -1988,7 +2341,7 @@ body {
       <li>
         <details>
           <summary>
-            <span class="side-num">06</span>
+            <span class="side-num">07</span>
             <span class="side-label">Prozess</span>
             <span class="side-arrow">›</span>
           </summary>
@@ -2004,7 +2357,7 @@ body {
 
       <li>
         <a href="#warum-nurovelle">
-          <span class="side-num">07</span>
+          <span class="side-num">08</span>
           <span class="side-label">Warum Nurovelle</span>
         </a>
       </li>
@@ -2012,7 +2365,7 @@ body {
       <li>
         <details>
           <summary>
-            <span class="side-num">08</span>
+            <span class="side-num">09</span>
             <span class="side-label">Downloads</span>
             <span class="side-arrow">›</span>
           </summary>
@@ -2059,377 +2412,101 @@ body {
       </div>
     </main>
     <style>
-.nv-section-step {
-  position: relative;
-  min-height: 640px;
-  padding: 112px var(--side) 118px;
-  background:
-    radial-gradient(circle at 24% 52%, #112A207A 0%, #112A2000 34%),
-    linear-gradient(180deg, #000000 0%, #050706 48%, #0A1913 100%);
-  overflow: hidden;
-}
 
-body.has-sidebar .nv-section-step {
-  width: calc(100% - var(--sidebar-w));
-  margin-left: var(--sidebar-w);
-}
+    </style>
 
-.nv-section-step::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 0;
-  height: 1px;
-  background: linear-gradient(90deg, #00000000, #FAE385A8, #00000000);
-  pointer-events: none;
-}
+<section class="nv-about" id="about-nurovelle" aria-labelledby="about-nurovelle-title">
+  <div class="nv-about__inner">
+    <div class="nv-about__intro">
+      <p class="nv-about__kicker">Über Nurovelle</p>
+      <h2 class="nv-about__title" id="about-nurovelle-title">KI-Lösungen, die in realen Prozessen funktionieren</h2>
+      <p class="nv-about__text">Nurovelle entwickelt individuelle KI-Systeme, die sich an konkreten Geschäftsprozessen orientieren. Wir analysieren bestehende Abläufe, identifizieren sinnvolle Potenziale und setzen Lösungen um, die im Arbeitsalltag tatsächlich entlasten.</p>
+    </div>
 
-.nv-section-step::after {
-  content: "";
-  position: absolute;
-  left: 7%;
-  right: 7%;
-  bottom: 0;
-  height: 1px;
-  background: linear-gradient(90deg, #00000000, #BC881B73, #00000000);
-  pointer-events: none;
-}
+    <div class="nv-about__body">
+      <div class="nv-about__points">
+        <article class="nv-about__point">
+          <h3>Prozesse verstehen</h3>
+          <p>Bestehende Abläufe, Engpässe und manuelle Arbeitsschritte werden systematisch analysiert.</p>
+        </article>
+        <article class="nv-about__point">
+          <h3>Potenziale erkennen</h3>
+          <p>Wir prüfen, wo KI, Automatisierung oder intelligente Datenverarbeitung einen echten Nutzen schaffen.</p>
+        </article>
+        <article class="nv-about__point">
+          <h3>Individuell entwickeln</h3>
+          <p>Lösungen werden passend zu den vorhandenen Systemen, Anforderungen und Arbeitsweisen konzipiert.</p>
+        </article>
+        <article class="nv-about__point">
+          <h3>Nachhaltig integrieren</h3>
+          <p>Das Ergebnis sind nutzbare KI-Systeme, die Prozesse vereinfachen und langfristig weiterentwickelt werden können.</p>
+        </article>
+      </div>
 
-.nv-section-step__inner {
-  position: relative;
-  z-index: 2;
-  width: 100%;
-  max-width: 1180px;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: minmax(0, 1.05fr) minmax(360px, .95fr);
-  gap: 56px;
-  align-items: center;
-}
-
-.nv-step-cards {
-  position: relative;
-  width: min(100%, 610px);
-  min-height: 520px;
-  display: block;
-  padding-left: 0;
-}
-
-.nv-step-card {
-  position: absolute;
-  width: 200px;
-  min-height: 330px;
-  padding: 76px 20px 28px;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  background: transparent;
-  border: 0;
-  border-radius: 34px;
-  box-shadow: none;
-  overflow: visible;
-  transform-style: preserve-3d;
-  transform-origin: 50% 68%;
-}
-
-.nv-step-card::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  z-index: 0;
-  border: 1px solid #A7F2AD59;
-  border-radius: 34px;
-  clip-path: var(--nv-step-card-shape, polygon(7% 0, 100% 3%, 93% 100%, 0 96%));
-  background:
-    linear-gradient(var(--nv-step-shine-angle, 118deg), #FFFFFF24 0%, #FFFFFF0D 24%, #00000000 25%, #00000000 100%),
-    linear-gradient(var(--nv-step-edge-angle, 110deg), #8FECA929 0%, #00000000 18%),
-    linear-gradient(var(--nv-step-side-angle, 270deg), #9BFF6B2E 0%, #00000000 16%),
-    radial-gradient(circle at 50% 104%, #9BFF6B82 0%, #2F7E3445 17%, #00000000 38%),
-    linear-gradient(150deg, #26362FE8 0%, #101A15F6 42%, #020403 100%);
-  box-shadow:
-    inset 0 1px 0 #FFFFFF2E,
-    inset var(--nv-step-edge-shadow, 10px) 0 0 #8FECA91F,
-    inset var(--nv-step-opposite-shadow, -8px) 0 0 #9BFF6B24,
-    inset 0 -1px 0 #9BFF6B66,
-    0 26px 46px #000000B8,
-    var(--nv-step-cast-shadow, 18px 20px 34px #00000096),
-    0 0 34px #1F5F3B42;
-  transform: translateZ(-2px);
-  pointer-events: none;
-}
-
-.nv-step-card::after {
-  content: "";
-  position: absolute;
-  left: 34px;
-  right: 34px;
-  bottom: 0;
-  height: 68px;
-  z-index: 1;
-  border-radius: 999px;
-  clip-path: var(--nv-step-card-shape, polygon(7% 0, 100% 3%, 93% 100%, 0 96%));
-  background: radial-gradient(ellipse at center, #9BFF6B94 0%, #2F7E3445 35%, #00000000 74%);
-  filter: blur(12px);
-  opacity: .72;
-  pointer-events: none;
-}
-
-.nv-step-card:nth-child(1) {
-  left: 0;
-  top: 0;
-  z-index: 1;
-  --nv-step-card-shape: polygon(13% 0, 100% 5%, 88% 100%, 0 94%);
-  --nv-step-shine-angle: 120deg;
-  --nv-step-edge-angle: 106deg;
-  --nv-step-side-angle: 90deg;
-  --nv-step-edge-shadow: 14px;
-  --nv-step-opposite-shadow: -5px;
-  --nv-step-cast-shadow: 24px 22px 36px #0000009E;
-  transform: perspective(1000px) rotateX(4deg) rotateY(-12deg) rotateZ(-2.4deg);
-}
-
-.nv-step-card:nth-child(2) {
-  left: 205px;
-  top: 82px;
-  z-index: 2;
-  --nv-step-card-shape: polygon(7% 0, 94% 0, 100% 100%, 0 100%);
-  --nv-step-shine-angle: 118deg;
-  --nv-step-edge-angle: 105deg;
-  --nv-step-side-angle: 270deg;
-  --nv-step-cast-shadow: 16px 22px 34px #0000009A;
-  transform: perspective(1000px) rotateX(3deg) rotateY(0deg) rotateZ(0deg);
-}
-
-.nv-step-card:nth-child(3) {
-  left: 410px;
-  top: 164px;
-  z-index: 1;
-  --nv-step-card-shape: polygon(0 5%, 87% 0, 100% 94%, 12% 100%);
-  --nv-step-shine-angle: 116deg;
-  --nv-step-edge-angle: 260deg;
-  --nv-step-side-angle: 270deg;
-  --nv-step-edge-shadow: 5px;
-  --nv-step-opposite-shadow: -14px;
-  --nv-step-cast-shadow: -18px 22px 36px #0000009E;
-  transform: perspective(1000px) rotateX(4deg) rotateY(12deg) rotateZ(2.4deg);
-}
-
-.nv-step-card__num {
-  position: absolute;
-  z-index: 2;
-  top: 28px;
-  left: 28px;
-  font-family: "Eastman Grotesque Alt", "Eastman Grotesque", "Inter", Arial, sans-serif;
-  font-size: 42px;
-  line-height: .82;
-  font-weight: 700;
-  letter-spacing: .02em;
-  color: #FAE385;
-  opacity: .78;
-}
-
-.nv-step-card__line {
-  position: absolute;
-  z-index: 2;
-  top: 38px;
-  right: 28px;
-  width: 44px;
-  height: 1px;
-  background: #1F5F3B;
-}
-
-  .nv-step-card h3 {
-    position: relative;
-    z-index: 2;
-    margin: 0 0 12px;
-  font-family: "Eastman Grotesque Alt", "Eastman Grotesque", "Inter", Arial, sans-serif;
-  font-size: 21px;
-  line-height: 1;
-  font-weight: 700;
-  letter-spacing: .025em;
-  color: #F5F7F4;
-}
-
-.nv-step-card p {
-  position: relative;
-  z-index: 2;
-  margin: 0;
-  font-family: "Inter", Arial, sans-serif;
-  font-size: 12px;
-  line-height: 1.46;
-  font-weight: 500;
-  color: #B9C3BD;
-}
-
-@media (max-width: 899px) {
-  body.has-sidebar .nv-section-step {
-    width: 100%;
-    margin-left: 0;
-  }
-
-  .nv-section-step__inner {
-    grid-template-columns: 1fr;
-    gap: 44px;
-  }
-
-  .nv-step-cards {
-    width: min(100%, 560px);
-    min-height: 500px;
-    margin: 0 auto;
-    padding-left: 0;
-  }
-
-  .nv-step-card {
-    width: 184px;
-    min-height: 315px;
-    padding: 74px 18px 26px;
-  }
-
-  .nv-step-card:nth-child(2) {
-    left: 188px;
-    top: 78px;
-  }
-
-  .nv-step-card:nth-child(3) {
-    left: 376px;
-    top: 156px;
-  }
-
-  .nv-step-card h3 {
-    font-size: 21px;
-  }
-
-  .nv-step-card p {
-    font-size: 12px;
-  }
-
-}
-
-@media (max-width: 639px) {
-  .nv-step-cards {
-    width: 560px;
-    max-width: none;
-    min-height: 330px;
-    margin: 0;
-    transform: scale(.64);
-    transform-origin: top left;
-  }
-
-  .nv-step-card {
-    width: 184px;
-    min-height: 315px;
-    padding: 74px 18px 26px;
-  }
-
-  .nv-step-card:nth-child(1) {
-    left: 0;
-    top: 0;
-    transform: perspective(900px) rotateX(4deg) rotateY(-10deg) rotateZ(-2deg);
-  }
-
-  .nv-step-card:nth-child(2) {
-    left: 188px;
-    top: 78px;
-    transform: perspective(900px) rotateX(3deg) rotateY(0deg) rotateZ(0deg);
-  }
-
-  .nv-step-card:nth-child(3) {
-    left: 376px;
-    top: 156px;
-    transform: perspective(900px) rotateX(4deg) rotateY(10deg) rotateZ(2deg);
-  }
-
-  .nv-step-card__line {
-    top: 35px;
-    right: 24px;
-  }
-}
-
-.nv-section-step__copy {
-  max-width: 460px;
-}
-
-.nv-section-step__copy h2 {
-  margin: 0 0 18px;
-  font-family: "Eastman Grotesque Alt", "Eastman Grotesque", "Inter", Arial, sans-serif;
-  font-size: clamp(30px, 2.65vw, 44px);
-  line-height: 1.04;
-  font-weight: 700;
-  letter-spacing: .01em;
-  color: #00000000;
-  background: linear-gradient(180deg, #C5A059 0%, #FDF0CD 50%, #D4AF37 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: #00000000;
-}
-
-.nv-section-step__copy p {
-  margin: 0 0 12px;
-  font-family: "Inter", Arial, sans-serif;
-  font-size: clamp(13px, .86vw, 14.5px);
-  line-height: 1.52;
-  font-weight: 500;
-  color: #B9C3BD;
-}
-
-.nv-section-step__copy p:last-of-type {
-  margin-bottom: 24px;
-}
-
-.nv-section-step__actions {
-  display: flex;
-  align-items: center;
-  gap: 18px;
-}
-</style>
+      <div class="nv-about__media" aria-label="Video-Preview Über Nurovelle">
+        <img src="assets/Fotos/9.png" alt="" loading="lazy" decoding="async" aria-hidden="true">
+        <span class="nv-about__play" aria-hidden="true"></span>
+      </div>
+    </div>
+  </div>
+</section>
 
 <section class="nv-section-step" id="ki-projekt-start" aria-labelledby="ki-projekt-start-title">
   <div class="nv-section-step__inner">
 
-    <div class="nv-step-cards" aria-label="Bausteine des ersten KI-Projektschritts">
+    <div class="nv-section-step__copy">
+      <p class="nv-section-step__kicker">Projektstart</p>
+      <h2 id="ki-projekt-start-title">Der erste Schritt zu Ihrem KI-Projekt</h2>
+    </div>
 
-      <article class="nv-step-card">
-        <span class="nv-step-card__num">01</span>
-        <span class="nv-step-card__line" aria-hidden="true"></span>
-        <h3>Prozess klären</h3>
-        <p>Welcher Geschäftsprozess verbessert werden soll und welches konkrete Ergebnis durch KI entstehen muss.</p>
-      </article>
+    <div class="nv-step-ladder" aria-label="Bausteine des ersten KI-Projektschritts">
 
-      <article class="nv-step-card">
-        <span class="nv-step-card__num">02</span>
-        <span class="nv-step-card__line" aria-hidden="true"></span>
-        <h3>Daten prüfen</h3>
-        <p>Welche Daten, Systeme und Wissensquellen bereits vorhanden sind und technisch nutzbar gemacht werden können.</p>
-      </article>
+      <div class="nv-step-item">
+        <article class="nv-step-card">
+          <img class="nv-step-card__asset" src="assets/cards/cards_problem_loesung/best_card_single 470x360.png" alt="" loading="lazy" decoding="async" aria-hidden="true">
+          <div class="nv-step-card__content">
+            <h3>Prozess klären</h3>
+            <p>Welcher Geschäftsprozess verbessert<br>werden soll und welches konkrete Ergebnis<br>durch KI entstehen muss.</p>
+            <span class="nv-step-card__more">Mehr erfahren</span>
+          </div>
+        </article>
+        <p class="nv-step-note">Ein KI-Projekt beginnt nicht mit der Auswahl eines Tools. Es beginnt mit der Frage, welcher Prozess verbessert, welche Daten nutzbar gemacht und welches Ergebnis erreicht werden soll.</p>
+      </div>
 
-      <article class="nv-step-card">
-        <span class="nv-step-card__num">03</span>
-        <span class="nv-step-card__line" aria-hidden="true"></span>
-        <h3>Umsetzung planen</h3>
-        <p>Ob ein KI-Agent, ein Wissenssystem, Automatisierung oder individuelle Software der sinnvolle nächste Schritt ist.</p>
-      </article>
+      <div class="nv-step-item">
+        <article class="nv-step-card">
+          <img class="nv-step-card__asset" src="assets/cards/cards_problem_loesung/best_card_single 470x360.png" alt="" loading="lazy" decoding="async" aria-hidden="true">
+          <div class="nv-step-card__content">
+            <h3>Daten prüfen</h3>
+            <p>Welche Daten, Systeme und Wissens-<br>quellen bereits vorhanden sind und tech-<br>nisch nutzbar gemacht werden können.</p>
+            <span class="nv-step-card__more">Mehr erfahren</span>
+          </div>
+        </article>
+        <p class="nv-step-note">Nurovelle prüft, wo KI-Agenten, Automatisierung, Wissenssysteme oder individuelle Software tatsächlich Mehrwert schaffen. Dabei geht es nicht um allgemeine KI-Ideen, sondern um konkrete Geschäftsprozesse, technische Machbarkeit und eine realistische Umsetzung.</p>
+      </div>
+
+      <div class="nv-step-item">
+        <article class="nv-step-card">
+          <img class="nv-step-card__asset" src="assets/cards/cards_problem_loesung/best_card_single 470x360.png" alt="" loading="lazy" decoding="async" aria-hidden="true">
+          <div class="nv-step-card__content">
+            <h3>Umsetzung planen</h3>
+            <p>Ob ein KI-Agent, ein Wissenssystem, Automatisierung oder individuelle Software<br>der sinnvolle nächste Schritt ist.</p>
+            <span class="nv-step-card__more">Mehr erfahren</span>
+          </div>
+        </article>
+        <p class="nv-step-note">So entsteht aus einer ersten Idee ein belastbarer nächster Schritt: vom Erstgespräch über die Potenzialanalyse bis zur Entwicklung eines Prototyps oder einer fertigen Lösung.</p>
+      </div>
 
     </div>
 
-    <div class="nv-section-step__copy">
-      <h2 id="ki-projekt-start-title">Der erste Schritt zu Ihrem KI-Projekt</h2>
-
-      <p>Ein KI-Projekt beginnt nicht mit der Auswahl eines Tools. Es beginnt mit der Frage, welcher Prozess verbessert, welche Daten nutzbar gemacht und welches Ergebnis erreicht werden soll.</p>
-
-      <p>Nurovelle prüft, wo KI-Agenten, Automatisierung, Wissenssysteme oder individuelle Software tatsächlich Mehrwert schaffen. Dabei geht es nicht um allgemeine KI-Ideen, sondern um konkrete Geschäftsprozesse, technische Machbarkeit und eine realistische Umsetzung.</p>
-
-      <p>So entsteht aus einer ersten Idee ein belastbarer nächster Schritt: vom Erstgespräch über die Potenzialanalyse bis zur Entwicklung eines Prototyps oder einer fertigen Lösung.</p>
-
-      <div class="nv-section-step__actions">
-        <a class="hero-cta" href="analyse.html" aria-label="Kostenloses Erstgespräch vereinbaren">
-          <span class="nv-press-button">
-            <span class="nv-press-button__top">Kostenloses Erstgespräch vereinbaren</span>
-            <span class="nv-press-button__bottom" aria-hidden="true"></span>
-            <span class="nv-press-button__base" aria-hidden="true"></span>
-          </span>
-        </a>
-      </div>
+    <div class="nv-section-step__actions">
+      <a class="hero-cta" href="analyse.html" aria-label="Kostenloses Erstgespräch vereinbaren">
+        <span class="nv-press-button">
+          <span class="nv-press-button__top">Kostenloses Erstgespräch vereinbaren</span>
+          <span class="nv-press-button__bottom" aria-hidden="true"></span>
+          <span class="nv-press-button__base" aria-hidden="true"></span>
+        </span>
+      </a>
     </div>
 
   </div>
@@ -2453,18 +2530,54 @@ body.has-sidebar .nv-section-step {
 
         <p>So wird aus einer ersten Idee ein konkreter Projektansatz für KI-Agenten, Automatisierung, Datenverarbeitung oder individuelle Software.</p>
       </div>
-
-      <a class="nvp4-projectidea__cta" href="analyse.html">Projektidee prüfen lassen</a>
     </div>
 
-    <div class="nvp4-projectidea__visual" data-nvp4-projectidea-visual>
-      <figure class="nvp4-projectidea__photo nvp4-projectidea__photo--back">
-        <img src="assets/Fotos/16.png" alt="" loading="lazy" decoding="async">
-      </figure>
+    <div class="nvp4-projectidea__slider" aria-label="Beispiele für konkrete KI-Projektideen">
+      <article class="nvp4-projectidea__slide">
+        <figure class="nvp4-projectidea__image">
+          <img src="assets/Fotos/9.png" alt="Team bespricht eine konkrete KI-Projektidee" loading="lazy" decoding="async">
+        </figure>
+        <div class="nvp4-projectidea__idea">
+          <h3>Interne Wissenssuche</h3>
+          <p>Ein KI-System erschließt vorhandene Dokumente, Projektdaten und interne Informationen, damit Mitarbeitende schneller belastbare Antworten finden.</p>
+        </div>
+      </article>
 
-      <figure class="nvp4-projectidea__photo nvp4-projectidea__photo--front">
-        <img src="assets/Fotos/9.png" alt="Beratung zu einer konkreten KI-Projektidee" loading="lazy" decoding="async">
-      </figure>
+      <article class="nvp4-projectidea__slide">
+        <figure class="nvp4-projectidea__image">
+          <img src="assets/Fotos/10.png" alt="KI-Workshop mit digitaler Prozessanalyse" loading="lazy" decoding="async">
+        </figure>
+        <div class="nvp4-projectidea__idea">
+          <h3>Prozessautomatisierung</h3>
+          <p>Manuelle Arbeitsschritte werden analysiert, priorisiert und in automatisierte Workflows oder KI-Agenten überführt.</p>
+        </div>
+      </article>
+
+      <article class="nvp4-projectidea__slide">
+        <figure class="nvp4-projectidea__image nvp4-projectidea__image--wide">
+          <img src="assets/Fotos/13.png" alt="Digitale KI-Strategie in einem Beratungsgespräch" loading="lazy" decoding="async">
+        </figure>
+        <div class="nvp4-projectidea__idea">
+          <h3>Datenbasierte Entscheidungshilfe</h3>
+          <p>Bestehende Datenquellen werden verbunden und so aufbereitet, dass Teams Trends, Engpässe und nächste Schritte klarer erkennen.</p>
+        </div>
+      </article>
+
+      <div class="nvp4-projectidea__dots" aria-hidden="true">
+        <span class="nvp4-projectidea__dot"></span>
+        <span class="nvp4-projectidea__dot"></span>
+        <span class="nvp4-projectidea__dot"></span>
+      </div>
+    </div>
+
+    <div class="nvp4-projectidea__actions">
+      <a class="hero-cta" href="analyse.html" aria-label="Projektidee prüfen lassen">
+        <span class="nv-press-button">
+          <span class="nv-press-button__top">Projektidee prüfen lassen</span>
+          <span class="nv-press-button__bottom" aria-hidden="true"></span>
+          <span class="nv-press-button__base" aria-hidden="true"></span>
+        </span>
+      </a>
     </div>
   </div>
 </section>
@@ -2479,84 +2592,56 @@ body.has-sidebar .nv-section-step {
       <p class="nvp5-analysis__intro">Finden Sie heraus, wo KI in Ihrem Unternehmen sinnvoll ansetzen kann.</p>
     </header>
 
-    <div class="nvp5-analysis__diagram" data-nvp5-analysis-diagram>
-      <svg class="nvp5-analysis__puzzle" viewBox="0 0 400 400" role="img" aria-label="Vierteiliger Puzzle-Kreis für die KI-Potenzialanalyse">
-        <path class="nvp5-analysis__part nvp5-analysis__part--1"
-          d="M200 20 A180 180 0 0 0 20 200 H92
-             C92 180 108 164 128 164
-             C148 164 164 180 164 200
-             H200 V128
-             C220 128 236 112 236 92
-             C236 72 220 56 200 56 Z"/>
-        <path class="nvp5-analysis__part nvp5-analysis__part--2"
-          d="M200 20 A180 180 0 0 1 380 200 H308
-             C308 180 292 164 272 164
-             C252 164 236 180 236 200
-             H200 V128
-             C220 128 236 112 236 92
-             C236 72 220 56 200 56 Z"/>
-        <path class="nvp5-analysis__part nvp5-analysis__part--3"
-          d="M20 200 A180 180 0 0 0 200 380 V308
-             C180 308 164 292 164 272
-             C164 252 180 236 200 236
-             V200 H128
-             C128 180 112 164 92 164
-             C72 164 56 180 56 200 Z"/>
-        <path class="nvp5-analysis__part nvp5-analysis__part--4"
-          d="M380 200 A180 180 0 0 1 200 380 V308
-             C220 308 236 292 236 272
-             C236 252 220 236 200 236
-             V200 H272
-             C272 220 288 236 308 236
-             C328 236 344 220 344 200 Z"/>
-      </svg>
+    <div class="nvp5-analysis__layout">
+      <div>
+        <div class="nvp5-analysis__copy">
+          <p>Nurovelle analysiert, welche Abläufe, Daten, Dokumente oder Wissensquellen sich für KI-Agenten, Automatisierung, Chatbots oder individuelle Softwarelösungen eignen.</p>
+          <p>Sie erhalten eine Einschätzung, welche Potenziale vorhanden sind, welche Voraussetzungen bestehen und welcher nächste Schritt für Ihr Unternehmen sinnvoll ist.</p>
+          <p>Bei erkennbarem Potenzial entsteht daraus eine vertiefende Analyse, eine technische Roadmap, ein Prototyp oder die direkte Umsetzung.</p>
+        </div>
 
-      <span class="nvp5-analysis__gold-button nvp5-analysis__gold-button--1" aria-hidden="true"></span>
-      <span class="nvp5-analysis__gold-button nvp5-analysis__gold-button--2" aria-hidden="true"></span>
-      <span class="nvp5-analysis__gold-button nvp5-analysis__gold-button--3" aria-hidden="true"></span>
-      <span class="nvp5-analysis__gold-button nvp5-analysis__gold-button--4" aria-hidden="true"></span>
+        <div class="nvp5-analysis__cta-row">
+          <a class="hero-cta" href="analyse.html" aria-label="KI-Potenzialanalyse durchführen">
+            <span class="nv-press-button">
+              <span class="nv-press-button__top">KI-Potenzialanalyse durchführen</span>
+              <span class="nv-press-button__bottom" aria-hidden="true"></span>
+              <span class="nv-press-button__base" aria-hidden="true"></span>
+            </span>
+          </a>
+        </div>
+      </div>
 
-      <span class="nvp5-analysis__icon nvp5-analysis__icon--1" role="img" aria-label="Abläufe analysieren">
-        <svg viewBox="0 0 48 48" aria-hidden="true">
-          <circle cx="10" cy="12" r="4"></circle>
-          <circle cx="38" cy="12" r="4"></circle>
-          <circle cx="24" cy="36" r="4"></circle>
-          <path d="M14 12h20M12 16l9 16M36 16l-9 16"></path>
-        </svg>
-      </span>
-
-      <span class="nvp5-analysis__icon nvp5-analysis__icon--2" role="img" aria-label="Datenlage prüfen">
-        <svg viewBox="0 0 48 48" aria-hidden="true">
-          <ellipse cx="21" cy="10" rx="12" ry="5"></ellipse>
-          <path d="M9 10v16c0 3 5 5 12 5c2 0 4 0 6-1"></path>
-          <path d="M33 10v10"></path>
-          <path d="M9 18c0 3 5 5 12 5c5 0 9-1 12-3"></path>
-          <circle cx="34" cy="32" r="7"></circle>
-          <path d="M39 37l5 5"></path>
-        </svg>
-      </span>
-
-      <span class="nvp5-analysis__icon nvp5-analysis__icon--3" role="img" aria-label="Potenziale priorisieren">
-        <svg viewBox="0 0 48 48" aria-hidden="true">
-          <circle cx="22" cy="26" r="15"></circle>
-          <circle cx="22" cy="26" r="9"></circle>
-          <circle cx="22" cy="26" r="3"></circle>
-          <path d="M26 22l14-14M33 8h7v7"></path>
-        </svg>
-      </span>
-
-      <span class="nvp5-analysis__icon nvp5-analysis__icon--4" role="img" aria-label="Nächsten Schritt definieren">
-        <svg viewBox="0 0 48 48" aria-hidden="true">
-          <circle cx="9" cy="36" r="3"></circle>
-          <circle cx="23" cy="25" r="3"></circle>
-          <circle cx="37" cy="14" r="3"></circle>
-          <path d="M12 34l8-7M26 23l8-7M37 11V5M37 5l6 4"></path>
-        </svg>
-      </span>
-    </div>
-
-    <div class="nvp5-analysis__cta-row">
-      <a class="nvp5-analysis__cta" href="analyse.html">Kostenlose KI-Potenzialanalyse anfordern</a>
+      <div class="nvp5-analysis__workflow" aria-label="Workflow der KI-Potenzialanalyse">
+        <img class="nvp5-analysis__sockel" src="assets/Module/sockel.png" alt="" loading="lazy" decoding="async" aria-hidden="true">
+        <div class="nvp5-analysis__flowline" aria-hidden="true"></div>
+        <ol class="nvp5-analysis__steps">
+          <li class="nvp5-analysis__step">
+            <img class="nvp5-analysis__module" src="assets/Module/analyse/1.png" alt="" loading="lazy" decoding="async" aria-hidden="true">
+            <h3 class="nvp5-analysis__step-title">Prozess aufnehmen</h3>
+            <p class="nvp5-analysis__step-text">Abläufe, Engpässe und manuelle Schritte werden sichtbar.</p>
+          </li>
+          <li class="nvp5-analysis__step">
+            <img class="nvp5-analysis__module" src="assets/Module/analyse/2.png" alt="" loading="lazy" decoding="async" aria-hidden="true">
+            <h3 class="nvp5-analysis__step-title">KI-Potenzial prüfen</h3>
+            <p class="nvp5-analysis__step-text">Agenten, Automatisierung und Datenlogik werden bewertet.</p>
+          </li>
+          <li class="nvp5-analysis__step">
+            <img class="nvp5-analysis__module" src="assets/Module/analyse/3.png" alt="" loading="lazy" decoding="async" aria-hidden="true">
+            <h3 class="nvp5-analysis__step-title">Nutzen bewerten</h3>
+            <p class="nvp5-analysis__step-text">Aufwand, Wirkung und Umsetzbarkeit werden eingeordnet.</p>
+          </li>
+          <li class="nvp5-analysis__step">
+            <img class="nvp5-analysis__module" src="assets/Module/analyse/4.png" alt="" loading="lazy" decoding="async" aria-hidden="true">
+            <h3 class="nvp5-analysis__step-title">Risiken klären</h3>
+            <p class="nvp5-analysis__step-text">Daten, Sicherheit und Abhängigkeiten werden geprüft.</p>
+          </li>
+          <li class="nvp5-analysis__step">
+            <img class="nvp5-analysis__module" src="assets/Module/analyse/5.png" alt="" loading="lazy" decoding="async" aria-hidden="true">
+            <h3 class="nvp5-analysis__step-title">Nächsten Schritt festlegen</h3>
+            <p class="nvp5-analysis__step-text">Aus der Analyse entsteht ein konkreter Projektpfad.</p>
+          </li>
+        </ol>
+      </div>
     </div>
   </div>
 </section>
@@ -2734,65 +2819,476 @@ void main(){
     requestAnimationFrame(animar);
   })();
   </script>
-<script>
+<!-- =========================================================
+     SEKTION 7 – KI-LEISTUNGEN VON NUROVELLE
+     Einfügen an der vorgesehenen Position in index.html.
+     Asset-Zuordnung gemäß Freigabe:
+     1_neu.png  = KI-Potenzialanalyse
+     2_neu.png  = KI-Beratung & Roadmap
+     3_neu.png  = KI-Agenten
+     5_neu.png  = Chatbots
+     4_neu.png  = Sprachassistenten
+     6_neu.png  = Prompt Engineering
+     7_neu.png  = KI-Sicherheit & Governance
+     8_neu.png  = KI-Automatisierung & Workflows
+     9_neu.png  = Dokumente, Daten & Abgleich
+     10_neu.png = Individuelle KI-Software & Integration
+     11_neu.png = SEO & Sichtbarkeit
+     Icons: 1.png bis 11.png
+========================================================= -->
 
-/* NUROVELLE SECTION 4 JS START */
-(() => {
-  const visual = document.querySelector("[data-nvp4-projectidea-visual]");
-  if (!visual) return;
+<section class="nv-services" id="leistungen" aria-labelledby="nv-services-title">
+  <div class="nv-services__inner">
+    <header class="nv-services__head">
+      <p class="nv-services__kicker">KI-LEISTUNGEN VON NUROVELLE</p>
+      <h2 class="nv-services__title" id="nv-services-title">
+        Von der Analyse bis zur <span>individuellen KI-Lösung.</span>
+      </h2>
+    </header>
 
-  const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    <div class="nv-services__grid">
+      <article class="nv-service-card" tabindex="0">
+        <img class="nv-service-card__background" src="assets/cards/cards_service/1_neu.png" alt="" aria-hidden="true">
+        <div class="nv-service-card__shade" aria-hidden="true"></div>
+        <div class="nv-service-card__base">
+          <img class="nv-service-card__icon" src="assets/icons/icons_service/1.png" alt="" aria-hidden="true">
+          <h3>KI-Potenzialanalyse</h3>
+        </div>
+        <div class="nv-service-card__overlay">
+          <img class="nv-service-card__overlay-icon" src="assets/icons/icons_service/1.png" alt="" aria-hidden="true">
+          <h3>KI-Potenzialanalyse</h3>
+          <span class="nv-service-card__line" aria-hidden="true"></span>
+          <span class="nv-service-card__more">Mehr erfahren <span aria-hidden="true">→</span></span>
+        </div>
+      </article>
 
-  if (reducedMotion || !("IntersectionObserver" in window)) {
-    visual.classList.add("is-visible");
-    return;
+      <article class="nv-service-card" tabindex="0">
+        <img class="nv-service-card__background" src="assets/cards/cards_service/2_neu.png" alt="" aria-hidden="true">
+        <div class="nv-service-card__shade" aria-hidden="true"></div>
+        <div class="nv-service-card__base">
+          <img class="nv-service-card__icon" src="assets/icons/icons_service/2.png" alt="" aria-hidden="true">
+          <h3>KI-Beratung &amp; Roadmap</h3>
+        </div>
+        <div class="nv-service-card__overlay">
+          <img class="nv-service-card__overlay-icon" src="assets/icons/icons_service/2.png" alt="" aria-hidden="true">
+          <h3>KI-Beratung &amp; Roadmap</h3>
+          <span class="nv-service-card__line" aria-hidden="true"></span>
+          <span class="nv-service-card__more">Mehr erfahren <span aria-hidden="true">→</span></span>
+        </div>
+      </article>
+
+      <article class="nv-service-card" tabindex="0">
+        <img class="nv-service-card__background" src="assets/cards/cards_service/3_neu.png" alt="" aria-hidden="true">
+        <div class="nv-service-card__shade" aria-hidden="true"></div>
+        <div class="nv-service-card__base">
+          <img class="nv-service-card__icon" src="assets/icons/icons_service/3.png" alt="" aria-hidden="true">
+          <h3>KI-Agenten</h3>
+        </div>
+        <div class="nv-service-card__overlay">
+          <img class="nv-service-card__overlay-icon" src="assets/icons/icons_service/3.png" alt="" aria-hidden="true">
+          <h3>KI-Agenten</h3>
+          <span class="nv-service-card__line" aria-hidden="true"></span>
+          <span class="nv-service-card__more">Mehr erfahren <span aria-hidden="true">→</span></span>
+        </div>
+      </article>
+
+      <article class="nv-service-card" tabindex="0">
+        <img class="nv-service-card__background" src="assets/cards/cards_service/5_neu.png" alt="" aria-hidden="true">
+        <div class="nv-service-card__shade" aria-hidden="true"></div>
+        <div class="nv-service-card__base">
+          <img class="nv-service-card__icon" src="assets/icons/icons_service/4.png" alt="" aria-hidden="true">
+          <h3>Chatbots</h3>
+        </div>
+        <div class="nv-service-card__overlay">
+          <img class="nv-service-card__overlay-icon" src="assets/icons/icons_service/4.png" alt="" aria-hidden="true">
+          <h3>Chatbots</h3>
+          <span class="nv-service-card__line" aria-hidden="true"></span>
+          <span class="nv-service-card__more">Mehr erfahren <span aria-hidden="true">→</span></span>
+        </div>
+      </article>
+
+      <article class="nv-service-card" tabindex="0">
+        <img class="nv-service-card__background" src="assets/cards/cards_service/4_neu.png" alt="" aria-hidden="true">
+        <div class="nv-service-card__shade" aria-hidden="true"></div>
+        <div class="nv-service-card__base">
+          <img class="nv-service-card__icon" src="assets/icons/icons_service/5.png" alt="" aria-hidden="true">
+          <h3>Sprachassistenten</h3>
+        </div>
+        <div class="nv-service-card__overlay">
+          <img class="nv-service-card__overlay-icon" src="assets/icons/icons_service/5.png" alt="" aria-hidden="true">
+          <h3>Sprachassistenten</h3>
+          <span class="nv-service-card__line" aria-hidden="true"></span>
+          <span class="nv-service-card__more">Mehr erfahren <span aria-hidden="true">→</span></span>
+        </div>
+      </article>
+
+      <article class="nv-service-card" tabindex="0">
+        <img class="nv-service-card__background" src="assets/cards/cards_service/6_neu.png" alt="" aria-hidden="true">
+        <div class="nv-service-card__shade" aria-hidden="true"></div>
+        <div class="nv-service-card__base">
+          <img class="nv-service-card__icon" src="assets/icons/icons_service/6.png" alt="" aria-hidden="true">
+          <h3>Prompt Engineering</h3>
+        </div>
+        <div class="nv-service-card__overlay">
+          <img class="nv-service-card__overlay-icon" src="assets/icons/icons_service/6.png" alt="" aria-hidden="true">
+          <h3>Prompt Engineering</h3>
+          <span class="nv-service-card__line" aria-hidden="true"></span>
+          <span class="nv-service-card__more">Mehr erfahren <span aria-hidden="true">→</span></span>
+        </div>
+      </article>
+
+      <article class="nv-service-card" tabindex="0">
+        <img class="nv-service-card__background" src="assets/cards/cards_service/7_neu.png" alt="" aria-hidden="true">
+        <div class="nv-service-card__shade" aria-hidden="true"></div>
+        <div class="nv-service-card__base">
+          <img class="nv-service-card__icon" src="assets/icons/icons_service/7.png" alt="" aria-hidden="true">
+          <h3>KI-Sicherheit &amp; Governance</h3>
+        </div>
+        <div class="nv-service-card__overlay">
+          <img class="nv-service-card__overlay-icon" src="assets/icons/icons_service/7.png" alt="" aria-hidden="true">
+          <h3>KI-Sicherheit &amp; Governance</h3>
+          <span class="nv-service-card__line" aria-hidden="true"></span>
+          <span class="nv-service-card__more">Mehr erfahren <span aria-hidden="true">→</span></span>
+        </div>
+      </article>
+
+      <article class="nv-service-card" tabindex="0">
+        <img class="nv-service-card__background" src="assets/cards/cards_service/8_neu.png" alt="" aria-hidden="true">
+        <div class="nv-service-card__shade" aria-hidden="true"></div>
+        <div class="nv-service-card__base">
+          <img class="nv-service-card__icon" src="assets/icons/icons_service/8.png" alt="" aria-hidden="true">
+          <h3>KI-Automatisierung &amp; Workflows</h3>
+        </div>
+        <div class="nv-service-card__overlay">
+          <img class="nv-service-card__overlay-icon" src="assets/icons/icons_service/8.png" alt="" aria-hidden="true">
+          <h3>KI-Automatisierung &amp; Workflows</h3>
+          <span class="nv-service-card__line" aria-hidden="true"></span>
+          <span class="nv-service-card__more">Mehr erfahren <span aria-hidden="true">→</span></span>
+        </div>
+      </article>
+
+      <article class="nv-service-card" tabindex="0">
+        <img class="nv-service-card__background" src="assets/cards/cards_service/9_neu.png" alt="" aria-hidden="true">
+        <div class="nv-service-card__shade" aria-hidden="true"></div>
+        <div class="nv-service-card__base">
+          <img class="nv-service-card__icon" src="assets/icons/icons_service/9.png" alt="" aria-hidden="true">
+          <h3>Dokumente, Daten &amp; Abgleich</h3>
+        </div>
+        <div class="nv-service-card__overlay">
+          <img class="nv-service-card__overlay-icon" src="assets/icons/icons_service/9.png" alt="" aria-hidden="true">
+          <h3>Dokumente, Daten &amp; Abgleich</h3>
+          <span class="nv-service-card__line" aria-hidden="true"></span>
+          <span class="nv-service-card__more">Mehr erfahren <span aria-hidden="true">→</span></span>
+        </div>
+      </article>
+
+      <article class="nv-service-card" tabindex="0">
+        <img class="nv-service-card__background" src="assets/cards/cards_service/10_neu.png" alt="" aria-hidden="true">
+        <div class="nv-service-card__shade" aria-hidden="true"></div>
+        <div class="nv-service-card__base">
+          <img class="nv-service-card__icon" src="assets/icons/icons_service/10.png" alt="" aria-hidden="true">
+          <h3>Individuelle KI-Software &amp; Integration</h3>
+        </div>
+        <div class="nv-service-card__overlay">
+          <img class="nv-service-card__overlay-icon" src="assets/icons/icons_service/10.png" alt="" aria-hidden="true">
+          <h3>Individuelle KI-Software &amp; Integration</h3>
+          <span class="nv-service-card__line" aria-hidden="true"></span>
+          <span class="nv-service-card__more">Mehr erfahren <span aria-hidden="true">→</span></span>
+        </div>
+      </article>
+
+      <article class="nv-service-card" tabindex="0">
+        <img class="nv-service-card__background" src="assets/cards/cards_service/11_neu.png" alt="" aria-hidden="true">
+        <div class="nv-service-card__shade" aria-hidden="true"></div>
+        <div class="nv-service-card__base">
+          <img class="nv-service-card__icon" src="assets/icons/icons_service/11.png" alt="" aria-hidden="true">
+          <h3>SEO &amp; Sichtbarkeit</h3>
+        </div>
+        <div class="nv-service-card__overlay">
+          <img class="nv-service-card__overlay-icon" src="assets/icons/icons_service/11.png" alt="" aria-hidden="true">
+          <h3>SEO &amp; Sichtbarkeit</h3>
+          <span class="nv-service-card__line" aria-hidden="true"></span>
+          <span class="nv-service-card__more">Mehr erfahren <span aria-hidden="true">→</span></span>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<style>
+/* =========================================================
+   SEKTION 7 – ausschließlich scoped Klassen
+========================================================= */
+.nv-services {
+  position: relative;
+  padding: var(--section-space, 7.5rem) var(--page-gutter, 1.5rem);
+  overflow: hidden;
+  color: var(--color-text-light, #f5f7f4);
+  background:
+    radial-gradient(circle at 50% 0%, rgba(17, 42, 32, .42), transparent 42%),
+    linear-gradient(180deg, var(--color-black, #050706), var(--color-matte-black, #080b09));
+}
+
+.nv-services__inner {
+  width: min(100%, var(--container-max, 75rem));
+  margin: 0 auto;
+}
+
+.nv-services__head {
+  max-width: 52rem;
+  margin-bottom: 2.5rem;
+}
+
+.nv-services__grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.5rem;
+}
+
+.nv-service-card {
+  position: relative;
+  min-width: 0;
+  aspect-ratio: 462 / 300;
+  overflow: hidden;
+  border: 1px solid rgba(212, 175, 55, .48);
+  border-radius: var(--radius-card, 1.125rem);
+  background: var(--color-matte-black, #080b09);
+  box-shadow: var(--shadow-card, 0 1rem 2.5rem rgba(0, 0, 0, .34));
+  isolation: isolate;
+  cursor: pointer;
+  outline: none;
+  transform: translateZ(0);
+}
+
+/* Bei 11 Cards stehen die letzten beiden zentriert. */
+.nv-service-card:nth-child(10) {
+  grid-column: 1 / 2;
+  transform: translateX(calc(50% + .75rem));
+}
+
+.nv-service-card:nth-child(11) {
+  grid-column: 2 / 3;
+  transform: translateX(calc(50% + .75rem));
+}
+
+.nv-service-card__background,
+.nv-service-card__shade,
+.nv-service-card__base,
+.nv-service-card__overlay {
+  position: absolute;
+  inset: 0;
+}
+
+.nv-service-card__background {
+  z-index: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(.56) saturate(.68) contrast(1.06);
+  transition: transform .65s cubic-bezier(.23, 1, .32, 1), filter .45s ease;
+}
+
+.nv-service-card__shade {
+  z-index: 1;
+  background:
+    linear-gradient(180deg, rgba(5, 7, 6, .08) 0%, rgba(5, 7, 6, .34) 48%, rgba(5, 7, 6, .94) 100%),
+    linear-gradient(90deg, rgba(5, 7, 6, .44), transparent 65%);
+}
+
+.nv-service-card__base {
+  z-index: 2;
+  display: flex;
+  align-items: flex-end;
+  gap: 1rem;
+  padding: 1.35rem;
+  transition: opacity .28s ease, transform .42s cubic-bezier(.23, 1, .32, 1);
+}
+
+.nv-service-card__base h3,
+.nv-service-card__overlay h3 {
+  margin: 0;
+  color: var(--color-text-light, #f5f7f4);
+  font-family: var(--font-body, Inter, Arial, sans-serif);
+  font-size: clamp(1rem, 1.35vw, 1.32rem);
+  font-weight: 700;
+  line-height: 1.2;
+  text-wrap: balance;
+}
+
+.nv-service-card__icon,
+.nv-service-card__overlay-icon {
+  width: clamp(3rem, 5vw, 4.25rem);
+  height: clamp(3rem, 5vw, 4.25rem);
+  flex: 0 0 auto;
+  object-fit: contain;
+  filter: drop-shadow(0 0 .75rem rgba(212, 175, 55, .22));
+}
+
+.nv-service-card__overlay {
+  z-index: 3;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  grid-template-rows: auto auto 1fr;
+  align-content: center;
+  column-gap: 1rem;
+  padding: 1.35rem;
+  border-top: 1px solid rgba(212, 175, 55, .62);
+  background: linear-gradient(145deg, rgba(8, 11, 9, .82), rgba(17, 42, 32, .74));
+  -webkit-backdrop-filter: blur(13px);
+  backdrop-filter: blur(13px);
+  opacity: 0;
+  transform: translateY(102%);
+  transition:
+    transform .58s cubic-bezier(.23, 1, .32, 1),
+    opacity .28s ease;
+}
+
+.nv-service-card__overlay-icon {
+  grid-row: 1 / 4;
+  align-self: center;
+}
+
+.nv-service-card__overlay h3 {
+  align-self: end;
+}
+
+.nv-service-card__line {
+  display: block;
+  width: min(8rem, 60%);
+  height: 1px;
+  margin: .65rem 0 .85rem;
+  background: var(--gradient-divider, linear-gradient(135deg, #f9f295, #e0aa3e, #faf398, #b88a44));
+  box-shadow: 0 0 .8rem rgba(212, 175, 55, .18);
+}
+
+.nv-service-card__more {
+  align-self: start;
+  justify-self: start;
+  color: var(--color-gold-light, #f7ef8a);
+  font-family: var(--font-body, Inter, Arial, sans-serif);
+  font-size: .82rem;
+  font-weight: 700;
+  line-height: 1.2;
+  text-decoration: none;
+  transition: color .18s ease, transform .18s ease;
+}
+
+
+.nv-service-card:hover,
+.nv-service-card:focus-visible,
+.nv-service-card.is-open {
+  border-color: rgba(212, 175, 55, .82);
+  box-shadow:
+    var(--shadow-card, 0 1rem 2.5rem rgba(0, 0, 0, .34)),
+    0 0 1.75rem rgba(212, 175, 55, .12),
+    inset 0 0 0 1px rgba(247, 239, 138, .08);
+}
+
+.nv-service-card:hover .nv-service-card__background,
+.nv-service-card:focus-visible .nv-service-card__background,
+.nv-service-card.is-open .nv-service-card__background {
+  transform: scale(1.055);
+  filter: brightness(.42) saturate(.72) contrast(1.08);
+}
+
+.nv-service-card:hover .nv-service-card__base,
+.nv-service-card:focus-visible .nv-service-card__base,
+.nv-service-card.is-open .nv-service-card__base {
+  opacity: 0;
+  transform: translateY(-1rem);
+}
+
+.nv-service-card:hover .nv-service-card__overlay,
+.nv-service-card:focus-visible .nv-service-card__overlay,
+.nv-service-card.is-open .nv-service-card__overlay {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (max-width: 74.9375rem) {
+  .nv-services__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
-  const observer = new IntersectionObserver(
-    (entries, currentObserver) => {
-      entries.forEach((entry) => {
-        if (!entry.isIntersecting) return;
-        entry.target.classList.add("is-visible");
-        currentObserver.unobserve(entry.target);
-      });
-    },
-    { threshold: 0.25 }
-  );
-
-  observer.observe(visual);
-})();
-/* NUROVELLE SECTION 4 JS END */
-
-</script>
-<script>
-
-/* NUROVELLE SECTION 5 JS START */
-(() => {
-  const diagram = document.querySelector("[data-nvp5-analysis-diagram]");
-  if (!diagram) return;
-
-  const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-
-  if (reducedMotion || !("IntersectionObserver" in window)) {
-    diagram.classList.add("is-visible");
-    return;
+  .nv-service-card:nth-child(10),
+  .nv-service-card:nth-child(11) {
+    grid-column: auto;
+    transform: none;
   }
 
-  const observer = new IntersectionObserver(
-    (entries, currentObserver) => {
-      entries.forEach((entry) => {
-        if (!entry.isIntersecting) return;
-        entry.target.classList.add("is-visible");
-        currentObserver.unobserve(entry.target);
-      });
-    },
-    { threshold: 0.25 }
-  );
+  .nv-service-card:nth-child(11) {
+    grid-column: 1 / -1;
+    width: calc(50% - .75rem);
+    justify-self: center;
+  }
+}
 
-  observer.observe(diagram);
+@media (max-width: 39.9375rem) {
+  .nv-services {
+    padding: 4rem 1.125rem;
+  }
+
+  .nv-services__grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .nv-service-card,
+  .nv-service-card:nth-child(11) {
+    grid-column: auto;
+    width: 100%;
+    justify-self: stretch;
+  }
+
+  .nv-service-card__base,
+  .nv-service-card__overlay {
+    padding: 1.1rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .nv-service-card,
+  .nv-service-card *,
+  .nv-service-card *::before,
+  .nv-service-card *::after {
+    animation-duration: .001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .001ms !important;
+  }
+}
+</style>
+
+<script>
+/* Mobile-/Touch-Verhalten: immer nur eine Card geöffnet. */
+(() => {
+  const cards = [...document.querySelectorAll('#leistungen .nv-service-card')];
+
+  const closeOtherCards = (activeCard) => {
+    cards.forEach((card) => {
+      if (card !== activeCard) card.classList.remove('is-open');
+    });
+  };
+
+  cards.forEach((card) => {
+    card.addEventListener('click', (event) => {
+      closeOtherCards(card);
+      card.classList.toggle('is-open');
+    });
+
+    card.addEventListener('keydown', (event) => {
+      if (event.key !== 'Enter' && event.key !== ' ') return;
+      event.preventDefault();
+      closeOtherCards(card);
+      card.classList.toggle('is-open');
+    });
+  });
+
+  document.addEventListener('click', (event) => {
+    if (!event.target.closest('#leistungen .nv-service-card')) {
+      cards.forEach((card) => card.classList.remove('is-open'));
+    }
+  });
 })();
-/* NUROVELLE SECTION 5 JS END */
-
 </script>
 </body>
 </html>
