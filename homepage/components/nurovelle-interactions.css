@@ -13,11 +13,16 @@
   isolation: isolate;
   border: 1px solid var(--nv-gold-border);
   border-radius: 18px;
+<<<<<<< ours
   color: var(--nv-gold-text-dark);
   background-color: var(--nv-gold-core);
   background-image: var(--nv-gold-gradient);
   background-position: center;
   background-size: 120% 120%;
+=======
+  color: var(--nv-gold-highlight);
+  background: rgba(5, 7, 6, .88);
+>>>>>>> theirs
   box-shadow:
     inset 0 1px 1px rgba(250, 227, 133, .28),
     inset 0 -2px 3px rgba(139, 66, 8, .42),
@@ -31,7 +36,10 @@
   transition:
     color .55s var(--nv-ease-premium),
     border-radius .55s var(--nv-ease-premium),
+<<<<<<< ours
     background-size .55s var(--nv-ease-premium),
+=======
+>>>>>>> theirs
     box-shadow .55s var(--nv-ease-premium),
     transform .18s ease;
 }
@@ -47,7 +55,11 @@
   width: 20px;
   height: 20px;
   border-radius: 50%;
+<<<<<<< ours
   background: linear-gradient(160deg, var(--nv-gold-mid), var(--nv-gold-light), var(--nv-gold-core));
+=======
+  background: var(--nv-gold-gradient);
+>>>>>>> theirs
   opacity: 0;
   transform: translate(-50%, -50%) scale(.2);
   transition: transform .72s var(--nv-ease-premium), opacity .45s ease;
@@ -88,8 +100,13 @@
 .header-cta .nv-press-button__top::before,
 .hero-cta .nv-press-button__top::before {
   content: "→";
+<<<<<<< ours
   position: absolute;
   left: -64px;
+=======
+  position: fixed;
+  left: -28%;
+>>>>>>> theirs
   top: 50%;
   z-index: 3;
   color: currentColor;
@@ -106,6 +123,7 @@
   display: none;
 }
 
+<<<<<<< ours
 /* Feste Zweierregel: erster CTA Vollgold, zweiter CTA Goldkontur. */
 .hero-actions > .hero-cta:nth-child(2) .nv-press-button {
   color: var(--nv-gold-highlight);
@@ -122,13 +140,20 @@
   color: var(--nv-gold-text-dark);
 }
 
+=======
+>>>>>>> theirs
 .header-cta:hover .nv-press-button,
 .header-cta:focus-visible .nv-press-button,
 .hero-cta:hover .nv-press-button,
 .hero-cta:focus-visible .nv-press-button {
+<<<<<<< ours
   color: var(--nv-gold-text-dark);
   border-radius: 14px;
   background-size: 155% 155%;
+=======
+  color: var(--nv-black);
+  border-radius: 14px;
+>>>>>>> theirs
   box-shadow:
     inset 0 1px 1px rgba(254, 241, 162, .62),
     inset 0 -2px 3px rgba(139, 66, 8, .28),
@@ -157,7 +182,11 @@
 .header-cta:hover .nv-press-button__top::before,
 .header-cta:focus-visible .nv-press-button__top::before,
 .hero-cta:hover .nv-press-button__top::before,
+<<<<<<< ours
 .hero-cta:focus-visible .nv-press-button__top::before { left: -22px; }
+=======
+.hero-cta:focus-visible .nv-press-button__top::before { left: 16px; }
+>>>>>>> theirs
 
 .header-cta:active .nv-press-button,
 .hero-cta:active .nv-press-button { transform: scale(.975); }
