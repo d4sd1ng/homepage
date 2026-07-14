@@ -493,200 +493,43 @@ Konkrete Maßnahmen für bessere Auffindbarkeit, relevante Inhalte und nachhalti
 
 ## 9. Vom Geschäftsprozess zur KI-Lösung
 
-### Verbindliche Modulbezeichnungen
+Die bisherigen Karten und Beschreibungstexte entfallen.
 
-1. Aufgabe erfassen
-2. KI-Potenzial bewerten
-3. Daten prüfen
-4. Prozess modellieren
-5. Lösung auswählen
-6. Umsetzung strukturieren
+Verbindlich:
 
-### Verbindliche Darstellung
-
-- sechs Module entlang eines räumlichen 3D-Pfads
-- klare Leserichtung von Schritt 1 bis Schritt 6
-- perspektivische Tiefenstaffelung statt flacher Kartenreihe
-- Verbindung der Module über Pfadsegmente oder passende Verbindungselemente
-- pro Modul ausschließlich die jeweilige Modulbezeichnung
+- ausschließlich Module
+- Anordnung als Stepdiagramm
+- nur Modulbezeichnungen
 - keine Erklärungssätze
 - keine Bulletpoints
-- keine zusätzlichen Cards
+- keine zusätzliche Prozessbeschreibung
 - kein CTA
-- keine freie Dashboard-Anordnung
-- auf Mobile bleibt dieselbe Reihenfolge erhalten und wird entlang des Pfads kompakter beziehungsweise gestapelt dargestellt
 
-### Modul-Assets
-
-Die bisher vorgesehenen Module werden nicht übernommen. Für die sechs Schritte müssen andere vorhandene Module verwendet und separat zugeordnet werden.
+Die finalen Modulbezeichnungen und ihre Reihenfolge müssen aus der freigegebenen Modulplanung übernommen werden.
 
 ---
 
 ## 10. Download-Bereich
 
-### Verbindlicher Kartenaufbau
+Eigene Sektion.
 
-- Titel
-- kurze Beschreibung
-- Download-Aktion unten rechts
-- Darstellung der Download-Aktion als schlichte Schrift oder kleine Pill
-- keine klassischen CTA-Buttons
-- kein großer Gold-Button
-- kein zusätzlicher CTA-Block
-
-Der Success- oder Error-Zustand ersetzt die Download-Aktion an derselben Stelle.
-
-### Case Study KI-Automatisierung
-
-Ein praxisnaher Einblick in Ausgangslage, Lösungsweg und mögliche Ergebnisse eines KI-Automatisierungsprojekts.
-
-**Download-Aktion:** Case Study herunterladen
-
-**Erfolg:** Danke – Download startet
-
-**Fehler:** Download fehlgeschlagen – erneut versuchen
-
----
-
-### ROI-Rechner für KI-Automatisierung
-
-Eine strukturierte Excel-Vorlage zur Bewertung von Aufwand, Zeitersparnis, Nutzen und wirtschaftlichem Potenzial.
-
-**Download-Aktion:** ROI-Rechner herunterladen
-
-**Erfolg:** Danke – Download startet
-
-**Fehler:** Download fehlgeschlagen – erneut versuchen
-
----
-
-### Prompt Guide
-
-Eine strukturierte Anleitung mit praxistauglichen Prompts für präzisere, kontrollierbarere und bessere KI-Ergebnisse.
-
-**Download-Aktion:** Prompt Guide herunterladen
-
-**Erfolg:** Danke – Download startet
-
-**Fehler:** Download fehlgeschlagen – erneut versuchen
-
----
-
-### Checkliste KI-Potenziale
-
-Prüfpunkte zur Erkennung geeigneter Prozesse, Datenquellen, Engpässe und sinnvoller Automatisierungsmöglichkeiten.
-
-**Download-Aktion:** Checkliste herunterladen
-
-**Erfolg:** Danke – Download startet
-
-**Fehler:** Download fehlgeschlagen – erneut versuchen
-
-### Dateipfade
-
-Die endgültigen Dateipfade werden separat aus dem realen Projektbestand zugeordnet und nicht frei erfunden.
+Finale Downloadtitel, Kurzbeschreibungen, Dateipfade und CTA-Zustände sind noch zu prüfen. Keine Platzhalter als final kennzeichnen.
 
 ---
 
 ## 11. Kontakt
 
-### Verbindliches Layout
+Eigene Kontaktsektion vor dem FAQ.
 
-- Kontakt-Kicker und kurze Einleitung oben
-- zweispaltiger Hauptbereich
-- linke Portraitkarte
-- rechte größere Kontaktkarte
-- Verhältnis ungefähr 40 % zu 60 %
-- Mobile untereinander: Einleitung, Portraitkarte, Kontaktkarte
-
-### Kicker
-
-Kontakt
-
-### Überschrift
-
-Lassen Sie uns über Ihren nächsten Schritt sprechen
-
-### Einleitung
-
-Ob erste Orientierung oder konkrete Projektidee: In einem unverbindlichen Gespräch klären wir, worum es geht, welche Voraussetzungen bereits vorhanden sind und welcher nächste Schritt sinnvoll ist.
-
-### Portraitkarte
-
-**Tino Schneider**
-
-Nurovelle
-
-#### Social Media
-
-- LinkedIn
-- YouTube
-- Instagram
-- GitHub
-
-### Kontaktkarte
-
-#### Unverbindliches Erstgespräch
-
-Sie möchten einen Prozess prüfen, eine konkrete KI-Idee einordnen oder herausfinden, welche Lösung zu Ihrer Ausgangslage passt?
-
-Wir besprechen den aktuellen Stand, die wichtigsten Anforderungen und mögliche nächste Schritte – klar, strukturiert und ohne Verkaufsdruck.
-
-**Aktion:** Erstgespräch vereinbaren
-
-**E-Mail:** demo@nurovelle.de
-
-**Telefon:** +49 152 059 755 53
-
-**Standort:** Marburg, Deutschland
+Der finale sichtbare Text, die Kontaktdaten und die CTA-Ausführung sind noch nicht vollständig dokumentiert.
 
 ---
 
 ## 12. FAQ
 
-### Kicker
-
-Häufige Fragen
-
 ### Überschrift
 
-Fragen zu KI-Projekten und Zusammenarbeit
-
-### Einleitung
-
-Die wichtigsten Fragen zur Potenzialanalyse, Umsetzung und zum Umgang mit Daten.
-
-### Muss ich bereits eine konkrete KI-Idee haben?
-
-Nein. Die Potenzialanalyse eignet sich auch dann, wenn zunächst nur ein zeitaufwendiger oder fehleranfälliger Prozess bekannt ist. Gemeinsam wird geprüft, ob KI, Automatisierung, Software oder eine andere Prozessverbesserung sinnvoll ist.
-
-### Was wird bei der KI-Potenzialanalyse geprüft?
-
-Geprüft werden der aktuelle Ablauf, beteiligte Systeme und Datenquellen, manuelle Übergaben, wiederkehrende Aufgaben sowie der mögliche Nutzen einer technischen Lösung. Daraus entsteht eine erste Einordnung von Aufwand, Priorität und sinnvollem nächsten Schritt.
-
-### Für welche Unternehmen eignet sich das Angebot?
-
-Das Angebot richtet sich an Unternehmen, die wiederkehrende Abläufe verbessern, Informationen schneller nutzbar machen oder bestehende Systeme sinnvoll verbinden möchten. Entscheidend ist nicht die Unternehmensgröße, sondern ein klar abgrenzbarer Prozess oder konkreter Verbesserungsbedarf.
-
-### Entwickelt Nurovelle auch individuelle Lösungen?
-
-Ja. Lösungen werden an den jeweiligen Prozess, die vorhandenen Systeme und die technischen Anforderungen angepasst. Dazu können KI-Agenten, Automatisierungen, Wissenssysteme, Schnittstellen oder individuelle Software gehören.
-
-### Können bestehende Systeme angebunden werden?
-
-Grundsätzlich ja, sofern geeignete Schnittstellen, Datenzugriffe oder technische Integrationsmöglichkeiten vorhanden sind. Vor der Umsetzung wird geprüft, welche Systeme beteiligt sind und welche Anbindung realistisch und sicher möglich ist.
-
-### Wie läuft ein typisches Projekt ab?
-
-Zu Beginn werden Aufgabe, Ziel, Datenlage und bestehende Abläufe geklärt. Danach folgen technische Prüfung, Auswahl des passenden Lösungstyps, Umsetzungsplanung, Entwicklung, Tests und die kontrollierte Einführung in den bestehenden Prozess.
-
-### Wie lange dauert die Umsetzung?
-
-Das hängt vom Umfang, der Datenlage, den beteiligten Systemen und dem Integrationsaufwand ab. Eine klar abgegrenzte Automatisierung kann deutlich schneller umgesetzt werden als ein komplexes System mit mehreren Schnittstellen und Freigabeprozessen.
-
-### Was passiert nach dem Absenden des Formulars?
-
-Die Angaben werden geprüft und strukturiert eingeordnet. Anschließend erhalten Sie eine erste Rückmeldung zum möglichen Einsatzbereich, zu offenen Voraussetzungen und zum sinnvollsten nächsten Schritt. Falls weitere Informationen erforderlich sind, werden diese gezielt abgefragt.
+Häufig gestellte Fragen
 
 ### Ergänzende Kennzahlen
 
@@ -698,6 +541,8 @@ Die folgenden Kennzahlen werden kompakt neben oder innerhalb der FAQ-Sektion dar
 - Support abgeschlossen — 90 %
 
 Die Kennzahlen werden als kompakte Fortschrittsanzeigen oder Prozentleisten dargestellt und nicht als zusätzliche große FAQ-Buttons.
+
+Fragen und Antworten dürfen nicht aus älteren Homepage-Dateien ungeprüft übernommen werden. Der finale FAQ-Textstand ist noch zu prüfen.
 
 ---
 
@@ -734,7 +579,6 @@ Die Social-Media-Verweise werden mit den jeweiligen Icons dargestellt:
 
 Die folgenden Bereiche sind sichtbar, aber bis zur Fertigstellung deaktiviert und grau dargestellt:
 
-- Aktuelles
 - Team
 - SEO
 - Pakete

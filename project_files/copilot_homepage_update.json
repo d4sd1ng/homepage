@@ -1,0 +1,526 @@
+{
+  "task": {
+    "name": "Nurovelle Homepage kontrolliert aktualisieren",
+    "target_file": "index.html",
+    "content_source": "nurovelle_homepage_visible_content.md",
+    "technical_sources": [
+      "nurovelle-tokens.css",
+      "nurovelle-animations.css",
+      "shared-header-footer.css",
+      "styleguide.md"
+    ],
+    "goal": "Die freigegebenen sichtbaren Texte, Strukturen, Assets und Interaktionen kontrolliert in die bestehende index.html übernehmen, ohne bestehende Funktionalität oder nicht beauftragte Bereiche zu verändern."
+  },
+  "global_rules": {
+    "no_interpretation": true,
+    "no_text_shortening": true,
+    "no_text_expansion": true,
+    "no_unrequested_layout_changes": true,
+    "no_new_sections": true,
+    "no_removal_of_approved_sections": true,
+    "no_asset_replacement": true,
+    "no_asset_path_changes": true,
+    "no_id_renaming_without_explicit_instruction": true,
+    "no_new_colors": true,
+    "no_new_gradients": true,
+    "no_new_button_variants": true,
+    "no_new_marketing_claims": true,
+    "no_new_fallback_overrides": true,
+    "no_new_important_rules": true,
+    "preserve_existing_html_structure_where_possible": true,
+    "preserve_existing_javascript": true,
+    "preserve_form_logic": true,
+    "preserve_success_error_logic": true,
+    "preserve_honeypot": true,
+    "preserve_accessibility": true,
+    "report_all_changes_exactly": true
+  },
+  "typography": {
+    "display_font": "Eastman Grotesque Alt",
+    "body_font": "Inter",
+    "usage": {
+      "headlines": "Eastman Grotesque Alt",
+      "body": "Inter",
+      "navigation": "Inter",
+      "buttons": "Inter",
+      "forms": "Inter",
+      "cards": "Inter",
+      "footer": "Inter"
+    },
+    "do_not_use": [
+      "Tapera",
+      "Bebas Neue",
+      "Anca Coder",
+      "Coder Pro",
+      "Raleway",
+      "Roboto"
+    ]
+  },
+  "header": {
+    "logo_position": "left",
+    "breadcrumb_count": 3,
+    "breadcrumbs_replace_classic_navigation": true,
+    "submenu_trigger": [
+      "hover",
+      "keyboard_focus"
+    ],
+    "analysis_cta_position": "right",
+    "no_additional_classic_navigation": true,
+    "preserve_existing_functionality_if_correct": true
+  },
+  "background_system": {
+    "hero": {
+      "background": "particle_background",
+      "particle_layer_position": "behind_existing_cube",
+      "preserve_existing_cube": true,
+      "do_not_move_cube_uncontrolled": true,
+      "do_not_replace_with_conic_noise": true,
+      "reduced_motion_required": true
+    },
+    "section_sequence": [
+      {
+        "section": "warum_nurovelle",
+        "background": "black"
+      },
+      {
+        "section": "ki_projekt_start",
+        "background": "dark_green"
+      },
+      {
+        "section": "projektidee",
+        "background": "black"
+      },
+      {
+        "section": "potenzialanalyse",
+        "background": "dark_green"
+      },
+      {
+        "section": "formular",
+        "background": "black"
+      },
+      {
+        "section": "leistungen",
+        "background": "dark_green"
+      },
+      {
+        "section": "prozess_zur_loesung",
+        "background": "black"
+      },
+      {
+        "section": "downloads",
+        "background": "dark_green"
+      },
+      {
+        "section": "kontakt",
+        "background": "black"
+      },
+      {
+        "section": "faq",
+        "background": "dark_green"
+      },
+      {
+        "section": "footer",
+        "background": "black"
+      }
+    ],
+    "allowed_colors": [
+      "#050706",
+      "#080B09",
+      "#0A1913",
+      "#112A20",
+      "#163A35"
+    ],
+    "gold_usage": "accent_only",
+    "no_light_green_sections": true
+  },
+  "sections": {
+    "hero": {
+      "source": "nurovelle_homepage_visible_content.md",
+      "replace_only_with_approved_final_text": true,
+      "particle_background_required": true,
+      "existing_cube_required": true
+    },
+    "warum_nurovelle": {
+      "background": "black",
+      "content": {
+        "intro_paragraphs": 2,
+        "bullet_count": 6,
+        "use_exact_text_from_content_source": true
+      },
+      "forbidden": [
+        "metrics_bar",
+        "company_history",
+        "unverified_claims",
+        "old_trust_statements"
+      ]
+    },
+    "ki_projekt_start": {
+      "background": "dark_green",
+      "cards": [
+        "Prozess klären",
+        "Daten prüfen",
+        "Umsetzung planen"
+      ],
+      "animation": {
+        "start_position": "outside_left_viewport",
+        "direction": "left_to_final_position",
+        "sequence": [
+          1,
+          2,
+          3
+        ],
+        "card_text_hidden_during_motion": true,
+        "text_reveal_after_arrival": true,
+        "no_entry_from": [
+          "right",
+          "top",
+          "bottom"
+        ],
+        "mobile_same_order": true,
+        "reduced_motion_fallback": "no_slide"
+      }
+    },
+    "projektidee": {
+      "background": "black",
+      "type": "three_photo_elements",
+      "items": [
+        {
+          "title": "Prozessautomatisierung",
+          "text": "Manuelle Arbeitsschritte werden analysiert, priorisiert und in automatisierte Workflows oder KI-Agenten überführt."
+        },
+        {
+          "title": "Datenbasierte Entscheidungshilfe",
+          "text": "Bestehende Datenquellen werden verbunden und so aufbereitet, dass Teams Trends, Engpässe und nächste Schritte klarer erkennen."
+        },
+        {
+          "title": "Interne Wissenssuche",
+          "text": "Ein KI-System erschließt vorhandene Dokumente, Projektdaten und interne Informationen, damit Mitarbeitende schneller belastbare Antworten finden."
+        }
+      ],
+      "image_rules": {
+        "rectangular_image_scale": "130_percent_of_current",
+        "square_images_keep_current_size": true,
+        "remove_green_right_strip_from_square_images": true,
+        "do_not_replace_images": true,
+        "do_not_change_crop_without_instruction": true
+      }
+    },
+    "branchen": {
+      "enabled": false,
+      "status": "vorerst nicht enthalten",
+      "do_not_render_old_cards": true,
+      "do_not_insert_replacement_section": true
+    },
+    "potenzialanalyse": {
+      "background": "dark_green",
+      "use_exact_text_from_content_source": true,
+      "required_blocks": [
+        "Was geprüft wird",
+        "Kurzer Check. Klare Einordnung.",
+        "Prozesslage",
+        "Datenlage",
+        "Automatisierungspotenzial",
+        "Nächster Schritt",
+        "Was Sie danach erhalten",
+        "Kostenlos und unverbindlich. Kein Abo. Keine versteckten Kosten."
+      ],
+      "no_shortening": true,
+      "no_rewording": true
+    },
+    "formular": {
+      "background": "black",
+      "use_exact_text_from_content_source": true,
+      "required_fields": [
+        "Vorname",
+        "Nachname",
+        "E-Mail-Adresse",
+        "Unternehmen",
+        "Branche",
+        "Unternehmensgröße optional",
+        "Aktuellen Zeitaufwand auswählen",
+        "Datenlage auswählen",
+        "Prozessbeschreibung",
+        "Telefon optional",
+        "Website optional"
+      ],
+      "required_logic": [
+        "required_fields",
+        "consent",
+        "privacy_notice",
+        "honeypot",
+        "submission",
+        "success_state",
+        "error_state"
+      ],
+      "no_new_fields": true,
+      "do_not_change_technical_field_names_if_processing_depends_on_them": true
+    },
+    "leistungen": {
+      "background": "dark_green",
+      "card_count": 11,
+      "source": "nurovelle_homepage_visible_content.md",
+      "layout": {
+        "left_side": [
+          "main_icon_in_frame",
+          "divider_below_icon",
+          "label_with_symbol: ◎ Einsatzbereiche",
+          "exactly_three_bullets"
+        ],
+        "right_side": [
+          "number_in_frame",
+          "title",
+          "subtitle",
+          "result_card",
+          "result_icon",
+          "result_heading",
+          "short_result_text"
+        ]
+      },
+      "forbidden": [
+        "additional_description_sentence",
+        "more_than_three_bullets",
+        "additional_text_card",
+        "subtitle_repetition"
+      ],
+      "icon_paths": {
+        "01": "assets/cards/service/icons/1.png",
+        "02": "assets/cards/service/icons/2.png",
+        "03": "assets/cards/service/icons/3.png",
+        "04": "assets/cards/service/icons/4.png",
+        "05": "assets/cards/service/icons/5.png",
+        "06": "assets/cards/service/icons/6.png",
+        "07": "assets/cards/service/icons/7.png",
+        "08": "assets/cards/service/icons/8.png",
+        "09": "assets/cards/service/icons/9.png",
+        "10": "assets/cards/service/icons/10.png",
+        "11": "assets/cards/service/icons/11.png"
+      },
+      "result_icon": "assets/cards/service/icons/ergebnis.png",
+      "do_not_generate_replacement_icons": true
+    },
+    "prozess_zur_loesung": {
+      "background": "black",
+      "module_count": 6,
+      "module_labels": [
+        "Aufgabe erfassen",
+        "KI-Potenzial bewerten",
+        "Daten prüfen",
+        "Prozess modellieren",
+        "Lösung auswählen",
+        "Umsetzung strukturieren"
+      ],
+      "layout": {
+        "type": "spatial_3d_path",
+        "reading_direction": "1_to_6",
+        "perspective_depth": true,
+        "connected_by_path_segments": true,
+        "mobile_same_order_compact_or_stacked": true
+      },
+      "content_rules": {
+        "show_only_module_labels": true,
+        "no_explanation_sentences": true,
+        "no_bullets": true,
+        "no_additional_cards": true,
+        "no_cta": true,
+        "no_free_dashboard_layout": true
+      },
+      "assets": {
+        "do_not_reuse_old_modules_unchecked": true,
+        "use_other_existing_modules": true,
+        "do_not_invent_assets": true,
+        "if_mapping_unclear": "mark_with_clear_comment_and_do_not_guess"
+      }
+    },
+    "downloads": {
+      "background": "dark_green",
+      "cards": [
+        {
+          "title": "Case Study KI-Automatisierung",
+          "description": "Ein praxisnaher Einblick in Ausgangslage, Lösungsweg und mögliche Ergebnisse eines KI-Automatisierungsprojekts.",
+          "download_text": "Case Study herunterladen",
+          "success_text": "Danke – Download startet",
+          "error_text": "Download fehlgeschlagen – erneut versuchen"
+        },
+        {
+          "title": "ROI-Rechner für KI-Automatisierung",
+          "description": "Eine strukturierte Excel-Vorlage zur Bewertung von Aufwand, Zeitersparnis, Nutzen und wirtschaftlichem Potenzial.",
+          "download_text": "ROI-Rechner herunterladen",
+          "success_text": "Danke – Download startet",
+          "error_text": "Download fehlgeschlagen – erneut versuchen"
+        },
+        {
+          "title": "Prompt Guide",
+          "description": "Eine strukturierte Anleitung mit praxistauglichen Prompts für präzisere, kontrollierbarere und bessere KI-Ergebnisse.",
+          "download_text": "Prompt Guide herunterladen",
+          "success_text": "Danke – Download startet",
+          "error_text": "Download fehlgeschlagen – erneut versuchen"
+        },
+        {
+          "title": "Checkliste KI-Potenziale",
+          "description": "Prüfpunkte zur Erkennung geeigneter Prozesse, Datenquellen, Engpässe und sinnvoller Automatisierungsmöglichkeiten.",
+          "download_text": "Checkliste herunterladen",
+          "success_text": "Danke – Download startet",
+          "error_text": "Download fehlgeschlagen – erneut versuchen"
+        }
+      ],
+      "interaction": {
+        "position": "bottom_right",
+        "style": [
+          "plain_text",
+          "small_pill"
+        ],
+        "no_large_cta_button": true,
+        "no_primary_gold_button": true,
+        "state_replaces_download_text_same_position": true,
+        "success_only_after_real_download_start": true
+      },
+      "paths": {
+        "use_real_existing_paths_only": true,
+        "do_not_invent_paths": true
+      }
+    },
+    "kontakt": {
+      "background": "black",
+      "layout": {
+        "top": "kicker_heading_intro",
+        "main": "two_columns_40_60",
+        "left": "portrait_card",
+        "right": "contact_card",
+        "mobile_order": [
+          "intro",
+          "portrait_card",
+          "contact_card"
+        ]
+      },
+      "content": {
+        "kicker": "Kontakt",
+        "heading": "Lassen Sie uns über Ihren nächsten Schritt sprechen",
+        "intro": "Ob erste Orientierung oder konkrete Projektidee: In einem unverbindlichen Gespräch klären wir, worum es geht, welche Voraussetzungen bereits vorhanden sind und welcher nächste Schritt sinnvoll ist.",
+        "portrait_card": {
+          "name": "Tino Schneider",
+          "brand": "Nurovelle",
+          "socials": [
+            "LinkedIn",
+            "YouTube",
+            "Instagram",
+            "GitHub"
+          ]
+        },
+        "contact_card": {
+          "heading": "Unverbindliches Erstgespräch",
+          "paragraphs": [
+            "Sie möchten einen Prozess prüfen, eine konkrete KI-Idee einordnen oder herausfinden, welche Lösung zu Ihrer Ausgangslage passt?",
+            "Wir besprechen den aktuellen Stand, die wichtigsten Anforderungen und mögliche nächste Schritte – klar, strukturiert und ohne Verkaufsdruck."
+          ],
+          "action": "Erstgespräch vereinbaren",
+          "email": "demo@nurovelle.de",
+          "phone": "+49 152 059 755 53",
+          "location": "Marburg, Deutschland"
+        }
+      },
+      "do_not_invent_contact_data": true
+    },
+    "faq": {
+      "background": "dark_green",
+      "kicker": "Häufige Fragen",
+      "heading": "Fragen zu KI-Projekten und Zusammenarbeit",
+      "intro": "Die wichtigsten Fragen zur Potenzialanalyse, Umsetzung und zum Umgang mit Daten.",
+      "use_exact_questions_and_answers_from_content_source": true,
+      "accordion_required": true,
+      "do_not_shorten_questions": true,
+      "metrics": [
+        {
+          "label": "Qualifizierte Mitarbeitende",
+          "value": 90
+        },
+        {
+          "label": "Servicequalität",
+          "value": 60
+        },
+        {
+          "label": "Erfolgreich abgeschlossen",
+          "value": 85
+        },
+        {
+          "label": "Support abgeschlossen",
+          "value": 90
+        }
+      ],
+      "metrics_style": "compact_progress_indicators",
+      "do_not_render_metrics_as_large_faq_buttons": true
+    },
+    "footer": {
+      "background": "black",
+      "use_exact_text_from_content_source": true,
+      "required_groups": [
+        "company_description",
+        "social_icons",
+        "useful_links",
+        "newsletter",
+        "contact",
+        "legal",
+        "copyright",
+        "back_to_top"
+      ],
+      "disabled_visible_links": [
+        "Aktuelles",
+        "Team",
+        "SEO",
+        "Pakete"
+      ],
+      "disabled_link_style": "grey_and_non_interactive",
+      "do_not_link_missing_pages": true
+    }
+  },
+  "implementation_process": [
+    "Read the complete existing index.html before changing anything.",
+    "Identify existing sections, IDs, classes, asset paths and JavaScript hooks.",
+    "Compare each section against nurovelle_homepage_visible_content.md.",
+    "Replace only outdated visible content.",
+    "Add only explicitly required missing structure.",
+    "Preserve existing technical functionality.",
+    "Check HTML tag integrity after each section.",
+    "Do not guess missing asset mappings or URLs.",
+    "Run a final desktop and mobile review.",
+    "Check the JavaScript console for errors."
+  ],
+  "validation": {
+    "check_html_structure": true,
+    "check_closed_tags": true,
+    "check_existing_ids": true,
+    "check_asset_paths": true,
+    "check_form_logic": true,
+    "check_honeypot": true,
+    "check_success_error_states": true,
+    "check_card_animation": true,
+    "check_particle_background": true,
+    "check_alternating_section_backgrounds": true,
+    "check_download_states": true,
+    "check_faq_accordion": true,
+    "check_footer_links": true,
+    "check_mobile_layout": true,
+    "check_reduced_motion": true,
+    "check_console_errors": true
+  },
+  "final_report": {
+    "required_sections": {
+      "GEÄNDERT": [
+        "exact changed sections",
+        "exact changed texts",
+        "exact changed CSS classes",
+        "exact changed JavaScript areas"
+      ],
+      "NICHT_GEÄNDERT": [
+        "untouched components",
+        "preserved asset paths",
+        "preserved technical logic"
+      ],
+      "OFFEN": [
+        "unclear asset mappings",
+        "missing real links",
+        "missing real download paths"
+      ]
+    },
+    "forbidden_summary": "Do not output only a generic statement such as 'everything updated'."
+  }
+}

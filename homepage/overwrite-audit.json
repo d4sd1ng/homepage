@@ -6,15 +6,13 @@
     "index.html",
     "components/nurovelle-service-cards.css",
     "components/nurovelle-resources-contact-faq.css",
-    "components/nurovelle-section-rhythm.css",
-    "components/nurovelle-interactions.css"
+    "components/nurovelle-section-rhythm.css"
   ],
   "source_paths": [
     "/media/d4sd1ng/AI-Data/Projects/homepage_repo/homepage/index.html",
     "/media/d4sd1ng/AI-Data/Projects/homepage_repo/homepage/components/nurovelle-service-cards.css",
     "/media/d4sd1ng/AI-Data/Projects/homepage_repo/homepage/components/nurovelle-resources-contact-faq.css",
-    "/media/d4sd1ng/AI-Data/Projects/homepage_repo/homepage/components/nurovelle-section-rhythm.css",
-    "/media/d4sd1ng/AI-Data/Projects/homepage_repo/homepage/components/nurovelle-interactions.css"
+    "/media/d4sd1ng/AI-Data/Projects/homepage_repo/homepage/components/nurovelle-section-rhythm.css"
   ],
   "result": {
     "status": "passed",
@@ -23,7 +21,7 @@
     "summary": "Keine verbliebenen unbeabsichtigten CSS-Overwrites gefunden. Alle neuen Werte stehen jeweils nur an einer Stelle."
   },
   "scope": [
-    "CSS-Deklarationen im style-Block und in allen vier lokalen Komponenten-Stylesheets",
+    "CSS-Deklarationen im style-Block und in allen drei lokalen Komponenten-Stylesheets",
     "wiederholte Selektor/Property-Kombinationen im gleichen Kaskadenkontext",
     "mehrfach gesetzte Properties innerhalb derselben CSS-Regel",
     "Inline-Styles",
@@ -33,7 +31,7 @@
   ],
   "metrics": {
     "style_block_count": 1,
-    "external_local_stylesheet_count": 4,
+    "external_local_stylesheet_count": 3,
     "parsed_css_rule_count": 398,
     "parsed_css_declaration_count": 1558,
     "duplicate_property_in_same_rule_count": 0,

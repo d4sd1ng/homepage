@@ -257,23 +257,27 @@
   grid-template-rows: 1fr auto;
   column-gap: 14px;
   min-width: 0;
-  min-height: 270px;
-  padding: 18px;
+  min-height: 210px;
+  padding: 14px;
   overflow: hidden;
-  border: 1px solid rgba(46, 139, 103, .34);
+  border: 1px solid transparent;
   border-radius: 12px;
-  background: linear-gradient(145deg, rgba(5, 7, 6, .96), rgba(21, 25, 26, .92));
+  background: linear-gradient(var(--nv-black, #050706), var(--nv-black, #050706)) padding-box, var(--gradient-gold-border) border-box;
   box-shadow: 0 14px 28px rgba(0, 0, 0, .3), inset 0 0 0 1px rgba(255, 255, 255, .025);
 }
 
 .download-item__type {
   grid-row: 1;
   display: flex;
-  flex-direction: column;
+  justify-content: center;
   align-items: center;
   gap: 8px;
-  padding-right: 12px;
-  border-right: 1px solid rgba(212, 175, 55, .24);
+  width: 58px;
+  height: 58px;
+  padding: 8px;
+  border: 1px solid transparent;
+  border-radius: 10px;
+  background: linear-gradient(var(--nv-black, #050706), var(--nv-black, #050706)) padding-box, var(--gradient-gold-border) border-box;
   color: #d4af37;
   font: 700 9px/1 Inter, Arial, sans-serif;
   letter-spacing: .1em;
@@ -372,7 +376,15 @@
 
 @media (max-width: 639px) {
   #downloads { padding: 42px 18px; }
-  .download-display__grid { grid-template-columns: 1fr; }
+  .download-display__grid {
+    grid-template-columns: none;
+    grid-auto-flow: column;
+    grid-auto-columns: minmax(260px, 82vw);
+    overflow-x: auto;
+    overscroll-behavior-inline: contain;
+    scroll-snap-type: inline mandatory;
+  }
+  .download-item { scroll-snap-align: start; }
 }
 
 .nv-analysis-layout {
@@ -386,7 +398,7 @@
   padding: 24px;
   border: 1px solid rgba(212, 175, 55, .58);
   border-radius: 10px;
-  background: rgba(0, 0, 0, .34);
+  background: #050706;
 }
 
 .nv-analysis-copy__eyebrow {
@@ -440,7 +452,20 @@
 .nv-analysis-form {
   padding: 24px;
   border-radius: 10px;
-  background: #000;
+  background: #0a1913;
+}
+
+.nv-analysis-form > h3 {
+  margin: 0 0 8px;
+  color: #f5f7f4;
+  font: 700 clamp(22px, 1.8vw, 32px)/1.05 "Eastman Grotesque Alt", Inter, Arial, sans-serif;
+  text-transform: uppercase;
+}
+
+.nv-analysis-form__intro {
+  margin: 0 0 18px;
+  color: #b9c3bd;
+  font: 500 12px/1.55 Inter, Arial, sans-serif;
 }
 
 .nv-analysis-form input,
@@ -528,8 +553,8 @@
   overflow: hidden;
   border: 1px solid rgba(247, 239, 138, .86);
   border-radius: 8px;
-  background: var(--nv-gold-gradient);
-  box-shadow: 0 4px 0 #8b620c, 0 8px 16px rgba(0, 0, 0, .3), inset 0 0 0 1px rgba(250, 227, 133, .12);
+  background: #080b09;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, .3), inset 0 0 0 1px rgba(250, 227, 133, .08);
 }
 
 .nv-faq-item summary {
@@ -539,8 +564,8 @@
   gap: 18px;
   min-height: 46px;
   padding: 0 15px;
-  color: var(--nv-gold-text-dark);
-  background: var(--nv-gold-gradient);
+  color: #f5f7f4;
+  background: #080b09;
   font: 800 11px/1.35 Inter, Arial, sans-serif;
   letter-spacing: .025em;
   text-transform: uppercase;
@@ -554,7 +579,8 @@
 .nv-faq-item p {
   margin: 0;
   padding: 0 15px 15px;
-  color: rgba(57, 25, 4, .9);
+  color: #b9c3bd;
+  background: #0a1913;
   font: 500 11px/1.5 Inter, Arial, sans-serif;
 }
 
