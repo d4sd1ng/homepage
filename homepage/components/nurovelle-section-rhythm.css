@@ -1,200 +1,37 @@
-/* Einheitlicher Rhythmus und alternierende Sektionsflächen */
-:root {
-  --nv-kicker-title-gap: 10px;
-  --nv-title-text-gap: 64px;
-  --nv-section-text-content-gap: 76px;
-  --nv-section-divider-before-gap: 220px;
-  --nv-section-divider-after-gap: 88px;
-  --nv-section-black: #020403;
-  --nv-section-emerald: #071b15;
-}
-
-.nv-about__kicker,
-.nv-section-step__kicker,
-.nvp4-projectidea__kicker,
-.nvp5-analysis__kicker,
-.nv-s7__kicker,
-#downloads .kicker,
-.nv-resource-section__kicker,
-.nv-process__kicker,
-.nv-why__kicker {
-  margin: 0 0 var(--nv-kicker-title-gap);
-}
-
-.nv-about__title,
-.nv-section-step__copy h2,
-.nvp4-projectidea__title,
-.nvp5-analysis__title,
-.nv-s7__title,
-#downloads .section-title,
-.nv-resource-section__title,
-.nv-process__title,
-.nv-why__title {
-  margin: 0 0 var(--nv-title-text-gap);
-}
-
-#about-nurovelle,
-#ki-projekt-start,
-#projektidee,
-#potenzialanalyse,
-#leistungen,
-#prozess-zur-loesung,
-#downloads,
-#formular,
-#faq,
-#warum-nurovelle {
-  position: relative;
-  padding-top: var(--nv-section-divider-after-gap);
-  padding-bottom: var(--nv-section-divider-before-gap);
-}
-
-.nv-about__inner {
-  gap: var(--nv-section-text-content-gap);
-}
-
-.nv-section-step__copy,
-.nvp4-projectidea__copy,
-.nvp5-analysis__head,
-.nv-s7__head,
-#downloads .section-head,
-.nv-resource-section__head,
-.nv-process__head,
-.nv-why__head {
-  margin-bottom: var(--nv-section-text-content-gap);
-}
-
-#about-nurovelle::before,
-#ki-projekt-start::before,
-#projektidee::before,
-#potenzialanalyse::before,
-#leistungen::before,
-#prozess-zur-loesung::before,
-#downloads::before,
-#formular::before,
-#faq::before,
-#warum-nurovelle::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  right: var(--side);
-  left: var(--side);
-  z-index: 8;
-  height: 1px;
-  background: linear-gradient(90deg, transparent 0%, rgba(212, 175, 55, .72) 8%, #d4af37 50%, rgba(212, 175, 55, .72) 92%, transparent 100%);
-  box-shadow: 0 0 12px rgba(212, 175, 55, .2);
-  pointer-events: none;
-}
-
-#about-nurovelle,
-#projektidee,
-#leistungen,
-#formular {
-  background-color: var(--nv-section-emerald);
-}
-
-#prozess-zur-loesung,
-#faq {
-  background-color: var(--nv-section-black);
-}
-
-#warum-nurovelle {
-  background-color: var(--nv-section-emerald);
-}
-
-#about-nurovelle::before {
-  top: 60px;
-}
-
-#ki-projekt-start,
-#potenzialanalyse,
-#downloads,
-#faq {
-  background-color: var(--nv-section-black);
-}
-
-@media (max-width: 899px) {
-  :root {
-    --nv-title-text-gap: 52px;
-    --nv-section-text-content-gap: 64px;
-    --nv-section-divider-before-gap: 132px;
-    --nv-section-divider-after-gap: 72px;
-  }
-
-  .home-sidebar {
-    transform: translateX(-100%);
-  }
-
-  body.has-sidebar .home-sidebar {
-    transform: translateX(0);
-  }
-
-  body.has-sidebar .hero,
-  body.has-sidebar main {
-    width: 100%;
-    margin-left: 0;
-  }
-
-  #about-nurovelle::before,
-  #ki-projekt-start::before,
-  #projektidee::before,
-  #potenzialanalyse::before,
-  #leistungen::before,
-  #prozess-zur-loesung::before,
-  #downloads::before,
-  #formular::before,
-  #faq::before,
-  #warum-nurovelle::before {
-    right: 18px;
-    left: 18px;
-  }
-}
-
-@media (max-width: 639px) {
-  :root {
-    --nv-title-text-gap: 44px;
-    --nv-section-text-content-gap: 54px;
-    --nv-section-divider-before-gap: 104px;
-    --nv-section-divider-after-gap: 60px;
-  }
-
-  .nv-breadcrumb,
-  .site-header .header-cta {
-    display: none;
-  }
-}
+/* Prozess, Why und Footer */
 
 .nv-process,
 .nv-why {
   margin-left: var(--sidebar-w);
   padding-right: var(--side);
   padding-left: var(--side);
-  color: #f5f7f4;
+  color: var(--nv-text-light);
   overflow: hidden;
 }
 
 .nv-process__inner,
 .nv-why__inner {
   width: 100%;
-  max-width: 1650px;
+  max-width: var(--nv-section-inner-max);
   margin: 0;
 }
 
 .nv-process__head,
 .nv-why__head {
-  max-width: 900px;
+  max-width: var(--nv-section-head-max);
 }
 
 .nv-process__kicker,
 .nv-why__kicker {
-  color: #e8b048;
-  font: 700 var(--nv-section-kicker-size)/1.4 Inter, Arial, sans-serif;
-  letter-spacing: .14em;
+  color: var(--nv-kicker-color-section, #e8b048);
+  font: 700 var(--nv-section-kicker-size)/var(--nv-kicker-line-height-section, 1.4) Inter, Arial, sans-serif;
+  letter-spacing: var(--nv-kicker-letter-spacing, 0.14em);
 }
 
 .nv-process__title,
 .nv-why__title {
   color: transparent;
-  background: linear-gradient(180deg, #c5a059 0%, #fdf0cd 50%, #d4af37 100%);
+  background: var(--nv-section-title-gradient);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -203,9 +40,9 @@
 
 .nv-process__intro,
 .nv-why__intro {
-  max-width: 850px;
+  max-width: var(--nv-section-intro-max);
   margin: 0;
-  color: #b9c3bd;
+  color: var(--nv-text-muted);
   font: 500 var(--nv-section-body-size)/var(--nv-section-body-line) Inter, Arial, sans-serif;
 }
 
@@ -213,7 +50,7 @@
   position: relative;
   display: grid;
   grid-template-columns: repeat(6, minmax(0, 1fr));
-  gap: 18px;
+  gap: var(--nv-space-lg);
   margin: 0;
   padding: 0;
   list-style: none;
@@ -233,6 +70,16 @@
   position: relative;
   min-width: 0;
   text-align: center;
+}
+
+.nv-process__step:nth-child(3),
+.nv-process__step:nth-child(4) {
+  transform: translateY(16px);
+}
+
+.nv-process__step:nth-child(5),
+.nv-process__step:nth-child(6) {
+  transform: translateY(32px);
 }
 
 .nv-process__visual {
@@ -265,8 +112,8 @@
 
 .nv-process__step h3,
 .nv-why__point h3 {
-  margin: 0 0 8px;
-  color: #fae385;
+  margin: 0 0 var(--nv-space-xxs);
+  color: var(--nv-gold-highlight);
   font: 700 16px/1.2 "Eastman Grotesque Alt", Inter, Arial, sans-serif;
   text-transform: uppercase;
 }
@@ -274,7 +121,7 @@
 .nv-process__step p,
 .nv-why__point p {
   margin: 0;
-  color: #b9c3bd;
+  color: var(--nv-text-muted);
   font: 500 12px/1.5 Inter, Arial, sans-serif;
 }
 
@@ -286,16 +133,16 @@
 
 .nv-why__point {
   padding-left: 20px;
-  border-left: 1px solid #d4af37;
+  border-left: 1px solid var(--nv-kicker-color-section);
 }
 
 .footer {
   margin-left: var(--sidebar-w);
   width: calc(100% - var(--sidebar-w));
   padding: 42px var(--side);
-  border-top: 1px solid rgba(212, 175, 55, .72);
-  color: #f5f7f4;
-  background: #050706;
+  border-top: 1px solid var(--nv-gold-divider-strong);
+  color: var(--nv-text-light);
+  background: var(--nv-black);
 }
 
 .footer-inner {
@@ -303,13 +150,13 @@
   grid-template-columns: 2fr repeat(3, 1fr);
   gap: 38px;
   width: 100%;
-  max-width: 1200px;
+  max-width: var(--nv-footer-inner-max);
   margin: 0;
 }
 
 .footer h4 {
-  margin: 0 0 12px;
-  color: #f7ef8a;
+  margin: 0 0 var(--nv-space-sm);
+  color: var(--nv-gold-light);
   font: 700 11px/1.2 Inter, Arial, sans-serif;
   letter-spacing: .08em;
   text-transform: uppercase;
@@ -326,14 +173,15 @@
 
 .footer a:hover,
 .footer a:focus-visible {
-  color: #fae385;
+  color: var(--nv-gold-highlight);
   outline: none;
 }
 
 @media (max-width: 1199px) {
   .nv-process__steps {
     grid-template-columns: repeat(3, minmax(0, 1fr));
-    row-gap: 40px;
+    transform: none;
+    row-gap: calc(var(--nv-space-xl) * 2);
   }
 
   .nv-process__steps::before {

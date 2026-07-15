@@ -1,5 +1,72 @@
 # Changelog
 
+## 2026-07-15 – Korrekturfortsetzung und Bereinigung (Layout/Assets)
+
+Status: in Arbeit
+
+Geändert:
+
+- Dritte Bereinigungsstufe: wiederholte lokale Abstandswerte und kleine Radiuswerte in den Komponenten auf zentrale Tokens umgestellt (`--nv-space-*`, `--nv-radius-*`), ohne sectionsinterne Geometrie-Logik zu verändern.
+- Zweite Bereinigungsstufe: wiederverwendete Spacing-/Radius-Werte zentral in `homepage/index.html` als Tokens ergänzt (`--nv-space-xxs/xs/sm/md/lg/xl/2xl`, `--nv-radius-sm/md`) und in den Komponenten an mehreren wiederholten Stellen verwendet.
+- Verbindliche Mapping-Tabelle erstellt: `project_files/css_value_matrix.md` (Wertquelle, Verantwortlichkeit und Dateigrenzen).
+- Zentrale Global-Tokens in `homepage/index.html` ergänzt (`--nv-section-inner-max`, `--nv-section-head-max`, `--nv-section-intro-max`, `--nv-footer-inner-max`, `--nv-section-title-gradient`, `--nv-gold-divider-strong`).
+- In `homepage/components/nurovelle-service-cards.css` wiederverwendete Global-Literale (Textfarben, Titelgradient, globale Max-Breite) auf zentrale Tokens umgestellt; sectionsinterne Geometrie blieb unverändert.
+- In `homepage/components/nurovelle-resources-contact-faq.css` wiederverwendete Global-Literale (Textfarben, Titelgradient, globale Max-Breiten) auf zentrale Tokens umgestellt; sectionsinterne Geometrie blieb unverändert.
+- In `homepage/components/nurovelle-section-rhythm.css` wiederverwendete Global-Literale (Textfarben, Titelgradient, globale Max-Breiten, Footer-Basisfarben/Divider) auf zentrale Tokens umgestellt.
+- Globale Rhythmus-, Alternation-, Separator- und responsive Sidebar-/Header-Regeln aus `homepage/components/nurovelle-section-rhythm.css` nach `homepage/index.html` verschoben.
+- `homepage/components/nurovelle-section-rhythm.css` auf sectionsinterne Regeln fuer Prozess, Why und Footer reduziert.
+- Sektion-7-Headerabstaende (`Head`, `Kicker`, `Title`) wieder lokal in `homepage/components/nurovelle-service-cards.css` verankert.
+- Download-/Resource-Headerabstaende (`Head`, `Kicker`, `Title`) wieder lokal in `homepage/components/nurovelle-resources-contact-faq.css` verankert.
+- Hintergrund-Alternation in `homepage/components/nurovelle-section-rhythm.css` auf den verbindlichen Sequenzstand korrigiert (`#warum-nurovelle`, `#ki-projekt-start`, `#projektidee`, `#potenzialanalyse`, `#formular`, `#leistungen`, `#prozess-zur-loesung`, `#downloads`, `#kontakt`, `#faq`, `.footer`).
+- Prozesssektion in `homepage/components/nurovelle-section-rhythm.css` räumlich nachgestaffelt (2 + 2 + 2 über `nth-child`-Offsets), Mobile-Fallback ohne Offset beibehalten.
+- Service-Card-Typografie in `homepage/components/nurovelle-service-cards.css` harmonisiert (lesbarere Bullet-, Untertitel- und Ergebnisgrößen).
+- Service-Icon-Pfade in `homepage/index.html` auf `assets/cards/service/icons/{1..11}.png` umgestellt.
+- Ergebnis-Icon-Injektion in `homepage/index.html` ergänzt (`assets/cards/service/icons/ergebnis.png`) innerhalb der bestehenden Service-Card-JavaScript-Logik.
+- Platzhalter-Iconsatz unter `homepage/assets/cards/service/icons/` erstellt (`1.png` bis `11.png`, `ergebnis.png`) zur Stabilisierung fehlender Pfade.
+
+Nicht geändert:
+
+- Formularverarbeitung, Honeypot sowie Success-/Error-Grundlogik in `homepage/index.html`.
+- Hero-Partikel-Canvas- und Cube-Grundlogik in `homepage/index.html`.
+
+## 2026-07-14 – Kontrolliertes Homepage-Update in `homepage/index.html`
+
+Status: in Arbeit
+
+Geändert:
+
+- Header-/Breadcrumb-Zielanker in `homepage/index.html` auf die aktuelle Sektionenstruktur angepasst (`#warum-nurovelle`, `#ki-projekt-start`, `#projektidee`, `#potenzialanalyse`, `#formular`, `#prozess-zur-loesung`, `#downloads`, `#kontakt`, `#faq`).
+- Sidebar-Linktexte und -Reihenfolge in `homepage/index.html` an den aktuellen Inhaltsstand angepasst (inklusive neuem `Kontakt`-Eintrag).
+- Abschnitt `Warum Nurovelle` in `homepage/index.html` inhaltlich auf freigegebenen Textstand umgestellt (2 Einleitungsabsätze + 6 Bulletpoints).
+- Abschnitt `Der erste Schritt zu Ihrem KI-Projekt` in `homepage/index.html` textlich bereinigt und CTA auf `Potenzialanalyse starten` angepasst.
+- Step-Animation in `homepage/index.html` erweitert: Karten sliden von links ein; Card-Text wird erst nach Ankunft sichtbar; Reduced-Motion-Fallback ohne Textverzögerung.
+- Abschnitt `Konkrete KI-Idee` in `homepage/index.html` auf die Reihenfolge Prozessautomatisierung → Datenbasierte Entscheidungshilfe → Interne Wissenssuche umgestellt; breite Bildvariante vergrößert.
+- Abschnitt `Vom Geschäftsprozess zur KI-Lösung` in `homepage/index.html` auf die sechs freigegebenen Modulbezeichnungen reduziert (ohne Beschreibungssätze).
+- Neuer Abschnitt `Kontakt` in `homepage/index.html` ergänzt (40/60-Layout mit Portrait- und Kontaktkarte, Mobile-Stapelung).
+- FAQ-Texte in `homepage/index.html` auf den freigegebenen Wortlaut aktualisiert; kompakte Kennzahlenleisten ergänzt.
+- Footer in `homepage/index.html` inhaltlich auf die geforderten Gruppen erweitert (Unternehmensbeschreibung, nützliche Links, Newsletter, Kontakt, Rechtliches, Copyright, Nach-oben-Text, deaktivierte Links für Aktuelles/Team/SEO/Pakete).
+- Hero-Sekundär-CTA in `homepage/index.html` auf `Unverbindliches Erstgespräch` mit Ziel `#kontakt` umgestellt.
+- Potenzialanalyse- und Formularüberschriften/-texte in `homepage/index.html` an den freigegebenen Wortlaut angenähert.
+
+Nicht geändert:
+
+- Technische Formularfeldnamen und Grund-Submit-Mechanik in `homepage/index.html`.
+- Download-Success-/Error-Zustandslogik in `homepage/index.html`.
+- Hero-Cube-Asset und Partikel-Canvas-Grundlogik in `homepage/index.html`.
+
+## 2026-07-15 – Platzhalter für fehlende Downloadpfade angelegt
+
+Status: fertig
+
+Geändert:
+
+- `homepage/assets/downloads/checkliste.pdf` als Platzhalterdatei erstellt.
+- `homepage/assets/downloads/prompt_guide.pdf` als Platzhalterdatei erstellt.
+
+Nicht geändert:
+
+- `homepage/index.html`.
+
 ## 2026-07-07 – Hero-Orb-Originalvorgabe gesichert
 
 Status: fertig
@@ -56,7 +123,6 @@ Nicht geändert:
 - produktive Section-Divider auf der Website
 - Hero-/Cube-Animation
 - CTA-Buttons
-
 
 ## 2026-07-07 – Pure-CSS-Angled-Divider-Originalreferenz ergänzt
 
@@ -129,7 +195,6 @@ Nicht geändert:
 - finale Divider-Auswahl
 - finale CTA-Auswahl
 - finale Hero-Orb-/Cube-Entstehungslogik
-
 
 ---
 
@@ -211,7 +276,7 @@ Einleitung:
 
 Card 1:
 
-**Prozess klären**
+### Prozess klären
 
 `Welcher Geschäftsprozess verbessert werden soll und welches konkrete Ergebnis durch KI entstehen muss.`
 
@@ -219,7 +284,7 @@ Card 1:
 
 Card 2:
 
-**Daten prüfen**
+### Daten prüfen
 
 `Welche Daten, Systeme und Wissensquellen bereits vorhanden sind und technisch nutzbar gemacht werden können.`
 
@@ -227,7 +292,7 @@ Card 2:
 
 Card 3:
 
-**Umsetzung planen**
+### Umsetzung planen
 
 `Ob ein KI-Agent, ein Wissenssystem, Automatisierung oder individuelle Software der sinnvolle nächste Schritt ist.`
 

@@ -161,7 +161,7 @@
 
         --font-ui: "Inter", Arial, sans-serif;
 
-        --nv-section-kicker-size: clamp(9px, 0.62vw, 11px);
+        --nv-section-kicker-size: clamp(9px, 0.62vw, 8px);
 
         --nv-section-title-size: clamp(42px, 4.2vw, 74px);
 
@@ -169,7 +169,66 @@
 
         --nv-section-body-line: 1.58;
 
+        --nv-kicker-color-hero: #d4af37;
+
+        --nv-kicker-color-section: #d4af37;
+
+        --nv-kicker-line-height-hero: 1.15;
+
+        --nv-kicker-line-height-section: 1.15;
+
+        --nv-kicker-letter-spacing: 0.14em;
+
         --nv-section-pad-y: 104px;
+
+        --nv-kicker-title-gap: 10px;
+
+        --nv-title-text-gap: 64px;
+
+        --nv-section-text-content-gap: 76px;
+
+        --nv-section-divider-before-gap: 220px;
+
+        --nv-section-divider-after-gap: 88px;
+
+        --nv-section-black: #020403;
+
+        --nv-section-emerald: #071b15;
+
+        --nv-section-inner-max: 1650px;
+
+        --nv-section-head-max: 900px;
+
+        --nv-section-intro-max: 850px;
+
+        --nv-footer-inner-max: 1200px;
+
+        --nv-section-title-gradient: linear-gradient(
+          180deg,
+          #c5a059 0%,
+          #fdf0cd 50%,
+          #d4af37 100%
+        );
+
+        --nv-gold-divider-strong: rgba(212, 175, 55, 0.72);
+
+        --nv-space-xxs: 8px;
+
+        --nv-space-xs: 10px;
+
+        --nv-space-sm: 12px;
+
+        --nv-space-md: 16px;
+
+        --nv-space-lg: 18px;
+
+        --nv-space-xl: 20px;
+
+        --nv-space-2xl: 24px;
+
+        --nv-radius-sm: 8px;
+
+        --nv-radius-md: 10px;
       }
 
       * {
@@ -327,7 +386,6 @@
       .hero-cta:hover .nv-press-button__top,
       .hero-cta:focus-visible .nv-press-button__top {
         border-color: rgba(165, 93, 7, 0.6);
-        color: rgba(120, 50, 5, 0.8);
         background-size: 150% 150%;
         box-shadow:
           0 10px 20px rgba(0, 0, 0, 0.19),
@@ -347,7 +405,12 @@
       .header-cta:focus-visible,
       .hero-cta:hover,
       .hero-cta:focus-visible {
-        filter: brightness(110%);
+        filter: none;
+      }
+
+      .hero-cta--outline:hover .nv-press-button__top,
+      .hero-cta--outline:focus-visible .nv-press-button__top {
+        color: var(--nv-gold-highlight);
       }
 
       .header-cta:hover .nv-press-button__base,
@@ -739,9 +802,15 @@
       }
 
       .header-cta .nv-press-button__top {
-        padding-right: 12px;
+        height: 36px;
 
-        padding-left: 12px;
+        padding-right: 10px;
+
+        padding-left: 10px;
+
+        font-size: 11px;
+
+        letter-spacing: 0.02em;
 
         text-transform: none;
       }
@@ -1146,12 +1215,15 @@
         position: relative;
         z-index: 4;
         margin: 0 0 10px;
-        color: #e8b048;
+        color: var(--nv-kicker-color-hero);
         font:
-          700 var(--nv-section-kicker-size) / 1.35 Inter,
+          700 var(--nv-section-kicker-size)
+            / var(--nv-kicker-line-height-hero)
+            Inter,
           Arial,
           sans-serif;
-        letter-spacing: 0.14em;
+        letter-spacing: var(--nv-kicker-letter-spacing);
+        text-transform: uppercase;
       }
 
       .hero-cube {
@@ -1173,7 +1245,7 @@
       }
 
       .hero h1 {
-        margin-bottom: 30px;
+        margin-bottom: 34px;
 
         max-width: 760px;
       }
@@ -1189,7 +1261,7 @@
 
         font-weight: 750;
 
-        margin-bottom: 20px;
+        margin-bottom: 24px;
 
         max-width: 700px;
 
@@ -1219,7 +1291,7 @@
       }
 
       .hero-actions {
-        margin-top: 96px;
+        margin-top: 82px;
 
         display: flex;
 
@@ -1228,6 +1300,10 @@
         align-items: center;
 
         flex-wrap: wrap;
+      }
+
+      .hero-actions .hero-cta .nv-press-button {
+        min-width: 360px;
       }
 
       .hero-cta {
@@ -1265,13 +1341,18 @@
       .nv-about__kicker,
       .nv-section-step__kicker,
       .nvp4-projectidea__kicker,
-      .nvp5-analysis__kicker {
-        color: #e8b048;
+      .nvp5-analysis__kicker,
+      .nv-s7__kicker,
+      .nv-process__kicker,
+      .nv-resource-section__kicker,
+      .nv-contact__kicker,
+      #downloads .kicker {
+        color: var(--nv-kicker-color-section);
         font-family: "Inter", Arial, sans-serif;
         font-size: var(--nv-section-kicker-size);
         font-weight: 700;
-        line-height: 1.4;
-        letter-spacing: 0.14em;
+        line-height: var(--nv-kicker-line-height-section);
+        letter-spacing: var(--nv-kicker-letter-spacing);
         text-transform: uppercase;
       }
 
@@ -1311,6 +1392,89 @@
         line-height: var(--nv-section-body-line);
       }
 
+      /* Shared section rhythm and alternation */
+
+      .nv-about__kicker,
+      .nv-section-step__kicker,
+      .nvp4-projectidea__kicker,
+      .nvp5-analysis__kicker,
+      .nv-contact__kicker {
+        margin: 0 0 var(--nv-kicker-title-gap);
+      }
+
+      .nv-about__title,
+      .nv-section-step__copy h2,
+      .nvp4-projectidea__title,
+      .nvp5-analysis__title,
+      .nv-contact__title {
+        margin: 0 0 var(--nv-title-text-gap);
+      }
+
+      #ki-projekt-start,
+      #projektidee,
+      #potenzialanalyse,
+      #leistungen,
+      #prozess-zur-loesung,
+      #downloads,
+      #formular,
+      #kontakt,
+      #faq,
+      #warum-nurovelle {
+        position: relative;
+        padding-top: var(--nv-section-divider-after-gap);
+        padding-bottom: var(--nv-section-divider-before-gap);
+      }
+
+      .nv-about__inner {
+        gap: var(--nv-section-text-content-gap);
+      }
+
+      .nv-section-step__copy,
+      .nvp4-projectidea__copy,
+      .nvp5-analysis__head,
+      .nv-contact__head {
+        margin-bottom: var(--nv-section-text-content-gap);
+      }
+
+      #ki-projekt-start::before,
+      #projektidee::before,
+      #potenzialanalyse::before,
+      #leistungen::before,
+      #prozess-zur-loesung::before,
+      #downloads::before,
+      #formular::before,
+      #kontakt::before,
+      #faq::before,
+      #warum-nurovelle::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        right: var(--side);
+        left: var(--side);
+        z-index: 8;
+        height: 1px;
+        background: linear-gradient(90deg, transparent 0%, rgba(212, 175, 55, 0.72) 8%, #d4af37 50%, rgba(212, 175, 55, 0.72) 92%, transparent 100%);
+        box-shadow: 0 0 12px rgba(212, 175, 55, 0.2);
+        pointer-events: none;
+      }
+
+      #ki-projekt-start,
+      #potenzialanalyse,
+      #leistungen,
+      #downloads,
+      #faq {
+        background-color: var(--nv-section-emerald);
+      }
+
+      #warum-nurovelle,
+      #projektidee,
+      #formular,
+      #prozess-zur-loesung,
+      #kontakt,
+      .footer {
+        background-color: var(--nv-section-black);
+      }
+
       .nvp4-projectidea__idea h3 {
         font-size: 14px;
       }
@@ -1321,6 +1485,63 @@
 
       .nv-step-card p {
         font-size: 12px;
+      }
+
+      @media (max-width: 899px) {
+        :root {
+          --nv-title-text-gap: 52px;
+
+          --nv-section-text-content-gap: 64px;
+
+          --nv-section-divider-before-gap: 132px;
+
+          --nv-section-divider-after-gap: 72px;
+        }
+
+        .home-sidebar {
+          transform: translateX(-100%);
+        }
+
+        body.has-sidebar .home-sidebar {
+          transform: translateX(0);
+        }
+
+        body.has-sidebar .hero,
+        body.has-sidebar main {
+          width: 100%;
+          margin-left: 0;
+        }
+
+        #ki-projekt-start::before,
+        #projektidee::before,
+        #potenzialanalyse::before,
+        #leistungen::before,
+        #prozess-zur-loesung::before,
+        #downloads::before,
+        #formular::before,
+        #kontakt::before,
+        #faq::before,
+        #warum-nurovelle::before {
+          right: 18px;
+          left: 18px;
+        }
+      }
+
+      @media (max-width: 639px) {
+        :root {
+          --nv-title-text-gap: 44px;
+
+          --nv-section-text-content-gap: 54px;
+
+          --nv-section-divider-before-gap: 104px;
+
+          --nv-section-divider-after-gap: 60px;
+        }
+
+        .nv-breadcrumb,
+        .site-header .header-cta {
+          display: none;
+        }
       }
 
       /* About Nurovelle */
@@ -1362,15 +1583,15 @@
 
       .nv-about__body {
         display: grid;
-        grid-template-columns: minmax(360px, 520px);
-        gap: clamp(96px, 9vw, 144px);
+        grid-template-columns: minmax(420px, 760px) minmax(280px, 420px);
+        gap: clamp(34px, 4vw, 68px);
         align-items: center;
       }
 
       .nv-about__media {
         position: relative;
-        min-height: 290px;
-        border: 1px solid #1f5f3b;
+        min-height: 320px;
+        border: 1px solid rgba(250, 227, 133, 0.34);
         border-radius: 8px;
         background:
           linear-gradient(135deg, #ffffff12 0%, #ffffff03 28%, #00000000 29%),
@@ -1384,9 +1605,9 @@
         box-shadow:
           0 28px 56px #000000a8,
           inset 0 1px 0 #ffffff1f,
-          inset 0 -1px 0 #8feca93d;
+          inset 0 -1px 0 rgba(250, 227, 133, 0.22);
         overflow: hidden;
-        transform: translateY(-20px);
+        transform: translateY(-6px);
       }
 
       .nv-about__media img {
@@ -1394,9 +1615,9 @@
         inset: 0;
         width: 100%;
         height: 100%;
-        object-fit: contain;
-        opacity: 0.86;
-        filter: brightness(0.62) contrast(1.05) saturate(0.9);
+        object-fit: cover;
+        opacity: 0.9;
+        filter: brightness(0.74) contrast(1.02) saturate(0.92);
       }
 
       .nv-about__play {
@@ -1428,6 +1649,34 @@
       .nv-about__text {
         margin: 0 0 34px;
         max-width: 760px;
+      }
+
+      .nv-about__bullets {
+        margin: 0;
+        padding-left: 0;
+        max-width: 900px;
+        display: grid;
+        gap: 10px;
+        color: #b9c3bd;
+        font-family: "Inter", Arial, sans-serif;
+        font-size: var(--nv-section-body-size);
+        line-height: var(--nv-section-body-line);
+        list-style: none;
+      }
+
+      .nv-about__bullets li {
+        position: relative;
+        padding-left: 28px;
+      }
+
+      .nv-about__bullets li::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0.26em;
+        width: 16px;
+        height: 16px;
+        background: url("assets/bulletpoint.png") center / contain no-repeat;
       }
 
       @media (max-width: 899px) {
@@ -1509,6 +1758,7 @@
         display: grid;
         gap: 8px;
         width: min(100%, 1120px);
+        overflow: hidden;
       }
 
       .nv-step-item {
@@ -1516,14 +1766,15 @@
         grid-template-columns: 430px minmax(260px, 360px);
         gap: 18px;
         align-items: center;
+        overflow: hidden;
       }
 
       .nv-step-item:nth-child(2) {
-        margin-left: clamp(44px, 5vw, 88px);
+        margin-left: clamp(22px, 3vw, 54px);
       }
 
       .nv-step-item:nth-child(3) {
-        margin-left: clamp(88px, 10vw, 176px);
+        margin-left: clamp(46px, 6vw, 108px);
       }
 
       .nv-step-card {
@@ -1600,9 +1851,11 @@
       .nv-step-card__content {
         position: absolute;
         z-index: 2;
-        left: calc(139px - 3.5ch);
+        left: 106px;
         right: 34px;
-        bottom: 154px;
+        bottom: 136px;
+        opacity: 0;
+        animation: nv-step-content-reveal 200ms linear forwards;
       }
 
       .nv-step-card__content h3,
@@ -1622,10 +1875,22 @@
         animation-delay: 280ms;
       }
 
+      .nv-step-item:nth-child(1) .nv-step-card__content {
+        animation-delay: 720ms;
+      }
+
+      .nv-step-item:nth-child(2) .nv-step-card__content {
+        animation-delay: 860ms;
+      }
+
+      .nv-step-item:nth-child(3) .nv-step-card__content {
+        animation-delay: 1000ms;
+      }
+
       @keyframes nv-step-enter {
         from {
           opacity: 0;
-          transform: translateX(-90px);
+          transform: translateX(-34px);
         }
 
         to {
@@ -1634,8 +1899,23 @@
         }
       }
 
+      @keyframes nv-step-content-reveal {
+        from {
+          opacity: 0;
+        }
+
+        to {
+          opacity: 1;
+        }
+      }
+
       @media (prefers-reduced-motion: reduce) {
         .nv-step-item {
+          animation: none;
+        }
+
+        .nv-step-card__content {
+          opacity: 1;
           animation: none;
         }
       }
@@ -1690,10 +1970,11 @@
         gap: 18px;
         margin-top: 58px;
         margin-left: 0;
+        justify-content: center;
       }
 
       .nv-section-step__actions .hero-cta {
-        transform: translateX(clamp(340px, 31vw, 480px));
+        transform: none;
       }
 
       @media (max-width: 899px) {
@@ -1791,16 +2072,17 @@
         justify-content: start;
         opacity: 0;
         transform: translateX(-100%);
-        animation: nvp4-projectidea-slide 12s linear infinite;
+        animation: nvp4-projectidea-slide 15s cubic-bezier(0.4, 0, 0.2, 1)
+          infinite;
       }
 
       .nvp4-projectidea__slide:nth-child(2) {
-        animation-delay: 4s;
+        animation-delay: 5s;
       }
 
       .nvp4-projectidea__slide:nth-child(3) {
-        animation-delay: 8s;
-        grid-template-columns: 599px 320px;
+        animation-delay: 10s;
+        grid-template-columns: 766px 320px;
       }
 
       .nvp4-projectidea__image {
@@ -1808,7 +2090,7 @@
         margin: 0;
         width: 416px;
         aspect-ratio: 1;
-        border: 1px solid #1f5f3b;
+        border: 1px solid rgba(250, 227, 133, 0.3);
         border-radius: 8px;
         background: #000000;
         box-shadow:
@@ -1819,7 +2101,7 @@
       }
 
       .nvp4-projectidea__image--wide {
-        width: 589px;
+        width: 766px;
         aspect-ratio: 16 / 9;
       }
 
@@ -1827,21 +2109,23 @@
         display: block;
         width: 100%;
         height: 100%;
-        object-fit: contain;
+        object-fit: cover;
         object-position: center;
         background: #000000;
       }
 
       .nvp4-projectidea__slide:nth-child(3) .nvp4-projectidea__image img {
         background: #00000000;
-        object-fit: contain;
-        transform: none;
+        object-fit: cover;
+        transform: scale(1.06);
       }
 
       .nvp4-projectidea__slide:nth-child(3) .nvp4-projectidea__image {
-        border-color: #00000000;
-        background: #00000000;
-        box-shadow: none;
+        border-color: rgba(250, 227, 133, 0.3);
+        background: #000000;
+        box-shadow:
+          0 22px 44px #00000099,
+          inset 0 1px 0 #ffffff1f;
       }
 
       .nvp4-projectidea__idea {
@@ -1865,25 +2149,26 @@
 
       .nvp4-projectidea__dots {
         position: absolute;
-        left: 0;
+        left: 50%;
         bottom: 18px;
         display: flex;
         gap: 8px;
+        transform: translateX(-50%);
       }
 
       .nvp4-projectidea__dot {
         width: 32px;
         height: 2px;
         background: #1f5f3b;
-        animation: nvp4-projectidea-dot 12s linear infinite;
+        animation: nvp4-projectidea-dot 15s linear infinite;
       }
 
       .nvp4-projectidea__dot:nth-child(2) {
-        animation-delay: 4s;
+        animation-delay: 5s;
       }
 
       .nvp4-projectidea__dot:nth-child(3) {
-        animation-delay: 8s;
+        animation-delay: 10s;
       }
 
       @keyframes nvp4-projectidea-slide {
@@ -1892,22 +2177,23 @@
           transform: translateX(-100%);
         }
 
-        10% {
+        9% {
+          opacity: 1;
+          transform: translateX(-4%);
+        }
+
+        16%,
+        35% {
           opacity: 1;
           transform: translateX(0);
         }
 
-        32% {
-          opacity: 1;
-          transform: translateX(0);
-        }
-
-        42% {
+        44% {
           opacity: 0;
           transform: translateX(100%);
         }
 
-        43%,
+        45%,
         100% {
           opacity: 0;
           transform: translateX(-100%);
@@ -1916,11 +2202,11 @@
 
       @keyframes nvp4-projectidea-dot {
         0%,
-        42% {
+        44% {
           background: #fae385;
         }
 
-        43%,
+        45%,
         100% {
           background: #1f5f3b;
         }
@@ -1965,6 +2251,153 @@
 
         .nvp4-projectidea__image--wide {
           width: 589px;
+        }
+      }
+
+      .nv-contact {
+        margin-left: var(--sidebar-w);
+        padding: var(--nv-section-pad-y) var(--side);
+        background: linear-gradient(180deg, #050706 0%, #080b09 100%);
+        color: #f5f7f4;
+      }
+
+      .nv-contact__inner {
+        width: 100%;
+        max-width: 1650px;
+        margin: 0;
+      }
+
+      .nv-contact__head {
+        max-width: 900px;
+      }
+
+      .nv-contact__title {
+        color: transparent;
+        background: linear-gradient(180deg, #c5a059 0%, #fdf0cd 50%, #d4af37 100%);
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        font: 700 var(--nv-section-title-size) / 1 "Eastman Grotesque Alt", "Eastman Grotesque", Inter, Arial, sans-serif;
+      }
+
+      .nv-contact__intro {
+        color: #b9c3bd;
+        font: 500 var(--nv-section-body-size) / var(--nv-section-body-line) Inter, Arial, sans-serif;
+        max-width: 860px;
+      }
+
+      .nv-contact__grid {
+        margin-top: 28px;
+        display: grid;
+        grid-template-columns: 40% 60%;
+        gap: 18px;
+      }
+
+      .nv-contact__portrait,
+      .nv-contact__card {
+        border: 1px solid rgba(247, 239, 138, 0.45);
+        border-radius: 12px;
+        background: #0a1913;
+        padding: 18px;
+      }
+
+      .nv-contact__portrait h3,
+      .nv-contact__card h3 {
+        color: #f5f7f4;
+        font: 700 clamp(22px, 1.7vw, 30px) / 1.08 "Eastman Grotesque Alt", Inter, Arial, sans-serif;
+        margin: 0 0 10px;
+      }
+
+      .nv-contact__portrait p,
+      .nv-contact__card p,
+      .nv-contact__card li {
+        color: #b9c3bd;
+        font: 500 12px / 1.55 Inter, Arial, sans-serif;
+      }
+
+      .nv-contact__socials {
+        margin-top: 12px;
+        display: grid;
+        gap: 6px;
+      }
+
+      .nv-contact__card ul {
+        margin: 14px 0 0;
+        padding: 0;
+        list-style: none;
+        display: grid;
+        gap: 6px;
+      }
+
+      .nv-faq-metrics {
+        margin-top: 18px;
+        display: grid;
+        gap: 10px;
+      }
+
+      .nv-faq-metric {
+        display: grid;
+        gap: 5px;
+      }
+
+      .nv-faq-metric__top {
+        display: flex;
+        justify-content: space-between;
+        color: #b9c3bd;
+        font: 600 10px/1.2 Inter, Arial, sans-serif;
+      }
+
+      .nv-faq-metric__bar {
+        height: 6px;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.12);
+        overflow: hidden;
+      }
+
+      .nv-faq-metric__fill {
+        display: block;
+        height: 100%;
+        background: linear-gradient(90deg, #d2ac47, #f7ef8a);
+      }
+
+      .nv-s7-card__result {
+        display: grid;
+        grid-template-columns: 24px minmax(0, 1fr);
+        gap: 10px;
+        align-items: start;
+      }
+
+      .nv-s7-card__result-icon {
+        width: 20px;
+        height: 20px;
+        object-fit: contain;
+        margin-top: 2px;
+      }
+
+      .download-item {
+        align-content: space-between;
+      }
+
+      .download-button {
+        justify-self: end;
+        width: auto;
+        min-height: 30px;
+        padding: 0 10px;
+        font-size: 10px;
+      }
+
+      .footer-link--disabled {
+        color: rgba(185, 195, 189, 0.38);
+        pointer-events: none;
+      }
+
+      @media (max-width: 899px) {
+        .nv-contact {
+          margin-left: 0;
+        }
+
+        .nv-contact__grid {
+          grid-template-columns: 1fr;
         }
       }
 
@@ -2214,7 +2647,7 @@
               </summary>
               <div class="nv-breadcrumb__menu">
                 <a href="#hero">Startseite</a>
-                <a href="#about-nurovelle">Über Nurovelle</a>
+                <a href="#warum-nurovelle">Warum Nurovelle</a>
                 <a href="#leistungen">KI-Leistungen</a>
               </div>
             </details>
@@ -2227,6 +2660,7 @@
                 <a href="#ki-projekt-start">Erster Schritt</a>
                 <a href="#projektidee">Projektidee</a>
                 <a href="#potenzialanalyse">Potenzialanalyse</a>
+                <a href="#formular">Formular</a>
               </div>
             </details>
 
@@ -2236,10 +2670,9 @@
               </summary>
               <div class="nv-breadcrumb__menu">
                 <a href="#prozess-zur-loesung">Prozess</a>
-                <a href="#warum-nurovelle">Warum Nurovelle</a>
                 <a href="#downloads">Downloads</a>
+                <a href="#kontakt">Kontakt</a>
                 <a href="#faq">FAQ</a>
-                <a href="#formular">Formular</a>
               </div>
             </details>
           </nav>
@@ -2290,9 +2723,9 @@
               >
             </li>
             <li>
-              <a href="#about-nurovelle"
+              <a href="#warum-nurovelle"
                 ><span class="side-num">02</span
-                ><span class="side-label">Über Nurovelle</span></a
+                ><span class="side-label">Warum Nurovelle</span></a
               >
             </li>
             <li>
@@ -2314,39 +2747,39 @@
               >
             </li>
             <li>
-              <a href="#prozess-zur-loesung"
-                ><span class="side-num">06</span
-                ><span class="side-label">Prozess</span></a
-              >
-            </li>
-            <li>
-              <a href="#downloads"
-                ><span class="side-num">07</span
-                ><span class="side-label">Downloads</span></a
-              >
-            </li>
-            <li>
               <a href="#potenzialanalyse"
-                ><span class="side-num">08</span
+                ><span class="side-num">06</span
                 ><span class="side-label">Potenzialanalyse</span></a
               >
             </li>
             <li>
               <a href="#formular"
-                ><span class="side-num">09</span
+                ><span class="side-num">07</span
                 ><span class="side-label">Formular</span></a
               >
             </li>
             <li>
-              <a href="#faq"
-                ><span class="side-num">10</span
-                ><span class="side-label">FAQ</span></a
+              <a href="#prozess-zur-loesung"
+                ><span class="side-num">08</span
+                ><span class="side-label">Prozess</span></a
               >
             </li>
             <li>
-              <a href="#warum-nurovelle"
+              <a href="#downloads"
+                ><span class="side-num">09</span
+                ><span class="side-label">Downloads</span></a
+              >
+            </li>
+            <li>
+              <a href="#kontakt"
+                ><span class="side-num">10</span
+                ><span class="side-label">Kontakt</span></a
+              >
+            </li>
+            <li>
+              <a href="#faq"
                 ><span class="side-num">11</span
-                ><span class="side-label">Warum Nurovelle</span></a
+                ><span class="side-label">FAQ</span></a
               >
             </li>
           </ul>
@@ -2393,13 +2826,13 @@
 
           <a
             class="hero-cta hero-cta--outline"
-            href="#downloads"
-            aria-label="Praxisleitfaden herunterladen"
+            href="#kontakt"
+            aria-label="Unverbindliches Erstgespräch"
           >
             <span class="nv-press-button">
               <span class="nv-press-button__top"
                 ><span class="nv-press-button__label"
-                  >Praxisleitfaden herunterladen</span
+                  >Unverbindliches Erstgespräch</span
                 ></span
               >
               <span class="nv-press-button__bottom" aria-hidden="true"></span>
@@ -2410,37 +2843,70 @@
       </main>
       <section
         class="nv-about"
-        id="about-nurovelle"
-        aria-labelledby="about-nurovelle-title"
+        id="warum-nurovelle"
+        aria-labelledby="warum-nurovelle-title"
       >
         <div class="nv-about__inner">
-          <div class="nv-about__intro">
-            <p class="nv-about__kicker">Über Nurovelle</p>
-            <h2 class="nv-about__title" id="about-nurovelle-title">
-              KI-Lösungen, die in realen Prozessen funktionieren
-            </h2>
-            <p class="nv-about__text">
-              Nurovelle entwickelt individuelle KI-Systeme, die sich an
-              konkreten Geschäftsprozessen orientieren. Wir analysieren
-              bestehende Abläufe, identifizieren sinnvolle Potenziale und setzen
-              Lösungen um, die im Arbeitsalltag tatsächlich entlasten.
-            </p>
-          </div>
-
           <div class="nv-about__body">
-            <div
-              class="nv-about__media"
-              aria-label="Video-Preview Über Nurovelle"
-            >
+            <div class="nv-about__intro">
+              <p class="nv-about__kicker">Warum Nurovelle</p>
+              <h2 class="nv-about__title" id="warum-nurovelle-title">
+                Warum Nurovelle
+              </h2>
+              <p class="nv-about__text">
+                KI schafft nur dann echten Nutzen, wenn sie zu den bestehenden
+                Prozessen, Daten und Systemen eines Unternehmens passt. Deshalb
+                beginnt Nurovelle nicht mit einem fertigen Tool, sondern mit der
+                Frage, welcher Ablauf verbessert werden soll und welche technische
+                Lösung dafür tatsächlich sinnvoll ist.
+              </p>
+              <p class="nv-about__text">
+                Aus dieser Grundlage entstehen individuelle KI-Systeme,
+                Automatisierungen und Softwarelösungen, die sich an realen
+                Anforderungen orientieren und in bestehende Strukturen
+                integrieren lassen.
+              </p>
+              <ul class="nv-about__bullets">
+                <li>
+                  <strong>Prozesse zuerst:</strong> Ausgangspunkt ist immer der
+                  konkrete Geschäftsprozess, nicht ein vorgegebenes KI-Produkt.
+                </li>
+                <li>
+                  <strong>Technologie nach Bedarf:</strong> KI-Agent,
+                  Automatisierung, Wissenssystem, SaaS-Lösung oder klassische
+                  Software werden nach dem tatsächlichen Einsatzfall gewählt.
+                </li>
+                <li>
+                  <strong>Bestehende Systeme einbeziehen:</strong> Vorhandene
+                  Datenquellen, Anwendungen, Schnittstellen und Arbeitsabläufe
+                  werden in die Planung einbezogen.
+                </li>
+                <li>
+                  <strong>Machbarkeit vor Entwicklung:</strong> Datenlage,
+                  Integrationsaufwand und technische Voraussetzungen werden
+                  geprüft, bevor unnötige Entwicklungsarbeit entsteht.
+                </li>
+                <li>
+                  <strong>Klare nächste Schritte:</strong> Anforderungen,
+                  Prioritäten und mögliche Umsetzungsschritte werden
+                  nachvollziehbar strukturiert.
+                </li>
+                <li>
+                  <strong>Individuelle Umsetzung:</strong> Die Lösung richtet
+                  sich nach Prozess, Ziel und vorhandener Infrastruktur statt
+                  nach einer starren Standardvorlage.
+                </li>
+              </ul>
+            </div>
+            <figure class="nv-about__media" aria-hidden="true">
               <img
-                src="assets/Fotos/9.png"
+                src="assets/Fotos/12.png"
                 alt=""
                 loading="lazy"
                 decoding="async"
-                aria-hidden="true"
               />
-              <span class="nv-about__play" aria-hidden="true"></span>
-            </div>
+              <span class="nv-about__play"></span>
+            </figure>
           </div>
         </div>
       </section>
@@ -2480,8 +2946,8 @@
                 <div class="nv-step-card__content">
                   <h3>Prozess klären</h3>
                   <p>
-                    Welcher Geschäftsprozess verbessert<br />werden soll und
-                    welches konkrete Ergeb-<br />nis durch KI entstehen muss.
+                    Welcher Geschäftsprozess verbessert werden soll und welches
+                    konkrete Ergebnis durch KI entstehen muss.
                   </p>
                   <span class="nv-step-card__more">Mehr erfahren</span>
                 </div>
@@ -2501,9 +2967,8 @@
                 <div class="nv-step-card__content">
                   <h3>Daten prüfen</h3>
                   <p>
-                    Welche Daten, Systeme und Wissens-<br />quellen bereits
-                    vorhanden sind und tech-<br />nisch nutzbar gemacht werden
-                    können.
+                    Welche Daten, Systeme und Wissensquellen bereits vorhanden
+                    sind und technisch nutzbar gemacht werden können.
                   </p>
                   <span class="nv-step-card__more">Mehr erfahren</span>
                 </div>
@@ -2524,8 +2989,7 @@
                   <h3>Umsetzung planen</h3>
                   <p>
                     Ob ein KI-Agent, ein Wissenssystem, Automatisierung oder
-                    individuelle Soft-<br />Ware der sinnvolle nächste Schritt
-                    ist.
+                    individuelle Software der sinnvolle nächste Schritt ist.
                   </p>
                   <span class="nv-step-card__more">Mehr erfahren</span>
                 </div>
@@ -2542,7 +3006,7 @@
               <span class="nv-press-button">
                 <span class="nv-press-button__top"
                   ><span class="nv-press-button__label"
-                    >Kostenloses Erstgespräch vereinbaren</span
+                    >Potenzialanalyse starten</span
                   ></span
                 >
                 <span class="nv-press-button__bottom" aria-hidden="true"></span>
@@ -2585,27 +3049,8 @@
             <article class="nvp4-projectidea__slide">
               <figure class="nvp4-projectidea__image">
                 <img
-                  src="assets/Fotos/9.png"
-                  alt="Team bespricht eine konkrete KI-Projektidee"
-                  loading="lazy"
-                  decoding="async"
-                />
-              </figure>
-              <div class="nvp4-projectidea__idea">
-                <h3>Interne Wissenssuche</h3>
-                <p>
-                  Ein KI-System erschließt vorhandene Dokumente, Projektdaten
-                  und interne Informationen, damit Mitarbeitende schneller
-                  belastbare Antworten finden.
-                </p>
-              </div>
-            </article>
-
-            <article class="nvp4-projectidea__slide">
-              <figure class="nvp4-projectidea__image">
-                <img
                   src="assets/Fotos/10.png"
-                  alt="KI-Workshop mit digitaler Prozessanalyse"
+                  alt="Prozessautomatisierung"
                   loading="lazy"
                   decoding="async"
                 />
@@ -2625,7 +3070,7 @@
               >
                 <img
                   src="assets/Fotos/13.png"
-                  alt="Digitale KI-Strategie in einem Beratungsgespräch"
+                  alt="Datenbasierte Entscheidungshilfe"
                   loading="lazy"
                   decoding="async"
                 />
@@ -2636,6 +3081,25 @@
                   Bestehende Datenquellen werden verbunden und so aufbereitet,
                   dass Teams Trends, Engpässe und nächste Schritte klarer
                   erkennen.
+                </p>
+              </div>
+            </article>
+
+            <article class="nvp4-projectidea__slide">
+              <figure class="nvp4-projectidea__image">
+                <img
+                  src="assets/Fotos/9.png"
+                  alt="Interne Wissenssuche"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </figure>
+              <div class="nvp4-projectidea__idea">
+                <h3>Interne Wissenssuche</h3>
+                <p>
+                  Ein KI-System erschließt vorhandene Dokumente, Projektdaten
+                  und interne Informationen, damit Mitarbeitende schneller
+                  belastbare Antworten finden.
                 </p>
               </div>
             </article>
@@ -2886,7 +3350,7 @@ void main(){
             <div class="nv-s7-card__left">
               <div class="nv-s7-card__iconbox">
                 <img
-                  src="assets/icons/service/1.png"
+                  src="assets/cards/service/icons/1.png"
                   alt=""
                   aria-hidden="true"
                 />
@@ -2942,7 +3406,7 @@ void main(){
             <div class="nv-s7-card__left">
               <div class="nv-s7-card__iconbox">
                 <img
-                  src="assets/icons/service/2.png"
+                  src="assets/cards/service/icons/2.png"
                   alt=""
                   aria-hidden="true"
                 />
@@ -2999,7 +3463,7 @@ void main(){
             <div class="nv-s7-card__left">
               <div class="nv-s7-card__iconbox">
                 <img
-                  src="assets/icons/service/3.png"
+                  src="assets/cards/service/icons/3.png"
                   alt=""
                   aria-hidden="true"
                 />
@@ -3056,7 +3520,7 @@ void main(){
             <div class="nv-s7-card__left">
               <div class="nv-s7-card__iconbox">
                 <img
-                  src="assets/icons/service/4.png"
+                  src="assets/cards/service/icons/4.png"
                   alt=""
                   aria-hidden="true"
                 />
@@ -3112,7 +3576,7 @@ void main(){
             <div class="nv-s7-card__left">
               <div class="nv-s7-card__iconbox">
                 <img
-                  src="assets/icons/service/5.png"
+                  src="assets/cards/service/icons/5.png"
                   alt=""
                   aria-hidden="true"
                 />
@@ -3168,7 +3632,7 @@ void main(){
             <div class="nv-s7-card__left">
               <div class="nv-s7-card__iconbox">
                 <img
-                  src="assets/icons/service/6.png"
+                  src="assets/cards/service/icons/6.png"
                   alt=""
                   aria-hidden="true"
                 />
@@ -3225,7 +3689,7 @@ void main(){
             <div class="nv-s7-card__left">
               <div class="nv-s7-card__iconbox">
                 <img
-                  src="assets/icons/service/7.png"
+                  src="assets/cards/service/icons/7.png"
                   alt=""
                   aria-hidden="true"
                 />
@@ -3281,7 +3745,7 @@ void main(){
             <div class="nv-s7-card__left">
               <div class="nv-s7-card__iconbox">
                 <img
-                  src="assets/icons/service/8.png"
+                  src="assets/cards/service/icons/8.png"
                   alt=""
                   aria-hidden="true"
                 />
@@ -3337,7 +3801,7 @@ void main(){
             <div class="nv-s7-card__left">
               <div class="nv-s7-card__iconbox">
                 <img
-                  src="assets/icons/service/9.png"
+                  src="assets/cards/service/icons/9.png"
                   alt=""
                   aria-hidden="true"
                 />
@@ -3394,7 +3858,7 @@ void main(){
             <div class="nv-s7-card__left">
               <div class="nv-s7-card__iconbox">
                 <img
-                  src="assets/icons/service/9.png"
+                  src="assets/cards/service/icons/10.png"
                   alt=""
                   aria-hidden="true"
                 />
@@ -3451,7 +3915,7 @@ void main(){
             <div class="nv-s7-card__left">
               <div class="nv-s7-card__iconbox">
                 <img
-                  src="assets/icons/service/8.png"
+                  src="assets/cards/service/icons/11.png"
                   alt=""
                   aria-hidden="true"
                 />
@@ -3532,11 +3996,7 @@ void main(){
                 aria-hidden="true"
               />
             </div>
-            <h3>Geschäftsaufgabe bestimmen</h3>
-            <p>
-              Der konkrete Prozess und das gewünschte Ergebnis werden klar
-              abgegrenzt.
-            </p>
+            <h3>Aufgabe erfassen</h3>
           </li>
           <li class="nv-process__step">
             <div class="nv-process__visual">
@@ -3552,11 +4012,7 @@ void main(){
                 aria-hidden="true"
               />
             </div>
-            <h3>KI-Eignung prüfen</h3>
-            <p>
-              Wir bewerten, ob KI für die Aufgabe einen realistischen Nutzen
-              schafft.
-            </p>
+            <h3>KI-Potenzial bewerten</h3>
           </li>
           <li class="nv-process__step">
             <div class="nv-process__visual">
@@ -3572,11 +4028,7 @@ void main(){
                 aria-hidden="true"
               />
             </div>
-            <h3>Datenlage bewerten</h3>
-            <p>
-              Vorhandene Datenquellen werden auf Qualität und Nutzbarkeit
-              geprüft.
-            </p>
+            <h3>Daten prüfen</h3>
           </li>
           <li class="nv-process__step">
             <div class="nv-process__visual">
@@ -3592,11 +4044,7 @@ void main(){
                 aria-hidden="true"
               />
             </div>
-            <h3>Prozesslogik klären</h3>
-            <p>
-              Abläufe, Regeln, Übergaben und notwendige Prüfungen werden
-              erfasst.
-            </p>
+            <h3>Prozess modellieren</h3>
           </li>
           <li class="nv-process__step">
             <div class="nv-process__visual">
@@ -3612,11 +4060,7 @@ void main(){
                 aria-hidden="true"
               />
             </div>
-            <h3>Lösungstyp festlegen</h3>
-            <p>
-              Der passende technische Lösungsweg wird aus den Anforderungen
-              abgeleitet.
-            </p>
+            <h3>Lösung auswählen</h3>
           </li>
           <li class="nv-process__step">
             <div class="nv-process__visual">
@@ -3632,11 +4076,7 @@ void main(){
                 aria-hidden="true"
               />
             </div>
-            <h3>Umsetzung planen</h3>
-            <p>
-              Die nächsten Schritte werden mit Aufwand, Abhängigkeiten und
-              Prioritäten geordnet.
-            </p>
+            <h3>Umsetzung strukturieren</h3>
           </li>
         </ol>
       </div>
@@ -3800,8 +4240,39 @@ void main(){
             Kostenlose KI-Potenzialanalyse
           </h2>
           <p class="nvp5-analysis__intro">
-            Die Analyse zeigt, wo KI und Automatisierung in Ihren Abläufen
-            sinnvoll ansetzen können – kostenlos und unverbindlich.
+            Die Potenzialanalyse ist kein Verkaufsformular, sondern ein
+            strukturierter Einstieg. Sie zeigt, welche Abläufe aktuell Zeit
+            binden, wo Medienbrüche entstehen und welche Datenquellen bereits
+            vorhanden sind.
+          </p>
+          <p class="nvp5-analysis__intro">
+            <strong>Prozesslage:</strong> Welche wiederkehrenden Aufgaben
+            aktuell Zeit binden, wo Rückfragen entstehen und welche Übergaben
+            manuell laufen.
+          </p>
+          <p class="nvp5-analysis__intro">
+            <strong>Datenlage:</strong> Welche Systeme, Tabellen, E-Mails oder
+            Dokumente beteiligt sind und ob die Informationen nutzbar
+            zusammengeführt werden können.
+          </p>
+          <p class="nvp5-analysis__intro">
+            <strong>Automatisierungspotenzial:</strong> Ob KI,
+            Automatisierung, ein SaaS-Tool oder ein normaler Prozessumbau für
+            den konkreten Ablauf sinnvoller ist.
+          </p>
+          <p class="nvp5-analysis__intro">
+            <strong>Nächster Schritt:</strong> Welche Umsetzung zuerst den
+            größten Nutzen bringt und welcher Einstieg realistisch vorbereitet
+            werden sollte.
+          </p>
+          <p class="nvp5-analysis__intro">
+            <strong>Was Sie danach erhalten:</strong> Eine klare erste
+            Einschätzung, ob und wo sich KI-Automatisierung lohnt – mit einer
+            Einordnung von Aufwand, Nutzen und Priorität sowie einer Empfehlung
+            für den sinnvollsten nächsten Schritt.
+          </p>
+          <p class="nvp5-analysis__intro">
+            Kostenlos und unverbindlich. Kein Abo. Keine versteckten Kosten.
           </p>
         </header>
         <div class="nvp5-analysis__cta-row">
@@ -3832,11 +4303,11 @@ void main(){
         <header class="nv-resource-section__head">
           <p class="nv-resource-section__kicker">POTENZIALANALYSE</p>
           <h2 class="nv-resource-section__title" id="formular-title">
-            Potenzialanalyse starten
+            Ihr nächster Schritt
           </h2>
           <p class="nv-resource-section__intro">
-            Beschreiben Sie kurz den Prozess, den Sie prüfen möchten. Wir ordnen
-            Potenzial, Datenlage und mögliche nächste Schritte ein.
+            Senden Sie uns die wichtigsten Angaben zu Ihrem Prozess. Wir melden
+            uns mit einer ersten strukturierten Einordnung.
           </p>
         </header>
 
@@ -3884,7 +4355,7 @@ void main(){
           </div>
 
           <form class="nv-analysis-form" action="analyse.html" method="get">
-            <h3>Ihr nächster Schritt</h3>
+            <h3>Potenzialanalyse starten</h3>
             <p class="nv-analysis-form__intro">
               Senden Sie uns die wichtigsten Angaben zu Ihrem Prozess. Wir
               melden uns mit einer ersten strukturierten Einordnung.
@@ -4013,6 +4484,53 @@ void main(){
       </div>
     </section>
 
+    <section class="nv-contact" id="kontakt" aria-labelledby="kontakt-title">
+      <div class="nv-contact__inner">
+        <header class="nv-contact__head">
+          <p class="nv-contact__kicker">Kontakt</p>
+          <h2 class="nv-contact__title" id="kontakt-title">
+            Lassen Sie uns über Ihren nächsten Schritt sprechen
+          </h2>
+          <p class="nv-contact__intro">
+            Ob erste Orientierung oder konkrete Projektidee: In einem
+            unverbindlichen Gespräch klären wir, worum es geht, welche
+            Voraussetzungen bereits vorhanden sind und welcher nächste Schritt
+            sinnvoll ist.
+          </p>
+        </header>
+        <div class="nv-contact__grid">
+          <article class="nv-contact__portrait">
+            <h3>Tino Schneider</h3>
+            <p>Nurovelle</p>
+            <div class="nv-contact__socials">
+              <p>LinkedIn</p>
+              <p>YouTube</p>
+              <p>Instagram</p>
+              <p>GitHub</p>
+            </div>
+          </article>
+          <article class="nv-contact__card">
+            <h3>Unverbindliches Erstgespräch</h3>
+            <p>
+              Sie möchten einen Prozess prüfen, eine konkrete KI-Idee einordnen
+              oder herausfinden, welche Lösung zu Ihrer Ausgangslage passt?
+            </p>
+            <p>
+              Wir besprechen den aktuellen Stand, die wichtigsten Anforderungen
+              und mögliche nächste Schritte – klar, strukturiert und ohne
+              Verkaufsdruck.
+            </p>
+            <ul>
+              <li>Erstgespräch vereinbaren</li>
+              <li>E-Mail: demo@nurovelle.de</li>
+              <li>Telefon: +49 152 059 755 53</li>
+              <li>Standort: Marburg, Deutschland</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
     <section class="nv-resource-section" id="faq" aria-labelledby="faq-title">
       <div class="nv-resource-section__inner">
         <header class="nv-resource-section__head">
@@ -4029,120 +4547,112 @@ void main(){
           <details class="nv-faq-item">
             <summary>Muss ich bereits eine konkrete KI-Idee haben?</summary>
             <p>
-              Nein. Häufig beginnt ein Projekt mit einem manuellen,
-              zeitaufwendigen oder fehleranfälligen Geschäftsprozess. Wir prüfen
-              gemeinsam, ob und wie KI oder Automatisierung dort sinnvoll
-              eingesetzt werden kann.
+              Nein. Die Potenzialanalyse eignet sich auch dann, wenn zunächst
+              nur ein zeitaufwendiger oder fehleranfälliger Prozess bekannt
+              ist. Gemeinsam wird geprüft, ob KI, Automatisierung, Software
+              oder eine andere Prozessverbesserung sinnvoll ist.
             </p>
           </details>
           <details class="nv-faq-item">
             <summary>Was wird bei der KI-Potenzialanalyse geprüft?</summary>
             <p>
-              Geprüft werden unter anderem bestehende Abläufe, wiederkehrende
-              Aufgaben, Datenquellen, Schnittstellen, technische Voraussetzungen
-              und mögliche Automatisierungspotenziale.
+              Geprüft werden der aktuelle Ablauf, beteiligte Systeme und
+              Datenquellen, manuelle Übergaben, wiederkehrende Aufgaben sowie
+              der mögliche Nutzen einer technischen Lösung. Daraus entsteht eine
+              erste Einordnung von Aufwand, Priorität und sinnvollem nächsten
+              Schritt.
             </p>
           </details>
           <details class="nv-faq-item">
             <summary>Für welche Unternehmen eignet sich das Angebot?</summary>
             <p>
-              Das Angebot richtet sich an Einzelunternehmen, Start-ups, kleine
-              und mittelständische Unternehmen sowie Teams mit manuellen,
-              datenintensiven oder wiederkehrenden Prozessen.
+              Das Angebot richtet sich an Unternehmen, die wiederkehrende
+              Abläufe verbessern, Informationen schneller nutzbar machen oder
+              bestehende Systeme sinnvoll verbinden möchten. Entscheidend ist
+              nicht die Unternehmensgröße, sondern ein klar abgrenzbarer
+              Prozess oder konkreter Verbesserungsbedarf.
             </p>
           </details>
           <details class="nv-faq-item">
             <summary>Entwickelt Nurovelle auch individuelle Lösungen?</summary>
             <p>
-              Ja. Neben Beratung und Analyse entwickeln wir individuelle
-              KI-Systeme, Automatisierungen, interne Anwendungen und technische
-              Integrationen passend zu bestehenden Abläufen.
+              Ja. Lösungen werden an den jeweiligen Prozess, die vorhandenen
+              Systeme und die technischen Anforderungen angepasst. Dazu können
+              KI-Agenten, Automatisierungen, Wissenssysteme, Schnittstellen
+              oder individuelle Software gehören.
             </p>
           </details>
           <details class="nv-faq-item">
             <summary>Können bestehende Systeme angebunden werden?</summary>
             <p>
-              Grundsätzlich ja. Ob eine Anbindung möglich ist, hängt von den
-              vorhandenen Schnittstellen, Datenzugängen und technischen
-              Rahmenbedingungen ab. Dies wird vor der Umsetzung geprüft.
+              Grundsätzlich ja, sofern geeignete Schnittstellen, Datenzugriffe
+              oder technische Integrationsmöglichkeiten vorhanden sind. Vor der
+              Umsetzung wird geprüft, welche Systeme beteiligt sind und welche
+              Anbindung realistisch und sicher möglich ist.
             </p>
           </details>
           <details class="nv-faq-item">
             <summary>Wie läuft ein typisches Projekt ab?</summary>
             <p>
-              Ein Projekt beginnt mit der Analyse des Geschäftsprozesses. Danach
-              werden Datenbasis, Anforderungen und Schnittstellen geprüft.
-              Anschließend folgen Konzeption, technische Umsetzung, Integration
-              und Tests.
+              Zu Beginn werden Aufgabe, Ziel, Datenlage und bestehende Abläufe
+              geklärt. Danach folgen technische Prüfung, Auswahl des passenden
+              Lösungstyps, Umsetzungsplanung, Entwicklung, Tests und die
+              kontrollierte Einführung in den bestehenden Prozess.
             </p>
           </details>
           <details class="nv-faq-item">
             <summary>Wie lange dauert die Umsetzung?</summary>
             <p>
-              Die Dauer hängt vom Umfang, den vorhandenen Systemen und der
-              Komplexität der Lösung ab. Kleine Automatisierungen können
-              deutlich schneller umgesetzt werden als umfangreiche individuelle
-              KI-Systeme.
+              Das hängt vom Umfang, der Datenlage, den beteiligten Systemen und
+              dem Integrationsaufwand ab. Eine klar abgegrenzte
+              Automatisierung kann deutlich schneller umgesetzt werden als ein
+              komplexes System mit mehreren Schnittstellen und Freigabeprozessen.
             </p>
           </details>
           <details class="nv-faq-item">
             <summary>Was passiert nach dem Absenden des Formulars?</summary>
             <p>
-              Wir prüfen Ihre Angaben und melden uns mit einer ersten
-              Einschätzung. Danach wird entschieden, ob eine Potenzialanalyse,
-              ein Erstgespräch oder die direkte Prüfung einer konkreten
-              Projektidee sinnvoll ist.
+              Die Angaben werden geprüft und strukturiert eingeordnet.
+              Anschließend erhalten Sie eine erste Rückmeldung zum möglichen
+              Einsatzbereich, zu offenen Voraussetzungen und zum sinnvollsten
+              nächsten Schritt. Falls weitere Informationen erforderlich sind,
+              werden diese gezielt abgefragt.
             </p>
           </details>
         </div>
-      </div>
-    </section>
-
-    <section
-      class="nv-why"
-      id="warum-nurovelle"
-      aria-labelledby="warum-nurovelle-title"
-    >
-      <div class="nv-why__inner">
-        <header class="nv-why__head">
-          <p class="nv-why__kicker">WARUM NUROVELLE</p>
-          <h2 class="nv-why__title" id="warum-nurovelle-title">
-            Warum Nurovelle
-          </h2>
-          <p class="nv-why__intro">
-            Strukturierte Analyse, technische Umsetzung und ein klarer Fokus auf
-            reale Geschäftsprozesse bilden die Grundlage jedes Projekts.
-          </p>
-        </header>
-        <div class="nv-why__points">
-          <article class="nv-why__point">
-            <h3>Prozesse verstehen</h3>
-            <p>
-              Bestehende Abläufe, Engpässe und manuelle Arbeitsschritte werden
-              systematisch analysiert.
-            </p>
-          </article>
-          <article class="nv-why__point">
-            <h3>Potenziale erkennen</h3>
-            <p>
-              Wir prüfen, wo KI, Automatisierung oder intelligente
-              Datenverarbeitung einen echten Nutzen schaffen.
-            </p>
-          </article>
-          <article class="nv-why__point">
-            <h3>Individuell entwickeln</h3>
-            <p>
-              Lösungen werden passend zu den vorhandenen Systemen, Anforderungen
-              und Arbeitsweisen konzipiert.
-            </p>
-          </article>
-          <article class="nv-why__point">
-            <h3>Nachhaltig integrieren</h3>
-            <p>
-              Nutzbare KI-Systeme vereinfachen Prozesse und lassen sich
-              langfristig weiterentwickeln.
-            </p>
-          </article>
+        <div class="nv-faq-metrics" aria-label="Ergänzende Kennzahlen">
+          <div class="nv-faq-metric">
+            <div class="nv-faq-metric__top">
+              <span>Qualifizierte Mitarbeitende</span><span>90 %</span>
+            </div>
+            <div class="nv-faq-metric__bar">
+              <span class="nv-faq-metric__fill" style="width: 90%"></span>
+            </div>
+          </div>
+          <div class="nv-faq-metric">
+            <div class="nv-faq-metric__top">
+              <span>Servicequalität</span><span>60 %</span>
+            </div>
+            <div class="nv-faq-metric__bar">
+              <span class="nv-faq-metric__fill" style="width: 60%"></span>
+            </div>
+          </div>
+          <div class="nv-faq-metric">
+            <div class="nv-faq-metric__top">
+              <span>Erfolgreich abgeschlossen</span><span>85 %</span>
+            </div>
+            <div class="nv-faq-metric__bar">
+              <span class="nv-faq-metric__fill" style="width: 85%"></span>
+            </div>
+          </div>
+          <div class="nv-faq-metric">
+            <div class="nv-faq-metric__top">
+              <span>Support abgeschlossen</span><span>90 %</span>
+            </div>
+            <div class="nv-faq-metric__bar">
+              <span class="nv-faq-metric__fill" style="width: 90%"></span>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -4152,29 +4662,169 @@ void main(){
         <div>
           <h4>Nurovelle</h4>
           <p>Individuelle KI-Systeme für reale Geschäftsprozesse.</p>
+          <p>
+            Nurovelle entwickelt KI-Agenten, Automatisierungssysteme und
+            datenbasierte Lösungen, die Unternehmen bei wiederkehrenden
+            Abläufen, Wissenszugriff und Datenverarbeitung unterstützen.
+          </p>
         </div>
         <div>
-          <h4>Seiten</h4>
-          <a href="#hero">Startseite</a><a href="#leistungen">Leistungen</a
-          ><a href="#prozess-zur-loesung">Prozess</a>
+          <h4>Nützliche Links</h4>
+          <a href="#hero">Startseite</a>
+          <a href="#warum-nurovelle">Über Nurovelle</a>
+          <a href="#leistungen">Leistungen</a>
+          <a href="#potenzialanalyse">Potenzialanalyse</a>
+          <a href="#downloads">Downloads</a>
+          <a href="#faq">FAQ</a>
+          <a href="#kontakt">Kontakt</a>
+          <span class="footer-link--disabled" aria-disabled="true">Aktuelles</span>
+          <span class="footer-link--disabled" aria-disabled="true">Team</span>
+          <span class="footer-link--disabled" aria-disabled="true">SEO</span>
+          <span class="footer-link--disabled" aria-disabled="true">Pakete</span>
         </div>
         <div>
-          <h4>Analyse</h4>
-          <a href="analyse.html">Potenzialanalyse</a
-          ><a href="#downloads">Downloads</a><a href="#faq">FAQ</a>
+          <h4>Newsletter</h4>
+          <p>
+            Erhalten Sie ausgewählte Informationen zu KI-Agenten,
+            Automatisierung, Unternehmenssoftware und neuen
+            Nurovelle-Lösungen direkt per E-Mail.
+          </p>
+          <p>Ihre E-Mail-Adresse</p>
+          <p>Newsletter abonnieren</p>
+          <h4>Social Media</h4>
+          <p>LinkedIn</p>
+          <p>YouTube</p>
+          <p>Instagram</p>
+          <p>GitHub</p>
         </div>
         <div>
           <h4>Kontakt</h4>
-          <a href="mailto:info@nurovelle.de">info@nurovelle.de</a
-          ><a href="impressum.html">Impressum</a
-          ><a href="datenschutz.html">Datenschutz</a>
-          <p>© 2026 Nurovelle</p>
+          <p>Marburg, Deutschland</p>
+          <p>+49 152 059 755 53</p>
+          <p>demo@nurovelle.de</p>
+          <h4>Rechtliches</h4>
+          <a href="impressum.html">Impressum</a>
+          <a href="datenschutz.html">Datenschutz</a>
+          <a href="agb.html">AGB</a>
+          <p>Copyright © Nurovelle. By d4sd1ng. All rights reserved.</p>
+          <p>Nach oben</p>
         </div>
       </div>
     </footer>
 
     <script>
       (() => {
+        const serviceCards = [
+          {
+            subtitle: "Chancen erkennen und priorisieren",
+            bullets: ["Prozessaufnahme", "Daten- und Systemprüfung", "Maßnahmenpriorisierung"],
+            resultTitle: "Klare Potenzialübersicht",
+            resultText: "Eine strukturierte Einschätzung mit priorisierten Einsatzmöglichkeiten und konkreten nächsten Schritten.",
+          },
+          {
+            subtitle: "Von der Idee zum belastbaren Plan",
+            bullets: ["KI-Strategie", "Projektplanung", "Umsetzungsfahrplan"],
+            resultTitle: "Realistische Roadmap",
+            resultText: "Ein nachvollziehbarer Plan mit Prioritäten, Abhängigkeiten und klaren Entscheidungspunkten.",
+          },
+          {
+            subtitle: "Digitale Systeme mit klaren Aufgaben",
+            bullets: ["Aufgabensteuerung", "Recherche und Auswertung", "Mehrstufige Abläufe"],
+            resultTitle: "Kontrollierter KI-Agent",
+            resultText: "Ein auf den Prozess abgestimmtes System mit definierten Regeln, Schnittstellen und Ergebnissen.",
+          },
+          {
+            subtitle: "Dialogsysteme für Service und Wissen",
+            bullets: ["Kundenanfragen", "Interner Wissenszugriff", "Vorqualifizierung"],
+            resultTitle: "Konsistente Dialogführung",
+            resultText: "Ein kontrolliertes Dialogsystem mit passenden Wissensquellen und klaren Übergaben.",
+          },
+          {
+            subtitle: "Natürliche Interaktion per Sprache",
+            bullets: ["Telefonische Anfragen", "Terminvereinbarung", "Strukturierte Erstaufnahme"],
+            resultTitle: "Automatisierte Gesprächsannahme",
+            resultText: "Ein Sprachassistent, der Anfragen erfasst, verarbeitet und gezielt weiterleitet.",
+          },
+          {
+            subtitle: "Präzise Anweisungen für bessere Ergebnisse",
+            bullets: ["Prompt-Systeme", "Vorlagen und Standards", "Qualitätssicherung"],
+            resultTitle: "Wiederverwendbare Prompt-Strukturen",
+            resultText: "Ein konsistentes System für bessere Ausgaben, klare Abläufe und teamweite Nutzung.",
+          },
+          {
+            subtitle: "Kontrollierter und nachvollziehbarer Einsatz",
+            bullets: ["Zugriffsregeln", "Freigabeprozesse", "Datenschutz und Prüfung"],
+            resultTitle: "Verbindlicher Governance-Rahmen",
+            resultText: "Klare Zuständigkeiten, Schutzmaßnahmen und dokumentierte Freigabewege.",
+          },
+          {
+            subtitle: "Prozesse verbinden und entlasten",
+            bullets: ["Wiederkehrende Aufgaben", "Freigaben und Übergaben", "Systemübergreifende Abläufe"],
+            resultTitle: "Stabiler automatisierter Workflow",
+            resultText: "Ein nachvollziehbarer Prozess mit weniger manuellen Übergaben und klaren Zuständen.",
+          },
+          {
+            subtitle: "Informationen erfassen und prüfen",
+            bullets: ["Dokumentenverarbeitung", "Datenextraktion", "Abgleich und Prüfung"],
+            resultTitle: "Strukturierte und geprüfte Daten",
+            resultText: "Weniger manuelle Übertragung, klar dokumentierte Abweichungen und nutzbare Informationen.",
+          },
+          {
+            subtitle: "Maßgeschneiderte Systeme statt Insellösungen",
+            bullets: ["Individuelle Anwendungen", "API-Integration", "CRM- und ERP-Anbindung"],
+            resultTitle: "Integrierte KI-Lösung",
+            resultText: "Ein passgenaues System, das bestehende Abläufe ergänzt und technisch erweiterbar bleibt.",
+          },
+          {
+            subtitle: "Strukturierte Grundlagen für organische Reichweite",
+            bullets: ["Keyword- und Themenanalyse", "Technische SEO-Prüfung", "Content-Strukturen"],
+            resultTitle: "Priorisierte SEO-Grundlage",
+            resultText: "Konkrete Maßnahmen für bessere Auffindbarkeit, relevante Inhalte und nachhaltige Sichtbarkeit.",
+          },
+        ];
+
+        document.querySelectorAll(".nv-s7-card").forEach((card, index) => {
+          const model = serviceCards[index];
+          if (!model) return;
+
+          const subtitle = card.querySelector(".nv-s7-card__heading p");
+          if (subtitle) subtitle.textContent = model.subtitle;
+
+          const usesHeading = card.querySelector(".nv-s7-card__uses h4");
+          if (usesHeading) usesHeading.innerHTML = '<span class="nv-s7-card__target" aria-hidden="true">◎</span> Einsatzbereiche';
+
+          const usesList = card.querySelector(".nv-s7-card__uses ul");
+          if (usesList) {
+            usesList.innerHTML = "";
+            model.bullets.forEach(text => {
+              const li = document.createElement("li");
+              li.textContent = text;
+              usesList.appendChild(li);
+            });
+          }
+
+          const extraDescription = card.querySelector(".nv-s7-card__description");
+          if (extraDescription) extraDescription.remove();
+
+          const result = card.querySelector(".nv-s7-card__result");
+          if (!result) return;
+
+          if (!result.querySelector(".nv-s7-card__result-icon")) {
+            const icon = document.createElement("img");
+            icon.className = "nv-s7-card__result-icon";
+            icon.src = "assets/cards/service/icons/ergebnis.png";
+            icon.alt = "";
+            icon.setAttribute("aria-hidden", "true");
+            result.insertAdjacentElement("afterbegin", icon);
+          }
+
+          const resultHeading = result.querySelector("h4");
+          if (resultHeading) resultHeading.textContent = model.resultTitle;
+
+          const resultText = result.querySelector("p");
+          if (resultText) resultText.textContent = model.resultText;
+        });
+
         const cards = [...document.querySelectorAll(".nv-s7-card[data-card]")];
         if (!cards.length) return;
 
