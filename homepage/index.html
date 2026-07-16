@@ -33,12 +33,1420 @@
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap"
       rel="stylesheet"
     />
-    <link href="components/nurovelle-service-cards.css" rel="stylesheet" />
-    <link
-      href="components/nurovelle-resources-contact-faq.css"
-      rel="stylesheet"
-    />
     <style>
+      /* Inlined component: service cards */
+      /* Sektion 7: Original-Kartenform im 3-3-3-2-Raster */
+      .nv-s7 {
+        position: relative;
+        margin-left: var(--sidebar-w);
+        padding: var(--nv-section-pad-y) var(--side);
+        overflow: hidden;
+        color: var(--nv-text-light);
+        background: #000;
+      }
+
+      .nv-s7__inner {
+        width: 100%;
+        max-width: var(--nv-section-inner-max);
+        margin: 0 auto 0 0;
+      }
+
+      .nv-s7__head {
+        max-width: 840px;
+        margin-bottom: var(--nv-section-text-content-gap);
+        text-align: left;
+      }
+
+      .nv-s7__title,
+      .nv-s7__title span {
+        color: transparent;
+        background: var(--nv-section-title-gradient);
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+
+      .nv-s7__title {
+        margin: 0 0 var(--nv-title-text-gap);
+        font:
+          700 var(--nv-section-title-size) / 1 "Eastman Grotesque Alt",
+          "Eastman Grotesque",
+          Inter,
+          Arial,
+          sans-serif;
+        letter-spacing: 0.01em;
+      }
+
+      .nv-s7__intro {
+        max-width: 760px;
+        margin: 0;
+        color: var(--nv-text-muted);
+        font:
+          500 var(--nv-section-body-size) / var(--nv-section-body-line) Inter,
+          Arial,
+          sans-serif;
+      }
+
+      .nv-s7__cards {
+        display: grid;
+        grid-template-columns: repeat(3, 460px);
+        gap: var(--nv-space-2xl);
+      }
+
+      .nv-s7-card {
+        --card-index: 0;
+        position: relative;
+        width: 460px;
+        height: 300px;
+        display: grid;
+        grid-template-columns: 31% 1px minmax(0, 69%);
+        min-width: 0;
+        min-height: 0;
+        overflow: hidden;
+        isolation: isolate;
+        border: 1px solid transparent;
+        border-radius: 26px;
+        background: transparent;
+        box-shadow: none;
+        opacity: 0;
+        transform: translateY(22px);
+        transition:
+          opacity 0.55s ease,
+          transform 0.55s ease,
+          border-color 0.28s ease,
+          box-shadow 0.28s ease;
+      }
+
+      .nv-s7-card::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        z-index: 0;
+        border-radius: inherit;
+        background: linear-gradient(
+          135deg,
+          #050706 0%,
+          #080b09 58%,
+          #030504 100%
+        );
+        opacity: 0;
+        transition: opacity 0.38s ease;
+        pointer-events: none;
+      }
+
+      .nv-s7-card:hover::before,
+      .nv-s7-card:focus-visible::before,
+      .nv-s7-card.is-active::before {
+        opacity: 1;
+      }
+
+      .nv-s7-card:nth-child(1) {
+        --card-index: 0;
+      }
+      .nv-s7-card:nth-child(2) {
+        --card-index: 1;
+      }
+      .nv-s7-card:nth-child(3) {
+        --card-index: 2;
+      }
+      .nv-s7-card:nth-child(4) {
+        --card-index: 3;
+      }
+      .nv-s7-card:nth-child(5) {
+        --card-index: 4;
+      }
+      .nv-s7-card:nth-child(6) {
+        --card-index: 5;
+      }
+      .nv-s7-card:nth-child(7) {
+        --card-index: 6;
+      }
+      .nv-s7-card:nth-child(8) {
+        --card-index: 7;
+      }
+      .nv-s7-card:nth-child(9) {
+        --card-index: 8;
+      }
+      .nv-s7-card:nth-child(10) {
+        --card-index: 9;
+        left: 242px;
+      }
+      .nv-s7-card:nth-child(11) {
+        --card-index: 10;
+        left: 242px;
+      }
+
+      .nv-s7-card.is-visible {
+        opacity: 1;
+        transform: none;
+        transition-delay: calc(var(--card-index) * 45ms);
+      }
+
+      .nv-s7-card:hover,
+      .nv-s7-card:focus-visible,
+      .nv-s7-card.is-active {
+        z-index: 3;
+        border-color: #f7ef8a;
+        box-shadow:
+          0 0 0 1px #f7ef8a2e,
+          0 0 30px #d4af374a,
+          0 28px 64px #000d;
+        outline: none;
+        transform: perspective(1200px) rotateY(-3deg);
+      }
+
+      .nv-s7-card__visual {
+        position: absolute;
+        inset: 0 0 0 auto;
+        z-index: 0;
+        width: 73%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+        opacity: 0;
+        filter: brightness(0.76) contrast(1.08) saturate(0.72);
+        transform: none;
+        transition:
+          opacity 0.38s ease 0.08s,
+          filter 0.38s ease;
+      }
+
+      .nv-s7-card::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        z-index: 1;
+        background: linear-gradient(
+          90deg,
+          #050706 0%,
+          #050706 32%,
+          #050706f2 42%,
+          #050706b8 72%,
+          #05070670 100%
+        );
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.35s ease;
+      }
+
+      .nv-s7-card:hover .nv-s7-card__visual,
+      .nv-s7-card:focus-visible .nv-s7-card__visual,
+      .nv-s7-card.is-active .nv-s7-card__visual {
+        opacity: 0.5;
+        filter: brightness(0.88) contrast(1.1) saturate(0.86);
+        transform: none;
+      }
+
+      .nv-s7-card:hover::after,
+      .nv-s7-card:focus-visible::after,
+      .nv-s7-card.is-active::after {
+        opacity: 1;
+      }
+
+      .nv-s7-card__left {
+        position: relative;
+        z-index: 3;
+        grid-column: 1;
+        display: flex;
+        flex-direction: column;
+        min-width: 0;
+        padding: var(--nv-space-md) var(--nv-space-sm);
+        opacity: 0;
+        transform: none;
+        transition: opacity 0.42s ease;
+      }
+
+      .nv-s7-card:hover .nv-s7-card__left,
+      .nv-s7-card:focus-visible .nv-s7-card__left,
+      .nv-s7-card.is-active .nv-s7-card__left {
+        opacity: 1;
+        transform: none;
+      }
+
+      .nv-s7-card__iconbox {
+        display: grid;
+        place-items: center;
+        width: 44px;
+        height: 44px;
+        margin: 0 auto;
+        border: 1px solid #d4af37;
+        border-radius: var(--nv-radius-md);
+        background: linear-gradient(145deg, #080b09, #0b100d);
+        box-shadow:
+          inset 0 0 15px #d4af3717,
+          0 0 12px #d4af3726;
+      }
+
+      .nv-s7-card__iconbox img {
+        width: 27px;
+        height: 27px;
+        object-fit: contain;
+        filter: drop-shadow(0 0 8px #d4af3766);
+      }
+
+      .nv-s7-card__left-rule {
+        height: 1px;
+        margin: var(--nv-space-sm) 0 var(--nv-space-xs);
+        background: linear-gradient(
+          90deg,
+          transparent,
+          #d4af37 18%,
+          #d4af37 82%,
+          transparent
+        );
+      }
+
+      .nv-s7-card__uses h4 {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 7px;
+        margin: 0 0 8px;
+        color: var(--nv-gold-accent);
+        font:
+          700 8px/1.2 Inter,
+          Arial,
+          sans-serif;
+        letter-spacing: 0.045em;
+        text-align: center;
+        text-transform: uppercase;
+      }
+
+      .nv-s7-card__target {
+        color: var(--nv-gold-light);
+        font-size: 14px;
+        line-height: 1;
+      }
+
+      .nv-s7-card__uses ul {
+        display: grid;
+        gap: 5px;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      .nv-s7-card__uses li {
+        position: relative;
+        padding-left: var(--nv-space-sm);
+        color: var(--nv-text-light);
+        font:
+          500 10px/1.3 Inter,
+          Arial,
+          sans-serif;
+      }
+
+      .nv-s7-card__uses li::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0.5em;
+        width: 4px;
+        height: 4px;
+        border-radius: 2px;
+        background: #f7c64a;
+        box-shadow: 0 0 6px #d4af37;
+      }
+
+      .nv-s7-card__divider {
+        position: relative;
+        z-index: 3;
+        grid-column: 2;
+        background: linear-gradient(
+          180deg,
+          transparent,
+          #d4af375e 8%,
+          #d4af375e 92%,
+          transparent
+        );
+        opacity: 0;
+        transform: none;
+        transition: opacity 0.42s ease;
+      }
+
+      .nv-s7-card:hover .nv-s7-card__divider,
+      .nv-s7-card:focus-visible .nv-s7-card__divider,
+      .nv-s7-card.is-active .nv-s7-card__divider {
+        opacity: 1;
+        transform: none;
+      }
+
+      .nv-s7-card__main {
+        position: static;
+        z-index: 3;
+        grid-column: 3;
+        min-width: 0;
+      }
+
+      .nv-s7-card__heading {
+        position: absolute;
+        top: 50%;
+        left: 32px;
+        right: 32px;
+        z-index: 4;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 13px;
+        transform: translateY(-50%);
+        transition: opacity 0.28s ease;
+      }
+
+      .nv-s7-card:hover .nv-s7-card__heading,
+      .nv-s7-card:focus-visible .nv-s7-card__heading,
+      .nv-s7-card.is-active .nv-s7-card__heading {
+        opacity: 0;
+      }
+
+      .nv-s7-card__number {
+        display: grid;
+        place-items: center;
+        width: 38px;
+        height: 40px;
+        flex: 0 0 38px;
+        border: 1px solid #d4af37;
+        border-radius: 9px;
+        color: #f0b62e;
+        background: #080b09d9;
+        font:
+          700 18px/1 Inter,
+          Arial,
+          sans-serif;
+      }
+
+      .nv-s7-card__heading h3 {
+        margin: 0;
+        color: var(--nv-gold-accent);
+        font:
+          700 16px/1.08 "Eastman Grotesque Alt",
+          Inter,
+          Arial,
+          sans-serif;
+        letter-spacing: 0.01em;
+      }
+
+      .nv-s7-card__heading p {
+        margin: 4px 0 0;
+        color: var(--nv-text-light);
+        font:
+          600 9px/1.25 Inter,
+          Arial,
+          sans-serif;
+        letter-spacing: 0.07em;
+        text-transform: uppercase;
+      }
+
+      .nv-s7-card__short-rule {
+        position: absolute;
+        top: 82px;
+        left: calc(31% + 18px);
+        z-index: 3;
+        width: 88px;
+        height: 1px;
+        background: linear-gradient(90deg, #d4af37, transparent);
+        opacity: 0;
+        transform: none;
+        transition: opacity 0.42s ease;
+      }
+
+      .nv-s7-card__description {
+        position: absolute;
+        top: 98px;
+        left: calc(31% + 18px);
+        right: var(--nv-space-md);
+        z-index: 3;
+        margin: 0;
+        color: var(--nv-text-light);
+        font:
+          500 10px/1.4 Inter,
+          Arial,
+          sans-serif;
+        opacity: 0;
+        transform: none;
+        transition: opacity 0.42s ease;
+      }
+
+      .nv-s7-card__result {
+        position: absolute;
+        display: grid;
+        grid-template-columns: 24px minmax(0, 1fr);
+        gap: 10px;
+        align-items: start;
+        right: var(--nv-space-md);
+        bottom: var(--nv-space-md);
+        left: calc(31% + 18px);
+        z-index: 3;
+        min-height: 64px;
+        padding: 9px 11px;
+        border: 1px solid #d4af3766;
+        border-radius: var(--nv-radius-md);
+        background: linear-gradient(135deg, #080b09e8, #0a100cdc);
+        opacity: 0;
+        transform: none;
+        transition: opacity 0.42s ease;
+      }
+
+      .nv-s7-card:hover .nv-s7-card__short-rule,
+      .nv-s7-card:focus-visible .nv-s7-card__short-rule,
+      .nv-s7-card.is-active .nv-s7-card__short-rule,
+      .nv-s7-card:hover .nv-s7-card__description,
+      .nv-s7-card:focus-visible .nv-s7-card__description,
+      .nv-s7-card.is-active .nv-s7-card__description,
+      .nv-s7-card:hover .nv-s7-card__result,
+      .nv-s7-card:focus-visible .nv-s7-card__result,
+      .nv-s7-card.is-active .nv-s7-card__result {
+        opacity: 1;
+        transform: none;
+      }
+
+      .nv-s7-card__result h4 {
+        margin: 0 0 5px;
+        color: var(--nv-gold-accent);
+        font:
+          700 10px/1.22 Inter,
+          Arial,
+          sans-serif;
+        letter-spacing: 0.07em;
+        text-transform: uppercase;
+      }
+
+      .nv-s7-card__result p {
+        margin: 0;
+        color: var(--nv-text-light);
+        font:
+          500 10px/1.35 Inter,
+          Arial,
+          sans-serif;
+      }
+
+      @media (max-width: 1499px) {
+        .nv-s7__cards {
+          grid-template-columns: repeat(2, 460px);
+        }
+
+        .nv-s7-card {
+          left: auto;
+        }
+
+        .nv-s7-card:not(:nth-child(11)) {
+          grid-column: auto;
+        }
+
+        .nv-s7-card:nth-child(11) {
+          grid-column: 1 / -1;
+          justify-self: center;
+        }
+      }
+
+      @media (max-width: 1100px) {
+        .nv-s7__cards {
+          grid-template-columns: 1fr;
+        }
+
+        .nv-s7-card,
+        .nv-s7-card:nth-child(11) {
+          grid-column: auto;
+          width: 460px;
+          justify-self: start;
+        }
+      }
+
+      @media (max-width: 899px) {
+        .nv-s7 {
+          margin-left: 0;
+        }
+      }
+
+      @media (max-width: 640px) {
+        .nv-s7 {
+          padding-inline: 16px;
+        }
+
+        .nv-s7-card,
+        .nv-s7-card:nth-child(10),
+        .nv-s7-card:nth-child(11) {
+          width: 100%;
+          grid-template-columns: 1fr;
+          min-height: 590px;
+          height: 590px;
+        }
+
+        .nv-s7-card__divider {
+          display: none;
+        }
+
+        .nv-s7-card__left {
+          position: absolute;
+          inset: 186px 22px auto;
+          padding: 0;
+        }
+
+        .nv-s7-card__iconbox,
+        .nv-s7-card__left-rule {
+          display: none;
+        }
+
+        .nv-s7-card:hover .nv-s7-card__heading,
+        .nv-s7-card:focus-visible .nv-s7-card__heading,
+        .nv-s7-card.is-active .nv-s7-card__heading {
+          opacity: 0;
+        }
+
+        .nv-s7-card__short-rule,
+        .nv-s7-card__description,
+        .nv-s7-card__result {
+          left: 22px;
+          right: 22px;
+        }
+
+        .nv-s7-card__short-rule {
+          top: 118px;
+        }
+
+        .nv-s7-card__description {
+          top: 140px;
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        .nv-s7-card,
+        .nv-s7-card *,
+        .nv-s7-card::after {
+          transition: none;
+        }
+
+        .nv-s7-card {
+          opacity: 1;
+          transform: none;
+        }
+
+        .nv-s7-card:hover,
+        .nv-s7-card:focus-visible,
+        .nv-s7-card.is-active {
+          transform: none;
+        }
+      }
+
+      /* Inlined component: resources, contact and FAQ */
+      /* Downloads, Potenzialanalyse-Formular und FAQ */
+      .nv-resource-section {
+        margin-left: var(--sidebar-w);
+        padding: var(--nv-section-pad-y) var(--side);
+        color: var(--nv-text-light);
+        background: #020504;
+      }
+
+      .nv-resource-section + .nv-resource-section {
+        border-top: 1px solid rgba(212, 175, 55, 0.22);
+      }
+
+      .nv-resource-section__inner {
+        width: 100%;
+        max-width: var(--nv-section-inner-max);
+        margin: 0;
+      }
+
+      .nv-resource-section__head {
+        max-width: var(--nv-section-head-max);
+        margin-bottom: var(--nv-section-text-content-gap);
+      }
+
+      .nv-resource-section__title {
+        margin: 0 0 var(--nv-title-text-gap);
+        color: transparent;
+        background: var(--nv-section-title-gradient);
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        font:
+          700 var(--nv-section-title-size) / 1 "Eastman Grotesque Alt",
+          "Eastman Grotesque",
+          Inter,
+          Arial,
+          sans-serif;
+        letter-spacing: 0.01em;
+      }
+
+      .nv-resource-section__intro {
+        max-width: var(--nv-section-intro-max);
+        margin: 0;
+        color: var(--nv-text-muted);
+        font:
+          500 var(--nv-section-body-size) / var(--nv-section-body-line) Inter,
+          Arial,
+          sans-serif;
+      }
+
+      /* Download-Bibliothek */
+      .nv-download-library {
+        overflow: hidden;
+        padding: var(--nv-space-2xl);
+        border: 1px solid #d4af37;
+        border-radius: 20px;
+        background: linear-gradient(
+          135deg,
+          rgba(57, 62, 56, 0.94),
+          rgba(29, 35, 31, 0.96)
+        );
+        box-shadow:
+          0 20px 55px rgba(0, 0, 0, 0.45),
+          inset 0 0 0 1px rgba(247, 239, 138, 0.05);
+      }
+
+      .nv-download-library__bar {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: var(--nv-space-xl);
+        margin-bottom: var(--nv-space-lg);
+        padding: 0 2px var(--nv-space-md);
+        border-bottom: 1px solid rgba(212, 175, 55, 0.45);
+      }
+
+      .nv-download-library__label {
+        color: #c8ceca;
+        font:
+          700 10px/1.2 Inter,
+          Arial,
+          sans-serif;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+      }
+
+      .nv-download-library__types {
+        display: flex;
+        gap: var(--nv-space-xs);
+      }
+
+      .nv-download-library__types span,
+      .nv-download-card__type {
+        display: inline-flex;
+        align-items: center;
+        min-height: 23px;
+        padding: 0 11px;
+        border: 1px solid rgba(212, 175, 55, 0.38);
+        border-radius: 999px;
+        color: #d4af37;
+        background: #09231a;
+        font:
+          700 9px/1 Inter,
+          Arial,
+          sans-serif;
+        letter-spacing: 0.09em;
+        text-transform: uppercase;
+      }
+
+      .nv-download-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: var(--nv-space-md);
+      }
+
+      .nv-download-card {
+        display: grid;
+        grid-template-rows: 1fr auto;
+        min-height: 250px;
+        padding: var(--nv-space-xl);
+        border: 1px solid rgba(31, 112, 82, 0.58);
+        border-radius: 15px;
+        background: linear-gradient(145deg, #0a100e, #111614);
+      }
+
+      .nv-download-card__content {
+        display: grid;
+        grid-template-columns: 62px minmax(0, 1fr);
+        gap: var(--nv-space-lg);
+        align-items: start;
+      }
+
+      .nv-download-card__icon {
+        display: grid;
+        place-items: center;
+        width: 62px;
+        height: 62px;
+        border: 1px solid rgba(212, 175, 55, 0.55);
+        border-radius: var(--nv-radius-md);
+        background: rgba(0, 0, 0, 0.24);
+      }
+
+      .nv-download-card__icon img {
+        width: 38px;
+        height: 38px;
+        object-fit: contain;
+      }
+
+      .nv-download-card__meta {
+        display: flex;
+        align-items: center;
+        gap: var(--nv-space-xxs);
+        margin: 0 0 9px;
+      }
+
+      .nv-download-card__display {
+        color: #7f8983;
+        font:
+          600 8px/1 Inter,
+          Arial,
+          sans-serif;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      .nv-download-card h3 {
+        margin: 0 0 var(--nv-space-xs);
+        color: #f5f7f4;
+        font:
+          700 clamp(19px, 1.45vw, 27px) / 1.08 "Eastman Grotesque Alt",
+          Inter,
+          Arial,
+          sans-serif;
+        text-transform: uppercase;
+      }
+
+      .nv-download-card p {
+        max-width: 620px;
+        margin: 0;
+        color: #aeb7b2;
+        font:
+          500 12px/1.5 Inter,
+          Arial,
+          sans-serif;
+      }
+
+      .nv-download-card__footer {
+        margin-top: var(--nv-space-lg);
+        padding-top: var(--nv-space-sm);
+        border-top: 3px solid rgba(86, 94, 89, 0.25);
+      }
+
+      .nv-download-button,
+      .nv-analysis-form button {
+        display: block;
+        width: 100%;
+        cursor: pointer;
+      }
+
+      .nv-download-button .golden-button,
+      .nv-analysis-form button .golden-button {
+        display: block;
+        width: 100%;
+      }
+
+      .nv-download-button[data-state="loading"] {
+        cursor: wait;
+      }
+      .nv-download-button[data-state="error"] .golden-button {
+        color: #5a170f;
+      }
+
+      /* Formular – Struktur der alten Fassung */
+      #downloads {
+        margin-left: var(--sidebar-w);
+        padding: var(--nv-section-pad-y) var(--side);
+        color: var(--nv-text-light);
+        background:
+          radial-gradient(
+            circle at 50% 15%,
+            rgba(17, 42, 32, 0.42),
+            transparent 48%
+          ),
+          #050706;
+      }
+
+      #downloads .section-inner {
+        width: 100%;
+        max-width: var(--nv-section-inner-max);
+        margin: 0;
+      }
+
+      #downloads .section-head {
+        width: 100%;
+        max-width: 780px;
+        margin-bottom: var(--nv-section-text-content-gap);
+      }
+
+      #downloads .section-title {
+        margin: 0 0 var(--nv-title-text-gap);
+        color: transparent;
+        background: var(--nv-section-title-gradient);
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        font:
+          700 var(--nv-section-title-size) / 1 "Eastman Grotesque Alt",
+          "Eastman Grotesque",
+          Inter,
+          Arial,
+          sans-serif;
+      }
+
+      #downloads .section-text {
+        max-width: 780px;
+        margin: 0;
+        color: var(--nv-text-muted);
+        font:
+          500 var(--nv-section-body-size) / var(--nv-section-body-line) Inter,
+          Arial,
+          sans-serif;
+      }
+
+      .download-display {
+        padding: var(--nv-space-md);
+        overflow: hidden;
+        border: 1px solid rgba(212, 175, 55, 0.72);
+        border-radius: 18px;
+        background: linear-gradient(
+          145deg,
+          rgba(37, 43, 44, 0.92),
+          rgba(10, 25, 19, 0.96)
+        );
+        box-shadow:
+          0 24px 60px rgba(0, 0, 0, 0.46),
+          inset 0 0 0 1px rgba(247, 239, 138, 0.08);
+      }
+
+      .download-display__header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: var(--nv-space-2xl);
+        min-height: 38px;
+        padding: 0 var(--nv-space-xs) var(--nv-space-sm);
+        border-bottom: 1px solid rgba(212, 175, 55, 0.26);
+        color: #d4af37;
+        font:
+          700 10px/1 Inter,
+          Arial,
+          sans-serif;
+        letter-spacing: 0.12em;
+      }
+
+      .download-display__grid {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 14px;
+        padding-top: var(--nv-space-md);
+      }
+
+      .download-item {
+        display: grid;
+        grid-template-columns: 58px minmax(0, 1fr);
+        grid-template-rows: 1fr auto;
+        align-content: space-between;
+        column-gap: 14px;
+        min-width: 0;
+        min-height: 210px;
+        padding: 14px;
+        overflow: hidden;
+        border: 1px solid transparent;
+        border-radius: 12px;
+        background:
+          linear-gradient(var(--nv-black, #050706), var(--nv-black, #050706))
+            padding-box,
+          var(--gradient-gold-border) border-box;
+        box-shadow:
+          0 14px 28px rgba(0, 0, 0, 0.3),
+          inset 0 0 0 1px rgba(255, 255, 255, 0.025);
+      }
+
+      .download-item__type {
+        grid-row: 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 8px;
+        width: 58px;
+        height: 58px;
+        padding: 8px;
+        border: 1px solid transparent;
+        border-radius: 10px;
+        background:
+          linear-gradient(var(--nv-black, #050706), var(--nv-black, #050706))
+            padding-box,
+          var(--gradient-gold-border) border-box;
+        color: #d4af37;
+        font:
+          700 9px/1 Inter,
+          Arial,
+          sans-serif;
+        letter-spacing: 0.1em;
+      }
+
+      .download-item__type img {
+        width: 42px;
+        height: 42px;
+        object-fit: contain;
+      }
+
+      .download-item__content {
+        min-width: 0;
+      }
+
+      .download-item h3 {
+        margin: 0 0 var(--nv-space-xs);
+        color: #f5f7f4;
+        font:
+          700 20px/1.08 "Eastman Grotesque Alt",
+          Inter,
+          Arial,
+          sans-serif;
+        text-transform: uppercase;
+      }
+
+      .download-item p {
+        margin: 0;
+        color: #b9c3bd;
+        font:
+          500 11px/1.5 Inter,
+          Arial,
+          sans-serif;
+      }
+
+      .download-button {
+        position: relative;
+        grid-column: 1 / -1;
+        display: grid;
+        place-items: center;
+        justify-self: end;
+        width: auto;
+        min-height: 30px;
+        margin-top: var(--nv-space-lg);
+        padding: 0 10px;
+        overflow: hidden;
+        border: 1px solid rgba(250, 227, 133, 0.4);
+        border-radius: var(--nv-radius-sm);
+        color: var(--nv-gold-highlight);
+        background-color: rgba(5, 7, 6, 0.94);
+        background-image: radial-gradient(
+          circle,
+          #f7ef8a 0%,
+          #d4af37 58%,
+          #a87308 100%
+        );
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: 0 0;
+        box-shadow:
+          0 4px 0 #8b620c,
+          0 8px 18px rgba(0, 0, 0, 0.32),
+          inset 0 1px 1px rgba(250, 227, 133, 0.28);
+        font:
+          800 10px/1.2 Inter,
+          Arial,
+          sans-serif;
+        text-align: center;
+        text-decoration: none;
+        text-transform: uppercase;
+        transition:
+          color 0.45s ease,
+          background-size 0.68s cubic-bezier(0.22, 1, 0.36, 1),
+          transform 0.18s ease,
+          box-shadow 0.18s ease;
+      }
+
+      .download-button__idle,
+      .download-button__success,
+      .download-button__error {
+        grid-area: 1 / 1;
+        transition:
+          opacity 0.18s ease,
+          transform 0.24s ease;
+      }
+
+      .download-button__idle {
+        padding: 0 30px;
+      }
+      .download-button__idle::before,
+      .download-button__idle::after {
+        position: absolute;
+        top: 50%;
+        color: currentColor;
+        font-size: 18px;
+        transform: translateY(-50%);
+        transition:
+          left 0.58s cubic-bezier(0.22, 1, 0.36, 1),
+          right 0.58s cubic-bezier(0.22, 1, 0.36, 1);
+      }
+      .download-button__idle::before {
+        content: "→";
+        left: -30px;
+      }
+      .download-button__idle::after {
+        content: "→";
+        right: 16px;
+      }
+      .download-button:hover,
+      .download-button:focus-visible {
+        color: #050706;
+        background-size: 240% 900%;
+        outline: none;
+      }
+      .download-button:hover .download-button__idle::before,
+      .download-button:focus-visible .download-button__idle::before {
+        left: 16px;
+      }
+      .download-button:hover .download-button__idle::after,
+      .download-button:focus-visible .download-button__idle::after {
+        right: -30px;
+      }
+      .download-button:active {
+        transform: translateY(4px);
+        box-shadow:
+          0 1px 0 #8b620c,
+          0 4px 10px rgba(0, 0, 0, 0.28);
+      }
+      .download-button__success,
+      .download-button__error {
+        opacity: 0;
+        transform: translateY(16px);
+      }
+      .download-button.is-success .download-button__idle {
+        opacity: 0;
+        transform: translateY(-16px);
+      }
+      .download-button.is-success .download-button__success {
+        opacity: 1;
+        transform: none;
+      }
+      .download-button.is-error .download-button__idle {
+        opacity: 0;
+        transform: translateY(-16px);
+      }
+      .download-button.is-error .download-button__error {
+        opacity: 1;
+        transform: none;
+      }
+
+      @media (max-width: 899px) {
+        #downloads {
+          margin-left: 0;
+        }
+      }
+
+      @media (max-width: 639px) {
+        #downloads {
+          padding: 42px 18px;
+        }
+        .download-display__grid {
+          grid-template-columns: none;
+          grid-auto-flow: column;
+          grid-auto-columns: minmax(260px, 82vw);
+          overflow-x: auto;
+          overscroll-behavior-inline: contain;
+          scroll-snap-type: inline mandatory;
+        }
+        .download-item {
+          scroll-snap-align: start;
+        }
+      }
+
+      .nv-analysis-layout {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 34px;
+        align-items: stretch;
+      }
+
+      .nv-analysis-info {
+        padding: var(--nv-space-2xl);
+        border: 1px solid rgba(212, 175, 55, 0.58);
+        border-radius: 10px;
+        background: #050706;
+      }
+
+      .nv-analysis-info__eyebrow {
+        margin: 0 0 var(--nv-space-xxs);
+        color: #d3d8d4;
+        font:
+          600 11px/1.3 Inter,
+          Arial,
+          sans-serif;
+        letter-spacing: 0.08em;
+      }
+
+      .nv-analysis-info h3 {
+        margin: 0 0 var(--nv-space-md);
+        color: #f5f7f4;
+        font:
+          700 clamp(22px, 1.8vw, 32px) / 1.05 "Eastman Grotesque Alt",
+          Inter,
+          Arial,
+          sans-serif;
+        text-transform: uppercase;
+      }
+
+      .nv-analysis-info p,
+      .nv-analysis-info li {
+        color: #b9c3bd;
+        font:
+          500 12px/1.55 Inter,
+          Arial,
+          sans-serif;
+      }
+
+      .nv-analysis-info ul {
+        margin: 14px 0;
+        padding-left: 18px;
+      }
+
+      .nv-analysis-info li {
+        margin: 6px 0;
+      }
+      .nv-analysis-info li strong {
+        display: block;
+        margin-bottom: 2px;
+        color: #f5f7f4;
+      }
+
+      .nv-analysis-info h4 {
+        margin: var(--nv-space-xl) 0 var(--nv-space-xxs);
+        color: #d4af37;
+        font:
+          700 14px/1.3 Inter,
+          Arial,
+          sans-serif;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+      }
+
+      .nv-analysis-info .nv-analysis-info__note {
+        color: #e8b048;
+      }
+
+      .nv-analysis-form__grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: var(--nv-space-xxs);
+      }
+
+      .nv-analysis-form {
+        padding: var(--nv-space-2xl);
+        border-radius: var(--nv-radius-md);
+        background: #0a1913;
+      }
+
+      .nv-analysis-form > h3 {
+        margin: 0 0 var(--nv-space-xxs);
+        color: #f5f7f4;
+        font:
+          700 clamp(22px, 1.8vw, 32px) / 1.05 "Eastman Grotesque Alt",
+          Inter,
+          Arial,
+          sans-serif;
+        text-transform: uppercase;
+      }
+
+      .nv-analysis-form__intro {
+        margin: 0 0 var(--nv-space-lg);
+        color: #b9c3bd;
+        font:
+          500 12px/1.55 Inter,
+          Arial,
+          sans-serif;
+      }
+
+      .nv-analysis-form input,
+      .nv-analysis-form select,
+      .nv-analysis-form textarea {
+        width: 100%;
+        padding: 0 var(--nv-space-xs);
+        border: 1px solid rgba(240, 160, 90, 0.82);
+        border-radius: 5px;
+        color: #111;
+        background: rgba(235, 235, 226, 0.96);
+        font:
+          500 12px/1.3 Inter,
+          Arial,
+          sans-serif;
+        outline: none;
+      }
+
+      .nv-analysis-form input,
+      .nv-analysis-form select {
+        height: 42px;
+      }
+
+      .nv-analysis-form textarea {
+        grid-column: 1 / -1;
+        height: 72px;
+        padding-top: 10px;
+        resize: vertical;
+      }
+
+      .nv-analysis-form input:focus,
+      .nv-analysis-form select:focus,
+      .nv-analysis-form textarea:focus {
+        box-shadow: 0 0 0 2px rgba(212, 175, 55, 0.34);
+      }
+
+      .nv-analysis-form__hp {
+        position: absolute;
+        left: -10000px;
+        width: 1px;
+        height: 1px;
+        overflow: hidden;
+      }
+
+      .nv-analysis-form__consent {
+        grid-column: 1 / -1;
+        display: flex;
+        align-items: flex-start;
+        gap: var(--nv-space-xs);
+        padding: var(--nv-space-xs) 11px;
+        border: 1px solid rgba(212, 175, 55, 0.36);
+        border-radius: 5px;
+        color: #aeb7b2;
+        background: #000;
+        font:
+          500 10px/1.4 Inter,
+          Arial,
+          sans-serif;
+      }
+
+      .nv-analysis-form__consent input {
+        width: auto;
+        height: auto;
+        margin-top: 2px;
+        accent-color: #d4af37;
+      }
+
+      .nv-analysis-form__consent strong {
+        display: block;
+        margin-bottom: 2px;
+        color: #f7d77a;
+      }
+
+      .nv-analysis-form button {
+        grid-column: 1 / -1;
+        text-transform: uppercase;
+      }
+
+      .nv-analysis-form__note {
+        margin: 12px 0 0;
+        color: #aeb7b2;
+        font:
+          500 11px/1.5 Inter,
+          Arial,
+          sans-serif;
+      }
+
+      .nv-analysis-form__note a {
+        color: #e8b048;
+      }
+
+      /* FAQ */
+      .nv-faq-layout {
+        display: grid;
+        grid-template-columns: minmax(0, 680px) minmax(260px, 380px);
+        gap: 80px;
+        align-items: center;
+      }
+
+      .nv-faq-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 10px;
+        align-items: start;
+      }
+
+      .nv-faq-item {
+        align-self: start;
+      }
+
+      .nv-faq-item summary {
+        --nv-golden-display: flex;
+        --nv-golden-width: 100%;
+        --nv-golden-min-width: 0;
+        --nv-golden-height: 52px;
+        --nv-golden-justify: space-between;
+        --nv-golden-text-align: left;
+        --nv-golden-white-space: normal;
+        gap: var(--nv-space-lg);
+        padding-inline: 15px;
+        font-size: 13px;
+        line-height: 1.35;
+        list-style: none;
+      }
+
+      .nv-faq-item summary::-webkit-details-marker {
+        display: none;
+      }
+      .nv-faq-item summary::after {
+        content: "+";
+        flex: 0 0 auto;
+        color: var(--nv-gold-text-dark);
+        font-size: 18px;
+      }
+      .nv-faq-item[open] summary::after {
+        content: "−";
+      }
+      .nv-faq-item p {
+        margin: 0;
+        padding: 14px 15px 18px;
+        color: var(--nv-text-muted);
+        background: transparent;
+        font:
+          500 12px/1.55 Inter,
+          Arial,
+          sans-serif;
+      }
+
+      @media (max-width: 1100px) {
+        .nv-download-grid,
+        .nv-analysis-layout {
+          grid-template-columns: 1fr;
+        }
+
+        .nv-faq-layout {
+          grid-template-columns: minmax(0, 1fr) minmax(240px, 320px);
+          gap: 48px;
+        }
+      }
+
+      @media (max-width: 899px) {
+        .nv-resource-section {
+          margin-left: 0;
+        }
+      }
+
+      @media (max-width: 640px) {
+        .nv-resource-section {
+          padding: 54px 16px;
+        }
+        .nv-download-library {
+          padding: 14px;
+        }
+        .nv-download-library__bar {
+          align-items: flex-start;
+        }
+        .nv-download-card {
+          min-height: 280px;
+          padding: 16px;
+        }
+        .nv-download-card__content {
+          grid-template-columns: 48px minmax(0, 1fr);
+          gap: 12px;
+        }
+        .nv-download-card__icon {
+          width: 48px;
+          height: 48px;
+        }
+        .nv-download-card__icon img {
+          width: 30px;
+          height: 30px;
+        }
+        .nv-analysis-form__grid {
+          grid-template-columns: 1fr;
+        }
+        .nv-analysis-form textarea,
+        .nv-analysis-form__consent,
+        .nv-analysis-form button {
+          grid-column: auto;
+        }
+      }
+
+      /* Homepage base, header, hero and primary sections */
+
       @font-face {
         font-family: "Eastman Grotesque Alt";
         src: local("Eastman Grotesque Alt"), local("Eastman Grotesque");
@@ -102,27 +1510,27 @@
 
         --sidebar-muted: #ffffff85;
 
-        --nv-black: #050706;
+        --nv-black: #1a1a1a;
 
-        --nv-matte-black: #080b09;
+        --nv-matte-black: #1d1d1d;
 
-        --nv-deep-green: #0a1913;
+        --nv-deep-green: #0f241c;
 
         --nv-emerald: #112a20;
 
-        --nv-forest-dark: #163a21;
+        --nv-forest-dark: #10412e;
 
         --nv-text-light: #f5f7f4;
 
         --nv-text-muted: #b9c3bd;
 
-        --nv-gold-dark: #a54e07;
+        --nv-gold-dark: #d6a458;
 
-        --nv-gold-mid: #b47e11;
+        --nv-gold-mid: #f6ce42;
 
         --nv-gold-light: #fef1a2;
 
-        --nv-gold-core: #bc881b;
+        --nv-gold-core: #cc9933;
 
         --nv-gold-border: #a55d07;
 
@@ -132,7 +1540,9 @@
 
         --nv-gold-highlight: #fae385;
 
-        --nv-gold-text-dark: #783205;
+        --nv-gold-text-dark: rgb(120, 50, 5);
+
+        --nv-gold-accent: #d4af37;
 
         --nv-gold-gradient: linear-gradient(
           160deg,
@@ -167,15 +1577,25 @@
 
         --nv-section-body-size: 16px;
 
-        --nv-section-body-line: 1.58;
+        --nv-section-body-line: 1.85;
 
-        --nv-kicker-color-hero: #d4af37;
+        --nv-cta-height: 44px;
 
-        --nv-kicker-color-section: #d4af37;
+        --nv-hero-subtitle-body-gap: 40px;
 
-        --nv-kicker-line-height-hero: 1.15;
+        --nv-about-text-column: 760px;
 
-        --nv-kicker-line-height-section: 1.15;
+        --nv-about-media-column: 640px;
+
+        --nv-about-paragraph-extension: 82px;
+
+        --nv-about-text-width: 955px;
+
+        --nv-about-video-gap: 220px;
+
+        --nv-kicker-color: var(--nv-gold-inner-mid);
+
+        --nv-kicker-line-height: 1.15;
 
         --nv-kicker-letter-spacing: 0.14em;
 
@@ -187,48 +1607,41 @@
 
         --nv-section-text-content-gap: 76px;
 
-        --nv-section-divider-before-gap: 220px;
+        --nv-section-divider-before-gap: calc(var(--nv-cta-height) * 2);
 
         --nv-section-divider-after-gap: 88px;
 
-        --nv-section-black: #020403;
+        --nv-section-black: #1a1a1a;
 
         --nv-section-emerald: #071b15;
+      }
 
-        --nv-section-inner-max: 1650px;
+      /* Central kicker system */
 
-        --nv-section-head-max: 900px;
+      .hero-kicker,
+      .nv-about__kicker,
+      .nv-section-step__kicker,
+      .nvp4-projectidea__kicker,
+      .nvp5-analysis__kicker,
+      .nv-s7__kicker,
+      .nv-process__kicker,
+      .nv-why__kicker,
+      .nv-resource-section__kicker,
+      .nv-contact__kicker,
+      #downloads .kicker {
+        margin: 0 0 var(--nv-kicker-title-gap);
+        color: var(--nv-kicker-color);
+        font-family: "Inter", Arial, sans-serif;
+        font-size: var(--nv-section-kicker-size);
+        font-weight: 700;
+        line-height: var(--nv-kicker-line-height);
+        letter-spacing: var(--nv-kicker-letter-spacing);
+        text-transform: uppercase;
+      }
 
-        --nv-section-intro-max: 850px;
-
-        --nv-footer-inner-max: 1200px;
-
-        --nv-section-title-gradient: linear-gradient(
-          180deg,
-          #c5a059 0%,
-          #fdf0cd 50%,
-          #d4af37 100%
-        );
-
-        --nv-gold-divider-strong: rgba(212, 175, 55, 0.72);
-
-        --nv-space-xxs: 8px;
-
-        --nv-space-xs: 10px;
-
-        --nv-space-sm: 12px;
-
-        --nv-space-md: 16px;
-
-        --nv-space-lg: 18px;
-
-        --nv-space-xl: 20px;
-
-        --nv-space-2xl: 24px;
-
-        --nv-radius-sm: 8px;
-
-        --nv-radius-md: 10px;
+      .hero-kicker {
+        position: relative;
+        z-index: 4;
       }
 
       * {
@@ -273,34 +1686,18 @@
 
       /* Shared CTA component */
 
-      .nv-press-button {
-        appearance: none;
-        position: relative;
-        display: inline-block;
-        min-width: 220px;
-        padding: 0;
-        border: 0;
-        background: transparent;
-        color: var(--nv-gold-text-dark);
-        cursor: pointer;
-        isolation: isolate;
-        -webkit-tap-highlight-color: transparent;
-      }
-
-      .nv-press-button__top {
-        position: relative;
-        z-index: 2;
-        isolation: isolate;
-        box-sizing: border-box;
-        display: flex;
+      .golden-button {
+        touch-action: manipulation;
+        display: var(--nv-golden-display, inline-block);
         align-items: center;
-        justify-content: center;
-        height: 46px;
-        min-height: 0;
-        padding: 12px 27px;
-        overflow: hidden;
+        justify-content: var(--nv-golden-justify, center);
+        width: var(--nv-golden-width, auto);
+        min-width: var(--nv-golden-min-width, 220px);
+        box-sizing: border-box;
+        height: var(--nv-golden-height, 2.75em);
+        padding: 0 1em;
         border: 1px solid var(--nv-gold-border);
-        border-radius: 12px;
+        border-radius: 0.3em;
         color: var(--nv-gold-text-dark);
         background-image: var(--nv-gold-gradient);
         background-position: center;
@@ -311,80 +1708,25 @@
           inset 0 -2px 5px 1px var(--nv-gold-inner-dark),
           inset 0 -1px 1px 3px var(--nv-gold-highlight);
         font-family: inherit;
-        font-size: 10px;
+        font-size: 1em;
         font-weight: 800;
-        line-height: 1.2;
+        line-height: 2.5em;
         letter-spacing: 0.045em;
-        text-align: center;
+        text-align: var(--nv-golden-text-align, center);
         text-shadow: 0 2px 2px var(--nv-gold-highlight);
         text-transform: uppercase;
-        white-space: nowrap;
-        will-change: transform;
-        transform: translateY(-4px);
-        transition:
-          transform 600ms cubic-bezier(0.3, 0.7, 0.4, 1),
-          background-size 0.2s ease-in-out,
-          box-shadow 0.2s ease-in-out,
-          border-color 0.2s ease-in-out,
-          color 0.2s ease-in-out;
+        white-space: var(--nv-golden-white-space, nowrap);
+        cursor: pointer;
+        transition: all 0.2s ease-in-out;
       }
 
-      .nv-press-button__bottom {
-        position: absolute;
-        z-index: 1;
-        top: 0;
-        left: 0;
-        display: block;
-        width: 100%;
-        height: 100%;
-        border-radius: 12px;
-        background: linear-gradient(
-          to left,
-          var(--nv-gold-inner-dark) 0%,
-          var(--nv-gold-inner-mid) 8%,
-          var(--nv-gold-inner-mid) 92%,
-          var(--nv-gold-inner-dark) 100%
-        );
-        pointer-events: none;
-      }
-
-      .nv-press-button__base {
-        position: absolute;
-        z-index: 0;
-        top: 0;
-        left: 0;
-        display: block;
-        width: 100%;
-        height: 100%;
-        border-radius: 12px;
-        background: rgba(0, 0, 0, 0.25);
-        pointer-events: none;
-        will-change: transform;
-        transform: translateY(2px);
-        transition: transform 600ms cubic-bezier(0.3, 0.7, 0.4, 1);
-      }
-
-      .hero-cta--outline .nv-press-button {
-        color: var(--nv-gold-highlight);
-      }
-
-      .hero-cta--outline .nv-press-button__top {
-        color: var(--nv-gold-highlight);
-        border: 1px solid transparent;
-        background-image:
-          linear-gradient(#050706, #050706), var(--gradient-gold-border);
-        background-origin: border-box;
-        background-clip: padding-box, border-box;
-        box-shadow:
-          inset 0 1px 1px rgba(250, 227, 133, 0.14),
-          0 8px 18px rgba(0, 0, 0, 0.34);
-        text-shadow: none;
-      }
-
-      .header-cta:hover .nv-press-button__top,
-      .header-cta:focus-visible .nv-press-button__top,
-      .hero-cta:hover .nv-press-button__top,
-      .hero-cta:focus-visible .nv-press-button__top {
+      .header-cta:hover .golden-button,
+      .header-cta:focus-visible .golden-button,
+      .hero-cta:hover .golden-button,
+      .hero-cta:focus-visible .golden-button,
+      .nv-faq-item summary:hover,
+      .nv-faq-item summary:focus-visible {
+        color: rgba(120, 50, 5, 0.8);
         border-color: rgba(165, 93, 7, 0.6);
         background-size: 150% 150%;
         box-shadow:
@@ -392,56 +1734,23 @@
           0 6px 6px rgba(0, 0, 0, 0.23),
           inset 0 -2px 5px 1px var(--nv-gold-inner-mid),
           inset 0 -1px 1px 3px var(--nv-gold-highlight);
-        transform: translateY(-6px);
-        transition:
-          transform 250ms cubic-bezier(0.3, 0.7, 0.4, 1.5),
-          background-size 0.2s ease-in-out,
-          box-shadow 0.2s ease-in-out,
-          border-color 0.2s ease-in-out,
-          color 0.2s ease-in-out;
-      }
-
-      .header-cta:hover,
-      .header-cta:focus-visible,
-      .hero-cta:hover,
-      .hero-cta:focus-visible {
-        filter: none;
-      }
-
-      .hero-cta--outline:hover .nv-press-button__top,
-      .hero-cta--outline:focus-visible .nv-press-button__top {
-        color: var(--nv-gold-highlight);
-      }
-
-      .header-cta:hover .nv-press-button__base,
-      .header-cta:focus-visible .nv-press-button__base,
-      .hero-cta:hover .nv-press-button__base,
-      .hero-cta:focus-visible .nv-press-button__base {
-        transform: translateY(4px);
-        transition: transform 250ms cubic-bezier(0.3, 0.7, 0.4, 1.5);
       }
 
       .header-cta:focus-visible,
-      .hero-cta:focus-visible {
+      .hero-cta:focus-visible,
+      .nv-faq-item summary:focus-visible {
         outline: 2px solid var(--nv-gold-highlight);
         outline-offset: 4px;
       }
 
-      .header-cta:active .nv-press-button__top,
-      .hero-cta:active .nv-press-button__top {
+      .header-cta:active .golden-button,
+      .hero-cta:active .golden-button,
+      .nv-faq-item summary:active {
         box-shadow:
           0 3px 6px rgba(0, 0, 0, 0.16),
           0 3px 6px rgba(110, 80, 20, 0.4),
           inset 0 -2px 5px 1px var(--nv-gold-inner-mid),
           inset 0 -1px 1px 3px var(--nv-gold-highlight);
-        transform: translateY(-2px);
-        transition: transform 34ms;
-      }
-
-      .header-cta:active .nv-press-button__base,
-      .hero-cta:active .nv-press-button__base {
-        transform: translateY(1px);
-        transition: transform 34ms;
       }
 
       .header-cta:focus:not(:focus-visible),
@@ -450,20 +1759,12 @@
       }
 
       @media (max-width: 639px) {
-        .nv-press-button {
+        .golden-button {
           min-width: min(100%, 220px);
         }
 
-        .nv-press-button__top {
+        .golden-button {
           white-space: normal;
-        }
-      }
-
-      @media (prefers-reduced-motion: reduce) {
-        .nv-press-button__top,
-        .nv-press-button__bottom,
-        .nv-press-button__base {
-          transition: none;
         }
       }
 
@@ -478,7 +1779,7 @@
 
         z-index: 24;
 
-        background: #000000;
+        background: #1a1a1a;
 
         border-bottom: 1px solid #fae38573;
 
@@ -604,7 +1905,9 @@
 
         user-select: none;
 
-        transition: none;
+        transition:
+          color 0.18s ease,
+          transform 0.18s ease;
 
         z-index: 1;
       }
@@ -623,8 +1926,6 @@
 
         position: absolute;
 
-        inset: 0;
-
         pointer-events: none;
 
         transition:
@@ -633,6 +1934,8 @@
       }
 
       .nv-breadcrumb__trigger::before {
+        inset: 0;
+
         background: linear-gradient(
           135deg,
           #fae3855c,
@@ -719,7 +2022,26 @@
 
       .nv-breadcrumb__group[open] .nv-breadcrumb__trigger,
       .nv-breadcrumb__group:hover .nv-breadcrumb__trigger {
-        color: var(--nv-text-muted);
+        --nv-crumb-bg: linear-gradient(180deg, #163a35f2, #0a1913fa);
+        color: #fae385;
+        transform: translateY(-1px);
+      }
+
+      .nv-breadcrumb__group[open] .nv-breadcrumb__trigger::before,
+      .nv-breadcrumb__group:hover .nv-breadcrumb__trigger::before {
+        background: linear-gradient(
+          135deg,
+          #fae385a8,
+          #8b5b12a3 58%,
+          #fae38566
+        );
+      }
+
+      .nv-breadcrumb__group[open] .nv-breadcrumb__trigger::after,
+      .nv-breadcrumb__group:hover .nv-breadcrumb__trigger::after {
+        box-shadow:
+          inset 0 1px 0 #fae38529,
+          0 5px 14px #00000052;
       }
 
       .nv-breadcrumb__group.is-current .nv-breadcrumb__trigger {
@@ -749,6 +2071,15 @@
         background: #050706f5;
         box-shadow: 0 18px 38px #000000b8;
         backdrop-filter: blur(12px);
+      }
+
+      .nv-breadcrumb__menu::before {
+        content: "";
+        position: absolute;
+        right: 0;
+        bottom: 100%;
+        left: 0;
+        height: 7px;
       }
 
       .nv-breadcrumb__group[open] .nv-breadcrumb__menu,
@@ -797,11 +2128,8 @@
         touch-action: manipulation;
       }
 
-      .header-cta .nv-press-button {
+      .header-cta .golden-button {
         min-width: 0;
-      }
-
-      .header-cta .nv-press-button__top {
         height: 36px;
 
         padding-right: 10px;
@@ -810,9 +2138,11 @@
 
         font-size: 11px;
 
+        line-height: 34px;
+
         letter-spacing: 0.02em;
 
-        text-transform: none;
+        text-transform: uppercase;
       }
 
       /* Sidebar */
@@ -1132,7 +2462,7 @@
 
       .hero h1,
       .hero h2,
-      .hero p,
+      .hero > p:not(.hero-kicker),
       .hero-actions {
         position: relative;
 
@@ -1140,13 +2470,13 @@
       }
 
       .hero {
-        height: 700px;
+        min-height: 700px;
 
         display: block;
 
         align-items: flex-start;
 
-        padding: 94px var(--side) 38px;
+        padding: 94px var(--side) var(--nv-section-divider-before-gap);
 
         overflow: hidden;
 
@@ -1211,21 +2541,6 @@
         pointer-events: none;
       }
 
-      .hero-kicker {
-        position: relative;
-        z-index: 4;
-        margin: 0 0 10px;
-        color: var(--nv-kicker-color-hero);
-        font:
-          700 var(--nv-section-kicker-size)
-            / var(--nv-kicker-line-height-hero)
-            Inter,
-          Arial,
-          sans-serif;
-        letter-spacing: var(--nv-kicker-letter-spacing);
-        text-transform: uppercase;
-      }
-
       .hero-cube {
         position: absolute;
 
@@ -1261,7 +2576,7 @@
 
         font-weight: 750;
 
-        margin-bottom: 24px;
+        margin-bottom: var(--nv-hero-subtitle-body-gap);
 
         max-width: 700px;
 
@@ -1272,11 +2587,7 @@
         text-shadow: none;
       }
 
-      .hero p {
-        position: relative;
-
-        z-index: 3;
-
+      .hero > p:not(.hero-kicker) {
         font-family: "Inter", Arial, sans-serif;
 
         font-size: var(--nv-section-body-size);
@@ -1287,7 +2598,7 @@
 
         max-width: 660px;
 
-        margin-top: 14px;
+        margin-top: 0;
       }
 
       .hero-actions {
@@ -1302,8 +2613,14 @@
         flex-wrap: wrap;
       }
 
-      .hero-actions .hero-cta .nv-press-button {
+      .hero-actions .hero-cta .golden-button {
         min-width: 360px;
+      }
+
+      .hero-cta .golden-button {
+        height: var(--nv-cta-height);
+        font-size: 13px;
+        line-height: 42px;
       }
 
       .hero-cta {
@@ -1338,27 +2655,9 @@
 
       /* Shared section typography */
 
-      .nv-about__kicker,
-      .nv-section-step__kicker,
-      .nvp4-projectidea__kicker,
-      .nvp5-analysis__kicker,
-      .nv-s7__kicker,
-      .nv-process__kicker,
-      .nv-resource-section__kicker,
-      .nv-contact__kicker,
-      #downloads .kicker {
-        color: var(--nv-kicker-color-section);
-        font-family: "Inter", Arial, sans-serif;
-        font-size: var(--nv-section-kicker-size);
-        font-weight: 700;
-        line-height: var(--nv-kicker-line-height-section);
-        letter-spacing: var(--nv-kicker-letter-spacing);
-        text-transform: uppercase;
-      }
-
       .hero h1,
       .nv-about__title,
-      .nv-section-step__copy h2,
+      .nv-section-step__content h2,
       .nvp4-projectidea__title,
       .nvp4-projectidea__title-accent,
       .nvp5-analysis__title {
@@ -1382,7 +2681,7 @@
       }
 
       .nv-about__text,
-      .nv-section-step__copy p,
+      .nv-section-step__content p:not(.nv-section-step__kicker),
       .nvp4-projectidea__text,
       .nvp4-projectidea__idea p,
       .nvp5-analysis__intro {
@@ -1394,16 +2693,8 @@
 
       /* Shared section rhythm and alternation */
 
-      .nv-about__kicker,
-      .nv-section-step__kicker,
-      .nvp4-projectidea__kicker,
-      .nvp5-analysis__kicker,
-      .nv-contact__kicker {
-        margin: 0 0 var(--nv-kicker-title-gap);
-      }
-
       .nv-about__title,
-      .nv-section-step__copy h2,
+      .nv-section-step__content h2,
       .nvp4-projectidea__title,
       .nvp5-analysis__title,
       .nv-contact__title {
@@ -1425,12 +2716,8 @@
         padding-bottom: var(--nv-section-divider-before-gap);
       }
 
-      .nv-about__inner {
-        gap: var(--nv-section-text-content-gap);
-      }
-
-      .nv-section-step__copy,
-      .nvp4-projectidea__copy,
+      .nv-section-step__content,
+      .nvp4-projectidea__content,
       .nvp5-analysis__head,
       .nv-contact__head {
         margin-bottom: var(--nv-section-text-content-gap);
@@ -1453,7 +2740,14 @@
         left: var(--side);
         z-index: 8;
         height: 1px;
-        background: linear-gradient(90deg, transparent 0%, rgba(212, 175, 55, 0.72) 8%, #d4af37 50%, rgba(212, 175, 55, 0.72) 92%, transparent 100%);
+        background: linear-gradient(
+          90deg,
+          transparent 0%,
+          rgba(212, 175, 55, 0.72) 8%,
+          #d4af37 50%,
+          rgba(212, 175, 55, 0.72) 92%,
+          transparent 100%
+        );
         box-shadow: 0 0 12px rgba(212, 175, 55, 0.2);
         pointer-events: none;
       }
@@ -1473,18 +2767,6 @@
       #kontakt,
       .footer {
         background-color: var(--nv-section-black);
-      }
-
-      .nvp4-projectidea__idea h3 {
-        font-size: 14px;
-      }
-
-      .nv-step-card h3 {
-        font-size: 20px;
-      }
-
-      .nv-step-card p {
-        font-size: 12px;
       }
 
       @media (max-width: 899px) {
@@ -1571,26 +2853,45 @@
         position: relative;
         z-index: 1;
         width: 100%;
-        max-width: 1180px;
+        max-width: calc(
+          var(--nv-about-text-column) + var(--nv-about-video-gap) -
+            var(--nv-about-paragraph-extension) + var(--nv-about-media-column)
+        );
         margin: 0 auto 0 0;
         display: grid;
+        gap: var(--nv-section-text-content-gap);
       }
 
       .nv-about__intro {
-        max-width: 980px;
+        display: contents;
         text-align: left;
       }
 
       .nv-about__body {
         display: grid;
-        grid-template-columns: minmax(420px, 760px) minmax(280px, 420px);
-        gap: clamp(34px, 4vw, 68px);
-        align-items: center;
+        grid-template-columns: minmax(0, var(--nv-about-text-column)) minmax(
+            0,
+            var(--nv-about-media-column)
+          );
+        grid-template-rows: repeat(5, auto);
+        column-gap: calc(
+          var(--nv-about-video-gap) - var(--nv-about-paragraph-extension)
+        );
+        row-gap: 0;
+        align-items: start;
+      }
+
+      .nv-about__intro > * {
+        grid-column: 1;
       }
 
       .nv-about__media {
+        grid-column: 2;
+        grid-row: 5;
+        align-self: center;
+        justify-self: start;
         position: relative;
-        min-height: 320px;
+        aspect-ratio: 16 / 9;
         border: 1px solid rgba(250, 227, 133, 0.34);
         border-radius: 8px;
         background:
@@ -1607,7 +2908,9 @@
           inset 0 1px 0 #ffffff1f,
           inset 0 -1px 0 rgba(250, 227, 133, 0.22);
         overflow: hidden;
-        transform: translateY(-6px);
+        width: var(--nv-about-media-column);
+        margin-left: 0;
+        transform: none;
       }
 
       .nv-about__media img {
@@ -1648,13 +2951,19 @@
 
       .nv-about__text {
         margin: 0 0 34px;
-        max-width: 760px;
+        min-width: 0;
+        width: var(--nv-about-text-width);
+        max-width: none;
+      }
+
+      .nv-about__text--before-bullets {
+        margin-bottom: 80px;
       }
 
       .nv-about__bullets {
         margin: 0;
         padding-left: 0;
-        max-width: 900px;
+        max-width: calc(100% - var(--nv-about-paragraph-extension));
         display: grid;
         gap: 10px;
         color: #b9c3bd;
@@ -1666,17 +2975,28 @@
 
       .nv-about__bullets li {
         position: relative;
-        padding-left: 28px;
+        padding-left: 18px;
       }
 
-      .nv-about__bullets li::before {
+      .nv-about__bullets strong {
+        position: relative;
+        display: block;
+        margin-bottom: 2px;
+        color: var(--nv-gold-inner-mid);
+        font-weight: 700;
+      }
+
+      .nv-about__bullets strong::before {
         content: "";
         position: absolute;
-        left: 0;
-        top: 0.26em;
-        width: 16px;
-        height: 16px;
-        background: url("assets/bulletpoint.png") center / contain no-repeat;
+        top: 50%;
+        left: -18px;
+        width: 7px;
+        height: 7px;
+        border: 1px solid var(--nv-gold-inner-mid);
+        border-radius: 50%;
+        background: url("assets/bulletpoint.png") center / cover no-repeat;
+        transform: translateY(-50%);
       }
 
       @media (max-width: 899px) {
@@ -1691,12 +3011,45 @@
 
         .nv-about__body {
           grid-template-columns: 1fr;
+          grid-template-rows: auto;
+          row-gap: var(--nv-about-video-gap);
+        }
+
+        .nv-about__intro {
+          display: block;
+        }
+
+        .nv-about__media {
+          grid-column: 1;
+          grid-row: auto;
+          width: min(100%, var(--nv-about-media-column));
+          margin-left: auto;
+          transform: none;
+        }
+
+        .nv-about__bullets {
+          width: calc(
+            var(--nv-about-text-column) - var(--nv-about-paragraph-extension)
+          );
+          max-width: 100%;
+        }
+
+        .nv-about__text {
+          width: var(--nv-about-text-width);
+          max-width: none;
         }
       }
 
       @media (max-width: 639px) {
+        .nv-about__text,
+        .nv-about__bullets {
+          width: 100%;
+          max-width: 100%;
+        }
+
         .nv-about__media {
-          min-height: 300px;
+          width: 100%;
+          margin-left: 0;
         }
       }
 
@@ -1743,38 +3096,59 @@
         position: relative;
         z-index: 2;
         width: 100%;
-        max-width: 1180px;
+        max-width: none;
         margin: 0 auto 0 0;
         display: block;
       }
 
-      .nv-section-step__copy {
+      .nv-section-step__content {
         max-width: 820px;
         margin: 0 0 52px;
         text-align: left;
       }
 
       .nv-step-ladder {
+        --nv-step-card-width: 430px;
+        position: relative;
+        left: calc(50% + 1.5px);
         display: grid;
         gap: 8px;
-        width: min(100%, 1120px);
+        width: 1230px;
+        margin: 0;
         overflow: hidden;
+        transform: translateX(-50%);
       }
 
       .nv-step-item {
-        display: grid;
-        grid-template-columns: 430px minmax(260px, 360px);
-        gap: 18px;
-        align-items: center;
+        --nv-step-offset: 0px;
+        display: block;
+        width: var(--nv-step-card-width);
         overflow: hidden;
+        margin-left: var(--nv-step-offset);
+        opacity: 0;
+        transform: translateX(calc(-100% - var(--nv-step-offset)));
       }
 
       .nv-step-item:nth-child(2) {
-        margin-left: clamp(22px, 3vw, 54px);
+        --nv-step-offset: 400px;
+        margin-top: -120px;
       }
 
       .nv-step-item:nth-child(3) {
-        margin-left: clamp(46px, 6vw, 108px);
+        --nv-step-offset: 800px;
+        margin-top: -120px;
+      }
+
+      .nv-step-ladder.is-visible .nv-step-item {
+        animation: nv-step-enter 700ms cubic-bezier(0.22, 1, 0.36, 1) both;
+      }
+
+      .nv-step-ladder.is-visible .nv-step-item:nth-child(2) {
+        animation-delay: 950ms;
+      }
+
+      .nv-step-ladder.is-visible .nv-step-item:nth-child(3) {
+        animation-delay: 1900ms;
       }
 
       .nv-step-card {
@@ -1793,7 +3167,8 @@
       }
 
       .nv-step-card h3 {
-        margin: 0 0 10px;
+        margin: 0 0 6px;
+        font-size: 20px;
         font-family:
           "Eastman Grotesque Alt", "Eastman Grotesque", "Inter", Arial,
           sans-serif;
@@ -1805,6 +3180,7 @@
 
       .nv-step-card p {
         margin: 0;
+        font-size: 12px;
         font-family: "Inter", Arial, sans-serif;
         line-height: 1.5;
         font-weight: 500;
@@ -1813,7 +3189,7 @@
 
       .nv-step-card__more {
         display: block;
-        margin-top: 18px;
+        margin-top: 14px;
         color: #fae385;
         font-family: "Inter", Arial, sans-serif;
         font-size: 11px;
@@ -1852,10 +3228,9 @@
         position: absolute;
         z-index: 2;
         left: 106px;
-        right: 34px;
-        bottom: 136px;
+        right: 82px;
+        bottom: 145px;
         opacity: 0;
-        animation: nv-step-content-reveal 200ms linear forwards;
       }
 
       .nv-step-card__content h3,
@@ -1863,34 +3238,28 @@
         z-index: 2;
       }
 
-      .nv-step-item {
-        animation: nv-step-enter 720ms cubic-bezier(0.22, 1, 0.36, 1) both;
+      .nv-step-ladder.is-visible
+        .nv-step-item:nth-child(1)
+        .nv-step-card__content {
+        animation: nv-step-content-reveal 250ms linear 700ms forwards;
       }
 
-      .nv-step-item:nth-child(2) {
-        animation-delay: 140ms;
+      .nv-step-ladder.is-visible
+        .nv-step-item:nth-child(2)
+        .nv-step-card__content {
+        animation: nv-step-content-reveal 250ms linear 1650ms forwards;
       }
 
-      .nv-step-item:nth-child(3) {
-        animation-delay: 280ms;
-      }
-
-      .nv-step-item:nth-child(1) .nv-step-card__content {
-        animation-delay: 720ms;
-      }
-
-      .nv-step-item:nth-child(2) .nv-step-card__content {
-        animation-delay: 860ms;
-      }
-
-      .nv-step-item:nth-child(3) .nv-step-card__content {
-        animation-delay: 1000ms;
+      .nv-step-ladder.is-visible
+        .nv-step-item:nth-child(3)
+        .nv-step-card__content {
+        animation: nv-step-content-reveal 250ms linear 2600ms forwards;
       }
 
       @keyframes nv-step-enter {
         from {
           opacity: 0;
-          transform: translateX(-34px);
+          transform: translateX(calc(-100% - var(--nv-step-offset)));
         }
 
         to {
@@ -1911,6 +3280,8 @@
 
       @media (prefers-reduced-motion: reduce) {
         .nv-step-item {
+          opacity: 1;
+          transform: none;
           animation: none;
         }
 
@@ -1925,34 +3296,39 @@
           width: 100%;
           margin-left: 0;
         }
+      }
 
-        .nv-step-item,
-        .nv-step-item:nth-child(2),
+      @media (min-width: 640px) and (max-width: 1199px) {
+        .nv-step-ladder {
+          width: 950px;
+        }
+
+        .nv-step-item:nth-child(2) {
+          --nv-step-offset: 260px;
+        }
+
         .nv-step-item:nth-child(3) {
-          grid-template-columns: 1fr;
-          gap: 16px;
-          width: min(100%, 430px);
-          margin: 0 auto;
-        }
-
-        .nv-step-card {
-          width: min(100%, 430px);
-          padding: 46px 30px 32px;
-        }
-
-        .nv-step-card__content {
-          left: calc(126px - 3.5ch);
-          right: 30px;
-        }
-
-        .nv-section-step__actions {
-          margin-left: auto;
-          margin-right: auto;
-          justify-content: center;
+          --nv-step-offset: 520px;
         }
       }
 
       @media (max-width: 639px) {
+        .nv-step-ladder {
+          left: auto;
+          width: 100%;
+          transform: none;
+        }
+
+        .nv-step-item,
+        .nv-step-item:nth-child(2),
+        .nv-step-item:nth-child(3) {
+          --nv-step-offset: 0px;
+          width: min(100%, 340px);
+          margin-top: 0;
+          margin-right: auto;
+          margin-left: auto;
+        }
+
         .nv-step-card {
           width: min(100%, 340px);
           padding: 44px 24px 30px;
@@ -1960,7 +3336,7 @@
 
         .nv-step-card__content {
           left: calc(98px - 3.5ch);
-          right: 24px;
+          right: 65px;
         }
       }
 
@@ -2023,7 +3399,7 @@
         margin: 0;
       }
 
-      .nvp4-projectidea__copy {
+      .nvp4-projectidea__content {
         max-width: 780px;
         margin: 0 0 52px;
         text-align: left;
@@ -2055,7 +3431,7 @@
 
       .nvp4-projectidea__slider {
         position: relative;
-        min-height: 390px;
+        min-height: 470px;
         width: calc(100% + (2 * var(--side)));
         margin: 44px 0 0 calc(-1 * var(--side));
         overflow: hidden;
@@ -2066,10 +3442,10 @@
         position: absolute;
         inset: 0;
         display: grid;
-        grid-template-columns: 426px 320px;
-        gap: 22px;
+        grid-template-columns: 416px 300px;
+        gap: 15.4px;
         align-items: center;
-        justify-content: start;
+        justify-content: center;
         opacity: 0;
         transform: translateX(-100%);
         animation: nvp4-projectidea-slide 15s cubic-bezier(0.4, 0, 0.2, 1)
@@ -2077,12 +3453,16 @@
       }
 
       .nvp4-projectidea__slide:nth-child(2) {
-        animation-delay: 5s;
+        animation-delay: 4s;
       }
 
       .nvp4-projectidea__slide:nth-child(3) {
-        animation-delay: 10s;
-        grid-template-columns: 766px 320px;
+        animation-delay: 9s;
+      }
+
+      .nvp4-projectidea__slide:nth-child(1) {
+        animation-delay: -1s;
+        grid-template-columns: 766px 300px;
       }
 
       .nvp4-projectidea__image {
@@ -2114,13 +3494,13 @@
         background: #000000;
       }
 
-      .nvp4-projectidea__slide:nth-child(3) .nvp4-projectidea__image img {
+      .nvp4-projectidea__slide:nth-child(1) .nvp4-projectidea__image img {
         background: #00000000;
         object-fit: cover;
         transform: scale(1.06);
       }
 
-      .nvp4-projectidea__slide:nth-child(3) .nvp4-projectidea__image {
+      .nvp4-projectidea__slide:nth-child(1) .nvp4-projectidea__image {
         border-color: rgba(250, 227, 133, 0.3);
         background: #000000;
         box-shadow:
@@ -2135,6 +3515,7 @@
 
       .nvp4-projectidea__idea h3 {
         margin: 0 0 12px;
+        font-size: 14px;
         color: #fae385;
         font-family:
           "Eastman Grotesque Alt", "Eastman Grotesque", "Inter", Arial,
@@ -2161,14 +3542,15 @@
         height: 2px;
         background: #1f5f3b;
         animation: nvp4-projectidea-dot 15s linear infinite;
+        animation-delay: -1s;
       }
 
       .nvp4-projectidea__dot:nth-child(2) {
-        animation-delay: 5s;
+        animation-delay: 4s;
       }
 
       .nvp4-projectidea__dot:nth-child(3) {
-        animation-delay: 10s;
+        animation-delay: 9s;
       }
 
       @keyframes nvp4-projectidea-slide {
@@ -2177,23 +3559,22 @@
           transform: translateX(-100%);
         }
 
-        9% {
-          opacity: 1;
-          transform: translateX(-4%);
-        }
-
-        16%,
-        35% {
+        6.666% {
           opacity: 1;
           transform: translateX(0);
         }
 
-        44% {
-          opacity: 0;
+        33.333% {
+          opacity: 1;
+          transform: translateX(0);
+        }
+
+        40% {
+          opacity: 1;
           transform: translateX(100%);
         }
 
-        45%,
+        40.001%,
         100% {
           opacity: 0;
           transform: translateX(-100%);
@@ -2201,12 +3582,16 @@
       }
 
       @keyframes nvp4-projectidea-dot {
-        0%,
-        44% {
+        0% {
+          background: #1f5f3b;
+        }
+
+        6.666%,
+        40% {
           background: #fae385;
         }
 
-        45%,
+        40.001%,
         100% {
           background: #1f5f3b;
         }
@@ -2237,12 +3622,12 @@
         }
 
         .nvp4-projectidea__slide {
-          grid-template-columns: 381px minmax(0, 270px);
-          gap: 20px;
+          grid-template-columns: 381px 270px;
+          gap: 14px;
         }
 
-        .nvp4-projectidea__slide:nth-child(3) {
-          grid-template-columns: 589px minmax(0, 270px);
+        .nvp4-projectidea__slide:nth-child(1) {
+          grid-template-columns: 589px 270px;
         }
 
         .nvp4-projectidea__image {
@@ -2257,13 +3642,13 @@
       .nv-contact {
         margin-left: var(--sidebar-w);
         padding: var(--nv-section-pad-y) var(--side);
-        background: linear-gradient(180deg, #050706 0%, #080b09 100%);
-        color: #f5f7f4;
+        color: var(--nv-text-light);
+        background: var(--nv-section-black);
       }
 
       .nv-contact__inner {
         width: 100%;
-        max-width: 1650px;
+        max-width: var(--nv-section-inner-max);
         margin: 0;
       }
 
@@ -2273,66 +3658,231 @@
 
       .nv-contact__title {
         color: transparent;
-        background: linear-gradient(180deg, #c5a059 0%, #fdf0cd 50%, #d4af37 100%);
+        background: linear-gradient(
+          180deg,
+          #c5a059 0%,
+          #fdf0cd 50%,
+          #d4af37 100%
+        );
         background-clip: text;
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
-        font: 700 var(--nv-section-title-size) / 1 "Eastman Grotesque Alt", "Eastman Grotesque", Inter, Arial, sans-serif;
+        font:
+          700 var(--nv-section-title-size) / 1 "Eastman Grotesque Alt",
+          "Eastman Grotesque",
+          Inter,
+          Arial,
+          sans-serif;
       }
 
       .nv-contact__intro {
-        color: #b9c3bd;
-        font: 500 var(--nv-section-body-size) / var(--nv-section-body-line) Inter, Arial, sans-serif;
         max-width: 860px;
+        color: var(--nv-text-muted);
+        font:
+          500 var(--nv-section-body-size) / var(--nv-section-body-line) Inter,
+          Arial,
+          sans-serif;
       }
 
       .nv-contact__grid {
-        margin-top: 28px;
+        position: relative;
         display: grid;
-        grid-template-columns: 40% 60%;
-        gap: 18px;
+        grid-template-columns: 330px 466.2px;
+        gap: 0;
+        align-items: start;
+        width: 796.2px;
+        max-width: 100%;
+        margin: 0 auto;
       }
 
       .nv-contact__portrait,
       .nv-contact__card {
-        border: 1px solid rgba(247, 239, 138, 0.45);
-        border-radius: 12px;
-        background: #0a1913;
-        padding: 18px;
+        border: 1px solid transparent;
+        border-radius: var(--nv-radius-md);
+        background:
+          linear-gradient(var(--nv-matte-black), var(--nv-matte-black))
+            padding-box,
+          var(--gradient-gold-border) border-box;
       }
 
-      .nv-contact__portrait h3,
+      .nv-contact__portrait {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        min-height: 650px;
+        padding: 32px 26px;
+        text-align: center;
+      }
+
+      .nv-contact__portrait-frame {
+        width: 250px;
+        height: 250px;
+        margin: 0 0 24px;
+        overflow: hidden;
+        border: 2px solid transparent;
+        border-radius: 50%;
+        background:
+          linear-gradient(var(--nv-black), var(--nv-black)) padding-box,
+          var(--gradient-gold-border) border-box;
+        box-shadow: 0 22px 46px var(--nv-black);
+      }
+
+      .nv-contact__portrait-image {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center 22%;
+      }
+
+      .nv-contact__portrait h3 {
+        margin: 0 0 6px;
+        color: var(--nv-gold-accent);
+        font:
+          700 24px/1.15 "Eastman Grotesque Alt",
+          Inter,
+          Arial,
+          sans-serif;
+      }
+
+      .nv-contact__portrait > p {
+        margin: 0;
+        color: var(--nv-gold-highlight);
+        font:
+          600 14px/1.4 Inter,
+          Arial,
+          sans-serif;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      .nv-contact__portrait ul {
+        display: grid;
+        gap: 8px;
+        width: 100%;
+        margin: 28px 0 0;
+        padding: 22px 0 0;
+        border-top: 1px solid var(--nv-gold-accent);
+        list-style: none;
+        text-align: left;
+      }
+
+      .nv-contact__portrait li {
+        display: grid;
+        grid-template-columns: 72px 1fr;
+        gap: 10px;
+        color: var(--nv-text-muted);
+        font:
+          500 13px/1.5 Inter,
+          Arial,
+          sans-serif;
+      }
+
+      .nv-contact__portrait li strong {
+        color: var(--nv-gold-accent);
+      }
+
+      .nv-contact__portrait li a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      .nv-contact__portrait li a:hover,
+      .nv-contact__portrait li a:focus-visible {
+        color: var(--nv-gold-highlight);
+        outline: none;
+      }
+
+      .nv-contact__card {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        min-height: 470px;
+        margin-top: 330px;
+        padding: 42px 48px;
+      }
+
       .nv-contact__card h3 {
-        color: #f5f7f4;
-        font: 700 clamp(22px, 1.7vw, 30px) / 1.08 "Eastman Grotesque Alt", Inter, Arial, sans-serif;
-        margin: 0 0 10px;
+        margin: 0 0 26px;
+        color: var(--nv-gold-accent);
+        font:
+          700 clamp(22px, 1.8vw, 30px) / 1.1 "Eastman Grotesque Alt",
+          Inter,
+          Arial,
+          sans-serif;
       }
 
-      .nv-contact__portrait p,
       .nv-contact__card p,
       .nv-contact__card li {
-        color: #b9c3bd;
-        font: 500 12px / 1.55 Inter, Arial, sans-serif;
+        color: var(--nv-text-muted);
+        font:
+          500 13px/1.65 Inter,
+          Arial,
+          sans-serif;
+      }
+
+      .nv-contact__card p {
+        max-width: 680px;
+        margin: 0 0 18px;
       }
 
       .nv-contact__socials {
-        margin-top: 12px;
-        display: grid;
-        gap: 6px;
+        display: flex;
+        gap: 12px;
+        align-items: center;
+        justify-content: center;
+        margin-top: 28px;
       }
 
-      .nv-contact__card ul {
-        margin: 14px 0 0;
-        padding: 0;
-        list-style: none;
-        display: grid;
-        gap: 6px;
+      .nv-contact__social {
+        display: inline-grid;
+        place-items: center;
+        width: 44px;
+        height: 44px;
+        border: 1px solid var(--nv-gold-accent);
+        border-radius: 50%;
+        color: var(--nv-text-light);
+        background: var(--nv-black);
+      }
+
+      .nv-contact__social svg {
+        width: 20px;
+        height: 20px;
+        fill: none;
+        stroke: currentcolor;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        stroke-width: 1.8;
+      }
+
+      .nv-contact__cta {
+        align-self: flex-start;
+        margin-top: 34px;
+      }
+
+      .nv-contact__cta .golden-button {
+        display: inline-flex;
+        gap: 8px;
+        align-items: center;
+        justify-content: center;
+        font-size: 11px;
+      }
+
+      .nv-calendly-icon {
+        display: block;
+        width: 20px;
+        height: 20px;
+        flex: 0 0 20px;
       }
 
       .nv-faq-metrics {
-        margin-top: 18px;
         display: grid;
-        gap: 10px;
+        gap: 28px;
+        width: 100%;
+        padding: 34px;
+        border-left: 1px solid var(--nv-gold-accent);
       }
 
       .nv-faq-metric {
@@ -2343,28 +3893,24 @@
       .nv-faq-metric__top {
         display: flex;
         justify-content: space-between;
-        color: #b9c3bd;
-        font: 600 10px/1.2 Inter, Arial, sans-serif;
+        color: var(--nv-text-muted);
+        font:
+          600 10px/1.2 Inter,
+          Arial,
+          sans-serif;
       }
 
       .nv-faq-metric__bar {
         height: 6px;
         border-radius: 999px;
-        background: rgba(255, 255, 255, 0.12);
+        background: var(--nv-matte-black);
         overflow: hidden;
       }
 
       .nv-faq-metric__fill {
         display: block;
         height: 100%;
-        background: linear-gradient(90deg, #d2ac47, #f7ef8a);
-      }
-
-      .nv-s7-card__result {
-        display: grid;
-        grid-template-columns: 24px minmax(0, 1fr);
-        gap: 10px;
-        align-items: start;
+        background: var(--nv-section-title-gradient);
       }
 
       .nv-s7-card__result-icon {
@@ -2372,18 +3918,6 @@
         height: 20px;
         object-fit: contain;
         margin-top: 2px;
-      }
-
-      .download-item {
-        align-content: space-between;
-      }
-
-      .download-button {
-        justify-self: end;
-        width: auto;
-        min-height: 30px;
-        padding: 0 10px;
-        font-size: 10px;
       }
 
       .footer-link--disabled {
@@ -2398,6 +3932,28 @@
 
         .nv-contact__grid {
           grid-template-columns: 1fr;
+          gap: 34px;
+          max-width: 720px;
+        }
+
+        .nv-faq-layout {
+          grid-template-columns: 1fr;
+        }
+
+        .nv-faq-metrics {
+          padding: 28px 0 0;
+          border-top: 1px solid var(--nv-gold-accent);
+          border-left: 0;
+        }
+
+        .nv-contact__portrait,
+        .nv-contact__card {
+          min-height: 0;
+        }
+
+        .nv-contact__card {
+          margin-top: 0;
+          padding: 42px;
         }
       }
 
@@ -2408,7 +3964,7 @@
           margin-left: 0;
         }
 
-        .nvp4-projectidea__copy {
+        .nvp4-projectidea__content {
           text-align: left;
           margin-bottom: 34px;
         }
@@ -2419,12 +3975,30 @@
 
         .nvp4-projectidea__slide {
           grid-template-columns: 1fr;
-          gap: 18px;
+          gap: 12.6px;
           align-content: start;
         }
 
         .nvp4-projectidea__idea {
           max-width: none;
+        }
+
+        .nv-contact__portrait {
+          padding: 30px 20px;
+        }
+
+        .nv-contact__portrait-frame {
+          width: min(252px, 78vw);
+          height: min(252px, 78vw);
+        }
+
+        .nv-contact__card {
+          padding: 30px 22px;
+        }
+
+        .nv-contact__portrait li {
+          grid-template-columns: 1fr;
+          gap: 2px;
         }
 
         .nvp4-projectidea__image {
@@ -2513,8 +4087,305 @@
         }
       }
       /* NUROVELLE SECTION 5 END */
+
+      /* Inlined component: section rhythm, process, why and footer */
+      /* Prozess, Why und Footer */
+
+      .nv-process,
+      .nv-why {
+        margin-left: var(--sidebar-w);
+        padding-right: var(--side);
+        padding-left: var(--side);
+        color: var(--nv-text-light);
+        overflow: hidden;
+      }
+
+      .nv-process__inner,
+      .nv-why__inner {
+        width: 100%;
+        max-width: var(--nv-section-inner-max);
+        margin: 0;
+      }
+
+      .nv-process__head,
+      .nv-why__head {
+        max-width: var(--nv-section-head-max);
+      }
+
+      .nv-process__title,
+      .nv-why__title {
+        color: transparent;
+        background: var(--nv-section-title-gradient);
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        font:
+          700 var(--nv-section-title-size) / 1 "Eastman Grotesque Alt",
+          "Eastman Grotesque",
+          Inter,
+          Arial,
+          sans-serif;
+      }
+
+      .nv-process__intro,
+      .nv-why__intro {
+        max-width: var(--nv-section-intro-max);
+        margin: 0;
+        color: var(--nv-text-muted);
+        font:
+          500 var(--nv-section-body-size) / var(--nv-section-body-line) Inter,
+          Arial,
+          sans-serif;
+      }
+
+      .nv-process__steps {
+        position: relative;
+        display: grid;
+        grid-template-columns: repeat(4, 180px);
+        grid-template-rows: repeat(3, 220px);
+        gap: 60px 70px;
+        width: 930px;
+        min-height: 780px;
+        margin: 0 auto;
+        padding: 0;
+        list-style: none;
+      }
+
+      .nv-process__step::after {
+        content: "";
+        position: absolute;
+        top: 99px;
+        left: calc(50% + 100px);
+        z-index: 0;
+        width: 50px;
+        height: 1px;
+        background: var(--nv-gold-accent);
+        opacity: 0.58;
+        transform-origin: left center;
+        pointer-events: none;
+      }
+
+      .nv-process__step:nth-child(2)::after,
+      .nv-process__step:nth-child(4)::after {
+        width: 280px;
+        transform: rotate(90deg);
+      }
+
+      .nv-process__step:last-child::after {
+        content: none;
+      }
+
+      .nv-process__step {
+        --nv-process-depth: 1;
+        --nv-process-turn: 0deg;
+        position: relative;
+        min-width: 0;
+        text-align: center;
+      }
+
+      .nv-process__step:nth-child(1) {
+        --nv-process-depth: 0.95;
+        --nv-process-turn: 25deg;
+        grid-area: 1 / 1;
+      }
+
+      .nv-process__step:nth-child(2) {
+        --nv-process-depth: 0.95;
+        --nv-process-turn: 12deg;
+        grid-area: 1 / 2;
+      }
+
+      .nv-process__step:nth-child(3) {
+        --nv-process-depth: 1.05;
+        --nv-process-turn: 12deg;
+        grid-area: 2 / 2;
+      }
+
+      .nv-process__step:nth-child(4) {
+        --nv-process-depth: 1.05;
+        --nv-process-turn: -12deg;
+        grid-area: 2 / 3;
+      }
+
+      .nv-process__step:nth-child(5) {
+        --nv-process-depth: 1.15;
+        --nv-process-turn: -12deg;
+        grid-area: 3 / 3;
+      }
+
+      .nv-process__step:nth-child(6) {
+        --nv-process-depth: 1.15;
+        --nv-process-turn: -25deg;
+        grid-area: 3 / 4;
+      }
+
+      .nv-process__visual {
+        position: relative;
+        z-index: 1;
+        height: 198px;
+        filter: drop-shadow(14px 18px 14px #0000008f);
+        transform: perspective(760px) rotateX(5deg)
+          rotateY(var(--nv-process-turn)) scale(var(--nv-process-depth));
+        transform-origin: 50% 76%;
+        transform-style: preserve-3d;
+      }
+
+      .nv-process__module {
+        position: absolute;
+        top: 0;
+        left: 50%;
+        z-index: 2;
+        width: 220px;
+        height: 160px;
+        object-fit: contain;
+        transform: translateX(-50%);
+      }
+
+      .nv-process__base {
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        z-index: 1;
+        width: 200px;
+        height: 108px;
+        object-fit: contain;
+        transform: translateX(-50%);
+      }
+
+      .nv-process__step h3,
+      .nv-why__point h3 {
+        margin: 0 0 var(--nv-space-xxs);
+        color: var(--nv-gold-highlight);
+        font:
+          700 16px/1.2 "Eastman Grotesque Alt",
+          Inter,
+          Arial,
+          sans-serif;
+        text-transform: uppercase;
+      }
+
+      .nv-process__step h3 {
+        font-size: 12px;
+      }
+
+      .nv-process__step p,
+      .nv-why__point p {
+        margin: 0;
+        color: var(--nv-text-muted);
+        font:
+          500 12px/1.5 Inter,
+          Arial,
+          sans-serif;
+      }
+
+      .nv-why__points {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 24px 54px;
+      }
+
+      .nv-why__point {
+        padding-left: 20px;
+        border-left: 1px solid var(--nv-gold-accent);
+      }
+
+      .footer {
+        margin-left: var(--sidebar-w);
+        width: calc(100% - var(--sidebar-w));
+        padding: 42px var(--side);
+        border-top: 1px solid var(--nv-gold-divider-strong);
+        color: var(--nv-text-light);
+        background: var(--nv-black);
+      }
+
+      .footer-inner {
+        display: grid;
+        grid-template-columns: 2fr repeat(3, 1fr);
+        gap: 38px;
+        width: 100%;
+        max-width: var(--nv-footer-inner-max);
+        margin: 0;
+      }
+
+      .footer h4 {
+        margin: 0 0 var(--nv-space-sm);
+        color: var(--nv-gold-light);
+        font:
+          700 11px/1.2 Inter,
+          Arial,
+          sans-serif;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      .footer a,
+      .footer p {
+        display: block;
+        margin: 0;
+        color: #ffffcd29;
+        font:
+          400 16px/1.85 Inter,
+          Arial,
+          sans-serif;
+        text-decoration: none;
+      }
+
+      .footer a:hover,
+      .footer a:focus-visible {
+        color: var(--nv-gold-highlight);
+        outline: none;
+      }
+
+      @media (max-width: 1199px) {
+        .nv-process__steps {
+          grid-template-columns: repeat(3, minmax(0, 1fr));
+          grid-template-rows: none;
+          width: 100%;
+          min-height: 0;
+          transform: none;
+          row-gap: calc(var(--nv-space-xl) * 2);
+        }
+
+        .nv-process__step:nth-child(n) {
+          grid-area: auto;
+        }
+
+        .nv-process__step::after {
+          content: none;
+        }
+
+        .nv-process__visual {
+          filter: none;
+          transform: none;
+        }
+
+        .footer-inner {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+      }
+
+      @media (max-width: 899px) {
+        .nv-process,
+        .nv-why,
+        .footer {
+          margin-left: 0;
+          width: 100%;
+        }
+      }
+
+      @media (max-width: 639px) {
+        .nv-process__steps,
+        .nv-why__points,
+        .footer-inner {
+          grid-template-columns: 1fr;
+        }
+
+        .nv-process__step {
+          max-width: 320px;
+          margin: 0 auto;
+        }
+      }
     </style>
-    <link href="components/nurovelle-section-rhythm.css" rel="stylesheet" />
     <script>
       document.addEventListener("DOMContentLoaded", function () {
         const body = document.body;
@@ -2545,6 +4416,13 @@
         );
 
         breadcrumbGroups.forEach(group => {
+          let closeTimer = 0;
+
+          const cancelClose = () => {
+            window.clearTimeout(closeTimer);
+            closeTimer = 0;
+          };
+
           group.addEventListener("toggle", () => {
             if (!group.open) return;
             breadcrumbGroups.forEach(otherGroup => {
@@ -2554,6 +4432,7 @@
 
           group.addEventListener("mouseenter", () => {
             if (!hoverNavigation.matches) return;
+            cancelClose();
             breadcrumbGroups.forEach(otherGroup => {
               if (otherGroup !== group) otherGroup.open = false;
             });
@@ -2563,8 +4442,14 @@
           group.addEventListener("mouseleave", () => {
             if (!hoverNavigation.matches || group.matches(":focus-within"))
               return;
-            group.open = false;
+            cancelClose();
+            closeTimer = window.setTimeout(() => {
+              if (!group.matches(":hover") && !group.matches(":focus-within"))
+                group.open = false;
+            }, 160);
           });
+
+          group.addEventListener("focusin", cancelClose);
         });
 
         const breadcrumbLinks = [
@@ -2633,6 +4518,31 @@
     </script>
   </head>
   <body>
+    <svg width="0" height="0" aria-hidden="true" focusable="false">
+      <symbol id="nv-calendly-mark" viewBox="0 0 64 64">
+        <path
+          d="M50 14C42 7 30 5 20 11C9 17 5 31 10 42C15 53 28 59 40 55C46 53 51 49 54 44"
+          fill="none"
+          stroke="#046bf7"
+          stroke-width="7"
+          stroke-linecap="round"
+        />
+        <path
+          d="M50 22C44 16 35 15 28 19C20 23 17 32 21 40C25 48 35 51 43 47C47 45 50 42 52 38"
+          fill="none"
+          stroke="#12e0f7"
+          stroke-width="6"
+          stroke-linecap="round"
+        />
+        <path
+          d="M47 28C43 24 37 24 34 28C30 32 32 38 36 40C40 42 45 40 48 36"
+          fill="none"
+          stroke="#046bf7"
+          stroke-width="5"
+          stroke-linecap="round"
+        />
+      </symbol>
+    </svg>
     <div class="preview-stage">
       <header class="site-header">
         <div class="header-inner">
@@ -2682,14 +4592,8 @@
             href="analyse.html"
             aria-label="Kostenlose KI-Potenzialanalyse öffnen"
           >
-            <span class="nv-press-button">
-              <span class="nv-press-button__top"
-                ><span class="nv-press-button__label"
-                  >Unverbindliches Erstgespräch</span
-                ></span
-              >
-              <span class="nv-press-button__bottom" aria-hidden="true"></span>
-              <span class="nv-press-button__base" aria-hidden="true"></span>
+            <span class="golden-button">
+              <span class="golden-text">Unverbindliches Erstgespräch</span>
             </span>
           </a>
         </div>
@@ -2813,14 +4717,13 @@
             href="analyse.html"
             aria-label="Kostenlose KI-Potenzialanalyse öffnen"
           >
-            <span class="nv-press-button">
-              <span class="nv-press-button__top"
-                ><span class="nv-press-button__label"
-                  >Kostenlose KI-Potenzialanalyse anfordern</span
-                ></span
+            <span class="golden-button">
+              <svg class="nv-calendly-icon" aria-hidden="true">
+                <use href="#nv-calendly-mark"></use>
+              </svg>
+              <span class="golden-text"
+                >Kostenlose KI-Potenzialanalyse anfordern</span
               >
-              <span class="nv-press-button__bottom" aria-hidden="true"></span>
-              <span class="nv-press-button__base" aria-hidden="true"></span>
             </span>
           </a>
 
@@ -2829,14 +4732,8 @@
             href="#kontakt"
             aria-label="Unverbindliches Erstgespräch"
           >
-            <span class="nv-press-button">
-              <span class="nv-press-button__top"
-                ><span class="nv-press-button__label"
-                  >Unverbindliches Erstgespräch</span
-                ></span
-              >
-              <span class="nv-press-button__bottom" aria-hidden="true"></span>
-              <span class="nv-press-button__base" aria-hidden="true"></span>
+            <span class="golden-button">
+              <span class="golden-text">Unverbindliches Erstgespräch</span>
             </span>
           </a>
         </div>
@@ -2857,10 +4754,10 @@
                 KI schafft nur dann echten Nutzen, wenn sie zu den bestehenden
                 Prozessen, Daten und Systemen eines Unternehmens passt. Deshalb
                 beginnt Nurovelle nicht mit einem fertigen Tool, sondern mit der
-                Frage, welcher Ablauf verbessert werden soll und welche technische
-                Lösung dafür tatsächlich sinnvoll ist.
+                Frage, welcher Ablauf verbessert werden soll und welche
+                technische Lösung dafür tatsächlich sinnvoll ist.
               </p>
-              <p class="nv-about__text">
+              <p class="nv-about__text nv-about__text--before-bullets">
                 Aus dieser Grundlage entstehen individuelle KI-Systeme,
                 Automatisierungen und Softwarelösungen, die sich an realen
                 Anforderungen orientieren und in bestehende Strukturen
@@ -2885,11 +4782,6 @@
                   <strong>Machbarkeit vor Entwicklung:</strong> Datenlage,
                   Integrationsaufwand und technische Voraussetzungen werden
                   geprüft, bevor unnötige Entwicklungsarbeit entsteht.
-                </li>
-                <li>
-                  <strong>Klare nächste Schritte:</strong> Anforderungen,
-                  Prioritäten und mögliche Umsetzungsschritte werden
-                  nachvollziehbar strukturiert.
                 </li>
                 <li>
                   <strong>Individuelle Umsetzung:</strong> Die Lösung richtet
@@ -2917,7 +4809,7 @@
         aria-labelledby="ki-projekt-start-title"
       >
         <div class="nv-section-step__inner">
-          <div class="nv-section-step__copy">
+          <div class="nv-section-step__content">
             <p class="nv-section-step__kicker">Projektstart</p>
             <h2 id="ki-projekt-start-title">
               Der erste Schritt zu Ihrem KI-Projekt
@@ -3003,14 +4895,11 @@
               href="analyse.html"
               aria-label="Kostenloses Erstgespräch vereinbaren"
             >
-              <span class="nv-press-button">
-                <span class="nv-press-button__top"
-                  ><span class="nv-press-button__label"
-                    >Potenzialanalyse starten</span
-                  ></span
-                >
-                <span class="nv-press-button__bottom" aria-hidden="true"></span>
-                <span class="nv-press-button__base" aria-hidden="true"></span>
+              <span class="golden-button">
+                <svg class="nv-calendly-icon" aria-hidden="true">
+                  <use href="#nv-calendly-mark"></use>
+                </svg>
+                <span class="golden-text">Potenzialanalyse starten</span>
               </span>
             </a>
           </div>
@@ -3024,7 +4913,7 @@
         aria-labelledby="nvp4-projectidea-title"
       >
         <div class="nvp4-projectidea__inner">
-          <div class="nvp4-projectidea__copy">
+          <div class="nvp4-projectidea__content">
             <p class="nvp4-projectidea__kicker">Von der Idee zum Projekt</p>
 
             <h2 class="nvp4-projectidea__title" id="nvp4-projectidea-title">
@@ -3046,24 +4935,6 @@
             class="nvp4-projectidea__slider"
             aria-label="Beispiele für konkrete KI-Projektideen"
           >
-            <article class="nvp4-projectidea__slide">
-              <figure class="nvp4-projectidea__image">
-                <img
-                  src="assets/Fotos/10.png"
-                  alt="Prozessautomatisierung"
-                  loading="lazy"
-                  decoding="async"
-                />
-              </figure>
-              <div class="nvp4-projectidea__idea">
-                <h3>Prozessautomatisierung</h3>
-                <p>
-                  Manuelle Arbeitsschritte werden analysiert, priorisiert und in
-                  automatisierte Workflows oder KI-Agenten überführt.
-                </p>
-              </div>
-            </article>
-
             <article class="nvp4-projectidea__slide">
               <figure
                 class="nvp4-projectidea__image nvp4-projectidea__image--wide"
@@ -3088,14 +4959,32 @@
             <article class="nvp4-projectidea__slide">
               <figure class="nvp4-projectidea__image">
                 <img
-                  src="assets/Fotos/9.png"
-                  alt="Interne Wissenssuche"
+                  src="assets/Fotos/10.png"
+                  alt="Prozessautomatisierung"
                   loading="lazy"
                   decoding="async"
                 />
               </figure>
               <div class="nvp4-projectidea__idea">
-                <h3>Interne Wissenssuche</h3>
+                <h3>Prozessautomatisierung</h3>
+                <p>
+                  Manuelle Arbeitsschritte werden analysiert, priorisiert und in
+                  automatisierte Workflows oder KI-Agenten überführt.
+                </p>
+              </div>
+            </article>
+
+            <article class="nvp4-projectidea__slide">
+              <figure class="nvp4-projectidea__image">
+                <img
+                  src="assets/Fotos/9.png"
+                  alt="Unternehmenswissen schnell finden"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </figure>
+              <div class="nvp4-projectidea__idea">
+                <h3>Unternehmenswissen schnell finden</h3>
                 <p>
                   Ein KI-System erschließt vorhandene Dokumente, Projektdaten
                   und interne Informationen, damit Mitarbeitende schneller
@@ -3117,14 +5006,8 @@
               href="analyse.html"
               aria-label="Projektidee prüfen lassen"
             >
-              <span class="nv-press-button">
-                <span class="nv-press-button__top"
-                  ><span class="nv-press-button__label"
-                    >Projektidee prüfen lassen</span
-                  ></span
-                >
-                <span class="nv-press-button__bottom" aria-hidden="true"></span>
-                <span class="nv-press-button__base" aria-hidden="true"></span>
+              <span class="golden-button">
+                <span class="golden-text">Projektidee prüfen lassen</span>
               </span>
             </a>
           </div>
@@ -4256,9 +6139,9 @@ void main(){
             zusammengeführt werden können.
           </p>
           <p class="nvp5-analysis__intro">
-            <strong>Automatisierungspotenzial:</strong> Ob KI,
-            Automatisierung, ein SaaS-Tool oder ein normaler Prozessumbau für
-            den konkreten Ablauf sinnvoller ist.
+            <strong>Automatisierungspotenzial:</strong> Ob KI, Automatisierung,
+            ein SaaS-Tool oder ein normaler Prozessumbau für den konkreten
+            Ablauf sinnvoller ist.
           </p>
           <p class="nvp5-analysis__intro">
             <strong>Nächster Schritt:</strong> Welche Umsetzung zuerst den
@@ -4281,14 +6164,14 @@ void main(){
             href="analyse.html"
             aria-label="Kostenlose KI-Potenzialanalyse anfordern"
           >
-            <span class="nv-press-button"
-              ><span class="nv-press-button__top"
-                ><span class="nv-press-button__label"
-                  >Kostenlose KI-Potenzialanalyse anfordern</span
-                ></span
-              ><span class="nv-press-button__bottom" aria-hidden="true"></span
-              ><span class="nv-press-button__base" aria-hidden="true"></span
-            ></span>
+            <span class="golden-button">
+              <svg class="nv-calendly-icon" aria-hidden="true">
+                <use href="#nv-calendly-mark"></use>
+              </svg>
+              <span class="golden-text"
+                >Kostenlose KI-Potenzialanalyse anfordern</span
+              >
+            </span>
           </a>
         </div>
       </div>
@@ -4312,8 +6195,8 @@ void main(){
         </header>
 
         <div class="nv-analysis-layout">
-          <div class="nv-analysis-copy">
-            <p class="nv-analysis-copy__eyebrow">Was geprüft wird</p>
+          <div class="nv-analysis-info">
+            <p class="nv-analysis-info__eyebrow">Was geprüft wird</p>
             <h3>Kurzer Check. Klare Einordnung.</h3>
             <p>
               Die Potenzialanalyse ist kein Verkaufsformular, sondern ein
@@ -4349,7 +6232,7 @@ void main(){
               lohnt – mit einer Einordnung von Aufwand, Nutzen und Priorität
               sowie einer Empfehlung für den sinnvollsten nächsten Schritt.
             </p>
-            <p class="nv-analysis-copy__note">
+            <p class="nv-analysis-info__note">
               Kostenlos und unverbindlich. Kein Abo. Keine versteckten Kosten.
             </p>
           </div>
@@ -4459,17 +6342,12 @@ void main(){
                 ></label
               >
               <button class="hero-cta" type="submit">
-                <span class="nv-press-button"
-                  ><span class="nv-press-button__top"
-                    ><span class="nv-press-button__label"
-                      >Potenzialanalyse starten</span
-                    ></span
-                  ><span
-                    class="nv-press-button__bottom"
-                    aria-hidden="true"
-                  ></span
-                  ><span class="nv-press-button__base" aria-hidden="true"></span
-                ></span>
+                <span class="golden-button">
+                  <svg class="nv-calendly-icon" aria-hidden="true">
+                    <use href="#nv-calendly-mark"></use>
+                  </svg>
+                  <span class="golden-text">Potenzialanalyse starten</span>
+                </span>
               </button>
             </div>
             <p class="nv-analysis-form__note">
@@ -4500,14 +6378,61 @@ void main(){
         </header>
         <div class="nv-contact__grid">
           <article class="nv-contact__portrait">
+            <figure class="nv-contact__portrait-frame">
+              <img
+                class="nv-contact__portrait-image"
+                src="assets/Whisk_ac35ee0e10.jpg"
+                alt="Portrait von Tino Schneider"
+              />
+            </figure>
             <h3>Tino Schneider</h3>
             <p>Nurovelle</p>
-            <div class="nv-contact__socials">
-              <p>LinkedIn</p>
-              <p>YouTube</p>
-              <p>Instagram</p>
-              <p>GitHub</p>
+            <div class="nv-contact__socials" aria-label="Social Media">
+              <span class="nv-contact__social" role="img" aria-label="LinkedIn">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path
+                    d="M6 9v9M6 6.2v.1M10 18v-5.2A3.8 3.8 0 0 1 17.5 12v6M10 9v9"
+                  />
+                </svg>
+              </span>
+              <span class="nv-contact__social" role="img" aria-label="YouTube">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <rect x="3" y="6" width="18" height="12" rx="3" />
+                  <path d="m10 9 5 3-5 3Z" />
+                </svg>
+              </span>
+              <span
+                class="nv-contact__social"
+                role="img"
+                aria-label="Instagram"
+              >
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <rect x="4" y="4" width="16" height="16" rx="4" />
+                  <circle cx="12" cy="12" r="3.5" />
+                  <path d="M17.5 6.5h.01" />
+                </svg>
+              </span>
+              <span class="nv-contact__social" role="img" aria-label="GitHub">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path
+                    d="M8 18c-4 1.2-4-2-5-2.5M13 21v-3.2c0-.9.1-1.5-.5-2 2.7-.3 5.5-1.3 5.5-6a4.7 4.7 0 0 0-1.2-3.2A4.4 4.4 0 0 0 16.7 3S15.7 2.7 13 4.2a11.4 11.4 0 0 0-6 0C4.3 2.7 3.3 3 3.3 3a4.4 4.4 0 0 0-.1 3.6A4.7 4.7 0 0 0 2 9.8c0 4.7 2.8 5.7 5.5 6-.6.5-.6 1.2-.5 2V21"
+                  />
+                </svg>
+              </span>
             </div>
+            <ul>
+              <li>
+                <strong>E-Mail</strong
+                ><a href="mailto:demo@nurovelle.de">demo@nurovelle.de</a>
+              </li>
+              <li>
+                <strong>Telefon</strong
+                ><a href="tel:+4915205975553">+49 152 059 755 53</a>
+              </li>
+              <li>
+                <strong>Standort</strong><span>Marburg, Deutschland</span>
+              </li>
+            </ul>
           </article>
           <article class="nv-contact__card">
             <h3>Unverbindliches Erstgespräch</h3>
@@ -4520,12 +6445,11 @@ void main(){
               und mögliche nächste Schritte – klar, strukturiert und ohne
               Verkaufsdruck.
             </p>
-            <ul>
-              <li>Erstgespräch vereinbaren</li>
-              <li>E-Mail: demo@nurovelle.de</li>
-              <li>Telefon: +49 152 059 755 53</li>
-              <li>Standort: Marburg, Deutschland</li>
-            </ul>
+            <a class="hero-cta nv-contact__cta" href="analyse.html">
+              <span class="golden-button">
+                <span class="golden-text">Erstgespräch vereinbaren</span>
+              </span>
+            </a>
           </article>
         </div>
       </div>
@@ -4543,114 +6467,133 @@ void main(){
             Umgang mit Daten.
           </p>
         </header>
-        <div class="nv-faq-grid">
-          <details class="nv-faq-item">
-            <summary>Muss ich bereits eine konkrete KI-Idee haben?</summary>
-            <p>
-              Nein. Die Potenzialanalyse eignet sich auch dann, wenn zunächst
-              nur ein zeitaufwendiger oder fehleranfälliger Prozess bekannt
-              ist. Gemeinsam wird geprüft, ob KI, Automatisierung, Software
-              oder eine andere Prozessverbesserung sinnvoll ist.
-            </p>
-          </details>
-          <details class="nv-faq-item">
-            <summary>Was wird bei der KI-Potenzialanalyse geprüft?</summary>
-            <p>
-              Geprüft werden der aktuelle Ablauf, beteiligte Systeme und
-              Datenquellen, manuelle Übergaben, wiederkehrende Aufgaben sowie
-              der mögliche Nutzen einer technischen Lösung. Daraus entsteht eine
-              erste Einordnung von Aufwand, Priorität und sinnvollem nächsten
-              Schritt.
-            </p>
-          </details>
-          <details class="nv-faq-item">
-            <summary>Für welche Unternehmen eignet sich das Angebot?</summary>
-            <p>
-              Das Angebot richtet sich an Unternehmen, die wiederkehrende
-              Abläufe verbessern, Informationen schneller nutzbar machen oder
-              bestehende Systeme sinnvoll verbinden möchten. Entscheidend ist
-              nicht die Unternehmensgröße, sondern ein klar abgrenzbarer
-              Prozess oder konkreter Verbesserungsbedarf.
-            </p>
-          </details>
-          <details class="nv-faq-item">
-            <summary>Entwickelt Nurovelle auch individuelle Lösungen?</summary>
-            <p>
-              Ja. Lösungen werden an den jeweiligen Prozess, die vorhandenen
-              Systeme und die technischen Anforderungen angepasst. Dazu können
-              KI-Agenten, Automatisierungen, Wissenssysteme, Schnittstellen
-              oder individuelle Software gehören.
-            </p>
-          </details>
-          <details class="nv-faq-item">
-            <summary>Können bestehende Systeme angebunden werden?</summary>
-            <p>
-              Grundsätzlich ja, sofern geeignete Schnittstellen, Datenzugriffe
-              oder technische Integrationsmöglichkeiten vorhanden sind. Vor der
-              Umsetzung wird geprüft, welche Systeme beteiligt sind und welche
-              Anbindung realistisch und sicher möglich ist.
-            </p>
-          </details>
-          <details class="nv-faq-item">
-            <summary>Wie läuft ein typisches Projekt ab?</summary>
-            <p>
-              Zu Beginn werden Aufgabe, Ziel, Datenlage und bestehende Abläufe
-              geklärt. Danach folgen technische Prüfung, Auswahl des passenden
-              Lösungstyps, Umsetzungsplanung, Entwicklung, Tests und die
-              kontrollierte Einführung in den bestehenden Prozess.
-            </p>
-          </details>
-          <details class="nv-faq-item">
-            <summary>Wie lange dauert die Umsetzung?</summary>
-            <p>
-              Das hängt vom Umfang, der Datenlage, den beteiligten Systemen und
-              dem Integrationsaufwand ab. Eine klar abgegrenzte
-              Automatisierung kann deutlich schneller umgesetzt werden als ein
-              komplexes System mit mehreren Schnittstellen und Freigabeprozessen.
-            </p>
-          </details>
-          <details class="nv-faq-item">
-            <summary>Was passiert nach dem Absenden des Formulars?</summary>
-            <p>
-              Die Angaben werden geprüft und strukturiert eingeordnet.
-              Anschließend erhalten Sie eine erste Rückmeldung zum möglichen
-              Einsatzbereich, zu offenen Voraussetzungen und zum sinnvollsten
-              nächsten Schritt. Falls weitere Informationen erforderlich sind,
-              werden diese gezielt abgefragt.
-            </p>
-          </details>
-        </div>
-        <div class="nv-faq-metrics" aria-label="Ergänzende Kennzahlen">
-          <div class="nv-faq-metric">
-            <div class="nv-faq-metric__top">
-              <span>Qualifizierte Mitarbeitende</span><span>90 %</span>
-            </div>
-            <div class="nv-faq-metric__bar">
-              <span class="nv-faq-metric__fill" style="width: 90%"></span>
-            </div>
+        <div class="nv-faq-layout">
+          <div class="nv-faq-grid">
+            <details class="nv-faq-item">
+              <summary class="golden-button">
+                Muss ich bereits eine konkrete KI-Idee haben?
+              </summary>
+              <p>
+                Nein. Die Potenzialanalyse eignet sich auch dann, wenn zunächst
+                nur ein zeitaufwendiger oder fehleranfälliger Prozess bekannt
+                ist. Gemeinsam wird geprüft, ob KI, Automatisierung, Software
+                oder eine andere Prozessverbesserung sinnvoll ist.
+              </p>
+            </details>
+            <details class="nv-faq-item">
+              <summary class="golden-button">
+                Was wird bei der KI-Potenzialanalyse geprüft?
+              </summary>
+              <p>
+                Geprüft werden der aktuelle Ablauf, beteiligte Systeme und
+                Datenquellen, manuelle Übergaben, wiederkehrende Aufgaben sowie
+                der mögliche Nutzen einer technischen Lösung. Daraus entsteht
+                eine erste Einordnung von Aufwand, Priorität und sinnvollem
+                nächsten Schritt.
+              </p>
+            </details>
+            <details class="nv-faq-item">
+              <summary class="golden-button">
+                Für welche Unternehmen eignet sich das Angebot?
+              </summary>
+              <p>
+                Das Angebot richtet sich an Unternehmen, die wiederkehrende
+                Abläufe verbessern, Informationen schneller nutzbar machen oder
+                bestehende Systeme sinnvoll verbinden möchten. Entscheidend ist
+                nicht die Unternehmensgröße, sondern ein klar abgrenzbarer
+                Prozess oder konkreter Verbesserungsbedarf.
+              </p>
+            </details>
+            <details class="nv-faq-item">
+              <summary class="golden-button">
+                Entwickelt Nurovelle auch individuelle Lösungen?
+              </summary>
+              <p>
+                Ja. Lösungen werden an den jeweiligen Prozess, die vorhandenen
+                Systeme und die technischen Anforderungen angepasst. Dazu können
+                KI-Agenten, Automatisierungen, Wissenssysteme, Schnittstellen
+                oder individuelle Software gehören.
+              </p>
+            </details>
+            <details class="nv-faq-item">
+              <summary class="golden-button">
+                Können bestehende Systeme angebunden werden?
+              </summary>
+              <p>
+                Grundsätzlich ja, sofern geeignete Schnittstellen, Datenzugriffe
+                oder technische Integrationsmöglichkeiten vorhanden sind. Vor
+                der Umsetzung wird geprüft, welche Systeme beteiligt sind und
+                welche Anbindung realistisch und sicher möglich ist.
+              </p>
+            </details>
+            <details class="nv-faq-item">
+              <summary class="golden-button">
+                Wie läuft ein typisches Projekt ab?
+              </summary>
+              <p>
+                Zu Beginn werden Aufgabe, Ziel, Datenlage und bestehende Abläufe
+                geklärt. Danach folgen technische Prüfung, Auswahl des passenden
+                Lösungstyps, Umsetzungsplanung, Entwicklung, Tests und die
+                kontrollierte Einführung in den bestehenden Prozess.
+              </p>
+            </details>
+            <details class="nv-faq-item">
+              <summary class="golden-button">
+                Wie lange dauert die Umsetzung?
+              </summary>
+              <p>
+                Das hängt vom Umfang, der Datenlage, den beteiligten Systemen
+                und dem Integrationsaufwand ab. Eine klar abgegrenzte
+                Automatisierung kann deutlich schneller umgesetzt werden als ein
+                komplexes System mit mehreren Schnittstellen und
+                Freigabeprozessen.
+              </p>
+            </details>
+            <details class="nv-faq-item">
+              <summary class="golden-button">
+                Was passiert nach dem Absenden des Formulars?
+              </summary>
+              <p>
+                Die Angaben werden geprüft und strukturiert eingeordnet.
+                Anschließend erhalten Sie eine erste Rückmeldung zum möglichen
+                Einsatzbereich, zu offenen Voraussetzungen und zum sinnvollsten
+                nächsten Schritt. Falls weitere Informationen erforderlich sind,
+                werden diese gezielt abgefragt.
+              </p>
+            </details>
           </div>
-          <div class="nv-faq-metric">
-            <div class="nv-faq-metric__top">
-              <span>Servicequalität</span><span>60 %</span>
+          <div class="nv-faq-metrics" aria-label="Ergänzende Kennzahlen">
+            <div class="nv-faq-metric">
+              <div class="nv-faq-metric__top">
+                <span>Qualifizierte Mitarbeitende</span><span>90 %</span>
+              </div>
+              <div class="nv-faq-metric__bar">
+                <span class="nv-faq-metric__fill" style="width: 90%"></span>
+              </div>
             </div>
-            <div class="nv-faq-metric__bar">
-              <span class="nv-faq-metric__fill" style="width: 60%"></span>
+            <div class="nv-faq-metric">
+              <div class="nv-faq-metric__top">
+                <span>Servicequalität</span><span>60 %</span>
+              </div>
+              <div class="nv-faq-metric__bar">
+                <span class="nv-faq-metric__fill" style="width: 60%"></span>
+              </div>
             </div>
-          </div>
-          <div class="nv-faq-metric">
-            <div class="nv-faq-metric__top">
-              <span>Erfolgreich abgeschlossen</span><span>85 %</span>
+            <div class="nv-faq-metric">
+              <div class="nv-faq-metric__top">
+                <span>Erfolgreich abgeschlossen</span><span>85 %</span>
+              </div>
+              <div class="nv-faq-metric__bar">
+                <span class="nv-faq-metric__fill" style="width: 85%"></span>
+              </div>
             </div>
-            <div class="nv-faq-metric__bar">
-              <span class="nv-faq-metric__fill" style="width: 85%"></span>
-            </div>
-          </div>
-          <div class="nv-faq-metric">
-            <div class="nv-faq-metric__top">
-              <span>Support abgeschlossen</span><span>90 %</span>
-            </div>
-            <div class="nv-faq-metric__bar">
-              <span class="nv-faq-metric__fill" style="width: 90%"></span>
+            <div class="nv-faq-metric">
+              <div class="nv-faq-metric__top">
+                <span>Support abgeschlossen</span><span>90 %</span>
+              </div>
+              <div class="nv-faq-metric__bar">
+                <span class="nv-faq-metric__fill" style="width: 90%"></span>
+              </div>
             </div>
           </div>
         </div>
@@ -4677,7 +6620,9 @@ void main(){
           <a href="#downloads">Downloads</a>
           <a href="#faq">FAQ</a>
           <a href="#kontakt">Kontakt</a>
-          <span class="footer-link--disabled" aria-disabled="true">Aktuelles</span>
+          <span class="footer-link--disabled" aria-disabled="true"
+            >Aktuelles</span
+          >
           <span class="footer-link--disabled" aria-disabled="true">Team</span>
           <span class="footer-link--disabled" aria-disabled="true">SEO</span>
           <span class="footer-link--disabled" aria-disabled="true">Pakete</span>
@@ -4686,8 +6631,8 @@ void main(){
           <h4>Newsletter</h4>
           <p>
             Erhalten Sie ausgewählte Informationen zu KI-Agenten,
-            Automatisierung, Unternehmenssoftware und neuen
-            Nurovelle-Lösungen direkt per E-Mail.
+            Automatisierung, Unternehmenssoftware und neuen Nurovelle-Lösungen
+            direkt per E-Mail.
           </p>
           <p>Ihre E-Mail-Adresse</p>
           <p>Newsletter abonnieren</p>
@@ -4706,7 +6651,7 @@ void main(){
           <a href="impressum.html">Impressum</a>
           <a href="datenschutz.html">Datenschutz</a>
           <a href="agb.html">AGB</a>
-          <p>Copyright © Nurovelle. By d4sd1ng. All rights reserved.</p>
+          <p>© Nurovelle. By d4sd1ng. All rights reserved.</p>
           <p>Nach oben</p>
         </div>
       </div>
@@ -4714,72 +6659,145 @@ void main(){
 
     <script>
       (() => {
+        const stepLadder = document.querySelector(".nv-step-ladder");
+        const stepSection = document.querySelector("#ki-projekt-start");
+        if (stepLadder && stepSection) {
+          const revealStepLadder = () => stepLadder.classList.add("is-visible");
+
+          if ("IntersectionObserver" in window) {
+            const stepObserver = new IntersectionObserver(
+              (entries, observer) => {
+                entries.forEach(entry => {
+                  if (!entry.isIntersecting) return;
+                  revealStepLadder();
+                  observer.unobserve(entry.target);
+                });
+              },
+              { threshold: 0.01 }
+            );
+            stepObserver.observe(stepSection);
+          } else {
+            revealStepLadder();
+          }
+        }
+
         const serviceCards = [
           {
             subtitle: "Chancen erkennen und priorisieren",
-            bullets: ["Prozessaufnahme", "Daten- und Systemprüfung", "Maßnahmenpriorisierung"],
+            bullets: [
+              "Prozessaufnahme",
+              "Daten- und Systemprüfung",
+              "Maßnahmenpriorisierung",
+            ],
             resultTitle: "Klare Potenzialübersicht",
-            resultText: "Eine strukturierte Einschätzung mit priorisierten Einsatzmöglichkeiten und konkreten nächsten Schritten.",
+            resultText:
+              "Eine strukturierte Einschätzung mit priorisierten Einsatzmöglichkeiten und konkreten nächsten Schritten.",
           },
           {
             subtitle: "Von der Idee zum belastbaren Plan",
             bullets: ["KI-Strategie", "Projektplanung", "Umsetzungsfahrplan"],
             resultTitle: "Realistische Roadmap",
-            resultText: "Ein nachvollziehbarer Plan mit Prioritäten, Abhängigkeiten und klaren Entscheidungspunkten.",
+            resultText:
+              "Ein nachvollziehbarer Plan mit Prioritäten, Abhängigkeiten und klaren Entscheidungspunkten.",
           },
           {
             subtitle: "Digitale Systeme mit klaren Aufgaben",
-            bullets: ["Aufgabensteuerung", "Recherche und Auswertung", "Mehrstufige Abläufe"],
+            bullets: [
+              "Aufgabensteuerung",
+              "Recherche und Auswertung",
+              "Mehrstufige Abläufe",
+            ],
             resultTitle: "Kontrollierter KI-Agent",
-            resultText: "Ein auf den Prozess abgestimmtes System mit definierten Regeln, Schnittstellen und Ergebnissen.",
+            resultText:
+              "Ein auf den Prozess abgestimmtes System mit definierten Regeln, Schnittstellen und Ergebnissen.",
           },
           {
             subtitle: "Dialogsysteme für Service und Wissen",
-            bullets: ["Kundenanfragen", "Interner Wissenszugriff", "Vorqualifizierung"],
+            bullets: [
+              "Kundenanfragen",
+              "Interner Wissenszugriff",
+              "Vorqualifizierung",
+            ],
             resultTitle: "Konsistente Dialogführung",
-            resultText: "Ein kontrolliertes Dialogsystem mit passenden Wissensquellen und klaren Übergaben.",
+            resultText:
+              "Ein kontrolliertes Dialogsystem mit passenden Wissensquellen und klaren Übergaben.",
           },
           {
             subtitle: "Natürliche Interaktion per Sprache",
-            bullets: ["Telefonische Anfragen", "Terminvereinbarung", "Strukturierte Erstaufnahme"],
+            bullets: [
+              "Telefonische Anfragen",
+              "Terminvereinbarung",
+              "Strukturierte Erstaufnahme",
+            ],
             resultTitle: "Automatisierte Gesprächsannahme",
-            resultText: "Ein Sprachassistent, der Anfragen erfasst, verarbeitet und gezielt weiterleitet.",
+            resultText:
+              "Ein Sprachassistent, der Anfragen erfasst, verarbeitet und gezielt weiterleitet.",
           },
           {
             subtitle: "Präzise Anweisungen für bessere Ergebnisse",
-            bullets: ["Prompt-Systeme", "Vorlagen und Standards", "Qualitätssicherung"],
+            bullets: [
+              "Prompt-Systeme",
+              "Vorlagen und Standards",
+              "Qualitätssicherung",
+            ],
             resultTitle: "Wiederverwendbare Prompt-Strukturen",
-            resultText: "Ein konsistentes System für bessere Ausgaben, klare Abläufe und teamweite Nutzung.",
+            resultText:
+              "Ein konsistentes System für bessere Ausgaben, klare Abläufe und teamweite Nutzung.",
           },
           {
             subtitle: "Kontrollierter und nachvollziehbarer Einsatz",
-            bullets: ["Zugriffsregeln", "Freigabeprozesse", "Datenschutz und Prüfung"],
+            bullets: [
+              "Zugriffsregeln",
+              "Freigabeprozesse",
+              "Datenschutz und Prüfung",
+            ],
             resultTitle: "Verbindlicher Governance-Rahmen",
-            resultText: "Klare Zuständigkeiten, Schutzmaßnahmen und dokumentierte Freigabewege.",
+            resultText:
+              "Klare Zuständigkeiten, Schutzmaßnahmen und dokumentierte Freigabewege.",
           },
           {
             subtitle: "Prozesse verbinden und entlasten",
-            bullets: ["Wiederkehrende Aufgaben", "Freigaben und Übergaben", "Systemübergreifende Abläufe"],
+            bullets: [
+              "Wiederkehrende Aufgaben",
+              "Freigaben und Übergaben",
+              "Systemübergreifende Abläufe",
+            ],
             resultTitle: "Stabiler automatisierter Workflow",
-            resultText: "Ein nachvollziehbarer Prozess mit weniger manuellen Übergaben und klaren Zuständen.",
+            resultText:
+              "Ein nachvollziehbarer Prozess mit weniger manuellen Übergaben und klaren Zuständen.",
           },
           {
             subtitle: "Informationen erfassen und prüfen",
-            bullets: ["Dokumentenverarbeitung", "Datenextraktion", "Abgleich und Prüfung"],
+            bullets: [
+              "Dokumentenverarbeitung",
+              "Datenextraktion",
+              "Abgleich und Prüfung",
+            ],
             resultTitle: "Strukturierte und geprüfte Daten",
-            resultText: "Weniger manuelle Übertragung, klar dokumentierte Abweichungen und nutzbare Informationen.",
+            resultText:
+              "Weniger manuelle Übertragung, klar dokumentierte Abweichungen und nutzbare Informationen.",
           },
           {
             subtitle: "Maßgeschneiderte Systeme statt Insellösungen",
-            bullets: ["Individuelle Anwendungen", "API-Integration", "CRM- und ERP-Anbindung"],
+            bullets: [
+              "Individuelle Anwendungen",
+              "API-Integration",
+              "CRM- und ERP-Anbindung",
+            ],
             resultTitle: "Integrierte KI-Lösung",
-            resultText: "Ein passgenaues System, das bestehende Abläufe ergänzt und technisch erweiterbar bleibt.",
+            resultText:
+              "Ein passgenaues System, das bestehende Abläufe ergänzt und technisch erweiterbar bleibt.",
           },
           {
             subtitle: "Strukturierte Grundlagen für organische Reichweite",
-            bullets: ["Keyword- und Themenanalyse", "Technische SEO-Prüfung", "Content-Strukturen"],
+            bullets: [
+              "Keyword- und Themenanalyse",
+              "Technische SEO-Prüfung",
+              "Content-Strukturen",
+            ],
             resultTitle: "Priorisierte SEO-Grundlage",
-            resultText: "Konkrete Maßnahmen für bessere Auffindbarkeit, relevante Inhalte und nachhaltige Sichtbarkeit.",
+            resultText:
+              "Konkrete Maßnahmen für bessere Auffindbarkeit, relevante Inhalte und nachhaltige Sichtbarkeit.",
           },
         ];
 
@@ -4791,7 +6809,9 @@ void main(){
           if (subtitle) subtitle.textContent = model.subtitle;
 
           const usesHeading = card.querySelector(".nv-s7-card__uses h4");
-          if (usesHeading) usesHeading.innerHTML = '<span class="nv-s7-card__target" aria-hidden="true">◎</span> Einsatzbereiche';
+          if (usesHeading)
+            usesHeading.innerHTML =
+              '<span class="nv-s7-card__target" aria-hidden="true">◎</span> Einsatzbereiche';
 
           const usesList = card.querySelector(".nv-s7-card__uses ul");
           if (usesList) {
@@ -4803,7 +6823,9 @@ void main(){
             });
           }
 
-          const extraDescription = card.querySelector(".nv-s7-card__description");
+          const extraDescription = card.querySelector(
+            ".nv-s7-card__description"
+          );
           if (extraDescription) extraDescription.remove();
 
           const result = card.querySelector(".nv-s7-card__result");

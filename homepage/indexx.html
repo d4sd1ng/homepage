@@ -129,7 +129,7 @@
 
   --font-ui: "Inter", Arial, sans-serif;
 
-  --nv-section-kicker-size: clamp(9px, .62vw, 11px);
+  --nv-section-kicker-size: clamp(9px, .62vw, 10px);
 
   --nv-section-title-size: clamp(42px, 4.2vw, 74px);
 
@@ -932,9 +932,40 @@ body {
   position: relative;
   z-index: 4;
   margin: 0 0 10px;
-  color: #E8B048;
-  font: 700 var(--nv-section-kicker-size)/1.35 Inter, Arial, sans-serif;
+  color: #d4af37;
+  font: 700 var(--nv-section-kicker-size)/1.15 Inter, Arial, sans-serif;
   letter-spacing: .14em;
+}
+.hero .kicker,
+.nv-about__kicker,
+.nv-section-step__kicker,
+.nvp4-projectidea__kicker,
+.nvp5-analysis__kicker {
+  color: #d4af37;
+  font-family: "Inter", Arial, sans-serif;
+  font-size: var(--nv-section-kicker-size);
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+}
+
+.hero h1,
+.nv-about__title,
+.nv-section-step__copy h2,
+.nvp4-projectidea__title,
+.nvp4-projectidea__title-accent,
+.nvp5-analysis__title {
+  font-size: var(--nv-section-title-size);
+  font-family: "Eastman Grotesque Alt", "Eastman Grotesque", "Inter", Arial, sans-serif;
+  line-height: 1;
+  font-weight: 700;
+  letter-spacing: .01em;
+  color: #00000000;
+  background: linear-gradient(180deg, #C5A059 0%, #FDF0CD 50%, #D4AF37 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: #00000000;
 }
 
 .hero-cube {
@@ -1241,37 +1272,6 @@ body {
   }
 }
 
-.hero .kicker,
-.nv-about__kicker,
-.nv-section-step__kicker,
-.nvp4-projectidea__kicker,
-.nvp5-analysis__kicker {
-  color: #E8B048;
-  font-family: "Inter", Arial, sans-serif;
-  font-size: var(--nv-section-kicker-size);
-  font-weight: 700;
-  line-height: 1.4;
-  letter-spacing: .14em;
-  text-transform: uppercase;
-}
-
-.hero h1,
-.nv-about__title,
-.nv-section-step__copy h2,
-.nvp4-projectidea__title,
-.nvp4-projectidea__title-accent,
-.nvp5-analysis__title {
-  font-size: var(--nv-section-title-size);
-  font-family: "Eastman Grotesque Alt", "Eastman Grotesque", "Inter", Arial, sans-serif;
-  line-height: 1;
-  font-weight: 700;
-  letter-spacing: .01em;
-  color: #00000000;
-  background: linear-gradient(180deg, #C5A059 0%, #FDF0CD 50%, #D4AF37 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: #00000000;
-}
 
 .nv-about__text,
 .nv-about__point p,

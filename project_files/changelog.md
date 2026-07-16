@@ -1,5 +1,57 @@
 # Changelog
 
+## 2026-07-16 – CTA auf Golden Button reduziert
+
+Status: geprüft
+
+Geändert:
+
+- CTA-Darstellung in `homepage/index.html` auf die Golden-Button-Farb-, Rahmen- und Schattenlogik reduziert.
+- Click-Button-Front-, Edge-, Base- und Bewegungs-Layer aus den CTA-Markups und CTA-Regeln entfernt.
+- Verbleibende CTA-Komponente auf `golden-button` und `golden-text` bereinigt.
+- Golden-Button-Farben und -Verlauf exakt auf die gesonderte Button-Vorgabe zurückgeführt; Header-CTA bei `11px` auf Großbuchstaben gestellt und Sektions-CTAs auf `13px` reduziert.
+- Bulletpoints in `Warum Nurovelle` auf runde Goldmarker umgestellt; fett gesetzte Einleitungen bis zum Doppelpunkt gold hervorgehoben und den jeweiligen Erklärungstext darunter angeordnet.
+- Kicker sowie Kreis- und Fetthervorhebungen in `Warum Nurovelle` vom gelblicheren Akzent auf den vorhandenen dunkleren Root-Goldton `--nv-gold-inner-mid` umgestellt.
+- Abstand zwischen Hero-Unterzeile und Fließtext auf `32px` erhöht; CTA-Höhe und Mindestabstand zum folgenden Sektionstrenner als Root-Werte mit `44px` beziehungsweise `2 × 44px` verankert.
+- In `Warum Nurovelle` das vorhandene `assets/bulletpoint.png` in einen runden Goldrahmen gesetzt, den Punkt `Klare nächste Schritte` vollständig entfernt und das Video auf Desktop um `24px` nach rechts sowie `42px` nach unten verschoben.
+- Marker in `Warum Nurovelle` auf `14px` verkleinert und zur ersten Textzeile mittig ausgerichtet; Video-Versatz auf Desktop auf `148px` nach rechts und `168px` nach unten erhöht.
+- `Warum Nurovelle` auf ein stabiles Grid mit bis zu `760px` breiter Textspalte, `320px` breiter Videospalte und `48px` Spaltenabstand umgestellt; Video ohne freien Transform mittig zur Bulletpoint-Liste ausgerichtet.
+- Breitenänderung in `Warum Nurovelle` auf die beiden Absätze unter dem Titel begrenzt; Bulletpoint-Liste wieder um `82px` schmaler gesetzt und der sichtbare Abstand zum mittig ausgerichteten Video bei `48px` gehalten.
+- Marker in `Warum Nurovelle` auf `11px` reduziert, Goldüberschriften explizit fett gesetzt, Bullet-/Videoabstand auf `80px` erhöht und ausschließlich die beiden oberen Absätze um weitere `52px` verbreitert.
+- Marker in `Warum Nurovelle` an der Mitte des gesamten Bullettextblocks ausgerichtet; Videoabstand auf Desktop auf `120px` und im aktiven einspaltigen Layout auf `88px` erhöht.
+- Marker in `Warum Nurovelle` auf `7px` reduziert und zur goldenen Überschriftszeile ausgerichtet; Videoabstand gegenüber dem ursprünglichen Stand auf Desktop auf `144px` und im einspaltigen Layout auf `264px` verdreifacht.
+- Markerposition anschließend direkt an die jeweilige goldene Überschriftszeile gebunden und dort unabhängig von der Länge des Erklärungstextes vertikal zentriert.
+- Desktop-Videoabstand in `Warum Nurovelle` von einem breitenreduzierenden Grid-Margin auf eine Verschiebung des vollständigen Frames umgestellt, sodass die Videobreite erhalten bleibt.
+- Im aktiven einspaltigen Layout den Videoframe bei `640px` Breite rechtsbündig positioniert und den vertikalen Textabstand exakt auf `260px` gesetzt; Mobile unter `640px` bleibt vollbreit.
+- Den `260px`-Abstand im einspaltigen `Warum Nurovelle`-Layout vom Video-Margin an die verantwortliche Grid-Regel als `row-gap` verschoben.
+- Videoframe in `Warum Nurovelle` von der quadratischen Mindesthöhe auf ein durchgängiges rechteckiges `16:9`-Seitenverhältnis für Desktop, Tablet und Mobile umgestellt.
+- Videoframe in `Warum Nurovelle` bei `640 × 360px` belassen und im Desktop-Grid mit `220px` sichtbarem Abstand wieder rechts neben den Bulletpoints angeordnet.
+- Beide Absätze unter dem Titel `Warum Nurovelle` bis zur Bulletpoint-Liste auf eine eigene Breite von `955px` gesetzt; die Bulletpoint-Liste behält separat ihre schmalere Breite.
+- Feste Hero-Höhe durch eine Mindesthöhe ersetzt und den unteren Hero-Abstand an `--nv-section-divider-before-gap` gebunden, damit die Hero-Trennlinie bei umgebrochenen CTAs nicht mehr durch die Buttons läuft.
+- Abstand zwischen Hero-Untertitel und folgendem Fließtext über `--nv-hero-subtitle-body-gap` von `32px` auf `40px` erhöht.
+- Abstand zwischen dem zweiten Textabsatz und der Bulletpoint-Liste in `Warum Nurovelle` von `34px` auf `80px` erhöht; der Abstand zwischen den beiden Absätzen bleibt unverändert.
+- Cards in `Projektstart` auf Desktop als symmetrische diagonale Folge mit `0px`, `400px` und `800px` Horizontalversatz angeordnet; erst beim ersten sichtbaren Eintritt der gesamten Sektion fahren die vorhandenen Cards nacheinander vollständig vom linken Sektionsrand ein und blenden ihren Text jeweils nach Erreichen der Zielposition ein. Cardtext um `9px` angehoben und rechts um `22px` weiter in den Rahmen gesetzt.
+- Sichtbaren Card-Gesamtrahmen in `Projektstart` aus der linken Kante der ersten und rechten Kante der letzten Card gebildet und zusammen mit der CTA auf derselben Sektionsmittelachse zentriert; diagonale Anordnung bis zum Mobile-Breakpoint erhalten. Rechten Textinnenabstand anhand der tatsächlichen PNG-Rahmenkante auf `82px` beziehungsweise proportional `65px` mobil erhöht.
+- Der anhand der sichtbaren PNG-Fläche zentrierte Cardframe verwendet auf Desktop die gleichmäßigen Versätze `0px`, `400px` und `800px`, auf Tablet `0px`, `260px` und `520px` und wird erst unter `640px` ohne Versatz gestapelt.
+- In den `Projektstart`-Cards den Abstand zwischen Titel und Beschreibung von `10px` auf `6px` sowie zwischen Beschreibung und der Linie über `Mehr erfahren` von `18px` auf `14px` reduziert.
+- Vertikalen Abstand der drei `Projektstart`-Cards durch jeweils `-120px` Zeilenüberlappung verkürzt, sodass alle drei vollständigen Cards zusammen mit der CTA innerhalb der aktuellen Desktop-/Tablet-Bildschirmhöhe sichtbar sind; Mobile bleibt ohne Überlappung gestapelt.
+- Gesamten Cardframe in `Projektstart` um exakt `35px` nach links verschoben; CTA, Überschrift, Einleitung, Card-Abstände und Animation bleiben unverändert.
+- Rundlauf in `Von der Idee zum Projekt` korrigiert: bisheriges Bild 2 (`assets/Fotos/13.png`) an Position 1 gesetzt, Wide-Grid der richtigen Slide zugeordnet, Bild und Text als gemeinsamer Frame zentriert und Abstand Desktop/Tablet/Mobile jeweils um `30%` reduziert. Die Übergänge sind so synchronisiert, dass das auslaufende Bild den rechten Rand exakt dann erreicht, wenn das folgende Bild die mittige Stoppposition erreicht. Titel `Interne Wissenssuche` in `Unternehmenswissen schnell finden` geändert.
+- Die sechs vorhandenen Ablaufmodule als räumlich nach rechts absteigende 2-2-2-Folge angeordnet: Schritte 1/2 oben, die Reihe 3/4 um eine Modulposition nach rechts und eine Ebene nach unten versetzt, die Reihe 5/6 nochmals entsprechend versetzt. Dadurch sitzt Schritt 3 unter Schritt 2 und Schritt 5 unter Schritt 4. Die Paare sind horizontal verbunden; die Übergänge 2→3 und 4→5 verbinden die Ebenen seitlich. Inhalte, Assets, Leistungen und Kontakt blieben unverändert.
+- Die zunächst pauschale Linksneigung der Modul-Visuals entfernt und durch eine gemeinsame Fluchtpunkt-Perspektive ersetzt: Die Module drehen sich abhängig von ihrer horizontalen Position nach innen; obere Module werden als hintere Ebene kleiner, mittlere bleiben neutral skaliert und untere werden als vordere Ebene größer. Sockel und Aufsatz teilen jeweils dieselbe Transformation und denselben Tiefenschatten. Reihenfolge, Texte und 2-2-2-Geometrie blieben unverändert; Tablet und Mobile bleiben unverzerrt.
+- Modul-Aufbauten und Sockel in der Ablaufsektion deutlich vergrößert, die Tiefenstaffelung entsprechend angehoben und die Modulbezeichnungen von `16px` auf `12px` reduziert.
+- Kontaktsektion gemäß freigegebener Zweispaltenstruktur aufgebaut: links die Portraitkarte mit `assets/Whisk_ac35ee0e10.jpg`, rundem Goldrahmen, Name, Marke und vier beschrifteten Social-Symbolen; rechts und deutlich tiefer versetzt die bestehende Erstgesprächskarte mit unveränderten Texten, separatem CTA zu `analyse.html` sowie verlinkter E-Mail und Telefonnummer. Beide Karten verwenden schwarzes Nurovelle-Material und werden entsprechend der Skizze durch eine kurze horizontale Goldlinie verbunden. Nicht dokumentierte Social-Profilziele wurden nicht erfunden.
+- Beide Kartentitel der Kontaktsektion vom weißen Textton auf den vorhandenen Goldton `--nv-gold-accent` umgestellt.
+- E-Mail, Telefon und Standort aus der rechten Karte entfernt und unter Portrait, Identität und Social-Symbolen in der linken Karte angeordnet. Portraitkarte und Kontaktkarte ohne horizontalen Abstand direkt an derselben Kante positioniert; ausschließlich die rechte Kontaktkarte bleibt um `330px` vertikal versetzt. Eine Verbindungslinie wird nicht verwendet.
+- Sämtliche Typografie der rechten Kontaktkarte um zwei bis drei Größenstufen reduziert: Titel auf maximal `30px`, Fließtext auf `13px` und CTA-Schrift auf `11px`.
+- Rechte Kontaktkarte auf Desktop von gemessenen `666px` exakt um `30%` auf `466.2px` verschmälert; Portraitbreite, gemeinsamer horizontaler Ansatz und vertikaler Versatz blieben unverändert.
+- Das Calendly-Zeichen als wiederverwendbares `20px`-Inline-SVG ausschließlich in die vier Potenzialanalyse-CTAs einschließlich Formularbutton eingefügt; Gesprächs- und Projektprüfungs-CTAs bleiben ohne Calendly-Zeichen.
+- FAQ-Titel sichtbar beibehalten und alle acht FAQ-Auslöser direkt an die bestehende Golden-Button-Darstellung der CTAs gebunden. Das vorhandene Kennzahlen-Liniendiagramm steht auf Desktop und Tablet rechts neben der FAQ-Spalte; mobil wird es darunter angeordnet.
+
+Nicht geändert:
+
+- CTA-Texte, Ziele und Formularlogik in `homepage/index.html`.
+
 ## 2026-07-15 – Korrekturfortsetzung und Bereinigung (Layout/Assets)
 
 Status: in Arbeit

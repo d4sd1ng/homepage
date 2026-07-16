@@ -23,7 +23,7 @@
 
 .nv-process__kicker,
 .nv-why__kicker {
-  color: var(--nv-kicker-color-section, #e8b048);
+  color: var(--nv-kicker-color-section, #d4af37);
   font: 700 var(--nv-section-kicker-size)/var(--nv-kicker-line-height-section, 1.4) Inter, Arial, sans-serif;
   letter-spacing: var(--nv-kicker-letter-spacing, 0.14em);
 }
@@ -166,8 +166,8 @@
 .footer p {
   display: block;
   margin: 0;
-  color: rgba(255, 255, 255, .7);
-  font: 400 11.5px/1.65 Inter, Arial, sans-serif;
+  color: #ffffcd29;
+  font: 400 16px/1.85 Inter, Arial, sans-serif;
   text-decoration: none;
 }
 
