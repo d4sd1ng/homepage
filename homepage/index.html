@@ -794,7 +794,7 @@
 
       .nv-download-card h3 {
         margin: 0 0 var(--nv-space-xs);
-        color: #f5f7f4;
+        color: #e7dcbf;
         font:
           700 clamp(19px, 1.45vw, 27px) / 1.08 "Eastman Grotesque Alt",
           Inter,
@@ -929,14 +929,14 @@
       }
 
       .download-item {
-        display: grid;
-        grid-template-columns: 58px minmax(0, 1fr);
-        grid-template-rows: 1fr auto;
-        align-content: space-between;
-        column-gap: 14px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 6px;
+        text-align: center;
         min-width: 0;
-        min-height: 210px;
-        padding: 14px;
+        min-height: 147px;
+        padding: 12px;
         overflow: hidden;
         border: 1px solid transparent;
         border-radius: 12px;
@@ -949,20 +949,35 @@
           inset 0 0 0 1px rgba(255, 255, 255, 0.025);
       }
 
+      /* Card order: title, icon, subtitle, download link (lower right) */
+      .download-item__content {
+        display: contents;
+      }
+      .download-item h3 {
+        order: 1;
+      }
       .download-item__type {
-        grid-row: 1;
+        order: 2;
+      }
+      .download-item p {
+        order: 3;
+      }
+      .download-button {
+        order: 4;
+      }
+
+      .download-item__type {
         display: flex;
         justify-content: center;
         align-items: center;
         gap: 8px;
-        width: 58px;
-        height: 58px;
-        padding: 8px;
+        width: 46px;
+        height: 46px;
+        padding: 7px;
         border: 1px solid transparent;
         border-radius: 10px;
         background:
-          linear-gradient(var(--nv-black, #050706), var(--nv-black, #050706))
-            padding-box,
+          linear-gradient(#000000, #000000) padding-box,
           var(--gradient-gold-border) border-box;
         color: #d4af37;
         font:
@@ -973,8 +988,8 @@
       }
 
       .download-item__type img {
-        width: 42px;
-        height: 42px;
+        width: 30px;
+        height: 30px;
         object-fit: contain;
       }
 
@@ -983,10 +998,10 @@
       }
 
       .download-item h3 {
-        margin: 0 0 var(--nv-space-xs);
-        color: #f5f7f4;
+        margin: 0;
+        color: #e7dcbf;
         font:
-          700 20px/1.08 "Eastman Grotesque Alt",
+          700 16px/1.1 "Eastman Grotesque Alt",
           Inter,
           Arial,
           sans-serif;
@@ -1004,13 +1019,12 @@
 
       .download-button {
         position: relative;
-        grid-column: 1 / -1;
         display: grid;
         place-items: center;
-        justify-self: end;
+        align-self: flex-end;
+        margin-top: auto;
         width: auto;
         min-height: 30px;
-        margin-top: var(--nv-space-lg);
         padding: 0 10px;
         overflow: hidden;
         border: 1px solid rgba(250, 227, 133, 0.4);
@@ -1097,6 +1111,9 @@
       }
       .download-button__success,
       .download-button__error {
+        position: absolute;
+        left: 0;
+        right: 0;
         opacity: 0;
         transform: translateY(16px);
       }
@@ -1148,15 +1165,15 @@
       }
 
       .nv-analysis-info {
-        padding: var(--nv-space-2xl);
+        padding: var(--nv-space-2xl) var(--nv-space-2xl) var(--nv-space-xl);
         border: 1px solid rgba(212, 175, 55, 0.58);
         border-radius: 10px;
-        background: #050706;
+        background: #1a1a1a;
       }
 
       .nv-analysis-info__eyebrow {
         margin: 0 0 var(--nv-space-xxs);
-        color: #d3d8d4;
+        color: #d4af37;
         font:
           600 11px/1.3 Inter,
           Arial,
@@ -1166,7 +1183,7 @@
 
       .nv-analysis-info h3 {
         margin: 0 0 var(--nv-space-md);
-        color: #f5f7f4;
+        color: #e7dcbf;
         font:
           700 clamp(22px, 1.8vw, 32px) / 1.05 "Eastman Grotesque Alt",
           Inter,
@@ -1195,7 +1212,7 @@
       .nv-analysis-info li strong {
         display: block;
         margin-bottom: 2px;
-        color: #f5f7f4;
+        color: #e7dcbf;
       }
 
       .nv-analysis-info h4 {
@@ -1227,7 +1244,7 @@
 
       .nv-analysis-form > h3 {
         margin: 0 0 var(--nv-space-xxs);
-        color: #f5f7f4;
+        color: #e7dcbf;
         font:
           700 clamp(22px, 1.8vw, 32px) / 1.05 "Eastman Grotesque Alt",
           Inter,
@@ -1287,20 +1304,49 @@
         overflow: hidden;
       }
 
-      .nv-analysis-form__consent {
+      /* Newsletter consent + submit CTA share one compact black bar */
+      .nv-analysis-form__submit-row {
         grid-column: 1 / -1;
         display: flex;
-        align-items: flex-start;
-        gap: var(--nv-space-xs);
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 14px;
         padding: var(--nv-space-xs) 11px;
         border: 1px solid rgba(212, 175, 55, 0.36);
         border-radius: 5px;
-        color: #aeb7b2;
         background: #000;
+      }
+
+      .nv-analysis-form__consent {
+        flex: 1 1 auto;
+        min-width: 0;
+        display: flex;
+        align-items: flex-start;
+        gap: var(--nv-space-xs);
+        color: #aeb7b2;
         font:
           500 10px/1.4 Inter,
           Arial,
           sans-serif;
+      }
+
+      .nv-analysis-form__submit-row .hero-cta {
+        flex: 0 0 auto;
+        width: auto;
+      }
+
+      .nv-analysis-form__submit-row .hero-cta .golden-button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        width: auto;
+        min-width: 0;
+        height: auto;
+        padding: 9px 18px;
+        line-height: 1.2;
+        font-size: 11px;
+        white-space: nowrap;
       }
 
       .nv-analysis-form__consent input {
@@ -1520,7 +1566,7 @@
 
         --nv-forest-dark: #10412e;
 
-        --nv-text-light: #f5f7f4;
+        --nv-text-light: #e4e0d6;
 
         --nv-text-muted: #b9c3bd;
 
@@ -1611,9 +1657,16 @@
 
         --nv-section-divider-after-gap: 88px;
 
-        --nv-section-black: #1a1a1a;
+        --nv-section-black: #0a0a0a;
 
-        --nv-section-emerald: #071b15;
+        --nv-section-emerald: #020c07;
+
+        --nv-section-title-gradient: linear-gradient(
+          180deg,
+          #c5a059 0%,
+          #fdf0cd 50%,
+          #d4af37 100%
+        );
       }
 
       /* Central kicker system */
@@ -1662,7 +1715,13 @@
         font-size: 16px;
       }
 
+      html {
+        margin: 0;
+      }
+
       body {
+        margin: 0;
+
         min-height: 100vh;
 
         background: #000000;
@@ -1718,6 +1777,7 @@
         white-space: var(--nv-golden-white-space, nowrap);
         cursor: pointer;
         transition: all 0.2s ease-in-out;
+        position: relative;
       }
 
       .header-cta:hover .golden-button,
@@ -1777,9 +1837,9 @@
 
         top: 0;
 
-        z-index: 24;
+        z-index: 100;
 
-        background: #1a1a1a;
+        background: #060606;
 
         border-bottom: 1px solid #fae38573;
 
@@ -2753,16 +2813,16 @@
       }
 
       #ki-projekt-start,
-      #potenzialanalyse,
       #leistungen,
       #downloads,
+      #formular,
       #faq {
         background-color: var(--nv-section-emerald);
       }
 
       #warum-nurovelle,
       #projektidee,
-      #formular,
+      #potenzialanalyse,
       #prozess-zur-loesung,
       #kontakt,
       .footer {
@@ -3877,6 +3937,11 @@
         flex: 0 0 20px;
       }
 
+      .golden-button:has(.nv-calendly-icon) {
+        --nv-golden-display: inline-flex;
+        gap: 8px;
+      }
+
       .nv-faq-metrics {
         display: grid;
         gap: 28px;
@@ -4593,6 +4658,9 @@
             aria-label="Kostenlose KI-Potenzialanalyse öffnen"
           >
             <span class="golden-button">
+              <svg class="nv-calendly-icon" aria-hidden="true">
+                <use href="#nv-calendly-mark"></use>
+              </svg>
               <span class="golden-text">Unverbindliches Erstgespräch</span>
             </span>
           </a>
@@ -4733,6 +4801,9 @@
             aria-label="Unverbindliches Erstgespräch"
           >
             <span class="golden-button">
+              <svg class="nv-calendly-icon" aria-hidden="true">
+                <use href="#nv-calendly-mark"></use>
+              </svg>
               <span class="golden-text">Unverbindliches Erstgespräch</span>
             </span>
           </a>
@@ -6008,7 +6079,7 @@ void main(){
                 href="assets/downloads/CASE_STUDY_KI_AUTOMATISIERUNG_NUROVELLE_FINAL.pdf"
                 download
                 ><span class="download-button__idle"
-                  >Case Study herunterladen</span
+                  >Download</span
                 ><span class="download-button__success"
                   >Danke – Download startet</span
                 ><span class="download-button__error"
@@ -6038,7 +6109,7 @@ void main(){
                 href="assets/downloads/ROI_GUIDE_KI_AUTOMATISIERUNG_NUROVELLE_Formatvorlagen_FINAL.pdf"
                 download
                 ><span class="download-button__idle"
-                  >ROI-Rechner herunterladen</span
+                  >Download</span
                 ><span class="download-button__success"
                   >Danke – Download startet</span
                 ><span class="download-button__error"
@@ -6068,7 +6139,7 @@ void main(){
                 href="assets/downloads/prompt_guide.pdf"
                 download
                 ><span class="download-button__idle"
-                  >Prompt Guide herunterladen</span
+                  >Download</span
                 ><span class="download-button__success"
                   >Danke – Download startet</span
                 ><span class="download-button__error"
@@ -6098,7 +6169,7 @@ void main(){
                 href="assets/downloads/checkliste.pdf"
                 download
                 ><span class="download-button__idle"
-                  >Checkliste herunterladen</span
+                  >Download</span
                 ><span class="download-button__success"
                   >Danke – Download startet</span
                 ><span class="download-button__error"
@@ -6334,21 +6405,23 @@ void main(){
                     type="text"
                 /></label>
               </div>
-              <label class="nv-analysis-form__consent"
-                ><input name="newsletter" type="checkbox" value="yes" /><span
-                  ><strong>Newsletter und Follow-up-Hinweise erhalten.</strong>
-                  Ich möchte passende Hinweise zur Potenzialanalyse per E-Mail
-                  erhalten.</span
-                ></label
-              >
-              <button class="hero-cta" type="submit">
-                <span class="golden-button">
-                  <svg class="nv-calendly-icon" aria-hidden="true">
-                    <use href="#nv-calendly-mark"></use>
-                  </svg>
-                  <span class="golden-text">Potenzialanalyse starten</span>
-                </span>
-              </button>
+              <div class="nv-analysis-form__submit-row">
+                <label class="nv-analysis-form__consent"
+                  ><input name="newsletter" type="checkbox" value="yes" /><span
+                    ><strong>Newsletter und Follow-up-Hinweise erhalten.</strong>
+                    Ich möchte passende Hinweise zur Potenzialanalyse per E-Mail
+                    erhalten.</span
+                  ></label
+                >
+                <button class="hero-cta" type="submit">
+                  <span class="golden-button">
+                    <svg class="nv-calendly-icon" aria-hidden="true">
+                      <use href="#nv-calendly-mark"></use>
+                    </svg>
+                    <span class="golden-text">Potenzialanalyse starten</span>
+                  </span>
+                </button>
+              </div>
             </div>
             <p class="nv-analysis-form__note">
               Ihre Angaben werden ausschließlich zur Durchführung und Auswertung
@@ -6447,6 +6520,9 @@ void main(){
             </p>
             <a class="hero-cta nv-contact__cta" href="analyse.html">
               <span class="golden-button">
+                <svg class="nv-calendly-icon" aria-hidden="true">
+                  <use href="#nv-calendly-mark"></use>
+                </svg>
                 <span class="golden-text">Erstgespräch vereinbaren</span>
               </span>
             </a>
@@ -6660,8 +6736,7 @@ void main(){
     <script>
       (() => {
         const stepLadder = document.querySelector(".nv-step-ladder");
-        const stepSection = document.querySelector("#ki-projekt-start");
-        if (stepLadder && stepSection) {
+        if (stepLadder) {
           const revealStepLadder = () => stepLadder.classList.add("is-visible");
 
           if ("IntersectionObserver" in window) {
@@ -6673,9 +6748,9 @@ void main(){
                   observer.unobserve(entry.target);
                 });
               },
-              { threshold: 0.01 }
+              { threshold: 0.25 }
             );
-            stepObserver.observe(stepSection);
+            stepObserver.observe(stepLadder);
           } else {
             revealStepLadder();
           }
