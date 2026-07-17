@@ -98,14 +98,11 @@
         position: relative;
         width: 460px;
         height: 300px;
-        display: grid;
-        grid-template-columns: 31% 1px minmax(0, 69%);
         min-width: 0;
-        min-height: 0;
         overflow: hidden;
         isolation: isolate;
         border: 1px solid transparent;
-        border-radius: 26px;
+        border-radius: 7px;
         background: transparent;
         box-shadow: none;
         opacity: 0;
@@ -187,10 +184,7 @@
       .nv-s7-card.is-active {
         z-index: 3;
         border-color: #f7ef8a;
-        box-shadow:
-          0 0 0 1px #f7ef8a2e,
-          0 0 30px #d4af374a,
-          0 28px 64px #000d;
+        box-shadow: 0 28px 64px #000d;
         outline: none;
         transform: perspective(1200px) rotateY(-3deg);
       }
@@ -204,7 +198,7 @@
         object-fit: cover;
         object-position: center;
         opacity: 0;
-        filter: brightness(0.76) contrast(1.08) saturate(0.72);
+        filter: brightness(0.62) contrast(1.08) saturate(0.72);
         transform: none;
         transition:
           opacity 0.38s ease 0.08s,
@@ -244,16 +238,22 @@
       }
 
       .nv-s7-card__left {
-        position: relative;
+        position: absolute;
         z-index: 3;
-        grid-column: 1;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        width: 34%;
         display: flex;
         flex-direction: column;
+        justify-content: center;
         min-width: 0;
-        padding: var(--nv-space-md) var(--nv-space-sm);
+        padding: 22px 16px;
         opacity: 0;
-        transform: none;
-        transition: opacity 0.42s ease;
+        transform: translateX(-8px);
+        transition:
+          opacity 0.42s ease,
+          transform 0.42s ease;
       }
 
       .nv-s7-card:hover .nv-s7-card__left,
@@ -266,22 +266,15 @@
       .nv-s7-card__iconbox {
         display: grid;
         place-items: center;
-        width: 44px;
-        height: 44px;
-        margin: 0 auto;
-        border: 1px solid #d4af37;
-        border-radius: var(--nv-radius-md);
-        background: linear-gradient(145deg, #080b09, #0b100d);
-        box-shadow:
-          inset 0 0 15px #d4af3717,
-          0 0 12px #d4af3726;
+        width: 70px;
+        height: 70px;
+        margin: 0 auto var(--nv-space-md);
       }
 
       .nv-s7-card__iconbox img {
-        width: 27px;
-        height: 27px;
+        width: 70px;
+        height: 70px;
         object-fit: contain;
-        filter: drop-shadow(0 0 8px #d4af3766);
       }
 
       .nv-s7-card__left-rule {
@@ -299,16 +292,15 @@
       .nv-s7-card__uses h4 {
         display: flex;
         align-items: center;
-        justify-content: center;
         gap: 7px;
-        margin: 0 0 8px;
+        margin: 0 0 10px;
         color: var(--nv-gold-accent);
         font:
-          700 8px/1.2 Inter,
+          700 10px/1.2 Inter,
           Arial,
           sans-serif;
         letter-spacing: 0.045em;
-        text-align: center;
+        text-align: left;
         text-transform: uppercase;
       }
 
@@ -329,9 +321,10 @@
       .nv-s7-card__uses li {
         position: relative;
         padding-left: var(--nv-space-sm);
+        margin: 0 0 4px;
         color: var(--nv-text-light);
         font:
-          500 10px/1.3 Inter,
+          500 12px/1.35 Inter,
           Arial,
           sans-serif;
       }
@@ -345,13 +338,15 @@
         height: 4px;
         border-radius: 2px;
         background: #f7c64a;
-        box-shadow: 0 0 6px #d4af37;
       }
 
       .nv-s7-card__divider {
-        position: relative;
+        position: absolute;
         z-index: 3;
-        grid-column: 2;
+        left: 34%;
+        top: 0;
+        bottom: 0;
+        width: 1px;
         background: linear-gradient(
           180deg,
           transparent,
@@ -372,53 +367,51 @@
       }
 
       .nv-s7-card__main {
-        position: static;
+        position: absolute;
         z-index: 3;
-        grid-column: 3;
+        left: 34%;
+        top: 0;
+        right: 0;
+        bottom: 0;
         min-width: 0;
       }
 
+      /* Fixed anchor: the heading NEVER moves; the card builds around it */
       .nv-s7-card__heading {
         position: absolute;
-        top: 50%;
-        left: 32px;
-        right: 32px;
-        z-index: 4;
+        top: 24px;
+        left: 22px;
+        right: 20px;
         display: flex;
         align-items: center;
-        justify-content: center;
         gap: 13px;
-        transform: translateY(-50%);
-        transition: opacity 0.28s ease;
-      }
-
-      .nv-s7-card:hover .nv-s7-card__heading,
-      .nv-s7-card:focus-visible .nv-s7-card__heading,
-      .nv-s7-card.is-active .nv-s7-card__heading {
-        opacity: 0;
       }
 
       .nv-s7-card__number {
         display: grid;
         place-items: center;
-        width: 38px;
-        height: 40px;
-        flex: 0 0 38px;
+        width: 46px;
+        height: 48px;
+        flex: 0 0 46px;
         border: 1px solid #d4af37;
-        border-radius: 9px;
+        border-radius: 7px;
         color: #f0b62e;
         background: #080b09d9;
         font:
-          700 18px/1 Inter,
+          700 22px/1 Inter,
           Arial,
           sans-serif;
       }
 
       .nv-s7-card__heading h3 {
         margin: 0;
-        color: var(--nv-gold-accent);
+        color: transparent;
+        background: var(--nv-section-title-gradient);
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
         font:
-          700 16px/1.08 "Eastman Grotesque Alt",
+          700 21px/1.06 "Eastman Grotesque Alt",
           Inter,
           Arial,
           sans-serif;
@@ -429,63 +422,126 @@
         margin: 4px 0 0;
         color: var(--nv-text-light);
         font:
-          600 9px/1.25 Inter,
+          600 11px/1.25 Inter,
           Arial,
           sans-serif;
-        letter-spacing: 0.07em;
+        letter-spacing: 0.06em;
         text-transform: uppercase;
       }
 
       .nv-s7-card__short-rule {
         position: absolute;
-        top: 82px;
-        left: calc(31% + 18px);
-        z-index: 3;
-        width: 88px;
+        top: 84px;
+        left: 22px;
+        width: 84px;
         height: 1px;
+        margin: 0;
         background: linear-gradient(90deg, #d4af37, transparent);
         opacity: 0;
-        transform: none;
         transition: opacity 0.42s ease;
       }
 
       .nv-s7-card__description {
         position: absolute;
         top: 98px;
-        left: calc(31% + 18px);
-        right: var(--nv-space-md);
-        z-index: 3;
+        left: 22px;
+        right: 20px;
         margin: 0;
         color: var(--nv-text-light);
         font:
-          500 10px/1.4 Inter,
+          500 12.5px/1.45 Inter,
           Arial,
           sans-serif;
         opacity: 0;
-        transform: none;
-        transition: opacity 0.42s ease;
+        transform: translateY(6px);
+        transition:
+          opacity 0.42s ease,
+          transform 0.42s ease;
       }
 
       .nv-s7-card__result {
         position: absolute;
+        left: 22px;
+        right: 20px;
+        bottom: 16px;
         display: grid;
-        grid-template-columns: 24px minmax(0, 1fr);
+        grid-template-columns: 34px minmax(0, 1fr);
         gap: 10px;
-        align-items: start;
-        right: var(--nv-space-md);
-        bottom: var(--nv-space-md);
-        left: calc(31% + 18px);
-        z-index: 3;
-        min-height: 64px;
-        padding: 9px 11px;
-        border: 1px solid #d4af3766;
-        border-radius: var(--nv-radius-md);
-        background: linear-gradient(135deg, #080b09e8, #0a100cdc);
+        align-items: center;
+        padding: 8px 11px;
+        border: 1px solid rgba(212, 175, 55, 0.55);
+        border-radius: 7px;
+        background: linear-gradient(
+          135deg,
+          rgba(32, 52, 42, 0.5),
+          rgba(20, 34, 28, 0.36)
+        );
         opacity: 0;
-        transform: none;
-        transition: opacity 0.42s ease;
+        transform: translateY(6px);
+        transition:
+          opacity 0.42s ease,
+          transform 0.42s ease;
       }
 
+      .nv-s7-card__result::before {
+        content: "";
+        grid-column: 1;
+        grid-row: 1;
+        align-self: center;
+        width: 34px;
+        height: 34px;
+        background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23d4af37' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12 2 4 5v6c0 5 3.4 8 8 10 4.6-2 8-5 8-10V5z'/%3E%3Cpath d='M8.5 12l2.4 2.4L15.5 10'/%3E%3C/svg%3E")
+          center / contain no-repeat;
+      }
+
+      .nv-s7-card__result > div {
+        grid-column: 2;
+        grid-row: 1;
+        min-width: 0;
+      }
+
+      .nv-s7-card__result h4 {
+        margin: 0 0 4px;
+        color: var(--nv-gold-accent);
+        font:
+          700 11px/1.2 Inter,
+          Arial,
+          sans-serif;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+      }
+
+      .nv-s7-card__result ul {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 2px 12px;
+      }
+
+      .nv-s7-card__result li {
+        position: relative;
+        padding-left: 11px;
+        color: var(--nv-text-light);
+        font:
+          500 11px/1.3 Inter,
+          Arial,
+          sans-serif;
+      }
+
+      .nv-s7-card__result li::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0.5em;
+        width: 4px;
+        height: 4px;
+        border-radius: 2px;
+        background: #f7c64a;
+      }
+
+      /* Hover reveal: heading stays, the rest builds in around it */
       .nv-s7-card:hover .nv-s7-card__short-rule,
       .nv-s7-card:focus-visible .nv-s7-card__short-rule,
       .nv-s7-card.is-active .nv-s7-card__short-rule,
@@ -497,26 +553,6 @@
       .nv-s7-card.is-active .nv-s7-card__result {
         opacity: 1;
         transform: none;
-      }
-
-      .nv-s7-card__result h4 {
-        margin: 0 0 5px;
-        color: var(--nv-gold-accent);
-        font:
-          700 10px/1.22 Inter,
-          Arial,
-          sans-serif;
-        letter-spacing: 0.07em;
-        text-transform: uppercase;
-      }
-
-      .nv-s7-card__result p {
-        margin: 0;
-        color: var(--nv-text-light);
-        font:
-          500 10px/1.35 Inter,
-          Arial,
-          sans-serif;
       }
 
       @media (max-width: 1499px) {
@@ -566,9 +602,9 @@
         .nv-s7-card:nth-child(10),
         .nv-s7-card:nth-child(11) {
           width: 100%;
+          left: auto;
           grid-template-columns: 1fr;
-          min-height: 590px;
-          height: 590px;
+          min-height: 0;
         }
 
         .nv-s7-card__divider {
@@ -576,35 +612,7 @@
         }
 
         .nv-s7-card__left {
-          position: absolute;
-          inset: 186px 22px auto;
-          padding: 0;
-        }
-
-        .nv-s7-card__iconbox,
-        .nv-s7-card__left-rule {
-          display: none;
-        }
-
-        .nv-s7-card:hover .nv-s7-card__heading,
-        .nv-s7-card:focus-visible .nv-s7-card__heading,
-        .nv-s7-card.is-active .nv-s7-card__heading {
-          opacity: 0;
-        }
-
-        .nv-s7-card__short-rule,
-        .nv-s7-card__description,
-        .nv-s7-card__result {
-          left: 22px;
-          right: 22px;
-        }
-
-        .nv-s7-card__short-rule {
-          top: 118px;
-        }
-
-        .nv-s7-card__description {
-          top: 140px;
+          padding: var(--nv-space-md);
         }
       }
 
@@ -633,7 +641,7 @@
         margin-left: var(--sidebar-w);
         padding: var(--nv-section-pad-y) var(--side);
         color: var(--nv-text-light);
-        background: #020504;
+        background: var(--nv-section-emerald);
       }
 
       .nv-resource-section + .nv-resource-section {
@@ -643,12 +651,14 @@
       .nv-resource-section__inner {
         width: 100%;
         max-width: var(--nv-section-inner-max);
-        margin: 0;
+        margin: 0 auto;
       }
 
       .nv-resource-section__head {
         max-width: var(--nv-section-head-max);
+        margin-inline: auto;
         margin-bottom: var(--nv-section-text-content-gap);
+        text-align: center;
       }
 
       .nv-resource-section__title {
@@ -926,54 +936,98 @@
         grid-template-columns: repeat(4, minmax(0, 1fr));
         gap: 14px;
         padding-top: var(--nv-space-md);
+        perspective: 1100px;
       }
 
       .download-item {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 6px;
-        text-align: center;
+        position: relative;
+        display: grid;
+        grid-template-columns: 48px minmax(0, 1fr);
+        grid-template-rows: auto 1fr auto;
+        column-gap: 14px;
+        row-gap: 8px;
         min-width: 0;
-        min-height: 147px;
-        padding: 12px;
+        min-height: 150px;
+        padding: 14px;
         overflow: hidden;
         border: 1px solid transparent;
         border-radius: 12px;
         background:
-          linear-gradient(var(--nv-black, #050706), var(--nv-black, #050706))
-            padding-box,
+          linear-gradient(#000000, #000000) padding-box,
           var(--gradient-gold-border) border-box;
         box-shadow:
           0 14px 28px rgba(0, 0, 0, 0.3),
           inset 0 0 0 1px rgba(255, 255, 255, 0.025);
+        transform-style: preserve-3d;
+        transition:
+          transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+          box-shadow 0.35s ease;
       }
 
-      /* Card order: title, icon, subtitle, download link (lower right) */
-      .download-item__content {
-        display: contents;
-      }
-      .download-item h3 {
-        order: 1;
-      }
-      .download-item__type {
-        order: 2;
-      }
-      .download-item p {
-        order: 3;
-      }
-      .download-button {
-        order: 4;
+      /* Faint tech picture behind the card content */
+      .download-item::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        z-index: 0;
+        background:
+          linear-gradient(135deg, rgba(0, 0, 0, 0.78), rgba(0, 0, 0, 0.92)),
+          url("assets/cards/cards_service/1_neu.png") center / cover no-repeat;
+        opacity: 0.5;
+        pointer-events: none;
+        transition: opacity 0.35s ease;
       }
 
+      /* Shine that shifts with the 3D tilt */
+      .download-item::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        z-index: 1;
+        background: radial-gradient(
+          circle at 30% 0%,
+          rgba(250, 227, 133, 0.16),
+          transparent 55%
+        );
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.35s ease;
+      }
+
+      .download-item > * {
+        position: relative;
+        z-index: 2;
+      }
+
+      .download-item:hover,
+      .download-item:focus-within {
+        transform: rotateX(5deg) rotateY(-5deg) translateZ(6px);
+        box-shadow:
+          0 26px 46px rgba(0, 0, 0, 0.5),
+          0 0 22px rgba(212, 175, 55, 0.28);
+      }
+
+      .download-item:hover::after,
+      .download-item:focus-within::after {
+        opacity: 1;
+      }
+
+      .download-item:hover::before {
+        opacity: 0.7;
+      }
+
+      /* Icon sits on the left */
       .download-item__type {
+        grid-column: 1;
+        grid-row: 1;
+        align-self: start;
         display: flex;
         justify-content: center;
         align-items: center;
         gap: 8px;
-        width: 46px;
-        height: 46px;
-        padding: 7px;
+        width: 48px;
+        height: 48px;
+        padding: 3px;
         border: 1px solid transparent;
         border-radius: 10px;
         background:
@@ -988,20 +1042,27 @@
       }
 
       .download-item__type img {
-        width: 30px;
-        height: 30px;
+        width: 40px;
+        height: 40px;
         object-fit: contain;
       }
 
       .download-item__content {
+        grid-column: 2;
+        grid-row: 1 / span 2;
         min-width: 0;
+        align-self: start;
       }
 
       .download-item h3 {
-        margin: 0;
-        color: #e7dcbf;
+        margin: 0 0 5px;
+        color: transparent;
+        background: var(--nv-section-title-gradient);
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
         font:
-          700 16px/1.1 "Eastman Grotesque Alt",
+          700 17px/1.12 "Eastman Grotesque Alt",
           Inter,
           Arial,
           sans-serif;
@@ -1012,50 +1073,31 @@
         margin: 0;
         color: #b9c3bd;
         font:
-          500 11px/1.5 Inter,
+          500 12px/1.5 Inter,
           Arial,
           sans-serif;
       }
 
+      /* Plain clickable text link, bottom-right of the card */
       .download-button {
         position: relative;
-        display: grid;
-        place-items: center;
-        align-self: flex-end;
-        margin-top: auto;
-        width: auto;
-        min-height: 30px;
-        padding: 0 10px;
-        overflow: hidden;
-        border: 1px solid rgba(250, 227, 133, 0.4);
-        border-radius: var(--nv-radius-sm);
-        color: var(--nv-gold-highlight);
-        background-color: rgba(5, 7, 6, 0.94);
-        background-image: radial-gradient(
-          circle,
-          #f7ef8a 0%,
-          #d4af37 58%,
-          #a87308 100%
-        );
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: 0 0;
-        box-shadow:
-          0 4px 0 #8b620c,
-          0 8px 18px rgba(0, 0, 0, 0.32),
-          inset 0 1px 1px rgba(250, 227, 133, 0.28);
+        grid-column: 1 / -1;
+        grid-row: 3;
+        justify-self: end;
+        align-self: end;
+        display: inline-grid;
+        place-items: center end;
+        padding: 2px 0;
+        color: #d4af37;
         font:
-          800 10px/1.2 Inter,
+          700 12px/1.2 Inter,
           Arial,
           sans-serif;
-        text-align: center;
         text-decoration: none;
         text-transform: uppercase;
-        transition:
-          color 0.45s ease,
-          background-size 0.68s cubic-bezier(0.22, 1, 0.36, 1),
-          transform 0.18s ease,
-          box-shadow 0.18s ease;
+        letter-spacing: 0.06em;
+        cursor: pointer;
+        transition: color 0.2s ease;
       }
 
       .download-button__idle,
@@ -1068,46 +1110,25 @@
       }
 
       .download-button__idle {
-        padding: 0 30px;
+        padding-right: 22px;
       }
-      .download-button__idle::before,
       .download-button__idle::after {
+        content: "→";
         position: absolute;
         top: 50%;
-        color: currentColor;
-        font-size: 18px;
+        right: 0;
+        font-size: 15px;
         transform: translateY(-50%);
-        transition:
-          left 0.58s cubic-bezier(0.22, 1, 0.36, 1),
-          right 0.58s cubic-bezier(0.22, 1, 0.36, 1);
-      }
-      .download-button__idle::before {
-        content: "→";
-        left: -30px;
-      }
-      .download-button__idle::after {
-        content: "→";
-        right: 16px;
+        transition: right 0.28s ease;
       }
       .download-button:hover,
       .download-button:focus-visible {
-        color: #050706;
-        background-size: 240% 900%;
+        color: #f7ef8a;
         outline: none;
-      }
-      .download-button:hover .download-button__idle::before,
-      .download-button:focus-visible .download-button__idle::before {
-        left: 16px;
       }
       .download-button:hover .download-button__idle::after,
       .download-button:focus-visible .download-button__idle::after {
-        right: -30px;
-      }
-      .download-button:active {
-        transform: translateY(4px);
-        box-shadow:
-          0 1px 0 #8b620c,
-          0 4px 10px rgba(0, 0, 0, 0.28);
+        right: -4px;
       }
       .download-button__success,
       .download-button__error {
@@ -1115,7 +1136,7 @@
         left: 0;
         right: 0;
         opacity: 0;
-        transform: translateY(16px);
+        transform: translateY(10px);
       }
       .download-button.is-success .download-button__idle {
         opacity: 0;
@@ -1165,10 +1186,10 @@
       }
 
       .nv-analysis-info {
-        padding: var(--nv-space-2xl) var(--nv-space-2xl) var(--nv-space-xl);
-        border: 1px solid rgba(212, 175, 55, 0.58);
-        border-radius: 10px;
-        background: #1a1a1a;
+        padding: var(--nv-space-xl);
+        border: 1px solid rgba(212, 175, 55, 0.5);
+        border-radius: 12px;
+        background: #060606;
       }
 
       .nv-analysis-info__eyebrow {
@@ -1183,7 +1204,11 @@
 
       .nv-analysis-info h3 {
         margin: 0 0 var(--nv-space-md);
-        color: #e7dcbf;
+        color: transparent;
+        background: var(--nv-section-title-gradient);
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
         font:
           700 clamp(22px, 1.8vw, 32px) / 1.05 "Eastman Grotesque Alt",
           Inter,
@@ -1233,18 +1258,23 @@
       .nv-analysis-form__grid {
         display: grid;
         grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: var(--nv-space-xxs);
+        gap: 10px;
       }
 
       .nv-analysis-form {
-        padding: var(--nv-space-2xl);
-        border-radius: var(--nv-radius-md);
-        background: #0a1913;
+        padding: var(--nv-space-xl);
+        border: 1px solid rgba(212, 175, 55, 0.5);
+        border-radius: 12px;
+        background: #060606;
       }
 
       .nv-analysis-form > h3 {
         margin: 0 0 var(--nv-space-xxs);
-        color: #e7dcbf;
+        color: transparent;
+        background: var(--nv-section-title-gradient);
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
         font:
           700 clamp(22px, 1.8vw, 32px) / 1.05 "Eastman Grotesque Alt",
           Inter,
@@ -1322,7 +1352,7 @@
         min-width: 0;
         display: flex;
         align-items: flex-start;
-        gap: var(--nv-space-xs);
+        gap: 12px;
         color: #aeb7b2;
         font:
           500 10px/1.4 Inter,
@@ -1383,8 +1413,8 @@
       /* FAQ */
       .nv-faq-layout {
         display: grid;
-        grid-template-columns: minmax(0, 680px) minmax(260px, 380px);
-        gap: 80px;
+        grid-template-columns: minmax(0, 640px) minmax(320px, 440px);
+        gap: 56px;
         align-items: center;
       }
 
@@ -1403,14 +1433,14 @@
         --nv-golden-display: flex;
         --nv-golden-width: 100%;
         --nv-golden-min-width: 0;
-        --nv-golden-height: 52px;
+        --nv-golden-height: 40px;
         --nv-golden-justify: space-between;
         --nv-golden-text-align: left;
         --nv-golden-white-space: normal;
-        gap: var(--nv-space-lg);
-        padding-inline: 15px;
-        font-size: 13px;
-        line-height: 1.35;
+        gap: 12px;
+        padding-inline: 14px;
+        font-size: 12.5px;
+        line-height: 1.25;
         list-style: none;
       }
 
@@ -1657,16 +1687,34 @@
 
         --nv-section-divider-after-gap: 88px;
 
-        --nv-section-black: #0a0a0a;
+        --nv-section-black: #050505;
 
-        --nv-section-emerald: #020c07;
+        --nv-section-emerald: #020a06;
 
         --nv-section-title-gradient: linear-gradient(
           180deg,
-          #c5a059 0%,
-          #fdf0cd 50%,
-          #d4af37 100%
+          #b8892f 0%,
+          #f0d488 48%,
+          #c8952a 100%
         );
+
+        /* Spacing + radius scale (were undefined -> spacings collapsed to 0) */
+        --nv-space-xxs: 4px;
+        --nv-space-xs: 8px;
+        --nv-space-sm: 12px;
+        --nv-space-md: 16px;
+        --nv-space-lg: 24px;
+        --nv-space-xl: 32px;
+        --nv-space-2xl: 44px;
+        --nv-radius-sm: 6px;
+        --nv-radius-md: 12px;
+
+        /* Layout max-widths + divider (were undefined -> unconstrained) */
+        --nv-section-inner-max: 1180px;
+        --nv-section-head-max: 760px;
+        --nv-section-intro-max: 720px;
+        --nv-footer-inner-max: 1180px;
+        --nv-gold-divider-strong: rgba(212, 175, 55, 0.45);
       }
 
       /* Central kicker system */
@@ -1839,7 +1887,7 @@
 
         z-index: 100;
 
-        background: #060606;
+        background: #050505;
 
         border-bottom: 1px solid #fae38573;
 
@@ -2892,9 +2940,7 @@
         position: relative;
         padding: var(--nv-section-pad-y) var(--side);
         margin-left: var(--sidebar-w);
-        background:
-          radial-gradient(circle at 20% 45%, #112a2082 0%, #112a2000 36%),
-          linear-gradient(180deg, #000000 0%, #050706 58%, #000000 100%);
+        background: var(--nv-section-black);
         overflow: hidden;
       }
 
@@ -3119,9 +3165,7 @@
         position: relative;
         min-height: 640px;
         padding: var(--nv-section-pad-y) var(--side);
-        background:
-          radial-gradient(circle at 24% 52%, #112a207a 0%, #112a2000 34%),
-          linear-gradient(180deg, #07140f 0%, #0a1913 48%, #112a20 100%);
+        background: var(--nv-section-emerald);
         overflow: hidden;
       }
 
@@ -3425,14 +3469,7 @@
         overflow: hidden;
         padding: var(--nv-section-pad-y) var(--side);
         margin-left: var(--sidebar-w);
-        background:
-          radial-gradient(
-            circle at 72% 72%,
-            #112a206b 0%,
-            #071c142e 34%,
-            #00000000 68%
-          ),
-          #000000;
+        background: var(--nv-section-black);
       }
 
       .nvp4-projectidea::before {
@@ -3709,11 +3746,13 @@
       .nv-contact__inner {
         width: 100%;
         max-width: var(--nv-section-inner-max);
-        margin: 0;
+        margin: 0 auto;
       }
 
       .nv-contact__head {
         max-width: 900px;
+        margin-inline: auto;
+        text-align: center;
       }
 
       .nv-contact__title {
@@ -3952,7 +3991,7 @@
 
       .nv-faq-metric {
         display: grid;
-        gap: 5px;
+        gap: 9px;
       }
 
       .nv-faq-metric__top {
@@ -3960,13 +3999,13 @@
         justify-content: space-between;
         color: var(--nv-text-muted);
         font:
-          600 10px/1.2 Inter,
+          600 13px/1.2 Inter,
           Arial,
           sans-serif;
       }
 
       .nv-faq-metric__bar {
-        height: 6px;
+        height: 12px;
         border-radius: 999px;
         background: var(--nv-matte-black);
         overflow: hidden;
@@ -4089,14 +4128,7 @@
         overflow: hidden;
         padding: var(--nv-section-pad-y) var(--side);
         margin-left: var(--sidebar-w);
-        background:
-          radial-gradient(
-            circle at 26% 58%,
-            #112a2052 0%,
-            #0a191326 32%,
-            #00000000 68%
-          ),
-          #000000;
+        background: var(--nv-section-black);
       }
 
       .nvp5-analysis::before {
@@ -4125,7 +4157,8 @@
 
       .nvp5-analysis__head {
         max-width: 760px;
-        text-align: left;
+        margin-inline: auto;
+        text-align: center;
       }
 
       .nvp5-analysis__intro {
@@ -4133,9 +4166,44 @@
         max-width: 680px;
       }
 
+      /* Analyse modules shown in 3D perspective */
+      .nvp5-modules {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: clamp(12px, 2vw, 30px);
+        margin: 40px 0 8px;
+        padding: 20px 0;
+        perspective: 1300px;
+      }
+
+      .nvp5-modules img {
+        width: clamp(120px, 15vw, 220px);
+        height: auto;
+        object-fit: contain;
+        transform: rotateY(24deg) rotateX(6deg);
+        transform-style: preserve-3d;
+        filter: drop-shadow(0 24px 34px rgba(0, 0, 0, 0.55));
+        transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+      }
+
+      .nvp5-modules img:nth-child(even) {
+        transform: rotateY(24deg) rotateX(6deg) translateY(-22px);
+      }
+
+      .nvp5-modules:hover img {
+        transform: rotateY(14deg) rotateX(3deg);
+      }
+
+      @media (max-width: 899px) {
+        .nvp5-modules {
+          flex-wrap: wrap;
+        }
+      }
+
       .nvp5-analysis__cta-row {
         display: flex;
-        justify-content: flex-start;
+        justify-content: center;
         margin-top: 34px;
       }
 
@@ -4365,40 +4433,162 @@
 
       .footer-inner {
         display: grid;
-        grid-template-columns: 2fr repeat(3, 1fr);
-        gap: 38px;
+        grid-template-columns: 1.6fr repeat(3, 1fr);
+        gap: 48px;
         width: 100%;
-        max-width: var(--nv-footer-inner-max);
+        max-width: none;
         margin: 0;
       }
 
       .footer h4 {
-        margin: 0 0 var(--nv-space-sm);
+        margin: 0 0 var(--nv-space-md);
         color: var(--nv-gold-light);
         font:
-          700 11px/1.2 Inter,
+          700 14px/1.2 Inter,
           Arial,
           sans-serif;
-        letter-spacing: 0.08em;
+        letter-spacing: 0.06em;
         text-transform: uppercase;
       }
 
       .footer a,
       .footer p {
         display: block;
-        margin: 0;
-        color: #ffffcd29;
+        margin: 0 0 7px;
+        color: #c4ccc6;
         font:
-          400 16px/1.85 Inter,
+          400 15px/1.7 Inter,
           Arial,
           sans-serif;
         text-decoration: none;
+      }
+
+      .footer-col--about p {
+        color: #aab2ad;
       }
 
       .footer a:hover,
       .footer a:focus-visible {
         color: var(--nv-gold-highlight);
         outline: none;
+      }
+
+      /* Newsletter form */
+      .footer-newsletter {
+        display: flex;
+        gap: 8px;
+        margin-top: 12px;
+      }
+
+      .footer-newsletter__input {
+        flex: 1 1 auto;
+        min-width: 0;
+        height: 42px;
+        padding: 0 12px;
+        border: 1px solid rgba(212, 175, 55, 0.5);
+        border-radius: 6px;
+        color: #f0efe6;
+        background: #0c0c0c;
+        font: 400 14px/1.3 Inter, Arial, sans-serif;
+        outline: none;
+      }
+
+      .footer-newsletter__input::placeholder {
+        color: #8b938d;
+      }
+
+      .footer-newsletter__input:focus {
+        border-color: var(--nv-gold-accent);
+        box-shadow: 0 0 0 2px rgba(212, 175, 55, 0.28);
+      }
+
+      .footer-newsletter__btn {
+        flex: 0 0 auto;
+        height: 42px;
+        padding: 0 18px;
+        border: 0;
+        border-radius: 6px;
+        color: var(--nv-gold-text-dark);
+        background-image: var(--nv-gold-gradient);
+        font: 700 13px/1 Inter, Arial, sans-serif;
+        text-transform: uppercase;
+        letter-spacing: 0.04em;
+        cursor: pointer;
+        transition: filter 0.2s ease;
+      }
+
+      .footer-newsletter__btn:hover,
+      .footer-newsletter__btn:focus-visible {
+        filter: brightness(1.08);
+        outline: none;
+      }
+
+      /* Social icons (grouped with contact) */
+      .footer-social {
+        display: flex;
+        gap: 12px;
+        margin-top: 14px;
+      }
+
+      .footer-social a {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 38px;
+        height: 38px;
+        margin: 0;
+        border: 1px solid rgba(212, 175, 55, 0.45);
+        border-radius: 8px;
+        color: #c4ccc6;
+        transition:
+          color 0.2s ease,
+          border-color 0.2s ease,
+          background 0.2s ease;
+      }
+
+      .footer-social a svg {
+        width: 19px;
+        height: 19px;
+      }
+
+      .footer-social a:hover,
+      .footer-social a:focus-visible {
+        color: #060606;
+        border-color: transparent;
+        background-image: var(--nv-gold-gradient);
+        outline: none;
+      }
+
+      /* Bottom bar: thin line, legal links (no heading) + copyright */
+      .footer-bottom {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 12px 28px;
+        max-width: none;
+        margin-top: 34px;
+        padding-top: 22px;
+        border-top: 1px solid rgba(212, 175, 55, 0.28);
+      }
+
+      .footer-legal {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 22px;
+      }
+
+      .footer-legal a {
+        display: inline;
+        margin: 0;
+        color: #c4ccc6;
+        font: 500 14px/1.4 Inter, Arial, sans-serif;
+      }
+
+      .footer-copy {
+        margin: 0;
+        color: #8b938d;
+        font: 400 13px/1.4 Inter, Arial, sans-serif;
       }
 
       @media (max-width: 1199px) {
@@ -4583,7 +4773,13 @@
     </script>
   </head>
   <body>
-    <svg width="0" height="0" aria-hidden="true" focusable="false">
+    <svg
+      width="0"
+      height="0"
+      aria-hidden="true"
+      focusable="false"
+      style="position: absolute"
+    >
       <symbol id="nv-calendly-mark" viewBox="0 0 64 64">
         <path
           d="M50 14C42 7 30 5 20 11C9 17 5 31 10 42C15 53 28 59 40 55C46 53 51 49 54 44"
@@ -5329,7 +5525,7 @@ void main(){
               <header class="nv-s7-card__heading">
                 <span class="nv-s7-card__number">01</span>
                 <div>
-                  <h3>KI-Potenzialanalyse</h3>
+                  <h3>Potenzialanalyse</h3>
                   <p>Chancen erkennen und priorisieren</p>
                 </div>
               </header>
@@ -5341,10 +5537,11 @@ void main(){
               <div class="nv-s7-card__result">
                 <div>
                   <h4>Ihr Ergebnis</h4>
-                  <p>
-                    Eine klare Einschätzung mit priorisierten Potenzialen und
-                    konkreten nächsten Schritten.
-                  </p>
+                  <ul>
+                    <li>Use-Case-Mapping</li>
+                    <li>Priorisierte Roadmap</li>
+                    <li>ROI-Indikation</li>
+                  </ul>
                 </div>
               </div>
             </div>
@@ -5385,7 +5582,7 @@ void main(){
               <header class="nv-s7-card__heading">
                 <span class="nv-s7-card__number">02</span>
                 <div>
-                  <h3>KI-Beratung &amp; Roadmap</h3>
+                  <h3>KI-Roadmap</h3>
                   <p>Von der Idee zum belastbaren Plan</p>
                 </div>
               </header>
@@ -5398,10 +5595,11 @@ void main(){
               <div class="nv-s7-card__result">
                 <div>
                   <h4>Ihr Ergebnis</h4>
-                  <p>
-                    Ein nachvollziehbarer Fahrplan mit Prioritäten,
-                    Abhängigkeiten und klaren Entscheidungspunkten.
-                  </p>
+                  <ul>
+                    <li>Zielarchitektur</li>
+                    <li>Tech-Stack-Empfehlung</li>
+                    <li>Umsetzungsfahrplan</li>
+                  </ul>
                 </div>
               </div>
             </div>
@@ -5455,10 +5653,11 @@ void main(){
               <div class="nv-s7-card__result">
                 <div>
                   <h4>Ihr Ergebnis</h4>
-                  <p>
-                    Ein auf Ihren Prozess abgestimmter Agent mit klaren Regeln,
-                    Schnittstellen und kontrollierbaren Ergebnissen.
-                  </p>
+                  <ul>
+                    <li>Autonomer Workflow</li>
+                    <li>Tool-Integration</li>
+                    <li>Monitoring & Guardrails</li>
+                  </ul>
                 </div>
               </div>
             </div>
@@ -5511,10 +5710,11 @@ void main(){
               <div class="nv-s7-card__result">
                 <div>
                   <h4>Ihr Ergebnis</h4>
-                  <p>
-                    Ein kontrolliertes Dialogsystem mit passenden
-                    Wissensquellen, klaren Übergaben und konsistenten Antworten.
-                  </p>
+                  <ul>
+                    <li>Conversational UI</li>
+                    <li>Wissensanbindung (RAG)</li>
+                    <li>24/7-Verfügbarkeit</li>
+                  </ul>
                 </div>
               </div>
             </div>
@@ -5567,10 +5767,11 @@ void main(){
               <div class="nv-s7-card__result">
                 <div>
                   <h4>Ihr Ergebnis</h4>
-                  <p>
-                    Ein Sprachassistent, der Anfragen verlässlich aufnimmt,
-                    verarbeitet und an die richtigen Abläufe übergibt.
-                  </p>
+                  <ul>
+                    <li>Speech-to-Text</li>
+                    <li>Intent-Erkennung</li>
+                    <li>Freihändige Bedienung</li>
+                  </ul>
                 </div>
               </div>
             </div>
@@ -5624,10 +5825,11 @@ void main(){
               <div class="nv-s7-card__result">
                 <div>
                   <h4>Ihr Ergebnis</h4>
-                  <p>
-                    Wiederverwendbare Prompt-Strukturen, die Qualität,
-                    Konsistenz und Effizienz im täglichen Einsatz erhöhen.
-                  </p>
+                  <ul>
+                    <li>Optimierte Prompts</li>
+                    <li>Reproduzierbare Outputs</li>
+                    <li>Token-Effizienz</li>
+                  </ul>
                 </div>
               </div>
             </div>
@@ -5668,7 +5870,7 @@ void main(){
               <header class="nv-s7-card__heading">
                 <span class="nv-s7-card__number">07</span>
                 <div>
-                  <h3>KI-Sicherheit &amp; Governance</h3>
+                  <h3>KI-Governance</h3>
                   <p>Kontrollierter und nachvollziehbarer Einsatz</p>
                 </div>
               </header>
@@ -5680,10 +5882,11 @@ void main(){
               <div class="nv-s7-card__result">
                 <div>
                   <h4>Ihr Ergebnis</h4>
-                  <p>
-                    Ein klarer Governance-Rahmen mit Zuständigkeiten,
-                    Schutzmaßnahmen und dokumentierten Freigabewegen.
-                  </p>
+                  <ul>
+                    <li>Compliance-Check</li>
+                    <li>Zugriffskontrolle</li>
+                    <li>Audit-Trail</li>
+                  </ul>
                 </div>
               </div>
             </div>
@@ -5724,7 +5927,7 @@ void main(){
               <header class="nv-s7-card__heading">
                 <span class="nv-s7-card__number">08</span>
                 <div>
-                  <h3>KI-Automatisierung &amp; Workflows</h3>
+                  <h3>KI-Workflows</h3>
                   <p>Prozesse verbinden und entlasten</p>
                 </div>
               </header>
@@ -5736,10 +5939,11 @@ void main(){
               <div class="nv-s7-card__result">
                 <div>
                   <h4>Ihr Ergebnis</h4>
-                  <p>
-                    Ein nachvollziehbarer Workflow mit weniger manuellen
-                    Übergaben, klaren Zuständen und stabilen Prozessschritten.
-                  </p>
+                  <ul>
+                    <li>End-to-End-Automation</li>
+                    <li>System-Orchestrierung</li>
+                    <li>Zeitersparnis</li>
+                  </ul>
                 </div>
               </div>
             </div>
@@ -5780,7 +5984,7 @@ void main(){
               <header class="nv-s7-card__heading">
                 <span class="nv-s7-card__number">09</span>
                 <div>
-                  <h3>Dokumente, Daten &amp; Abgleich</h3>
+                  <h3>Daten-Abgleich</h3>
                   <p>Informationen erfassen und prüfen</p>
                 </div>
               </header>
@@ -5793,10 +5997,11 @@ void main(){
               <div class="nv-s7-card__result">
                 <div>
                   <h4>Ihr Ergebnis</h4>
-                  <p>
-                    Strukturierte, geprüfte Daten mit weniger manueller
-                    Übertragung und klar dokumentierten Abweichungen.
-                  </p>
+                  <ul>
+                    <li>Datenextraktion</li>
+                    <li>Automatischer Abgleich</li>
+                    <li>Validierte Datenbasis</li>
+                  </ul>
                 </div>
               </div>
             </div>
@@ -5837,7 +6042,7 @@ void main(){
               <header class="nv-s7-card__heading">
                 <span class="nv-s7-card__number">10</span>
                 <div>
-                  <h3>Individuelle KI-Software &amp; Integration</h3>
+                  <h3>KI-Software</h3>
                   <p>Maßgeschneiderte Systeme statt Insellösungen</p>
                 </div>
               </header>
@@ -5850,10 +6055,11 @@ void main(){
               <div class="nv-s7-card__result">
                 <div>
                   <h4>Ihr Ergebnis</h4>
-                  <p>
-                    Eine passgenaue Lösung, die sich in bestehende Abläufe
-                    integriert und technisch erweiterbar bleibt.
-                  </p>
+                  <ul>
+                    <li>Custom Development</li>
+                    <li>API-Integration</li>
+                    <li>Skalierbare Lösung</li>
+                  </ul>
                 </div>
               </div>
             </div>
@@ -5894,7 +6100,7 @@ void main(){
               <header class="nv-s7-card__heading">
                 <span class="nv-s7-card__number">11</span>
                 <div>
-                  <h3>SEO &amp; Sichtbarkeit</h3>
+                  <h3>SEO-Systeme</h3>
                   <p>Strukturierte Grundlagen für organische Reichweite</p>
                 </div>
               </header>
@@ -5906,10 +6112,11 @@ void main(){
               <div class="nv-s7-card__result">
                 <div>
                   <h4>Ihr Ergebnis</h4>
-                  <p>
-                    Eine belastbare SEO-Grundlage mit priorisierten Maßnahmen
-                    für bessere Auffindbarkeit und relevante Sichtbarkeit.
-                  </p>
+                  <ul>
+                    <li>Content-Automation</li>
+                    <li>Ranking-Analyse</li>
+                    <li>Mehr Sichtbarkeit</li>
+                  </ul>
                 </div>
               </div>
             </div>
@@ -6068,10 +6275,7 @@ void main(){
               </div>
               <div class="download-item__content">
                 <h3>Case Study KI-Automatisierung</h3>
-                <p>
-                  Ein praxisnaher Einblick in Ausgangslage, Lösungsweg und
-                  mögliche Ergebnisse eines KI-Automatisierungsprojekts.
-                </p>
+                <p>Ausgangslage, Lösungsweg und Ergebnisse eines KI-Projekts.</p>
               </div>
               <a
                 class="download-button"
@@ -6098,10 +6302,7 @@ void main(){
               </div>
               <div class="download-item__content">
                 <h3>ROI-Rechner für KI-Automatisierung</h3>
-                <p>
-                  Eine strukturierte Excel-Vorlage zur Bewertung von Aufwand,
-                  Zeitersparnis, Nutzen und wirtschaftlichem Potenzial.
-                </p>
+                <p>Excel-Vorlage zur Bewertung von Aufwand, Nutzen und ROI.</p>
               </div>
               <a
                 class="download-button"
@@ -6128,10 +6329,7 @@ void main(){
               </div>
               <div class="download-item__content">
                 <h3>Prompt Guide</h3>
-                <p>
-                  Eine strukturierte Anleitung mit praxistauglichen Prompts für
-                  präzisere, kontrollierbarere und bessere KI-Ergebnisse.
-                </p>
+                <p>Praxistaugliche Prompts für präzisere KI-Ergebnisse.</p>
               </div>
               <a
                 class="download-button"
@@ -6158,10 +6356,7 @@ void main(){
               </div>
               <div class="download-item__content">
                 <h3>Checkliste KI-Potenziale</h3>
-                <p>
-                  Prüfpunkte zur Erkennung geeigneter Prozesse, Datenquellen,
-                  Engpässe und sinnvoller Automatisierungsmöglichkeiten.
-                </p>
+                <p>Prüfpunkte für geeignete Prozesse und Automatisierungen.</p>
               </div>
               <a
                 class="download-button"
@@ -6194,41 +6389,18 @@ void main(){
             Kostenlose KI-Potenzialanalyse
           </h2>
           <p class="nvp5-analysis__intro">
-            Die Potenzialanalyse ist kein Verkaufsformular, sondern ein
-            strukturierter Einstieg. Sie zeigt, welche Abläufe aktuell Zeit
-            binden, wo Medienbrüche entstehen und welche Datenquellen bereits
-            vorhanden sind.
-          </p>
-          <p class="nvp5-analysis__intro">
-            <strong>Prozesslage:</strong> Welche wiederkehrenden Aufgaben
-            aktuell Zeit binden, wo Rückfragen entstehen und welche Übergaben
-            manuell laufen.
-          </p>
-          <p class="nvp5-analysis__intro">
-            <strong>Datenlage:</strong> Welche Systeme, Tabellen, E-Mails oder
-            Dokumente beteiligt sind und ob die Informationen nutzbar
-            zusammengeführt werden können.
-          </p>
-          <p class="nvp5-analysis__intro">
-            <strong>Automatisierungspotenzial:</strong> Ob KI, Automatisierung,
-            ein SaaS-Tool oder ein normaler Prozessumbau für den konkreten
-            Ablauf sinnvoller ist.
-          </p>
-          <p class="nvp5-analysis__intro">
-            <strong>Nächster Schritt:</strong> Welche Umsetzung zuerst den
-            größten Nutzen bringt und welcher Einstieg realistisch vorbereitet
-            werden sollte.
-          </p>
-          <p class="nvp5-analysis__intro">
-            <strong>Was Sie danach erhalten:</strong> Eine klare erste
-            Einschätzung, ob und wo sich KI-Automatisierung lohnt – mit einer
-            Einordnung von Aufwand, Nutzen und Priorität sowie einer Empfehlung
-            für den sinnvollsten nächsten Schritt.
-          </p>
-          <p class="nvp5-analysis__intro">
-            Kostenlos und unverbindlich. Kein Abo. Keine versteckten Kosten.
+            Ein strukturierter Einstieg statt Verkaufsformular: Wir zeigen,
+            welche Abläufe Zeit binden und wo KI-Automatisierung realistisch
+            Nutzen bringt – kostenlos und unverbindlich.
           </p>
         </header>
+        <div class="nvp5-modules" aria-hidden="true">
+          <img src="assets/Module/analyse/1.png" alt="" loading="lazy" />
+          <img src="assets/Module/analyse/2.png" alt="" loading="lazy" />
+          <img src="assets/Module/analyse/3.png" alt="" loading="lazy" />
+          <img src="assets/Module/analyse/4.png" alt="" loading="lazy" />
+          <img src="assets/Module/analyse/5.png" alt="" loading="lazy" />
+        </div>
         <div class="nvp5-analysis__cta-row">
           <a
             class="hero-cta"
@@ -6678,7 +6850,7 @@ void main(){
 
     <footer class="footer" id="footer">
       <div class="footer-inner">
-        <div>
+        <div class="footer-col footer-col--about">
           <h4>Nurovelle</h4>
           <p>Individuelle KI-Systeme für reale Geschäftsprozesse.</p>
           <p>
@@ -6687,7 +6859,7 @@ void main(){
             Abläufen, Wissenszugriff und Datenverarbeitung unterstützen.
           </p>
         </div>
-        <div>
+        <div class="footer-col">
           <h4>Nützliche Links</h4>
           <a href="#hero">Startseite</a>
           <a href="#warum-nurovelle">Über Nurovelle</a>
@@ -6696,40 +6868,83 @@ void main(){
           <a href="#downloads">Downloads</a>
           <a href="#faq">FAQ</a>
           <a href="#kontakt">Kontakt</a>
-          <span class="footer-link--disabled" aria-disabled="true"
-            >Aktuelles</span
-          >
-          <span class="footer-link--disabled" aria-disabled="true">Team</span>
-          <span class="footer-link--disabled" aria-disabled="true">SEO</span>
-          <span class="footer-link--disabled" aria-disabled="true">Pakete</span>
         </div>
-        <div>
+        <div class="footer-col">
           <h4>Newsletter</h4>
           <p>
             Erhalten Sie ausgewählte Informationen zu KI-Agenten,
             Automatisierung, Unternehmenssoftware und neuen Nurovelle-Lösungen
             direkt per E-Mail.
           </p>
-          <p>Ihre E-Mail-Adresse</p>
-          <p>Newsletter abonnieren</p>
-          <h4>Social Media</h4>
-          <p>LinkedIn</p>
-          <p>YouTube</p>
-          <p>Instagram</p>
-          <p>GitHub</p>
+          <form
+            class="footer-newsletter"
+            action="#"
+            method="post"
+            aria-label="Newsletter abonnieren"
+          >
+            <input
+              class="footer-newsletter__input"
+              type="email"
+              name="email"
+              placeholder="Ihre E-Mail-Adresse"
+              autocomplete="email"
+              required
+            />
+            <button class="footer-newsletter__btn" type="submit">
+              Abonnieren
+            </button>
+          </form>
         </div>
-        <div>
+        <div class="footer-col">
           <h4>Kontakt</h4>
           <p>Marburg, Deutschland</p>
-          <p>+49 152 059 755 53</p>
-          <p>demo@nurovelle.de</p>
-          <h4>Rechtliches</h4>
+          <p><a href="tel:+4915205975553">+49 152 059 755 53</a></p>
+          <p><a href="mailto:demo@nurovelle.de">demo@nurovelle.de</a></p>
+          <div class="footer-social" aria-label="Social Media">
+            <a href="#" aria-label="LinkedIn">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path
+                  fill="currentColor"
+                  d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM9 9h3.8v1.7h.05c.53-1 1.83-2.05 3.77-2.05C20.4 8.65 22 10.9 22 14.2V21h-4v-6c0-1.43-.03-3.27-2-3.27-2 0-2.3 1.56-2.3 3.17V21H9z"
+                />
+              </svg>
+            </a>
+            <a href="#" aria-label="YouTube">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path
+                  fill="currentColor"
+                  d="M23 12s0-3.2-.4-4.7a2.5 2.5 0 0 0-1.75-1.75C19.3 5.2 12 5.2 12 5.2s-7.3 0-8.85.35A2.5 2.5 0 0 0 1.4 7.3C1 8.8 1 12 1 12s0 3.2.4 4.7a2.5 2.5 0 0 0 1.75 1.75C4.7 18.8 12 18.8 12 18.8s7.3 0 8.85-.35A2.5 2.5 0 0 0 22.6 16.7C23 15.2 23 12 23 12zM9.75 15.02V8.98L15.5 12z"
+                />
+              </svg>
+            </a>
+            <a href="#" aria-label="Instagram">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path
+                  fill="currentColor"
+                  d="M12 2.2c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.42.56.22.96.48 1.38.9.42.42.68.82.9 1.38.17.42.37 1.06.42 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.42 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.17-1.06.37-2.23.42-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.42a3.7 3.7 0 0 1-1.38-.9 3.7 3.7 0 0 1-.9-1.38c-.17-.42-.37-1.06-.42-2.23C2.21 15.58 2.2 15.2 2.2 12s.01-3.58.07-4.85c.05-1.17.25-1.8.42-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.17 1.06-.37 2.23-.42C8.42 2.21 8.8 2.2 12 2.2zm0 3.05A6.75 6.75 0 1 0 18.75 12 6.75 6.75 0 0 0 12 5.25zm0 11.13A4.38 4.38 0 1 1 16.38 12 4.38 4.38 0 0 1 12 16.38zm6.99-11.4a1.58 1.58 0 1 1-1.57-1.58 1.58 1.58 0 0 1 1.57 1.58z"
+                />
+              </svg>
+            </a>
+            <a href="#" aria-label="GitHub">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path
+                  fill="currentColor"
+                  d="M12 1.5a10.5 10.5 0 0 0-3.32 20.47c.53.1.72-.23.72-.5v-1.9c-2.93.64-3.55-1.24-3.55-1.24-.48-1.22-1.17-1.55-1.17-1.55-.96-.65.07-.64.07-.64 1.06.08 1.62 1.09 1.62 1.09.94 1.6 2.46 1.14 3.06.87.1-.68.37-1.14.67-1.4-2.34-.27-4.8-1.17-4.8-5.2 0-1.15.4-2.09 1.08-2.83-.1-.27-.47-1.34.1-2.8 0 0 .88-.28 2.88 1.08a10 10 0 0 1 5.24 0c2-1.36 2.88-1.08 2.88-1.08.57 1.46.2 2.53.1 2.8.68.74 1.08 1.68 1.08 2.83 0 4.04-2.47 4.93-4.82 5.19.38.33.72.98.72 1.98v2.93c0 .28.19.61.73.5A10.5 10.5 0 0 0 12 1.5z"
+                />
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <nav class="footer-legal" aria-label="Rechtliches">
           <a href="impressum.html">Impressum</a>
           <a href="datenschutz.html">Datenschutz</a>
           <a href="agb.html">AGB</a>
-          <p>© Nurovelle. By d4sd1ng. All rights reserved.</p>
-          <p>Nach oben</p>
-        </div>
+        </nav>
+        <p class="footer-copy">
+          © Nurovelle. By d4sd1ng. All rights reserved.
+        </p>
       </div>
     </footer>
 
