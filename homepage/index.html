@@ -212,11 +212,10 @@
         z-index: 1;
         background: linear-gradient(
           90deg,
-          #050706 0%,
-          #050706 32%,
-          #050706f2 42%,
-          #050706b8 72%,
-          #05070670 100%
+          #050706e6 0%,
+          #050706cc 30%,
+          #05070666 55%,
+          #05070626 100%
         );
         opacity: 0;
         pointer-events: none;
@@ -226,8 +225,8 @@
       .nv-s7-card:hover .nv-s7-card__visual,
       .nv-s7-card:focus-visible .nv-s7-card__visual,
       .nv-s7-card.is-active .nv-s7-card__visual {
-        opacity: 0.5;
-        filter: brightness(0.88) contrast(1.1) saturate(0.86);
+        opacity: 0.28;
+        filter: brightness(1.8) contrast(1.02) saturate(1);
         transform: none;
       }
 
@@ -266,6 +265,7 @@
       .nv-s7-card__iconbox {
         display: grid;
         place-items: center;
+        align-self: center;
         width: 70px;
         height: 70px;
         margin: 0 auto var(--nv-space-md);
@@ -323,8 +323,10 @@
         padding-left: var(--nv-space-sm);
         margin: 0 0 4px;
         color: var(--nv-text-light);
+        overflow-wrap: anywhere;
+        word-break: break-word;
         font:
-          500 12px/1.35 Inter,
+          500 11px/1.3 Inter,
           Arial,
           sans-serif;
       }
@@ -433,10 +435,15 @@
         position: absolute;
         top: 84px;
         left: 22px;
-        width: 84px;
+        right: 18px;
         height: 1px;
         margin: 0;
-        background: linear-gradient(90deg, #d4af37, transparent);
+        background: linear-gradient(
+          90deg,
+          #d4af37,
+          rgba(212, 175, 55, 0.35) 88%,
+          transparent
+        );
         opacity: 0;
         transition: opacity 0.42s ease;
       }
@@ -459,23 +466,20 @@
           transform 0.42s ease;
       }
 
+      /* "Small card": frame size = this box's padding + left/right/bottom */
       .nv-s7-card__result {
         position: absolute;
         left: 22px;
-        right: 20px;
+        right: 18px;
         bottom: 16px;
         display: grid;
-        grid-template-columns: 34px minmax(0, 1fr);
-        gap: 10px;
+        grid-template-columns: 40px minmax(0, 1fr);
+        gap: 9px;
         align-items: center;
-        padding: 8px 11px;
-        border: 1px solid rgba(212, 175, 55, 0.55);
+        padding: 7px 10px;
+        border: 1px solid rgba(212, 175, 55, 0.5);
         border-radius: 7px;
-        background: linear-gradient(
-          135deg,
-          rgba(32, 52, 42, 0.5),
-          rgba(20, 34, 28, 0.36)
-        );
+        background: #17251d;
         opacity: 0;
         transform: translateY(6px);
         transition:
@@ -483,14 +487,15 @@
           transform 0.42s ease;
       }
 
+      /* single shield icon */
       .nv-s7-card__result::before {
         content: "";
         grid-column: 1;
         grid-row: 1;
         align-self: center;
-        width: 34px;
-        height: 34px;
-        background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23d4af37' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12 2 4 5v6c0 5 3.4 8 8 10 4.6-2 8-5 8-10V5z'/%3E%3Cpath d='M8.5 12l2.4 2.4L15.5 10'/%3E%3C/svg%3E")
+        width: 40px;
+        height: 40px;
+        background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23f0c24a' stroke-width='1.7' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12 2 4 5v6c0 5 3.4 8 8 10 4.6-2 8-5 8-10V5z'/%3E%3Cpath d='M8.5 12l2.4 2.4L15.5 10'/%3E%3C/svg%3E")
           center / contain no-repeat;
       }
 
@@ -501,10 +506,10 @@
       }
 
       .nv-s7-card__result h4 {
-        margin: 0 0 4px;
+        margin: 0 0 3px;
         color: var(--nv-gold-accent);
         font:
-          700 11px/1.2 Inter,
+          700 10px/1.15 Inter,
           Arial,
           sans-serif;
         letter-spacing: 0.05em;
@@ -512,20 +517,20 @@
       }
 
       .nv-s7-card__result ul {
+        display: grid;
+        gap: 1px;
         margin: 0;
         padding: 0;
         list-style: none;
-        display: flex;
-        flex-wrap: wrap;
-        gap: 2px 12px;
       }
 
       .nv-s7-card__result li {
         position: relative;
         padding-left: 11px;
         color: var(--nv-text-light);
+        overflow-wrap: anywhere;
         font:
-          500 11px/1.3 Inter,
+          600 10.5px/1.25 Inter,
           Arial,
           sans-serif;
       }
@@ -656,9 +661,7 @@
 
       .nv-resource-section__head {
         max-width: var(--nv-section-head-max);
-        margin-inline: auto;
         margin-bottom: var(--nv-section-text-content-gap);
-        text-align: center;
       }
 
       .nv-resource-section__title {
@@ -1689,7 +1692,7 @@
 
         --nv-section-black: #050505;
 
-        --nv-section-emerald: #020a06;
+        --nv-section-emerald: #010603;
 
         --nv-section-title-gradient: linear-gradient(
           180deg,
@@ -1758,7 +1761,7 @@
 
         background: #000000;
 
-        scroll-padding-top: 56px;
+        scroll-padding-top: var(--header-height);
 
         font-size: 16px;
       }
@@ -1785,6 +1788,8 @@
 
       .preview-stage {
         min-height: 100vh;
+
+        padding-top: var(--header-height);
 
         background:
           radial-gradient(circle at 75% 30%, #112a208c, #00000000 10%),
@@ -1881,9 +1886,11 @@
       .site-header {
         height: var(--header-height);
 
-        position: sticky;
+        position: fixed;
 
         top: 0;
+        left: 0;
+        right: 0;
 
         z-index: 100;
 
@@ -3751,8 +3758,6 @@
 
       .nv-contact__head {
         max-width: 900px;
-        margin-inline: auto;
-        text-align: center;
       }
 
       .nv-contact__title {
@@ -4157,8 +4162,6 @@
 
       .nvp5-analysis__head {
         max-width: 760px;
-        margin-inline: auto;
-        text-align: center;
       }
 
       .nvp5-analysis__intro {
@@ -4166,44 +4169,96 @@
         max-width: 680px;
       }
 
-      /* Analyse modules shown in 3D perspective */
+      /* Analyse modules on sockels in a zigzag flow (like steps.png) */
       .nvp5-modules {
+        position: relative;
         display: flex;
         justify-content: center;
-        align-items: center;
-        gap: clamp(12px, 2vw, 30px);
-        margin: 40px 0 8px;
-        padding: 20px 0;
-        perspective: 1300px;
+        align-items: flex-start;
+        gap: clamp(16px, 2.6vw, 44px);
+        width: 100%;
+        max-width: 1000px;
+        margin: 52px 0 12px;
+        padding: 10px 0 24px;
       }
 
-      .nvp5-modules img {
-        width: clamp(120px, 15vw, 220px);
+      .nvp5-module {
+        position: relative;
+        flex: 1 1 0;
+        min-width: 0;
+        max-width: 172px;
+        height: 150px;
+      }
+
+      /* zigzag: even modules sit lower */
+      .nvp5-module:nth-child(even) {
+        margin-top: 100px;
+      }
+
+      .nvp5-module__unit {
+        position: absolute;
+        left: 50%;
+        top: 0;
+        z-index: 2;
+        width: 118px;
+        height: 118px;
+        object-fit: contain;
+        transform: translateX(-50%);
+        filter: drop-shadow(0 14px 16px rgba(0, 0, 0, 0.55));
+      }
+
+      .nvp5-module__base {
+        position: absolute;
+        left: 50%;
+        bottom: 4px;
+        z-index: 1;
+        width: 110px;
         height: auto;
         object-fit: contain;
-        transform: rotateY(24deg) rotateX(6deg);
-        transform-style: preserve-3d;
-        filter: drop-shadow(0 24px 34px rgba(0, 0, 0, 0.55));
-        transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+        transform: translateX(-50%);
       }
 
-      .nvp5-modules img:nth-child(even) {
-        transform: rotateY(24deg) rotateX(6deg) translateY(-22px);
+      /* dotted connector to the next module, angled along the zigzag */
+      .nvp5-module:not(:last-child)::after {
+        content: "";
+        position: absolute;
+        top: 64px;
+        left: 80%;
+        z-index: 0;
+        width: clamp(38px, 4.6vw, 72px);
+        height: 0;
+        border-top: 2px dotted var(--nv-gold-accent);
+        opacity: 0.6;
+        transform-origin: left center;
+        pointer-events: none;
       }
-
-      .nvp5-modules:hover img {
-        transform: rotateY(14deg) rotateX(3deg);
+      .nvp5-module:nth-child(odd):not(:last-child)::after {
+        transform: rotate(36deg);
+      }
+      .nvp5-module:nth-child(even):not(:last-child)::after {
+        transform: rotate(-36deg);
       }
 
       @media (max-width: 899px) {
         .nvp5-modules {
           flex-wrap: wrap;
+          justify-content: center;
+        }
+        .nvp5-module {
+          flex: 0 0 auto;
+          width: 140px;
+        }
+        .nvp5-module:nth-child(even) {
+          margin-top: 0;
+        }
+        .nvp5-module:not(:last-child)::after {
+          display: none;
         }
       }
 
       .nvp5-analysis__cta-row {
         display: flex;
-        justify-content: center;
+        justify-content: flex-start;
         margin-top: 34px;
       }
 
@@ -4271,96 +4326,59 @@
           sans-serif;
       }
 
+      /* Zigzag step flow (like steps.png): modules on sockels, connected */
       .nv-process__steps {
         position: relative;
-        display: grid;
-        grid-template-columns: repeat(4, 180px);
-        grid-template-rows: repeat(3, 220px);
-        gap: 60px 70px;
-        width: 930px;
-        min-height: 780px;
-        margin: 0 auto;
-        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        gap: clamp(16px, 2.4vw, 40px);
+        width: 100%;
+        max-width: 1120px;
+        margin: 48px auto 0;
+        padding: 10px 0 24px;
         list-style: none;
       }
 
-      .nv-process__step::after {
-        content: "";
-        position: absolute;
-        top: 99px;
-        left: calc(50% + 100px);
-        z-index: 0;
-        width: 50px;
-        height: 1px;
-        background: var(--nv-gold-accent);
-        opacity: 0.58;
-        transform-origin: left center;
-        pointer-events: none;
-      }
-
-      .nv-process__step:nth-child(2)::after,
-      .nv-process__step:nth-child(4)::after {
-        width: 280px;
-        transform: rotate(90deg);
-      }
-
-      .nv-process__step:last-child::after {
-        content: none;
-      }
-
       .nv-process__step {
-        --nv-process-depth: 1;
-        --nv-process-turn: 0deg;
         position: relative;
+        flex: 1 1 0;
         min-width: 0;
+        max-width: 172px;
         text-align: center;
       }
 
-      .nv-process__step:nth-child(1) {
-        --nv-process-depth: 0.95;
-        --nv-process-turn: 25deg;
-        grid-area: 1 / 1;
+      /* zigzag: even steps sit lower */
+      .nv-process__step:nth-child(even) {
+        margin-top: 104px;
       }
 
-      .nv-process__step:nth-child(2) {
-        --nv-process-depth: 0.95;
-        --nv-process-turn: 12deg;
-        grid-area: 1 / 2;
+      /* dotted connector to the next step, angled along the zigzag */
+      .nv-process__step:not(:last-child)::after {
+        content: "";
+        position: absolute;
+        top: 64px;
+        left: 80%;
+        z-index: 0;
+        width: clamp(38px, 4.6vw, 72px);
+        height: 0;
+        border-top: 2px dotted var(--nv-gold-accent);
+        opacity: 0.6;
+        transform-origin: left center;
+        pointer-events: none;
       }
-
-      .nv-process__step:nth-child(3) {
-        --nv-process-depth: 1.05;
-        --nv-process-turn: 12deg;
-        grid-area: 2 / 2;
+      .nv-process__step:nth-child(odd):not(:last-child)::after {
+        transform: rotate(36deg);
       }
-
-      .nv-process__step:nth-child(4) {
-        --nv-process-depth: 1.05;
-        --nv-process-turn: -12deg;
-        grid-area: 2 / 3;
-      }
-
-      .nv-process__step:nth-child(5) {
-        --nv-process-depth: 1.15;
-        --nv-process-turn: -12deg;
-        grid-area: 3 / 3;
-      }
-
-      .nv-process__step:nth-child(6) {
-        --nv-process-depth: 1.15;
-        --nv-process-turn: -25deg;
-        grid-area: 3 / 4;
+      .nv-process__step:nth-child(even):not(:last-child)::after {
+        transform: rotate(-36deg);
       }
 
       .nv-process__visual {
         position: relative;
         z-index: 1;
-        height: 198px;
-        filter: drop-shadow(14px 18px 14px #0000008f);
-        transform: perspective(760px) rotateX(5deg)
-          rotateY(var(--nv-process-turn)) scale(var(--nv-process-depth));
-        transform-origin: 50% 76%;
-        transform-style: preserve-3d;
+        height: 150px;
+        margin-bottom: 12px;
       }
 
       .nv-process__module {
@@ -4368,19 +4386,20 @@
         top: 0;
         left: 50%;
         z-index: 2;
-        width: 220px;
-        height: 160px;
+        width: 118px;
+        height: 118px;
         object-fit: contain;
         transform: translateX(-50%);
+        filter: drop-shadow(0 14px 16px rgba(0, 0, 0, 0.55));
       }
 
       .nv-process__base {
         position: absolute;
-        bottom: 0;
+        bottom: 4px;
         left: 50%;
         z-index: 1;
-        width: 200px;
-        height: 108px;
+        width: 110px;
+        height: auto;
         object-fit: contain;
         transform: translateX(-50%);
       }
@@ -4591,27 +4610,54 @@
         font: 400 13px/1.4 Inter, Arial, sans-serif;
       }
 
+      /* Back-to-top */
+      .footer-top {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 42px;
+        height: 42px;
+        margin: 0;
+        color: var(--nv-gold-accent);
+        border: 1px solid rgba(212, 175, 55, 0.5);
+        border-radius: 8px;
+        transition:
+          color 0.2s ease,
+          background 0.2s ease,
+          transform 0.2s ease;
+      }
+
+      .footer-top svg {
+        width: 20px;
+        height: 20px;
+      }
+
+      .footer-top:hover,
+      .footer-top:focus-visible {
+        color: #060606;
+        background-image: var(--nv-gold-gradient);
+        transform: translateY(-2px);
+        outline: none;
+      }
+
       @media (max-width: 1199px) {
         .nv-process__steps {
-          grid-template-columns: repeat(3, minmax(0, 1fr));
-          grid-template-rows: none;
-          width: 100%;
-          min-height: 0;
-          transform: none;
-          row-gap: calc(var(--nv-space-xl) * 2);
+          flex-wrap: wrap;
+          row-gap: 40px;
+          column-gap: clamp(20px, 4vw, 48px);
         }
 
-        .nv-process__step:nth-child(n) {
-          grid-area: auto;
+        .nv-process__step {
+          flex: 0 0 auto;
+          width: 150px;
+        }
+
+        .nv-process__step:nth-child(even) {
+          margin-top: 0;
         }
 
         .nv-process__step::after {
           content: none;
-        }
-
-        .nv-process__visual {
-          filter: none;
-          transform: none;
         }
 
         .footer-inner {
@@ -6147,7 +6193,7 @@ void main(){
             <div class="nv-process__visual">
               <img
                 class="nv-process__module"
-                src="assets/ablauf/1.png"
+                src="assets/Module/Ablauf/aufgabe_erfassen.png"
                 alt=""
                 aria-hidden="true"
               /><img
@@ -6163,7 +6209,7 @@ void main(){
             <div class="nv-process__visual">
               <img
                 class="nv-process__module"
-                src="assets/ablauf/2.png"
+                src="assets/Module/Ablauf/ki_potential.png"
                 alt=""
                 aria-hidden="true"
               /><img
@@ -6179,7 +6225,7 @@ void main(){
             <div class="nv-process__visual">
               <img
                 class="nv-process__module"
-                src="assets/ablauf/3.png"
+                src="assets/Module/Ablauf/daten_prüfen1.png"
                 alt=""
                 aria-hidden="true"
               /><img
@@ -6195,7 +6241,7 @@ void main(){
             <div class="nv-process__visual">
               <img
                 class="nv-process__module"
-                src="assets/ablauf/4.png"
+                src="assets/Module/Ablauf/Prozesse_planen.png"
                 alt=""
                 aria-hidden="true"
               /><img
@@ -6211,7 +6257,7 @@ void main(){
             <div class="nv-process__visual">
               <img
                 class="nv-process__module"
-                src="assets/ablauf/5.png"
+                src="assets/Module/Ablauf/lösung_wählen.png"
                 alt=""
                 aria-hidden="true"
               /><img
@@ -6227,7 +6273,7 @@ void main(){
             <div class="nv-process__visual">
               <img
                 class="nv-process__module"
-                src="assets/ablauf/6.png"
+                src="assets/Module/Ablauf/umsetzung_struturieren.png"
                 alt=""
                 aria-hidden="true"
               /><img
@@ -6395,11 +6441,71 @@ void main(){
           </p>
         </header>
         <div class="nvp5-modules" aria-hidden="true">
-          <img src="assets/Module/analyse/1.png" alt="" loading="lazy" />
-          <img src="assets/Module/analyse/2.png" alt="" loading="lazy" />
-          <img src="assets/Module/analyse/3.png" alt="" loading="lazy" />
-          <img src="assets/Module/analyse/4.png" alt="" loading="lazy" />
-          <img src="assets/Module/analyse/5.png" alt="" loading="lazy" />
+          <div class="nvp5-module">
+            <img
+              class="nvp5-module__unit"
+              src="assets/Module/analyse/1.png"
+              alt=""
+              loading="lazy"
+            /><img
+              class="nvp5-module__base"
+              src="assets/Module/sockel.png"
+              alt=""
+              loading="lazy"
+            />
+          </div>
+          <div class="nvp5-module">
+            <img
+              class="nvp5-module__unit"
+              src="assets/Module/analyse/2.png"
+              alt=""
+              loading="lazy"
+            /><img
+              class="nvp5-module__base"
+              src="assets/Module/sockel.png"
+              alt=""
+              loading="lazy"
+            />
+          </div>
+          <div class="nvp5-module">
+            <img
+              class="nvp5-module__unit"
+              src="assets/Module/analyse/3.png"
+              alt=""
+              loading="lazy"
+            /><img
+              class="nvp5-module__base"
+              src="assets/Module/sockel.png"
+              alt=""
+              loading="lazy"
+            />
+          </div>
+          <div class="nvp5-module">
+            <img
+              class="nvp5-module__unit"
+              src="assets/Module/analyse/4.png"
+              alt=""
+              loading="lazy"
+            /><img
+              class="nvp5-module__base"
+              src="assets/Module/sockel.png"
+              alt=""
+              loading="lazy"
+            />
+          </div>
+          <div class="nvp5-module">
+            <img
+              class="nvp5-module__unit"
+              src="assets/Module/analyse/5.png"
+              alt=""
+              loading="lazy"
+            /><img
+              class="nvp5-module__base"
+              src="assets/Module/sockel.png"
+              alt=""
+              loading="lazy"
+            />
+          </div>
         </div>
         <div class="nvp5-analysis__cta-row">
           <a
@@ -6945,6 +7051,18 @@ void main(){
         <p class="footer-copy">
           © Nurovelle. By d4sd1ng. All rights reserved.
         </p>
+        <a class="footer-top" href="#hero" aria-label="Nach oben">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2.2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M12 19V5M6 11l6-6 6 6"
+            />
+          </svg>
+        </a>
       </div>
     </footer>
 
