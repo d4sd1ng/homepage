@@ -1,0 +1,7 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(grep -n \"margin: 0\\\\|margin:0\\\\|\\\\* {\\\\|\\\\*,\\\\|box-sizing\\\\|:root {\" /media/d4sd1ng/AI-Data/Projects/homepage_repo/homepage/index.html)"
+    ]
+  }
+}
