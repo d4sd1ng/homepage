@@ -96,6 +96,26 @@
 - Root-Umstellung erfolgte nur im Frontend-Container.
 - Backend, DB, Firewall, Tunnel und Netzwerkkonfiguration wurden nicht geaendert.
 
+## Root-Reaktivierung 2026-07-19
+
+- VPS: `77.42.74.250`.
+- Root war erreichbar, aber nicht mehr per Redirect auf die statische Homepage
+  geschaltet.
+- `https://nurovelle.de/homepage/index.html` und
+  `https://nurovelle.de/homepage/analyse.html` waren weiterhin erreichbar.
+- Compose-Backup vor Aenderung:
+  `/opt/nurovell-potential-analysis/compose/docker-compose.vps.yml.before-root-homepage-20260719193511`
+- Es wurde nur `nurovell_frontend` ohne Build und ohne Abhaengigkeiten neu
+  erstellt.
+- Keine HTML-Dateien, keine Homepage-Assets, kein Backend, keine DB, keine
+  Firewall- und keine Tunnel-/Heimnetzkonfiguration wurden geaendert.
+- Live verifiziert:
+  - `https://nurovelle.de/` leitet per 307 auf `/homepage/index.html`.
+  - `https://www.nurovelle.de/` leitet per 307 auf `/homepage/index.html`.
+  - `https://nurovelle.de/homepage/index.html` liefert 200.
+  - `https://nurovelle.de/homepage/analyse.html` liefert 200.
+  - `https://nurovelle.de/api/v1/health` liefert 200.
+
 ## Backend-DB-Cutover-Status 2026-06-15
 
 - Live-Backend schreibt jetzt in `nurovelle_core`.

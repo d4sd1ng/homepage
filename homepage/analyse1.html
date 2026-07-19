@@ -1,0 +1,785 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Nurovelle | KI-Potenzialanalyse</title>
+<meta name="description" content="Kompakte KI-Potenzialanalyse für Unternehmen. Prozesse prüfen, Automatisierungspotenziale erkennen und eine klare Einschätzung erhalten." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Raleway:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+/* =========================================================
+   ANALYSE-SEITE V01
+   Zweck:
+   Eigenständige Detailseite für die kostenlose KI-Potenzialanalyse.
+   Layout orientiert sich an der Homepage, bleibt aber bewusst kompakt,
+   damit die Seite nicht überladen oder erdrückend wirkt.
+   ========================================================= */
+:root{
+  --bg:#000;
+  --panel:#050505;
+  --panel-soft:rgba(0,0,0,.34);
+  --gold:#d89828;
+  --gold-light:#f0a05a;
+  --gold-pale:#ffd7a3;
+  --gold-dark:#7a3518;
+  --text:#f5f1e8;
+  --muted:rgba(255,255,255,.72);
+  --line:rgba(216,152,40,.52);
+  --max:1080px;
+  --side:clamp(22px,4vw,52px);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;background:#000}
+body{font-family:Raleway,Arial,sans-serif;background:linear-gradient(180deg,rgba(0,0,0,.72),rgba(0,0,0,.82)),url("assets/bg_analyse.png") center top/cover fixed no-repeat;color:var(--text);overflow-x:hidden}
+a{text-decoration:none;color:inherit}
+img{display:block;max-width:100%}
+.gold{
+  background:linear-gradient(180deg,var(--gold-pale) 0%,var(--gold-light) 24%,var(--gold) 58%,var(--gold-dark) 100%);
+  -webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent;
+}
+
+/* =========================================================
+   HEADER
+   Zweck:
+   Kompakte Navigation im Homepage-Stil. Keine große Höhe,
+   keine dominante Navigation.
+   ========================================================= */
+.site-header{height:46px;position:sticky;top:0;z-index:50;background:rgba(0,0,0,.88);backdrop-filter:blur(7px);border-bottom:1px solid rgba(216,152,40,.72)}
+.header-inner{height:100%;max-width:var(--max);margin:0 auto;padding:0 var(--side);display:flex;align-items:center;justify-content:space-between;gap:24px}
+.logo{height:48px;width:auto;transform:translateY(2px)}
+.nav{display:flex;align-items:center;gap:24px}
+.nav a{font-family:"Anca Coder",monospace;font-size:9px;letter-spacing:.09em;text-transform:uppercase;color:rgba(255,255,255,.76)}
+.nav a:hover{color:var(--gold-light)}
+.header-cta{height:28px;padding:0 12px;display:inline-flex;align-items:center;justify-content:center;border:1px solid var(--gold);border-radius:4px;font-family:"Bebas Neue",sans-serif;font-size:13px;letter-spacing:.045em;text-transform:uppercase;color:#050505;background:linear-gradient(180deg,var(--gold-pale) 0%,var(--gold-light) 24%,var(--gold) 60%,var(--gold-dark) 100%)}
+
+/* =========================================================
+   BASIS-SECTIONS
+   Zweck:
+   Einheitlicher, kleiner Section-Rhythmus. Titel bleiben bewusst
+   unter 42px, damit die Analyse-Seite ruhig wirkt.
+   ========================================================= */
+.section{position:relative;padding:52px var(--side);background:linear-gradient(180deg,rgba(0,0,0,.88),rgba(0,0,0,.92))}
+.section.bg{background:linear-gradient(180deg,rgba(0,0,0,.84),rgba(0,0,0,.92))}
+.section:before{content:"";position:absolute;left:0;right:0;top:0;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);opacity:.72}
+.section-inner{max-width:var(--max);margin:0 auto}
+.kicker{font-family:"Anca Coder",monospace;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold-light);margin-bottom:9px}
+h1,h2,h3{font-family:"Bebas Neue",sans-serif;font-weight:400;letter-spacing:.035em;text-transform:uppercase}
+.section-title{font-size:clamp(28px,3vw,42px);line-height:.98;max-width:760px;margin-bottom:12px}
+.section-text{font-size:14px;line-height:1.62;color:var(--muted);max-width:760px}
+.actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:20px}
+.btn{height:34px;padding:0 15px;display:inline-flex;align-items:center;justify-content:center;border-radius:4px;font-family:"Bebas Neue",sans-serif;font-size:15px;letter-spacing:.045em;text-transform:uppercase}
+.btn-primary{color:#050505;border:1px solid var(--gold);background:linear-gradient(180deg,var(--gold-pale) 0%,var(--gold-light) 24%,var(--gold) 60%,var(--gold-dark) 100%)}
+.btn-secondary{color:var(--gold-light);border:1px solid rgba(216,152,40,.76);background:rgba(0,0,0,.32)}
+
+/* =========================================================
+   HERO
+   Zweck:
+   Kompakter Hero. Keine riesige Bildfläche, keine übergroßen
+   Schriften, klare Conversion-Orientierung.
+   ========================================================= */
+.hero{position:relative;min-height:430px;padding:74px var(--side) 48px;overflow:hidden;background:transparent}
+.hero:before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.18),rgba(0,0,0,.34));pointer-events:none}
+.hero:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(0,0,0,.95) 0%,rgba(0,0,0,.76) 48%,rgba(0,0,0,.25) 100%);pointer-events:none}
+.hero-inner{position:relative;z-index:2;max-width:var(--max);margin:0 auto;display:grid;grid-template-columns:minmax(0,620px) minmax(260px,1fr);gap:34px;align-items:center}
+.hero h1{font-size:clamp(36px,4.4vw,58px);line-height:.92;margin-bottom:12px;max-width:640px}
+.hero h2{font-family:"Anca Coder",monospace;font-size:13px;line-height:1.45;font-weight:400;color:rgba(255,255,255,.82);text-transform:none;letter-spacing:.02em;max-width:610px;margin-bottom:10px}
+.hero p{font-size:13.5px;line-height:1.65;color:var(--muted);max-width:640px}
+.hero-panel{border:0;border-radius:0;background-color:transparent;background-image:url("assets/cards/cards_problem_loesung/best_card_single 470x360.png");background-size:100% 100%;background-position:center;background-repeat:no-repeat;width:min(100%,560px);aspect-ratio:470/345;padding:30px 70px 124px 92px;filter:drop-shadow(0 8px 14px rgba(0,0,0,.28));box-shadow:none}
+.hero-panel h3{font-size:24px;line-height:1;margin-bottom:10px;background:linear-gradient(180deg,var(--gold-pale) 0%,var(--gold-light) 24%,var(--gold) 58%,var(--gold-dark) 100%);-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent}
+.hero-panel ul{list-style:none;display:grid;gap:8px}
+.hero-panel li{font-size:12.5px;line-height:1.4;color:rgba(255,255,255,.78);padding-left:13px;position:relative;max-width:330px}
+.hero-panel li:before{content:"";position:absolute;left:0;top:.55em;width:4px;height:4px;border-radius:1px;background:var(--gold)}
+
+/* =========================================================
+   KOMPAKTE CHECK-KARTEN
+   Zweck:
+   Kleine, klare Karten. Drei Spalten auf Desktop, keine hohen
+   Kacheln, keine überladene Dashboard-Optik.
+   ========================================================= */
+.check-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin-top:26px;align-items:start}
+.check-card{padding:0;background:transparent;text-align:center}
+.check-img{width:100%;height:150px;max-width:270px;margin:0 auto 10px;object-fit:contain;filter:drop-shadow(0 8px 14px rgba(0,0,0,.36))}
+.check-copy{width:100%;max-width:190px;height:116px;margin:0 auto;padding:9px 11px 10px;border:1px solid rgba(216,152,40,.42);border-radius:6px;background:rgba(0,0,0,.34);display:flex;flex-direction:column;justify-content:center}
+.check-copy span{display:block;font-family:"Bebas Neue",sans-serif;font-size:18px;line-height:1;color:var(--gold-light);font-weight:400;margin-bottom:4px;text-align:center;letter-spacing:.035em}
+.check-copy h3{font-size:18px;line-height:1;margin:0 0 6px;text-align:center;background:linear-gradient(180deg,var(--gold-pale) 0%,var(--gold-light) 24%,var(--gold) 58%,var(--gold-dark) 100%);-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent}
+.check-copy p{font-size:11px;line-height:1.34;color:var(--muted)}
+
+/* =========================================================
+   ABLAUF
+   Zweck:
+   Vier kurze Prozessschritte ohne große Prozessgrafik.
+   ========================================================= */
+.steps{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin-top:26px;align-items:start}
+.step{position:relative;padding:0;background:transparent;text-align:center}
+.step-img{width:100%;height:150px;max-width:170px;margin:0 auto 10px;object-fit:contain;filter:drop-shadow(0 8px 14px rgba(0,0,0,.36))}
+.step-copy{width:100%;max-width:190px;height:116px;margin:0 auto;padding:9px 11px 10px;border:1px solid rgba(216,152,40,.42);border-radius:6px;background:rgba(0,0,0,.34);display:flex;flex-direction:column;justify-content:center}
+.step strong{display:block;font-family:"Bebas Neue",sans-serif;font-size:18px;line-height:1;color:var(--gold-light);font-weight:400;margin-bottom:4px;text-align:center}
+.step h3{font-size:18px;line-height:1;margin:0 0 6px;text-align:center;background:linear-gradient(180deg,var(--gold-pale) 0%,var(--gold-light) 24%,var(--gold) 58%,var(--gold-dark) 100%);-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent}
+.step p{font-size:11px;line-height:1.34;color:var(--muted);text-align:center}
+
+/* =========================================================
+   ANALYSE-FORMULAR
+   Zweck:
+   Formular und Prüfliste gleich groß. Beide Bereiche wirken
+   ruhig und nicht zu dominant.
+   ========================================================= */
+.analysis-layout{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:34px;margin-top:26px;align-items:start;width:100%;max-width:100%}
+.info-panel,.form-panel{width:100%;max-width:none;min-width:0;border:1px solid rgba(216,152,40,.42);border-radius:8px;background:rgba(0,0,0,.34);padding:22px 24px;box-shadow:inset 0 0 0 1px rgba(255,215,163,.04)}
+.info-panel{padding:22px 24px}
+.form-panel{align-self:start;padding:18px 20px}
+.info-panel h3,.form-panel h3{font-size:25px;line-height:1;margin-bottom:12px}
+.info-list{display:grid;gap:8px;list-style:none}
+.info-list li{font-size:13px;line-height:1.5;color:rgba(255,255,255,.80);padding:12px 13px;border:1px solid rgba(216,152,40,.30);border-radius:5px;background:rgba(0,0,0,.28)}
+.info-list strong{display:block;margin-bottom:3px;font-family:"Bebas Neue",sans-serif;font-size:18px;line-height:1;font-weight:400;letter-spacing:.035em;text-transform:uppercase;background:linear-gradient(180deg,var(--gold-pale) 0%,var(--gold-light) 24%,var(--gold) 58%,var(--gold-dark) 100%);-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent}
+.form-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;width:100%;max-width:100%}
+.form-grid > *{min-width:0;width:100%}
+.form-grid input,.form-grid select,.form-grid textarea{height:31px;border:1px solid rgba(240,160,90,.78);border-radius:4px;background:rgba(230,230,220,.92);color:#111;font-family:Raleway,Arial,sans-serif;font-size:12px;font-weight:500;padding:0 8px;outline:none}
+.form-grid textarea{grid-column:1/-1;height:58px;padding-top:8px;resize:none}
+.form-grid button{grid-column:1/-1;height:38px;margin-top:2px;border:0;border-radius:5px;cursor:pointer;font-size:15px;justify-content:center}
+.consent-row{grid-column:1/-1;display:flex;align-items:flex-start;gap:10px;border:1px solid rgba(216,152,40,.28);border-radius:5px;background:rgba(0,0,0,.22);padding:10px 11px;font-size:11px;line-height:1.4;color:rgba(255,255,255,.72)}
+.consent-row input{width:auto;flex:0 0 auto;margin-top:2px;accent-color:#d89828}
+.consent-row span{display:block}
+.consent-row strong{display:block;margin-bottom:2px;color:rgba(247,215,122,.92);font-weight:600}
+.hp-field{position:absolute;left:-10000px;top:auto;width:1px;height:1px;overflow:hidden}
+.analysis-status{margin-top:10px;min-height:17px;font-family:"Anca Coder",monospace;font-size:10px;line-height:1.45;letter-spacing:.045em;text-transform:uppercase;color:rgba(247,215,122,.9)}
+.form-note{margin-top:10px;font-family:Raleway,Arial,sans-serif;font-size:9.5px;line-height:1.45;color:rgba(255,255,255,.68)}
+.form-note a{color:#e8b048;text-decoration:underline}
+
+/* =========================================================
+   ERGEBNIS-SECTION
+   Zweck:
+   Erwartung klar machen, ohne große Versprechen oder Hype.
+   ========================================================= */
+.result-strip{width:100%;max-width:100%;margin-top:26px;border:1px solid rgba(216,152,40,.48);border-radius:9px;background:linear-gradient(135deg,rgba(216,152,40,.12),rgba(0,0,0,.36));padding:18px;display:grid;grid-template-columns:1.4fr .9fr;gap:18px;align-items:center}
+.result-strip h3{font-size:28px;line-height:1;margin-bottom:8px}
+.result-strip p{font-size:13px;line-height:1.55;color:var(--muted)}
+.result-points{display:grid;gap:7px;list-style:none}
+.result-points li{font-family:"Anca Coder",monospace;font-size:10px;letter-spacing:.04em;text-transform:uppercase;color:rgba(255,255,255,.78)}
+.result-strip.is-active{border-color:rgba(226,161,47,.9);box-shadow:0 0 0 1px rgba(226,161,47,.18),0 20px 80px rgba(0,0,0,.28)}
+.result-strip.is-error{border-color:rgba(205,82,66,.86);background:linear-gradient(135deg,rgba(205,82,66,.14),rgba(0,0,0,.38))}
+.analysis-result-link{display:inline-flex;margin-top:12px;color:#050505;background:linear-gradient(180deg,var(--gold-pale) 0%,var(--gold-light) 24%,var(--gold) 60%,var(--gold-dark) 100%);border:1px solid var(--gold);border-radius:5px;padding:9px 14px;font-family:"Bebas Neue",sans-serif;font-size:16px;letter-spacing:.045em;text-transform:uppercase}
+.analysis-result-link[hidden]{display:none}
+.btn[disabled]{opacity:.58;cursor:not-allowed}
+
+/* =========================================================
+   FAQ UND FOOTER
+   Zweck:
+   Kompakt, nicht flächig, gleiche Typografie wie Homepage.
+   ========================================================= */
+.faq-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-top:24px;width:100%;max-width:100%;align-items:start}
+.faq-item{align-self:start;border:1px solid rgba(255,215,163,.78);border-radius:8px;background:linear-gradient(180deg,#ffd7a3 0%,#f0a05a 24%,#d89828 58%,#7a3518 100%);box-shadow:inset 0 0 0 1px rgba(255,244,199,.20),0 8px 16px rgba(0,0,0,.30);overflow:hidden}
+.faq-item[open]{background:linear-gradient(180deg,#ffe0ad 0%,#f0a05a 28%,#d89828 62%,#7a3518 100%)}
+.faq-item summary{min-height:42px;padding:0 14px;display:flex;align-items:center;justify-content:space-between;gap:18px;cursor:pointer;list-style:none;font-family:"Anca Coder",monospace;font-size:10.5px;line-height:1.3;font-weight:400;color:#050505;text-shadow:none}
+.faq-item summary::-webkit-details-marker{display:none}
+.faq-item summary:after{content:"+";font-family:"Bebas Neue",sans-serif;font-size:16px;line-height:1;color:#050505;flex:0 0 auto}
+.faq-item[open] summary:after{content:"-"}
+.faq-item p{padding:0 14px 12px;font-family:Raleway,Arial,sans-serif;font-size:11px;line-height:1.45;color:rgba(5,5,5,.86);text-shadow:none}
+.footer{padding:40px var(--side);background:#000;border-top:1px solid rgba(216,152,40,.58)}
+.footer-inner{max-width:var(--max);margin:0 auto;display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:24px}
+.footer h4{font-family:"Bebas Neue",sans-serif;font-size:20px;font-weight:400;color:var(--gold-light);margin-bottom:8px;text-transform:uppercase}
+.footer p,.footer a{display:block;font-size:12px;line-height:1.65;color:rgba(255,255,255,.68)}
+
+/* =========================================================
+   RESPONSIVE
+   Zweck:
+   Mobile bleibt einfach gestapelt. Keine Scroll- oder Miniatur-Layouts,
+   die Inhalt unlesbar machen.
+   ========================================================= */
+@media(max-width:900px){
+  .nav{display:none}
+  .hero-inner,.analysis-layout,.result-strip{grid-template-columns:1fr}
+  .check-grid{grid-template-columns:1fr 1fr}
+  .steps{grid-template-columns:1fr 1fr}
+  .footer-inner{grid-template-columns:1fr}
+}
+@media(max-width:620px){
+  .site-header{height:42px}
+  .logo{height:46px}
+  .header-cta{display:none}
+  .hero{padding-top:58px;min-height:auto}
+  .check-grid,.steps,.faq-grid,.form-grid{grid-template-columns:1fr}
+  .section{padding:44px var(--side)}
+}
+
+</style>
+<link rel="stylesheet" href="shared-header-footer.css"/>
+</head>
+<body class="has-sidebar" id="top">
+<header class="site-header">
+<div class="header-inner">
+<a href="index.html" aria-label="Zur Startseite"><img alt="Nurovelle Logo" class="logo" src="assets/hero/nurovelle_logo.png"/></a>
+<nav class="nav" aria-label="Hauptmenü">
+<a href="index.html#top">Home</a>
+<a href="index.html#problem-loesung">Lösungen</a>
+<a href="index.html#branchen">Branchen</a>
+<a href="index.html#leistungen">Services</a>
+<a href="index.html#prozess">Ablauf</a>
+<a href="analyse.html">Kontakt</a>
+</nav>
+<a class="header-cta" href="analyse.html">Potenzialanalyse starten</a>
+</div>
+</header>
+<aside aria-label="Zusätzliche Navigation" class="home-sidebar">
+<div class="sidebar-label">
+<strong>Seitenstruktur</strong>
+</div>
+<nav>
+<ul class="side-list">
+<li><a href="index.html#top"><span class="side-num">01</span><span class="side-label">Startseite</span></a></li>
+<li><a class="is-active" href="#top"><span class="side-num">02</span><span class="side-label">Potenzialanalyse</span></a></li>
+<li><a href="#nutzen"><span class="side-num">03</span><span class="side-label">Einordnung</span></a></li>
+<li><a href="#ablauf"><span class="side-num">04</span><span class="side-label">Ablauf</span></a></li>
+<li><a href="#analyse-formular"><span class="side-num">05</span><span class="side-label">Formular</span></a></li>
+<li><a href="#faq"><span class="side-num">06</span><span class="side-label">FAQ</span></a></li>
+</ul>
+</nav>
+</aside>
+
+<main>
+  <section class="hero">
+    <div class="hero-inner">
+      <div>
+        <div class="kicker">KI-Potenzialanalyse</div>
+        <h1><span class="gold">Kostenlose</span> Analyse für Ihre Prozesse.</h1>
+        <h2>Kurzer Check. Klare Einordnung. Konkrete Einschätzung, unverbindlich.</h2>
+        <p>Wir prüfen, wo KI und Automatisierung in Ihrem Unternehmen realistisch entlasten können. Ohne Tool-Hype, ohne pauschale Versprechen und ohne unnötig komplexe Projektstruktur.</p>
+        <div class="actions">
+          <a class="btn btn-primary" href="#analyse-formular">Potenzialanalyse starten</a>
+          <a class="btn btn-secondary" href="#ablauf">Ablauf ansehen</a>
+        </div>
+      </div>
+      <aside class="hero-panel" aria-label="Analyse-Schwerpunkte">
+        <h3>Was geprüft wird</h3>
+        <ul>
+          <li>Wiederkehrende manuelle Aufgaben</li>
+          <li>Dokumente, Daten und Systembrüche</li>
+          <li>Automatisierungspotenzial mit realistischem Nutzen</li>
+          <li>Mögliche Ansatzpunkte ohne unnötige Komplexität</li>
+        </ul>
+      </aside>
+    </div>
+  </section>
+
+  <section class="section bg" id="nutzen">
+    <div class="section-inner">
+      <div class="kicker">Einordnung</div>
+      <h2 class="section-title">Wofür die <span class="gold">Potenzialanalyse</span> gedacht ist.</h2>
+      <p class="section-text">Die Potenzialanalyse ist kein Verkaufs-Pitch für ein bestimmtes Tool. Sie dient dazu, Prozesse, Engpässe und sinnvolle Einsatzbereiche strukturiert zu prüfen.</p>
+      <div class="check-grid">
+        <article class="check-card">
+          <img class="check-img" src="assets/analyse/6.png" alt=""/>
+          <div class="check-copy"><span>01</span><h3>Prozesse</h3><p>Welche Abläufe wiederholen sich häufig und binden Fachzeit, obwohl sie klaren Regeln folgen?</p></div>
+        </article>
+        <article class="check-card">
+          <img class="check-img" src="assets/analyse/7.png" alt=""/>
+          <div class="check-copy"><span>02</span><h3>Daten</h3><p>Wo liegen Informationen verteilt in Tabellen, E-Mails, Dokumenten oder verschiedenen Systemen?</p></div>
+        </article>
+        <article class="check-card">
+          <img class="check-img" src="assets/analyse/8.png" alt=""/>
+          <div class="check-copy"><span>03</span><h3>Entlastung</h3><p>Welche Aufgaben können vorbereitet, geprüft, sortiert oder automatisch angestoßen werden?</p></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="ablauf">
+    <div class="section-inner">
+      <div class="kicker">Ablauf</div>
+      <h2 class="section-title">Vier Schritte bis zur <span class="gold">Empfehlung</span>.</h2>
+      <p class="section-text">Der Ablauf bleibt bewusst schlank. Ziel ist eine klare Einschätzung, kein schweres Beratungsprojekt.</p>
+      <div class="steps">
+        <div class="step"><img class="step-img" src="assets/analyse/2.png" alt=""/><div class="step-copy"><strong>01</strong><h3>Anfrage</h3><p>Formular ausfüllen und Ausgangslage kurz beschreiben.</p></div></div>
+        <div class="step"><img class="step-img" src="assets/analyse/3.png" alt=""/><div class="step-copy"><strong>02</strong><h3>Einordnung</h3><p>Prozesslage, Datenquellen und Engpässe einordnen.</p></div></div>
+        <div class="step"><img class="step-img" src="assets/analyse/4.png" alt=""/><div class="step-copy"><strong>03</strong><h3>Bewertung</h3><p>Potenziale bewerten und Aufwand grob einschätzen.</p></div></div>
+        <div class="step"><img class="step-img" src="assets/analyse/5.png" alt=""/><div class="step-copy"><strong>04</strong><h3>Empfehlung</h3><p>Klare Empfehlung mit möglichen nächsten Schritten erhalten.</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section bg" id="analyse-formular">
+    <div class="section-inner">
+      <div class="kicker">Potenzialanalyse starten</div>
+      <h2 class="section-title"><span class="gold">Kostenlose</span> Potenzialanalyse starten.</h2>
+      <p class="section-text">Kurze Angaben reichen für die erste Einordnung. Das Formular bleibt bewusst kompakt.</p>
+      <div class="analysis-layout">
+        <aside class="info-panel">
+          <h3>Was geprüft wird</h3>
+          <ul class="info-list">
+            <li><strong>Prozesslage</strong>Welche wiederkehrenden Aufgaben aktuell Zeit binden, wo Rückfragen entstehen und welche Übergaben manuell laufen.</li>
+            <li><strong>Datenlage</strong>Welche Systeme, Tabellen, E-Mails oder Dokumente beteiligt sind und ob die Informationen nutzbar zusammengeführt werden können.</li>
+            <li><strong>Automatisierungspotenzial</strong>Ob KI, Automatisierung, SaaS-Tool oder ein normaler Prozessumbau für den konkreten Ablauf sinnvoller ist.</li>
+            <li><strong>Nächster Schritt</strong>Welche Umsetzung zuerst den größten Nutzen bringt und welcher Einstieg realistisch vorbereitet werden sollte.</li>
+          </ul>
+        </aside>
+        <form class="form-panel" action="analyse.html" method="get" id="nurovelle-analysis-form">
+          <h3>Potenzialanalyse starten</h3>
+          <div class="form-grid">
+            <input autocomplete="given-name" name="vorname" placeholder="Vorname" required="" type="text"/>
+            <input autocomplete="family-name" name="nachname" placeholder="Nachname" required="" type="text"/>
+            <input autocomplete="email" name="email" placeholder="E-Mail-Adresse" required="" type="email"/>
+            <input autocomplete="organization" name="unternehmen" placeholder="Unternehmen" required="" type="text"/>
+            <select name="branche" required="">
+              <option value="">Branche auswählen</option>
+              <option>Energie &amp; Versorgung</option>
+              <option>Finanzen &amp; Versicherung</option>
+              <option>Industrie &amp; Produktion</option>
+              <option>Verwaltung, Vertrieb, Einkauf &amp; Marketing</option>
+              <option>Gesundheitswesen &amp; Pflege</option>
+              <option>Immobilien &amp; Facility Management</option>
+              <option>Bildung &amp; Forschung</option>
+              <option>Dienstleistungen &amp; KMU</option>
+              <option>Sonstiges</option>
+            </select>
+            <select name="mitarbeiteranzahl">
+              <option value="">Unternehmensgröße optional</option>
+              <option>Einzelunternehmer / Freelancer</option>
+              <option>2–10 Mitarbeiter</option>
+              <option>11–50 Mitarbeiter</option>
+              <option>51–250 Mitarbeiter</option>
+              <option>250+ Mitarbeiter</option>
+            </select>
+            <select name="zeitaufwand" required=""><option value="">Aktuellen Zeitaufwand auswählen</option><option>unter 5 Stunden pro Woche</option><option>5–10 Stunden pro Woche</option><option>10–25 Stunden pro Woche</option><option>25+ Stunden pro Woche</option></select>
+            <select name="datenlage" required=""><option value="">Datenlage auswählen</option><option>E-Mails / Dokumente</option><option>Tabellen / CSV</option><option>CRM / ERP / Fachsystem</option><option>mehrere Quellen</option><option>noch unklar</option></select>
+            <textarea name="herausforderung" placeholder="Beschreiben Sie den Prozess, den Sie prüfen möchten: Aufgabe, Zeitaufwand, Datenquellen und aktuelles Problem." required=""></textarea>
+            <input autocomplete="tel" name="telefon" placeholder="Telefon optional" type="tel"/>
+            <input autocomplete="url" name="website" placeholder="Website optional" type="url"/>
+            <div class="hp-field" aria-hidden="true">
+              <label>Bitte dieses Feld leer lassen <input autocomplete="off" name="website_confirmation" tabindex="-1" type="text"/></label>
+            </div>
+            <label class="consent-row">
+              <input name="newsletter" type="checkbox" value="yes"/>
+              <span><strong>Newsletter und Follow-up-Hinweise erhalten.</strong> Ich möchte passende Hinweise zur Potenzialanalyse per E-Mail erhalten.</span>
+            </label>
+            <button class="btn btn-primary" type="submit" id="nurovelle-analysis-submit">Potenzialanalyse starten</button>
+          </div>
+          <div class="analysis-status" id="nurovelle-analysis-status" aria-live="polite"></div>
+          <p class="form-note">Ihre Angaben werden ausschließlich zur Durchführung und Auswertung der Potenzialanalyse verwendet. Personenbezogene Angaben werden nach Abschluss gelöscht; interne Auswertungen erfolgen nur anonymisiert. Details stehen in der <a href="datenschutz.html">Datenschutzerklärung</a>.</p>
+        </form>
+      </div>
+      <div class="result-strip" id="nurovelle-analysis-result">
+        <div>
+          <h3 id="nurovelle-analysis-result-title">Was Sie danach erhalten</h3>
+          <p id="nurovelle-analysis-result-copy">Eine klare erste Einschätzung, ob und wo sich KI-Automatisierung lohnt. Fokus: Aufwand, Nutzen, Priorität und ein sinnvoller nächster Schritt.</p>
+          <a class="analysis-result-link" id="nurovelle-analysis-result-link" href="#" hidden>Ergebnis öffnen</a>
+        </div>
+        <ul class="result-points" id="nurovelle-analysis-result-points">
+          <li>Prozess-Einschätzung</li>
+          <li>Automatisierungs-Potenzial</li>
+          <li>Priorisierte Empfehlung</li>
+          <li>Nächster Schritt</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="faq">
+    <div class="section-inner">
+      <div class="kicker">FAQ</div>
+      <h2 class="section-title">Häufige <span class="gold">Fragen</span>.</h2>
+      <div class="faq-grid">
+        <details class="faq-item"><summary>Ist die Analyse wirklich kostenlos?</summary><p>Ja. Die erste Einschätzung ist kostenlos und dient dazu, sinnvolle Potenziale zu erkennen.</p></details>
+        <details class="faq-item"><summary>Muss bereits ein KI-System vorhanden sein?</summary><p>Nein. Die Analyse startet bei Ihren bestehenden Abläufen, Daten und Aufgaben.</p></details>
+        <details class="faq-item"><summary>Für welche Unternehmen passt das?</summary><p>Für Unternehmen mit wiederkehrenden Aufgaben, manuellen Dokumentenprozessen oder verteilten Datenquellen.</p></details>
+        <details class="faq-item"><summary>Was passiert nach der Anfrage?</summary><p>Die Angaben werden geprüft. Danach folgt eine kurze Einordnung und bei Bedarf ein Gespräch zur Vertiefung.</p></details>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="footer" id="footer">
+<div class="footer-inner">
+<div><h4>Nurovelle</h4><p>KI-Automatisierung für Unternehmen. Fokus: reale Prozesse, saubere Umsetzung und messbare Entlastung.</p></div>
+<div><h4>Seiten</h4><a href="index.html#top">Startseite</a><a href="index.html#problem-loesung">Lösungen</a><a href="index.html#branchen">Branchen</a><a href="index.html#leistungen">Services</a></div>
+<div><h4>Ablauf</h4><a href="index.html#prozess">Zusammenarbeit</a><a href="praxisleitfaden.html">Praxisleitfaden</a><a href="analyse.html">Potenzialanalyse</a></div>
+<div><h4>Kontakt</h4><a href="analyse.html">Potenzialanalyse starten</a><a href="mailto:info@nurovelle.de">info@nurovelle.de</a><a href="impressum.html">Impressum</a><a href="datenschutz.html">Datenschutz</a><p>© 2026 Nurovelle</p></div>
+</div>
+</footer>
+<script>
+const NUROVELLE_ALLOWED_HOSTS = new Set(['nurovelle.de', 'www.nurovelle.de']);
+const NUROVELLE_API_BASE = trustedNurovelleUrl(
+  window.NUROVELLE_API_BASE,
+  'https://nurovelle.de/api/v1',
+  '/api/v1',
+  false
+);
+const NUROVELLE_RESULT_BASE = trustedNurovelleUrl(
+  window.NUROVELLE_RESULT_BASE,
+  'https://nurovelle.de/results/',
+  '/results/',
+  true
+);
+const NUROVELLE_API_TIMEOUT_MS = Number(window.NUROVELLE_API_TIMEOUT_MS || 20000);
+
+const analysisForm = document.querySelector('#nurovelle-analysis-form');
+const analysisSubmit = document.querySelector('#nurovelle-analysis-submit');
+const analysisStatus = document.querySelector('#nurovelle-analysis-status');
+const analysisResult = document.querySelector('#nurovelle-analysis-result');
+const analysisResultTitle = document.querySelector('#nurovelle-analysis-result-title');
+const analysisResultCopy = document.querySelector('#nurovelle-analysis-result-copy');
+const analysisResultLink = document.querySelector('#nurovelle-analysis-result-link');
+const analysisResultPoints = document.querySelector('#nurovelle-analysis-result-points');
+let analysisSubmissionInFlight = false;
+
+const branchToIndustry = {
+  'Industrie & Produktion': 'manufacturing',
+  'Gesundheitswesen & Pflege': 'care',
+  'Dienstleistungen & KMU': 'service',
+  'Verwaltung, Vertrieb, Einkauf & Marketing': 'service',
+  'Finanzen & Versicherung': 'service',
+  'Energie & Versorgung': 'service',
+  'Immobilien & Facility Management': 'service',
+  'Bildung & Forschung': 'service',
+  'Sonstiges': 'service'
+};
+
+const sizeToApiValue = {
+  'Einzelunternehmer / Freelancer': '1',
+  '2–10 Mitarbeiter': '2_10',
+  '11–50 Mitarbeiter': '11_50',
+  '51–250 Mitarbeiter': '51_250',
+  '250+ Mitarbeiter': '250_plus'
+};
+
+function trustedNurovelleUrl(value, fallback, requiredPathPrefix, trailingSlash) {
+  try {
+    const candidate = new URL(value || fallback, window.location.href);
+    const normalizedPrefix = requiredPathPrefix.replace(/\/$/, '');
+    const pathAllowed =
+      candidate.pathname === normalizedPrefix ||
+      candidate.pathname.startsWith(`${normalizedPrefix}/`);
+    if (
+      candidate.protocol !== 'https:' ||
+      !NUROVELLE_ALLOWED_HOSTS.has(candidate.hostname) ||
+      !pathAllowed
+    ) {
+      return fallback;
+    }
+    candidate.search = '';
+    candidate.hash = '';
+    return trailingSlash && !candidate.href.endsWith('/') ? `${candidate.href}/` : candidate.href.replace(/\/$/, '');
+  } catch {
+    return fallback;
+  }
+}
+
+function setAnalysisStatus(message) {
+  if (analysisStatus) analysisStatus.textContent = message || '';
+}
+
+function setResultPoints(items) {
+  if (!analysisResultPoints) return;
+  analysisResultPoints.innerHTML = '';
+  items.forEach((item) => {
+    const li = document.createElement('li');
+    li.textContent = item;
+    analysisResultPoints.appendChild(li);
+  });
+}
+
+function setResultState({ title, copy, points, link, error = false }) {
+  if (!analysisResult) return;
+  analysisResult.classList.add('is-active');
+  analysisResult.classList.toggle('is-error', error);
+  if (analysisResultTitle) analysisResultTitle.textContent = title;
+  if (analysisResultCopy) analysisResultCopy.textContent = copy;
+  if (points) setResultPoints(points);
+  if (analysisResultLink) {
+    const trustedLink = link ? trustedNurovelleUrl(link, '', '/results/', false) : '';
+    analysisResultLink.hidden = !trustedLink;
+    if (trustedLink) analysisResultLink.href = trustedLink;
+  }
+  analysisResult.scrollIntoView({ behavior: 'smooth', block: 'center' });
+}
+
+async function apiRequest(path, options = {}) {
+  const controller = new AbortController();
+  const timeoutId = window.setTimeout(() => controller.abort(), NUROVELLE_API_TIMEOUT_MS);
+  let response;
+  try {
+    response = await fetch(`${NUROVELLE_API_BASE}${path}`, {
+      ...options,
+      signal: controller.signal,
+      headers: {
+        'Content-Type': 'application/json',
+        ...(options.headers || {})
+      }
+    });
+  } catch (error) {
+    if (error?.name === 'AbortError') {
+      throw new Error('Das Analyse-Backend hat nicht rechtzeitig geantwortet. Bitte später erneut versuchen.');
+    }
+    throw error;
+  } finally {
+    window.clearTimeout(timeoutId);
+  }
+
+  let payload = null;
+  try {
+    payload = await response.json();
+  } catch {
+    payload = null;
+  }
+
+  if (!response.ok || payload?.success === false) {
+    const message = payload?.message || payload?.error || `API request failed: ${response.status}`;
+    throw new Error(typeof message === 'string' ? message : JSON.stringify(message));
+  }
+
+  return payload;
+}
+
+function optionValues(question) {
+  const options = question.options || question.answer_options || [];
+  return new Set(options.map((option) => option.value));
+}
+
+function firstAvailable(question, preferredValues) {
+  const values = optionValues(question);
+  for (const value of preferredValues) {
+    if (values.has(value)) return value;
+  }
+  return Array.from(values)[Math.max(0, Math.floor((values.size - 1) / 2))] || '';
+}
+
+function selectAnswerValue(question, formState) {
+  const id = question.id || question.question_id;
+  const category = question.category || '';
+  const time = formState.zeitaufwand;
+  const dataState = formState.datenlage;
+  const textLength = formState.herausforderung.length;
+  const highManualWork = time === '25+ Stunden pro Woche' || time === '10–25 Stunden pro Woche';
+  const lowManualWork = time === 'unter 5 Stunden pro Woche';
+  const structuredData = dataState === 'CRM / ERP / Fachsystem' || dataState === 'mehrere Quellen';
+  const weakData = dataState === 'E-Mails / Dokumente' || dataState === 'noch unklar';
+
+  const byId = {
+    ai_current_usage: ['experimental', 'none'],
+    ai_team_knowledge: ['medium', 'partial'],
+    ai_process_automation: highManualWork ? ['few', 'none'] : ['multiple', 'few'],
+    ai_strategy: ['partial', 'none'],
+    ai_data_usability: structuredData ? ['structured_sources', 'single_sources'] : ['single_sources', 'poor'],
+    data_centralization: structuredData ? ['partial', 'centralized'] : ['distributed', 'partial'],
+    data_silos: structuredData ? ['some_breaks', 'few_breaks'] : ['many_breaks', 'some_breaks'],
+    data_api_connectivity: structuredData ? ['partial_api', 'manual_exports'] : ['manual_exports', 'none'],
+    data_quality: weakData ? ['partial', 'poor'] : ['good', 'partial'],
+    data_accessibility: weakData ? ['partial', 'hard'] : ['fast', 'partial'],
+    data_reporting_reliability: weakData ? ['partial', 'poor'] : ['good', 'partial'],
+    process_manual_data_entry: highManualWork ? ['very_high', 'medium'] : lowManualWork ? ['low', 'medium'] : ['medium'],
+    process_excel_dependency: dataState === 'Tabellen / CSV' ? ['very_high', 'partial'] : ['partial', 'low'],
+    process_duplicate_work: highManualWork ? ['very_often', 'sometimes'] : ['sometimes', 'rarely'],
+    service_manual_data_entry: highManualWork ? ['very_high', 'medium'] : ['medium', 'low'],
+    service_customer_requests: ['partial_ticketing', 'unstructured'],
+    service_information_access: weakData ? ['partial', 'slow'] : ['fast', 'partial'],
+    service_knowledge_management: textLength > 120 ? ['partial', 'very_high'] : ['partial', 'low'],
+    service_process_documentation: ['partial', 'low'],
+    service_process_failures: highManualWork ? ['sometimes', 'very_often'] : ['rarely', 'sometimes']
+  };
+
+  if (byId[id]) return firstAvailable(question, byId[id]);
+  if (category === 'infrastructure') return firstAvailable(question, ['partial', 'manual', 'system_monitoring', 'hybrid_structured', 'structured', 'hours', 'good']);
+  if (category === 'documentation') return firstAvailable(question, ['partial', 'manual', 'good', 'sometimes', 'defined_process']);
+  if (category === 'collaboration') return firstAvailable(question, ['partial', 'good', 'standardized']);
+  if (category === 'scalability') return firstAvailable(question, ['partial', 'medium', 'structured', 'expandable', 'low']);
+  if (category === 'service') return firstAvailable(question, ['teilweise_geregelt', 'ueberwiegend_manuell', 'partial', 'medium']);
+  return firstAvailable(question, ['partial', 'medium', 'sometimes', 'manual', 'few', 'good']);
+}
+
+function buildAnswers(questions, formState) {
+  return questions.map((question) => ({
+    question_id: question.id || question.question_id,
+    category: question.category || 'unknown',
+    answer: selectAnswerValue(question, formState)
+  })).filter((answer) => answer.question_id && answer.answer);
+}
+
+function getFormState(form) {
+  const data = new FormData(form);
+  return {
+    vorname: String(data.get('vorname') || '').trim(),
+    nachname: String(data.get('nachname') || '').trim(),
+    email: String(data.get('email') || '').trim(),
+    unternehmen: String(data.get('unternehmen') || '').trim(),
+    branche: String(data.get('branche') || 'Sonstiges'),
+    mitarbeiteranzahl: String(data.get('mitarbeiteranzahl') || ''),
+    zeitaufwand: String(data.get('zeitaufwand') || ''),
+    datenlage: String(data.get('datenlage') || ''),
+    herausforderung: String(data.get('herausforderung') || '').trim(),
+    telefon: String(data.get('telefon') || '').trim(),
+    website: String(data.get('website') || '').trim(),
+    newsletter: data.get('newsletter') === 'yes'
+  };
+}
+
+function prefillFromQuery(form) {
+  const params = new URLSearchParams(window.location.search);
+  if (!params.size) return false;
+  for (const [key, value] of params.entries()) {
+    const field = form.elements.namedItem(key);
+    if (!field) continue;
+    if (field.type === 'checkbox') {
+      field.checked = value === 'yes' || value === 'true' || value === 'on';
+    } else if ('value' in field) {
+      field.value = value;
+    }
+  }
+  return true;
+}
+
+function hasRequiredFormData(form) {
+  return ['vorname', 'nachname', 'email', 'unternehmen', 'branche', 'zeitaufwand', 'datenlage', 'herausforderung']
+    .every((name) => String(new FormData(form).get(name) || '').trim());
+}
+
+async function startAnalysis(form) {
+  if (analysisSubmissionInFlight) return;
+
+  if (!form.reportValidity()) return;
+
+  if (String(new FormData(form).get('website_confirmation') || '').trim()) {
+    setAnalysisStatus('Anfrage konnte nicht verarbeitet werden.');
+    return;
+  }
+
+  const formState = getFormState(form);
+  const industry = branchToIndustry[formState.branche] || 'service';
+  const resultBase = NUROVELLE_RESULT_BASE.endsWith('/') ? NUROVELLE_RESULT_BASE : `${NUROVELLE_RESULT_BASE}/`;
+
+  analysisSubmissionInFlight = true;
+  if (analysisSubmit) analysisSubmit.disabled = true;
+  setAnalysisStatus('Analyse wird gestartet...');
+
+  try {
+    const questionsResponse = await apiRequest(`/questions?industry=${encodeURIComponent(industry)}&tier=basic&include_risk=false`);
+    const questions = questionsResponse.questions || [];
+    if (!questions.length) throw new Error('Keine Fragen vom Analyse-Backend erhalten.');
+
+    setAnalysisStatus('Analyse wird angelegt...');
+    const startResponse = await apiRequest('/analysis/start', {
+      method: 'POST',
+      body: JSON.stringify({
+        company: {
+          company_name: formState.unternehmen,
+          industry,
+          company_size: sizeToApiValue[formState.mitarbeiteranzahl] || formState.mitarbeiteranzahl || 'unknown',
+          website: formState.website
+        },
+        contact: {
+          first_name: formState.vorname,
+          last_name: formState.nachname,
+          email: formState.email,
+          phone: formState.telefon
+        },
+        source: 'nurovelle_homepage_static',
+        initial_context: {
+          branch_label: formState.branche,
+          weekly_time_spend: formState.zeitaufwand,
+          data_state: formState.datenlage,
+          challenge: formState.herausforderung
+        }
+      })
+    });
+
+    const analysisId = startResponse.analysis_id || startResponse.id || startResponse.analysis?.analysis_id;
+    if (!analysisId) throw new Error('Analyse-ID wurde nicht erzeugt.');
+
+    setAnalysisStatus('Antworten werden gespeichert...');
+    await apiRequest(`/analysis/${encodeURIComponent(analysisId)}/answers`, {
+      method: 'POST',
+      body: JSON.stringify({ answers: buildAnswers(questions, formState) })
+    });
+
+    setAnalysisStatus('Scores werden berechnet...');
+    await apiRequest(`/analysis/${encodeURIComponent(analysisId)}/score`, {
+      method: 'POST',
+      body: JSON.stringify({})
+    });
+
+    setAnalysisStatus('Report wird erzeugt...');
+    await apiRequest(`/analysis/${encodeURIComponent(analysisId)}/report`, {
+      method: 'POST',
+      body: JSON.stringify({})
+    });
+
+    const resultUrl = `${resultBase}${encodeURIComponent(analysisId)}`;
+    let leadSaved = true;
+    let leadMessage = 'Lead gespeichert';
+
+    setAnalysisStatus('Lead wird gespeichert...');
+    try {
+      await apiRequest('/lead', {
+        method: 'POST',
+        body: JSON.stringify({
+          name: `${formState.vorname} ${formState.nachname}`.trim(),
+          email: formState.email,
+          phone: formState.telefon,
+          company: formState.unternehmen,
+          newsletter: formState.newsletter,
+          message: [
+            `Analyse-ID: ${analysisId}`,
+            `Ergebnis: ${resultUrl}`,
+            `Branche: ${formState.branche}`,
+            `Unternehmensgröße: ${formState.mitarbeiteranzahl || 'nicht angegeben'}`,
+            `Zeitaufwand: ${formState.zeitaufwand}`,
+            `Datenlage: ${formState.datenlage}`,
+            `Herausforderung: ${formState.herausforderung}`,
+            `Newsletter: ${formState.newsletter ? 'ja' : 'nein'}`
+          ].join('\n')
+        })
+      });
+    } catch (leadError) {
+      leadSaved = false;
+      leadMessage = `Lead nicht bestätigt: ${leadError?.message || 'unbekannter Fehler'}`;
+    }
+
+    setResultState({
+      title: 'Analyse gestartet und Report erzeugt.',
+      copy: `${formState.unternehmen}: Die Potenzialanalyse wurde im Backend verarbeitet. ${leadMessage}.`,
+      points: [
+        `Analyse-ID: ${analysisId}`,
+        `Fragen geladen: ${questions.length}`,
+        leadSaved ? 'Lead angelegt' : 'Lead nicht bestätigt',
+        formState.newsletter ? 'Newsletter-Opt-in gesendet' : 'Kein Newsletter-Opt-in'
+      ],
+      link: resultUrl
+    });
+    setAnalysisStatus('Analyse abgeschlossen.');
+  } catch (error) {
+    setResultState({
+      title: 'Analyse konnte nicht abgeschlossen werden.',
+      copy: error?.message || 'Der Analyse-Flow konnte nicht abgeschlossen werden.',
+      points: [
+        'Backend-Flow abgebrochen',
+        'Keine lokale Score-Berechnung',
+        'Bitte Angaben prüfen oder später erneut starten',
+        'Kontakt: info@nurovelle.de'
+      ],
+      error: true
+    });
+    setAnalysisStatus('Analyse-Flow fehlgeschlagen.');
+  } finally {
+    if (analysisSubmit) analysisSubmit.disabled = false;
+    analysisSubmissionInFlight = false;
+  }
+}
+
+if (analysisForm) {
+  prefillFromQuery(analysisForm);
+  analysisForm.addEventListener('submit', (event) => {
+    event.preventDefault();
+    startAnalysis(analysisForm);
+  });
+}
+
+document.querySelectorAll('#faq .faq-item').forEach((item) => {
+  item.addEventListener('toggle', () => {
+    if (!item.open) return;
+    document.querySelectorAll('#faq .faq-item').forEach((other) => {
+      if (other !== item) other.open = false;
+    });
+  });
+});
+</script>
+</body>
+</html>

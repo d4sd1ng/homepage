@@ -47,7 +47,7 @@
 
       .nv-s7__inner {
         width: 100%;
-        max-width: var(--nv-section-inner-max);
+        max-width: none;
         margin: 0 auto 0 0;
       }
 
@@ -91,6 +91,8 @@
         display: grid;
         grid-template-columns: repeat(3, 460px);
         gap: var(--nv-space-2xl);
+        width: max-content;
+        margin: 0 auto;
       }
 
       .nv-s7-card {
@@ -184,7 +186,6 @@
       .nv-s7-card.is-active {
         z-index: 3;
         border-color: #f7ef8a;
-        box-shadow: 0 28px 64px #000d;
         outline: none;
         transform: perspective(1200px) rotateY(-3deg);
       }
@@ -306,8 +307,9 @@
 
       .nv-s7-card__target {
         color: var(--nv-gold-light);
-        font-size: 14px;
+        font-size: 12px;
         line-height: 1;
+        transform: translateY(-1.5px);
       }
 
       .nv-s7-card__uses ul {
@@ -466,12 +468,54 @@
           transform 0.42s ease;
       }
 
+      /* Main bullet points between heading rule and result card */
+      .nv-s7-card__points {
+        position: absolute;
+        top: 98px;
+        left: 22px;
+        right: 20px;
+        display: grid;
+        gap: 6px;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        opacity: 0;
+        transform: translateY(6px);
+        transition:
+          opacity 0.42s ease,
+          transform 0.42s ease;
+      }
+
+      .nv-s7-card__points li {
+        position: relative;
+        padding-left: 12px;
+        color: var(--nv-text-light);
+        overflow-wrap: anywhere;
+        font:
+          500 12.5px/1.35 Inter,
+          Arial,
+          sans-serif;
+      }
+
+      .nv-s7-card__points li::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0.5em;
+        width: 4px;
+        height: 4px;
+        border-radius: 2px;
+        background: #f7c64a;
+      }
+
       /* "Small card": frame size = this box's padding + left/right/bottom */
       .nv-s7-card__result {
         position: absolute;
         left: 22px;
-        right: 18px;
+        right: auto;
         bottom: 16px;
+        width: fit-content;
+        max-width: calc(100% - 40px);
         display: grid;
         grid-template-columns: 40px minmax(0, 1fr);
         gap: 9px;
@@ -485,18 +529,6 @@
         transition:
           opacity 0.42s ease,
           transform 0.42s ease;
-      }
-
-      /* single shield icon */
-      .nv-s7-card__result::before {
-        content: "";
-        grid-column: 1;
-        grid-row: 1;
-        align-self: center;
-        width: 40px;
-        height: 40px;
-        background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23f0c24a' stroke-width='1.7' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12 2 4 5v6c0 5 3.4 8 8 10 4.6-2 8-5 8-10V5z'/%3E%3Cpath d='M8.5 12l2.4 2.4L15.5 10'/%3E%3C/svg%3E")
-          center / contain no-repeat;
       }
 
       .nv-s7-card__result > div {
@@ -553,6 +585,9 @@
       .nv-s7-card:hover .nv-s7-card__description,
       .nv-s7-card:focus-visible .nv-s7-card__description,
       .nv-s7-card.is-active .nv-s7-card__description,
+      .nv-s7-card:hover .nv-s7-card__points,
+      .nv-s7-card:focus-visible .nv-s7-card__points,
+      .nv-s7-card.is-active .nv-s7-card__points,
       .nv-s7-card:hover .nv-s7-card__result,
       .nv-s7-card:focus-visible .nv-s7-card__result,
       .nv-s7-card.is-active .nv-s7-card__result {
@@ -582,6 +617,8 @@
       @media (max-width: 1100px) {
         .nv-s7__cards {
           grid-template-columns: 1fr;
+          width: 100%;
+          margin: 0;
         }
 
         .nv-s7-card,
@@ -655,8 +692,8 @@
 
       .nv-resource-section__inner {
         width: 100%;
-        max-width: var(--nv-section-inner-max);
-        margin: 0 auto;
+        max-width: none;
+        margin: 0;
       }
 
       .nv-resource-section__head {
@@ -868,7 +905,7 @@
 
       #downloads .section-inner {
         width: 100%;
-        max-width: var(--nv-section-inner-max);
+        max-width: none;
         margin: 0;
       }
 
@@ -904,6 +941,8 @@
       }
 
       .download-display {
+        max-width: var(--nv-section-inner-max);
+        margin: 0 auto;
         padding: var(--nv-space-md);
         overflow: hidden;
         border: 1px solid rgba(212, 175, 55, 0.72);
@@ -913,9 +952,6 @@
           rgba(37, 43, 44, 0.92),
           rgba(10, 25, 19, 0.96)
         );
-        box-shadow:
-          0 24px 60px rgba(0, 0, 0, 0.46),
-          inset 0 0 0 1px rgba(247, 239, 138, 0.08);
       }
 
       .download-display__header {
@@ -958,13 +994,8 @@
         background:
           linear-gradient(#000000, #000000) padding-box,
           var(--gradient-gold-border) border-box;
-        box-shadow:
-          0 14px 28px rgba(0, 0, 0, 0.3),
-          inset 0 0 0 1px rgba(255, 255, 255, 0.025);
         transform-style: preserve-3d;
-        transition:
-          transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
-          box-shadow 0.35s ease;
+        transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
       }
 
       /* Faint tech picture behind the card content */
@@ -1005,9 +1036,6 @@
       .download-item:hover,
       .download-item:focus-within {
         transform: rotateX(5deg) rotateY(-5deg) translateZ(6px);
-        box-shadow:
-          0 26px 46px rgba(0, 0, 0, 0.5),
-          0 0 22px rgba(212, 175, 55, 0.28);
       }
 
       .download-item:hover::after,
@@ -1065,7 +1093,7 @@
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
         font:
-          700 17px/1.12 "Eastman Grotesque Alt",
+          700 13.5px/1.2 "Eastman Grotesque Alt",
           Inter,
           Arial,
           sans-serif;
@@ -1186,6 +1214,8 @@
         grid-template-columns: repeat(2, minmax(0, 1fr));
         gap: 34px;
         align-items: stretch;
+        max-width: var(--nv-section-inner-max);
+        margin: 0 auto;
       }
 
       .nv-analysis-info {
@@ -1395,6 +1425,11 @@
         color: #f7d77a;
       }
 
+      .nv-analysis-form__consent a {
+        color: #e8b048;
+        text-decoration: underline;
+      }
+
       .nv-analysis-form button {
         grid-column: 1 / -1;
         text-transform: uppercase;
@@ -1419,6 +1454,9 @@
         grid-template-columns: minmax(0, 640px) minmax(320px, 440px);
         gap: 56px;
         align-items: center;
+        justify-content: center;
+        max-width: var(--nv-section-inner-max);
+        margin: 0 auto;
       }
 
       .nv-faq-grid {
@@ -3016,10 +3054,6 @@
             #00000000 60%
           ),
           linear-gradient(150deg, #101a15 0%, #020403 100%);
-        box-shadow:
-          0 28px 56px #000000a8,
-          inset 0 1px 0 #ffffff1f,
-          inset 0 -1px 0 rgba(250, 227, 133, 0.22);
         overflow: hidden;
         width: var(--nv-about-media-column);
         margin-left: 0;
@@ -3577,9 +3611,6 @@
         border: 1px solid rgba(250, 227, 133, 0.3);
         border-radius: 8px;
         background: #000000;
-        box-shadow:
-          0 22px 44px #00000099,
-          inset 0 1px 0 #ffffff1f;
         overflow: hidden;
         justify-self: center;
       }
@@ -3607,9 +3638,6 @@
       .nvp4-projectidea__slide:nth-child(1) .nvp4-projectidea__image {
         border-color: rgba(250, 227, 133, 0.3);
         background: #000000;
-        box-shadow:
-          0 22px 44px #00000099,
-          inset 0 1px 0 #ffffff1f;
       }
 
       .nvp4-projectidea__idea {
@@ -3752,8 +3780,8 @@
 
       .nv-contact__inner {
         width: 100%;
-        max-width: var(--nv-section-inner-max);
-        margin: 0 auto;
+        max-width: none;
+        margin: 0;
       }
 
       .nv-contact__head {
@@ -4023,10 +4051,13 @@
       }
 
       .nv-s7-card__result-icon {
-        width: 20px;
-        height: 20px;
+        grid-column: 1;
+        grid-row: 1;
+        align-self: center;
+        width: 40px;
+        height: 40px;
         object-fit: contain;
-        margin-top: 2px;
+        margin-top: 0;
       }
 
       .footer-link--disabled {
@@ -4156,7 +4187,7 @@
         position: relative;
         z-index: 1;
         width: 100%;
-        max-width: 1180px;
+        max-width: none;
         margin: 0 auto 0 0;
       }
 
@@ -4178,16 +4209,22 @@
         gap: clamp(16px, 2.6vw, 44px);
         width: 100%;
         max-width: 1000px;
-        margin: 52px 0 12px;
+        margin: 52px auto 12px;
         padding: 10px 0 24px;
       }
 
       .nvp5-module {
+        --nv-mod-turn: 0deg;
+        --nv-mod-depth: 1;
         position: relative;
         flex: 1 1 0;
         min-width: 0;
-        max-width: 172px;
-        height: 150px;
+        max-width: 200px;
+        height: 210px;
+        transform: perspective(620px) rotateX(13deg)
+          rotateY(var(--nv-mod-turn)) scale(var(--nv-mod-depth));
+        transform-origin: 50% 80%;
+        transform-style: preserve-3d;
       }
 
       /* zigzag: even modules sit lower */
@@ -4195,13 +4232,37 @@
         margin-top: 100px;
       }
 
+      /* shared vanishing point: outer modules turn inward, lower row sits
+         closer to the viewer (larger), upper row further back (smaller) */
+      .nvp5-module:nth-child(odd) {
+        --nv-mod-depth: 0.86;
+      }
+      .nvp5-module:nth-child(even) {
+        --nv-mod-depth: 1.16;
+      }
+      .nvp5-module:nth-child(1) {
+        --nv-mod-turn: 26deg;
+      }
+      .nvp5-module:nth-child(2) {
+        --nv-mod-turn: 14deg;
+      }
+      .nvp5-module:nth-child(3) {
+        --nv-mod-turn: 0deg;
+      }
+      .nvp5-module:nth-child(4) {
+        --nv-mod-turn: -14deg;
+      }
+      .nvp5-module:nth-child(5) {
+        --nv-mod-turn: -26deg;
+      }
+
       .nvp5-module__unit {
         position: absolute;
         left: 50%;
         top: 0;
         z-index: 2;
-        width: 118px;
-        height: 118px;
+        width: 150px;
+        height: 150px;
         object-fit: contain;
         transform: translateX(-50%);
         filter: drop-shadow(0 14px 16px rgba(0, 0, 0, 0.55));
@@ -4210,9 +4271,9 @@
       .nvp5-module__base {
         position: absolute;
         left: 50%;
-        bottom: 4px;
+        bottom: 0;
         z-index: 1;
-        width: 110px;
+        width: 190px;
         height: auto;
         object-fit: contain;
         transform: translateX(-50%);
@@ -4222,7 +4283,7 @@
       .nvp5-module:not(:last-child)::after {
         content: "";
         position: absolute;
-        top: 64px;
+        top: 92px;
         left: 80%;
         z-index: 0;
         width: clamp(38px, 4.6vw, 72px);
@@ -4258,7 +4319,7 @@
 
       .nvp5-analysis__cta-row {
         display: flex;
-        justify-content: flex-start;
+        justify-content: center;
         margin-top: 34px;
       }
 
@@ -4291,7 +4352,7 @@
       .nv-process__inner,
       .nv-why__inner {
         width: 100%;
-        max-width: var(--nv-section-inner-max);
+        max-width: none;
         margin: 0;
       }
 
@@ -4341,10 +4402,12 @@
       }
 
       .nv-process__step {
+        --nv-process-turn: 0deg;
+        --nv-process-depth: 1;
         position: relative;
         flex: 1 1 0;
         min-width: 0;
-        max-width: 172px;
+        max-width: 200px;
         text-align: center;
       }
 
@@ -4353,11 +4416,38 @@
         margin-top: 104px;
       }
 
+      /* shared vanishing point: outer modules turn inward, lower row sits
+         closer to the viewer (larger), upper row further back (smaller) */
+      .nv-process__step:nth-child(odd) {
+        --nv-process-depth: 0.86;
+      }
+      .nv-process__step:nth-child(even) {
+        --nv-process-depth: 1.16;
+      }
+      .nv-process__step:nth-child(1) {
+        --nv-process-turn: 26deg;
+      }
+      .nv-process__step:nth-child(2) {
+        --nv-process-turn: 16deg;
+      }
+      .nv-process__step:nth-child(3) {
+        --nv-process-turn: 6deg;
+      }
+      .nv-process__step:nth-child(4) {
+        --nv-process-turn: -6deg;
+      }
+      .nv-process__step:nth-child(5) {
+        --nv-process-turn: -16deg;
+      }
+      .nv-process__step:nth-child(6) {
+        --nv-process-turn: -26deg;
+      }
+
       /* dotted connector to the next step, angled along the zigzag */
       .nv-process__step:not(:last-child)::after {
         content: "";
         position: absolute;
-        top: 64px;
+        top: 92px;
         left: 80%;
         z-index: 0;
         width: clamp(38px, 4.6vw, 72px);
@@ -4377,8 +4467,12 @@
       .nv-process__visual {
         position: relative;
         z-index: 1;
-        height: 150px;
+        height: 210px;
         margin-bottom: 12px;
+        transform: perspective(620px) rotateX(13deg)
+          rotateY(var(--nv-process-turn)) scale(var(--nv-process-depth));
+        transform-origin: 50% 80%;
+        transform-style: preserve-3d;
       }
 
       .nv-process__module {
@@ -4386,8 +4480,8 @@
         top: 0;
         left: 50%;
         z-index: 2;
-        width: 118px;
-        height: 118px;
+        width: 150px;
+        height: 150px;
         object-fit: contain;
         transform: translateX(-50%);
         filter: drop-shadow(0 14px 16px rgba(0, 0, 0, 0.55));
@@ -4395,10 +4489,10 @@
 
       .nv-process__base {
         position: absolute;
-        bottom: 4px;
+        bottom: 0;
         left: 50%;
         z-index: 1;
-        width: 110px;
+        width: 190px;
         height: auto;
         object-fit: contain;
         transform: translateX(-50%);
@@ -4452,7 +4546,10 @@
 
       .footer-inner {
         display: grid;
-        grid-template-columns: 1.6fr repeat(3, 1fr);
+        /* Spalten so breit wie ihr Inhalt (Textspalten begrenzt); der
+           Restplatz verteilt sich gleichmäßig auf die Zwischenräume. */
+        grid-template-columns: minmax(0, 400px) auto minmax(0, 380px) auto;
+        justify-content: space-between;
         gap: 48px;
         width: 100%;
         max-width: none;
@@ -5580,13 +5677,18 @@ void main(){
                 Wir prüfen Prozesse, Datenquellen und bestehende Systeme und
                 zeigen, wo der Einsatz von KI realistisch sinnvoll ist.
               </p>
+              <ul class="nv-s7-card__points">
+                <li>Use-Case-Mapping</li>
+                <li>Priorisierte Roadmap</li>
+                <li>ROI-Indikation</li>
+              </ul>
               <div class="nv-s7-card__result">
                 <div>
                   <h4>Ihr Ergebnis</h4>
                   <ul>
-                    <li>Use-Case-Mapping</li>
-                    <li>Priorisierte Roadmap</li>
-                    <li>ROI-Indikation</li>
+                    <li>Strukturierte Einschätzung</li>
+                    <li>Priorisierte Einsatzmöglichkeiten</li>
+                    <li>Konkrete nächste Schritte</li>
                   </ul>
                 </div>
               </div>
@@ -5638,13 +5740,18 @@ void main(){
                 Abhängigkeiten und Umsetzungsschritte zu einer realistischen
                 KI-Roadmap.
               </p>
+              <ul class="nv-s7-card__points">
+                <li>Zielarchitektur</li>
+                <li>Tech-Stack-Empfehlung</li>
+                <li>Umsetzungsfahrplan</li>
+              </ul>
               <div class="nv-s7-card__result">
                 <div>
                   <h4>Ihr Ergebnis</h4>
                   <ul>
-                    <li>Zielarchitektur</li>
-                    <li>Tech-Stack-Empfehlung</li>
-                    <li>Umsetzungsfahrplan</li>
+                    <li>Nachvollziehbarer Plan</li>
+                    <li>Prioritäten und Abhängigkeiten</li>
+                    <li>Klare Entscheidungspunkte</li>
                   </ul>
                 </div>
               </div>
@@ -5696,13 +5803,18 @@ void main(){
                 Aufgaben koordinieren und definierte Prozesse nachvollziehbar
                 unterstützen.
               </p>
+              <ul class="nv-s7-card__points">
+                <li>Autonomer Workflow</li>
+                <li>Tool-Integration</li>
+                <li>Monitoring & Guardrails</li>
+              </ul>
               <div class="nv-s7-card__result">
                 <div>
                   <h4>Ihr Ergebnis</h4>
                   <ul>
-                    <li>Autonomer Workflow</li>
-                    <li>Tool-Integration</li>
-                    <li>Monitoring & Guardrails</li>
+                    <li>Auf den Prozess abgestimmtes System</li>
+                    <li>Definierte Regeln und Schnittstellen</li>
+                    <li>Definierte Ergebnisse</li>
                   </ul>
                 </div>
               </div>
@@ -5753,13 +5865,18 @@ void main(){
                 Wir entwickeln Chatbots, die Fragen strukturiert beantworten,
                 Wissen zugänglich machen und Anfragen sinnvoll weiterleiten.
               </p>
+              <ul class="nv-s7-card__points">
+                <li>Conversational UI</li>
+                <li>Wissensanbindung (RAG)</li>
+                <li>24/7-Verfügbarkeit</li>
+              </ul>
               <div class="nv-s7-card__result">
                 <div>
                   <h4>Ihr Ergebnis</h4>
                   <ul>
-                    <li>Conversational UI</li>
-                    <li>Wissensanbindung (RAG)</li>
-                    <li>24/7-Verfügbarkeit</li>
+                    <li>Kontrolliertes Dialogsystem</li>
+                    <li>Passende Wissensquellen</li>
+                    <li>Klare Übergaben</li>
                   </ul>
                 </div>
               </div>
@@ -5810,13 +5927,17 @@ void main(){
                 Wir entwickeln sprachbasierte Assistenzsysteme für strukturierte
                 Gespräche, Informationsaufnahme und definierte Serviceprozesse.
               </p>
+              <ul class="nv-s7-card__points">
+                <li>Speech-to-Text</li>
+                <li>Intent-Erkennung</li>
+                <li>Freihändige Bedienung</li>
+              </ul>
               <div class="nv-s7-card__result">
                 <div>
                   <h4>Ihr Ergebnis</h4>
                   <ul>
-                    <li>Speech-to-Text</li>
-                    <li>Intent-Erkennung</li>
-                    <li>Freihändige Bedienung</li>
+                    <li>Anfragen erfassen und verarbeiten</li>
+                    <li>Gezielte Weiterleitung</li>
                   </ul>
                 </div>
               </div>
@@ -5868,13 +5989,18 @@ void main(){
                 Qualitätsregeln für konsistente und nachvollziehbare
                 KI-Ausgaben.
               </p>
+              <ul class="nv-s7-card__points">
+                <li>Optimierte Prompts</li>
+                <li>Reproduzierbare Outputs</li>
+                <li>Token-Effizienz</li>
+              </ul>
               <div class="nv-s7-card__result">
                 <div>
                   <h4>Ihr Ergebnis</h4>
                   <ul>
-                    <li>Optimierte Prompts</li>
-                    <li>Reproduzierbare Outputs</li>
-                    <li>Token-Effizienz</li>
+                    <li>Bessere Ausgaben</li>
+                    <li>Klare Abläufe</li>
+                    <li>Teamweite Nutzung</li>
                   </ul>
                 </div>
               </div>
@@ -5925,13 +6051,18 @@ void main(){
                 Wir definieren Regeln, Rollen, Prüfmechanismen und technische
                 Grenzen für einen sicheren und kontrollierbaren KI-Einsatz.
               </p>
+              <ul class="nv-s7-card__points">
+                <li>Compliance-Check</li>
+                <li>Zugriffskontrolle</li>
+                <li>Audit-Trail</li>
+              </ul>
               <div class="nv-s7-card__result">
                 <div>
                   <h4>Ihr Ergebnis</h4>
                   <ul>
-                    <li>Compliance-Check</li>
-                    <li>Zugriffskontrolle</li>
-                    <li>Audit-Trail</li>
+                    <li>Klare Zuständigkeiten</li>
+                    <li>Schutzmaßnahmen</li>
+                    <li>Dokumentierte Freigabewege</li>
                   </ul>
                 </div>
               </div>
@@ -5982,13 +6113,18 @@ void main(){
                 Wir automatisieren wiederkehrende Abläufe und verbinden
                 Aufgaben, Daten, Systeme und Freigaben zu stabilen Workflows.
               </p>
+              <ul class="nv-s7-card__points">
+                <li>End-to-End-Automation</li>
+                <li>System-Orchestrierung</li>
+                <li>Zeitersparnis</li>
+              </ul>
               <div class="nv-s7-card__result">
                 <div>
                   <h4>Ihr Ergebnis</h4>
                   <ul>
-                    <li>End-to-End-Automation</li>
-                    <li>System-Orchestrierung</li>
-                    <li>Zeitersparnis</li>
+                    <li>Nachvollziehbarer Workflow</li>
+                    <li>Weniger manuelle Übergaben</li>
+                    <li>Klare Zustände</li>
                   </ul>
                 </div>
               </div>
@@ -6040,13 +6176,18 @@ void main(){
                 extrahieren, Informationen abgleichen und definierte Prüfungen
                 unterstützen.
               </p>
+              <ul class="nv-s7-card__points">
+                <li>Datenextraktion</li>
+                <li>Automatischer Abgleich</li>
+                <li>Validierte Datenbasis</li>
+              </ul>
               <div class="nv-s7-card__result">
                 <div>
                   <h4>Ihr Ergebnis</h4>
                   <ul>
-                    <li>Datenextraktion</li>
-                    <li>Automatischer Abgleich</li>
-                    <li>Validierte Datenbasis</li>
+                    <li>Weniger manuelle Übertragung</li>
+                    <li>Dokumentierte Abweichungen</li>
+                    <li>Nutzbare Informationen</li>
                   </ul>
                 </div>
               </div>
@@ -6098,13 +6239,18 @@ void main(){
                 kontrolliert mit vorhandenen Datenquellen, APIs und
                 Geschäftssystemen.
               </p>
+              <ul class="nv-s7-card__points">
+                <li>Custom Development</li>
+                <li>API-Integration</li>
+                <li>Skalierbare Lösung</li>
+              </ul>
               <div class="nv-s7-card__result">
                 <div>
                   <h4>Ihr Ergebnis</h4>
                   <ul>
-                    <li>Custom Development</li>
-                    <li>API-Integration</li>
-                    <li>Skalierbare Lösung</li>
+                    <li>Passgenaues System</li>
+                    <li>Ergänzt bestehende Abläufe</li>
+                    <li>Technisch erweiterbar</li>
                   </ul>
                 </div>
               </div>
@@ -6155,13 +6301,18 @@ void main(){
                 Wir analysieren technische, inhaltliche und wettbewerbsbezogene
                 Faktoren und leiten daraus konkrete SEO-Maßnahmen ab.
               </p>
+              <ul class="nv-s7-card__points">
+                <li>Content-Automation</li>
+                <li>Ranking-Analyse</li>
+                <li>Mehr Sichtbarkeit</li>
+              </ul>
               <div class="nv-s7-card__result">
                 <div>
                   <h4>Ihr Ergebnis</h4>
                   <ul>
-                    <li>Content-Automation</li>
-                    <li>Ranking-Analyse</li>
-                    <li>Mehr Sichtbarkeit</li>
+                    <li>Bessere Auffindbarkeit</li>
+                    <li>Relevante Inhalte</li>
+                    <li>Nachhaltige Sichtbarkeit</li>
                   </ul>
                 </div>
               </div>
@@ -6586,7 +6737,7 @@ void main(){
             </p>
           </div>
 
-          <form class="nv-analysis-form" action="analyse.html" method="get">
+          <form class="nv-analysis-form" action="analyse.html#analyse-formular" method="post">
             <h3>Potenzialanalyse starten</h3>
             <p class="nv-analysis-form__intro">
               Senden Sie uns die wichtigsten Angaben zu Ihrem Prozess. Wir
@@ -6682,6 +6833,22 @@ void main(){
                     tabindex="-1"
                     type="text"
                 /></label>
+              </div>
+              <div class="nv-analysis-form__submit-row">
+                <label class="nv-analysis-form__consent"
+                  ><input
+                    name="privacy_consent"
+                    type="checkbox"
+                    value="yes"
+                    required
+                  /><span
+                    ><strong>Datenschutzerklärung akzeptieren (Pflichtfeld).</strong>
+                    Ich habe die
+                    <a href="datenschutz.html">Datenschutzerklärung</a>
+                    gelesen und bin mit der Verarbeitung meiner Angaben zur
+                    Durchführung der Potenzialanalyse einverstanden.</span
+                  ></label
+                >
               </div>
               <div class="nv-analysis-form__submit-row">
                 <label class="nv-analysis-form__consent"
@@ -7313,6 +7480,23 @@ void main(){
           window.setTimeout(() => {
             button.classList.remove("is-success");
           }, 3200);
+        });
+      });
+
+      document.querySelectorAll(".nv-analysis-form").forEach(form => {
+        form.addEventListener("submit", event => {
+          event.preventDefault();
+          if (!form.reportValidity()) return;
+
+          const values = {};
+          new FormData(form).forEach((value, key) => {
+            values[key] = value;
+          });
+          sessionStorage.setItem(
+            "nurovelle-analysis-prefill",
+            JSON.stringify(values)
+          );
+          window.location.href = form.getAttribute("action") || "analyse.html#analyse-formular";
         });
       });
 

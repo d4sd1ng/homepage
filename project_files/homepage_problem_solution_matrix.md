@@ -17,7 +17,7 @@ Hinweis: Für aktuelle Homepage-Texte gelten seo_texte.txt, project_overview.md,
 ### Problem 1: Ineffiziente Abläufe
 **Symptom:** "Ihre besten Mitarbeiter verbringen Stunden mit repetitiver Dateneingabe, manueller Berichterstattung oder der Steuerung von Routineprozessen."
 
-**Meine KI-Lösung:** "Ich entwickle intelligente Systeme, die diese Aufgaben 24/7 übernehmen – fehlerfrei, schnell und kostengünstiger als jeder Mitarbeiter."
+**Unsere KI-Lösung:** "Wir entwicklen intelligente Systeme, die diese Aufgaben 24/7 übernehmen – fehlerfrei, schnell und kostengünstiger als jeder Mitarbeiter."
 
 **Konkrete Beispiele:**
 - Automatische Rechnungsverarbeitung
@@ -29,7 +29,7 @@ Hinweis: Für aktuelle Homepage-Texte gelten seo_texte.txt, project_overview.md,
 ### Problem 2: Verlorenes Potenzial in Ihren Daten
 **Symptom:** "Sie sammeln täglich Unmengen an Daten, aber niemand hat die Zeit oder das Know-how, sie gewinnbringend zu analysieren."
 
-**Meine KI-Lösung:** "Ich implementiere Systeme, die Muster in Ihren Daten erkennen, präzise Prognosen erstellen und Ihnen klare Handlungsempfehlungen geben."
+**Unsere KI-Lösung:** "Wir implementieren Systeme, die Muster in Ihren Daten erkennen, präzise Prognosen erstellen und Ihnen klare Handlungsempfehlungen geben."
 
 **Konkrete Beispiele:**
 - Vorhersage von Kundenverhalten und Kaufwahrscheinlichkeiten
