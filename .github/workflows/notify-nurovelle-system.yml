@@ -1,0 +1,17 @@
+name: Notify Nurovelle System
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  notify:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Dispatch homepage update
+        uses: peter-evans/repository-dispatch@v3
+        with:
+          token: ${{ secrets.NUROVELLE_SYSTEM_DISPATCH_TOKEN }}
+          repository: d4sd1ng/nurovelle-system
+          event-type: homepage_updated
+          client-payload: '{"repository":"${{ github.repository }}","sha":"${{ github.sha }}","ref":"${{ github.ref }}"}'
