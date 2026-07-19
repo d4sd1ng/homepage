@@ -80,11 +80,7 @@
   --side: var(--page-gutter);
   --sidebar-w: 205px;
   --font-ui: "Inter", Arial, sans-serif;
-<<<<<<< HEAD
   --nv-section-kicker-size: clamp(8px, 0.62vw, 9px);
-=======
-  --nv-section-kicker-size: clamp(9px, 0.62vw, 8px);
->>>>>>> dcf6520 (Refactor code structure for improved readability and maintainability)
   --nv-section-title-size: clamp(28px, 3vw, 42px);
   --nv-section-body-size: 14px;
   --nv-section-body-line: 1.62;
@@ -1479,15 +1475,15 @@ button[disabled] { opacity: 0.58; cursor: not-allowed; }
       <p class="section-text">Die Potenzialanalyse ist kein Verkaufs-Pitch für ein bestimmtes Tool. Sie dient dazu, Prozesse, Engpässe und sinnvolle Einsatzbereiche strukturiert zu prüfen.</p>
       <div class="check-grid">
         <article class="check-card">
-          <img class="check-img" src="assets/analyse/6.png" alt=""/>
+          <img class="check-img" src="assets/analyse/6.png" alt="Symbolbild fuer wiederkehrende Prozesse"/>
           <div class="check-copy"><span>01</span><h3>Prozesse</h3><p>Welche Abläufe wiederholen sich häufig und binden Fachzeit, obwohl sie klaren Regeln folgen?</p></div>
         </article>
         <article class="check-card">
-          <img class="check-img" src="assets/analyse/7.png" alt=""/>
+          <img class="check-img" src="assets/analyse/7.png" alt="Symbolbild fuer verteilte Datenquellen"/>
           <div class="check-copy"><span>02</span><h3>Daten</h3><p>Wo liegen Informationen verteilt in Tabellen, E-Mails, Dokumenten oder verschiedenen Systemen?</p></div>
         </article>
         <article class="check-card">
-          <img class="check-img" src="assets/analyse/8.png" alt=""/>
+          <img class="check-img" src="assets/analyse/8.png" alt="Symbolbild fuer operative Entlastung durch Automatisierung"/>
           <div class="check-copy"><span>03</span><h3>Entlastung</h3><p>Welche Aufgaben können vorbereitet, geprüft, sortiert oder automatisch angestoßen werden?</p></div>
         </article>
       </div>
@@ -1500,10 +1496,10 @@ button[disabled] { opacity: 0.58; cursor: not-allowed; }
       <h2 class="section-title">Vier Schritte bis zur Empfehlung.</h2>
       <p class="section-text">Der Ablauf bleibt bewusst schlank. Ziel ist eine klare Einschätzung, kein schweres Beratungsprojekt.</p>
       <div class="steps">
-        <div class="step"><img class="step-img" src="assets/analyse/2.png" alt=""/><div class="step-copy"><strong>01</strong><h3>Anfrage</h3><p>Formular ausfüllen und Ausgangslage kurz beschreiben.</p></div></div>
-        <div class="step"><img class="step-img" src="assets/analyse/3.png" alt=""/><div class="step-copy"><strong>02</strong><h3>Einordnung</h3><p>Prozesslage, Datenquellen und Engpässe einordnen.</p></div></div>
-        <div class="step"><img class="step-img" src="assets/analyse/4.png" alt=""/><div class="step-copy"><strong>03</strong><h3>Bewertung</h3><p>Potenziale bewerten und Aufwand grob einschätzen.</p></div></div>
-        <div class="step"><img class="step-img" src="assets/analyse/5.png" alt=""/><div class="step-copy"><strong>04</strong><h3>Empfehlung</h3><p>Klare Empfehlung mit möglichen nächsten Schritten erhalten.</p></div></div>
+        <div class="step"><img class="step-img" src="assets/analyse/2.png" alt="Schritt 1: Anfrage und Ausgangslage beschreiben"/><div class="step-copy"><strong>01</strong><h3>Anfrage</h3><p>Formular ausfüllen und Ausgangslage kurz beschreiben.</p></div></div>
+        <div class="step"><img class="step-img" src="assets/analyse/3.png" alt="Schritt 2: Prozesslage, Datenquellen und Engpaesse einordnen"/><div class="step-copy"><strong>02</strong><h3>Einordnung</h3><p>Prozesslage, Datenquellen und Engpässe einordnen.</p></div></div>
+        <div class="step"><img class="step-img" src="assets/analyse/4.png" alt="Schritt 3: Potenziale bewerten und Aufwand einschaetzen"/><div class="step-copy"><strong>03</strong><h3>Bewertung</h3><p>Potenziale bewerten und Aufwand grob einschätzen.</p></div></div>
+        <div class="step"><img class="step-img" src="assets/analyse/5.png" alt="Schritt 4: Empfehlung mit naechsten Schritten erhalten"/><div class="step-copy"><strong>04</strong><h3>Empfehlung</h3><p>Klare Empfehlung mit möglichen nächsten Schritten erhalten.</p></div></div>
       </div>
     </div>
   </section>
@@ -1523,7 +1519,7 @@ button[disabled] { opacity: 0.58; cursor: not-allowed; }
             <li><strong>Nächster Schritt</strong>Welche Umsetzung zuerst den größten Nutzen bringt und welcher Einstieg realistisch vorbereitet werden sollte.</li>
           </ul>
         </aside>
-        <form class="form-panel" action="analyse.html" method="get" id="nurovelle-analysis-form">
+        <form class="form-panel" action="#" method="post" id="nurovelle-analysis-form">
           <h3>Potenzialanalyse starten</h3>
           <div class="form-grid">
             <input autocomplete="given-name" name="vorname" placeholder="Vorname" required="" type="text"/>
@@ -1800,8 +1796,19 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 </script>
 <script>
-const NUROVELLE_API_BASE = window.NUROVELLE_API_BASE || 'https://nurovelle.de/api/v1';
-const NUROVELLE_RESULT_BASE = window.NUROVELLE_RESULT_BASE || 'https://nurovelle.de/results/';
+const NUROVELLE_ALLOWED_HOSTS = new Set(['nurovelle.de', 'www.nurovelle.de']);
+const NUROVELLE_API_BASE = trustedNurovelleUrl(
+  window.NUROVELLE_API_BASE,
+  'https://nurovelle.de/api/v1',
+  '/api/v1',
+  false
+);
+const NUROVELLE_RESULT_BASE = trustedNurovelleUrl(
+  window.NUROVELLE_RESULT_BASE,
+  'https://nurovelle.de/results/',
+  '/results/',
+  true
+);
 const NUROVELLE_API_TIMEOUT_MS = Number(window.NUROVELLE_API_TIMEOUT_MS || 20000);
 
 const analysisForm = document.querySelector('#nurovelle-analysis-form');
@@ -1812,6 +1819,7 @@ const analysisResultTitle = document.querySelector('#nurovelle-analysis-result-t
 const analysisResultCopy = document.querySelector('#nurovelle-analysis-result-copy');
 const analysisResultLink = document.querySelector('#nurovelle-analysis-result-link');
 const analysisResultPoints = document.querySelector('#nurovelle-analysis-result-points');
+let analysisSubmissionInFlight = false;
 
 const branchToIndustry = {
   'Industrie & Produktion': 'manufacturing',
@@ -1832,6 +1840,28 @@ const sizeToApiValue = {
   '51–250 Mitarbeiter': '51_250',
   '250+ Mitarbeiter': '250_plus'
 };
+
+function trustedNurovelleUrl(value, fallback, requiredPathPrefix, trailingSlash) {
+  try {
+    const candidate = new URL(value || fallback, window.location.href);
+    const normalizedPrefix = requiredPathPrefix.replace(/\/$/, '');
+    const pathAllowed =
+      candidate.pathname === normalizedPrefix ||
+      candidate.pathname.startsWith(`${normalizedPrefix}/`);
+    if (
+      candidate.protocol !== 'https:' ||
+      !NUROVELLE_ALLOWED_HOSTS.has(candidate.hostname) ||
+      !pathAllowed
+    ) {
+      return fallback;
+    }
+    candidate.search = '';
+    candidate.hash = '';
+    return trailingSlash && !candidate.href.endsWith('/') ? `${candidate.href}/` : candidate.href.replace(/\/$/, '');
+  } catch {
+    return fallback;
+  }
+}
 
 function setAnalysisStatus(message) {
   if (analysisStatus) analysisStatus.textContent = message || '';
@@ -1855,8 +1885,9 @@ function setResultState({ title, copy, points, link, error = false }) {
   if (analysisResultCopy) analysisResultCopy.textContent = copy;
   if (points) setResultPoints(points);
   if (analysisResultLink) {
-    analysisResultLink.hidden = !link;
-    if (link) analysisResultLink.href = link;
+    const trustedLink = link ? trustedNurovelleUrl(link, '', '/results/', false) : '';
+    analysisResultLink.hidden = !trustedLink;
+    if (trustedLink) analysisResultLink.href = trustedLink;
   }
   analysisResult.scrollIntoView({ behavior: 'smooth', block: 'center' });
 }
@@ -1985,15 +2016,36 @@ function prefillFromQuery(form) {
   const params = new URLSearchParams(window.location.search);
   if (!params.size) return false;
   for (const [key, value] of params.entries()) {
-    const field = form.elements.namedItem(key);
-    if (!field) continue;
-    if (field.type === 'checkbox') {
-      field.checked = value === 'yes' || value === 'true' || value === 'on';
-    } else if ('value' in field) {
-      field.value = value;
-    }
+    setFormFieldValue(form, key, value);
   }
   return true;
+}
+
+function prefillFromSession(form) {
+  const raw = sessionStorage.getItem('nurovelle-analysis-prefill');
+  if (!raw) return false;
+
+  sessionStorage.removeItem('nurovelle-analysis-prefill');
+
+  try {
+    const values = JSON.parse(raw);
+    Object.entries(values).forEach(([key, value]) => {
+      setFormFieldValue(form, key, value);
+    });
+    return true;
+  } catch (error) {
+    return false;
+  }
+}
+
+function setFormFieldValue(form, key, value) {
+  const field = form.elements.namedItem(key);
+  if (!field) return;
+  if (field.type === 'checkbox') {
+    field.checked = value === 'yes' || value === 'true' || value === 'on';
+  } else if ('value' in field) {
+    field.value = value;
+  }
 }
 
 function hasRequiredFormData(form) {
@@ -2021,6 +2073,8 @@ async function postLeadWithRetry(payload, maxAttempts = 3) {
 }
 
 async function startAnalysis(form) {
+  if (analysisSubmissionInFlight) return;
+
   if (!form.reportValidity()) return;
 
   if (String(new FormData(form).get('website_confirmation') || '').trim()) {
@@ -2032,6 +2086,7 @@ async function startAnalysis(form) {
   const industry = branchToIndustry[formState.branche] || 'service';
   const resultBase = NUROVELLE_RESULT_BASE.endsWith('/') ? NUROVELLE_RESULT_BASE : `${NUROVELLE_RESULT_BASE}/`;
 
+  analysisSubmissionInFlight = true;
   if (analysisSubmit) analysisSubmit.disabled = true;
   setAnalysisStatus('Analyse wird gestartet...');
 
@@ -2144,23 +2199,16 @@ async function startAnalysis(form) {
     setAnalysisStatus('Analyse-Flow fehlgeschlagen.');
   } finally {
     if (analysisSubmit) analysisSubmit.disabled = false;
+    analysisSubmissionInFlight = false;
   }
 }
 
 if (analysisForm) {
-  const wasPrefilled = prefillFromQuery(analysisForm);
+  prefillFromSession(analysisForm) || prefillFromQuery(analysisForm);
   analysisForm.addEventListener('submit', (event) => {
     event.preventDefault();
     startAnalysis(analysisForm);
   });
-
-  if (wasPrefilled && hasRequiredFormData(analysisForm)) {
-    const signature = window.location.search;
-    if (sessionStorage.getItem('nurovelle-analysis-autostart') !== signature) {
-      sessionStorage.setItem('nurovelle-analysis-autostart', signature);
-      window.setTimeout(() => startAnalysis(analysisForm), 250);
-    }
-  }
 }
 
 document.querySelectorAll('#faq .faq-item').forEach((item) => {

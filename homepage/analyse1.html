@@ -397,8 +397,19 @@ h1,h2,h3{font-family:"Bebas Neue",sans-serif;font-weight:400;letter-spacing:.035
 </div>
 </footer>
 <script>
-const NUROVELLE_API_BASE = window.NUROVELLE_API_BASE || 'https://nurovelle.de/api/v1';
-const NUROVELLE_RESULT_BASE = window.NUROVELLE_RESULT_BASE || 'https://nurovelle.de/results/';
+const NUROVELLE_ALLOWED_HOSTS = new Set(['nurovelle.de', 'www.nurovelle.de']);
+const NUROVELLE_API_BASE = trustedNurovelleUrl(
+  window.NUROVELLE_API_BASE,
+  'https://nurovelle.de/api/v1',
+  '/api/v1',
+  false
+);
+const NUROVELLE_RESULT_BASE = trustedNurovelleUrl(
+  window.NUROVELLE_RESULT_BASE,
+  'https://nurovelle.de/results/',
+  '/results/',
+  true
+);
 const NUROVELLE_API_TIMEOUT_MS = Number(window.NUROVELLE_API_TIMEOUT_MS || 20000);
 
 const analysisForm = document.querySelector('#nurovelle-analysis-form');
@@ -409,6 +420,7 @@ const analysisResultTitle = document.querySelector('#nurovelle-analysis-result-t
 const analysisResultCopy = document.querySelector('#nurovelle-analysis-result-copy');
 const analysisResultLink = document.querySelector('#nurovelle-analysis-result-link');
 const analysisResultPoints = document.querySelector('#nurovelle-analysis-result-points');
+let analysisSubmissionInFlight = false;
 
 const branchToIndustry = {
   'Industrie & Produktion': 'manufacturing',
@@ -429,6 +441,28 @@ const sizeToApiValue = {
   '51–250 Mitarbeiter': '51_250',
   '250+ Mitarbeiter': '250_plus'
 };
+
+function trustedNurovelleUrl(value, fallback, requiredPathPrefix, trailingSlash) {
+  try {
+    const candidate = new URL(value || fallback, window.location.href);
+    const normalizedPrefix = requiredPathPrefix.replace(/\/$/, '');
+    const pathAllowed =
+      candidate.pathname === normalizedPrefix ||
+      candidate.pathname.startsWith(`${normalizedPrefix}/`);
+    if (
+      candidate.protocol !== 'https:' ||
+      !NUROVELLE_ALLOWED_HOSTS.has(candidate.hostname) ||
+      !pathAllowed
+    ) {
+      return fallback;
+    }
+    candidate.search = '';
+    candidate.hash = '';
+    return trailingSlash && !candidate.href.endsWith('/') ? `${candidate.href}/` : candidate.href.replace(/\/$/, '');
+  } catch {
+    return fallback;
+  }
+}
 
 function setAnalysisStatus(message) {
   if (analysisStatus) analysisStatus.textContent = message || '';
@@ -452,8 +486,9 @@ function setResultState({ title, copy, points, link, error = false }) {
   if (analysisResultCopy) analysisResultCopy.textContent = copy;
   if (points) setResultPoints(points);
   if (analysisResultLink) {
-    analysisResultLink.hidden = !link;
-    if (link) analysisResultLink.href = link;
+    const trustedLink = link ? trustedNurovelleUrl(link, '', '/results/', false) : '';
+    analysisResultLink.hidden = !trustedLink;
+    if (trustedLink) analysisResultLink.href = trustedLink;
   }
   analysisResult.scrollIntoView({ behavior: 'smooth', block: 'center' });
 }
@@ -598,6 +633,8 @@ function hasRequiredFormData(form) {
 }
 
 async function startAnalysis(form) {
+  if (analysisSubmissionInFlight) return;
+
   if (!form.reportValidity()) return;
 
   if (String(new FormData(form).get('website_confirmation') || '').trim()) {
@@ -609,6 +646,7 @@ async function startAnalysis(form) {
   const industry = branchToIndustry[formState.branche] || 'service';
   const resultBase = NUROVELLE_RESULT_BASE.endsWith('/') ? NUROVELLE_RESULT_BASE : `${NUROVELLE_RESULT_BASE}/`;
 
+  analysisSubmissionInFlight = true;
   if (analysisSubmit) analysisSubmit.disabled = true;
   setAnalysisStatus('Analyse wird gestartet...');
 
@@ -722,23 +760,16 @@ async function startAnalysis(form) {
     setAnalysisStatus('Analyse-Flow fehlgeschlagen.');
   } finally {
     if (analysisSubmit) analysisSubmit.disabled = false;
+    analysisSubmissionInFlight = false;
   }
 }
 
 if (analysisForm) {
-  const wasPrefilled = prefillFromQuery(analysisForm);
+  prefillFromQuery(analysisForm);
   analysisForm.addEventListener('submit', (event) => {
     event.preventDefault();
     startAnalysis(analysisForm);
   });
-
-  if (wasPrefilled && hasRequiredFormData(analysisForm)) {
-    const signature = window.location.search;
-    if (sessionStorage.getItem('nurovelle-analysis-autostart') !== signature) {
-      sessionStorage.setItem('nurovelle-analysis-autostart', signature);
-      window.setTimeout(() => startAnalysis(analysisForm), 250);
-    }
-  }
 }
 
 document.querySelectorAll('#faq .faq-item').forEach((item) => {
