@@ -226,7 +226,7 @@ Autonova wird zur führenden Plattform für KI-gestützte Geschäftsprozess-Auto
 
 ## Implementierungs-Roadmap und nächste Schritte
 
-### Sofortige Maßnahmen (Nächste 30 Tage):
+### Sofortige Maßnahmen (Nächste 30 Tage)
 
 1. **Homepage-Finalisierung:** Hero-Section und Potenzial-Analyse-Formular optimieren
 
@@ -238,7 +238,7 @@ Autonova wird zur führenden Plattform für KI-gestützte Geschäftsprozess-Auto
 
 1. **Lead-Magnet:** Erstes Whitepaper "KI-Marketing-Fahrplan 2025" erstellen
 
-### Mittelfristige Ziele (Nächste 90 Tage):
+### Mittelfristige Ziele (Nächste 90 Tage)
 
 1. **Erste 5 Kunden:** Mindestens 3 SEO-Audits und 2 Content-Pakete verkaufen
 
@@ -250,7 +250,7 @@ Autonova wird zur führenden Plattform für KI-gestützte Geschäftsprozess-Auto
 
 1. **SaaS-Prototyp:** YouTube-Shorts-Generator als MVP entwickeln
 
-### Langfristige Meilensteine (12-24 Monate):
+### Langfristige Meilensteine (12-24 Monate)
 
 1. **Umsatz-Ziel:** 50.000 € monatlich wiederkehrender Umsatz
 
@@ -276,8 +276,6 @@ Der Plan ist bewusst flexibel gestaltet, um auf Marktveränderungen und neue Cha
 
 **Nächster Schritt:** Implementierung der sofortigen Maßnahmen und wöchentliche Fortschrittsbewertung anhand der definierten KPIs.
 
-
-
 ## Phase 2: Detaillierte Angebots- und Preisstruktur (Monate 3-6)
 
 ### 2.1 Freelancer-Angebote als Fundament
@@ -285,8 +283,9 @@ Der Plan ist bewusst flexibel gestaltet, um auf Marktveränderungen und neue Cha
 Die initiale Angebotspalette muss schnell Umsatz generieren und gleichzeitig als Proof of Concept für die späteren Agentur-Services dienen. Jedes Angebot basiert auf bereits entwickelten, automatisierten Systemen, wodurch die Marge maximiert wird.
 
 **Angebot 1: KI-SEO-Audit & Strategieplan**
+
 - **Zielgruppe:** KMU mit bestehender Website, die mehr organischen Traffic wollen
-- **Leistungsumfang:** 
+- **Leistungsumfang:**
   - Vollautomatisierte Analyse von über 50 SEO-Faktoren
   - Keyword-Gap-Analyse gegen Top-3-Konkurrenten
   - Technische SEO-Prüfung (Ladezeiten, Mobile-Optimierung, Core Web Vitals)
@@ -298,6 +297,7 @@ Die initiale Angebotspalette muss schnell Umsatz generieren und gleichzeitig als
 - **Skalierbarkeit:** Vollautomatisiert, nur finale Qualitätskontrolle manuell
 
 **Angebot 2: KI-Content-Automation-Paket**
+
 - **Zielgruppe:** Unternehmen, die regelmäßig Content benötigen, aber keine Ressourcen haben
 - **Leistungsumfang:**
   - Monatlich 8-12 SEO-optimierte Blogartikel (1.500-2.500 Wörter)
@@ -309,6 +309,7 @@ Die initiale Angebotspalette muss schnell Umsatz generieren und gleichzeitig als
 - **Skalierbarkeit:** Ein System kann 10-15 Kunden parallel bedienen
 
 **Angebot 3: YouTube-Video-Recycling-Service**
+
 - **Zielgruppe:** Content-Creator, Coaches, Berater mit bestehenden langen Videos
 - **Leistungsumfang:**
   - Aus einem 30-60 Minuten Video werden 15-25 Shorts/Reels erstellt
@@ -324,10 +325,11 @@ Die initiale Angebotspalette muss schnell Umsatz generieren und gleichzeitig als
 Parallel zu den Marketing-Services werden hochwertige, branchenspezifische Lösungen entwickelt. Diese haben deutlich höhere Margen und längere Kundenbindung.
 
 **Lösung 1: Automatisierte Dokumentenverarbeitung**
+
 - **Zielgruppe:** Steuerberater, Anwaltskanzleien, Versicherungen, Logistikunternehmen
 - **Problem:** Manuelle Erfassung und Kategorisierung von Rechnungen, Verträgen, Lieferscheinen
 - **Lösung:** KI-System extrahiert automatisch alle relevanten Daten und kategorisiert Dokumente
-- **Implementierung:** 
+- **Implementierung:**
   - Analyse der bestehenden Dokumenten-Workflows (1-2 Wochen)
   - Entwicklung und Training des spezifischen KI-Modells (2-4 Wochen)
   - Integration in bestehende Systeme (1-2 Wochen)
@@ -336,6 +338,7 @@ Parallel zu den Marketing-Services werden hochwertige, branchenspezifische Lösu
 - **ROI für Kunden:** Einsparung von 20-40 Stunden manueller Arbeit pro Woche
 
 **Lösung 2: Predictive Maintenance für Produktionsanlagen**
+
 - **Zielgruppe:** Mittelständische Produktionsbetriebe, Maschinenbauer
 - **Problem:** Ungeplante Ausfälle kosten Zeit und Geld, vorbeugende Wartung ist oft zu früh oder zu spät
 - **Lösung:** KI analysiert Sensordaten und sagt optimale Wartungszeitpunkte voraus
@@ -352,6 +355,7 @@ Parallel zu den Marketing-Services werden hochwertige, branchenspezifische Lösu
 Die Preisgestaltung folgt strategischen Prinzipien, die sowohl die Wahrnehmung als auch die Profitabilität optimieren.
 
 **Preisanker-Strategie:**
+
 - Höchstpreisiges Angebot wird zuerst präsentiert (z.B. Individuallösung für 75.000 €)
 - Mittleres Angebot erscheint dadurch als "vernünftige Alternative" (z.B. Content-Paket für 1.297 €)
 - Einstiegsangebot wirkt als "No-Brainer" (z.B. SEO-Audit für 497 €)
@@ -360,6 +364,7 @@ Die Preisgestaltung folgt strategischen Prinzipien, die sowohl die Wahrnehmung a
 Preise orientieren sich nicht an Kosten oder Zeitaufwand, sondern am generierten Wert für den Kunden. Ein SEO-Audit, der zu 30% mehr Traffic führt, rechtfertigt einen Preis von 497 €, auch wenn die Erstellung nur 25 € kostet.
 
 **Psychologische Preispunkte:**
+
 - 497 € statt 500 € (wirkt deutlich günstiger)
 - 1.297 € statt 1.300 € (professioneller als 1.299 €)
 - Keine runden Zahlen bei Premium-Services (15.000 € wirkt kalkuliert, 17.500 € wirkt individuell)
@@ -383,14 +388,14 @@ Jeder Kunde wird systematisch durch eine Wertschöpfungskette geführt, die den 
    - Cross-Sell: Mitarbeiter-Schulungen (2.500 € pro Tag)
 
 **Retention-Strategien:**
+
 - Monatliche Performance-Reports mit klaren KPIs
 - Quartalsweise Strategiegespräche zur Optimierung
 - Exklusiver Zugang zu neuen Features und Tools
 - Loyalitätsprogramm mit Rabatten bei Vertragsverlängerung
 
-
-
 **Angebot 4: KI-gestützte Prompt-Optimierung für Content & Marketing**
+
 - **Zielgruppe:** Unternehmen und Einzelpersonen, die KI-Tools nutzen und deren Outputs optimieren möchten.
 - **Leistungsumfang:** Analyse und Optimierung von Prompts für KI-Modelle (z.B. ChatGPT, Midjourney) zur Erzielung präziserer und effektiverer Ergebnisse.
 - **Preis:** 97 € pro optimiertem Prompt-Set (bis zu 5 Prompts)
@@ -398,6 +403,7 @@ Jeder Kunde wird systematisch durch eine Wertschöpfungskette geführt, die den 
 - **Skalierbarkeit:** Hoch, da der Prozess stark automatisiert ist.
 
 **Angebot 5: KI-generierte SEO-Bilder für Ihre Website**
+
 - **Zielgruppe:** Website-Betreiber, Blogger, E-Commerce-Shops, die visuelle Inhalte für SEO benötigen.
 - **Leistungsumfang:** Erstellung einzigartiger, SEO-optimierter Bilder basierend auf Keywords, inklusive Alt-Texten und Dateinamen.
 - **Preis:** 147 € für 5 Bilder / 247 € für 10 Bilder
@@ -405,14 +411,12 @@ Jeder Kunde wird systematisch durch eine Wertschöpfungskette geführt, die den 
 - **Skalierbarkeit:** Hoch, da der Prozess automatisiert ist.
 
 **Angebot 6: Audio-zu-Text-Analyse & Kernpunkte-Extraktion**
+
 - **Zielgruppe:** Podcaster, Content-Creator, Unternehmen mit vielen Audio-Meetings/Interviews.
 - **Leistungsumfang:** Präzise Transkription von Audio-Dateien und KI-gestützte Extraktion der wichtigsten Kernpunkte und Zusammenfassungen.
 - **Preis:** 2,50 € pro Minute Audio (Mindestauftrag 10 Minuten)
 - **Kostenbasis:** Gering, hauptsächlich API-Kosten für Transkription und NLP.
 - **Skalierbarkeit:** Hoch, da der Prozess automatisiert ist.
-
-
-
 
 **X (ehemals Twitter) & Facebook (Freelancer-Fokus):**
 
