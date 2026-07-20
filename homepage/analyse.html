@@ -117,9 +117,7 @@ body {
   min-height: 100vh;
   padding-top: var(--header-height);
   font-family: var(--font-ui);
-  background:
-    linear-gradient(180deg, rgba(0, 0, 0, 0.72), rgba(0, 0, 0, 0.82)),
-    url("assets/bg_analyse.png") center top / cover fixed no-repeat;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.72), rgba(0, 0, 0, 0.82));
   color: var(--nv-text-light);
   overflow-x: hidden;
 }
@@ -779,6 +777,49 @@ h1, h2, h3 {
 }
 
 /* =========================================================
+   ANALYSE-MODULE
+   ========================================================= */
+.analysis-modules {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: clamp(16px, 2.6vw, 44px);
+  width: 100%;
+  max-width: 1000px;
+  margin: 34px auto 26px;
+  padding: 10px 0 24px;
+}
+.analysis-module {
+  position: relative;
+  flex: 1 1 0;
+  min-width: 0;
+  max-width: 200px;
+  height: 210px;
+}
+.analysis-module__unit {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  z-index: 2;
+  width: 150px;
+  height: 150px;
+  object-fit: contain;
+  transform: translateX(-50%);
+  filter: drop-shadow(0 14px 16px rgba(0, 0, 0, 0.55));
+}
+.analysis-module__base {
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  z-index: 1;
+  width: 280px;
+  max-width: none;
+  height: auto;
+  object-fit: contain;
+  transform: translateX(-50%);
+}
+
+/* =========================================================
    KOMPAKTE CHECK-KARTEN
    ========================================================= */
 .check-grid {
@@ -789,14 +830,6 @@ h1, h2, h3 {
   align-items: start;
 }
 .check-card { padding: 0; background: transparent; text-align: center; }
-.check-img {
-  width: 100%;
-  height: 150px;
-  max-width: 270px;
-  margin: 0 auto 10px;
-  object-fit: contain;
-  filter: drop-shadow(0 8px 14px rgba(0, 0, 0, 0.36));
-}
 .check-copy {
   width: 100%;
   max-width: 190px;
@@ -845,14 +878,6 @@ h1, h2, h3 {
   align-items: start;
 }
 .step { position: relative; padding: 0; background: transparent; text-align: center; }
-.step-img {
-  width: 100%;
-  height: 150px;
-  max-width: 170px;
-  margin: 0 auto 10px;
-  object-fit: contain;
-  filter: drop-shadow(0 8px 14px rgba(0, 0, 0, 0.36));
-}
 .step-copy {
   width: 100%;
   max-width: 190px;
@@ -1296,6 +1321,15 @@ button[disabled] { opacity: 0.58; cursor: not-allowed; }
   .hero-inner,
   .analysis-layout,
   .result-strip { grid-template-columns: 1fr; }
+  .analysis-modules {
+    flex-wrap: wrap;
+  }
+  .analysis-module {
+    flex: 0 0 140px;
+  }
+  .analysis-module__base {
+    width: 240px;
+  }
   .check-grid { grid-template-columns: 1fr 1fr; }
   .steps { grid-template-columns: 1fr 1fr; }
 }
@@ -1473,17 +1507,36 @@ button[disabled] { opacity: 0.58; cursor: not-allowed; }
       <div class="kicker">Einordnung</div>
       <h2 class="section-title">Wofür die Potenzialanalyse gedacht ist.</h2>
       <p class="section-text">Die Potenzialanalyse ist kein Verkaufs-Pitch für ein bestimmtes Tool. Sie dient dazu, Prozesse, Engpässe und sinnvolle Einsatzbereiche strukturiert zu prüfen.</p>
+      <div class="analysis-modules" aria-hidden="true">
+        <div class="analysis-module">
+          <img class="analysis-module__unit" src="assets/Module/analyse/1.png" alt="" loading="lazy"/>
+          <img class="analysis-module__base" src="assets/Module/sockel.png" alt="" loading="lazy"/>
+        </div>
+        <div class="analysis-module">
+          <img class="analysis-module__unit" src="assets/Module/analyse/2.png" alt="" loading="lazy"/>
+          <img class="analysis-module__base" src="assets/Module/sockel.png" alt="" loading="lazy"/>
+        </div>
+        <div class="analysis-module">
+          <img class="analysis-module__unit" src="assets/Module/analyse/3.png" alt="" loading="lazy"/>
+          <img class="analysis-module__base" src="assets/Module/sockel.png" alt="" loading="lazy"/>
+        </div>
+        <div class="analysis-module">
+          <img class="analysis-module__unit" src="assets/Module/analyse/4.png" alt="" loading="lazy"/>
+          <img class="analysis-module__base" src="assets/Module/sockel.png" alt="" loading="lazy"/>
+        </div>
+        <div class="analysis-module">
+          <img class="analysis-module__unit" src="assets/Module/analyse/5.png" alt="" loading="lazy"/>
+          <img class="analysis-module__base" src="assets/Module/sockel.png" alt="" loading="lazy"/>
+        </div>
+      </div>
       <div class="check-grid">
         <article class="check-card">
-          <img class="check-img" src="assets/analyse/6.png" alt=""/>
           <div class="check-copy"><span>01</span><h3>Prozesse</h3><p>Welche Abläufe wiederholen sich häufig und binden Fachzeit, obwohl sie klaren Regeln folgen?</p></div>
         </article>
         <article class="check-card">
-          <img class="check-img" src="assets/analyse/7.png" alt=""/>
           <div class="check-copy"><span>02</span><h3>Daten</h3><p>Wo liegen Informationen verteilt in Tabellen, E-Mails, Dokumenten oder verschiedenen Systemen?</p></div>
         </article>
         <article class="check-card">
-          <img class="check-img" src="assets/analyse/8.png" alt=""/>
           <div class="check-copy"><span>03</span><h3>Entlastung</h3><p>Welche Aufgaben können vorbereitet, geprüft, sortiert oder automatisch angestoßen werden?</p></div>
         </article>
       </div>
@@ -1496,10 +1549,10 @@ button[disabled] { opacity: 0.58; cursor: not-allowed; }
       <h2 class="section-title">Vier Schritte bis zur Empfehlung.</h2>
       <p class="section-text">Der Ablauf bleibt bewusst schlank. Ziel ist eine klare Einschätzung, kein schweres Beratungsprojekt.</p>
       <div class="steps">
-        <div class="step"><img class="step-img" src="assets/analyse/2.png" alt=""/><div class="step-copy"><strong>01</strong><h3>Anfrage</h3><p>Formular ausfüllen und Ausgangslage kurz beschreiben.</p></div></div>
-        <div class="step"><img class="step-img" src="assets/analyse/3.png" alt=""/><div class="step-copy"><strong>02</strong><h3>Einordnung</h3><p>Prozesslage, Datenquellen und Engpässe einordnen.</p></div></div>
-        <div class="step"><img class="step-img" src="assets/analyse/4.png" alt=""/><div class="step-copy"><strong>03</strong><h3>Bewertung</h3><p>Potenziale bewerten und Aufwand grob einschätzen.</p></div></div>
-        <div class="step"><img class="step-img" src="assets/analyse/5.png" alt=""/><div class="step-copy"><strong>04</strong><h3>Empfehlung</h3><p>Klare Empfehlung mit möglichen nächsten Schritten erhalten.</p></div></div>
+        <div class="step"><div class="step-copy"><strong>01</strong><h3>Anfrage</h3><p>Formular ausfüllen und Ausgangslage kurz beschreiben.</p></div></div>
+        <div class="step"><div class="step-copy"><strong>02</strong><h3>Einordnung</h3><p>Prozesslage, Datenquellen und Engpässe einordnen.</p></div></div>
+        <div class="step"><div class="step-copy"><strong>03</strong><h3>Bewertung</h3><p>Potenziale bewerten und Aufwand grob einschätzen.</p></div></div>
+        <div class="step"><div class="step-copy"><strong>04</strong><h3>Empfehlung</h3><p>Klare Empfehlung mit möglichen nächsten Schritten erhalten.</p></div></div>
       </div>
     </div>
   </section>
