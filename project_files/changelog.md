@@ -1,20 +1,5 @@
 # Changelog
 
-## 2026-07-20 – Analyse-Visuals auf fünf Module plus Sockel korrigiert
-
-Status: geprüft
-
-Geändert (`homepage/analyse.html`):
-
-- Die alten Analyse-Bildpfade unter `assets/analyse/` aus Nutzen- und Ablaufkarten entfernt.
-- Eine gemeinsame Visualisierung mit ausschließlich `assets/Module/analyse/1.png` bis `5.png` und `assets/Module/sockel.png` eingesetzt.
-- Die Sockeldarstellung passend zu den Modulen auf `280px`, mobil auf `240px`, vergrößert.
-- Den nicht mehr vorhandenen Hintergrundpfad `assets/bg_analyse.png` entfernt.
-
-Nicht geändert:
-
-- Texte, IDs, Formularfelder, Formularverarbeitung, Honeypot sowie Success-/Error- und API-Logik.
-
 ## 2026-07-18 – Lead-Flow-Prüfung: Datenschutz-Pflichtfeld (Ä1) + Lead-Retry (Ä2) umgesetzt; Notion-Nurturing-Ursache gefunden (Ä3); Property-Mapping dokumentiert (Ä4)
 
 Status: Ä1/Ä2 umgesetzt und verifiziert; Ä3 Ursache identifiziert, Umsetzung in Notion noch nicht ausgeführt (Rückfrage im Chat); Ä4 dokumentiert.
