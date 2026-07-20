@@ -1,3 +1,4 @@
+Syntaxhervorhebung wurde aufgrund der Codegröße deaktiviert.
 <!doctype html>
 
 <html lang="de">
@@ -33,7 +34,7 @@
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap"
       rel="stylesheet"
     />
-<style>
+    <style>
       /* Inlined component: service cards */
       /* Sektion 7: Original-Kartenform im 3-3-3-2-Raster */
       .nv-s7 {
@@ -6875,7 +6876,7 @@ void main(){
             </p>
           </div>
 
-          <form class="nv-analysis-form" action="analyse.html#analyse-formular" method="post">
+          <form class="nv-analysis-form" action="analyse.html" method="get">
             <h3>Potenzialanalyse starten</h3>
             <p class="nv-analysis-form__intro">
               Senden Sie uns die wichtigsten Angaben zu Ihrem Prozess. Wir
@@ -7616,23 +7617,6 @@ void main(){
           window.setTimeout(() => {
             button.classList.remove("is-success");
           }, 3200);
-        });
-      });
-
-      document.querySelectorAll(".nv-analysis-form").forEach(form => {
-        form.addEventListener("submit", event => {
-          event.preventDefault();
-          if (!form.reportValidity()) return;
-
-          const values = {};
-          new FormData(form).forEach((value, key) => {
-            values[key] = value;
-          });
-          sessionStorage.setItem(
-            "nurovelle-analysis-prefill",
-            JSON.stringify(values)
-          );
-          window.location.href = form.getAttribute("action") || "analyse.html#analyse-formular";
         });
       });
 
