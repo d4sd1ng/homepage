@@ -1,5 +1,53 @@
 # Changelog
 
+## 2026-07-20 – Servicekarten 7 bis 11 neu zugeordnet
+
+Status: blockiert
+
+Geändert (`homepage/index.html`):
+
+- Karte 7 `KI-Governance` auf `assets/cards/cards_service/7_neu.png`.
+- Karte 8 `KI-Workflows` auf `assets/cards/cards_service/8_neu.png`.
+- Karte 9 `Daten-Abgleich` auf `assets/cards/cards_service/9_neu.png`.
+- Karte 10 `KI-Software` auf `assets/cards/cards_service/10_neu.png`.
+- Karte 11 `SEO-Systeme` auf `assets/cards/cards_service/11_neu.png`.
+
+Blockiert:
+
+- Die Zieldateien `7_neu.png`, `8_neu.png`, `10_neu.png` und `11_neu.png` sind im angegebenen Ordner derzeit nicht vorhanden.
+
+## 2026-07-20 – Gold-Socials, Kontakt-Titelverlauf und Ergebnis-Card angeglichen
+
+Status: geprüft
+
+Geändert (`homepage/index.html`):
+
+- Kontakt-Socials und Footer-Socials dauerhaft auf das vorhandene Gold-Button-Farbsystem umgestellt.
+- Footer-Social-Hover auf dunkleren Goldtext und `150%` Hintergrundgröße angepasst.
+- Ergebnis-Card auf `214 × 122px` mit `min-height: 76px`, `box-sizing: border-box` und verborgenem Überlauf festgelegt.
+- Beide Kontaktüberschriften auf den vorhandenen Titelverlauf umgestellt.
+- Rahmen, Radius und Hintergrund von `.download-display` entfernt.
+- Grünen Border-Verlauf ergänzt und beide Kontaktkarten auf grünen Rahmen, radialen Hover-Glanz und 3D-Hover-/Focus-Bewegung umgestellt.
+
+Nicht geändert:
+
+- Social-Links, SVGs, Kontakttexte, Karteninhalte und JavaScript.
+
+## 2026-07-20 – FAQ-Kennzahlen präzisiert
+
+Status: geprüft
+
+Geändert (`homepage/index.html`):
+
+- `Qualifizierte Mitarbeitende`: sichtbarer Wert `89,6 %`, Balkenbreite `89.6%`.
+- `Servicequalität`: sichtbarer Wert `61,4 %`, Balkenbreite `61.4%`.
+- `Erfolgreich abgeschlossen`: sichtbarer Wert `84,8 %`, Balkenbreite `84.8%`.
+- `Support abgeschlossen`: sichtbarer Wert `91,2 %`, Balkenbreite `91.2%`.
+
+Nicht geändert:
+
+- FAQ-Texte, Klassen, Struktur und JavaScript.
+
 ## 2026-07-18 – Lead-Flow-Prüfung: Datenschutz-Pflichtfeld (Ä1) + Lead-Retry (Ä2) umgesetzt; Notion-Nurturing-Ursache gefunden (Ä3); Property-Mapping dokumentiert (Ä4)
 
 Status: Ä1/Ä2 umgesetzt und verifiziert; Ä3 Ursache identifiziert, Umsetzung in Notion noch nicht ausgeführt (Rückfrage im Chat); Ä4 dokumentiert.
