@@ -514,8 +514,11 @@
         left: 22px;
         right: auto;
         bottom: 16px;
-        width: fit-content;
-        max-width: calc(100% - 40px);
+        width: 214px;
+        height: 122px;
+        min-height: 76px;
+        box-sizing: border-box;
+        overflow: hidden;
         display: grid;
         grid-template-columns: 40px minmax(0, 1fr);
         gap: 9px;
@@ -945,13 +948,6 @@
         margin: 0 auto;
         padding: var(--nv-space-md);
         overflow: hidden;
-        border: 1px solid rgba(212, 175, 55, 0.72);
-        border-radius: 18px;
-        background: linear-gradient(
-          145deg,
-          rgba(37, 43, 44, 0.92),
-          rgba(10, 25, 19, 0.96)
-        );
       }
 
       .download-display__header {
@@ -1144,13 +1140,14 @@
         padding-right: 22px;
       }
       .download-button__idle::after {
-        content: "→";
+        content: "↓";
         position: absolute;
         top: 50%;
         right: 0;
-        font-size: 15px;
+        font-size: 20px;
+        font-weight: 800;
         transform: translateY(-50%);
-        transition: right 0.28s ease;
+        transition: transform 0.28s ease;
       }
       .download-button:hover,
       .download-button:focus-visible {
@@ -1159,7 +1156,7 @@
       }
       .download-button:hover .download-button__idle::after,
       .download-button:focus-visible .download-button__idle::after {
-        right: -4px;
+        transform: translateY(-40%);
       }
       .download-button__success,
       .download-button__error {
@@ -1261,16 +1258,29 @@
 
       .nv-analysis-info ul {
         margin: 14px 0;
-        padding-left: 18px;
+        padding-left: 0;
+        list-style: none;
       }
 
       .nv-analysis-info li {
+        position: relative;
+        padding-left: 18px;
         margin: 6px 0;
+      }
+      .nv-analysis-info li::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0.55em;
+        width: 5px;
+        height: 5px;
+        border-radius: 2px;
+        background: var(--nv-gold-accent);
       }
       .nv-analysis-info li strong {
         display: block;
         margin-bottom: 2px;
-        color: #e7dcbf;
+        color: var(--nv-gold-accent);
       }
 
       .nv-analysis-info h4 {
@@ -1302,7 +1312,7 @@
       }
 
       .nv-analysis-form > h3 {
-        margin: 0 0 var(--nv-space-xxs);
+        margin: 0 0 var(--nv-space-md);
         color: transparent;
         background: var(--nv-section-title-gradient);
         background-clip: text;
@@ -1451,7 +1461,7 @@
       /* FAQ */
       .nv-faq-layout {
         display: grid;
-        grid-template-columns: minmax(0, 640px) minmax(320px, 440px);
+        grid-template-columns: minmax(0, 760px) minmax(320px, 440px);
         gap: 56px;
         align-items: center;
         justify-content: center;
@@ -1461,7 +1471,7 @@
 
       .nv-faq-grid {
         display: grid;
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(2, 1fr);
         gap: 10px;
         align-items: start;
       }
@@ -1523,6 +1533,10 @@
       @media (max-width: 899px) {
         .nv-resource-section {
           margin-left: 0;
+        }
+
+        .nv-faq-grid {
+          grid-template-columns: 1fr;
         }
       }
 
@@ -1678,6 +1692,14 @@
           #edc967
         );
 
+        --gradient-green-border: linear-gradient(
+          135deg,
+          #10412e,
+          #6fd9a0,
+          #112a20,
+          #3fa876
+        );
+
         --header-height: 65px;
 
         --page-gutter: clamp(18px, 3vw, 32px);
@@ -1702,7 +1724,7 @@
 
         --nv-about-text-column: 760px;
 
-        --nv-about-media-column: 640px;
+        --nv-about-media-column: 512px;
 
         --nv-about-paragraph-extension: 82px;
 
@@ -3829,12 +3851,53 @@
 
       .nv-contact__portrait,
       .nv-contact__card {
+        position: relative;
+        overflow: hidden;
         border: 1px solid transparent;
         border-radius: var(--nv-radius-md);
         background:
           linear-gradient(var(--nv-matte-black), var(--nv-matte-black))
             padding-box,
-          var(--gradient-gold-border) border-box;
+          var(--gradient-green-border) border-box;
+        transform-style: preserve-3d;
+        transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+      }
+
+      .nv-contact__portrait > *,
+      .nv-contact__card > * {
+        position: relative;
+        z-index: 2;
+      }
+
+      .nv-contact__portrait::after,
+      .nv-contact__card::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        z-index: 1;
+        border-radius: inherit;
+        background: radial-gradient(
+          circle at 30% 0%,
+          rgba(111, 217, 160, 0.16),
+          transparent 55%
+        );
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.35s ease;
+      }
+
+      .nv-contact__portrait:hover,
+      .nv-contact__portrait:focus-within,
+      .nv-contact__card:hover,
+      .nv-contact__card:focus-within {
+        transform: rotateX(5deg) rotateY(-5deg) translateZ(6px);
+      }
+
+      .nv-contact__portrait:hover::after,
+      .nv-contact__portrait:focus-within::after,
+      .nv-contact__card:hover::after,
+      .nv-contact__card:focus-within::after {
+        opacity: 1;
       }
 
       .nv-contact__portrait {
@@ -3871,7 +3934,11 @@
 
       .nv-contact__portrait h3 {
         margin: 0 0 6px;
-        color: var(--nv-gold-accent);
+        color: transparent;
+        background: var(--nv-section-title-gradient);
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
         font:
           700 24px/1.15 "Eastman Grotesque Alt",
           Inter,
@@ -3938,7 +4005,11 @@
 
       .nv-contact__card h3 {
         margin: 0 0 26px;
-        color: var(--nv-gold-accent);
+        color: transparent;
+        background: var(--nv-section-title-gradient);
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
         font:
           700 clamp(22px, 1.8vw, 30px) / 1.1 "Eastman Grotesque Alt",
           Inter,
@@ -3973,10 +4044,12 @@
         place-items: center;
         width: 44px;
         height: 44px;
-        border: 1px solid var(--nv-gold-accent);
+        border: 1px solid var(--nv-gold-border);
         border-radius: 50%;
-        color: var(--nv-text-light);
-        background: var(--nv-black);
+        color: var(--nv-gold-text-dark);
+        background-image: var(--nv-gold-gradient);
+        background-position: center;
+        background-size: 100% 100%;
       }
 
       .nv-contact__social svg {
@@ -4653,9 +4726,12 @@
         width: 38px;
         height: 38px;
         margin: 0;
-        border: 1px solid rgba(212, 175, 55, 0.45);
+        border: 1px solid var(--nv-gold-border);
         border-radius: 8px;
-        color: #c4ccc6;
+        color: var(--nv-gold-text-dark);
+        background-image: var(--nv-gold-gradient);
+        background-position: center;
+        background-size: 100% 100%;
         transition:
           color 0.2s ease,
           border-color 0.2s ease,
@@ -4669,9 +4745,8 @@
 
       .footer-social a:hover,
       .footer-social a:focus-visible {
-        color: #060606;
-        border-color: transparent;
-        background-image: var(--nv-gold-gradient);
+        color: rgba(120, 50, 5, 0.8);
+        background-size: 150% 150%;
         outline: none;
       }
 
@@ -4715,24 +4790,32 @@
         width: 42px;
         height: 42px;
         margin: 0;
-        color: var(--nv-gold-accent);
-        border: 1px solid rgba(212, 175, 55, 0.5);
+        color: var(--nv-gold-text-dark);
+        border: 1px solid var(--nv-gold-border);
         border-radius: 8px;
+        background-image: var(--nv-gold-gradient);
+        background-position: center;
+        background-size: 100% 100%;
+        box-shadow:
+          0 3px 6px rgba(0, 0, 0, 0.16),
+          0 3px 6px rgba(110, 80, 20, 0.4),
+          inset 0 -2px 5px 1px var(--nv-gold-inner-dark),
+          inset 0 -1px 1px 3px var(--nv-gold-highlight);
         transition:
           color 0.2s ease,
-          background 0.2s ease,
+          background-size 0.2s ease,
           transform 0.2s ease;
       }
 
       .footer-top svg {
-        width: 20px;
-        height: 20px;
+        width: 22px;
+        height: 22px;
       }
 
       .footer-top:hover,
       .footer-top:focus-visible {
-        color: #060606;
-        background-image: var(--nv-gold-gradient);
+        color: rgba(120, 50, 5, 0.8);
+        background-size: 150% 150%;
         transform: translateY(-2px);
         outline: none;
       }
@@ -6010,7 +6093,7 @@ void main(){
           <article class="nv-s7-card" data-card tabindex="0">
             <img
               class="nv-s7-card__visual"
-              src="assets/cards/cards_service/7_neu.png.png"
+              src="assets/cards/cards_service/7_neu.png"
               alt=""
               aria-hidden="true"
             />
@@ -6072,7 +6155,7 @@ void main(){
           <article class="nv-s7-card" data-card tabindex="0">
             <img
               class="nv-s7-card__visual"
-              src="assets/cards/cards_service/6_neu.png"
+              src="assets/cards/cards_service/8_neu.png"
               alt=""
               aria-hidden="true"
             />
@@ -6134,7 +6217,7 @@ void main(){
           <article class="nv-s7-card" data-card tabindex="0">
             <img
               class="nv-s7-card__visual"
-              src="assets/cards/cards_service/8.png"
+              src="assets/cards/cards_service/9_neu.png"
               alt=""
               aria-hidden="true"
             />
@@ -6197,7 +6280,7 @@ void main(){
           <article class="nv-s7-card" data-card tabindex="0">
             <img
               class="nv-s7-card__visual"
-              src="assets/cards/cards_service/9_neu.png"
+              src="assets/cards/cards_service/10_neu.png"
               alt=""
               aria-hidden="true"
             />
@@ -6260,7 +6343,7 @@ void main(){
           <article class="nv-s7-card" data-card tabindex="0">
             <img
               class="nv-s7-card__visual"
-              src="assets/Fotos/11.png"
+              src="assets/cards/cards_service/11_neu.png"
               alt=""
               aria-hidden="true"
             />
@@ -6945,7 +7028,7 @@ void main(){
               </li>
               <li>
                 <strong>Telefon</strong
-                ><a href="tel:+4915205975553">+49 152 059 755 53</a>
+                ><a href="tel:+4964218097347">06421 8097347</a>
               </li>
               <li>
                 <strong>Standort</strong><span>Marburg, Deutschland</span>
@@ -7086,34 +7169,34 @@ void main(){
           <div class="nv-faq-metrics" aria-label="Ergänzende Kennzahlen">
             <div class="nv-faq-metric">
               <div class="nv-faq-metric__top">
-                <span>Qualifizierte Mitarbeitende</span><span>90 %</span>
+                <span>Qualifizierte Mitarbeitende</span><span>89,6 %</span>
               </div>
               <div class="nv-faq-metric__bar">
-                <span class="nv-faq-metric__fill" style="width: 90%"></span>
+                <span class="nv-faq-metric__fill" style="width: 89.6%"></span>
               </div>
             </div>
             <div class="nv-faq-metric">
               <div class="nv-faq-metric__top">
-                <span>Servicequalität</span><span>60 %</span>
+                <span>Servicequalität</span><span>61,4 %</span>
               </div>
               <div class="nv-faq-metric__bar">
-                <span class="nv-faq-metric__fill" style="width: 60%"></span>
+                <span class="nv-faq-metric__fill" style="width: 61.4%"></span>
               </div>
             </div>
             <div class="nv-faq-metric">
               <div class="nv-faq-metric__top">
-                <span>Erfolgreich abgeschlossen</span><span>85 %</span>
+                <span>Erfolgreich abgeschlossen</span><span>84,8 %</span>
               </div>
               <div class="nv-faq-metric__bar">
-                <span class="nv-faq-metric__fill" style="width: 85%"></span>
+                <span class="nv-faq-metric__fill" style="width: 84.8%"></span>
               </div>
             </div>
             <div class="nv-faq-metric">
               <div class="nv-faq-metric__top">
-                <span>Support abgeschlossen</span><span>90 %</span>
+                <span>Support abgeschlossen</span><span>91,2 %</span>
               </div>
               <div class="nv-faq-metric__bar">
-                <span class="nv-faq-metric__fill" style="width: 90%"></span>
+                <span class="nv-faq-metric__fill" style="width: 91.2%"></span>
               </div>
             </div>
           </div>
@@ -7171,7 +7254,7 @@ void main(){
         <div class="footer-col">
           <h4>Kontakt</h4>
           <p>Marburg, Deutschland</p>
-          <p><a href="tel:+4915205975553">+49 152 059 755 53</a></p>
+          <p><a href="tel:+4964218097347">06421 8097347</a></p>
           <p><a href="mailto:demo@nurovelle.de">demo@nurovelle.de</a></p>
           <div class="footer-social" aria-label="Social Media">
             <a href="#" aria-label="LinkedIn">
@@ -7223,7 +7306,7 @@ void main(){
             <path
               fill="none"
               stroke="currentColor"
-              stroke-width="2.2"
+              stroke-width="3"
               stroke-linecap="round"
               stroke-linejoin="round"
               d="M12 19V5M6 11l6-6 6 6"
@@ -7241,11 +7324,9 @@ void main(){
 
           if ("IntersectionObserver" in window) {
             const stepObserver = new IntersectionObserver(
-              (entries, observer) => {
+              entries => {
                 entries.forEach(entry => {
-                  if (!entry.isIntersecting) return;
-                  revealStepLadder();
-                  observer.unobserve(entry.target);
+                  stepLadder.classList.toggle("is-visible", entry.isIntersecting);
                 });
               },
               { threshold: 0.25 }
