@@ -33,6 +33,10 @@
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap"
       rel="stylesheet"
     />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Exo+2:wght@400;500;600;700;800&amp;display=swap"
+      rel="stylesheet"
+    />
 <style>
      :root {
         --sidebar-gold: #d89828;
@@ -901,12 +905,6 @@
 
 /* Homepage base, header, hero and primary sections */
 
-      @font-face {
-        font-family: "Exo2";
-        src: local("Exo2"), local("Exo2");
-        font-display: swap;
-      }
-
       @keyframes nv-logo-y-spin {
         0% {
           transform: rotateY(0deg);
@@ -1312,7 +1310,7 @@
         margin: 0 0 9px;
         font-size: 30px;
         font-family:
-          "Eastman Grotesque Alt", "Eastman Grotesque", "Inter", Arial,
+          "Exo 2", "Inter", Arial,
           sans-serif;
         line-height: 1;
         font-weight: 700;
@@ -1647,7 +1645,7 @@
         font-size: 14px;
         color: #fae385;
         font-family:
-          "Eastman Grotesque Alt", "Eastman Grotesque", "Inter", Arial,
+          "Exo 2", "Inter", Arial,
           sans-serif;
         line-height: 1.05;
         font-weight: 700;
@@ -1849,8 +1847,7 @@
       .nv-s7__title {
         margin: 0 0 var(--nv-title-text-gap);
         font:
-          700 var(--nv-section-title-size) / 1 "Eastman Grotesque Alt",
-          "Eastman Grotesque",
+          700 88px / 1 "Exo 2",
           Inter,
           Arial,
           sans-serif;
@@ -2218,7 +2215,7 @@
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
         font:
-          700 21px/1.06 "Eastman Grotesque Alt",
+          700 21px/1.06 "Exo 2",
           Inter,
           Arial,
           sans-serif;
@@ -2580,6 +2577,22 @@
         max-width: 760px;
       }
 
+      /* Potenzialanalyse title — dedicated, static, Exo2 (not shared/var) */
+      .nvp5-analysis__title {
+        margin: 0 0 var(--nv-title-text-gap);
+        color: transparent;
+        background: var(--nv-section-title-gradient);
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        font:
+          700 88px / 1.15 "Exo 2",
+          "Inter",
+          Arial,
+          sans-serif;
+        letter-spacing: 0.01em;
+      }
+
       .nvp5-analysis__intro {
         margin: 0;
         max-width: 680px;
@@ -2730,14 +2743,16 @@
 
       .nv-analysis-layout {
         display: grid;
-        grid-template-columns: repeat(2, minmax(0, 1fr));
+        grid-template-columns: 573px 573px;
         gap: 34px;
-        align-items: stretch;
-        max-width: var(--nv-section-inner-max);
+        align-items: start;
+        width: 1180px;
+        max-width: 100%;
         margin: 0 auto;
       }
 
       .nv-analysis-info {
+        min-height: 812px;
         padding: var(--nv-space-xl);
         border: 1px solid rgba(212, 175, 55, 0.5);
         border-radius: 12px;
@@ -2762,7 +2777,7 @@
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
         font:
-          700 clamp(22px, 1.8vw, 32px) / 1.05 "Eastman Grotesque Alt",
+          700 32px / 1.05 "Exo 2",
           Inter,
           Arial,
           sans-serif;
@@ -2827,6 +2842,7 @@
       }
 
       .nv-analysis-form {
+      min-height: 812px;
       padding: 42px; /* +30%, analog Info-Box */
       border: 1px solid rgba(212, 175, 55, 0.5);
       border-radius: 12px;
@@ -2841,7 +2857,7 @@
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
         font:
-          700 clamp(22px, 1.8vw, 32px) / 1.05 "Eastman Grotesque Alt",
+          700 32px / 1.05 "Exo 2",
           Inter,
           Arial,
           sans-serif;
@@ -3019,6 +3035,11 @@
         font-size: 88px;
       }
 
+      /* Formular headings — static size (decoupled from var) */
+      #formular .nv-resource-section__title {
+        font-size: 88px;
+      }
+
       .nv-resource-section__title {
         margin: 0 0 var(--nv-title-text-gap);
         color: transparent;
@@ -3027,8 +3048,7 @@
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
         font:
-          700 var(--nv-section-title-size) / 1.15 "Eastman Grotesque Alt",
-          "Eastman Grotesque",
+          700 var(--nv-section-title-size) / 1.15 "Exo 2",
           Inter,
           Arial,
           sans-serif;
@@ -3164,7 +3184,7 @@
         margin: 0 0 var(--nv-space-xs);
         color: #e7dcbf;
         font:
-          700 clamp(19px, 1.45vw, 27px) / 1.08 "Eastman Grotesque Alt",
+          700 clamp(19px, 1.45vw, 27px) / 1.08 "Exo 2",
           Inter,
           Arial,
           sans-serif;
@@ -3242,8 +3262,7 @@
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
         font:
-          700 var(--nv-section-title-size) / 1 "Eastman Grotesque Alt",
-          "Eastman Grotesque",
+          700 var(--nv-section-title-size) / 1 "Exo 2",
           Inter,
           Arial,
           sans-serif;
@@ -3405,7 +3424,7 @@
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
         font:
-          700 13.5px/1.2 "Eastman Grotesque Alt",
+          700 13.5px/1.2 "Exo 2",
           Inter,
           Arial,
           sans-serif;
@@ -3558,8 +3577,7 @@
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
         font:
-          700 88px / 1.15 "Eastman Grotesque Alt",
-          "Eastman Grotesque",
+          700 88px / 1.15 "Exo 2",
           Inter,
           Arial,
           sans-serif;
@@ -3726,7 +3744,7 @@
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
         font:
-          700 40px/1.15 "Eastman Grotesque Alt",
+          700 40px/1.15 "Exo 2",
           Inter,
           Arial,
           sans-serif;
@@ -3797,7 +3815,7 @@
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
         font:
-          700 36px / 1.1 "Eastman Grotesque Alt",
+          700 36px / 1.1 "Exo 2",
           Inter,
           Arial,
           sans-serif;
@@ -4150,8 +4168,7 @@
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
         font:
-          700 var(--nv-section-title-size) / 1 "Eastman Grotesque Alt",
-          "Eastman Grotesque",
+          700 var(--nv-section-title-size) / 1 "Exo 2",
           Inter,
           Arial,
           sans-serif;
@@ -4284,7 +4301,7 @@
         margin: 0 0 var(--nv-space-xxs);
         color: var(--nv-gold-highlight);
         font:
-          700 16px/1.2 "Eastman Grotesque Alt",
+          700 16px/1.2 "Exo 2",
           Inter,
           Arial,
           sans-serif;
