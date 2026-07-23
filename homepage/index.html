@@ -110,7 +110,7 @@
         --nv-section-black: #050505;
         --nv-section-emerald: #010603;
         --nv-section-inner-max: 1180px;
-        --nv-section-head-max: 760px;
+        --nv-section-head-max: 400px;
         --nv-section-intro-max: 720px;
         --nv-footer-inner-max: 1180px;
         --nv-space-xxs: 4px;
@@ -3557,10 +3557,10 @@
       .nv-contact__grid {
         position: relative;
         display: grid;
-        grid-template-columns: 396px 559px;
+        grid-template-columns: 396px 447px;
         gap: 0;
         align-items: start;
-        width: 955px;
+        width: 843px;
         max-width: 100%;
         margin: 0 auto;
         perspective: 1100px;
@@ -3590,8 +3590,7 @@
         border-radius: inherit;
         background:
           linear-gradient(135deg, rgba(0, 0, 0, 0.78), rgba(0, 0, 0, 0.92)),
-          url("assets/hero/nurovelle_logo.png") center / 55% auto no-repeat,
-          url("assets/cards/cards_service/1_neu.png") center / cover no-repeat;
+          url("assets/hero/nurovelle_logo.png") center / 90% auto no-repeat;
         opacity: 0.5;
         pointer-events: none;
         transition: opacity 0.35s ease;
@@ -3612,16 +3611,7 @@
 
       .nv-contact__portrait::after,
       .nv-contact__card::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      z-index: 1;
-      border-radius: inherit;
-      background: radial-gradient(
-        circle at 30% 0%,
-        rgba(247, 239, 138, 0.16), /* grün -> gold-Glow, analog .download-item::after */
-        transparent 55%
-      );
+        content: none;
       }
 
       .nv-contact__portrait:hover,
@@ -3644,14 +3634,14 @@
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        min-height: 7800px;
+        min-height: 780px;
         padding: 38px 31px;
         text-align: center;
       }
 
       .nv-contact__portrait-frame {
         width: 300px;
-        height: 300px;
+        height: 380px;
         margin: 0 0 24px;
         overflow: hidden;
         border: 2px solid transparent;
@@ -3736,7 +3726,7 @@
         display: flex;
         flex-direction: column;
         justify-content: center;
-        min-height: 564px;
+        min-height: 677px;
         margin-top: 396px;
         padding: 50px 58px;
       }
@@ -3805,11 +3795,7 @@
       .nv-contact__social svg {
         width: 20px;
         height: 20px;
-        fill: none;
-        stroke: currentcolor;
-        stroke-linecap: round;
-        stroke-linejoin: round;
-        stroke-width: 1.8;
+        fill: currentColor;
       }
 
       .nv-contact__cta {
@@ -3843,18 +3829,18 @@
 #####################################################################################################################################################*/
       .nv-faq-layout {
         display: grid;
-        grid-template-columns: minmax(0, 760px) minmax(320px, 440px);
-        gap: 56px;
+        grid-template-columns: minmax(0, 1185px) minmax(320px, 440px);
+        gap: 50px;
         align-items: center;
         justify-content: center;
-        max-width: var(--nv-section-inner-max);
+        max-width: 1680px;
         margin: 0 auto;
       }
 
       .nv-faq-grid {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
-        gap: 10px;
+        gap: 25px;
         align-items: start;
       }
 
@@ -3864,13 +3850,14 @@
 
       .nv-faq-item summary {
         --nv-golden-display: flex;
-        --nv-golden-width: 73%;
+        --nv-golden-width: 100%;
         --nv-golden-min-width: 0;
-        --nv-golden-height: 50px;
+        --nv-golden-height: auto;
         --nv-golden-justify: space-between;
         --nv-golden-text-align: left;
         --nv-golden-white-space: normal;
         gap: 12px;
+        padding-block: 12px;
         padding-inline: 19px;
         font-size: 16px;
         line-height: 1.25;
@@ -3961,15 +3948,15 @@
 
       .nv-faq-metrics {
         display: grid;
-        gap: 34px;
+        gap: 39px;
         width: 100%;
-        padding: 41px;
+        padding: 47px;
         border-left: 1px solid var(--nv-gold-accent);
       }
 
       .nv-faq-metric {
         display: grid;
-        gap: 9px;
+        gap: 10px;
       }
 
       .nv-faq-metric__top {
@@ -3977,13 +3964,13 @@
         justify-content: space-between;
         color: var(--nv-text-muted);
         font:
-          600 16px/1.2 Inter,
+          600 18.4px/1.2 Inter,
           Arial,
           sans-serif;
       }
 
       .nv-faq-metric__bar {
-        height: 16px;
+        height: 18.4px;
         border-radius: 999px;
         background: var(--nv-matte-black);
         overflow: hidden;
@@ -6638,35 +6625,16 @@ void main(){
             <p>Nurovelle</p>
             <div class="nv-contact__socials" aria-label="Social Media">
               <span class="nv-contact__social" role="img" aria-label="LinkedIn">
-                <svg viewBox="0 0 24 24" aria-hidden="true">
-                  <path
-                    d="M6 9v9M6 6.2v.1M10 18v-5.2A3.8 3.8 0 0 1 17.5 12v6M10 9v9"
-                  />
-                </svg>
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM9 9h3.8v1.7h.05c.53-1 1.83-2.05 3.77-2.05C20.4 8.65 22 10.9 22 14.2V21h-4v-6c0-1.43-.03-3.27-2-3.27-2 0-2.3 1.56-2.3 3.17V21H9z"/></svg>
               </span>
               <span class="nv-contact__social" role="img" aria-label="YouTube">
-                <svg viewBox="0 0 24 24" aria-hidden="true">
-                  <rect x="3" y="6" width="18" height="12" rx="3" />
-                  <path d="m10 9 5 3-5 3Z" />
-                </svg>
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M23 12s0-3.2-.4-4.7a2.5 2.5 0 0 0-1.75-1.75C19.3 5.2 12 5.2 12 5.2s-7.3 0-8.85.35A2.5 2.5 0 0 0 1.4 7.3C1 8.8 1 12 1 12s0 3.2.4 4.7a2.5 2.5 0 0 0 1.75 1.75C4.7 18.8 12 18.8 12 18.8s7.3 0 8.85-.35A2.5 2.5 0 0 0 22.6 16.7C23 15.2 23 12 23 12zM9.75 15.02V8.98L15.5 12z"/></svg>
               </span>
-              <span
-                class="nv-contact__social"
-                role="img"
-                aria-label="Instagram"
-              >
-                <svg viewBox="0 0 24 24" aria-hidden="true">
-                  <rect x="4" y="4" width="16" height="16" rx="4" />
-                  <circle cx="12" cy="12" r="3.5" />
-                  <path d="M17.5 6.5h.01" />
-                </svg>
+              <span class="nv-contact__social" role="img" aria-label="Instagram">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2.2c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.42.56.22.96.48 1.38.9.42.42.68.82.9 1.38.17.42.37 1.06.42 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.42 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.17-1.06.37-2.23.42-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.42a3.7 3.7 0 0 1-1.38-.9 3.7 3.7 0 0 1-.9-1.38c-.17-.42-.37-1.06-.42-2.23C2.21 15.58 2.2 15.2 2.2 12s.01-3.58.07-4.85c.05-1.17.25-1.8.42-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.17 1.06-.37 2.23-.42C8.42 2.21 8.8 2.2 12 2.2zm0 3.05A6.75 6.75 0 1 0 18.75 12 6.75 6.75 0 0 0 12 5.25zm0 11.13A4.38 4.38 0 1 1 16.38 12 4.38 4.38 0 0 1 12 16.38zm6.99-11.4a1.58 1.58 0 1 1-1.57-1.58 1.58 1.58 0 0 1 1.57 1.58z"/></svg>
               </span>
               <span class="nv-contact__social" role="img" aria-label="GitHub">
-                <svg viewBox="0 0 24 24" aria-hidden="true">
-                  <path
-                    d="M8 18c-4 1.2-4-2-5-2.5M13 21v-3.2c0-.9.1-1.5-.5-2 2.7-.3 5.5-1.3 5.5-6a4.7 4.7 0 0 0-1.2-3.2A4.4 4.4 0 0 0 16.7 3S15.7 2.7 13 4.2a11.4 11.4 0 0 0-6 0C4.3 2.7 3.3 3 3.3 3a4.4 4.4 0 0 0-.1 3.6A4.7 4.7 0 0 0 2 9.8c0 4.7 2.8 5.7 5.5 6-.6.5-.6 1.2-.5 2V21"
-                  />
-                </svg>
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 1.5a10.5 10.5 0 0 0-3.32 20.47c.53.1.72-.23.72-.5v-1.9c-2.93.64-3.55-1.24-3.55-1.24-.48-1.22-1.17-1.55-1.17-1.55-.96-.65.07-.64.07-.64 1.06.08 1.62 1.09 1.62 1.09.94 1.6 2.46 1.14 3.06.87.1-.68.37-1.14.67-1.4-2.34-.27-4.8-1.17-4.8-5.2 0-1.15.4-2.09 1.08-2.83-.1-.27-.47-1.34.1-2.8 0 0 .88-.28 2.88 1.08a10 10 0 0 1 5.24 0c2-1.36 2.88-1.08 2.88-1.08.57 1.46.2 2.53.1 2.8.68.74 1.08 1.68 1.08 2.83 0 4.04-2.47 4.93-4.82 5.19.38.33.72.98.72 1.98v2.93c0 .28.19.61.73.5A10.5 10.5 0 0 0 12 1.5z"/></svg>
               </span>
             </div>
             <ul>
