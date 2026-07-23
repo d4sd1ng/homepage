@@ -147,9 +147,20 @@
       .nv-process__kicker,
       .nv-why__kicker,
       .nv-resource-section__kicker,
-      .nv-contact__kicker,
       #downloads
         .kicker {
+        margin: 0 0 var(--nv-kicker-title-gap);
+        color: var(--nv-kicker-color);
+        font-family: "Inter", Arial, sans-serif;
+        font-size: var(--nv-section-kicker-size);
+        font-weight: 700;
+        line-height: var(--nv-kicker-line-height);
+        letter-spacing: var(--nv-kicker-letter-spacing);
+        text-transform: uppercase;
+      }
+
+      /* Contact kicker — dedicated, not shared */
+      .nv-contact__kicker {
         margin: 0 0 var(--nv-kicker-title-gap);
         color: var(--nv-kicker-color);
         font-family: "Inter", Arial, sans-serif;
@@ -322,8 +333,7 @@
 
       .nv-section-step__content,
       .nvp4-projectidea__content,
-      .nvp5-analysis__head,
-      .nv-contact__head {
+      .nvp5-analysis__head {
         margin-bottom: var(--nv-section-text-content-gap);
       }
 
@@ -3000,6 +3010,10 @@
         margin-bottom: var(--nv-section-text-content-gap);
       }
 
+      #faq .nv-resource-section__head {
+        max-width: 900px;
+      }
+
       .nv-resource-section__title {
         margin: 0 0 var(--nv-title-text-gap);
         color: transparent;
@@ -3008,7 +3022,7 @@
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
         font:
-          700 var(--nv-section-title-size) / 1 "Eastman Grotesque Alt",
+          700 var(--nv-section-title-size) / 1.15 "Eastman Grotesque Alt",
           "Eastman Grotesque",
           Inter,
           Arial,
@@ -3524,6 +3538,7 @@
 
       .nv-contact__head {
         max-width: 900px;
+        margin-bottom: var(--nv-section-text-content-gap);
       }
 
       .nv-contact__title {
@@ -3538,7 +3553,7 @@
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
         font:
-          700 var(--nv-section-title-size) / 1 "Eastman Grotesque Alt",
+          700 var(--nv-section-title-size) / 1.15 "Eastman Grotesque Alt",
           "Eastman Grotesque",
           Inter,
           Arial,
@@ -3566,23 +3581,20 @@
         perspective: 1100px;
       }
 
-      .nv-contact__portrait,
-      .nv-contact__card {
-      position: relative;
-      overflow: hidden;
-      border: 1px solid transparent;
-      border-radius: var(--nv-radius-md);
-      background:
-        linear-gradient(#000000, #000000)
-          padding-box,
-        var(--gradient-gold-border) border-box; /* schwarz + Holo-Logo-Shine (::before) */
-      transform-style: preserve-3d;
-      transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+      /* --- LEFT CARD (portrait) — dedicated, not shared --- */
+      .nv-contact__portrait {
+        position: relative;
+        overflow: hidden;
+        border: 1px solid transparent;
+        border-radius: var(--nv-radius-md);
+        background:
+          linear-gradient(#000000, #000000) padding-box,
+          var(--gradient-gold-border) border-box;
+        transform-style: preserve-3d;
+        transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
       }
 
-      /* Holo tech-texture + Logo-Shine, wie .download-item::before */
-      .nv-contact__portrait::before,
-      .nv-contact__card::before {
+      .nv-contact__portrait::before {
         content: "";
         position: absolute;
         inset: 0;
@@ -3596,32 +3608,74 @@
       }
 
       .nv-contact__portrait:hover::before,
-      .nv-contact__portrait:focus-within::before,
+      .nv-contact__portrait:focus-within::before {
+        opacity: 0.7;
+      }
+
+      .nv-contact__portrait > * {
+        position: relative;
+        z-index: 2;
+      }
+
+      .nv-contact__portrait::after {
+        content: none;
+      }
+
+      .nv-contact__portrait:hover,
+      .nv-contact__portrait:focus-within {
+        transform: rotateX(5deg) rotateY(-5deg) translateZ(6px);
+      }
+
+      .nv-contact__portrait:hover::after,
+      .nv-contact__portrait:focus-within::after {
+        opacity: 1;
+      }
+
+      /* --- RIGHT CARD (card) — dedicated, not shared --- */
+      .nv-contact__card {
+        position: relative;
+        overflow: hidden;
+        border: 1px solid transparent;
+        border-radius: var(--nv-radius-md);
+        background:
+          linear-gradient(#000000, #000000) padding-box,
+          var(--gradient-gold-border) border-box;
+        transform-style: preserve-3d;
+        transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+      }
+
+      .nv-contact__card::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        z-index: 0;
+        border-radius: inherit;
+        background:
+          url("assets/hero/nurovelle_logo.png") center / 90% auto no-repeat;
+        opacity: 0.22;
+        pointer-events: none;
+        transition: opacity 0.35s ease;
+      }
+
       .nv-contact__card:hover::before,
       .nv-contact__card:focus-within::before {
         opacity: 0.7;
       }
 
-      .nv-contact__portrait > *,
       .nv-contact__card > * {
         position: relative;
         z-index: 2;
       }
 
-      .nv-contact__portrait::after,
       .nv-contact__card::after {
         content: none;
       }
 
-      .nv-contact__portrait:hover,
-      .nv-contact__portrait:focus-within,
       .nv-contact__card:hover,
       .nv-contact__card:focus-within {
         transform: rotateX(5deg) rotateY(-5deg) translateZ(6px);
       }
 
-      .nv-contact__portrait:hover::after,
-      .nv-contact__portrait:focus-within::after,
       .nv-contact__card:hover::after,
       .nv-contact__card:focus-within::after {
         opacity: 1;
