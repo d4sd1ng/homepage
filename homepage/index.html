@@ -2619,6 +2619,11 @@
         min-width: 0;
         max-width: 260px;
         height: 273px;
+      }
+
+      .nvp5-module__tile {
+        position: absolute;
+        inset: 0;
         transform: perspective(620px) rotateX(13deg)
           rotateY(var(--nv-mod-turn)) scale(var(--nv-mod-depth));
         transform-origin: 50% 80%;
@@ -2667,7 +2672,7 @@
         position: absolute;
         top: calc(100% + 12px);
         left: 50%;
-        transform: translateX(-50%) rotateX(-13deg) rotateY(calc(var(--nv-mod-turn) * -1));
+        transform: translateX(-50%);
         white-space: nowrap;
         color: var(--nv-text-light);
         font: 600 18px/1.2 "Inter", Arial, sans-serif;
@@ -2695,7 +2700,7 @@
         left: 88%;
         z-index: 0;
         color: var(--nv-gold-accent);
-        font-size: clamp(30px, 3.4vw, 50px);
+        font-size: clamp(64px, 6.5vw, 112px);
         line-height: 1;
         opacity: 0.85;
         transform-origin: left center;
@@ -6403,7 +6408,8 @@ void main(){
         </header>
         <div class="nvp5-modules" aria-hidden="true">
           <div class="nvp5-module">
-            <img
+            <div class="nvp5-module__tile">
+              <img
               class="nvp5-module__unit"
               src="assets/Module/analyse/1.png"
               alt=""
@@ -6414,10 +6420,12 @@ void main(){
               alt=""
               loading="lazy"
             />
-          <span class="nvp5-module__name">Number 1</span>
+            </div>
+            <span class="nvp5-module__name">Number 1</span>
           </div>
           <div class="nvp5-module">
-            <img
+            <div class="nvp5-module__tile">
+              <img
               class="nvp5-module__unit"
               src="assets/Module/analyse/2.png"
               alt=""
@@ -6428,10 +6436,12 @@ void main(){
               alt=""
               loading="lazy"
             />
-          <span class="nvp5-module__name">Number 2</span>
+            </div>
+            <span class="nvp5-module__name">Number 2</span>
           </div>
           <div class="nvp5-module">
-            <img
+            <div class="nvp5-module__tile">
+              <img
               class="nvp5-module__unit"
               src="assets/Module/analyse/3.png"
               alt=""
@@ -6442,10 +6452,12 @@ void main(){
               alt=""
               loading="lazy"
             />
-          <span class="nvp5-module__name">Number 3</span>
+            </div>
+            <span class="nvp5-module__name">Number 3</span>
           </div>
           <div class="nvp5-module">
-            <img
+            <div class="nvp5-module__tile">
+              <img
               class="nvp5-module__unit"
               src="assets/Module/analyse/4.png"
               alt=""
@@ -6456,7 +6468,8 @@ void main(){
               alt=""
               loading="lazy"
             />
-          <span class="nvp5-module__name">Number 4</span>
+            </div>
+            <span class="nvp5-module__name">Number 4</span>
           </div>
         </div>
         <div class="nvp5-analysis__cta-row">
