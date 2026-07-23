@@ -20,5 +20,5 @@ jobs:
             git fetch origin main
             git reset --hard origin/main
             mkdir -p /opt/nurovell-potential-analysis/frontend/public/homepage
-            cp index.html /opt/nurovell-potential-analysis/frontend/public/homepage/index.html
+            cp homepage/index.html /opt/nurovell-potential-analysis/frontend/public/homepage/index.html
             echo "Deployed commit: $(git rev-parse --short HEAD)"
