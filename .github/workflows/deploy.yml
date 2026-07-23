@@ -1,9 +1,7 @@
 name: Deploy to VPS
-
 on:
   push:
     branches: [main]
-
 jobs:
   deploy:
     runs-on: ubuntu-latest
@@ -14,7 +12,13 @@ jobs:
           host: ${{ secrets.VPS_HOST }}
           username: ${{ secrets.VPS_USER }}
           key: ${{ secrets.VPS_SSH_KEY }}
+          # port: 22            # uncomment/set if your SSH port isn't 22
           script: |
+            set -e
+            git config --global --add safe.directory /opt/homepage_repo_source
             cd /opt/homepage_repo_source
-            git pull
+            git fetch origin main
+            git reset --hard origin/main
+            mkdir -p /opt/nurovell-potential-analysis/frontend/public/homepage
             cp index.html /opt/nurovell-potential-analysis/frontend/public/homepage/index.html
+            echo "Deployed commit: $(git rev-parse --short HEAD)"
