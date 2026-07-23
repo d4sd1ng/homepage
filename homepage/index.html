@@ -3014,6 +3014,11 @@
         max-width: 900px;
       }
 
+      /* FAQ headings — static size (not the responsive clamp) */
+      #faq .nv-resource-section__title {
+        font-size: 88px;
+      }
+
       .nv-resource-section__title {
         margin: 0 0 var(--nv-title-text-gap);
         color: transparent;
@@ -3888,11 +3893,11 @@
 #####################################################################################################################################################*/
       .nv-faq-layout {
         display: grid;
-        grid-template-columns: minmax(0, 1330px) 500px;
+        grid-template-columns: minmax(0, 1630px) 650px;
         gap: 80px;
         align-items: center;
         justify-content: center;
-        max-width: 1910px;
+        max-width: 2360px;
         margin: 0 auto;
         transform: translateX(calc(var(--sidebar-w) / -2));
       }
