@@ -516,46 +516,6 @@
         background: #f7c64a;
       }
 
-      /* Main bullet points between heading rule and result card */
-      .nv-s7-card__points {
-        position: absolute;
-        top: 98px;
-        left: 22px;
-        right: 20px;
-        display: grid;
-        gap: 6px;
-        margin: 0;
-        padding: 0;
-        list-style: none;
-        opacity: 0;
-        transform: translateY(6px);
-        transition:
-          opacity 0.42s ease,
-          transform 0.42s ease;
-      }
-
-      .nv-s7-card__points li {
-        position: relative;
-        padding-left: 12px;
-        color: var(--nv-text-light);
-        overflow-wrap: anywhere;
-        font:
-          500 20px/1.35 Inter,
-          Arial,
-          sans-serif;
-      }
-
-      .nv-s7-card__points li::before {
-        content: "";
-        position: absolute;
-        left: 0;
-        top: 0.5em;
-        width: 4px;
-        height: 4px;
-        border-radius: 2px;
-        background: #f7c64a;
-      }
-
       /* "Small card": frame size = this box's padding + left/right/bottom */
       .nv-s7-card__result {
         position: absolute;
