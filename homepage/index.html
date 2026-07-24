@@ -86,10 +86,11 @@
           #3fa876
         );
 
-        --header-height: 120px;
+        --header-height: 100px;
         --page-gutter: clamp(18px, 3vw, 32px);
         --side: var(--page-gutter);
         --sidebar-w: 0px;
+        --design-ref: 2300px; /* Master-Skalierung: größer = alles kleiner, kleiner = alles größer */
         --font-ui: "Inter", Arial, sans-serif;
         --nv-section-kicker-size: clamp(20px, 0.8vw, 24px);
         --nv-section-title-size: clamp(64px, 5vw, 88px);
@@ -216,7 +217,7 @@
          proportionally to fill any desktop viewport (mobile keeps its own layout). */
       @media (min-width: 1024px) {
         body {
-          zoom: calc(100vw / 1920px);
+          zoom: calc(100vw / var(--design-ref));
         }
       }
 
@@ -864,7 +865,7 @@
 }
 
 .hero {
-  min-height: 1080px;
+  min-height: calc(var(--design-ref) * 0.5625);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -914,7 +915,7 @@
 
 .hero-cube {
   position: absolute;
-  right: var(--page-gutter);
+  right: calc(var(--page-gutter) / 2);
   bottom: 5%;
   width: clamp(1080px, 102vw, 1680px);
   z-index: 1;
@@ -941,7 +942,7 @@
   color: #f5f1e8;
   font-weight: 750;
   margin-bottom: var(--nv-hero-subtitle-body-gap);
-  max-width: 700px;
+  max-width: 1150px;
   background: none;
   -webkit-text-fill-color: #f5f1e8;
   text-shadow: none;
@@ -957,7 +958,7 @@
 }
 
 .hero-actions {
-  margin-top: 82px;
+  margin-top: 48px;
   display: flex;
   gap: 18px;
   align-items: center;
