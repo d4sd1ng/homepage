@@ -86,30 +86,29 @@
           #3fa876
         );
 
-        --header-height: 84px;
+        --header-height: 120px;
         --page-gutter: clamp(18px, 3vw, 32px);
         --side: var(--page-gutter);
-        --sidebar-w: 205px;
+        --sidebar-w: 0px;
         --font-ui: "Inter", Arial, sans-serif;
-        --nv-section-kicker-size: clamp(18px, 0.8vw, 22px);
-        --nv-section-title-size: clamp(72px, 5vw, 88px);
+        --nv-section-kicker-size: clamp(20px, 0.8vw, 24px);
+        --nv-section-title-size: clamp(64px, 5vw, 88px);
         --nv-section-body-size: 24px;
         --nv-section-body-line: 1.85;
-        --nv-cta-height: 60px;
         --nv-hero-subtitle-body-gap: 40px;
         --nv-about-text-column: 760px;
         --nv-about-media-column: 620px;
         --nv-about-paragraph-extension: 82px;
         --nv-about-text-width: 955px;
         --nv-about-video-gap: 220px;
-        --nv-kicker-color: var(--nv-text-muted);
+        --nv-kicker-color: var(--nv-gold-inner-mid);
         --nv-kicker-line-height: 1.15;
         --nv-kicker-letter-spacing: 0.14em;
         --nv-section-pad-y: 104px;
         --nv-kicker-title-gap: 10px;
         --nv-title-text-gap: 64px;
         --nv-section-text-content-gap: 76px;
-        --nv-section-divider-before-gap: calc(var(--nv-cta-height) * 3);
+        --nv-section-divider-before-gap: 88px;
         --nv-section-divider-after-gap: 88px;
         --nv-section-black: #050505;
         --nv-section-emerald: #010603;
@@ -180,6 +179,12 @@
         z-index: 4;
       }
 
+      /* Sidebar removed */
+      .home-sidebar,
+      .sidebar-toggle-wrap {
+        display: none !important;
+      }
+
       * {
         box-sizing: border-box;
         margin: 0;
@@ -205,6 +210,14 @@
         font-family: var(--font-ui);
         font-size: 1rem;
         overflow-x: hidden;
+      }
+
+      /* Fit-to-screen: design is authored at a 1920px logical width and scaled
+         proportionally to fill any desktop viewport (mobile keeps its own layout). */
+      @media (min-width: 1024px) {
+        body {
+          zoom: calc(100vw / 1920px);
+        }
       }
 
       .preview-stage {
@@ -435,10 +448,10 @@
         }
 
         body.has-sidebar .home-sidebar {
-  hero        transform: translateX(0);
+          transform: translateX(0);
         }
 
-       hero body.has-sidebar .hero,
+        body.has-sidebar .hero,
         body.has-sidebar main {
           width: 100%;
           margin-left: 0;
@@ -511,8 +524,8 @@
 .logo-link {
   display: inline-grid;
   place-items: center;
-  width: 54px;
-  height: 54px;
+  width: 96px;
+  height: 96px;
   perspective: 600px;
   text-decoration: none;
   flex: 0 0 auto;
@@ -520,8 +533,8 @@
 
 .logo-spin {
   display: block;
-  width: 58px;
-  height: 46px;
+  width: 104px;
+  height: 84px;
   animation: nv-logo-y-spin 11.5s linear infinite;
   background: url("assets/hero/nurovelle_logo.png") center / contain no-repeat;
   filter: drop-shadow(0 0 8px #fae3853d);
@@ -541,16 +554,16 @@
 }
 
 .nv-breadcrumb__trigger {
-  --nv-crumb-point: 14px;
+  --nv-crumb-point: 18px;
   --nv-crumb-bg: linear-gradient(180deg, #112a20eb, #080b09f5);
   position: relative;
   display: flex;
   align-items: center;
-  min-height: 36px;
-  padding: 0 22px;
+  min-height: 50px;
+  padding: 0 30px;
   color: var(--nv-text-muted);
   background: none;
-  font-size: 13px;
+  font-size: 18px;
   line-height: 1;
   text-decoration: none;
   cursor: pointer;
@@ -565,7 +578,7 @@
 }
 
 .nv-breadcrumb__group:first-child .nv-breadcrumb__trigger {
-  padding-left: 14px;
+  padding-left: 18px;
 }
 
 .nv-breadcrumb__trigger::before,
@@ -645,9 +658,9 @@
 
 .nv-breadcrumb__trigger > span::after {
   content: "⌄";
-  margin-left: 5px;
+  margin-left: 6px;
   color: #e8b048;
-  font-size: 11px;
+  font-size: 15px;
 }
 
 .nv-breadcrumb__group[open] .nv-breadcrumb__trigger,
@@ -706,10 +719,10 @@
 }
 
 .nv-breadcrumb__menu a {
-  padding: 9px 12px;
+  padding: 11px 14px;
   border-radius: 6px;
   color: var(--nv-text-muted);
-  font-size: 13px;
+  font-size: 16px;
   line-height: 1.2;
   text-decoration: none;
 }
@@ -738,11 +751,11 @@
 
 .header-cta .golden-button {
   min-width: 0;
-  height: 36px;
-  padding-right: 10px;
-  padding-left: 10px;
-  font-size: 11px;
-  line-height: 34px;
+  height: 54px;
+  padding-right: 18px;
+  padding-left: 18px;
+  font-size: 16px;
+  line-height: 52px;
   letter-spacing: 0.02em;
   text-transform: uppercase;
 }
@@ -851,10 +864,12 @@
 }
 
 .hero {
-  min-height: 700px;
-  display: block;
-  align-items: flex-start;
-  padding: 94px var(--side) var(--nv-section-divider-before-gap);
+  min-height: 1080px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: calc(var(--header-height) + 56px) var(--side)
+    var(--nv-section-divider-before-gap);
   overflow: hidden;
   position: relative;
   background: #000000;
@@ -910,8 +925,13 @@
 
 .hero h1 {
   margin-bottom: 34px;
-  max-width: 1900px;
+  max-width: 1400px;
   font-size: 120px;
+  color: transparent;
+  background: var(--nv-section-title-gradient);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .hero h2 {
@@ -946,6 +966,11 @@
 
 .hero-actions .hero-cta .golden-button {
   min-width: 360px;
+}
+
+/* Content CTAs bigger — buttons scale from font-size (header CTA excluded) */
+.hero-cta .golden-button {
+  font-size: 24px;
 }
 
 /* Homepage base, header, hero and primary sections */
