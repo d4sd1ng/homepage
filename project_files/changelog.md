@@ -1,5 +1,18 @@
 # Changelog
 
+## 2026-07-24 – Deploy-Workflow auf frischen Clone pro Lauf umgestellt
+
+Status: geprüft
+
+Geändert (`.github/workflows/deploy.yml`):
+
+- Vor dem Deploy wird `/opt/homepage_repo_source` entfernt und `main` per `git clone --depth 1 --branch main` neu geklont.
+- Der bisherige `git fetch`/`git reset`-Pfad im bestehenden Ziel-Repository entfällt, damit der Lauf nicht mehr an fehlendem Speicher beim Objekt-Unpack scheitert.
+
+Nicht geändert:
+
+- SSH-Action, Safe-Directory-Umgebungsvariablen, Deploy-Zielpfad und Kopiervorgang von `homepage/index.html`.
+
 ## 2026-07-24 – Deploy-Workflow auf schreibfreie Safe-Directory-Konfiguration umgestellt
 
 Status: geprüft
