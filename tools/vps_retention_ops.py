@@ -13,6 +13,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import secrets
 import shlex
 import subprocess
 import sys
@@ -416,7 +417,7 @@ def run_ssh_script(target: str, script: str, timeout: int = 240) -> str:
 
 
 def heredoc_write(path: str, content: str, mode: str) -> str:
-    marker = f"__NUROVELLE_EOF_{abs(hash((path, mode, content))) % 1_000_000_000}__"
+    marker = f"__NUROVELLE_EOF_{secrets.token_hex(12)}__"
     directory = path.rsplit("/", 1)[0]
     return textwrap.dedent(
         f"""

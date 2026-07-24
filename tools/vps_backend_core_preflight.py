@@ -23,6 +23,7 @@ from typing import Any
 DEFAULT_SSH_TARGET = "d4sd1ng@77.42.74.250"
 OLD_DB = "nurovell_potential_analysis"
 NEW_DB = "nurovelle_core"
+POSTGRES_CONTAINER = "postgres"
 
 LIVE_GET_URLS = [
     "https://nurovelle.de/",
@@ -86,10 +87,10 @@ def check_live_gets() -> CheckResult:
 
 
 def check_runtime_summary(target: str, expected_db: str) -> CheckResult:
-    remote = r"""
+    remote = f"""
 set -euo pipefail
 docker inspect nurovell_backend --format '{{.State.Running}}' >/tmp/nurovelle_backend_running.txt
-docker inspect postgres --format '{{.State.Running}}' >/tmp/nurovelle_postgres_running.txt
+docker inspect {POSTGRES_CONTAINER} --format '{{.State.Running}}' >/tmp/nurovelle_postgres_running.txt
 database_url="$(docker exec nurovell_backend printenv DATABASE_URL || true)"
 current_db="$(DATABASE_URL="$database_url" python3 - <<'PY'
 import os
@@ -119,15 +120,15 @@ def check_databases_and_tables(target: str) -> CheckResult:
     new_count_sql = " union all ".join([f"select '{table}', count(*) from public.{table}" for table in COUNT_TABLES])
     remote = f"""
 set -euo pipefail
-docker exec postgres psql -U avataruser -d postgres -v ON_ERROR_STOP=1 -t -A -F $'\\t' -c "
+docker exec {POSTGRES_CONTAINER} psql -U avataruser -d postgres -v ON_ERROR_STOP=1 -t -A -F $'\\t' -c "
 select 'db_exists', datname from pg_database where datname in ('{OLD_DB}', '{NEW_DB}') order by datname;
 "
-docker exec postgres psql -U avataruser -d {NEW_DB} -v ON_ERROR_STOP=1 -t -A -F $'\\t' -c "
+docker exec {POSTGRES_CONTAINER} psql -U avataruser -d {NEW_DB} -v ON_ERROR_STOP=1 -t -A -F $'\\t' -c "
 select 'schema_exists', schema_name from information_schema.schemata where schema_name in ('analysis', 'homepage', 'content_system', 'ops', 'public') order by schema_name;
 select 'alembic', version_num from public.alembic_version;
 "
-docker exec postgres psql -U avataruser -d {OLD_DB} -v ON_ERROR_STOP=1 -t -A -F $'\\t' -c "{old_count_sql};" | sed 's/^/old_count\\t/'
-docker exec postgres psql -U avataruser -d {NEW_DB} -v ON_ERROR_STOP=1 -t -A -F $'\\t' -c "{new_count_sql};" | sed 's/^/new_count\\t/'
+docker exec {POSTGRES_CONTAINER} psql -U avataruser -d {OLD_DB} -v ON_ERROR_STOP=1 -t -A -F $'\\t' -c "{old_count_sql};" | sed 's/^/old_count\\t/'
+docker exec {POSTGRES_CONTAINER} psql -U avataruser -d {NEW_DB} -v ON_ERROR_STOP=1 -t -A -F $'\\t' -c "{new_count_sql};" | sed 's/^/new_count\\t/'
 """
     lines = [line for line in run_ssh(target, remote).splitlines() if line.strip()]
     dbs = sorted(line.split("\t", 1)[1] for line in lines if line.startswith("db_exists\t"))
@@ -168,7 +169,7 @@ docker exec postgres psql -U avataruser -d {NEW_DB} -v ON_ERROR_STOP=1 -t -A -F 
 
 
 def check_backups(target: str) -> CheckResult:
-    remote = r"""
+    remote = f"""
 set -euo pipefail
 backup_dir=/opt/nurovell-potential-analysis/backups/postgres
 env_dir=/opt/nurovell-potential-analysis/compose
@@ -183,7 +184,7 @@ if [ -d "$backup_dir" ]; then
   latest_dump="$(find "$backup_dir" -maxdepth 1 -type f -name '*.dump' -printf '%T@\t%p\n' | sort -nr | head -n 1 | cut -f2- || true)"
 fi
 if [ -n "$latest_dump" ]; then
-  if docker exec -i postgres pg_restore --list < "$latest_dump" >/dev/null 2>&1; then
+  if docker exec -i {POSTGRES_CONTAINER} pg_restore --list < "$latest_dump" >/dev/null 2>&1; then
     printf 'restore_check\tok\t%s\n' "$(basename "$latest_dump")"
   else
     printf 'restore_check\tfailed\t%s\n' "$(basename "$latest_dump")"
