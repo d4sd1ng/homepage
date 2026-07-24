@@ -19,7 +19,7 @@ jobs:
             export GIT_CONFIG_KEY_0=safe.directory
             export GIT_CONFIG_VALUE_0=/opt/homepage_repo_source
             if [ -d /opt/homepage_repo_source/.git ]; then
-              :
+              true
             elif [ -e /opt/homepage_repo_source ]; then
               echo "Deploy source exists but is not a git repository: /opt/homepage_repo_source" >&2
               exit 1
