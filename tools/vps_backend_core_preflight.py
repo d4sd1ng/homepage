@@ -87,7 +87,7 @@ def check_live_gets() -> CheckResult:
 
 
 def check_runtime_summary(target: str, expected_db: str) -> CheckResult:
-    remote = f"""
+    remote = rf"""
 set -euo pipefail
 docker inspect nurovell_backend --format '{{.State.Running}}' >/tmp/nurovelle_backend_running.txt
 docker inspect {POSTGRES_CONTAINER} --format '{{.State.Running}}' >/tmp/nurovelle_postgres_running.txt
