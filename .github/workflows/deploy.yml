@@ -18,11 +18,12 @@ jobs:
             export GIT_CONFIG_COUNT=1
             export GIT_CONFIG_KEY_0=safe.directory
             export GIT_CONFIG_VALUE_0=/opt/homepage_repo_source
-            if [ -d /opt/homepage_repo_source/.git ]; then
+            if [ -d /opt/homepage_repo_source ]; then
+              if ! git -C /opt/homepage_repo_source rev-parse --is-inside-work-tree >/dev/null 2>&1; then
+                echo "Deploy source exists but is not a git working tree: /opt/homepage_repo_source" >&2
+                exit 1
+              fi
               echo "Using existing deploy source repository."
-            elif [ -e /opt/homepage_repo_source ]; then
-              echo "Deploy source exists but is not a git repository: /opt/homepage_repo_source" >&2
-              exit 1
             else
               if ! git clone --depth=1 --branch=main https://github.com/d4sd1ng/homepage.git /opt/homepage_repo_source; then
                 echo "HTTPS clone failed, retrying via SSH." >&2
