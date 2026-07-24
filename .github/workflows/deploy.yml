@@ -15,7 +15,9 @@ jobs:
           # port: 22            # uncomment/set if your SSH port isn't 22
           script: |
             set -e
-            git config --global --add safe.directory /opt/homepage_repo_source
+            export GIT_CONFIG_COUNT=1
+            export GIT_CONFIG_KEY_0=safe.directory
+            export GIT_CONFIG_VALUE_0=/opt/homepage_repo_source
             cd /opt/homepage_repo_source
             git fetch origin main
             git reset --hard origin/main

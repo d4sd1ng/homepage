@@ -1,5 +1,18 @@
 # Changelog
 
+## 2026-07-24 – Deploy-Workflow auf schreibfreie Safe-Directory-Konfiguration umgestellt
+
+Status: geprüft
+
+Geändert (`.github/workflows/deploy.yml`):
+
+- Die globale Git-Konfigurationszeile `git config --global --add safe.directory /opt/homepage_repo_source` durch prozesslokale `GIT_CONFIG_*`-Umgebungsvariablen ersetzt.
+- `git fetch`, `git reset` und `git rev-parse` laufen damit weiterhin mit `safe.directory=/opt/homepage_repo_source`, ohne auf dem Zielserver `~/.gitconfig.lock` schreiben zu müssen.
+
+Nicht geändert:
+
+- Deploy-Zielpfade, SSH-Action, Branch-Quelle `origin/main` und der eigentliche Kopiervorgang nach `/opt/nurovell-potential-analysis/frontend/public/homepage`.
+
 ## 2026-07-20 – Servicekarten 7 bis 11 neu zugeordnet
 
 Status: blockiert
