@@ -1,5 +1,34 @@
 # Changelog
 
+## 2026-07-24 – VPS-Retention fuer Logs, Docker und Backups dokumentiert und automatisierbar gemacht
+
+Status: geprüft
+
+Geändert (`tools/vps_retention_ops.py`):
+
+- Neues VPS-Ops-Skript fuer Audit und Installation von serverweiten Retention-Regeln per SSH ergänzt.
+- Installiert bei bestaetigter Ausfuehrung Journald-Limits, eine Logrotate-Datei, einen Remote-Rotationshelfer sowie zwei Systemd-Timer fuer Docker-Prune und Backup-/Env-Rotation.
+- Definiert konkrete Retention-Regeln fuer normale Postgres-Backups, geschuetzte Precutover-/Manual-Backups und `.env.vps.pre_nurovelle_core_*`.
+
+Geändert (`tools/vps_backend_core_preflight.py`):
+
+- Backup-Pruefung um Anzahl, Gesamtgroesse, Alter, Protected-Count und Env-Backup-Metadaten erweitert.
+- Zusaetzliche `pg_restore --list`-Lesbarkeitspruefung fuer den neuesten Dump ergänzt.
+- Verpflichtenden Hinweis auf monatliche nicht-produktive Restore-Tests ergänzt.
+
+Geändert (`project_files/vps_retention_policy.md`):
+
+- Neue Retention-Policy fuer Ownership, Journald, Logrotate, Docker-Cleanup, Backup-Rotation, Env-Backup-Rotation und Verifikation dokumentiert.
+
+Geändert (`project_files/backend_core_operations_runbook.md`):
+
+- Audit-/Installationsbefehle fuer VPS-Retention sowie die erwarteten Verifikationspunkte ergänzt.
+
+Nicht geändert:
+
+- `/home/runner/work/homepage/homepage/.github/workflows/deploy.yml`
+- Homepage-Inhalte, sichtbare Texte, Assetpfade und Formularlogik
+
 ## 2026-07-24 – Deploy-Workflow auf frischen Clone pro Lauf umgestellt
 
 Status: geprüft

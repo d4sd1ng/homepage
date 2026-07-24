@@ -16,6 +16,7 @@ import sys
 import urllib.error
 import urllib.request
 from dataclasses import dataclass
+from datetime import datetime, timezone
 from typing import Any
 
 
@@ -170,19 +171,76 @@ def check_backups(target: str) -> CheckResult:
     remote = r"""
 set -euo pipefail
 backup_dir=/opt/nurovell-potential-analysis/backups/postgres
-if [ ! -d "$backup_dir" ]; then
-  printf '[]\n'
-  exit 0
+env_dir=/opt/nurovell-potential-analysis/compose
+if [ -d "$backup_dir" ]; then
+  find "$backup_dir" -maxdepth 1 -type f \( -name '*.dump' -o -name '*.sql' \) -printf 'postgres\t%f\t%s\t%T@\n' | sort
 fi
-find "$backup_dir" -maxdepth 1 -type f \( -name '*.dump' -o -name '*.sql' \) -printf '%f\t%s\n' | sort
+if [ -d "$env_dir" ]; then
+  find "$env_dir" -maxdepth 1 -type f -name '.env.vps.pre_nurovelle_core_*' -printf 'env\t%f\t%s\t%T@\n' | sort
+fi
+latest_dump="$(find "$backup_dir" -maxdepth 1 -type f -name '*.dump' -printf '%T@\t%p\n' 2>/dev/null | sort -nr | head -n 1 | cut -f2- || true)"
+if [ -n "$latest_dump" ]; then
+  if docker exec -i postgres pg_restore --list < "$latest_dump" >/dev/null 2>&1; then
+    printf 'restore_check\tok\t%s\n' "$(basename "$latest_dump")"
+  else
+    printf 'restore_check\tfailed\t%s\n' "$(basename "$latest_dump")"
+  fi
+else
+  printf 'restore_check\tskipped\tno_dump\n'
+fi
 """
     lines = [line for line in run_ssh(target, remote).splitlines() if line.strip()]
+    now = datetime.now(timezone.utc)
     backups = []
+    env_backups = []
+    restore_check = {"status": "skipped", "file": "no_dump"}
     for line in lines:
-        name, size = line.split("\t", 1)
-        backups.append({"name": name, "bytes": int(size)})
+        parts = line.split("\t")
+        if len(parts) == 4 and parts[0] in {"postgres", "env"}:
+            section, name, size, mtime_epoch = parts
+            record = {
+                "name": name,
+                "bytes": int(size),
+                "mtime_epoch": float(mtime_epoch),
+                "age_days": int((now - datetime.fromtimestamp(float(mtime_epoch), tz=timezone.utc)).total_seconds() // 86400),
+                "protected": any(marker in name.lower() for marker in ("precutover", "legacy_data", "manual", "schema")),
+            }
+            if section == "postgres":
+                backups.append(record)
+            else:
+                env_backups.append(record)
+        elif len(parts) == 3 and parts[0] == "restore_check":
+            restore_check = {"status": parts[1], "file": parts[2]}
     has_dump = any(item["name"].endswith(".dump") and item["bytes"] > 0 for item in backups)
-    return CheckResult("backup_files_present", has_dump, backups)
+    restore_ok = restore_check["status"] in {"ok", "skipped"}
+    postgres_total_bytes = sum(item["bytes"] for item in backups)
+    env_total_bytes = sum(item["bytes"] for item in env_backups)
+    newest_postgres_age = min((item["age_days"] for item in backups), default=None)
+    oldest_postgres_age = max((item["age_days"] for item in backups), default=None)
+    newest_env_age = min((item["age_days"] for item in env_backups), default=None)
+    oldest_env_age = max((item["age_days"] for item in env_backups), default=None)
+    detail = {
+        "postgres": {
+            "path": "/opt/nurovell-potential-analysis/backups/postgres",
+            "count": len(backups),
+            "total_bytes": postgres_total_bytes,
+            "protected_count": sum(1 for item in backups if item["protected"]),
+            "newest_age_days": newest_postgres_age,
+            "oldest_age_days": oldest_postgres_age,
+            "files": backups,
+            "latest_dump_restore_check": restore_check,
+        },
+        "env_backups": {
+            "path": "/opt/nurovell-potential-analysis/compose",
+            "count": len(env_backups),
+            "total_bytes": env_total_bytes,
+            "newest_age_days": newest_env_age,
+            "oldest_age_days": oldest_env_age,
+            "files": env_backups,
+        },
+        "restore_test_requirement": "Run a non-production restore test at least monthly; pg_restore --list on the latest dump only verifies dump readability.",
+    }
+    return CheckResult("backup_files_present", has_dump and restore_ok, detail)
 
 
 def run_checks(target: str, expected_db: str = OLD_DB) -> list[CheckResult]:
