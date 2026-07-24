@@ -18,11 +18,16 @@ jobs:
             export GIT_CONFIG_COUNT=1
             export GIT_CONFIG_KEY_0=safe.directory
             export GIT_CONFIG_VALUE_0=/opt/homepage_repo_source
+            if [ -e /opt/homepage_repo_source ] && [ ! -d /opt/homepage_repo_source/.git ]; then
+              echo "Deploy source exists but is not a git repository: /opt/homepage_repo_source" >&2
+              exit 1
+            fi
             if [ ! -d /opt/homepage_repo_source/.git ]; then
-              rm -rf /opt/homepage_repo_source
               if ! git clone --depth=1 --branch=main https://github.com/d4sd1ng/homepage.git /opt/homepage_repo_source; then
-                rm -rf /opt/homepage_repo_source
-                git clone --depth=1 --branch=main git@github.com:d4sd1ng/homepage.git /opt/homepage_repo_source
+                git clone --depth=1 --branch=main git@github.com:d4sd1ng/homepage.git /opt/homepage_repo_source || {
+                  echo "Failed to clone repository via HTTPS and SSH." >&2
+                  exit 1
+                }
               fi
             fi
             cd /opt/homepage_repo_source
