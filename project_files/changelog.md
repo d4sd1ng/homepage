@@ -1,19 +1,5 @@
 # Changelog
 
-## 2026-07-24 – Deploy-Workflow: Backup-Rotation für Homepage-Runtime ergänzt
-
-Status: geprüft
-
-Geändert (`.github/workflows/deploy.yml`):
-
-- Nach dem Kopieren von `homepage/index.html` werden alte Runtime-Backups in `/opt/nurovell-potential-analysis/backups/homepage-runtime` aufbewahrungsbegrenzt bereinigt.
-- Für `frontend_public_homepage_before_repo_deploy_*.tar.gz` bleiben die 3 neuesten Archive erhalten, ältere werden gelöscht.
-- Für `homepage_repo_homepage_before_repo_deploy_*.tar.gz` bleiben die 3 neuesten Archive erhalten, ältere werden gelöscht.
-
-Nicht geändert:
-
-- Deploy-Trigger, SSH-Action, Safe-Directory-Umgebungsvariablen, frischer `git clone --depth 1` und Zielpfad-Kopiervorgang.
-
 ## 2026-07-24 – Deploy-Workflow auf frischen Clone pro Lauf umgestellt
 
 Status: geprüft
