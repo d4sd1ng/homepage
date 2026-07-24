@@ -25,8 +25,9 @@ jobs:
               exit 1
             else
               if ! git clone --depth=1 --branch=main https://github.com/d4sd1ng/homepage.git /opt/homepage_repo_source; then
+                echo "HTTPS clone failed, retrying via SSH." >&2
                 git clone --depth=1 --branch=main git@github.com:d4sd1ng/homepage.git /opt/homepage_repo_source || {
-                  echo "Failed to clone repository via HTTPS and SSH." >&2
+                  echo "SSH clone failed after HTTPS clone failure." >&2
                   exit 1
                 }
               fi

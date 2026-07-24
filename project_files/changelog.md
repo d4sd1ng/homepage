@@ -6,7 +6,7 @@ Status: geprüft
 
 Geändert (`.github/workflows/deploy.yml`):
 
-- Vor `cd /opt/homepage_repo_source` Guards ergänzt: Existiert der Pfad ohne `.git`, bricht der Workflow mit Klartextfehler ab; fehlt der Pfad komplett, wird das Repository per `git clone --depth=1 --branch=main` zuerst via HTTPS und bei Bedarf via SSH (`git@github.com:d4sd1ng/homepage.git`) neu angelegt.
+- Vor `cd /opt/homepage_repo_source` Guards ergänzt: Existiert der Pfad ohne `.git`, bricht der Workflow mit Klartextfehlermeldung ab; fehlt der Pfad komplett, wird das Repository per `git clone --depth=1 --branch=main` zuerst via HTTPS und bei Bedarf via SSH (`git@github.com:d4sd1ng/homepage.git`) neu angelegt.
 - Bestehender Ablauf mit `git fetch origin main`, `git reset --hard origin/main` und anschließendem Kopieren von `homepage/index.html` bleibt unverändert.
 
 Nicht geändert:
