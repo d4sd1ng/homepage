@@ -6,7 +6,7 @@ Status: geprüft
 
 Geändert (`.github/workflows/deploy.yml`):
 
-- Vor `cd /opt/homepage_repo_source` einen Guard ergänzt: Falls `/opt/homepage_repo_source/.git` fehlt, wird das Repository per `git clone --depth=1 --branch=main https://github.com/d4sd1ng/homepage.git /opt/homepage_repo_source` neu angelegt.
+- Vor `cd /opt/homepage_repo_source` einen Guard ergänzt: Falls `/opt/homepage_repo_source/.git` fehlt, wird der Zielordner neu aufgebaut und das Repository per `git clone --depth=1 --branch=main` zuerst via HTTPS und bei Bedarf via SSH (`git@github.com:d4sd1ng/homepage.git`) neu angelegt.
 - Bestehender Ablauf mit `git fetch origin main`, `git reset --hard origin/main` und anschließendem Kopieren von `homepage/index.html` bleibt unverändert.
 
 Nicht geändert:

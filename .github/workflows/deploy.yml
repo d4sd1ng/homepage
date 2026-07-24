@@ -19,7 +19,11 @@ jobs:
             export GIT_CONFIG_KEY_0=safe.directory
             export GIT_CONFIG_VALUE_0=/opt/homepage_repo_source
             if [ ! -d /opt/homepage_repo_source/.git ]; then
-              git clone --depth=1 --branch=main https://github.com/d4sd1ng/homepage.git /opt/homepage_repo_source
+              rm -rf /opt/homepage_repo_source
+              if ! git clone --depth=1 --branch=main https://github.com/d4sd1ng/homepage.git /opt/homepage_repo_source; then
+                rm -rf /opt/homepage_repo_source
+                git clone --depth=1 --branch=main git@github.com:d4sd1ng/homepage.git /opt/homepage_repo_source
+              fi
             fi
             cd /opt/homepage_repo_source
             git fetch origin main
