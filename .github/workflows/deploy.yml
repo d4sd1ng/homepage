@@ -23,4 +23,6 @@ jobs:
             cd /opt/homepage_repo_source
             mkdir -p /opt/nurovell-potential-analysis/frontend/public/homepage
             cp homepage/index.html /opt/nurovell-potential-analysis/frontend/public/homepage/index.html
+            ls -1t /opt/nurovell-potential-analysis/backups/homepage-runtime/frontend_public_homepage_before_repo_deploy_*.tar.gz 2>/dev/null | tail -n +4 | xargs -r rm -f
+            ls -1t /opt/nurovell-potential-analysis/backups/homepage-runtime/homepage_repo_homepage_before_repo_deploy_*.tar.gz 2>/dev/null | tail -n +4 | xargs -r rm -f
             echo "Deployed commit: $(git rev-parse --short HEAD)"
