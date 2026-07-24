@@ -1,5 +1,18 @@
 # Changelog
 
+## 2026-07-24 – Deploy-Workflow um Clone-Fallback ergänzt
+
+Status: geprüft
+
+Geändert (`.github/workflows/deploy.yml`):
+
+- Vor `cd /opt/homepage_repo_source` einen Guard ergänzt: Falls `/opt/homepage_repo_source/.git` fehlt, wird das Repository per `git clone --depth=1 --branch=main https://github.com/d4sd1ng/homepage.git /opt/homepage_repo_source` neu angelegt.
+- Bestehender Ablauf mit `git fetch origin main`, `git reset --hard origin/main` und anschließendem Kopieren von `homepage/index.html` bleibt unverändert.
+
+Nicht geändert:
+
+- SSH-Action (`appleboy/ssh-action@v1`), Zielpfad `/opt/nurovell-potential-analysis/frontend/public/homepage/index.html` und Safe-Directory-Umgebungsvariablen.
+
 ## 2026-07-24 – Deploy-Workflow auf schreibfreie Safe-Directory-Konfiguration umgestellt
 
 Status: geprüft
