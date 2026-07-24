@@ -118,7 +118,7 @@ printf '{"backend_running":"%s","postgres_running":"%s","current_db":"%s"}\n' \
 def check_databases_and_tables(target: str) -> CheckResult:
     old_count_sql = " union all ".join([f"select '{table}', count(*) from public.{table}" for table in COUNT_TABLES])
     new_count_sql = " union all ".join([f"select '{table}', count(*) from public.{table}" for table in COUNT_TABLES])
-    remote = f"""
+    remote = rf"""
 set -euo pipefail
 docker exec {POSTGRES_CONTAINER} psql -U avataruser -d postgres -v ON_ERROR_STOP=1 -t -A -F $'\\t' -c "
 select 'db_exists', datname from pg_database where datname in ('{OLD_DB}', '{NEW_DB}') order by datname;
@@ -169,7 +169,7 @@ docker exec {POSTGRES_CONTAINER} psql -U avataruser -d {NEW_DB} -v ON_ERROR_STOP
 
 
 def check_backups(target: str) -> CheckResult:
-    remote = f"""
+    remote = rf"""
 set -euo pipefail
 backup_dir=/opt/nurovell-potential-analysis/backups/postgres
 env_dir=/opt/nurovell-potential-analysis/compose
