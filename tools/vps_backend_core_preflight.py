@@ -178,7 +178,10 @@ fi
 if [ -d "$env_dir" ]; then
   find "$env_dir" -maxdepth 1 -type f -name '.env.vps.pre_nurovelle_core_*' -printf 'env\t%f\t%s\t%T@\n' | sort
 fi
-latest_dump="$(find "$backup_dir" -maxdepth 1 -type f -name '*.dump' -printf '%T@\t%p\n' 2>/dev/null | sort -nr | head -n 1 | cut -f2- || true)"
+latest_dump=""
+if [ -d "$backup_dir" ]; then
+  latest_dump="$(find "$backup_dir" -maxdepth 1 -type f -name '*.dump' -printf '%T@\t%p\n' | sort -nr | head -n 1 | cut -f2- || true)"
+fi
 if [ -n "$latest_dump" ]; then
   if docker exec -i postgres pg_restore --list < "$latest_dump" >/dev/null 2>&1; then
     printf 'restore_check\tok\t%s\n' "$(basename "$latest_dump")"

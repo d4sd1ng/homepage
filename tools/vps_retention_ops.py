@@ -81,7 +81,6 @@ REMOTE_RETENTION_PYTHON = textwrap.dedent(
 
     import argparse
     import json
-    import os
     import re
     import subprocess
     from datetime import datetime, timezone
@@ -309,7 +308,17 @@ REMOTE_RETENTION_PYTHON = textwrap.dedent(
             return 0
         if args.command == "docker-prune":
             result = docker_prune()
-            print(json.dumps(result, indent=2) if args.json else json.dumps(result, indent=2))
+            if args.json:
+                print(json.dumps(result, indent=2))
+            else:
+                for item in result["docker_prune"]:
+                    print("command:", " ".join(item["command"]))
+                    print(f"returncode: {item['returncode']}")
+                    if item["stdout"]:
+                        print(item["stdout"])
+                    if item["stderr"]:
+                        print(item["stderr"])
+                    print("")
             return 0
 
         plan = build_rotation_plan(current_time)
@@ -435,6 +444,7 @@ def install_script() -> str:
         "sudo systemctl daemon-reload",
         "sudo systemctl enable --now nurovelle-docker-prune.timer nurovelle-retention-maintenance.timer",
         "sudo logrotate -d /etc/logrotate.conf >/tmp/nurovelle-logrotate-dry-run.txt 2>&1 || (cat /tmp/nurovelle-logrotate-dry-run.txt && exit 1)",
+        "cat /tmp/nurovelle-logrotate-dry-run.txt",
         "python3 /usr/local/sbin/nurovelle_retention.py report --json",
         "printf '\\n'",
         "sudo systemctl list-timers --all 'nurovelle-*' --no-pager",
