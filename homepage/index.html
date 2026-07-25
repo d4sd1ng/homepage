@@ -39,9 +39,9 @@
     />
 <style>
      :root {
-        --sidebar-gold: #d89828;
-        --sidebar-gold-light: #e8b048;
-        --sidebar-soft: #f0a05a14;
+        --sidebar-gold: #ffd700;
+        --sidebar-gold-light: #fafad2;
+        --sidebar-soft: #e6be8a;
         --sidebar-text: #ffffffbd;
         --sidebar-muted: #ffffff85;
         --nv-black: #1a1a1a;
@@ -51,33 +51,25 @@
         --nv-forest-dark: #10412e;
         --nv-text-light: #e4e0d6;
         --nv-text-muted: #b9c3bd;
-        --nv-gold-dark: #d6a458;
+        --nv-gold-dark: #DAA520;
         --nv-gold-mid: #f6ce42;
-        --nv-gold-light: #fef1a2;
-        --nv-gold-core: #cc9933;
-        --nv-gold-border: #a55d07;
-        --nv-gold-inner-dark: #8b4208;
-        --nv-gold-inner-mid: #b17d10;
+        --nv-gold-light: #FAFAD2;
+        --nv-gold-core: #FFD700;
+        --nv-gold-border: #c5b358;
+        --nv-gold-inner-dark: #d4af37;
+        --nv-gold-inner-mid: #FFDF00;
         --nv-gold-highlight: #fae385;
-        --nv-gold-text-dark: rgb(120, 50, 5);
-        --nv-gold-accent: #d4af37;
+        --nv-gold-text-dark: #996515;
+        --nv-gold-accent: #EEE8AA;
         --nv-gold-gradient: linear-gradient(
-          160deg,
-          #a54e07,
-          #b47e11,
-          #fef1a2,
-          #bc881b,
-          #a54e07
+        135deg, #F9F295, #E0AA3E, #FAF398, #B88A44
         );
 
         --gradient-gold-border: linear-gradient(
-          135deg,
-          #ae8625,
-          #f7ef8a,
-          #d2ac47,
-          #edc967
+          135deg, #AE8625, #F7EF8A, #D2AC47, #EDC967
         );
 
+        --gardient-dark-gold: linear-gradient(135deg, #DFBD69, #926F34);
         --gradient-green-border: linear-gradient(
           135deg,
           #10412e,
@@ -86,7 +78,7 @@
           #3fa876
         );
 
-        --header-height: 100px;
+        --header-height: 85px;
         --page-gutter: clamp(18px, 3vw, 32px);
         --side: var(--page-gutter);
         --sidebar-w: 0px;
@@ -102,7 +94,7 @@
         --nv-about-paragraph-extension: 82px;
         --nv-about-text-width: 955px;
         --nv-about-video-gap: 220px;
-        --nv-kicker-color: var(--nv-gold-inner-mid);
+        --nv-kicker-color: var(--nv-forest-dark);
         --nv-kicker-line-height: 1.15;
         --nv-kicker-letter-spacing: 0.14em;
         --nv-section-pad-y: 104px;
@@ -110,7 +102,7 @@
         --nv-title-text-gap: 64px;
         --nv-section-text-content-gap: 76px;
         --nv-section-divider-before-gap: 88px;
-        --nv-section-divider-after-gap: 88px;
+        --nv-section-divider-after-gap: 100px;
         --nv-section-black: #050505;
         --nv-section-emerald: #010603;
         --nv-section-inner-max: 1180px;
@@ -367,7 +359,7 @@
 
       .nv-contact__title {
       margin: 0 0 var(--nv-title-text-gap); /* unverändert, keine Vorgabe für Kontakt */
-	}
+    }
 
       #ki-projekt-start,
       #projektidee,
@@ -869,7 +861,7 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: calc(var(--header-height) + 56px) var(--side)
+  padding: calc(var(--header-height) + 2px) var(--side)
     var(--nv-section-divider-before-gap);
   overflow: hidden;
   position: relative;
@@ -915,7 +907,7 @@
 
 .hero-cube {
   position: absolute;
-  right: calc(var(--page-gutter) / 2);
+  right: calc(var(--page-gutter) / 4);
   bottom: 5%;
   width: clamp(1080px, 102vw, 1680px);
   z-index: 1;
