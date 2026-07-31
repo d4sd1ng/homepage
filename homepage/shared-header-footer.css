@@ -43,7 +43,8 @@
 .logo {
   display: block;
   width: auto;
-  height: 48px;
+  /* Pages whose header height scales set --logo-h; fixed-header pages keep 48px. */
+  height: var(--logo-h, 48px);
 }
 
 .brand {
@@ -267,7 +268,9 @@
 }
 
 .footer-inner {
-  width: min(100%, var(--container-max, 1200px));
+  /* Falls back to the page's own content column so the footer lines up with
+     the body above it; 1200px only when the page defines neither token. */
+  width: min(100%, var(--container-max, var(--content-max, 1200px)));
   margin: 0 auto;
   display: grid;
   grid-template-columns: 1.35fr 1fr 1.2fr 1fr;
@@ -288,7 +291,7 @@
   margin: 0 0 var(--space-4, 16px);
   color: var(--color-gold-light, #f7ef8a);
   font-family: var(--font-technical, "Anca Coder", monospace);
-  font-size: var(--font-size-h3, 1.25rem);
+  font-size: var(--font-size-h3, clamp(1.25rem, 1.14vw, 1.75rem));
   line-height: 1.2;
   font-weight: 600;
   letter-spacing: 0.045em;
@@ -301,7 +304,8 @@
 .footer label {
   color: var(--color-text-muted, #b9c3bd);
   font-family: var(--font-body, "Raleway", Arial, sans-serif);
-  font-size: 0.9375rem;
+  /* 15px up to ~1765px viewport, then grows with the body copy */
+  font-size: clamp(0.9375rem, 0.85vw, 1.3rem);
   line-height: 1.65;
   font-style: normal;
   text-decoration: none;
