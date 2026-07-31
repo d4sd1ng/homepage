@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Nurovelle | KI-Potenzialanalyse</title>
+<meta name="description" content="Die KI-Potenzialanalyse untersucht, wo KI und Automatisierung im Unternehmen konkreten betrieblichen Nutzen erzeugen — inklusive Voraussetzungen, Risiken und nächster Schritte."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;550;600;650;700;750;800&family=Exo+2:wght@600;700;800&display=swap" rel="stylesheet"/>
+<style>
+:root {
+  --bg: #020805;
+  --gold2: #f0a05a;
+  --muted: rgba(255,255,255,.78);
+  --font-body: "Inter", Arial, sans-serif;
+  --font-technical: "Exo 2", Inter, Arial, sans-serif;
+  --side: clamp(24px, 6vw, 120px); /* SECTION gutter — same token as index.html */
+  --page-gutter: clamp(18px, 3vw, 32px); /* HEADER gutter — same token as index.html */
+  --content-max: clamp(1280px, calc(85vw - 370px), 2900px); /* 1280px bis ~1940px, dann bis ~75% der Bildschirmbreite */
+  --header-h: clamp(44px, 2.5vw, 64px);
+  /* Tokens consumed by shared-header-footer.css — the shared chrome only
+     scales on pages (like these) whose header height scales with it. */
+  --logo-h: clamp(48px, 2.73vw, 70px);
+  --control-height: clamp(44px, 2.5vw, 62px);
+  --space-5: clamp(24px, 1.36vw, 34px);
+  --font-size-button: clamp(1rem, 0.92vw, 1.4rem);
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; background: var(--bg); scroll-padding-top: calc(var(--header-h) + 12px); }
+body { font-family: "Inter", Arial, sans-serif; color: #fff; background: #000; overflow-x: hidden; }
+a { text-decoration: none; color: inherit; }
+img { display: block; max-width: 100%; }
+.gold { background: linear-gradient(180deg,#ffd7a3 0%,#f0a05a 22%,#c76b2b 58%,#7a3518 100%); -webkit-background-clip: text; background-clip: text; color: transparent; -webkit-text-fill-color: transparent; }
+.site-header { height: var(--header-h); min-height: var(--header-h); border-bottom: 1px solid rgba(240,160,90,.72); background: #000; backdrop-filter: blur(6px); position: sticky; top: 0; z-index: 50; }
+.header-inner { height: var(--header-h); padding: 0 var(--page-gutter); display: flex; align-items: center; justify-content: space-between; }
+.logo { height: 48px; width: auto; display: block; }
+.nav { display: flex; gap: 24px; align-items: center; }
+.nav a { font-family: "Exo 2", Inter, Arial, sans-serif; font-size: 10px; letter-spacing: 1.05px; text-transform: uppercase; line-height: 1; color: rgba(255,255,255,.82); }
+.nav a:hover { color: var(--gold2); }
+.header-cta { height: 28px; padding: 0 12px; display: inline-flex; align-items: center; justify-content: center; border: 1px solid #d89828; border-radius: 4px; font-family: "Exo 2", Inter, Arial, sans-serif; font-weight: 700; font-size: 13px; line-height: 1; letter-spacing: .045em; color: #050505; text-transform: uppercase; background: linear-gradient(180deg,#ffd7a3 0%,#f0a05a 24%,#d89828 60%,#7a3518 100%); box-shadow: 0 0 12px rgba(199,107,43,.28); }
+.btn { height: clamp(28px, 1.6vw, 40px); padding: 0 clamp(12px, 0.7vw, 18px); display: inline-flex; align-items: center; justify-content: center; border: 1px solid #d89828; border-radius: 4px; font-family: "Exo 2", Inter, Arial, sans-serif; font-weight: 700; font-size: clamp(13px, 0.75vw, 18px); line-height: 1; letter-spacing: .045em; color: #050505; text-transform: uppercase; background: linear-gradient(180deg,#ffd7a3 0%,#f0a05a 24%,#d89828 60%,#7a3518 100%); }
+.section { position: relative; padding: clamp(42px, 2.4vw, 64px) var(--side); background: #000; }
+.section:before { content: ""; position: absolute; left: 0; right: 0; top: 0; height: 1px; background: linear-gradient(90deg,transparent 0%,rgba(240,160,90,.36) 4%,rgba(240,160,90,.72) 12%,rgba(240,160,90,.72) 88%,rgba(240,160,90,.36) 96%,transparent 100%); opacity: .75; }
+.section-inner { max-width: var(--content-max); margin-left: auto; margin-right: auto; }
+.kicker { font-family: "Exo 2", Inter, Arial, sans-serif; font-weight: 600; font-size: clamp(10.5px, 0.6vw, 15px); letter-spacing: 1.8px; text-transform: uppercase; color: var(--gold2); margin-bottom: 8px; }
+h1,h2,h3 { font-family: "Exo 2", Inter, Arial, sans-serif; font-weight: 800; text-transform: uppercase; overflow-wrap: break-word; hyphens: auto; }
+h1 { max-width: clamp(860px, 48vw, 1150px); margin-bottom: clamp(12px, 0.7vw, 18px); font-size: clamp(34px,3.2vw,104px); line-height: .96; letter-spacing: .035em; color: #f5f1e8; }
+h2 { font-size: clamp(20px,1.38vw,44px); line-height: 1.04; letter-spacing: .035em; color: #f5f1e8; margin-bottom: clamp(10px, 0.58vw, 15px); }
+h3 { font-size: clamp(18px,1.22vw,40px); line-height: 1.04; letter-spacing: .035em; color: #f5f1e8; margin-bottom: clamp(8px, 0.46vw, 12px); }
+.lead { max-width: clamp(820px, 46vw, 1100px); font-family: "Inter", Arial, sans-serif; font-size: clamp(12px, 0.68vw, 20px); line-height: 1.55; color: var(--muted); }
+.detail-hero { display: grid; grid-template-columns: minmax(0,1fr) minmax(320px,clamp(520px, 30vw, 1150px)); gap: clamp(34px, 1.9vw, 50px); align-items: center; }
+.detail-hero > * { min-width: 0; } /* sonst sprengt ein langes Wort wie POTENZIALANALYSE die Spalte */
+.visual-card { position: relative; overflow: hidden; border: 1px solid rgba(240,160,90,.88); border-radius: 12px; background: rgba(0,0,0,.18); box-shadow: 0 0 10px rgba(240,160,90,.24),0 0 28px rgba(199,107,43,.18),inset 0 0 0 1px rgba(255,215,163,.18); filter: drop-shadow(0 16px 24px rgba(0,0,0,.34)); }
+.visual-card:before { content: ""; position: absolute; inset: 0; z-index: 1; pointer-events: none; background: linear-gradient(rgba(0,0,0,.82), rgba(0,0,0,.82)), linear-gradient(90deg, #000 0%, rgba(0,0,0,.96) 34%, rgba(0,0,0,.88) 66%, rgba(0,0,0,.92) 100%); }
+.visual-card>img:first-child { width: 100%; height: auto; object-fit: cover; filter: brightness(.16) saturate(.22) contrast(.88) grayscale(.28); }
+.visual-card .icon { position: absolute; left: 8%; top: 15%; width: 14%; min-width: 54px; z-index: 2; filter: none; }
+.content-grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: clamp(18px, 1vw, 28px); margin-top: 0; }
+.panel { border: 1px solid rgba(240,160,90,.32); border-radius: 8px; background: rgba(0,0,0,.22); padding: clamp(20px, 1.15vw, 30px); }
+.panel p,.panel li { max-width: 78ch; font-family: "Inter", Arial, sans-serif; font-size: clamp(12px, 0.68vw, 20px); line-height: 1.55; color: rgba(255,255,255,.76); }
+.panel ul { margin-left: clamp(17px, 0.96vw, 24px); }
+.summary { border: 1px solid rgba(255,215,163,.78); background: linear-gradient(180deg,#ffd7a3 0%,#f0a05a 24%,#d89828 58%,#7a3518 100%); box-shadow: inset 0 0 0 1px rgba(255,244,199,.20),0 8px 16px rgba(0,0,0,.30); }
+.summary h2,.summary p { color: #050505; text-shadow: none; }
+.actions { display: flex; gap: clamp(12px, 0.7vw, 18px); flex-wrap: wrap; margin-top: clamp(22px, 1.25vw, 32px); }
+.footer { padding: 32px var(--side); background: #000; border-top: 1px solid rgba(216,152,40,.7); }
+.footer-inner { max-width: var(--content-max); margin-left: auto; margin-right: auto; display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 38px; }
+.footer h4 { margin-bottom: 12px; font-family: "Exo 2", Inter, Arial, sans-serif; font-size: 11px; line-height: 1.2; font-weight: 400; letter-spacing: .08em; text-transform: uppercase; color: #e8b048; }
+.footer a,.footer p { display: block; font-family: "Inter", Arial, sans-serif; font-size: 11.5px; line-height: 1.65; font-weight: 400; color: rgba(255,255,255,.70); }
+@media (max-width: 900px) { .nav { display: none; } .detail-hero,.content-grid,.footer-inner { grid-template-columns: 1fr; } .logo { height: 46px; } .site-header,.header-inner { height: 42px; min-height: 42px; } }
+
+.auto-grid { --g: clamp(18px, 1vw, 28px); display: grid; grid-template-columns: repeat(auto-fit, minmax(max(min(100%, 340px), calc((100% - 2 * var(--g)) / 3)), 1fr)); gap: var(--g); } /* max. 3 Spalten */
+.module-grid { --g: clamp(18px, 1vw, 28px); display: grid; grid-template-columns: repeat(auto-fit, minmax(max(min(100%, 280px), calc((100% - 3 * var(--g)) / 4)), 1fr)); gap: var(--g); } /* max. 4 Spalten */
+.step-no { display: block; margin-bottom: 6px; font-family: "Exo 2", Inter, Arial, sans-serif; font-weight: 700; font-size: clamp(11px, 0.62vw, 15px); letter-spacing: .14em; color: var(--gold2); }
+.tags { display: flex; flex-wrap: wrap; gap: clamp(8px, 0.5vw, 12px); margin-top: clamp(14px, 0.8vw, 20px); }
+.tag { padding: clamp(7px, 0.4vw, 10px) clamp(13px, 0.75vw, 18px); border: 1px solid rgba(240,160,90,.34); border-radius: 999px; background: rgba(0,0,0,.22); font-family: "Inter", Arial, sans-serif; font-size: clamp(12px, 0.68vw, 20px); line-height: 1.2; color: rgba(255,255,255,.82); }
+.section-head { margin-bottom: clamp(20px, 1.2vw, 32px); }
+.panel + .panel { margin-top: 0; }
+.stack > * + * { margin-top: clamp(8px, 0.5vw, 12px); }
+</style>
+<link rel="stylesheet" href="../../shared-header-footer.css"/>
+</head>
+<body>
+<header class="site-header">
+<div class="header-inner">
+<a href="../../index.html" aria-label="Zur Startseite"><img alt="Nurovelle Logo" class="logo" src="../../assets/hero/nurovelle_logo.png"/></a>
+<nav class="nav" aria-label="Hauptmenü">
+<a href="../../index.html#top">Home</a>
+<a href="../../index.html#problem-loesung">Lösungen</a>
+<a href="../../index.html#branchen">Branchen</a>
+<a href="../../index.html#leistungen">Services</a>
+<a href="../../index.html#prozess">Ablauf</a>
+<a href="../../analyse.html">Kontakt</a>
+</nav>
+<a class="header-cta" href="../../analyse.html">Potenzialanalyse starten</a>
+</div>
+</header>
+<main>
+<section class="section"><div class="section-inner detail-hero"><div><div class="kicker">Leistung</div><h1>KI-<span class="gold">Potenzialanalyse</span></h1><p class="lead">KI-Potenziale erkennen, bevor Zeit und Budget gebunden werden. Die KI-Potenzialanalyse untersucht, wo künstliche Intelligenz und Automatisierung in Ihrem Unternehmen einen konkreten betrieblichen Nutzen erzeugen können.</p><div class="actions"><a class="btn" href="../../analyse.html">KI-Potenzialanalyse starten</a><a class="btn" href="../../index.html#leistungen">Zurück zur Übersicht</a></div></div><div class="visual-card"><img src="../../assets/cards/cards_service/1.png" alt="KI-Potenzialanalyse"/></div></div></section>
+<section class="section"><div class="section-inner auto-grid"><article class="panel"><h2>Was ist eine KI-Potenzialanalyse?</h2><div class="stack"><p>Eine KI-Potenzialanalyse bewertet betriebliche Abläufe daraufhin, ob und wie sie durch künstliche Intelligenz, Automatisierung oder datenbasierte Systeme unterstützt werden können.</p><p>Im Mittelpunkt steht nicht die Auswahl eines bestimmten Werkzeugs. Entscheidend ist, ob ein konkreter Prozess fachlich geeignet ist, ausreichende Daten zur Verfügung stehen und eine technische Umsetzung einen nachvollziehbaren Nutzen bietet.</p><p>Untersucht werden unter anderem manuelle Bearbeitungsschritte, Medienbrüche, wiederkehrende Prüfungen, Informationssuche, Dokumentenverarbeitung und systemübergreifende Datenübertragungen.</p></div></article><article class="panel"><h2>Warum ist die Analyse sinnvoll?</h2><div class="stack"><p>Viele KI-Projekte beginnen mit einer Technologie, bevor der eigentliche Anwendungsfall eindeutig definiert wurde. Dadurch entstehen häufig Einzellösungen, die schlecht in bestehende Abläufe integriert sind oder keinen messbaren Vorteil bieten.</p><p>Die Potenzialanalyse schafft vor einer Umsetzung Klarheit über:</p><ul><li>geeignete und ungeeignete Anwendungsfälle,</li><li>vorhandene Daten und technische Abhängigkeiten,</li><li>mögliche Risiken und Kontrollanforderungen,</li><li>notwendige Vorarbeiten,</li><li>fachlich sinnvolle Prioritäten.</li></ul><p>So lässt sich frühzeitig beurteilen, ob ein Vorhaben weiterverfolgt werden sollte.</p></div></article></div></section>
+<section class="section"><div class="section-inner"><div class="section-head"><div class="kicker">Prüfumfang</div><h2>Was wird konkret geprüft?</h2></div><div class="auto-grid"><article class="panel"><h3>Prozesse und Aufgaben</h3><p>Wiederkehrende Tätigkeiten, Freigaben, Übergaben, manuelle Eingaben und Bearbeitungszeiten werden betrachtet.</p></article><article class="panel"><h3>Dokumente und Informationen</h3><p>Geprüft wird, wie Angebote, Rechnungen, Berichte, Verträge, E-Mails oder technische Unterlagen verarbeitet werden.</p></article><article class="panel"><h3>Datenlage</h3><p>Datenquellen werden hinsichtlich Verfügbarkeit, Qualität, Aktualität und Zugänglichkeit eingeordnet.</p></article><article class="panel"><h3>Systemlandschaft</h3><p>Bestehende Software, Datenbanken, Dateiablagen, Schnittstellen und Berechtigungssysteme werden berücksichtigt.</p></article><article class="panel"><h3>Automatisierungspotenzial</h3><p>Es wird bewertet, welche Aufgaben regelbasiert automatisiert werden können und wo der Einsatz von KI sinnvoll ist.</p></article><article class="panel"><h3>Risiken und Voraussetzungen</h3><p>Datenschutz, Informationssicherheit, menschliche Kontrolle und organisatorische Abhängigkeiten fließen in die Bewertung ein.</p></article></div></div></section>
+<section class="section"><div class="section-inner"><article class="panel"><h2>Leistungsumfang</h2><div class="stack"><p>Die KI-Potenzialanalyse umfasst die strukturierte Erfassung der Ausgangslage, die Untersuchung relevanter Prozesse und die Bewertung möglicher Anwendungsfälle. Dazu gehören:</p><ul><li>Aufnahme bestehender Abläufe und Problemstellen,</li><li>Einordnung manueller und wiederkehrender Aufgaben,</li><li>Prüfung relevanter Datenquellen,</li><li>Betrachtung bestehender Systeme und Schnittstellen,</li><li>Ableitung konkreter KI- und Automatisierungsansätze,</li><li>Bewertung von Nutzen, Aufwand und Umsetzungsreife,</li><li>Einordnung technischer und organisatorischer Risiken,</li><li>Empfehlung geeigneter nächster Schritte.</li></ul><p>Das Ergebnis ist keine allgemeine Ideensammlung, sondern eine fachlich begründete Entscheidungsgrundlage.</p></div></article></div></section>
+<section class="section"><div class="section-inner"><div class="section-head"><div class="kicker">Ablauf</div><h2>Module der Potenzialanalyse</h2></div><div class="module-grid"><article class="panel"><span class="step-no">01</span><h3>Ausgangslage erfassen</h3><p>Bestehende Prozesse, Systeme, Aufgaben und bekannte Problemstellen werden strukturiert aufgenommen.</p></article><article class="panel"><span class="step-no">02</span><h3>Prozesse analysieren</h3><p>Manuelle Bearbeitungsschritte, Medienbrüche, Übergaben und wiederkehrende Tätigkeiten werden untersucht.</p></article><article class="panel"><span class="step-no">03</span><h3>Aufgaben klassifizieren</h3><p>Aufgaben werden nach Wiederholungsgrad, Regelgebundenheit, Informationsbedarf und Entscheidungsanteil eingeordnet.</p></article><article class="panel"><span class="step-no">04</span><h3>Datenlage prüfen</h3><p>Relevante Datenquellen werden auf Verfügbarkeit, Qualität, Aktualität und Zugriffsrechte geprüft.</p></article><article class="panel"><span class="step-no">05</span><h3>Systeme einordnen</h3><p>Vorhandene Software, Datenbanken, Schnittstellen und technische Abhängigkeiten werden berücksichtigt.</p></article><article class="panel"><span class="step-no">06</span><h3>Anwendungsfälle ableiten</h3><p>Aus den Untersuchungsergebnissen werden konkrete KI- und Automatisierungsmöglichkeiten entwickelt.</p></article><article class="panel"><span class="step-no">07</span><h3>Potenziale bewerten</h3><p>Anwendungsfälle werden nach fachlichem Nutzen, Aufwand, Risiko und Umsetzungsreife eingeordnet.</p></article><article class="panel"><span class="step-no">08</span><h3>Maßnahmen priorisieren</h3><p>Geeignete Handlungsfelder werden geordnet und mit sinnvollen nächsten Schritten verbunden.</p></article></div></div></section>
+<section class="section"><div class="section-inner"><div class="section-head"><div class="kicker">Ergebnis</div><h2>Ihr konkreter Nutzen</h2></div><div class="auto-grid"><article class="panel"><h3>Sie erfahren, was tatsächlich geeignet ist</h3><p>Die Analyse trennt fachlich sinnvolle Anwendungsfälle von Ideen, deren Umsetzung keinen ausreichenden Nutzen erwarten lässt.</p></article><article class="panel"><h3>Sie erhalten eine strukturierte Auswertung</h3><p>Die identifizierten Potenziale werden nach Relevanz, Voraussetzungen und Umsetzungsreife eingeordnet.</p></article><article class="panel"><h3>Sie erkennen notwendige Vorarbeiten</h3><p>Fehlende Daten, unklare Prozesse, technische Abhängigkeiten oder Sicherheitsanforderungen werden frühzeitig sichtbar.</p></article><article class="panel"><h3>Sie vermeiden ungeeignete Investitionen</h3><p>Software, Lizenzen oder Individualentwicklungen werden nicht allein aufgrund technischer Möglichkeiten ausgewählt.</p></article><article class="panel"><h3>Sie erhalten eine Empfehlung für den nächsten Schritt</h3><p>Abhängig vom Ergebnis kann eine KI-Roadmap, eine technische Detailprüfung, ein Pilotprojekt oder zunächst eine vorbereitende Maßnahme sinnvoll sein.</p></article><article class="panel"><h3>Sie erhalten auch dann Klarheit, wenn sich KI nicht lohnt</h3><p>Ergibt die Analyse keinen ausreichenden Nutzen, wird keine KI-Lösung empfohlen. In diesem Fall werden gegebenenfalls Prozessvereinfachungen, Datenbereinigung oder klassische Automatisierung als geeignetere Maßnahmen benannt.</p></article></div></div></section>
+<section class="section"><div class="section-inner auto-grid"><article class="panel"><h2>Was wird für die Analyse benötigt?</h2><div class="stack"><p>Für eine erste Bewertung reichen grundlegende Informationen zu:</p><ul><li>den betrachteten Prozessen,</li><li>wiederkehrenden Aufgaben,</li><li>eingesetzten Systemen,</li><li>relevanten Datenquellen,</li><li>bekannten Engpässen,</li><li>manuellen Bearbeitungsschritten.</li></ul><p>Eine vollständige technische Dokumentation ist für die erste Einordnung nicht zwingend erforderlich.</p><p>Die genaue Dauer richtet sich nach Umfang, Prozessanzahl und verfügbarer Informationsgrundlage. Eine verbindliche Standarddauer ist in den Projektunterlagen nicht festgelegt.</p></div></article><article class="panel"><h2>Typische Einsatzbereiche</h2><div class="tags"><span class="tag">Dokumentenverarbeitung</span><span class="tag">Datenabgleich und Datenbereinigung</span><span class="tag">Wissensmanagement</span><span class="tag">Prozessautomatisierung</span><span class="tag">Kundenservice</span><span class="tag">Vertriebsunterstützung</span><span class="tag">interne Verwaltung</span><span class="tag">technische Dokumentation</span><span class="tag">CRM- und ERP-Prozesse</span><span class="tag">individuelle KI-Software</span></div></article></div></section>
+<section class="section"><div class="section-inner"><article class="panel"><h2>Was damit möglich wird</h2><div class="stack"><p>Aus der Potenzialanalyse können unterschiedliche nächste Schritte entstehen:</p><ul><li>Entwicklung einer KI-Roadmap,</li><li>Abgrenzung eines Pilotprojekts,</li><li>Aufbau eines KI-Agenten,</li><li>Automatisierung eines Workflows,</li><li>Einführung eines Wissenssystems,</li><li>Entwicklung eines Dokumenten- oder Datenabgleichsystems,</li><li>Integration von KI in bestehende Software,</li><li>Vorbereitung eines Chatbots oder Sprachassistenten,</li><li>Bereinigung von Daten und Prozessen vor einer späteren Umsetzung.</li></ul><p>Die Analyse legt nicht automatisch eine technische Lösung fest. Sie zeigt, welcher Weg fachlich sinnvoll ist.</p></div></article></div></section>
+<section class="section"><div class="section-inner"><div class="section-head"><div class="kicker">FAQ</div><h2>Häufige Fragen</h2></div><div class="auto-grid"><article class="panel"><h3>Muss bereits eine konkrete KI-Idee vorhanden sein?</h3><p>Nein. Ausgangspunkt können bestehende Prozesse, wiederkehrende Aufgaben oder bekannte Engpässe sein.</p></article><article class="panel"><h3>Was erhalte ich als Ergebnis?</h3><p>Sie erhalten eine strukturierte Einordnung relevanter Potenziale, notwendiger Voraussetzungen und empfohlener nächster Schritte.</p></article><article class="panel"><h3>Wird bereits eine bestimmte Software ausgewählt?</h3><p>Nein. Zunächst werden Bedarf und Umsetzbarkeit bewertet. Eine konkrete Technologieentscheidung folgt erst danach.</p></article><article class="panel"><h3>Wird die bestehende Systemlandschaft berücksichtigt?</h3><p>Ja. Software, Datenbanken, Schnittstellen und Berechtigungen fließen in die Analyse ein.</p></article><article class="panel"><h3>Werden Datenschutz und Informationssicherheit geprüft?</h3><p>Grundlegende Anforderungen an Datenverarbeitung, Zugriff, Kontrolle und Protokollierung werden berücksichtigt.</p></article><article class="panel"><h3>Was passiert, wenn kein ausreichendes Potenzial besteht?</h3><p>Dann wird keine KI-Umsetzung empfohlen. Geeignetere Alternativen oder notwendige Vorarbeiten werden benannt.</p></article><article class="panel"><h3>Wie lange dauert die Analyse?</h3><p>Die Dauer hängt vom Umfang der betrachteten Prozesse und der verfügbaren Informationsgrundlage ab.</p></article><article class="panel"><h3>Was folgt nach der Analyse?</h3><p>Mögliche nächste Schritte sind eine Roadmap, eine technische Detailprüfung, ein Pilotprojekt oder vorbereitende Prozess- und Datenmaßnahmen.</p></article></div></div></section>
+<section class="section"><div class="section-inner"><article class="panel summary"><h2>Prüfen Sie, wo KI in Ihrem Unternehmen tatsächlich sinnvoll eingesetzt werden kann</h2><p>Die KI-Potenzialanalyse schafft eine belastbare Grundlage für weitere Entscheidungen und zeigt, welche Vorhaben fachlich und technisch weiterverfolgt werden sollten.</p><div class="actions"><a class="btn" href="../../analyse.html">KI-Potenzialanalyse starten</a><a class="btn" href="../../index.html#leistungen">Weitere Services ansehen</a></div></article></div></section>
+</main>
+<footer class="footer" id="footer">
+<div class="footer-inner">
+<div><h4>Nurovelle</h4><p>KI-Automatisierung für Unternehmen. Fokus: reale Prozesse, saubere Umsetzung und messbare Entlastung.</p></div>
+<div><h4>Seiten</h4><a href="../../index.html#top">Startseite</a><a href="../../index.html#problem-loesung">Lösungen</a><a href="../../index.html#branchen">Branchen</a><a href="../../index.html#leistungen">Services</a></div>
+<div><h4>Ablauf</h4><a href="../../index.html#prozess">Zusammenarbeit</a><a href="../../praxisleitfaden.html">Praxisleitfaden</a><a href="../../analyse.html">Potenzialanalyse</a></div>
+<div><h4>Kontakt</h4><a href="../../analyse.html">Potenzialanalyse starten</a><a href="mailto:info@nurovelle.de">info@nurovelle.de</a><a href="../../impressum.html">Impressum</a><a href="../../datenschutz.html">Datenschutz</a><p>© 2026 Nurovelle</p></div>
+</div>
+</footer>
+</body>
+</html>
