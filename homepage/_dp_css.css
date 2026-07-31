@@ -1,0 +1,145 @@
+/* ==========================================================================
+   DETAILSEITEN-VORLAGE — Gerüst für alle 11 Leistungs-Detailseiten
+   Rollen, Flächen und Rahmen nach Implementation Brief 0.17
+   Struktur nach service_detailseiten_scope.md (10 Sektionen)
+
+   Wiederverwendbare Bausteine je Sektion:
+     .nv-dp__chain     Modulkette (Framework im Hero)
+     .nv-dp__num       nummerierte Leistungsliste
+     .nv-dp__list      Label + Beschreibung, 1- oder 2-spaltig
+     .nv-dp__tags      schlichte Stichpunktliste
+     .nv-dp__parallel  parallele Prüfungen
+     .nv-dp__faq       FAQ mit Gold-Buttons
+   ========================================================================== */
+
+/* ---------- Sektionsgerüst ---------- */
+.nv-dp { position: relative; min-height: calc(125vh - var(--header-height));
+  display: flex; flex-direction: column; justify-content: center;
+  padding: 104px var(--side) 131.25px; overflow: hidden; color: var(--color-text-light); }
+.nv-dp--dark  { background: #050505; }
+.nv-dp--green { background: #010603; }
+.nv-dp::after { content:""; position:absolute; left:7%; right:7%; bottom:0; height:2px;
+  background:linear-gradient(90deg,transparent,#fae385 20%,#fae385 80%,transparent);
+  box-shadow:0 0 8px #fae38566; pointer-events:none; }
+.nv-dp__inner { position: relative; z-index: 1; width: 100%; margin: 0 auto 0 0; }
+
+/* ---------- Kopf: Kicker, Titel, Subtitle, Fließtext ---------- */
+.nv-dp__kicker { margin: 0 0 10px; color: #55863f;
+  font: var(--w-kicker-sektion) var(--t-kicker-sektion)/1.15 "Inter",Arial,sans-serif;
+  letter-spacing: .14em; text-transform: uppercase; }
+.nv-dp__title { margin: 0 0 49px; color: transparent; background: var(--gold-1);
+  background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  font: var(--w-sektionstitel) var(--t-sektionstitel)/1.15 "Exo 2",Inter,Arial,sans-serif; }
+.nv-dp__subtitle { max-width: 70ch; margin: 0 0 40px; color: var(--color-text-sub);
+  font: var(--w-subtitle) var(--t-subtitle)/1.22 "Inter",Arial,sans-serif; }
+.nv-dp__text { max-width: 88ch; margin: 0 0 116px; color: #b9c3bd;
+  font: var(--w-fliesstext) var(--t-fliesstext)/1.85 "Inter",Arial,sans-serif; }
+.nv-dp__text + .nv-dp__text { margin-top: -80px; }
+.nv-dp__text--nach { margin: 116px 0 0; }
+
+/* ---------- Modulkette (Framework) ---------- */
+.nv-dp__chain { display: grid; grid-template-columns: repeat(8, minmax(0,1fr));
+  gap: 30px; margin: 0 0 116px; padding: 0; list-style: none; counter-reset: dpmod; }
+.nv-dp__chain li { counter-increment: dpmod; position: relative;
+  display: flex; flex-direction: column; align-items: center; text-align: center;
+  padding: 26px 18px 22px; border-radius: 10px;
+  border: 1.25px solid transparent; background-origin: border-box;
+  background-clip: padding-box, border-box;
+  color: #e4e0d6;
+  font: var(--w-bildunterschrift) var(--t-bildunterschrift)/1.3 "Exo 2",Inter,Arial,sans-serif; }
+.nv-dp--dark  .nv-dp__chain li { background-image: linear-gradient(#17251d,#17251d), var(--gold-3); }
+.nv-dp--green .nv-dp__chain li { background-image: linear-gradient(#1a1a1a,#1a1a1a), var(--gold-3); }
+.nv-dp__chain li::before { content: counter(dpmod,decimal-leading-zero);
+  display: block; margin-bottom: 14px; color: transparent; background: var(--gold-1);
+  background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  font: var(--w-kennzahl) var(--t-kennzahl)/1 "Exo 2",Inter,Arial,sans-serif; }
+.nv-dp__chain li:not(:last-child)::after { content: "\203A"; position: absolute;
+  right: -22px; top: 50%; transform: translateY(-50%);
+  color: #d4af37; font: 650 26px/1 "Exo 2",Inter,Arial,sans-serif; }
+
+/* ---------- Nummerierte Leistungsliste ---------- */
+.nv-dp__num { display: grid; gap: 40px 96px; margin: 0; padding: 0; list-style: none;
+  counter-reset: dpnum; }
+.nv-dp__num--2 { grid-template-columns: repeat(2, minmax(0,1fr)); }
+.nv-dp__num li { counter-increment: dpnum; position: relative; padding-left: 74px; }
+.nv-dp__num li::before { content: counter(dpnum,decimal-leading-zero);
+  position: absolute; left: 0; top: 0; display: grid; place-items: center;
+  width: 54px; height: 54px; border-radius: 7px;
+  border: 1.25px solid transparent; background-origin: border-box;
+  background-clip: padding-box, border-box; color: #d4af37;
+  font: var(--w-bulletlabel) var(--t-bulletlabel)/1 "Exo 2",Inter,Arial,sans-serif; }
+.nv-dp--dark  .nv-dp__num li::before { background-image: linear-gradient(#17251d,#17251d), var(--gold-3); }
+.nv-dp--green .nv-dp__num li::before { background-image: linear-gradient(#1a1a1a,#1a1a1a), var(--gold-3); }
+.nv-dp__num b { display: block; margin: 0 0 6px; color: #d4af37;
+  font: var(--w-bulletlabel) var(--t-bulletlabel)/1.3 "Inter",Arial,sans-serif; }
+.nv-dp__num span { display: block; color: #b9c3bd;
+  font: var(--w-fliesstext) var(--t-fliesstext)/1.7 "Inter",Arial,sans-serif; }
+
+/* ---------- Label-Liste ---------- */
+.nv-dp__list { display: grid; gap: 40px 96px; margin: 0; padding: 0; list-style: none; }
+.nv-dp__list--2 { grid-template-columns: repeat(2, minmax(0,1fr)); }
+.nv-dp__list li { position: relative; padding-left: 22px; color: #b9c3bd;
+  font: var(--w-fliesstext) var(--t-fliesstext)/1.7 "Inter",Arial,sans-serif; }
+.nv-dp__list li::before { content: ""; position: absolute; left: 0;
+  top: calc(var(--t-bulletlabel) * 0.925 - 3.5px);
+  width: 7px; height: 7px; border-radius: 2px; background: #f7c64a; }
+.nv-dp__list strong { display: block; margin-bottom: 4px; color: #d4af37;
+  font: var(--w-bulletlabel) var(--t-bulletlabel)/1.4 "Inter",Arial,sans-serif; }
+
+/* ---------- Stichpunktliste ---------- */
+.nv-dp__tags { display: grid; grid-template-columns: repeat(5, minmax(0,1fr));
+  gap: 30px; margin: 0; padding: 0; list-style: none; }
+.nv-dp__tags li { padding: 22px 24px; border-radius: 10px; color: #e4e0d6;
+  border: 1.25px solid transparent; background-origin: border-box;
+  background-clip: padding-box, border-box;
+  font: var(--w-bulletlabel) var(--t-bulletlabel)/1.35 "Inter",Arial,sans-serif; }
+.nv-dp--dark  .nv-dp__tags li { background-image: linear-gradient(#17251d,#17251d), var(--gold-3); }
+.nv-dp--green .nv-dp__tags li { background-image: linear-gradient(#1a1a1a,#1a1a1a), var(--gold-3); }
+
+/* ---------- Parallele Prüfungen ---------- */
+.nv-dp__parallel { display: grid; grid-template-columns: repeat(4, minmax(0,1fr));
+  gap: 30px; margin: 0 0 116px; padding: 0; list-style: none; }
+.nv-dp__parallel li { position: relative; padding-top: 28px; color: #e4e0d6;
+  border-top: 1.25px solid #d4af37;
+  font: var(--w-bulletlabel) var(--t-bulletlabel)/1.35 "Exo 2",Inter,Arial,sans-serif; }
+
+/* ---------- FAQ ---------- */
+.nv-dp__faq { display: grid; grid-template-columns: repeat(2, minmax(0,1fr));
+  gap: 30px; align-items: start; }
+.nv-dp-faq summary { --nv-golden-width: 100%; list-style: none; cursor: pointer; }
+.nv-dp-faq summary::-webkit-details-marker { display: none; }
+.nv-dp-faq summary > span { display: flex; width: 100%; box-sizing: border-box;
+  align-items: center; justify-content: space-between; gap: 14px;
+  min-height: 2.75em; padding: 0.5em 1em; border-radius: 0.3em;
+  border: 1.25px solid var(--nv-gold-border);
+  background-image: var(--nv-gold-gradient); background-size: 150% 150%;
+  color: var(--nv-gold-text-dark); text-align: left; white-space: normal;
+  font: var(--w-cta) var(--t-cta)/1.35 "Inter",Arial,sans-serif;
+  letter-spacing: 0.02em; text-transform: uppercase; }
+.nv-dp-faq summary > span::after { content: "+"; flex: 0 0 auto; }
+.nv-dp-faq[open] summary > span::after { content: "\2212"; }
+.nv-dp-faq p { margin: 18px 4px 0; color: #b9c3bd;
+  font: var(--w-fliesstext) var(--t-fliesstext)/1.7 "Inter",Arial,sans-serif; }
+
+/* ---------- CTA ---------- */
+.nv-dp__actions { display: flex; align-items: center; gap: 18px; margin-top: 116px; }
+.nv-dp__actions--links { justify-content: flex-start; }
+
+/* ---------- Responsiv ---------- */
+@media (max-width: 1499px) {
+  .nv-dp__chain { grid-template-columns: repeat(4, minmax(0,1fr)); row-gap: 40px; }
+  .nv-dp__chain li:nth-child(4n)::after { content: none; }
+  .nv-dp__tags { grid-template-columns: repeat(3, minmax(0,1fr)); }
+}
+@media (max-width: 1100px) {
+  .nv-dp__num--2, .nv-dp__list--2 { grid-template-columns: 1fr; }
+  .nv-dp__parallel { grid-template-columns: repeat(2, minmax(0,1fr)); }
+  .nv-dp__faq { grid-template-columns: 1fr; }
+}
+@media (max-width: 760px) {
+  .nv-dp { min-height: 0; }
+  .nv-dp__chain { grid-template-columns: repeat(2, minmax(0,1fr)); }
+  .nv-dp__chain li::after { content: none; }
+  .nv-dp__tags, .nv-dp__parallel { grid-template-columns: 1fr; }
+  .nv-dp__actions { flex-direction: column; align-items: stretch; }
+}
