@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Nurovelle | Digitale Agenten</title>
-<meta name="description" content="Strukturiert Anfragen, Aufgaben, Daten und interne Assistenzprozesse."/>
+<title>Nurovelle | KI-Agenten &amp; Assistenzsysteme</title>
+<meta name="description" content="KI-Agenten greifen auf freigegebene Informationen und Systeme zu, prüfen Inhalte und führen klar definierte Arbeitsschritte aus. Unklare oder sensible Fälle gehen an Mitarbeitende."/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;550;600;650;700;750;800&family=Exo+2:wght@600;700;800&display=swap" rel="stylesheet"/>
@@ -68,7 +68,42 @@ h3 { font-size: clamp(18px,1.22vw,40px); line-height: 1.04; letter-spacing: .035
 .footer a,.footer p { display: block; font-family: "Inter", Arial, sans-serif; font-size: 11.5px; line-height: 1.65; font-weight: 400; color: rgba(255,255,255,.70); }
 @media (max-width: 900px) { .nav { display: none; } .detail-hero,.content-grid,.footer-inner { grid-template-columns: 1fr; } .logo { height: 46px; } .site-header,.header-inner { height: 42px; min-height: 42px; } }
 
+.auto-grid { --g: clamp(18px, 1vw, 28px); display: grid; grid-template-columns: repeat(auto-fit, minmax(max(min(100%, 340px), calc((100% - 2 * var(--g)) / 3)), 1fr)); gap: var(--g); } /* max. 3 Spalten */
+.module-grid { --g: clamp(18px, 1vw, 28px); display: grid; grid-template-columns: repeat(auto-fit, minmax(max(min(100%, 280px), calc((100% - 3 * var(--g)) / 4)), 1fr)); gap: var(--g); } /* max. 4 Spalten */
+.step-no { display: block; margin-bottom: 6px; font-family: "Exo 2", Inter, Arial, sans-serif; font-weight: 700; font-size: clamp(11px, 0.62vw, 15px); letter-spacing: .14em; color: var(--gold2); }
+.tags { display: flex; flex-wrap: wrap; gap: clamp(8px, 0.5vw, 12px); margin-top: clamp(14px, 0.8vw, 20px); }
+.tag { padding: clamp(7px, 0.4vw, 10px) clamp(13px, 0.75vw, 18px); border: 1px solid rgba(240,160,90,.34); border-radius: 999px; background: rgba(0,0,0,.22); font-family: "Inter", Arial, sans-serif; font-size: clamp(12px, 0.68vw, 20px); line-height: 1.2; color: rgba(255,255,255,.82); }
+.section-head { margin-bottom: clamp(20px, 1.2vw, 32px); }
+.panel + .panel { margin-top: 0; }
+.stack > * + * { margin-top: clamp(8px, 0.5vw, 12px); }
+/* --- Landing: füllt den ersten Bildschirm, Scroll-Teil beginnt darunter --- */
+.landing { min-height: 100svh; display: flex; flex-direction: column; justify-content: center; gap: clamp(26px, 1.8vw, 48px); }
+.landing > * { min-width: 0; width: 100%; } /* Flex-Item sonst inhaltsbasiert breiter als der Container */
+.landing-grid { --g: clamp(18px, 1vw, 28px); display: grid; grid-template-columns: repeat(auto-fit, minmax(max(min(100%, 300px), calc((100% - 2 * var(--g)) / 3)), 1fr)); gap: var(--g); align-items: stretch; }
+.landing-grid .panel { display: flex; flex-direction: column; padding: clamp(18px, 1.1vw, 28px); }
+.landing-grid .panel p, .landing-grid .panel li { font-size: clamp(12px, 0.62vw, 18px); }
+.landing .detail-hero { align-items: center; }
+/* Nur oberhalb des Umbruchpunkts: sonst schlägt diese Regel die Kollaps-Regel
+   in @media (max-width:900px) und presst die Textspalte auf 0. */
+@media (min-width: 901px) { .landing .detail-hero { grid-template-columns: minmax(0,1fr) minmax(300px, clamp(420px, 24vw, 900px)); } }
+/* schmalere Medienspalte: der Titel braucht 673px, die Standardaufteilung lässt bei 1920px nur 668px — 'ASSISTENZSYSTEME' wäre mitten im Wort umgebrochen */
+.sub { margin-bottom: clamp(6px, 0.4vw, 10px); color: var(--gold2); font-family: var(--font-body); font-size: clamp(12px, 0.66vw, 19px); line-height: 1.45; }
+.summary .sub { color: #3a1c07; }
+.push { margin-top: auto; padding-top: clamp(14px, 0.8vw, 20px); }
+/* --- Problem/Lösung: nutzt best_card_single als Hintergrund --- */
+.ps-card { --g: clamp(18px, 1vw, 28px); display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr)); overflow: hidden; border: 1px solid rgba(240,160,90,.52); border-radius: 10px; background: url("../../assets/cards/cards_problem_loesung/best_card_single 470x360.png") center/cover no-repeat, #000; }
+.ps-col { padding: clamp(22px, 1.35vw, 36px); background: rgba(2,8,5,.82); }
+.ps-col + .ps-col { border-left: 1px solid rgba(240,160,90,.28); }
+@media (max-width: 700px) { .ps-col + .ps-col { border-left: 0; border-top: 1px solid rgba(240,160,90,.28); } }
+/* --- Holo-/Tilt-Cards: Größe frei, Hochformat aufgehoben --- */
+.tilt-row { --g: clamp(18px, 1vw, 28px); display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 360px), 1fr)); gap: var(--g); }
+.tilt-row .nv-tilt-card { width: 100%; aspect-ratio: auto; place-items: stretch; padding: clamp(24px, 1.5vw, 38px); }
+.tilt-row .nv-tilt-card__text { max-width: 100%; place-items: start; text-align: left; transform: none; gap: clamp(10px, 0.6vw, 16px); }
+.tilt-row .nv-tilt-card__title { font-size: clamp(20px, 1.38vw, 44px); line-height: 1.04; }
+.tilt-row .nv-tilt-card ul { margin: 0; padding-left: clamp(17px, 0.96vw, 24px); }
+.tilt-row .nv-tilt-card li { font-family: var(--font-body); font-size: clamp(12px, 0.68vw, 20px); line-height: 1.55; color: rgba(245,245,242,.78); }
 </style>
+<link rel="stylesheet" href="../../xcomponents/nurovelle-tilt-card.css"/>
 <link rel="stylesheet" href="../../shared-header-footer.css"/>
 </head>
 <body>
@@ -87,9 +122,53 @@ h3 { font-size: clamp(18px,1.22vw,40px); line-height: 1.04; letter-spacing: .035
 </div>
 </header>
 <main>
-<section class="section"><div class="section-inner detail-hero"><div><div class="kicker">Service</div><h1>Digitale <span class="gold">Agenten</span></h1><p class="lead">Digitale Assistenten, die wiederkehrende Aufgaben übernehmen, Informationen prüfen und Teams im Tagesgeschäft entlasten.</p><div class="actions"><a class="btn" href="../../analyse.html">Potenzialanalyse starten</a><a class="btn" href="../../index.html#leistungen">Zurück zur Übersicht</a></div></div><div class="visual-card"><img src="../../assets/cards/cards_service/1.png" alt="KI-Agenten &amp; Assistenzsysteme"/><img class="icon" src="../../assets/icons/service/1.png" alt=""/></div></div></section>
-<section class="section"><div class="section-inner content-grid"><article class="panel"><h2>Typische Schwerpunkte</h2><ul><li>Anfragen</li><li>Aufgaben</li><li>Prüfung</li><li>Assistenz</li><li>Reaktion</li></ul></article><article class="panel summary"><h2>Kernnutzen</h2><p>Strukturiert Anfragen, Aufgaben, Daten und interne Assistenzprozesse.</p></article></div></section>
-<section class="section"><div class="section-inner"><article class="panel"><h2>Einordnung</h2><p>Digitale Assistenten, die wiederkehrende Aufgaben übernehmen, Informationen prüfen und Teams im Tagesgeschäft entlasten.</p><p style="margin-top:10px">Strukturiert Anfragen, Aufgaben, Daten und interne Assistenzprozesse.</p><div class="actions"><a class="btn" href="../../analyse.html">Passenden Einstieg prüfen</a><a class="btn" href="../../index.html#leistungen">Weitere Services ansehen</a></div></article></div></section>
+<section class="section landing">
+<div class="section-inner detail-hero">
+<div>
+<div class="kicker">Service</div>
+<h1>KI-Agenten &amp; <span class="gold">Assistenzsysteme</span></h1>
+<p class="sub">Digitale Unterstützung für wiederkehrende Aufgaben, Anfragen und informationsbasierte Prozesse.</p>
+<p class="lead">KI-Agenten greifen auf freigegebene Informationen und Systeme zu, prüfen Inhalte und führen klar definierte Arbeitsschritte aus. Unklare oder sensible Fälle werden gezielt an Mitarbeitende übergeben.</p>
+<div class="actions"><a class="btn" href="../../analyse.html">Potenzialanalyse starten</a><a class="btn" href="../../index.html#leistungen">Zurück zur Übersicht</a></div>
+</div>
+<div class="visual-card"><img src="../../assets/cards/cards_service/1.png" alt="KI-Agenten &amp; Assistenzsysteme"/></div>
+</div>
+<div class="section-inner landing-grid">
+<article class="panel">
+<h2>Wo KI-Agenten unterstützen</h2>
+<p class="sub">Aufgaben strukturieren, Informationen bündeln und definierte Abläufe ausführen.</p>
+<p>Geeignet sind vor allem wiederkehrende Prozesse mit klaren Regeln, verfügbaren Daten und eindeutig geregelten Übergaben.</p>
+<ul><li>Anfragen</li><li>Aufgaben</li><li>Datenprüfung</li><li>Wissenszugriff</li><li>Systemaktionen</li></ul>
+</article>
+<article class="panel summary">
+<h2>Kontrollierte Entlastung</h2>
+<p class="sub">Weniger manuelle Routine bei nachvollziehbaren Abläufen.</p>
+<p>KI-Agenten verkürzen Bearbeitungswege, reduzieren wiederkehrende Tätigkeiten und führen definierte Aufgaben einheitlich aus.</p>
+</article>
+<article class="panel">
+<h2>Mehr als ein Chatbot</h2>
+<p class="sub">KI-Agenten verbinden Informationen, Regeln und konkrete Aktionen.</p>
+<p>Sie beantworten nicht nur Fragen, sondern können Daten abrufen, Inhalte einordnen, Vorgänge vorbereiten und freigegebene Schritte in angebundenen Systemen auslösen.</p>
+<p style="margin-top:10px">Berechtigungen, Freigaben und Übergaberegeln begrenzen dabei eindeutig, welche Aufgaben selbstständig bearbeitet werden dürfen.</p>
+<div class="actions push"><a class="btn" href="../../analyse.html">Einsatzmöglichkeiten prüfen</a><a class="btn" href="../../index.html#leistungen">Weitere Services ansehen</a></div>
+</article>
+</div>
+</section>
+<section class="section"><div class="section-inner auto-grid">
+<article class="panel"><h2>Was sind KI-Agenten?</h2><p class="sub">Digitale Assistenzsysteme für klar definierte Aufgaben und Prozesse.</p><div class="stack"><p>KI-Agenten erfassen Informationen, bewerten sie anhand festgelegter Vorgaben und leiten daraus passende Bearbeitungsschritte ab. Dafür können sie auf Dokumente, Datenbanken, Wissensbestände oder Geschäftsanwendungen zugreifen.</p><p>Der Funktionsumfang richtet sich immer nach dem konkreten Einsatzbereich. Ein Agent kann lediglich Informationen vorbereiten oder innerhalb klar geregelter Grenzen selbst Aktionen ausführen.</p></div></article>
+<article class="panel"><h2>Warum sind KI-Agenten sinnvoll?</h2><p class="sub">Wiederkehrende Bearbeitungsschritte binden Zeit und verursachen unnötige Übergaben.</p><div class="stack"><p>Viele Aufgaben bestehen aus Informationssuche, Datenprüfung, Rückfragen und wiederholten Eingaben. KI-Agenten führen diese Schritte nach einheitlichen Regeln aus und stellen alle relevanten Informationen für die weitere Bearbeitung bereit.</p><ul><li>Informationen liegen in mehreren Systemen</li><li>Aufgaben werden wiederholt manuell bearbeitet</li><li>Rückfragen verzögern den Prozess</li><li>Bearbeitungen unterscheiden sich je nach Person</li><li>Ausnahmefälle werden zu spät erkannt</li></ul></div></article>
+</div></section>
+<section class="section"><div class="section-inner"><div class="section-head"><div class="kicker">Prüfumfang</div><h2>Was wird konkret geprüft und umgesetzt?</h2><p class="sub">Aufgabe, Datenzugriff und Handlungsspielraum werden klar abgegrenzt.</p><p class="lead">Vor der Umsetzung wird geprüft, welche Aufgaben geeignet sind, welche Informationen benötigt werden und an welchen Stellen menschliche Kontrolle erforderlich bleibt.</p></div><div class="auto-grid"><article class="panel"><h3>Aufgaben</h3><p>geeignete wiederkehrende Tätigkeiten</p></article><article class="panel"><h3>Daten</h3><p>benötigte Quellen und Dokumente</p></article><article class="panel"><h3>Systeme</h3><p>Anwendungen und Schnittstellen</p></article><article class="panel"><h3>Regeln</h3><p>zulässige Entscheidungen und Aktionen</p></article><article class="panel"><h3>Berechtigungen</h3><p>erlaubte Zugriffe</p></article><article class="panel"><h3>Kontrolle</h3><p>Freigaben, Übergaben und Protokollierung</p></article></div></div></section>
+<section class="section"><div class="section-inner"><div class="section-head"><div class="kicker">Leistungsumfang</div><h2>Von der Prozessanalyse zum Assistenzsystem</h2><p class="sub">Von der Prozessanalyse bis zum produktiv einsetzbaren Assistenzsystem.</p><p class="lead">Die Lösung wird auf den konkreten Arbeitsablauf, die vorhandenen Systeme und die benötigten Kontrollmechanismen abgestimmt.</p></div><div class="tilt-row">
+<article class="nv-tilt-card"><div class="nv-tilt-card__text"><p class="nv-tilt-card__kicker">Schritt 1</p><h3 class="nv-tilt-card__title">Konzeption</h3><ul><li>Anwendungsfall abgrenzen</li><li>Prozess und Zuständigkeiten erfassen</li><li>Datenquellen bestimmen</li><li>Regeln und Ausnahmen definieren</li><li>Kontrollpunkte festlegen</li></ul></div></article>
+<article class="nv-tilt-card"><div class="nv-tilt-card__text"><p class="nv-tilt-card__kicker">Schritt 2</p><h3 class="nv-tilt-card__title">Umsetzung</h3><ul><li>Agentenlogik entwickeln</li><li>Systeme und Daten anbinden</li><li>Berechtigungen einrichten</li><li>Übergaben konfigurieren</li><li>Tests und Dokumentation durchführen</li></ul></div></article>
+</div></div></section>
+<section class="section"><div class="section-inner"><div class="section-head"><div class="kicker">Ablauf</div><h2>Module des Workflows</h2><p class="sub">Jedes Modul übernimmt eine klar abgegrenzte Aufgabe innerhalb des Gesamtprozesses.</p><p class="lead">Die tatsächliche Anzahl und Ausprägung der Module richtet sich nach dem jeweiligen Anwendungsfall.</p></div><div class="module-grid"><article class="panel"><span class="step-no">01</span><h3>Anfrage erfassen</h3><p>Aufgaben, Nachrichten oder Systemmeldungen werden aufgenommen.</p></article><article class="panel"><span class="step-no">02</span><h3>Kontext bestimmen</h3><p>Thema, Vorgang und zuständiger Prozess werden erkannt.</p></article><article class="panel"><span class="step-no">03</span><h3>Informationen abrufen</h3><p>Benötigte Daten werden aus freigegebenen Quellen geladen.</p></article><article class="panel"><span class="step-no">04</span><h3>Inhalte prüfen</h3><p>Fehlende, widersprüchliche oder unplausible Angaben werden erkannt.</p></article><article class="panel"><span class="step-no">05</span><h3>Bearbeitung vorbereiten</h3><p>Antworten, Aufgaben oder Entscheidungsvorlagen werden erstellt.</p></article><article class="panel"><span class="step-no">06</span><h3>Aktion ausführen</h3><p>Freigegebene Schritte werden in angebundenen Systemen ausgelöst.</p></article><article class="panel"><span class="step-no">07</span><h3>Übergabe steuern</h3><p>Unklare oder sensible Fälle werden an die zuständige Person übergeben.</p></article><article class="panel"><span class="step-no">08</span><h3>Ergebnis dokumentieren</h3><p>Bearbeitungsschritte und ausgeführte Aktionen werden protokolliert.</p></article></div></div></section>
+<section class="section"><div class="section-inner"><div class="section-head"><div class="kicker">Ergebnis</div><h2>Ihr konkreter Nutzen</h2><p class="sub">Entlastung entsteht dort, wo Informationen und Routinen zuverlässig verarbeitet werden.</p><p class="lead">KI-Agenten unterstützen Mitarbeitende, ohne Zuständigkeiten oder Kontrollen aufzuheben.</p></div><div class="module-grid"><article class="panel"><h3>Weniger Routinearbeit</h3><p>Wiederkehrende Aufgaben werden vorbereitet oder automatisiert bearbeitet.</p></article><article class="panel"><h3>Schnellere Bearbeitung</h3><p>Relevante Informationen stehen ohne manuelle Suche zur Verfügung.</p></article><article class="panel"><h3>Einheitliche Abläufe</h3><p>Prüfungen und Bearbeitungsschritte folgen definierten Regeln.</p></article><article class="panel"><h3>Kontrollierter Einsatz</h3><p>Zugriffe, Aktionen und Übergaben bleiben nachvollziehbar.</p></article></div><article class="panel" style="margin-top:clamp(18px,1vw,28px)"><p>Für die Umsetzung werden Informationen zum Prozess, zu beteiligten Systemen, Datenquellen und bestehenden Zuständigkeiten benötigt. Umfang und Dauer richten sich nach der Zahl der Aufgaben, Schnittstellen und erforderlichen Kontrollschritte.</p></article></div></section>
+<section class="section"><div class="section-inner"><article class="panel"><h2>Typische Einsatzbereiche</h2><p class="sub">KI-Agenten lassen sich in unterschiedlichen Unternehmensbereichen einsetzen.</p><p>Entscheidend ist nicht die Abteilung, sondern ob Aufgaben wiederkehrend, informationsbasiert und ausreichend klar strukturiert sind.</p><div class="tags"><span class="tag">interne Assistenz</span><span class="tag">Kundenservice</span><span class="tag">Vertriebsunterstützung</span><span class="tag">Aufgabensteuerung</span><span class="tag">Dokumentenprüfung</span><span class="tag">Datenabgleich</span><span class="tag">Wissenszugriff</span><span class="tag">CRM- und ERP-Prozesse</span></div></article></div></section>
+<section class="section"><div class="section-inner"><div class="section-head"><div class="kicker">Vorher / Nachher</div><h2>Was damit möglich wird</h2><p class="sub">Aus verstreuten Informationen und manuellen Routinen entsteht ein geregelter Assistenzprozess.</p><p class="lead">Der Agent verbindet Datenquellen, Bearbeitungsregeln und definierte Aktionen zu einem nachvollziehbaren Ablauf.</p></div><div class="ps-card"><div class="ps-col"><h3>Ausgangslage</h3><ul><li>manuelle Informationssuche</li><li>wiederkehrende Rückfragen</li><li>uneinheitliche Bearbeitung</li><li>fehlende Transparenz</li><li>verzögerte Übergaben</li></ul></div><div class="ps-col"><h3>Mit KI-Agenten</h3><ul><li>gebündelte Informationen</li><li>vorbereitete Bearbeitung</li><li>definierte Prüfregeln</li><li>gezielte Ausnahmebehandlung</li><li>nachvollziehbare Systemaktionen</li></ul></div></div></div></section>
+<section class="section"><div class="section-inner"><div class="section-head"><div class="kicker">FAQ</div><h2>Häufige Fragen</h2><p class="sub">Die wichtigsten Fragen zu Einsatz, Kontrolle und Integration.</p><p class="lead">Der konkrete Funktionsumfang wird immer auf den jeweiligen Prozess abgestimmt.</p></div><div class="auto-grid"><article class="panel"><h3>Ersetzt ein KI-Agent Mitarbeitende?</h3><p>Nein. Er übernimmt klar definierte Aufgaben und unterstützt bei wiederkehrenden Abläufen.</p></article><article class="panel"><h3>Kann ein Agent bestehende Systeme nutzen?</h3><p>Ja, wenn geeignete Schnittstellen und Berechtigungen vorhanden sind.</p></article><article class="panel"><h3>Arbeitet ein KI-Agent vollständig selbstständig?</h3><p>Nur innerhalb der vorher festgelegten Regeln, Zugriffe und Freigaben.</p></article><article class="panel"><h3>Was passiert bei unklaren Fällen?</h3><p>Der Vorgang wird mit dem vorhandenen Kontext an eine zuständige Person übergeben.</p></article><article class="panel"><h3>Können mehrere Datenquellen verbunden werden?</h3><p>Ja. Dokumente, Datenbanken und Geschäftsanwendungen können gemeinsam genutzt werden.</p></article><article class="panel"><h3>Werden Aktionen protokolliert?</h3><p>Relevante Bearbeitungsschritte und Systemaktionen können nachvollziehbar erfasst werden.</p></article><article class="panel"><h3>Welche Aufgaben eignen sich besonders?</h3><p>Vor allem wiederkehrende, informationsbasierte und klar strukturierte Tätigkeiten.</p></article><article class="panel"><h3>Kann das System später erweitert werden?</h3><p>Ja. Weitere Aufgaben, Datenquellen und Systeme können schrittweise ergänzt werden.</p></article></div></div></section>
+<section class="section"><div class="section-inner"><article class="panel summary"><h2>Prüfen Sie den passenden Einsatzbereich für einen KI-Agenten.</h2><p class="sub">Ausgangspunkt ist immer ein konkreter Prozess mit erkennbarem Entlastungspotenzial.</p><p>Die Potenzialanalyse zeigt, welche Aufgaben geeignet sind, welche Voraussetzungen bestehen und welcher Einstieg sinnvoll ist.</p><div class="actions"><a class="btn" href="../../analyse.html">Potenzialanalyse starten</a><a class="btn" href="../../index.html#leistungen">Weitere Services ansehen</a></div></article></div></section>
 </main>
 <footer class="footer" id="footer">
 <div class="footer-inner">

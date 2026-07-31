@@ -59,7 +59,7 @@
 
 .nv-tilt-card__kicker {
   margin: 0;
-  font-family: "Anca Coder", monospace;
+  font-family: var(--font-technical, "Exo 2", Inter, Arial, sans-serif);
   font-size: clamp(.62rem, 3.4cqw, .86rem);
   line-height: 1.15;
   letter-spacing: .12em;
@@ -69,8 +69,8 @@
 
 .nv-tilt-card__title {
   margin: 0;
-  font-family: "Bebas Neue", sans-serif;
-  font-weight: 400;
+  font-family: var(--font-technical, "Exo 2", Inter, Arial, sans-serif);
+  font-weight: 800;
   font-size: clamp(2.2rem, 13cqw, 5.2rem);
   line-height: .92;
   letter-spacing: .035em;
@@ -85,7 +85,7 @@
 .nv-tilt-card__body {
   margin: 0;
   max-width: 24ch;
-  font-family: Raleway, Arial, sans-serif;
+  font-family: var(--font-body, "Inter", Arial, sans-serif);
   font-size: clamp(.84rem, 4.6cqw, 1.15rem);
   line-height: 1.45;
   color: rgba(245,245,242,.76);
