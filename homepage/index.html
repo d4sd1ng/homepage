@@ -907,6 +907,11 @@ canvas.nv-step-viz {
 .nv-ainfo li strong { display: block; margin-bottom: 2px; color: #d4af37; font: var(--w-bulletlabel) var(--t-bulletlabel)/1.85 "Inter",Arial,sans-serif; }
 .nv-ainfo h4 { margin: 66px 0 4px; color: #d4af37; font: var(--w-bulletlabel) var(--t-bulletlabel)/1.85 "Inter",Arial,sans-serif; letter-spacing: .06em; text-transform: uppercase; }
 .nv-ainfo__note { color: #e8b048 !important; }
+.nv-acta { display: flex; flex-direction: column; justify-content: center; }
+.nv-acta__actions { display: flex; flex-wrap: wrap; align-items: center; gap: 18px 26px; margin-top: 6px; }
+.nv-acta__link { color: #d4af37; font: 600 16px/1.5 "Inter",Arial,sans-serif; text-decoration: none; border-bottom: 1px solid rgba(212,175,55,.42); padding-bottom: 2px; transition: color .2s ease, border-color .2s ease; }
+.nv-acta__link:hover, .nv-acta__link:focus-visible { color: #f7ef8a; border-color: #f7ef8a; outline: none; }
+.nv-acta__note { margin: 22px 0 0; color: #e8b048; font: 400 15px/1.6 "Inter",Arial,sans-serif; }
 .nv-aform__intro { margin: 0 0 18px; color: #b9c3bd; font: 400 16px/1.55 "Inter",Arial,sans-serif; }
 .nv-aform__grid { display: grid; grid-template-columns: repeat(6,minmax(0,1fr)); gap: 10px; align-items: start; }
 .nv-aform__grid > input[type=hidden] { display: none; }
@@ -1932,60 +1937,23 @@ canvas.nv-step-viz {
       <!-- Card 3: Info -->
       
 
-      <!-- Card 4: Formular -->
-      <form class="nv-acard nv-aform" id="nvAnaForm" action="analyse.html#analyse-formular" method="post">
-        <h3>Potenzialanalyse starten</h3>
-        <p class="nv-aform__intro">Senden Sie uns die wichtigsten Angaben zu Ihrem Prozess. Wir melden uns mit einer ersten strukturierten Einordnung.</p>
-        <div class="nv-aform__grid">
-          <input autocomplete="given-name" name="vorname" placeholder="Vorname" required type="text">
-          <input autocomplete="family-name" name="nachname" placeholder="Nachname" required type="text">
-          <input autocomplete="tel" name="telefon" placeholder="Telefon optional" type="tel">
-
-          <input autocomplete="email" name="email" placeholder="E-Mail-Adresse" required type="email">
-          <input autocomplete="organization" name="unternehmen" placeholder="Unternehmen" required type="text">
-          <input autocomplete="url" name="website" placeholder="Website optional" type="url">
-
-          <select name="branche" required>
-            <option value="">Branche auswählen</option>
-            <option>Energie &amp; Versorgung</option><option>Finanzen &amp; Versicherung</option>
-            <option>Industrie &amp; Produktion</option><option>Verwaltung, Vertrieb, Einkauf &amp; Marketing</option>
-            <option>Gesundheitswesen &amp; Pflege</option><option>Immobilien &amp; Facility Management</option>
-            <option>Bildung &amp; Forschung</option><option>Dienstleistungen &amp; KMU</option><option>Sonstiges</option>
-          </select>
-          <select name="mitarbeiteranzahl" id="nvAnaFieldSize">
-            <option value="">Unternehmensgröße optional</option>
-            <option>Einzelunternehmer / Freelancer</option><option>2–10 Mitarbeiter</option>
-            <option>11–50 Mitarbeiter</option><option>51–250 Mitarbeiter</option><option>250+ Mitarbeiter</option>
-          </select>
-          <textarea name="herausforderung" placeholder="Beschreiben Sie den Prozess, den Sie prüfen möchten: Aufgabe, Zeitaufwand, Datenquellen und aktuelles Problem." required></textarea>
-
-          <select name="zeitaufwand" id="nvAnaFieldTime" required>
-            <option value="">Aktuellen Zeitaufwand auswählen</option>
-            <option>unter 5 Stunden pro Woche</option><option>5–10 Stunden pro Woche</option>
-            <option>10–25 Stunden pro Woche</option><option>25+ Stunden pro Woche</option>
-          </select>
-          <select name="datenlage" id="nvAnaFieldData" required>
-            <option value="">Datenlage auswählen</option>
-            <option>E-Mails / Dokumente</option><option>Tabellen / CSV</option>
-            <option>CRM / ERP / Fachsystem</option><option>mehrere Quellen</option><option>noch unklar</option>
-          </select>
-
-          <input type="hidden" name="potenzial_prozent" id="nvAnaHiddenPct">
-          <input type="hidden" name="potenzial_stunden_jahr" id="nvAnaHiddenHours">
-          <input type="hidden" name="potenzial_einsparung_eur" id="nvAnaHiddenEuro">
-          <input type="hidden" name="anteil_automatisierbar" id="nvAnaHiddenShare">
-          <input type="hidden" name="stundensatz" id="nvAnaHiddenRate">
-          <div class="nv-aform__hp" aria-hidden="true"><label>Bitte leer lassen<input autocomplete="off" name="website_confirmation" tabindex="-1" type="text"></label></div>
-
-          <div class="nv-aform__row nv-aform__row--privacy">
-            <label class="nv-aform__consent"><input name="privacy_consent" type="checkbox" value="yes" required><span><strong>Datenschutzerklärung akzeptieren (Pflichtfeld).</strong> Ich habe die <a href="datenschutz.html">Datenschutzerklärung</a> gelesen und bin einverstanden.</span></label>
-          </div>
-          <div class="nv-aform__row nv-aform__row--news">
-            <label class="nv-aform__consent"><input name="newsletter" type="checkbox" value="yes"><span><strong>Newsletter erhalten.</strong> Passende Hinweise zur Potenzialanalyse per E-Mail.</span></label>
-          </div>
-          <button class="hero-cta nv-aform__submit" type="submit"><span class="golden-button"><span class="golden-text">Potenzialanalyse starten</span></span></button>
+      <!-- Card 4: Einstieg — das Formular liegt auf analyse.html, nicht hier.
+           Es lag früher zusätzlich an dieser Stelle und hat per POST auf
+           analyse.html gezeigt; dort wird der Vorbelegungs-Stand aber aus
+           der Query-String gelesen, sodass die Eingaben nie ankamen. -->
+      <div class="nv-acard nv-acta">
+        <h3 class="nv-acard__title">Potenzialanalyse starten</h3>
+        <p class="nv-acard__lead">Die Analyse selbst läuft auf einer eigenen Seite — dort erfassen Sie Prozess, Zeitaufwand und Datenlage in einem Durchgang und erhalten direkt die strukturierte Einordnung.</p>
+        <div class="nv-acta__actions">
+          <a class="hero-cta" href="analyse.html" aria-label="Kostenlose KI-Potenzialanalyse starten">
+            <span class="golden-button">
+              <span class="golden-text">Potenzialanalyse starten</span>
+            </span>
+          </a>
+          <a class="nv-acta__link" href="detailseiten/services/ki-potenzialanalyse.html">Was die Analyse konkret prüft →</a>
         </div>
-      </form>
+        <p class="nv-acta__note">Kostenlos und unverbindlich. Kein Abo. Keine versteckten Kosten.</p>
+      </div>
     </div>
     </div>
   </div>
