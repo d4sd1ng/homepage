@@ -339,3 +339,16 @@ Keine lange Leistungsbeschreibung, Unternehmensgeschichte oder technische Erklä
 - Kein bisheriger vollständiger Sektionstext darf ungeprüft als final verwendet werden.
 - Nur die in diesem Nachtrag wörtlich festgelegten Texte gelten als freigegeben.
 - Fehlende Texte dürfen nicht selbstständig erfunden, ergänzt oder aus alten Dateien übernommen werden.
+
+## Phase – Gestaltung Startseite (Stand 2026-07-31)
+
+- [x] Typo-Rollensystem definieren und über alle Abschnitte durchsetzen
+- [x] Auf zwei Sektionsflächen reduzieren, Kartenflächen je Untergrund festlegen
+- [x] Alle Goldrahmen auf `--gold-3` vereinheitlichen
+- [x] Prozess, Kontakt, Downloads, FAQ und Footer aus `index1.html` portieren
+- [x] Abschnitte auf Viewporthöhe setzen, `leistungen` und `potenzialanalyse` ausgenommen
+- [x] Titel→Subtitle und Subtitle→Folgeelement vereinheitlichen (49px / 116px CSS)
+- [ ] Footer-Typografie an das Rollensystem angleichen — index1 nutzt dort 17px, 14px und 13px, wofür es unterhalb von 15px keine Rolle gibt
+- [ ] Kopfzeile im Download-Block (aktuell 10px) einer Rolle zuordnen
+- [ ] Verbliebene doppelte Selektoren auflösen: `.nv-step-card__more`, `.nv-step-card__more::before`, `.nv-analyse__grid > :nth-child(1) .nv-acard__split`, `.nv-process__step:nth-child(2n)`
+- [ ] Prüfen, ob `--bg-green-1` und `--bg-green-2` noch gebraucht werden (definiert, ungenutzt)

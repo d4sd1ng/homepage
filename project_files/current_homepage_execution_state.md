@@ -1,7 +1,7 @@
 # Aktueller Homepage-Ausführungsstand
 
 Status: in Arbeit
-Stand: 2026-07-10
+Stand: 2026-07-31
 
 Diese Datei dokumentiert den aktuellen freigegebenen Stand aus der laufenden Umsetzung. Sie dient als direkte Aktualisierung für die weitere Arbeit an der Nurovelle-Homepage, bis die bestehenden Hauptdokumente vollständig nachgezogen sind.
 
@@ -14,15 +14,20 @@ Für die aktuelle Umsetzung gilt deshalb nicht mehr die alte Reihenfolge „Pote
 ## Aktuelle Startseiten-Reihenfolge
 
 1. Hero
-2. Der erste Schritt zu Ihrem KI-Projekt
-3. Sie haben bereits eine konkrete KI-Idee?
-4. Kostenlose KI-Potenzialanalyse
-5. KI-Leistungen von Nurovelle
-6. Vom Geschäftsprozess zur KI-Lösung
-7. Warum Nurovelle
-8. Download-Bereich
-9. Analyse-Seite / Formularweiterleitung
-10. Success-/Error-Zustand in `analyse.html`
+2. Warum Nurovelle (`warum-nurovelle`)
+3. Der erste Schritt zu Ihrem KI-Projekt (`ki-projekt-start`)
+4. Sie haben bereits eine konkrete KI-Idee? (`projektidee`)
+5. KI-Leistungen von Nurovelle (`leistungen`)
+6. Kompetenzen (`kompetenzen`)
+7. Kostenlose KI-Potenzialanalyse (`potenzialanalyse`)
+8. Vom Geschäftsprozess zur KI-Lösung (`prozess-zur-loesung`)
+9. Kontakt (`kontakt`)
+10. Download-Bereich (`downloads`)
+11. FAQ (`faq`)
+12. Footer
+
+Prozess, Kontakt, Downloads, FAQ und Footer sind am 2026-07-31 aus `index1.html` portiert worden.
+
 
 ## Aktuelle Divider-Abfolge
 
@@ -60,3 +65,12 @@ Für die aktuelle Umsetzung gilt deshalb nicht mehr die alte Reihenfolge „Pote
   - `task_contract.md`
   - `todo.md`
   - `changelog.md`
+
+## Gestaltungsstand (2026-07-31)
+
+- Typo-Rollensystem aktiv: 17 Rollen als `--t-<rolle>` / `--w-<rolle>` in `:root`. Kicker/Titel/Subtitle/Fließtext einheitlich 16/600, 100/800, 24/600, 20/400 über alle elf Abschnitte.
+- Zwei Flächenfarben im Wechsel: `#050505` dunkel, `#010603` grün. Karte auf dunkel `#17251d`, Karte auf grün `#1a1a1a`.
+- Alle Goldrahmen über `--gold-3` mit Doppel-Hintergrund-Technik.
+- `body { zoom: 0.8 }`: Werte im Stylesheet sind CSS-Pixel, gerendert wird das 0.8-fache.
+- Abschnitte auf Viewporthöhe (`calc(125vh - var(--header-height))`), Inhalt vertikal zentriert. Ausnahmen: `leistungen` und `potenzialanalyse` dürfen scrollen.
+- Analyse- und Kontaktformular unverändert, Auto-Lead-Anbindung intakt.

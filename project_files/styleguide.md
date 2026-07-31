@@ -1,6 +1,6 @@
 # Nurovelle Styleguide
 
-Stand: 2026-07-05  
+Stand: 2026-07-31  
 Status: aktive Design- und Komponentenquelle
 
 Dieser Styleguide bündelt die verbindlichen Designregeln für Homepage und Detailseiten. Er ersetzt verstreute Zwischenstände und verweist für konkrete CSS-Umsetzung nur auf zwei technische Dateien:
@@ -656,3 +656,33 @@ Keine lange Leistungsbeschreibung, Unternehmensgeschichte oder technische Erklä
 - Kein bisheriger vollständiger Sektionstext darf ungeprüft als final verwendet werden.
 - Nur die in diesem Nachtrag wörtlich festgelegten Texte gelten als freigegeben.
 - Fehlende Texte dürfen nicht selbstständig erfunden, ergänzt oder aus alten Dateien übernommen werden.
+
+---
+
+## Nachtrag 2026-07-31 – verbindlicher Umsetzungsstand
+
+Dieser Nachtrag geht den Abschnitten oben vor, wo er ihnen widerspricht.
+
+### Schriften
+
+**Exo 2** für Titel, **Inter** für alles Übrige. Inter mit 400, 500, 550, 600, 650, 700, 750, 800.
+
+### Typo-Rollen
+
+Je Rolle eine Größe und ein Gewicht, als `--t-<rolle>` / `--w-<rolle>` in `:root`. Kein Element darf kleiner und zugleich schwerer sein als ein größeres.
+
+sektionstitel clamp(48,7.5vw,100)/800 · hero-kennzahl 42/750 · kartentitel 36/750 · kennzahl 26/650 · subtitle 24/600 · zwischentitel 24/600 · bulletlabel 22/550 · fliesstext 20/400 · kartenbullet 20/500 · feldlabel 20/500 · wert 20/500 · formularfeld 20/400 · kicker-sektion 16/600 · bildunterschrift 16/500 · cta 16/600 · hero-statlabel 16/400 · kicker-karte 15/600
+
+### Flächen
+
+Zwei Sektionsfarben im Wechsel: `#050505` dunkel, `#010603` grün. Karte auf dunkel `#17251d`, Karte auf grün `#1a1a1a`, Elemente darauf `#17251d`. Kein `#000000`.
+
+Die Basisflächen aus Abschnitt 2 (`#050706`, `#080B09`, `#0A1913`, `#112A20`, `#163A35`) sind damit ersetzt.
+
+### Rahmen
+
+Alle Rahmen über `--gold-3`, Doppel-Hintergrund-Technik wegen `border-radius`. Radien 8–12px, keine Pill-Form.
+
+### Skalierung
+
+`body { zoom: 0.8 }` — Werte im Stylesheet sind CSS-Pixel, gerendert wird das 0.8-fache. Hairlines brauchen 1.25px CSS.

@@ -1,5 +1,78 @@
 # Homepage Decision Log
 
+## 2026-07-31 – Typografie als Rollensystem festgelegt
+
+Entscheidung:
+Jede Textrolle bekommt genau eine Größe und genau ein Gewicht, hinterlegt als Tokenpaar `--t-<rolle>` / `--w-<rolle>` in `:root`. Rollen werden nicht zusammengelegt, solange nicht belegt ist, dass sie sich gleich verhalten.
+
+Grund:
+Über die Sektionen hinweg waren für dieselbe Funktion bis zu vier verschiedene Größen und fünf Gewichte im Einsatz.
+
+Auswirkung:
+17 Rollen. Bindend ist die Hierarchie: kein Element darf kleiner und zugleich schwerer sein als ein größeres. Alle elf Abschnitte nutzen für Kicker, Titel, Subtitle und Fließtext 16/600, 100/800, 24/600, 20/400.
+
+---
+
+## 2026-07-31 – Zwei Flächenfarben im Wechsel
+
+Entscheidung:
+Es gibt genau zwei Sektionsfarben, die sich abwechseln: dunkel `#050505` und grün `#010603`.
+
+Grund:
+Vorher waren vier Flächenwerte im Umlauf, darunter `#1a1a1a1a` — ein achtstelliger Hex-Wert, also 10% Deckkraft statt der beabsichtigten Farbe.
+
+Auswirkung:
+Karte auf dunkler Sektion `#17251d`, Karte auf grüner Sektion `#1a1a1a` mit Elementen darauf in `#17251d`. Reines `#000000` wird nicht mehr verwendet.
+
+---
+
+## 2026-07-31 – Alle Goldrahmen über einen Verlauf
+
+Entscheidung:
+Rahmen nutzen ausschließlich `--gold-3`, umgesetzt über die Doppel-Hintergrund-Technik.
+
+Grund:
+Zehn verschiedene Rahmenwerte waren im Einsatz. `border-image` scheidet aus, weil es `border-radius` ignoriert.
+
+Auswirkung:
+
+```css
+border: 1px solid transparent;
+background-image: linear-gradient(<Flächenfarbe>, <Flächenfarbe>), var(--gold-3);
+background-origin: border-box;
+background-clip: padding-box, border-box;
+```
+
+Die Flächenfarbe der ersten Ebene muss der Fläche des Elements entsprechen.
+
+---
+
+## 2026-07-31 – Seitenskalierung über zoom 0.8
+
+Entscheidung:
+`body { zoom: 0.8 }`.
+
+Grund:
+Die Seite ist auf 2300px Entwurfsbreite gebaut und wirkte auf großen Bildschirmen zu groß.
+
+Auswirkung:
+Alle Werte im Stylesheet sind CSS-Pixel, gerendert wird das 0.8-fache. Wer einen sichtbaren Wert vorgibt, muss durch 0.8 teilen. Viewporthöhe entsprechend `calc(125vh - var(--header-height))`, nicht `100vh`. Hairlines brauchen 1.25px CSS, damit sie auf eine volle Bildschirmzeile fallen.
+
+---
+
+## 2026-07-31 – Zwei Abschnitte dürfen scrollen
+
+Entscheidung:
+`leistungen` und `potenzialanalyse` dürfen über die Bildschirmhöhe hinausgehen. Alle übrigen Abschnitte werden auf Viewporthöhe gesetzt.
+
+Grund:
+Elf Leistungskarten und das vollständige Analyseformular passen nicht auf eine Bildschirmhöhe.
+
+Auswirkung:
+Bei den auf Viewporthöhe gesetzten Abschnitten wird der Inhalt vertikal zentriert, damit der Leerraum nicht am Sektionsende steht.
+
+---
+
 ## 2026-05-17 – Homepage-Ziel festgelegt
 
 Entscheidung:

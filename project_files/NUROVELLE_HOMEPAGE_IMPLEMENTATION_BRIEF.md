@@ -2569,3 +2569,95 @@ Keine lange Leistungsbeschreibung, Unternehmensgeschichte oder technische Erklä
 - Kein bisheriger vollständiger Sektionstext darf ungeprüft als final verwendet werden.
 - Nur die in diesem Nachtrag wörtlich festgelegten Texte gelten als freigegeben.
 - Fehlende Texte dürfen nicht selbstständig erfunden, ergänzt oder aus alten Dateien übernommen werden.
+
+---
+
+## 0.17 Nachtrag 2026-07-31 – Umsetzungsstand Startseite
+
+Dieser Nachtrag geht den Abschnitten 0.7 bis 0.9 vor, wo er ihnen widerspricht. Er beschreibt, was in `homepage/index.html` tatsächlich gebaut ist.
+
+### Schriften
+
+Nicht Bebas Neue / Anca Coder / Raleway, sondern **Exo 2** für Titel und **Inter** für alles Übrige. Inter wird mit den Schnitten 400, 500, 550, 600, 650, 700, 750, 800 geladen.
+
+### Typo-Rollensystem statt Größenbereiche
+
+Abschnitt 0.7 nennt Spannen. Gebaut ist stattdessen: jede Rolle hat genau eine Größe und genau ein Gewicht, hinterlegt als `--t-<rolle>` / `--w-<rolle>` in `:root`.
+
+| Rolle | Größe / Gewicht | Schrift |
+|---|---|---|
+| sektionstitel | clamp(48px, 7.5vw, 100px) / 800 | Exo 2 |
+| hero-kennzahl | 42 / 750 | Exo 2 |
+| kartentitel | 36 / 750 | Exo 2 |
+| kennzahl | 26 / 650 | Exo 2 |
+| subtitle | 24 / 600 | Inter |
+| zwischentitel | 24 / 600 | Exo 2 |
+| bulletlabel | 22 / 550 | Inter |
+| fliesstext | 20 / 400 | Inter |
+| kartenbullet | 20 / 500 | Inter |
+| feldlabel | 20 / 500 | Inter |
+| wert | 20 / 500 | Inter |
+| formularfeld | 20 / 400 | Inter |
+| kicker-sektion | 16 / 600 | Inter |
+| bildunterschrift | 16 / 500 | Exo 2 |
+| cta | 16 / 600 | Inter |
+| hero-statlabel | 16 / 400 | Inter |
+| kicker-karte | 15 / 600 | Inter |
+
+Bindend: kein Element darf kleiner und zugleich schwerer sein als ein größeres.
+
+### Skalierung
+
+`body { zoom: 0.8 }`. Alle Werte im Stylesheet sind CSS-Pixel, gerendert wird das 0.8-fache. Wer einen sichtbaren Wert vorgibt, teilt durch 0.8. Viewporthöhe deshalb `calc(125vh - var(--header-height))`. Hairlines brauchen 1.25px CSS, sonst fallen sie zwischen zwei Bildschirmzeilen und wirken blass.
+
+### Flächen – ersetzt 0.9 „Section-Hintergründe"
+
+Genau zwei Sektionsfarben im Wechsel:
+
+- dunkel `#050505`
+- grün `#010603`
+
+Karte auf dunkler Sektion `#17251d`, Karte auf grüner Sektion `#1a1a1a`, Elemente darauf `#17251d`. Reines `#000000` wird nicht verwendet.
+
+### Rahmen – ersetzt 0.9 „kein Goldrahmen um alle Cards"
+
+Karten tragen einen Goldrahmen. Alle Rahmen nutzen `--gold-3`, umgesetzt über die Doppel-Hintergrund-Technik, weil `border-image` den `border-radius` ignoriert:
+
+```css
+border: 1px solid transparent;
+background-image: linear-gradient(<Flächenfarbe>, <Flächenfarbe>), var(--gold-3);
+background-origin: border-box;
+background-clip: padding-box, border-box;
+```
+
+Die Flächenfarbe der ersten Ebene muss der Fläche des Elements entsprechen, sonst entsteht ein falscher Innenrand.
+
+### Radien
+
+8–12px, keine Pill-Form. Ersetzt die Vorgabe „runde Pill-Form" aus 0.9.
+
+### Breite
+
+Kein `max-width: 1200px`. Die Seite ist auf 2300px Entwurfsbreite gebaut, Sektionsrand über `--side: clamp(24px, 6vw, 120px)`.
+
+### Abschnittsreihenfolge
+
+1. Hero
+2. `warum-nurovelle`
+3. `ki-projekt-start`
+4. `projektidee`
+5. `leistungen`
+6. `kompetenzen`
+7. `potenzialanalyse`
+8. `prozess-zur-loesung`
+9. `kontakt`
+10. `downloads`
+11. `faq`
+12. Footer
+
+Alle Abschnitte auf Viewporthöhe mit vertikal zentriertem Inhalt. Ausnahmen: `leistungen` und `potenzialanalyse` dürfen scrollen.
+
+### Offen
+
+- Footer-Typografie: index1 nutzt 17px, 14px und 13px; unterhalb von 15px gibt es keine Rolle.
+- Kopfzeile im Download-Block bei 10px, ebenfalls ohne Rolle.

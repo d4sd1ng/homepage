@@ -1,5 +1,77 @@
 # Changelog
 
+## 2026-07-31 – Startseite: Sektionsreihenfolge, Typo-Rollensystem, Flächenregel, Port der Restsektionen
+
+Status: geprüft
+
+Geändert (`homepage/index.html`):
+
+**Sektionsreihenfolge** – jetzt elf Abschnitte plus Footer:
+
+1. Hero
+2. `warum-nurovelle`
+3. `ki-projekt-start`
+4. `projektidee`
+5. `leistungen`
+6. `kompetenzen`
+7. `potenzialanalyse`
+8. `prozess-zur-loesung`
+9. `kontakt`
+10. `downloads`
+11. `faq`
+12. Footer
+
+Prozess, Kontakt, Downloads, FAQ und Footer wurden aus `index1.html` portiert.
+
+**Typo-Rollensystem** – je Rolle genau eine Größe und ein Gewicht, als Tokenpaar `--t-<rolle>` / `--w-<rolle>` in `:root`:
+
+| Rolle | Größe / Gewicht |
+|---|---|
+| sektionstitel | clamp(48px, 7.5vw, 100px) / 800 |
+| hero-kennzahl | 42 / 750 |
+| kartentitel | 36 / 750 |
+| kennzahl | 26 / 650 |
+| subtitle | 24 / 600 |
+| zwischentitel | 24 / 600 |
+| bulletlabel | 22 / 550 |
+| fliesstext | 20 / 400 |
+| kartenbullet | 20 / 500 |
+| feldlabel | 20 / 500 |
+| wert | 20 / 500 |
+| formularfeld | 20 / 400 |
+| kicker-sektion | 16 / 600 |
+| bildunterschrift | 16 / 500 |
+| cta | 16 / 600 |
+| hero-statlabel | 16 / 400 |
+| kicker-karte | 15 / 600 |
+
+Regel: kein Element darf kleiner und zugleich schwerer sein als ein größeres. Alle elf Abschnitte nutzen für Kicker, Titel, Subtitle und Fließtext einheitlich 16/600, 100/800, 24/600, 20/400.
+
+**Flächen** – genau zwei Sektionsfarben im Wechsel:
+
+- dunkel `#050505`: warum-nurovelle, projektidee, kompetenzen, prozess-zur-loesung, downloads
+- grün `#010603`: ki-projekt-start, leistungen, potenzialanalyse, kontakt, faq
+
+Karte auf dunkler Sektion: `#17251d`. Karte auf grüner Sektion: `#1a1a1a`, Elemente darauf `#17251d`.
+
+**Rahmen** – alle Goldrahmen nutzen `--gold-3` über die Doppel-Hintergrund-Technik, damit `border-radius` erhalten bleibt:
+
+```css
+border: 1px solid transparent;
+background-image: linear-gradient(<Flächenfarbe>, <Flächenfarbe>), var(--gold-3);
+background-origin: border-box;
+background-clip: padding-box, border-box;
+```
+
+**Skalierung** – `body { zoom: 0.8 }`. Alle Zahlenangaben im Stylesheet sind CSS-Pixel, gerendert wird das 0.8-fache. Für Viewporthöhe gilt deshalb `calc(125vh - var(--header-height))`, nicht `100vh`.
+
+**Abstände** – Titel→Subtitle und Subtitle→Folgeelement in allen Abschnitten vereinheitlicht: 49px und 116px CSS.
+
+Nicht geändert:
+
+- Analyse- und Kontaktformular samt Feldnamen und Auto-Lead-Anbindung
+- Bildmaterial in `assets/`
+
 ## 2026-07-24 – Deploy-Workflow auf schreibfreie Safe-Directory-Konfiguration umgestellt
 
 Status: geprüft
