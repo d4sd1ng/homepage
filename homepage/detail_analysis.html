@@ -199,7 +199,7 @@ a:active .golden-button {
 .btn { height: 40px; padding: 0 18px; display: inline-flex; align-items: center; justify-content: center; border: 1px solid var(--nv-gold-border); border-radius: 4px; font: 600 14px/1 "Inter",Arial,sans-serif; letter-spacing: .045em; color: var(--nv-gold-text-dark); text-transform: uppercase; background-image: var(--nv-gold-gradient); box-shadow: 0 3px 6px var(--shadow-soft), 0 3px 6px var(--shadow-soft-2), inset 0 -2px 5px 1px var(--nv-gold-inner-dark), inset 0 -1px 1px 3px var(--nv-gold-highlight); transition: all 0.2s ease-in-out; }
 .btn:hover, .btn:focus-visible { color: var(--nv-gold-text-hover); transform: translateY(-2px); box-shadow: 0 10px 20px var(--shadow-hover-1), 0 6px 6px var(--shadow-hover-2), inset 0 -2px 5px 1px var(--nv-gold-inner-mid), inset 0 -1px 1px 3px var(--nv-gold-highlight); }
 .section { position: relative; padding: 42px var(--side); background: #000; }
-.section:before { content: ""; position: absolute; left: 0; right: 0; top: 0; height: 1px; background: linear-gradient(90deg,transparent 0%,rgba(240,160,90,.36) 4%,rgba(240,160,90,.72) 12%,rgba(240,160,90,.72) 88%,rgba(240,160,90,.36) 96%,transparent 100%); opacity: .75; }
+.section:before { content: ""; position: absolute; left: 0; right: 0; top: 0; height: 1px; background: linear-gradient(90deg,transparent 0%,rgba(249,242,149,.35) 4%,#E0AA3E 14%,#FAF398 50%,#E0AA3E 86%,rgba(184,138,68,.35) 96%,transparent 100%); opacity: .85; }
 .section-inner { max-width: var(--content-max); margin-left: auto; margin-right: auto; }
 .kicker { font: 600 16px/1.15 "Inter",Arial,sans-serif; letter-spacing: .14em; text-transform: uppercase; color: #55863f; margin-bottom: 10px; }
 h1,h2,h3 { font-family: "Exo 2",Inter,Arial,sans-serif; }
@@ -247,7 +247,38 @@ main h3 { font: 700 clamp(19px,1.4vw,24px)/1.15 "Exo 2",Inter,Arial,sans-serif; 
 .pair-chip--gold { background-image: linear-gradient(180deg,#ffd7a3 0%,#f0a05a 24%,#d89828 58%,#7a3518 100%), var(--gold-3); border-color: rgba(255,215,163,.78); color: #112A20; box-shadow: inset 0 0 0 1px rgba(255,244,199,.20); }
 .pair-arrow { align-self: center; display: flex; align-items: center; justify-content: center; color: #d4af37; }
 .pair-arrow svg { width: 32px; height: 32px; }
+/* ---------- CTA-Formular (aus analyse.html übernommen) ---------- */
+.analysis-layout { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 34px; margin-top: 26px; align-items: start; width: 100%; }
+.info-panel, .form-panel { width: 100%; min-width: 0; border: 1.25px solid transparent; border-radius: 10px; background-image: linear-gradient(#080B09,#080B09), var(--gold-3); background-origin: border-box; background-clip: padding-box, border-box; padding: 26px; }
+.form-panel { align-self: stretch; }
+.info-panel h3, .form-panel h3 { font-size: 24px; line-height: 1.05; margin-bottom: 16px; text-transform: uppercase; background: var(--gold-1); -webkit-background-clip: text; background-clip: text; color: transparent; -webkit-text-fill-color: transparent; }
+.info-list { display: grid; gap: 12px; list-style: none; margin: 0; padding: 0; }
+.info-list li { font-size: 14px; line-height: 1.55; color: #b9c3bd; padding: 14px 16px; border: 1.25px solid transparent; border-radius: 10px; background-image: linear-gradient(#112A20,#112A20), var(--gold-3); background-origin: border-box; background-clip: padding-box, border-box; }
+.info-list strong { display: block; margin-bottom: 4px; font-family: "Inter",Arial,sans-serif; font-size: 14px; line-height: 1.25; font-weight: 700; letter-spacing: .05em; text-transform: uppercase; color: #e7dcbf; }
+.form-grid { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 10px; width: 100%; }
+.form-grid > * { min-width: 0; width: 100%; }
+.form-grid input, .form-grid select, .form-grid textarea { height: 40px; border: 1px solid rgba(240,160,90,.82); border-radius: 5px; background: rgba(235,235,226,.96); color: #111; font-family: "Inter",Arial,sans-serif; font-size: 13px; font-weight: 500; padding: 0 10px; outline: none; }
+.form-grid input:focus, .form-grid select:focus, .form-grid textarea:focus { box-shadow: 0 0 0 2px rgba(212,175,55,.34); }
+.form-grid textarea { grid-column: 1/-1; height: 68px; padding-top: 9px; resize: none; }
+.form-grid .hero-cta { grid-column: 1/-1; margin-top: 4px; width: 100%; border: 0; background: none; padding: 0; cursor: pointer; }
+.form-grid .hero-cta .golden-button { display: flex; align-items: center; justify-content: center; gap: 8px; width: 100%; min-width: 0; height: 44px; font-size: 13px; line-height: 1.2; }
+.consent-row { grid-column: 1/-1; display: flex; align-items: flex-start; gap: 10px; border: 1px solid rgba(212,175,55,.36); border-radius: 5px; background: #000; padding: 11px 12px; font-size: 12px; line-height: 1.45; color: #aeb7b2; }
+.consent-row input { width: auto; height: auto; flex: 0 0 auto; margin-top: 2px; accent-color: #d4af37; }
+.consent-row span { display: block; }
+.consent-row strong { display: block; margin-bottom: 2px; color: #f7d77a; font-weight: 600; }
+.consent-row a { color: #e8b048; text-decoration: underline; }
+.hp-field { position: absolute; left: -10000px; top: auto; width: 1px; height: 1px; overflow: hidden; }
+.form-note { margin-top: 12px; font-family: "Inter",Arial,sans-serif; font-size: 11px; line-height: 1.5; color: #aeb7b2; }
+.form-note a { color: #e8b048; text-decoration: underline; }
+.result-strip { width: 100%; margin-top: 34px; border: 1.25px solid transparent; border-radius: 10px; background-image: linear-gradient(135deg, rgba(212,175,55,.12), rgba(0,0,0,0) 55%), linear-gradient(#080B09,#080B09), var(--gold-3); background-origin: border-box; background-clip: padding-box, padding-box, border-box; padding: 24px; display: grid; grid-template-columns: 1.4fr .9fr; gap: 18px; align-items: center; }
+.result-strip h3 { font-size: 26px; line-height: 1; margin-bottom: 10px; background: var(--gold-1); -webkit-background-clip: text; background-clip: text; color: transparent; -webkit-text-fill-color: transparent; }
+.result-strip p { font-size: 14px; line-height: 1.6; color: #b9c3bd; }
+.result-points { display: grid; gap: 8px; list-style: none; margin: 0; padding: 0; }
+.result-points li { position: relative; padding-left: 14px; font-family: "Inter",Arial,sans-serif; font-size: 12.5px; font-weight: 600; letter-spacing: .04em; text-transform: uppercase; color: #F5F7F4; }
+.result-points li::before { content: ""; position: absolute; left: 0; top: .4em; width: 5px; height: 5px; border-radius: 2px; background: #f7c64a; }
+button[disabled] { opacity: .58; cursor: not-allowed; }
 @media (max-width: 1200px) { .pair-grid { grid-template-columns: 1fr; } }
+@media (max-width: 900px) { .analysis-layout, .result-strip { grid-template-columns: 1fr; } }
 @media (max-width: 900px) { .detail-hero,.content-grid,.text-cols,.label-list,.num-list { grid-template-columns: 1fr; } }
 
 </style>
@@ -303,8 +334,6 @@ main h3 { font: 700 clamp(19px,1.4vw,24px)/1.15 "Exo 2",Inter,Arial,sans-serif; 
 <section class="section"><div class="section-inner detail-hero"><div><div class="kicker">KI-Potenzialanalyse</div><h1>Potenziale erkennen</h1><p class="sub">Bevor Zeit und Budget in eine KI-Lösung fließen.</p><p class="lead">Die KI-Potenzialanalyse zeigt, welche Prozesse für KI oder Automatisierung geeignet sind, welche Voraussetzungen fehlen und welche nächsten Schritte sinnvoll sind.</p><div class="actions"><a class="btn" href="analyse.html">KI-Potenzialanalyse starten</a></div></div><div class="visual-card"><img src="assets/Module/Ablauf/ki_potential.png" alt="KI-Potenzialanalyse"/></div></div></section>
 <!-- ==================== SCHWERPUNKTE / KERNNUTZEN ==================== -->
 <section class="section"><div class="section-inner content-grid"><article class="panel"><h2>Was analysiert wird</h2><p class="sub">Prozesse, Aufgaben, Daten und bestehende Systeme.</p><p>Untersucht werden wiederkehrende Tätigkeiten, manuelle Übergaben, Dokumentenprozesse, Datenflüsse und technische Abhängigkeiten.</p><ul><li>Prozesse</li><li>Aufgaben</li><li>Dokumente</li><li>Daten</li><li>Systeme</li></ul></article><article class="panel summary"><h2>Klare Entscheidungsgrundlage</h2><p class="sub">Sinnvolle Anwendungsfälle erkennen und ungeeignete Investitionen vermeiden.</p><p>Die Analyse bewertet Potenziale nach Nutzen, Aufwand, Risiken und Umsetzungsreife.</p><p>Das Ergebnis ist eine priorisierte Übersicht geeigneter Handlungsfelder und eine belastbare Grundlage für den nächsten Schritt.</p></article></div></section>
-<!-- ========================= EINORDNUNG ========================= -->
-<section class="section"><div class="section-inner"><article class="panel"><h2>Erst prüfen, dann umsetzen</h2><p class="sub">Nicht jede technische Möglichkeit erzeugt einen betrieblichen Mehrwert.</p><p>Die Analyse beginnt beim konkreten Prozess und nicht bei einem bestimmten Tool. Ergibt sich kein sinnvoller KI-Einsatz, werden geeignetere Alternativen oder notwendige Vorarbeiten benannt.</p><div class="actions"><a class="btn" href="analyse.html">Analyse starten</a><a class="btn" href="index.html#leistungen">Leistungen ansehen</a></div></article></div></section>
 <!-- ========================= DEFINITION ========================= -->
 <section class="section" id="was-ist-das"><div class="section-inner">
 <div class="kicker">Definition</div>
@@ -376,6 +405,89 @@ main h3 { font: 700 clamp(19px,1.4vw,24px)/1.15 "Exo 2",Inter,Arial,sans-serif; 
 <li><strong>Bessere Planbarkeit</strong>Datenarbeiten, Schnittstellen und organisatorische Voraussetzungen können früh eingeplant werden.</li>
 <li><strong>Grundlage für den nächsten Schritt</strong>Das Ergebnis zeigt, ob eine Roadmap, ein Pilotprojekt, eine Prozessbereinigung oder eine technische Detailanalyse sinnvoll ist.</li>
 </ul>
+</div></section>
+<!-- ==================== CTA — POTENZIALANALYSE STARTEN ==================== -->
+<section class="section" id="analyse-formular"><div class="section-inner">
+<div class="kicker">Potenzialanalyse starten</div>
+<h2>Kostenlose Potenzialanalyse starten.</h2>
+<p class="sub">Kurze Angaben reichen für die erste Einordnung. Das Formular bleibt bewusst kompakt.</p>
+<div class="analysis-layout">
+<aside class="info-panel">
+<h3>Was geprüft wird</h3>
+<ul class="info-list">
+<li><strong>Prozesslage</strong>Welche wiederkehrenden Aufgaben aktuell Zeit binden, wo Rückfragen entstehen und welche Übergaben manuell laufen.</li>
+<li><strong>Datenlage</strong>Welche Systeme, Tabellen, E-Mails oder Dokumente beteiligt sind und ob die Informationen nutzbar zusammengeführt werden können.</li>
+<li><strong>Automatisierungspotenzial</strong>Ob KI, Automatisierung, SaaS-Tool oder ein normaler Prozessumbau für den konkreten Ablauf sinnvoller ist.</li>
+<li><strong>Nächster Schritt</strong>Welche Umsetzung zuerst den größten Nutzen bringt und welcher Einstieg realistisch vorbereitet werden sollte.</li>
+</ul>
+</aside>
+<form class="form-panel" action="analyse.html" method="get">
+<h3>Potenzialanalyse starten</h3>
+<div class="form-grid">
+<input autocomplete="given-name" name="vorname" placeholder="Vorname" required="" type="text"/>
+<input autocomplete="family-name" name="nachname" placeholder="Nachname" required="" type="text"/>
+<input autocomplete="email" name="email" placeholder="E-Mail-Adresse" required="" type="email"/>
+<input autocomplete="organization" name="unternehmen" placeholder="Unternehmen" required="" type="text"/>
+<select name="branche" required="">
+<option value="">Branche auswählen</option>
+<option>Energie &amp; Versorgung</option>
+<option>Finanzen &amp; Versicherung</option>
+<option>Industrie &amp; Produktion</option>
+<option>Verwaltung, Vertrieb, Einkauf &amp; Marketing</option>
+<option>Gesundheitswesen &amp; Pflege</option>
+<option>Immobilien &amp; Facility Management</option>
+<option>Bildung &amp; Forschung</option>
+<option>Dienstleistungen &amp; KMU</option>
+<option>Sonstiges</option>
+</select>
+<select name="mitarbeiteranzahl">
+<option value="">Unternehmensgröße optional</option>
+<option>Einzelunternehmer / Freelancer</option>
+<option>2–10 Mitarbeiter</option>
+<option>11–50 Mitarbeiter</option>
+<option>51–250 Mitarbeiter</option>
+<option>250+ Mitarbeiter</option>
+</select>
+<select name="zeitaufwand" required=""><option value="">Aktuellen Zeitaufwand auswählen</option><option>unter 5 Stunden pro Woche</option><option>5–10 Stunden pro Woche</option><option>10–25 Stunden pro Woche</option><option>25+ Stunden pro Woche</option></select>
+<select name="datenlage" required=""><option value="">Datenlage auswählen</option><option>E-Mails / Dokumente</option><option>Tabellen / CSV</option><option>CRM / ERP / Fachsystem</option><option>mehrere Quellen</option><option>noch unklar</option></select>
+<textarea name="herausforderung" placeholder="Beschreiben Sie den Prozess, den Sie prüfen möchten: Aufgabe, Zeitaufwand, Datenquellen und aktuelles Problem." required=""></textarea>
+<input autocomplete="tel" name="telefon" placeholder="Telefon optional" type="tel"/>
+<input autocomplete="url" name="website" placeholder="Website optional" type="url"/>
+<div class="hp-field" aria-hidden="true">
+<label>Bitte dieses Feld leer lassen <input autocomplete="off" name="website_confirmation" tabindex="-1" type="text"/></label>
+</div>
+<label class="consent-row">
+<input name="privacy_consent" type="checkbox" value="yes" required/>
+<span><strong>Datenschutzerklärung akzeptieren (Pflichtfeld).</strong> Ich habe die <a href="datenschutz.html">Datenschutzerklärung</a> gelesen und bin mit der Verarbeitung meiner Angaben zur Durchführung der Potenzialanalyse einverstanden.</span>
+</label>
+<label class="consent-row">
+<input name="newsletter" type="checkbox" value="yes"/>
+<span><strong>Newsletter und Follow-up-Hinweise erhalten.</strong> Ich möchte passende Hinweise zur Potenzialanalyse per E-Mail erhalten.</span>
+</label>
+<button class="hero-cta" type="submit">
+<span class="golden-button">
+<svg class="nv-calendly-icon" aria-hidden="true">
+<use href="#nv-calendly-mark"></use>
+</svg>
+<span class="golden-text">Potenzialanalyse starten</span>
+</span>
+</button>
+</div>
+<p class="form-note">Ihre Angaben werden ausschließlich zur Durchführung und Auswertung der Potenzialanalyse verwendet. Personenbezogene Angaben werden nach Abschluss gelöscht; interne Auswertungen erfolgen nur anonymisiert. Details stehen in der <a href="datenschutz.html">Datenschutzerklärung</a>.</p>
+</form>
+</div>
+<div class="result-strip">
+<div>
+<h3>Was Sie danach erhalten</h3>
+<p>Eine klare erste Einschätzung, ob und wo sich KI-Automatisierung lohnt. Fokus: Aufwand, Nutzen, Priorität und ein sinnvoller nächster Schritt.</p>
+</div>
+<ul class="result-points">
+<li>Prozess-Einschätzung</li>
+<li>Automatisierungs-Potenzial</li>
+<li>Priorisierte Empfehlung</li>
+<li>Nächster Schritt</li>
+</ul>
+</div>
 </div></section>
 </main>
 <footer class="footer" id="footer">
