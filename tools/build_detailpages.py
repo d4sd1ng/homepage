@@ -5,12 +5,29 @@ Usage:
   python3 tools/build_detailpages.py            # build all content files
   python3 tools/build_detailpages.py --check    # build and diff against existing output files
 
-Each content JSON chooses its sections: a missing section key removes that
-section from the generated page. The Potenzialanalyse form section (and its
-API script) is included only when "cta_form" is present; other pages use
-"cta_buttons" for a simple closing CTA.
+The template holds the page skeleton (head, CSS, header, hero, footer,
+scripts) with a {{SECTIONS}} slot, plus a fragment library at the end of the
+file between <!--FRAGMENTS--> markers (stripped from output). Each content
+JSON provides "sections": an ordered list of section objects; the same type
+may repeat. The Potenzialanalyse form section ("cta_form") brings the API
+script with it; pages without it get the script removed.
+
+Section types and fields (optional fields may be omitted):
+  cards      left{title,sub,text,bullets[]}, gold{title,sub,texts[]}
+  textcols   kicker,title,sub,cols[]
+  labellist  kicker,title,[sub],[text],items[{label,text}]
+  numlist    kicker,title,[sub],[text],items[{label,text}]
+  bullets    kicker,title,[sub],[text],[group],items[]
+  groups     kicker,title,[sub],[text],groups[{title,items[]}]
+  pairs      kicker,title,sub,items[{from_icon,from,to_icon,to}],[note]
+  panel_cta  title,sub,text,buttons[{label,href}]
+  faq        kicker,title,[sub],[text],items[{q,a}]
+  cta_form   kicker,title,sub
+  cta_buttons kicker,title,sub,[text],buttons[{label,href}]
+Every section may set "id" (anchor); defaults to its type name.
 """
 import json
+import re
 import sys
 from pathlib import Path
 
@@ -19,53 +36,35 @@ TEMPLATE = ROOT / "homepage" / "detail_template.html"
 CONTENT_DIR = ROOT / "homepage" / "detail_content"
 OUT_DIR = ROOT / "homepage"
 
-# Section start markers (comment line) -> removed up to and including the next </section>
-SECTION_MARKERS = {
-    "cards": "<!-- ==================== SCHWERPUNKTE / KERNNUTZEN ==================== -->",
-    "definition": "<!-- ========================= DEFINITION ========================= -->",
-    "warum": "<!-- ========================= WARUM ========================= -->",
-    "leistungen": "<!-- ========================= LEISTUNGEN ========================= -->",
-    "pairs": "<!-- ============ EINSATZBEREICHE + WAS DAMIT MÖGLICH WIRD ============ -->",
-    "nutzen": "<!-- ========================= NUTZEN ========================= -->",
-    "faq": "<!-- ========================= FAQ ========================= -->",
-    "cta_form": "<!-- ==================== CTA — POTENZIALANALYSE STARTEN ==================== -->",
-    "cta_buttons": "<!-- ==================== CTA — BUTTONS ==================== -->",
-}
 API_SCRIPT_START = "<script>\nconst NUROVELLE_API_BASE"
+FRAG_REGION = re.compile(r"\n<!--FRAGMENTS-->\n(.*)<!--/FRAGMENTS-->\n?", re.S)
+FRAG_ITEM = re.compile(r"<!--F:(\w+)-->\n(.*?)<!--/F-->\n", re.S)
 
 
-def render_label_items(items):
-    return "\n".join(f"<li><strong>{i['label']}</strong>{i['text']}</li>" for i in items)
+def load_template():
+    tpl = TEMPLATE.read_text(encoding="utf-8")
+    m = FRAG_REGION.search(tpl)
+    if not m:
+        raise SystemExit("fragment region missing in template")
+    fragments = dict(FRAG_ITEM.findall(m.group(1)))
+    skeleton = tpl[: m.start()] + tpl[m.end():]
+    return skeleton, fragments
 
 
-def render_num_items(items):
-    return "\n".join(f"<li><b>{i['label']}</b><span>{i['text']}</span></li>" for i in items)
-
-
-def render_bullets(items):
-    return "".join(f"<li>{t}</li>" for t in items)
-
-
-def render_paragraphs(items):
-    return "".join(f"<p>{t}</p>" for t in items)
-
-
-def render_cols(items):
-    return "\n".join(f"<p>{t}</p>" for t in items)
-
-
-def render_faq(items):
-    return "\n".join(
-        f'<details class="faq-item"><summary><span>{i["q"]}</span></summary><p>{i["a"]}</p></details>'
-        for i in items
-    )
+def sub_text_extra(s):
+    out = ""
+    if s.get("sub"):
+        out += f'\n<p class="sub">{s["sub"]}</p>'
+    if s.get("text"):
+        out += f'\n<p class="text">{s["text"]}</p>'
+    return out
 
 
 def render_buttons(items):
     return "".join(f'<a class="btn" href="{b["href"]}">{b["label"]}</a>' for b in items)
 
 
-def render_pairs(items):
+def render_pair_items(items):
     chip = (
         '<span class="pair-chip"><svg class="chip-icon" viewBox="0 0 24 24" '
         'aria-hidden="true"><use href="#i-{icon}"/></svg>{label}</span>'
@@ -84,101 +83,90 @@ def render_pairs(items):
     return "\n".join(out)
 
 
-def drop_block(html, start_marker, end_marker):
-    start = html.find(start_marker)
-    if start < 0:
-        raise SystemExit(f"marker not found: {start_marker!r}")
-    end = html.index(end_marker, start) + len(end_marker)
-    if html[end : end + 1] == "\n":
-        end += 1
-    return html[:start] + html[end:]
+def render_section(s, fragments):
+    t = s["type"]
+    frag = fragments.get(t)
+    if frag is None:
+        raise SystemExit(f"unknown section type: {t}")
+    r = frag.replace("{{SID}}", s.get("id", t))
+    for key in ("kicker", "title", "sub", "text", "note"):
+        r = r.replace("{{" + key.upper() + "}}", s.get(key, ""))
+
+    if t == "cards":
+        left, gold = s["left"], s["gold"]
+        r = (r.replace("{{LEFT_TITLE}}", left["title"])
+             .replace("{{LEFT_SUB}}", left["sub"])
+             .replace("{{LEFT_TEXT}}", left["text"])
+             .replace("{{LEFT_BULLETS}}", "".join(f"<li>{b}</li>" for b in left["bullets"]))
+             .replace("{{GOLD_TITLE}}", gold["title"])
+             .replace("{{GOLD_SUB}}", gold["sub"])
+             .replace("{{GOLD_TEXTS}}", "".join(f"<p>{p}</p>" for p in gold["texts"])))
+    elif t == "textcols":
+        r = r.replace("{{COLS}}", "\n".join(f"<p>{c}</p>" for c in s["cols"]))
+    elif t == "labellist":
+        r = r.replace("{{EXTRA}}", sub_text_extra(s))
+        r = r.replace("{{ITEMS}}", "\n".join(
+            f"<li><strong>{i['label']}</strong>{i['text']}</li>" for i in s["items"]))
+    elif t == "numlist":
+        r = r.replace("{{EXTRA}}", sub_text_extra(s))
+        r = r.replace("{{ITEMS}}", "\n".join(
+            f"<li><b>{i['label']}</b><span>{i['text']}</span></li>" for i in s["items"]))
+    elif t == "bullets":
+        r = r.replace("{{EXTRA}}", sub_text_extra(s))
+        r = r.replace("{{GROUP_HEAD}}", f'\n<h3>{s["group"]}</h3>' if s.get("group") else "")
+        r = r.replace("{{ITEMS}}", "\n".join(f"<li>{i}</li>" for i in s["items"]))
+    elif t == "groups":
+        r = r.replace("{{EXTRA}}", sub_text_extra(s))
+        r = r.replace("{{GROUPS}}", "\n".join(
+            '<div><h3>{t}</h3><ul class="dot-list">{items}</ul></div>'.format(
+                t=g["title"], items="".join(f"<li>{i}</li>" for i in g["items"]))
+            for g in s["groups"]))
+    elif t == "pairs":
+        r = r.replace("{{ITEMS}}", render_pair_items(s["items"]))
+        r = r.replace("{{NOTE_BLOCK}}",
+                      f'\n<p class="text text--after">{s["note"]}</p>' if s.get("note") else "")
+    elif t in ("panel_cta", "cta_buttons"):
+        r = r.replace("{{EXTRA}}", sub_text_extra({"text": s.get("text")}))
+        r = r.replace("{{BUTTONS}}", render_buttons(s["buttons"]))
+    elif t == "faq":
+        r = r.replace("{{EXTRA}}", sub_text_extra(s))
+        r = r.replace("{{ITEMS}}", "\n".join(
+            f'<details class="faq-item"><summary><span>{i["q"]}</span></summary>'
+            f'<p>{i["a"]}</p></details>' for i in s["items"]))
+    elif t == "cta_form":
+        pass  # kicker/title/sub already substituted above
+    return f"<!-- ===== {t} ===== -->\n{r}"
 
 
-def placeholder_map(c):
-    m = {
-        "{{PAGE_TITLE}}": c["page"]["title"],
-        "{{PAGE_DESC}}": c["page"]["description"],
-        "{{HERO_KICKER}}": c["hero"]["kicker"],
-        "{{HERO_TITLE}}": c["hero"]["title"],
-        "{{HERO_SUB}}": c["hero"]["sub"],
-        "{{HERO_LEAD}}": c["hero"]["lead"],
-        "{{HERO_IMAGE}}": c["hero"]["image"],
-        "{{HERO_IMAGE_ALT}}": c["hero"]["image_alt"],
-        "{{HERO_ACTIONS}}": render_buttons(c["hero"]["actions"]),
+def build(content, skeleton, fragments):
+    html = skeleton
+    h = content["hero"]
+    subs = {
+        "{{PAGE_TITLE}}": content["page"]["title"],
+        "{{PAGE_DESC}}": content["page"]["description"],
+        "{{HERO_KICKER}}": h["kicker"],
+        "{{HERO_TITLE}}": h["title"],
+        "{{HERO_SUB}}": h["sub"],
+        "{{HERO_LEAD}}": h["lead"],
+        "{{HERO_IMAGE}}": h["image"],
+        "{{HERO_IMAGE_ALT}}": h["image_alt"],
+        "{{HERO_ACTIONS}}": render_buttons(h["actions"]),
     }
-    if "cards" in c:
-        left, gold = c["cards"]["left"], c["cards"]["gold"]
-        m.update({
-            "{{CARD_TITLE}}": left["title"],
-            "{{CARD_SUB}}": left["sub"],
-            "{{CARD_TEXT}}": left["text"],
-            "{{CARD_BULLETS}}": render_bullets(left["bullets"]),
-            "{{GOLD_TITLE}}": gold["title"],
-            "{{GOLD_SUB}}": gold["sub"],
-            "{{GOLD_TEXTS}}": render_paragraphs(gold["texts"]),
-        })
-    if "definition" in c:
-        m.update({
-            "{{DEF_KICKER}}": c["definition"]["kicker"],
-            "{{DEF_TITLE}}": c["definition"]["title"],
-            "{{DEF_SUB}}": c["definition"]["sub"],
-            "{{DEF_COLS}}": render_cols(c["definition"]["cols"]),
-        })
-    if "warum" in c:
-        m.update({
-            "{{WARUM_KICKER}}": c["warum"]["kicker"],
-            "{{WARUM_TITLE}}": c["warum"]["title"],
-            "{{WARUM_ITEMS}}": render_label_items(c["warum"]["items"]),
-        })
-    if "leistungen" in c:
-        m.update({
-            "{{LEIST_KICKER}}": c["leistungen"]["kicker"],
-            "{{LEIST_TITLE}}": c["leistungen"]["title"],
-            "{{LEIST_ITEMS}}": render_num_items(c["leistungen"]["items"]),
-        })
-    if "pairs" in c:
-        m.update({
-            "{{PAIRS_KICKER}}": c["pairs"]["kicker"],
-            "{{PAIRS_TITLE}}": c["pairs"]["title"],
-            "{{PAIRS_SUB}}": c["pairs"]["sub"],
-            "{{PAIRS_ITEMS}}": render_pairs(c["pairs"]["items"]),
-            "{{PAIRS_NOTE}}": c["pairs"]["note"],
-        })
-    if "nutzen" in c:
-        m.update({
-            "{{NUTZEN_KICKER}}": c["nutzen"]["kicker"],
-            "{{NUTZEN_TITLE}}": c["nutzen"]["title"],
-            "{{NUTZEN_ITEMS}}": render_label_items(c["nutzen"]["items"]),
-        })
-    if "faq" in c:
-        m.update({
-            "{{FAQ_KICKER}}": c["faq"]["kicker"],
-            "{{FAQ_TITLE}}": c["faq"]["title"],
-            "{{FAQ_ITEMS}}": render_faq(c["faq"]["items"]),
-        })
-    if "cta_buttons" in c:
-        m.update({
-            "{{CTAB_KICKER}}": c["cta_buttons"]["kicker"],
-            "{{CTAB_TITLE}}": c["cta_buttons"]["title"],
-            "{{CTAB_SUB}}": c["cta_buttons"]["sub"],
-            "{{CTAB_BUTTONS}}": render_buttons(c["cta_buttons"]["buttons"]),
-        })
-    return m
+    for ph, value in subs.items():
+        if ph not in html:
+            raise SystemExit(f"placeholder missing in template: {ph}")
+        html = html.replace(ph, value)
 
+    sections = "".join(render_section(s, fragments) for s in content["sections"])
+    html = html.replace("{{SECTIONS}}\n", sections)
 
-def build(content):
-    html = TEMPLATE.read_text(encoding="utf-8")
-
-    for key, marker in SECTION_MARKERS.items():
-        if key not in content and marker in html:
-            html = drop_block(html, marker, "</section>")
-    if "cta_form" not in content:
-        html = drop_block(html, API_SCRIPT_START, "</script>")
-
-    for placeholder, value in placeholder_map(content).items():
-        if placeholder not in html:
-            raise SystemExit(f"placeholder missing in template: {placeholder}")
-        html = html.replace(placeholder, value)
+    if not any(s["type"] == "cta_form" for s in content["sections"]):
+        start = html.find(API_SCRIPT_START)
+        if start >= 0:
+            end = html.index("</script>", start) + len("</script>")
+            if html[end : end + 1] == "\n":
+                end += 1
+            html = html[:start] + html[end:]
 
     leftover = [line for line in html.splitlines() if "{{" in line]
     if leftover:
@@ -188,11 +176,12 @@ def build(content):
 
 def main():
     check = "--check" in sys.argv
+    skeleton, fragments = load_template()
     failed = False
     for path in sorted(CONTENT_DIR.glob("*.json")):
         content = json.loads(path.read_text(encoding="utf-8"))
         out_path = OUT_DIR / content["page"]["output"]
-        html = build(content)
+        html = build(content, skeleton, fragments)
         if check:
             existing = out_path.read_text(encoding="utf-8") if out_path.exists() else ""
             status = "OK" if existing == html else "DIFFERS"

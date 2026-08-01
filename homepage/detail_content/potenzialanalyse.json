@@ -12,105 +12,274 @@
     "image": "assets/Module/Ablauf/ki_potential.png",
     "image_alt": "KI-Potenzialanalyse",
     "actions": [
-      { "label": "KI-Potenzialanalyse starten", "href": "#analyse-formular" }
+      {
+        "label": "KI-Potenzialanalyse starten",
+        "href": "#analyse-formular"
+      }
     ]
   },
-  "cards": {
-    "left": {
-      "title": "Was analysiert wird",
-      "sub": "Prozesse, Aufgaben, Daten und bestehende Systeme.",
-      "text": "Untersucht werden wiederkehrende Tätigkeiten, manuelle Übergaben, Dokumentenprozesse, Datenflüsse und technische Abhängigkeiten.",
-      "bullets": ["Prozesse", "Aufgaben", "Dokumente", "Daten", "Systeme"]
+  "sections": [
+    {
+      "type": "cards",
+      "left": {
+        "title": "Was analysiert wird",
+        "sub": "Prozesse, Aufgaben, Daten und bestehende Systeme.",
+        "text": "Untersucht werden wiederkehrende Tätigkeiten, manuelle Übergaben, Dokumentenprozesse, Datenflüsse und technische Abhängigkeiten.",
+        "bullets": [
+          "Prozesse",
+          "Aufgaben",
+          "Dokumente",
+          "Daten",
+          "Systeme"
+        ]
+      },
+      "gold": {
+        "title": "Klare Entscheidungsgrundlage",
+        "sub": "Sinnvolle Anwendungsfälle erkennen und ungeeignete Investitionen vermeiden.",
+        "texts": [
+          "Die Analyse bewertet Potenziale nach Nutzen, Aufwand, Risiken und Umsetzungsreife.",
+          "Das Ergebnis ist eine priorisierte Übersicht geeigneter Handlungsfelder und eine belastbare Grundlage für den nächsten Schritt."
+        ]
+      }
     },
-    "gold": {
-      "title": "Klare Entscheidungsgrundlage",
-      "sub": "Sinnvolle Anwendungsfälle erkennen und ungeeignete Investitionen vermeiden.",
-      "texts": [
-        "Die Analyse bewertet Potenziale nach Nutzen, Aufwand, Risiken und Umsetzungsreife.",
-        "Das Ergebnis ist eine priorisierte Übersicht geeigneter Handlungsfelder und eine belastbare Grundlage für den nächsten Schritt."
+    {
+      "type": "textcols",
+      "id": "was-ist-das",
+      "kicker": "Definition",
+      "title": "Was ist eine KI-Potenzialanalyse?",
+      "sub": "Eine KI-Potenzialanalyse ist eine strukturierte Ersteinschätzung betrieblicher Abläufe.",
+      "cols": [
+        "Sie zeigt, an welchen Stellen KI, Automatisierung oder datenbasierte Systeme einen nachvollziehbaren Nutzen erzeugen können. Dabei werden nicht einzelne Werkzeuge betrachtet, sondern Prozesse, Datenquellen, Systemgrenzen und organisatorische Voraussetzungen.",
+        "Das Ergebnis ist eine priorisierte Übersicht geeigneter Handlungsfelder."
+      ]
+    },
+    {
+      "type": "labellist",
+      "id": "warum",
+      "kicker": "Ausgangslage",
+      "title": "Warum ist die Analyse entscheidend?",
+      "items": [
+        {
+          "label": "Unklare Anwendungsfälle",
+          "text": "Nicht jede technisch mögliche KI-Anwendung ist fachlich oder wirtschaftlich sinnvoll."
+        },
+        {
+          "label": "Fehlende Prozessabgrenzung",
+          "text": "Automatisierung erfordert klar definierte Eingaben, Bearbeitungsschritte, Ausnahmen und Ergebnisse."
+        },
+        {
+          "label": "Unzureichende Datenbasis",
+          "text": "Fehlende, widersprüchliche oder schwer zugängliche Daten begrenzen die Qualität späterer Systeme."
+        },
+        {
+          "label": "Technische Abhängigkeiten",
+          "text": "Schnittstellen, Rechte, Softwarearchitektur und Systemverfügbarkeit beeinflussen die Umsetzbarkeit."
+        },
+        {
+          "label": "Ungeklärte Risiken",
+          "text": "Datenschutz, Informationssicherheit und menschliche Kontrollpunkte müssen früh berücksichtigt werden."
+        },
+        {
+          "label": "Fehlende Priorisierung",
+          "text": "Mehrere Ideen benötigen eine einheitliche Bewertung nach Nutzen, Aufwand, Risiko und Umsetzungsreife."
+        }
+      ]
+    },
+    {
+      "type": "numlist",
+      "id": "leistungen",
+      "kicker": "Leistungsumfang",
+      "title": "Unsere Leistungen innerhalb der Potenzialanalyse",
+      "items": [
+        {
+          "label": "Prozesserfassung",
+          "text": "Wiederkehrende Abläufe, manuelle Bearbeitungsschritte, Übergaben und Medienbrüche werden strukturiert erfasst."
+        },
+        {
+          "label": "Aufgabenklassifikation",
+          "text": "Tätigkeiten werden nach Regelgebundenheit, Informationsbedarf, Entscheidungsanteil und Automatisierbarkeit eingeordnet."
+        },
+        {
+          "label": "Datenprüfung",
+          "text": "Relevante Datenquellen, Formate, Zugriffsrechte, Aktualität und Qualität werden geprüft."
+        },
+        {
+          "label": "Systemanalyse",
+          "text": "Bestehende Anwendungen, Schnittstellen und technische Abhängigkeiten werden berücksichtigt."
+        },
+        {
+          "label": "Anwendungsfallentwicklung",
+          "text": "Aus den analysierten Prozessen werden konkrete KI- und Automatisierungsanwendungen abgeleitet."
+        },
+        {
+          "label": "Nutzenbewertung",
+          "text": "Mögliche Verbesserungen bei Bearbeitungszeit, Fehlerquote, Informationszugriff und Prozessqualität werden eingeordnet."
+        },
+        {
+          "label": "Risikobewertung",
+          "text": "Datenschutz, Informationssicherheit, Fehlentscheidungen und notwendige Freigaben werden dokumentiert."
+        },
+        {
+          "label": "Priorisierung",
+          "text": "Die identifizierten Anwendungsfälle werden nach Nutzen, Aufwand, Risiko und Umsetzungsreife geordnet."
+        }
+      ]
+    },
+    {
+      "type": "pairs",
+      "id": "einsatzbereiche",
+      "kicker": "Anwendung",
+      "title": "Typische Einsatzbereiche und was damit möglich wird",
+      "sub": "Die Potenzialanalyse schafft eine belastbare Grundlage für weitere Entscheidungen.",
+      "items": [
+        {
+          "from_icon": "doc",
+          "from": "Dokumentenverarbeitung",
+          "to_icon": "sync",
+          "to": "Entwicklung eines Dokumenten- oder Datenabgleichsystems"
+        },
+        {
+          "from_icon": "book",
+          "from": "interne Wissenssysteme",
+          "to_icon": "bulb",
+          "to": "Einführung eines Wissenssystems"
+        },
+        {
+          "from_icon": "db",
+          "from": "Datenabgleich und Datenbereinigung",
+          "to_icon": "wrench",
+          "to": "Vorbereitung von Daten, Prozessen oder Schnittstellen"
+        },
+        {
+          "from_icon": "gear",
+          "from": "Prozessautomatisierung",
+          "to_icon": "loop",
+          "to": "Automatisierung eines bestehenden Workflows"
+        },
+        {
+          "from_icon": "headset",
+          "from": "Vertriebs- und Serviceunterstützung",
+          "to_icon": "rocket",
+          "to": "Umsetzung eines klar abgegrenzten Pilotprojekts"
+        },
+        {
+          "from_icon": "chat",
+          "from": "Chatbots und Sprachassistenten",
+          "to_icon": "bot",
+          "to": "Aufbau eines KI-Agenten"
+        },
+        {
+          "from_icon": "bot",
+          "from": "KI-Agenten",
+          "to_icon": "map",
+          "to": "Entwicklung einer KI-Roadmap"
+        },
+        {
+          "from_icon": "plus",
+          "from": "Erweiterung bestehender Software",
+          "to_icon": "plug",
+          "to": "Integration von KI in vorhandene Software"
+        },
+        {
+          "from_icon": "seo",
+          "from": "SEO- und Contentprozesse",
+          "to_icon": "pen",
+          "to": "Aufbau einer SEO- und Content-Automatisierung"
+        },
+        {
+          "from_icon": "chart",
+          "from": "Berichtserstellung und Auswertung",
+          "to_icon": "trend",
+          "to": "Einführung eines automatisierten Berichtssystems"
+        }
+      ],
+      "note": "Nicht jedes identifizierte Potenzial führt unmittelbar zu einer technischen Umsetzung. In einzelnen Fällen ist zunächst eine Standardisierung, Datenbereinigung oder organisatorische Klärung erforderlich."
+    },
+    {
+      "type": "labellist",
+      "id": "nutzen",
+      "kicker": "Ihr Nutzen",
+      "title": "Ihr Nutzen aus der Potenzialanalyse",
+      "items": [
+        {
+          "label": "Klare Handlungsfelder",
+          "text": "Geeignete Anwendungsfälle werden von allgemeinen oder technisch ungeeigneten Ideen getrennt."
+        },
+        {
+          "label": "Nachvollziehbare Prioritäten",
+          "text": "Vorhaben werden anhand einheitlicher Kriterien bewertet."
+        },
+        {
+          "label": "Vermeidung ungeeigneter Investitionen",
+          "text": "Software, Lizenzen und Entwicklungen werden nicht ohne belastbare Grundlage ausgewählt."
+        },
+        {
+          "label": "Frühzeitige Risikoerkennung",
+          "text": "Datenschutz, Sicherheitsanforderungen und technische Abhängigkeiten werden vor der Umsetzung sichtbar."
+        },
+        {
+          "label": "Bessere Planbarkeit",
+          "text": "Datenarbeiten, Schnittstellen und organisatorische Voraussetzungen können früh eingeplant werden."
+        },
+        {
+          "label": "Grundlage für den nächsten Schritt",
+          "text": "Das Ergebnis zeigt, ob eine Roadmap, ein Pilotprojekt, eine Prozessbereinigung oder eine technische Detailanalyse sinnvoll ist."
+        }
+      ]
+    },
+    {
+      "type": "cta_form",
+      "kicker": "Potenzialanalyse starten",
+      "title": "Kostenlose Potenzialanalyse starten.",
+      "sub": "Kurze Angaben reichen für die erste Einordnung. Das Formular bleibt bewusst kompakt."
+    },
+    {
+      "type": "faq",
+      "id": "faq",
+      "kicker": "Häufige Fragen",
+      "title": "FAQ",
+      "items": [
+        {
+          "q": "Ist die Analyse wirklich kostenlos?",
+          "a": "Ja. Die erste Einschätzung ist kostenlos und dient dazu, sinnvolle Potenziale zu erkennen."
+        },
+        {
+          "q": "Muss bereits ein KI-System vorhanden sein?",
+          "a": "Nein. Die Analyse startet bei Ihren bestehenden Abläufen, Daten und Aufgaben."
+        },
+        {
+          "q": "Für welche Unternehmen passt das?",
+          "a": "Für Unternehmen mit wiederkehrenden Aufgaben, manuellen Dokumentenprozessen oder verteilten Datenquellen."
+        },
+        {
+          "q": "Welche Bereiche werden untersucht?",
+          "a": "Untersucht werden Prozesse, Dokumente, Datenflüsse, Wissenszugriffe, Systembrüche und standardisierte Kommunikationsvorgänge."
+        },
+        {
+          "q": "Wird bereits eine bestimmte Software ausgewählt?",
+          "a": "Nein. Zunächst werden fachlicher Bedarf und technische Voraussetzungen bestimmt."
+        },
+        {
+          "q": "Ersetzt die Analyse eine technische Konzeption?",
+          "a": "Nein. Sie dient der Ersteinschätzung und Priorisierung. Für die Umsetzung kann anschließend eine technische Detailkonzeption erforderlich sein."
+        },
+        {
+          "q": "Werden Datenschutz und Informationssicherheit berücksichtigt?",
+          "a": "Ja. Datenarten, Zugriffsrechte, Protokollierung und notwendige Kontrollpunkte werden in die Bewertung einbezogen."
+        },
+        {
+          "q": "Wie werden Anwendungsfälle priorisiert?",
+          "a": "Bewertet werden Nutzen, Häufigkeit, Datenlage, Integrationsaufwand, Risiko und Erweiterbarkeit."
+        },
+        {
+          "q": "Was erhalte ich als Ergebnis?",
+          "a": "Sie erhalten eine strukturierte Einordnung der identifizierten Potenziale und Empfehlungen für die nächsten Schritte."
+        },
+        {
+          "q": "Was folgt nach der Analyse?",
+          "a": "Je nach Ergebnis kann eine KI-Roadmap, ein Pilotprojekt oder zunächst eine vorbereitende Prozess- und Datenarbeit folgen."
+        }
       ]
     }
-  },
-  "definition": {
-    "kicker": "Definition",
-    "title": "Was ist eine KI-Potenzialanalyse?",
-    "sub": "Eine KI-Potenzialanalyse ist eine strukturierte Ersteinschätzung betrieblicher Abläufe.",
-    "cols": [
-      "Sie zeigt, an welchen Stellen KI, Automatisierung oder datenbasierte Systeme einen nachvollziehbaren Nutzen erzeugen können. Dabei werden nicht einzelne Werkzeuge betrachtet, sondern Prozesse, Datenquellen, Systemgrenzen und organisatorische Voraussetzungen.",
-      "Das Ergebnis ist eine priorisierte Übersicht geeigneter Handlungsfelder."
-    ]
-  },
-  "warum": {
-    "kicker": "Ausgangslage",
-    "title": "Warum ist die Analyse entscheidend?",
-    "items": [
-      { "label": "Unklare Anwendungsfälle", "text": "Nicht jede technisch mögliche KI-Anwendung ist fachlich oder wirtschaftlich sinnvoll." },
-      { "label": "Fehlende Prozessabgrenzung", "text": "Automatisierung erfordert klar definierte Eingaben, Bearbeitungsschritte, Ausnahmen und Ergebnisse." },
-      { "label": "Unzureichende Datenbasis", "text": "Fehlende, widersprüchliche oder schwer zugängliche Daten begrenzen die Qualität späterer Systeme." },
-      { "label": "Technische Abhängigkeiten", "text": "Schnittstellen, Rechte, Softwarearchitektur und Systemverfügbarkeit beeinflussen die Umsetzbarkeit." },
-      { "label": "Ungeklärte Risiken", "text": "Datenschutz, Informationssicherheit und menschliche Kontrollpunkte müssen früh berücksichtigt werden." },
-      { "label": "Fehlende Priorisierung", "text": "Mehrere Ideen benötigen eine einheitliche Bewertung nach Nutzen, Aufwand, Risiko und Umsetzungsreife." }
-    ]
-  },
-  "leistungen": {
-    "kicker": "Leistungsumfang",
-    "title": "Unsere Leistungen innerhalb der Potenzialanalyse",
-    "items": [
-      { "label": "Prozesserfassung", "text": "Wiederkehrende Abläufe, manuelle Bearbeitungsschritte, Übergaben und Medienbrüche werden strukturiert erfasst." },
-      { "label": "Aufgabenklassifikation", "text": "Tätigkeiten werden nach Regelgebundenheit, Informationsbedarf, Entscheidungsanteil und Automatisierbarkeit eingeordnet." },
-      { "label": "Datenprüfung", "text": "Relevante Datenquellen, Formate, Zugriffsrechte, Aktualität und Qualität werden geprüft." },
-      { "label": "Systemanalyse", "text": "Bestehende Anwendungen, Schnittstellen und technische Abhängigkeiten werden berücksichtigt." },
-      { "label": "Anwendungsfallentwicklung", "text": "Aus den analysierten Prozessen werden konkrete KI- und Automatisierungsanwendungen abgeleitet." },
-      { "label": "Nutzenbewertung", "text": "Mögliche Verbesserungen bei Bearbeitungszeit, Fehlerquote, Informationszugriff und Prozessqualität werden eingeordnet." },
-      { "label": "Risikobewertung", "text": "Datenschutz, Informationssicherheit, Fehlentscheidungen und notwendige Freigaben werden dokumentiert." },
-      { "label": "Priorisierung", "text": "Die identifizierten Anwendungsfälle werden nach Nutzen, Aufwand, Risiko und Umsetzungsreife geordnet." }
-    ]
-  },
-  "pairs": {
-    "kicker": "Anwendung",
-    "title": "Typische Einsatzbereiche und was damit möglich wird",
-    "sub": "Die Potenzialanalyse schafft eine belastbare Grundlage für weitere Entscheidungen.",
-    "items": [
-      { "from_icon": "doc", "from": "Dokumentenverarbeitung", "to_icon": "sync", "to": "Entwicklung eines Dokumenten- oder Datenabgleichsystems" },
-      { "from_icon": "book", "from": "interne Wissenssysteme", "to_icon": "bulb", "to": "Einführung eines Wissenssystems" },
-      { "from_icon": "db", "from": "Datenabgleich und Datenbereinigung", "to_icon": "wrench", "to": "Vorbereitung von Daten, Prozessen oder Schnittstellen" },
-      { "from_icon": "gear", "from": "Prozessautomatisierung", "to_icon": "loop", "to": "Automatisierung eines bestehenden Workflows" },
-      { "from_icon": "headset", "from": "Vertriebs- und Serviceunterstützung", "to_icon": "rocket", "to": "Umsetzung eines klar abgegrenzten Pilotprojekts" },
-      { "from_icon": "chat", "from": "Chatbots und Sprachassistenten", "to_icon": "bot", "to": "Aufbau eines KI-Agenten" },
-      { "from_icon": "bot", "from": "KI-Agenten", "to_icon": "map", "to": "Entwicklung einer KI-Roadmap" },
-      { "from_icon": "plus", "from": "Erweiterung bestehender Software", "to_icon": "plug", "to": "Integration von KI in vorhandene Software" },
-      { "from_icon": "seo", "from": "SEO- und Contentprozesse", "to_icon": "pen", "to": "Aufbau einer SEO- und Content-Automatisierung" },
-      { "from_icon": "chart", "from": "Berichtserstellung und Auswertung", "to_icon": "trend", "to": "Einführung eines automatisierten Berichtssystems" }
-    ],
-    "note": "Nicht jedes identifizierte Potenzial führt unmittelbar zu einer technischen Umsetzung. In einzelnen Fällen ist zunächst eine Standardisierung, Datenbereinigung oder organisatorische Klärung erforderlich."
-  },
-  "nutzen": {
-    "kicker": "Ihr Nutzen",
-    "title": "Ihr Nutzen aus der Potenzialanalyse",
-    "items": [
-      { "label": "Klare Handlungsfelder", "text": "Geeignete Anwendungsfälle werden von allgemeinen oder technisch ungeeigneten Ideen getrennt." },
-      { "label": "Nachvollziehbare Prioritäten", "text": "Vorhaben werden anhand einheitlicher Kriterien bewertet." },
-      { "label": "Vermeidung ungeeigneter Investitionen", "text": "Software, Lizenzen und Entwicklungen werden nicht ohne belastbare Grundlage ausgewählt." },
-      { "label": "Frühzeitige Risikoerkennung", "text": "Datenschutz, Sicherheitsanforderungen und technische Abhängigkeiten werden vor der Umsetzung sichtbar." },
-      { "label": "Bessere Planbarkeit", "text": "Datenarbeiten, Schnittstellen und organisatorische Voraussetzungen können früh eingeplant werden." },
-      { "label": "Grundlage für den nächsten Schritt", "text": "Das Ergebnis zeigt, ob eine Roadmap, ein Pilotprojekt, eine Prozessbereinigung oder eine technische Detailanalyse sinnvoll ist." }
-    ]
-  },
-  "faq": {
-    "kicker": "Häufige Fragen",
-    "title": "FAQ",
-    "items": [
-      { "q": "Ist die Analyse wirklich kostenlos?", "a": "Ja. Die erste Einschätzung ist kostenlos und dient dazu, sinnvolle Potenziale zu erkennen." },
-      { "q": "Muss bereits ein KI-System vorhanden sein?", "a": "Nein. Die Analyse startet bei Ihren bestehenden Abläufen, Daten und Aufgaben." },
-      { "q": "Für welche Unternehmen passt das?", "a": "Für Unternehmen mit wiederkehrenden Aufgaben, manuellen Dokumentenprozessen oder verteilten Datenquellen." },
-      { "q": "Welche Bereiche werden untersucht?", "a": "Untersucht werden Prozesse, Dokumente, Datenflüsse, Wissenszugriffe, Systembrüche und standardisierte Kommunikationsvorgänge." },
-      { "q": "Wird bereits eine bestimmte Software ausgewählt?", "a": "Nein. Zunächst werden fachlicher Bedarf und technische Voraussetzungen bestimmt." },
-      { "q": "Ersetzt die Analyse eine technische Konzeption?", "a": "Nein. Sie dient der Ersteinschätzung und Priorisierung. Für die Umsetzung kann anschließend eine technische Detailkonzeption erforderlich sein." },
-      { "q": "Werden Datenschutz und Informationssicherheit berücksichtigt?", "a": "Ja. Datenarten, Zugriffsrechte, Protokollierung und notwendige Kontrollpunkte werden in die Bewertung einbezogen." },
-      { "q": "Wie werden Anwendungsfälle priorisiert?", "a": "Bewertet werden Nutzen, Häufigkeit, Datenlage, Integrationsaufwand, Risiko und Erweiterbarkeit." },
-      { "q": "Was erhalte ich als Ergebnis?", "a": "Sie erhalten eine strukturierte Einordnung der identifizierten Potenziale und Empfehlungen für die nächsten Schritte." },
-      { "q": "Was folgt nach der Analyse?", "a": "Je nach Ergebnis kann eine KI-Roadmap, ein Pilotprojekt oder zunächst eine vorbereitende Prozess- und Datenarbeit folgen." }
-    ]
-  },
-  "cta_form": true
+  ]
 }

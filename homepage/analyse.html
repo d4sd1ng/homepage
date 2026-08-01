@@ -247,6 +247,14 @@ main h3 { font: 700 clamp(19px,1.4vw,24px)/1.15 "Exo 2",Inter,Arial,sans-serif; 
 .pair-chip--gold { background-image: linear-gradient(180deg,#ffd7a3 0%,#f0a05a 24%,#d89828 58%,#7a3518 100%), var(--gold-3); border-color: rgba(255,215,163,.78); color: #112A20; box-shadow: inset 0 0 0 1px rgba(255,244,199,.20); }
 .pair-arrow { align-self: center; display: flex; align-items: center; justify-content: center; color: #d4af37; }
 .pair-arrow svg { width: 32px; height: 32px; }
+/* ---------- Punktlisten & Gruppen ---------- */
+.dot-list { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 10px 48px; list-style: none; margin: 14px 0 0; padding: 0; }
+.dot-list li { position: relative; padding-left: 20px; font: 400 16px/1.6 "Inter",Arial,sans-serif; color: #b9c3bd; }
+.dot-list li::before { content: ""; position: absolute; left: 0; top: 9px; width: 7px; height: 7px; border-radius: 2px; background: #DFBD69; }
+.group-grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 30px 48px; margin-top: 8px; }
+.group-grid .dot-list { grid-template-columns: 1fr; margin-top: 10px; }
+@media (max-width: 900px) { .dot-list, .group-grid { grid-template-columns: 1fr; } }
+
 /* ---------- FAQ ---------- */
 .faq-grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 18px; align-items: start; margin-top: 8px; }
 .faq-item summary { list-style: none; cursor: pointer; }
@@ -343,9 +351,9 @@ button[disabled] { opacity: .58; cursor: not-allowed; }
 <main>
 <!-- ============================ HERO ============================ -->
 <section class="section"><div class="section-inner detail-hero"><div><div class="kicker">KI-Potenzialanalyse</div><h1>Potenziale erkennen</h1><p class="sub">Bevor Zeit und Budget in eine KI-Lösung fließen.</p><p class="lead">Die KI-Potenzialanalyse zeigt, welche Prozesse für KI oder Automatisierung geeignet sind, welche Voraussetzungen fehlen und welche nächsten Schritte sinnvoll sind.</p><div class="actions"><a class="btn" href="#analyse-formular">KI-Potenzialanalyse starten</a></div></div><div class="visual-card"><img src="assets/Module/Ablauf/ki_potential.png" alt="KI-Potenzialanalyse"/></div></div></section>
-<!-- ==================== SCHWERPUNKTE / KERNNUTZEN ==================== -->
+<!-- ===== cards ===== -->
 <section class="section"><div class="section-inner content-grid"><article class="panel"><h2>Was analysiert wird</h2><p class="sub">Prozesse, Aufgaben, Daten und bestehende Systeme.</p><p>Untersucht werden wiederkehrende Tätigkeiten, manuelle Übergaben, Dokumentenprozesse, Datenflüsse und technische Abhängigkeiten.</p><ul><li>Prozesse</li><li>Aufgaben</li><li>Dokumente</li><li>Daten</li><li>Systeme</li></ul></article><article class="panel summary"><h2>Klare Entscheidungsgrundlage</h2><p class="sub">Sinnvolle Anwendungsfälle erkennen und ungeeignete Investitionen vermeiden.</p><p>Die Analyse bewertet Potenziale nach Nutzen, Aufwand, Risiken und Umsetzungsreife.</p><p>Das Ergebnis ist eine priorisierte Übersicht geeigneter Handlungsfelder und eine belastbare Grundlage für den nächsten Schritt.</p></article></div></section>
-<!-- ========================= DEFINITION ========================= -->
+<!-- ===== textcols ===== -->
 <section class="section" id="was-ist-das"><div class="section-inner">
 <div class="kicker">Definition</div>
 <h2>Was ist eine KI-Potenzialanalyse?</h2>
@@ -355,7 +363,7 @@ button[disabled] { opacity: .58; cursor: not-allowed; }
 <p>Das Ergebnis ist eine priorisierte Übersicht geeigneter Handlungsfelder.</p>
 </div>
 </div></section>
-<!-- ========================= WARUM ========================= -->
+<!-- ===== labellist ===== -->
 <section class="section" id="warum"><div class="section-inner">
 <div class="kicker">Ausgangslage</div>
 <h2>Warum ist die Analyse entscheidend?</h2>
@@ -368,7 +376,7 @@ button[disabled] { opacity: .58; cursor: not-allowed; }
 <li><strong>Fehlende Priorisierung</strong>Mehrere Ideen benötigen eine einheitliche Bewertung nach Nutzen, Aufwand, Risiko und Umsetzungsreife.</li>
 </ul>
 </div></section>
-<!-- ========================= LEISTUNGEN ========================= -->
+<!-- ===== numlist ===== -->
 <section class="section" id="leistungen"><div class="section-inner">
 <div class="kicker">Leistungsumfang</div>
 <h2>Unsere Leistungen innerhalb der Potenzialanalyse</h2>
@@ -383,7 +391,7 @@ button[disabled] { opacity: .58; cursor: not-allowed; }
 <li><b>Priorisierung</b><span>Die identifizierten Anwendungsfälle werden nach Nutzen, Aufwand, Risiko und Umsetzungsreife geordnet.</span></li>
 </ol>
 </div></section>
-<!-- ============ EINSATZBEREICHE + WAS DAMIT MÖGLICH WIRD ============ -->
+<!-- ===== pairs ===== -->
 <section class="section" id="einsatzbereiche"><div class="section-inner">
 <div class="kicker">Anwendung</div>
 <h2>Typische Einsatzbereiche und was damit möglich wird</h2>
@@ -404,7 +412,7 @@ button[disabled] { opacity: .58; cursor: not-allowed; }
 <p class="text text--after">Nicht jedes identifizierte Potenzial führt unmittelbar zu einer technischen Umsetzung. In einzelnen Fällen ist zunächst eine Standardisierung, Datenbereinigung oder organisatorische Klärung erforderlich.</p>
 </article>
 </div></section>
-<!-- ========================= NUTZEN ========================= -->
+<!-- ===== labellist ===== -->
 <section class="section" id="nutzen"><div class="section-inner">
 <div class="kicker">Ihr Nutzen</div>
 <h2>Ihr Nutzen aus der Potenzialanalyse</h2>
@@ -417,7 +425,7 @@ button[disabled] { opacity: .58; cursor: not-allowed; }
 <li><strong>Grundlage für den nächsten Schritt</strong>Das Ergebnis zeigt, ob eine Roadmap, ein Pilotprojekt, eine Prozessbereinigung oder eine technische Detailanalyse sinnvoll ist.</li>
 </ul>
 </div></section>
-<!-- ==================== CTA — POTENZIALANALYSE STARTEN ==================== -->
+<!-- ===== cta_form ===== -->
 <section class="section" id="analyse-formular"><div class="section-inner">
 <div class="kicker">Potenzialanalyse starten</div>
 <h2>Kostenlose Potenzialanalyse starten.</h2>
@@ -493,7 +501,7 @@ button[disabled] { opacity: .58; cursor: not-allowed; }
 </ul>
 </div>
 </div></section>
-<!-- ========================= FAQ ========================= -->
+<!-- ===== faq ===== -->
 <section class="section" id="faq"><div class="section-inner">
 <div class="kicker">Häufige Fragen</div>
 <h2>FAQ</h2>
