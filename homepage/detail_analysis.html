@@ -1,0 +1,933 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>KI-Potenzialanalyse — Nurovelle</title>
+    <meta name="description" content="Die KI-Potenzialanalyse untersucht Prozesse, Datenflüsse, Dokumente und wiederkehrende Aufgaben auf geeignete Einsatzfelder für künstliche Intelligenz und Automatisierung." />
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;550;600;650;700;750;800&family=Exo+2:wght@600;700;800&display=swap" />
+    <style>
+:root {
+  --sidebar-gold: #d89828;
+  --sidebar-gold-light: #e8b048;
+  --nv-black: #1a1a1a;
+  --nv-matte-black: #1d1d1d;
+  --nv-deep-green: #0f241c;
+  --nv-emerald: #112a20;
+  --nv-forest-dark: #10412e;
+  --nv-gold-border: #a55d07;
+  --nv-gold-inner-dark: #8b4208;
+  --nv-gold-inner-mid: #b17d10;
+  --nv-gold-highlight: #fae385;
+  --nv-gold-text-dark: rgb(120, 50, 5);
+  --nv-gold-gradient: linear-gradient(160deg, #a54e07, #b47e11, #fef1a2, #bc881b, #a54e07);
+  --nv-gold-text-hover: rgba(120, 50, 5, 0.8);
+  --nv-gold-border-hover: rgba(165, 93, 7, 0.6);
+  --shadow-soft: rgba(0, 0, 0, 0.16);
+  --shadow-soft-2: rgba(110, 80, 20, 0.4);
+  --shadow-hover-1: rgba(0, 0, 0, 0.19);
+  --shadow-hover-2: rgba(0, 0, 0, 0.23);
+
+  --color-bg-black: #050505;
+
+  --header-height: 84px;
+  --page-gutter: clamp(18px, 3vw, 32px);
+  --side: clamp(24px, 6vw, 120px); /* SECTION content gutter: ~120px on wide screens, scales down */
+  --hero-side: clamp(24px, 6vw, 120px); /* HERO gutter — separate knob so the hero can be tuned independently */
+  --divider-gap: 88px; /* = real --nv-section-divider-before-gap = cta-height(44)*2 */
+
+  /* Central kicker system — real shared values (index.html lines 94, 105-109).
+     Hero still uses these;
+  --nv-section-kicker-size: clamp(16px, 0.62vw, 18px);
+  --nv-kicker-line-height: 1.15;
+  --nv-kicker-letter-spacing: 0.14em;
+  --nv-kicker-title-gap: 10px;
+  --nv-kicker-color: #55863f;
+
+  --nv-section-body-size: 18px;
+  --nv-section-body-line: 1.85;
+  --nv-hero-subtitle-body-gap: 100px; /* real value 40px -> 60px per explicit instruction, then 100px per explicit instruction */
+
+  /* Hero title — real file has NO font-size/gradient rule at all for
+     .hero h1 (a real gap). Custom values below, set directly per your
+     sizing instructions this conversation (not pulled from any file). */
+  --nv-font-size-h1: clamp(64px, 7.5vw, 134px);
+  --nv-line-height-heading: 1.04;
+  --nv-gold-title-gradient: var(--gold-1);
+
+  /* Section 2/3 layout-only tokens (component-internal, not cross-section
+     shared) kept as vars for readability. */
+  --nv-about-text-column: 760px;
+  --nv-about-media-column: 620px;
+  --nv-about-paragraph-extension: 82px;
+  --nv-about-text-width: 955px;
+  --nv-about-video-gap: 220px;
+
+  /* logo — real sizes */
+  /* ===== Design-Tokens (Spec 0.6) ===== */
+  --color-black: #050706;
+  --color-matte-black: #080B09;
+  --color-deep-green: #0A1913;
+  --color-emerald: #112A20;
+  --color-teal-dark: #163A35;
+  --color-text-light: #F5F7F4;
+  --color-text-muted: #B9C3BD;
+  --color-text-sub: #D7DDD9;
+
+  --gold-1: linear-gradient(135deg, #AE8625, #F7EF8A, #D2AC47, #EDC967);
+  --gold-2: linear-gradient(135deg, #DFBD69, #926F34);
+  --gold-3: linear-gradient(135deg, #F9F295, #E0AA3E, #FAF398, #B88A44);
+  --gold-text-alt: linear-gradient(135deg, #C5A059 0%, #FDF0CD 50%, #D4AF37 100%);
+
+  --bg-green-1: linear-gradient(135deg, #0A1913 0%, #112A20 50%, #1D4234 100%);
+  --bg-green-2: linear-gradient(180deg, #071412 0%, #163A35 100%);
+
+  /* ===== Typo-Rollen: je Rolle eine Größe + ein Gewicht ===== */
+  --t-sektionstitel: clamp(48px, 7.5vw, 100px); --w-sektionstitel: 800;
+  --t-kartentitel: 36px;      --w-kartentitel: 750;
+  --t-subtitle: 24px; --w-subtitle: 600;
+  --t-kennzahl: 26px;         --w-kennzahl: 650;
+  --t-zwischentitel: 24px;    --w-zwischentitel: 600;
+  --t-bulletlabel: 22px;      --w-bulletlabel: 550;
+  --t-fliesstext: 20px;       --w-fliesstext: 400;
+  --t-kartenbullet: 20px;     --w-kartenbullet: 500;
+  --t-feldlabel: 20px;        --w-feldlabel: 500;
+  --t-wert: 20px;             --w-wert: 500;
+  --t-formularfeld: 20px;     --w-formularfeld: 400;
+  --t-hero-kennzahl: 42px;   --w-hero-kennzahl: 750;
+  --t-hero-statlabel: 16px;  --w-hero-statlabel: 400;
+  --t-kicker-sektion: 16px;   --w-kicker-sektion: 600;
+  --t-kicker-karte: 15px;     --w-kicker-karte: 600;
+  --t-bildunterschrift: 16px; --w-bildunterschrift: 500;
+  --t-cta: 16px;              --w-cta: 600;
+
+  --logo-box: 54px;
+  --logo-w: 58px;
+  --logo-h: 46px;
+}
+
+/* ==========================================================================
+   GEMEINSAMES GERÜST — Header, Buttons, Footer, aus index.html übernommen
+   ========================================================================== */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; background: #000; scroll-padding-top: var(--header-height); }
+body {
+  zoom: 0.8;
+  margin: 0;
+  background: var(--color-bg-black);
+  color: var(--color-text-light);
+  font-family: "Inter", Arial, sans-serif;
+  padding-top: var(--header-height);
+  overflow-x: hidden;
+}
+.site-header {
+  height: var(--header-height);
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  border-bottom: 1px solid transparent;
+  background-image: linear-gradient(#050505,#050505), var(--gold-3);
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
+  backdrop-filter: blur(8px);
+}
+.nv-breadcrumb {
+  display: inline-flex;
+  max-width: 100%;
+  overflow: visible;
+  justify-self: center;
+  white-space: nowrap;
+  filter: drop-shadow(0 12px 18px #00000047);
+}
+.nv-breadcrumb__trigger::before, .nv-breadcrumb__trigger::after {
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  clip-path: polygon(0 0, calc(100% - var(--nv-crumb-point)) 0, 100% 50%, calc(100% - var(--nv-crumb-point)) 100%, 0 100%, var(--nv-crumb-point) 50%);
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+}
+.golden-button {
+  touch-action: manipulation;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  justify-content: center;
+  min-width: 220px;
+  box-sizing: border-box;
+  height: 2.75em;
+  padding: 0 1em;
+  border: 1px solid var(--nv-gold-border);
+  border-radius: 0.3em;
+  color: var(--nv-gold-text-dark);
+  background-image: var(--nv-gold-gradient);
+  background-position: center;
+  background-size: 100% 100%;
+  box-shadow: 0 3px 6px var(--shadow-soft), 0 3px 6px var(--shadow-soft-2),
+    inset 0 -2px 5px 1px var(--nv-gold-inner-dark), inset 0 -1px 1px 3px var(--nv-gold-highlight);
+  font-family: inherit;
+  font-size: 1em;
+  font-weight: 800;
+  line-height: 2.5em;
+  letter-spacing: 0.045em;
+  text-shadow: 0 2px 2px var(--nv-gold-highlight);
+  text-transform: uppercase;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  position: relative;
+}
+a:hover .golden-button, a:focus-visible .golden-button {
+  color: var(--nv-gold-text-hover);
+  border-color: var(--nv-gold-border-hover);
+  background-size: 150% 150%;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px var(--shadow-hover-1), 0 6px 6px var(--shadow-hover-2),
+    inset 0 -2px 5px 1px var(--nv-gold-inner-mid), inset 0 -1px 1px 3px var(--nv-gold-highlight);
+}
+a:active .golden-button {
+  box-shadow: 0 3px 6px var(--shadow-soft), 0 3px 6px var(--shadow-soft-2),
+    inset 0 -2px 5px 1px var(--nv-gold-inner-mid), inset 0 -1px 1px 3px var(--nv-gold-highlight);
+}
+.site-header::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 1px; z-index: 0; background: linear-gradient(90deg, #00000000, #fae385d1, #00000000); }
+.header-inner { position: relative; z-index: 1; height: 100%; padding: 0 var(--page-gutter); display: grid; grid-template-columns: auto minmax(0, 1fr) auto; align-items: center; }
+.logo-wordmark { height: calc(var(--logo-h) * 1); width: auto; display: block; align-self: center; }
+.logo-link { display: inline-flex; align-items: center; gap: 12px; height: var(--logo-box); perspective: 600px; text-decoration: none; flex: 0 0 auto; }
+.logo-spin { display: block; width: var(--logo-w); height: var(--logo-h); animation: nv-logo-y-spin 11.5s linear infinite; background: url("assets/hero/nurovelle_logo.png") center / contain no-repeat; filter: drop-shadow(0 0 8px #fae3853d); transform-style: preserve-3d; transform-origin: center; will-change: transform; }
+.nv-breadcrumb__group { position: relative; }
+.nv-breadcrumb__group + .nv-breadcrumb__group { margin-left: -8px; }
+.nv-breadcrumb__group:first-child .nv-breadcrumb__trigger { padding-left: 14px; }
+.nv-breadcrumb__trigger { --nv-crumb-point: 14px; --nv-crumb-bg: linear-gradient(180deg, #112a20eb, #080b09f5); position: relative; display: flex; align-items: center; min-height: 36px; padding: 0 22px; color: var(--color-text-muted); background: none; font-size: 13px; line-height: 1; cursor: pointer; list-style: none; user-select: none; transition: color 0.18s ease, transform 0.18s ease; z-index: 1; }
+.nv-breadcrumb__trigger::-webkit-details-marker { display: none; }
+.nv-breadcrumb__trigger::marker { content: ""; }
+.nv-breadcrumb__trigger > span { position: relative; z-index: 1; }
+.nv-breadcrumb__trigger::before { inset: 0; background: linear-gradient(135deg, #fae3855c, #0000007a 58%, #fae38524); z-index: -2; }
+.nv-breadcrumb__trigger::after { inset: 1px; background: var(--nv-crumb-bg); z-index: -1; }
+.nv-breadcrumb__group:first-child .nv-breadcrumb__trigger::before, .nv-breadcrumb__group:first-child .nv-breadcrumb__trigger::after { clip-path: polygon(0 0, calc(100% - var(--nv-crumb-point)) 0, 100% 50%, calc(100% - var(--nv-crumb-point)) 100%, 0 100%); }
+.nv-breadcrumb__group:first-child .nv-breadcrumb__trigger::before { border-radius: 10px 0 0 10px; }
+.nv-breadcrumb__group:first-child .nv-breadcrumb__trigger::after { border-radius: 9px 0 0 9px; }
+.nv-breadcrumb__group[open] .nv-breadcrumb__trigger, .nv-breadcrumb__group:hover .nv-breadcrumb__trigger { --nv-crumb-bg: linear-gradient(180deg, #163a35f2, #0a1913fa); color: #fae385; transform: translateY(-1px); }
+.nv-breadcrumb__group[open] .nv-breadcrumb__trigger::before, .nv-breadcrumb__group:hover .nv-breadcrumb__trigger::before { background: linear-gradient(135deg, #fae385a8, #8b5b12a3 58%, #fae38566); }
+.nv-breadcrumb__group[open] .nv-breadcrumb__trigger::after, .nv-breadcrumb__group:hover .nv-breadcrumb__trigger::after { box-shadow: inset 0 1px 0 #fae38529, 0 5px 14px #00000052; }
+.nv-breadcrumb__menu { position: absolute; top: calc(100% + 6px); left: 12px; z-index: 50; display: none; min-width: 220px; padding: 8px; border: 1px solid transparent; border-radius: 10px; background-image: linear-gradient(#050706,#050706), var(--gold-3); background-origin: border-box; background-clip: padding-box, border-box; box-shadow: 0 18px 38px #000000b8; backdrop-filter: blur(12px); }
+.nv-breadcrumb__group[open] .nv-breadcrumb__menu, .nv-breadcrumb__group:hover .nv-breadcrumb__menu { display: grid; }
+.nv-breadcrumb__menu a { padding: 9px 12px; border-radius: 6px; color: var(--color-text-muted); font-size: 13px; line-height: 1.2; }
+.nv-breadcrumb__menu a:hover, .nv-breadcrumb__menu a:focus-visible { color: #fae385; background: #bc881b1a; outline: none; }
+.golden-button .nv-calendly-icon { width: 20px; height: 20px; flex: 0 0 auto; }
+.header-cta { justify-self: end; }
+.header-cta .golden-button { min-width: 0; height: 39.6px; /* was 36px, +10% per explicit instruction */
+  padding: 0 11px; /* was 10px, +10% per explicit instruction */
+  font-size: 12.1px; /* was 11px, +10% per explicit instruction */
+  line-height: 37.4px; /* was 34px, +10% per explicit instruction */
+  letter-spacing: 0.02em; }
+.hero-cta .golden-button { min-width: 320px; font-size: 16px; }
+.hero-cta .golden-button {
+    min-width: 0;
+    width: 100%;
+    font-size: 14px;
+    white-space: normal;
+    height: auto;
+    line-height: 1.3;
+    padding: 0.85em 1.1em;
+  }
+.nv-breadcrumb { display: none; }
+.hero-actions .hero-cta .golden-button {
+    min-width: 0;
+    width: 100%;
+    white-space: normal;
+    height: auto;
+    line-height: 1.3;
+    padding: 0.85em 1.1em;
+  }
+.nv-aform__submit .golden-button { display: flex; width: 100%; min-width: 0; }
+.nv-aform__row .hero-cta { flex: 0 0 auto; padding: 0; border: 0; background: none; cursor: pointer; }
+.nv-aform__row .golden-button { min-width: 0; height: auto; padding: 9px 18px; line-height: 1.2; font-size: 12px; white-space: nowrap; }
+.footer { background-color: #050505; margin-left: 0px; width: calc(100% - 0px); padding: 54px calc(var(--side) * 2); border-top: 1px solid var(--nv-gold-divider-strong); color: var(--color-text-light); background: #121212; }
+.nv-contact__cta .golden-button { display: inline-flex; gap: 8px; align-items: center; justify-content: center; font-size: 16.5px; }
+.nv-contact__cta .nv-calendly-icon { width: 30px; height: 30px; flex: 0 0 30px; }
+.footer-inner { display: grid;
+        grid-template-columns: minmax(0, 400px) auto minmax(0, 380px) auto; justify-content: space-between; gap: 96px; width: 100%; max-width: none; margin: 0; }
+.footer h4 { margin: 0 0 var(--nv-space-md); color: #fae385; font: var(--w-zwischentitel) var(--t-zwischentitel)/1.2 "Exo 2",Inter,Arial,sans-serif; letter-spacing: 0.06em; text-transform: uppercase; }
+.footer a:not(.footer-top):not(.footer-social a), .footer p { display: block; margin: 0 0 7px; color: #c4ccc6; font: 400 17px/1.7 Inter, Arial, sans-serif; text-decoration: none; }
+.footer-col--about p { color: #aab2ad; }
+.footer a:hover, .footer a:focus-visible { color: #fae385; outline: none; }
+.footer-newsletter { display: flex; gap: 8px; margin-top: 12px; }
+.footer-newsletter__input { flex: 1 1 auto; min-width: 0; height: 42px; padding: 0 12px; border: 1px solid rgba(212, 175, 55, 0.5); border-radius: 6px; color: #f0efe6; background: #0c0c0c; font: 400 14px/1.3 Inter, Arial, sans-serif; outline: none; }
+.footer-newsletter__input::placeholder { color: #8b938d; }
+.footer-newsletter__input:focus { border-color: #d4af37; box-shadow: 0 0 0 2px rgba(212, 175, 55, 0.28); }
+.footer-newsletter__btn { flex: 0 0 auto; height: 42px; padding: 0 18px; border: 0; border-radius: 6px; color: var(--nv-gold-text-dark); background-image: var(--nv-gold-gradient); font: 700 13px/1 Inter, Arial, sans-serif; text-transform: uppercase; letter-spacing: 0.04em; cursor: pointer; transition: filter 0.2s ease; }
+.footer-newsletter__btn:hover, .footer-newsletter__btn:focus-visible { filter: brightness(1.08); outline: none; }
+.footer-social { display: flex; gap: 12px; margin-top: 14px; }
+.footer-social a { display: inline-flex; align-items: center; justify-content: center; width: 38px; height: 38px; margin: 0; border: 1px solid var(--nv-gold-border); border-radius: 8px; color: #783205; background-image: var(--nv-gold-gradient); background-position: center; background-size: 100% 100%; transition: color 0.2s ease, border-color 0.2s ease, background 0.2s ease; }
+.footer-social a svg { width: 19px; height: 19px; }
+.footer-social a:hover, .footer-social a:focus-visible { color: rgba(120, 50, 5, 0.8); background-size: 150% 150%; transform: translateY(-2px); outline: none; }
+.footer-bottom { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px 28px; max-width: none; margin-top: 34px; padding-top: 22px; border-top: 1px solid rgba(212, 175, 55, 0.28); }
+.footer-legal { display: flex; flex-wrap: wrap; gap: 22px; }
+.footer-legal a { display: inline; margin: 0; color: #c4ccc6; font: 500 14px/1.4 Inter, Arial, sans-serif; }
+.footer-copy { margin: 0; color: #8b938d; font: 400 13px/1.4 Inter, Arial, sans-serif; }
+.footer-top { display: inline-flex; align-items: center; justify-content: center; width: 54px; height: 54px; margin: 0; color: #783205; border: 1px solid var(--nv-gold-border); border-radius: 8px; background-image: var(--nv-gold-gradient); background-position: center; background-size: 100% 100%; box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(110, 80, 20, 0.4), inset 0 -2px 5px 1px var(--nv-gold-inner-dark), inset 0 -1px 1px 3px #fae385; transition: color 0.2s ease, background-size 0.2s ease, transform 0.2s ease; }
+.footer-top svg { width: 26px; height: 26px; }
+.footer-top:hover, .footer-top:focus-visible { color: rgba(120, 50, 5, 0.8); background-size: 150% 150%; transform: translateY(-2px); outline: none; }
+.footer-col--about p, .footer-col > a, .footer-legal > a, .footer-copy { color: #b9c3bd; font: var(--w-fliesstext) var(--t-fliesstext)/1.6 "Inter",Arial,sans-serif; }
+@media (max-width: 640px) {
+  .hero-cta .golden-button {
+    min-width: 0;
+    width: 100%;
+    font-size: 14px;
+    white-space: normal;
+    height: auto;
+    line-height: 1.3;
+    padding: 0.85em 1.1em;
+  }
+}
+@media (max-width: 640px) {
+  .nv-breadcrumb { display: none; }
+  .hero-cube { width: min(60vw, 620px); }
+  .hero-title-l1 { white-space: normal; }
+  .hero h1 { overflow-wrap: break-word; }
+  .hero-subtitle-l1 { white-space: normal; }
+  .nv-section-step__content h2 { white-space: normal; width: auto; }
+  .hero-actions .hero-cta .golden-button {
+    min-width: 0;
+    width: 100%;
+    white-space: normal;
+    height: auto;
+    line-height: 1.3;
+    padding: 0.85em 1.1em;
+  }
+  .nv-about { padding: 84px var(--side) 88px; }
+  .nv-about__text, .nv-about__bullets { width: 100%; max-width: 100%; }
+  .nv-about__text--subtitle { width: 100%; } /* reset desktop 1060px on small screens */
+  .nv-about__media { width: 100%; margin-left: 0; }
+
+  .nv-step-ladder { left: auto; width: 100%; transform: none; }
+  .nv-step-item,
+  .nv-step-item:nth-child(2),
+  .nv-step-item:nth-child(3) {
+    --nv-step-offset: 0px;
+    width: min(100%, 332px); /* was 340px real / 227px / 264px / 295px last passes */
+    margin-top: 0;
+    margin-right: auto;
+    margin-left: auto;
+  }
+  .nv-step-card { width: min(100%, 332px); padding: 43px 23px 29px; } /* was 340px/44px 24px 30px real, 227px/29px 16px 20px, 264px/34px 19px 23px & 295px/38px 21px 26px last passes */
+  .nv-step-card__content { left: calc(96px - 3.5ch); right: 63px; } /* was 98px/65px real, 65px/43px, 76px/50px & 85px/56px last passes */
+
+  .nvp4-projectidea { padding: 72px var(--side) 84px; } /* real 639px override */
+  .nvp4-projectidea__content { text-align: left; margin-bottom: 34px; }
+  .nvp4-projectidea__slider { min-height: 430px; }
+  .nvp4-projectidea__slide { grid-template-columns: 1fr; gap: 12.6px; align-content: start; }
+  .nvp4-projectidea__image { width: min(100%, 293px); justify-self: center; }
+  .nvp4-projectidea__image--wide { width: 100%; max-width: 100%; }
+  .nvp4-projectidea__idea { max-width: none; }
+  .nvp4-projectidea__dots { left: 0; bottom: 10px; } /* verbatim from index.html: leaves the base rule's translateX(-50%) in place */
+
+  .nv-s7 { padding-inline: 16px; }
+  .nv-s7-card, .nv-s7-card:nth-child(10), .nv-s7-card:nth-child(11) {
+    width: 100%;
+    left: auto;
+    grid-template-columns: 1fr;
+    min-height: 0;
+  }
+  .nv-s7-card__divider { display: none; }
+  .nv-s7-card__left { padding: 16px; }
+}
+/* ==========================================================================
+   DETAILSEITEN-VORLAGE — Gerüst für alle 11 Leistungs-Detailseiten
+   Rollen, Flächen und Rahmen nach Implementation Brief 0.17
+   Struktur nach service_detailseiten_scope.md (10 Sektionen)
+
+   Wiederverwendbare Bausteine je Sektion:
+     .nv-dp__chain     Modulkette (Framework im Hero)
+     .nv-dp__num       nummerierte Leistungsliste
+     .nv-dp__list      Label + Beschreibung, 1- oder 2-spaltig
+     .nv-dp__tags      schlichte Stichpunktliste
+     .nv-dp__parallel  parallele Prüfungen
+     .nv-dp__faq       FAQ mit Gold-Buttons
+   ========================================================================== */
+
+/* ---------- Sektionsgerüst ---------- */
+.nv-dp { position: relative; min-height: calc(125vh - var(--header-height));
+  display: flex; flex-direction: column; justify-content: center;
+  padding: 104px var(--side) 131.25px; overflow: hidden; color: var(--color-text-light); }
+.nv-dp--dark  { background: #050505; }
+.nv-dp--green { background: #010603; }
+.nv-dp::after { content:""; position:absolute; left:7%; right:7%; bottom:0; height:2px;
+  background:linear-gradient(90deg,transparent,#fae385 20%,#fae385 80%,transparent);
+  box-shadow:0 0 8px #fae38566; pointer-events:none; }
+.nv-dp__inner { position: relative; z-index: 1; width: 100%; margin: 0 auto 0 0; }
+
+/* ---------- Kopf: Kicker, Titel, Subtitle, Fließtext ---------- */
+.nv-dp__kicker { margin: 0 0 10px; color: #55863f;
+  font: var(--w-kicker-sektion) var(--t-kicker-sektion)/1.15 "Inter",Arial,sans-serif;
+  letter-spacing: .14em; text-transform: uppercase; }
+.nv-dp__title { margin: 0 0 49px; color: transparent; background: var(--gold-1);
+  background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  font: var(--w-sektionstitel) var(--t-sektionstitel)/1.15 "Exo 2",Inter,Arial,sans-serif; }
+.nv-dp__subtitle { max-width: 70ch; margin: 0 0 40px; color: var(--color-text-sub);
+  font: var(--w-subtitle) var(--t-subtitle)/1.22 "Inter",Arial,sans-serif; }
+.nv-dp__text { max-width: 88ch; margin: 0 0 116px; color: #b9c3bd;
+  font: var(--w-fliesstext) var(--t-fliesstext)/1.85 "Inter",Arial,sans-serif; }
+.nv-dp__text + .nv-dp__text { margin-top: -80px; }
+.nv-dp__text--nach { margin: 116px 0 0; }
+
+/* ---------- Modulkette (Framework) ---------- */
+.nv-dp__chain { display: grid; grid-template-columns: repeat(8, minmax(0,1fr));
+  gap: 30px; margin: 0 0 116px; padding: 0; list-style: none; counter-reset: dpmod; }
+.nv-dp__chain li { counter-increment: dpmod; position: relative;
+  display: flex; flex-direction: column; align-items: center; text-align: center;
+  padding: 26px 18px 22px; border-radius: 10px;
+  border: 1.25px solid transparent; background-origin: border-box;
+  background-clip: padding-box, border-box;
+  color: #e4e0d6;
+  font: var(--w-bildunterschrift) var(--t-bildunterschrift)/1.3 "Exo 2",Inter,Arial,sans-serif; }
+.nv-dp--dark  .nv-dp__chain li { background-image: linear-gradient(#17251d,#17251d), var(--gold-3); }
+.nv-dp--green .nv-dp__chain li { background-image: linear-gradient(#1a1a1a,#1a1a1a), var(--gold-3); }
+.nv-dp__chain li::before { content: counter(dpmod,decimal-leading-zero);
+  display: block; margin-bottom: 14px; color: transparent; background: var(--gold-1);
+  background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  font: var(--w-kennzahl) var(--t-kennzahl)/1 "Exo 2",Inter,Arial,sans-serif; }
+.nv-dp__chain li:not(:last-child)::after { content: "\203A"; position: absolute;
+  right: -22px; top: 50%; transform: translateY(-50%);
+  color: #d4af37; font: 650 26px/1 "Exo 2",Inter,Arial,sans-serif; }
+
+/* ---------- Nummerierte Leistungsliste ---------- */
+.nv-dp__num { display: grid; gap: 40px 96px; margin: 0; padding: 0; list-style: none;
+  counter-reset: dpnum; }
+.nv-dp__num--2 { grid-template-columns: repeat(2, minmax(0,1fr)); }
+.nv-dp__num li { counter-increment: dpnum; position: relative; padding-left: 74px; }
+.nv-dp__num li::before { content: counter(dpnum,decimal-leading-zero);
+  position: absolute; left: 0; top: 0; display: grid; place-items: center;
+  width: 54px; height: 54px; border-radius: 7px;
+  border: 1.25px solid transparent; background-origin: border-box;
+  background-clip: padding-box, border-box; color: #d4af37;
+  font: var(--w-bulletlabel) var(--t-bulletlabel)/1 "Exo 2",Inter,Arial,sans-serif; }
+.nv-dp--dark  .nv-dp__num li::before { background-image: linear-gradient(#17251d,#17251d), var(--gold-3); }
+.nv-dp--green .nv-dp__num li::before { background-image: linear-gradient(#1a1a1a,#1a1a1a), var(--gold-3); }
+.nv-dp__num b { display: block; margin: 0 0 6px; color: #d4af37;
+  font: var(--w-bulletlabel) var(--t-bulletlabel)/1.3 "Inter",Arial,sans-serif; }
+.nv-dp__num span { display: block; color: #b9c3bd;
+  font: var(--w-fliesstext) var(--t-fliesstext)/1.7 "Inter",Arial,sans-serif; }
+
+/* ---------- Label-Liste ---------- */
+.nv-dp__list { display: grid; gap: 40px 96px; margin: 0; padding: 0; list-style: none; }
+.nv-dp__list--2 { grid-template-columns: repeat(2, minmax(0,1fr)); }
+.nv-dp__list li { position: relative; padding-left: 22px; color: #b9c3bd;
+  font: var(--w-fliesstext) var(--t-fliesstext)/1.7 "Inter",Arial,sans-serif; }
+.nv-dp__list li::before { content: ""; position: absolute; left: 0;
+  top: calc(var(--t-bulletlabel) * 0.925 - 3.5px);
+  width: 7px; height: 7px; border-radius: 2px; background: #f7c64a; }
+.nv-dp__list strong { display: block; margin-bottom: 4px; color: #d4af37;
+  font: var(--w-bulletlabel) var(--t-bulletlabel)/1.4 "Inter",Arial,sans-serif; }
+
+/* ---------- Stichpunktliste ---------- */
+.nv-dp__tags { display: grid; grid-template-columns: repeat(5, minmax(0,1fr));
+  gap: 30px; margin: 0; padding: 0; list-style: none; }
+.nv-dp__tags li { padding: 22px 24px; border-radius: 10px; color: #e4e0d6;
+  border: 1.25px solid transparent; background-origin: border-box;
+  background-clip: padding-box, border-box;
+  font: var(--w-bulletlabel) var(--t-bulletlabel)/1.35 "Inter",Arial,sans-serif; }
+.nv-dp--dark  .nv-dp__tags li { background-image: linear-gradient(#17251d,#17251d), var(--gold-3); }
+.nv-dp--green .nv-dp__tags li { background-image: linear-gradient(#1a1a1a,#1a1a1a), var(--gold-3); }
+
+/* ---------- Parallele Prüfungen ---------- */
+.nv-dp__parallel { display: grid; grid-template-columns: repeat(4, minmax(0,1fr));
+  gap: 30px; margin: 0 0 116px; padding: 0; list-style: none; }
+.nv-dp__parallel li { position: relative; padding-top: 28px; color: #e4e0d6;
+  border-top: 1.25px solid #d4af37;
+  font: var(--w-bulletlabel) var(--t-bulletlabel)/1.35 "Exo 2",Inter,Arial,sans-serif; }
+
+/* ---------- FAQ ---------- */
+.nv-dp__faq { display: grid; grid-template-columns: repeat(2, minmax(0,1fr));
+  gap: 30px; align-items: start; }
+.nv-dp-faq summary { --nv-golden-width: 100%; list-style: none; cursor: pointer; }
+.nv-dp-faq summary::-webkit-details-marker { display: none; }
+.nv-dp-faq summary > span { display: flex; width: 100%; box-sizing: border-box;
+  align-items: center; justify-content: space-between; gap: 14px;
+  min-height: 2.75em; padding: 0.5em 1em; border-radius: 0.3em;
+  border: 1.25px solid var(--nv-gold-border);
+  background-image: var(--nv-gold-gradient); background-size: 150% 150%;
+  color: var(--nv-gold-text-dark); text-align: left; white-space: normal;
+  font: var(--w-cta) var(--t-cta)/1.35 "Inter",Arial,sans-serif;
+  letter-spacing: 0.02em; text-transform: uppercase; }
+.nv-dp-faq summary > span::after { content: "+"; flex: 0 0 auto; }
+.nv-dp-faq[open] summary > span::after { content: "\2212"; }
+.nv-dp-faq p { margin: 18px 4px 0; color: #b9c3bd;
+  font: var(--w-fliesstext) var(--t-fliesstext)/1.7 "Inter",Arial,sans-serif; }
+
+/* ---------- CTA ---------- */
+.nv-dp__actions { display: flex; align-items: center; gap: 18px; margin-top: 116px; }
+.nv-dp__actions--links { justify-content: flex-start; }
+
+/* ---------- Responsiv ---------- */
+@media (max-width: 1499px) {
+  .nv-dp__chain { grid-template-columns: repeat(4, minmax(0,1fr)); row-gap: 40px; }
+  .nv-dp__chain li:nth-child(4n)::after { content: none; }
+  .nv-dp__tags { grid-template-columns: repeat(3, minmax(0,1fr)); }
+}
+@media (max-width: 1100px) {
+  .nv-dp__num--2, .nv-dp__list--2 { grid-template-columns: 1fr; }
+  .nv-dp__parallel { grid-template-columns: repeat(2, minmax(0,1fr)); }
+  .nv-dp__faq { grid-template-columns: 1fr; }
+}
+@media (max-width: 760px) {
+  .nv-dp { min-height: 0; }
+  .nv-dp__chain { grid-template-columns: repeat(2, minmax(0,1fr)); }
+  .nv-dp__chain li::after { content: none; }
+  .nv-dp__tags, .nv-dp__parallel { grid-template-columns: 1fr; }
+  .nv-dp__actions { flex-direction: column; align-items: stretch; }
+}
+
+    </style>
+  </head>
+  <body>
+<svg class="nv-calendly-icon" viewBox="0 0 64 64" aria-hidden="true"><use href="#nv-calendly-mark"></use></svg>
+<header class="site-header">
+  <div class="header-inner">
+    <a class="logo-link" href="index.html" aria-label="Nurovelle Startseite">
+      <span class="logo-spin" aria-hidden="true"></span>
+    
+            <img class="logo-wordmark" src="assets/hero/Nurovelle_schrift.png" alt="Nurovelle — Building Intelligent Systems" />
+          </a>
+
+    <nav class="nv-breadcrumb" aria-label="Hauptnavigation">
+      <details class="nv-breadcrumb__group">
+        <summary class="nv-breadcrumb__trigger"><span>Leistungen</span></summary>
+        <div class="nv-breadcrumb__menu">
+          <a href="index.html">Startseite</a>
+          <a href="index.html#warum-nurovelle">Warum Nurovelle</a>
+          <a href="index.html#leistungen">KI-Leistungen</a>
+        </div>
+      </details>
+      <details class="nv-breadcrumb__group">
+        <summary class="nv-breadcrumb__trigger"><span>Potenzialanalyse</span></summary>
+        <div class="nv-breadcrumb__menu">
+          <a href="index.html#ki-projekt-start">Erster Schritt</a>
+          <a href="index.html#projektidee">Projektidee</a>
+          <a href="index.html#potenzialanalyse">Potenzialanalyse</a>
+          <a href="index.html#formular">Formular</a>
+        </div>
+      </details>
+      <details class="nv-breadcrumb__group">
+        <summary class="nv-breadcrumb__trigger"><span>Zusammenarbeit</span></summary>
+        <div class="nv-breadcrumb__menu">
+          <a href="index.html#prozess-zur-loesung">Prozess</a>
+          <a href="index.html#downloads">Downloads</a>
+          <a href="index.html#kontakt">Kontakt</a>
+          <a href="index.html#faq">FAQ</a>
+        </div>
+      </details>
+    </nav>
+
+    <a class="header-cta" href="analyse.html" aria-label="Kostenlose KI-Potenzialanalyse öffnen">
+      <span class="golden-button">
+        <svg class="nv-calendly-icon" viewBox="0 0 64 64" aria-hidden="true"><use href="index.html#nv-calendly-mark"></use></svg>
+        <span class="golden-text">Unverbindliches Erstgespräch</span>
+      </span>
+    </a>
+  </div>
+</header>
+    <main id="top">
+      <!-- ============================ 1 — HERO ============================ -->
+      <section class="nv-dp nv-dp--dark" id="ueberblick" aria-labelledby="dp-title">
+        <div class="nv-dp__inner">
+          <p class="nv-dp__kicker">KI-Potenzialanalyse</p>
+          <h1 class="nv-dp__title" id="dp-title">
+            KI-Potenziale systematisch erkennen und belastbar bewerten
+          </h1>
+          <p class="nv-dp__subtitle">
+            Die KI-Potenzialanalyse untersucht Prozesse, Datenflüsse, Dokumente und
+            wiederkehrende Aufgaben auf geeignete Einsatzfelder für künstliche Intelligenz
+            und Automatisierung.
+          </p>
+          <p class="nv-dp__text">
+            Im Mittelpunkt stehen konkrete betriebliche Anforderungen. Bewertet werden
+            Nutzen, Umsetzbarkeit, Datenlage, Risiken und technische Abhängigkeiten.
+          </p>
+
+          <ol class="nv-dp__chain" aria-label="Ablauf der Analyse">
+            <li>Prozesse erfassen</li>
+            <li>Aufgaben strukturieren</li>
+            <li>Datenlage prüfen</li>
+            <li>Anwendungsfälle ableiten</li>
+            <li>Potenziale bewerten</li>
+            <li>Risiken einordnen</li>
+            <li>Prioritäten festlegen</li>
+            <li>nächsten Schritt bestimmen</li>
+          </ol>
+
+          <div class="nv-dp__actions nv-dp__actions--links">
+            <a class="hero-cta" href="analyse.html" aria-label="KI-Potenzialanalyse starten">
+              <span class="golden-button">
+                <svg class="nv-calendly-icon" aria-hidden="true"><use href="#nv-calendly-mark"></use></svg>
+                <span class="golden-text">KI-Potenzialanalyse starten</span>
+              </span>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- ======================= 2 — WAS IST DAS ========================== -->
+      <section class="nv-dp nv-dp--green" id="was-ist-das" aria-labelledby="dp-was-title">
+        <div class="nv-dp__inner">
+          <p class="nv-dp__kicker">Definition</p>
+          <h2 class="nv-dp__title" id="dp-was-title">Was ist eine KI-Potenzialanalyse?</h2>
+          <p class="nv-dp__subtitle">
+            Eine KI-Potenzialanalyse ist eine strukturierte Ersteinschätzung betrieblicher
+            Abläufe.
+          </p>
+          <p class="nv-dp__text">
+            Sie zeigt, an welchen Stellen KI, Automatisierung oder datenbasierte Systeme
+            einen nachvollziehbaren Nutzen erzeugen können. Dabei werden nicht einzelne
+            Werkzeuge betrachtet, sondern Prozesse, Datenquellen, Systemgrenzen und
+            organisatorische Voraussetzungen.
+          </p>
+          <p class="nv-dp__text">
+            Das Ergebnis ist eine priorisierte Übersicht geeigneter Handlungsfelder.
+          </p>
+        </div>
+      </section>
+
+      <!-- ========================= 3 — WARUM ============================== -->
+      <section class="nv-dp nv-dp--dark" id="warum" aria-labelledby="dp-warum-title">
+        <div class="nv-dp__inner">
+          <p class="nv-dp__kicker">Ausgangslage</p>
+          <h2 class="nv-dp__title" id="dp-warum-title">Warum ist die Analyse entscheidend?</h2>
+          <!-- TEXT FEHLT: Subtitle -->
+          <!-- TEXT FEHLT: Fließtext -->
+
+          <ul class="nv-dp__list nv-dp__list--2">
+            <li><strong>Unklare Anwendungsfälle</strong>Nicht jede technisch mögliche KI-Anwendung ist fachlich oder wirtschaftlich sinnvoll.</li>
+            <li><strong>Fehlende Prozessabgrenzung</strong>Automatisierung erfordert klar definierte Eingaben, Bearbeitungsschritte, Ausnahmen und Ergebnisse.</li>
+            <li><strong>Unzureichende Datenbasis</strong>Fehlende, widersprüchliche oder schwer zugängliche Daten begrenzen die Qualität späterer Systeme.</li>
+            <li><strong>Technische Abhängigkeiten</strong>Schnittstellen, Rechte, Softwarearchitektur und Systemverfügbarkeit beeinflussen die Umsetzbarkeit.</li>
+            <li><strong>Ungeklärte Risiken</strong>Datenschutz, Informationssicherheit und menschliche Kontrollpunkte müssen früh berücksichtigt werden.</li>
+            <li><strong>Fehlende Priorisierung</strong>Mehrere Ideen benötigen eine einheitliche Bewertung nach Nutzen, Aufwand, Risiko und Umsetzungsreife.</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- ======================= 4 — LEISTUNGEN =========================== -->
+      <section class="nv-dp nv-dp--green" id="leistungen" aria-labelledby="dp-leist-title">
+        <div class="nv-dp__inner">
+          <p class="nv-dp__kicker">Leistungsumfang</p>
+          <h2 class="nv-dp__title" id="dp-leist-title">
+            Unsere Leistungen innerhalb der Potenzialanalyse
+          </h2>
+          <!-- TEXT FEHLT: Subtitle -->
+          <!-- TEXT FEHLT: Fließtext -->
+
+          <ol class="nv-dp__num nv-dp__num--2">
+            <li><b>Prozesserfassung</b><span>Wiederkehrende Abläufe, manuelle Bearbeitungsschritte, Übergaben und Medienbrüche werden strukturiert erfasst.</span></li>
+            <li><b>Aufgabenklassifikation</b><span>Tätigkeiten werden nach Regelgebundenheit, Informationsbedarf, Entscheidungsanteil und Automatisierbarkeit eingeordnet.</span></li>
+            <li><b>Datenprüfung</b><span>Relevante Datenquellen, Formate, Zugriffsrechte, Aktualität und Qualität werden geprüft.</span></li>
+            <li><b>Systemanalyse</b><span>Bestehende Anwendungen, Schnittstellen und technische Abhängigkeiten werden berücksichtigt.</span></li>
+            <li><b>Anwendungsfallentwicklung</b><span>Aus den analysierten Prozessen werden konkrete KI- und Automatisierungsanwendungen abgeleitet.</span></li>
+            <li><b>Nutzenbewertung</b><span>Mögliche Verbesserungen bei Bearbeitungszeit, Fehlerquote, Informationszugriff und Prozessqualität werden eingeordnet.</span></li>
+            <li><b>Risikobewertung</b><span>Datenschutz, Informationssicherheit, Fehlentscheidungen und notwendige Freigaben werden dokumentiert.</span></li>
+            <li><b>Priorisierung</b><span>Die identifizierten Anwendungsfälle werden nach Nutzen, Aufwand, Risiko und Umsetzungsreife geordnet.</span></li>
+          </ol>
+        </div>
+      </section>
+
+      <!-- ==================== 5 — BEWERTUNGSLOGIK ========================= -->
+      <section class="nv-dp nv-dp--dark" id="bewertung" aria-labelledby="dp-bew-title">
+        <div class="nv-dp__inner">
+          <p class="nv-dp__kicker">Bewertung</p>
+          <h2 class="nv-dp__title" id="dp-bew-title">
+            Steigerung der Entscheidungssicherheit durch strukturierte Bewertung
+          </h2>
+          <p class="nv-dp__subtitle">
+            Die Analyse verwendet keinen ausschließlich linearen Ablauf.
+          </p>
+          <p class="nv-dp__text">
+            Nach der Prozesserfassung laufen mehrere Prüfungen parallel:
+          </p>
+
+          <ul class="nv-dp__parallel">
+            <li>Datenprüfung</li>
+            <li>Systemanalyse</li>
+            <li>Nutzenbewertung</li>
+            <li>Risikobewertung</li>
+          </ul>
+
+          <ul class="nv-dp__list nv-dp__list--2">
+            <li><strong>AND-Gate</strong>Führt die Ergebnisse zusammen, wenn alle Voraussetzungen für eine belastbare Bewertung vorliegen.</li>
+            <li><strong>OR-Gate</strong>Erlaubt die weitere Prüfung, wenn alternative Datenquellen oder technische Ansätze bestehen.</li>
+            <li><strong>XOR-Gate</strong>Trennt Anwendungsfälle, bei denen entweder eine regelbasierte Automatisierung oder eine KI-Komponente eingesetzt wird.</li>
+            <li><strong>NOR-Pfad</strong>Kennzeichnet Fälle, in denen weder ausreichender Nutzen noch ausreichende Umsetzbarkeit vorliegen.</li>
+          </ul>
+
+          <p class="nv-dp__text nv-dp__text--nach">
+            Nach Abschluss werden die Ergebnisse über einen Merge Node in die Priorisierung
+            überführt.
+          </p>
+        </div>
+      </section>
+
+      <!-- ========================= 6 — NUTZEN ============================= -->
+      <section class="nv-dp nv-dp--green" id="nutzen" aria-labelledby="dp-nutzen-title">
+        <div class="nv-dp__inner">
+          <p class="nv-dp__kicker">Ihr Nutzen</p>
+          <h2 class="nv-dp__title" id="dp-nutzen-title">Ihr Nutzen aus der Potenzialanalyse</h2>
+          <!-- TEXT FEHLT: Subtitle -->
+          <!-- TEXT FEHLT: Fließtext -->
+
+          <ul class="nv-dp__list nv-dp__list--2">
+            <li><strong>Klare Handlungsfelder</strong>Geeignete Anwendungsfälle werden von allgemeinen oder technisch ungeeigneten Ideen getrennt.</li>
+            <li><strong>Nachvollziehbare Prioritäten</strong>Vorhaben werden anhand einheitlicher Kriterien bewertet.</li>
+            <li><strong>Vermeidung ungeeigneter Investitionen</strong>Software, Lizenzen und Entwicklungen werden nicht ohne belastbare Grundlage ausgewählt.</li>
+            <li><strong>Frühzeitige Risikoerkennung</strong>Datenschutz, Sicherheitsanforderungen und technische Abhängigkeiten werden vor der Umsetzung sichtbar.</li>
+            <li><strong>Bessere Planbarkeit</strong>Datenarbeiten, Schnittstellen und organisatorische Voraussetzungen können früh eingeplant werden.</li>
+            <li><strong>Grundlage für den nächsten Schritt</strong>Das Ergebnis zeigt, ob eine Roadmap, ein Pilotprojekt, eine Prozessbereinigung oder eine technische Detailanalyse sinnvoll ist.</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- ===================== 7 — EINSATZBEREICHE ======================== -->
+      <section class="nv-dp nv-dp--dark" id="einsatzbereiche" aria-labelledby="dp-einsatz-title">
+        <div class="nv-dp__inner">
+          <p class="nv-dp__kicker">Anwendung</p>
+          <h2 class="nv-dp__title" id="dp-einsatz-title">Typische Einsatzbereiche</h2>
+          <!-- TEXT FEHLT: Subtitle -->
+          <!-- TEXT FEHLT: Fließtext -->
+
+          <ul class="nv-dp__tags">
+            <li>Dokumentenverarbeitung</li>
+            <li>interne Wissenssysteme</li>
+            <li>Datenabgleich und Datenbereinigung</li>
+            <li>Prozessautomatisierung</li>
+            <li>Vertriebs- und Serviceunterstützung</li>
+            <li>Chatbots und Sprachassistenten</li>
+            <li>KI-Agenten</li>
+            <li>Erweiterung bestehender Software</li>
+            <li>SEO- und Contentprozesse</li>
+            <li>Berichtserstellung und Auswertung</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- ==================== 8 — WAS MÖGLICH WIRD ======================== -->
+      <section class="nv-dp nv-dp--green" id="moeglich" aria-labelledby="dp-moeglich-title">
+        <div class="nv-dp__inner">
+          <p class="nv-dp__kicker">Folgeschritte</p>
+          <h2 class="nv-dp__title" id="dp-moeglich-title">Was damit möglich wird</h2>
+          <p class="nv-dp__subtitle">
+            Die Potenzialanalyse schafft eine belastbare Grundlage für weitere Entscheidungen.
+          </p>
+          <p class="nv-dp__text">Mögliche Folgeschritte sind:</p>
+
+          <ul class="nv-dp__tags">
+            <li>Entwicklung einer KI-Roadmap</li>
+            <li>Umsetzung eines klar abgegrenzten Pilotprojekts</li>
+            <li>Aufbau eines KI-Agenten</li>
+            <li>Automatisierung eines bestehenden Workflows</li>
+            <li>Einführung eines Wissenssystems</li>
+            <li>Entwicklung eines Dokumenten- oder Datenabgleichsystems</li>
+            <li>Integration von KI in vorhandene Software</li>
+            <li>Vorbereitung von Daten, Prozessen oder Schnittstellen</li>
+          </ul>
+
+          <p class="nv-dp__text nv-dp__text--nach">
+            Nicht jedes identifizierte Potenzial führt unmittelbar zu einer technischen
+            Umsetzung. In einzelnen Fällen ist zunächst eine Standardisierung,
+            Datenbereinigung oder organisatorische Klärung erforderlich.
+          </p>
+        </div>
+      </section>
+
+      <!-- =========================== 9 — FAQ ============================== -->
+      <section class="nv-dp nv-dp--dark" id="fragen" aria-labelledby="dp-faq-title">
+        <div class="nv-dp__inner">
+          <p class="nv-dp__kicker">Häufige Fragen</p>
+          <h2 class="nv-dp__title" id="dp-faq-title">FAQ</h2>
+          <!-- TEXT FEHLT: Subtitle -->
+          <!-- TEXT FEHLT: Fließtext -->
+
+          <div class="nv-dp__faq">
+            <details class="nv-dp-faq">
+              <summary><span>Muss bereits eine konkrete KI-Idee vorhanden sein?</span></summary>
+              <p>Nein. Ausgangspunkt können bestehende Prozesse, wiederkehrende Aufgaben oder bekannte Engpässe sein.</p>
+            </details>
+            <details class="nv-dp-faq">
+              <summary><span>Welche Bereiche werden untersucht?</span></summary>
+              <p>Untersucht werden Prozesse, Dokumente, Datenflüsse, Wissenszugriffe, Systembrüche und standardisierte Kommunikationsvorgänge.</p>
+            </details>
+            <details class="nv-dp-faq">
+              <summary><span>Wird bereits eine bestimmte Software ausgewählt?</span></summary>
+              <p>Nein. Zunächst werden fachlicher Bedarf und technische Voraussetzungen bestimmt.</p>
+            </details>
+            <details class="nv-dp-faq">
+              <summary><span>Ersetzt die Analyse eine technische Konzeption?</span></summary>
+              <p>Nein. Sie dient der Ersteinschätzung und Priorisierung. Für die Umsetzung kann anschließend eine technische Detailkonzeption erforderlich sein.</p>
+            </details>
+            <details class="nv-dp-faq">
+              <summary><span>Werden Datenschutz und Informationssicherheit berücksichtigt?</span></summary>
+              <p>Ja. Datenarten, Zugriffsrechte, Protokollierung und notwendige Kontrollpunkte werden in die Bewertung einbezogen.</p>
+            </details>
+            <details class="nv-dp-faq">
+              <summary><span>Wie werden Anwendungsfälle priorisiert?</span></summary>
+              <p>Bewertet werden Nutzen, Häufigkeit, Datenlage, Integrationsaufwand, Risiko und Erweiterbarkeit.</p>
+            </details>
+            <details class="nv-dp-faq">
+              <summary><span>Was erhalte ich als Ergebnis?</span></summary>
+              <p>Sie erhalten eine strukturierte Einordnung der identifizierten Potenziale und Empfehlungen für die nächsten Schritte.</p>
+            </details>
+            <details class="nv-dp-faq">
+              <summary><span>Was folgt nach der Analyse?</span></summary>
+              <p>Je nach Ergebnis kann eine KI-Roadmap, ein Pilotprojekt oder zunächst eine vorbereitende Prozess- und Datenarbeit folgen.</p>
+            </details>
+          </div>
+        </div>
+      </section>
+
+      <!-- ====================== 10 — ERSTGESPRÄCH ========================= -->
+      <section class="nv-dp nv-dp--green" id="starten" aria-labelledby="dp-cta-title">
+        <div class="nv-dp__inner">
+          <p class="nv-dp__kicker">Nächster Schritt</p>
+          <h2 class="nv-dp__title" id="dp-cta-title">
+            Prüfen Sie Ihre Prozesse auf konkretes KI-Potenzial
+          </h2>
+          <p class="nv-dp__subtitle">
+            Die Potenzialanalyse zeigt, wo künstliche Intelligenz und Automatisierung
+            fachlich sinnvoll eingesetzt werden können und welche Voraussetzungen dafür
+            notwendig sind.
+          </p>
+          <!-- TEXT FEHLT: Fließtext -->
+
+          <div class="nv-dp__actions nv-dp__actions--links">
+            <a class="hero-cta" href="analyse.html" aria-label="KI-Potenzialanalyse starten">
+              <span class="golden-button">
+                <svg class="nv-calendly-icon" aria-hidden="true"><use href="#nv-calendly-mark"></use></svg>
+                <span class="golden-text">KI-Potenzialanalyse starten</span>
+              </span>
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+<footer class="footer" id="footer">
+      <div class="footer-inner">
+        <div class="footer-col footer-col--about">
+          <h4>Nurovelle</h4>
+          <p>Individuelle KI-Systeme für reale Geschäftsprozesse.</p>
+          <p>
+            Nurovelle entwickelt KI-Agenten, Automatisierungssysteme und
+            datenbasierte Lösungen, die Unternehmen bei wiederkehrenden
+            Abläufen, Wissenszugriff und Datenverarbeitung unterstützen.
+          </p>
+        </div>
+        <div class="footer-col">
+          <h4>Nützliche Links</h4>
+          <a href="index.html#hero">Startseite</a>
+          <a href="index.html#warum-nurovelle">Über Nurovelle</a>
+          <a href="index.html#leistungen">Leistungen</a>
+          <a href="index.html#potenzialanalyse">Potenzialanalyse</a>
+          <a href="index.html#downloads">Downloads</a>
+          <a href="index.html#faq">FAQ</a>
+          <a href="index.html#kontakt">Kontakt</a>
+        </div>
+        <div class="footer-col">
+          <h4>Newsletter</h4>
+          <p>
+            Erhalten Sie ausgewählte Informationen zu KI-Agenten,
+            Automatisierung, Unternehmenssoftware und neuen Nurovelle-Lösungen
+            direkt per E-Mail.
+          </p>
+          <form
+            class="footer-newsletter"
+            action="#"
+            method="post"
+            aria-label="Newsletter abonnieren"
+          >
+            <input
+              class="footer-newsletter__input"
+              type="email"
+              name="email"
+              placeholder="Ihre E-Mail-Adresse"
+              autocomplete="email"
+              required
+            />
+            <button class="footer-newsletter__btn" type="submit">
+              Abonnieren
+            </button>
+          </form>
+        </div>
+        <div class="footer-col">
+          <h4>Kontakt</h4>
+          <p>Marburg, Deutschland</p>
+          <p><a href="tel:+4964218097347">06421 8097347</a></p>
+          <p><a href="mailto:demo@nurovelle.de">demo@nurovelle.de</a></p>
+          <div class="footer-social" aria-label="Social Media">
+            <a href="index.html#" aria-label="LinkedIn">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path
+                  fill="currentColor"
+                  d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM9 9h3.8v1.7h.05c.53-1 1.83-2.05 3.77-2.05C20.4 8.65 22 10.9 22 14.2V21h-4v-6c0-1.43-.03-3.27-2-3.27-2 0-2.3 1.56-2.3 3.17V21H9z"
+                />
+              </svg>
+            </a>
+            <a href="index.html#" aria-label="YouTube">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path
+                  fill="currentColor"
+                  d="M23 12s0-3.2-.4-4.7a2.5 2.5 0 0 0-1.75-1.75C19.3 5.2 12 5.2 12 5.2s-7.3 0-8.85.35A2.5 2.5 0 0 0 1.4 7.3C1 8.8 1 12 1 12s0 3.2.4 4.7a2.5 2.5 0 0 0 1.75 1.75C4.7 18.8 12 18.8 12 18.8s7.3 0 8.85-.35A2.5 2.5 0 0 0 22.6 16.7C23 15.2 23 12 23 12zM9.75 15.02V8.98L15.5 12z"
+                />
+              </svg>
+            </a>
+            <a href="index.html#" aria-label="Instagram">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path
+                  fill="currentColor"
+                  d="M12 2.2c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.42.56.22.96.48 1.38.9.42.42.68.82.9 1.38.17.42.37 1.06.42 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.42 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.17-1.06.37-2.23.42-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.42a3.7 3.7 0 0 1-1.38-.9 3.7 3.7 0 0 1-.9-1.38c-.17-.42-.37-1.06-.42-2.23C2.21 15.58 2.2 15.2 2.2 12s.01-3.58.07-4.85c.05-1.17.25-1.8.42-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.17 1.06-.37 2.23-.42C8.42 2.21 8.8 2.2 12 2.2zm0 3.05A6.75 6.75 0 1 0 18.75 12 6.75 6.75 0 0 0 12 5.25zm0 11.13A4.38 4.38 0 1 1 16.38 12 4.38 4.38 0 0 1 12 16.38zm6.99-11.4a1.58 1.58 0 1 1-1.57-1.58 1.58 1.58 0 0 1 1.57 1.58z"
+                />
+              </svg>
+            </a>
+            <a href="index.html#" aria-label="GitHub">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path
+                  fill="currentColor"
+                  d="M12 1.5a10.5 10.5 0 0 0-3.32 20.47c.53.1.72-.23.72-.5v-1.9c-2.93.64-3.55-1.24-3.55-1.24-.48-1.22-1.17-1.55-1.17-1.55-.96-.65.07-.64.07-.64 1.06.08 1.62 1.09 1.62 1.09.94 1.6 2.46 1.14 3.06.87.1-.68.37-1.14.67-1.4-2.34-.27-4.8-1.17-4.8-5.2 0-1.15.4-2.09 1.08-2.83-.1-.27-.47-1.34.1-2.8 0 0 .88-.28 2.88 1.08a10 10 0 0 1 5.24 0c2-1.36 2.88-1.08 2.88-1.08.57 1.46.2 2.53.1 2.8.68.74 1.08 1.68 1.08 2.83 0 4.04-2.47 4.93-4.82 5.19.38.33.72.98.72 1.98v2.93c0 .28.19.61.73.5A10.5 10.5 0 0 0 12 1.5z"
+                />
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <nav class="footer-legal" aria-label="Rechtliches">
+          <a href="impressum.html">Impressum</a>
+          <a href="datenschutz.html">Datenschutz</a>
+          <a href="agb.html">AGB</a>
+        </nav>
+        <p class="footer-copy">
+          © Nurovelle. By d4sd1ng. All rights reserved.
+        </p>
+        <a class="footer-top" href="index.html#hero" aria-label="Nach oben">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path
+              fill="none"
+              stroke="currentColor"
+              stroke-width="3"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M12 19V5M6 11l6-6 6 6"
+            />
+          </svg>
+        </a>
+      </div>
+    </footer>
+    <script>
+      document.querySelectorAll(".nv-dp-faq").forEach(item => {
+        item.addEventListener("toggle", () => {
+          if (!item.open) return;
+          document.querySelectorAll(".nv-dp-faq").forEach(other => {
+            if (other !== item) other.open = false;
+          });
+        });
+      });
+    </script>
+  </body>
+</html>
