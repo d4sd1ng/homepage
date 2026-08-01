@@ -1,7 +1,7 @@
 * { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; background: #000; scroll-padding-top: var(--header-height); }
 body {
-  zoom: 0.8;
+  zoom: clamp(0.7, calc(100vw / 2300px), 1);
   margin: 0;
   background: var(--color-bg-black);
   color: var(--color-text-light);
@@ -109,24 +109,6 @@ a:active .golden-button {
   line-height: 37.4px; /* was 34px, +10% per explicit instruction */
   letter-spacing: 0.02em; }
 .hero-cta .golden-button { min-width: 320px; font-size: 16px; }
-.hero-cta .golden-button {
-    min-width: 0;
-    width: 100%;
-    font-size: 14px;
-    white-space: normal;
-    height: auto;
-    line-height: 1.3;
-    padding: 0.85em 1.1em;
-  }
-.nv-breadcrumb { display: none; }
-.hero-actions .hero-cta .golden-button {
-    min-width: 0;
-    width: 100%;
-    white-space: normal;
-    height: auto;
-    line-height: 1.3;
-    padding: 0.85em 1.1em;
-  }
 .nv-aform__submit .golden-button { display: flex; width: 100%; min-width: 0; }
 .nv-aform__row .hero-cta { flex: 0 0 auto; padding: 0; border: 0; background: none; cursor: pointer; }
 .nv-aform__row .golden-button { min-width: 0; height: auto; padding: 9px 18px; line-height: 1.2; font-size: 12px; white-space: nowrap; }
@@ -136,7 +118,7 @@ a:active .golden-button {
 .footer-inner { display: grid;
         grid-template-columns: minmax(0, 400px) auto minmax(0, 380px) auto; justify-content: space-between; gap: 96px; width: 100%; max-width: none; margin: 0; }
 .footer h4 { margin: 0 0 var(--nv-space-md); color: #fae385; font: var(--w-zwischentitel) var(--t-zwischentitel)/1.2 "Exo 2",Inter,Arial,sans-serif; letter-spacing: 0.06em; text-transform: uppercase; }
-.footer a:not(.footer-top):not(.footer-social a), .footer p { display: block; margin: 0 0 7px; color: #c4ccc6; font: 400 17px/1.7 Inter, Arial, sans-serif; text-decoration: none; }
+.footer a:not(.footer-top):not(.footer-social a), .footer p { display: block; margin: 0 0 7px; color: #c4ccc6; font: 400 11.5px/1.65 "Inter", Arial, sans-serif; text-decoration: none; }
 .footer-col--about p { color: #aab2ad; }
 .footer a:hover, .footer a:focus-visible { color: #fae385; outline: none; }
 .footer-newsletter { display: flex; gap: 8px; margin-top: 12px; }
@@ -151,38 +133,20 @@ a:active .golden-button {
 .footer-social a:hover, .footer-social a:focus-visible { color: rgba(120, 50, 5, 0.8); background-size: 150% 150%; transform: translateY(-2px); outline: none; }
 .footer-bottom { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px 28px; max-width: none; margin-top: 34px; padding-top: 22px; border-top: 1px solid rgba(212, 175, 55, 0.28); }
 .footer-legal { display: flex; flex-wrap: wrap; gap: 22px; }
-.footer-legal a { display: inline; margin: 0; color: #c4ccc6; font: 500 14px/1.4 Inter, Arial, sans-serif; }
-.footer-copy { margin: 0; color: #8b938d; font: 400 13px/1.4 Inter, Arial, sans-serif; }
+.footer-legal a { display: inline; margin: 0; color: #c4ccc6; font: 400 11.5px/1.65 "Inter", Arial, sans-serif; }
+.footer-copy { margin: 0; color: #8b938d; font: 400 11.5px/1.65 "Inter", Arial, sans-serif; }
 .footer-top { display: inline-flex; align-items: center; justify-content: center; width: 54px; height: 54px; margin: 0; color: #783205; border: 1px solid var(--nv-gold-border); border-radius: 8px; background-image: var(--nv-gold-gradient); background-position: center; background-size: 100% 100%; box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(110, 80, 20, 0.4), inset 0 -2px 5px 1px var(--nv-gold-inner-dark), inset 0 -1px 1px 3px #fae385; transition: color 0.2s ease, background-size 0.2s ease, transform 0.2s ease; }
 .footer-top svg { width: 26px; height: 26px; }
 .footer-top:hover, .footer-top:focus-visible { color: rgba(120, 50, 5, 0.8); background-size: 150% 150%; transform: translateY(-2px); outline: none; }
 .footer-col--about p, .footer-col > a, .footer-legal > a, .footer-copy { color: #b9c3bd; font: var(--w-fliesstext) var(--t-fliesstext)/1.6 "Inter",Arial,sans-serif; }
 @media (max-width: 640px) {
-  .hero-cta .golden-button {
-    min-width: 0;
-    width: 100%;
-    font-size: 14px;
-    white-space: normal;
-    height: auto;
-    line-height: 1.3;
-    padding: 0.85em 1.1em;
-  }
 }
 @media (max-width: 640px) {
-  .nv-breadcrumb { display: none; }
   .hero-cube { width: min(60vw, 620px); }
   .hero-title-l1 { white-space: normal; }
   .hero h1 { overflow-wrap: break-word; }
   .hero-subtitle-l1 { white-space: normal; }
   .nv-section-step__content h2 { white-space: normal; width: auto; }
-  .hero-actions .hero-cta .golden-button {
-    min-width: 0;
-    width: 100%;
-    white-space: normal;
-    height: auto;
-    line-height: 1.3;
-    padding: 0.85em 1.1em;
-  }
   .nv-about { padding: 84px var(--side) 88px; }
   .nv-about__text, .nv-about__bullets { width: 100%; max-width: 100%; }
   .nv-about__text--subtitle { width: 100%; } /* reset desktop 1060px on small screens */
@@ -217,6 +181,5 @@ a:active .golden-button {
     grid-template-columns: 1fr;
     min-height: 0;
   }
-  .nv-s7-card__divider { display: none; }
   .nv-s7-card__left { padding: 16px; }
 }
