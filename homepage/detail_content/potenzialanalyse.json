@@ -1,6 +1,6 @@
 {
   "page": {
-    "output": "detail_analysis.html",
+    "output": "analyse.html",
     "title": "Nurovelle | KI-Potenzialanalyse",
     "description": "Die KI-Potenzialanalyse zeigt, welche Prozesse für KI oder Automatisierung geeignet sind, welche Voraussetzungen fehlen und welche nächsten Schritte sinnvoll sind."
   },
@@ -12,7 +12,7 @@
     "image": "assets/Module/Ablauf/ki_potential.png",
     "image_alt": "KI-Potenzialanalyse",
     "actions": [
-      { "label": "KI-Potenzialanalyse starten", "href": "analyse.html" }
+      { "label": "KI-Potenzialanalyse starten", "href": "#analyse-formular" }
     ]
   },
   "cards": {
