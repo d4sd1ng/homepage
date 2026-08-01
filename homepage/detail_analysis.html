@@ -222,7 +222,9 @@ main h3 { font: 700 clamp(19px,1.4vw,24px)/1.15 "Exo 2",Inter,Arial,sans-serif; 
 .summary h2 { background: none; -webkit-background-clip: initial; background-clip: initial; color: #112A20; -webkit-text-fill-color: #112A20; }
 .summary .sub { color: #050505; }
 .actions { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 22px; }
-@media (max-width: 900px) { .detail-hero,.content-grid { grid-template-columns: 1fr; } }
+.text-cols { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 18px 48px; margin-top: 6px; }
+.text-cols p { font: 400 16px/1.7 "Inter",Arial,sans-serif; color: #b9c3bd; }
+@media (max-width: 900px) { .detail-hero,.content-grid,.text-cols { grid-template-columns: 1fr; } }
 
 </style>
 </head>
@@ -279,6 +281,16 @@ main h3 { font: 700 clamp(19px,1.4vw,24px)/1.15 "Exo 2",Inter,Arial,sans-serif; 
 <section class="section"><div class="section-inner content-grid"><article class="panel"><h2>Was analysiert wird</h2><p class="sub">Prozesse, Aufgaben, Daten und bestehende Systeme.</p><p>Untersucht werden wiederkehrende Tätigkeiten, manuelle Übergaben, Dokumentenprozesse, Datenflüsse und technische Abhängigkeiten.</p><ul><li>Prozesse</li><li>Aufgaben</li><li>Dokumente</li><li>Daten</li><li>Systeme</li></ul></article><article class="panel summary"><h2>Klare Entscheidungsgrundlage</h2><p class="sub">Sinnvolle Anwendungsfälle erkennen und ungeeignete Investitionen vermeiden.</p><p>Die Analyse bewertet Potenziale nach Nutzen, Aufwand, Risiken und Umsetzungsreife.</p><p>Das Ergebnis ist eine priorisierte Übersicht geeigneter Handlungsfelder und eine belastbare Grundlage für den nächsten Schritt.</p></article></div></section>
 <!-- ========================= EINORDNUNG ========================= -->
 <section class="section"><div class="section-inner"><article class="panel"><h2>Erst prüfen, dann umsetzen</h2><p class="sub">Nicht jede technische Möglichkeit erzeugt einen betrieblichen Mehrwert.</p><p>Die Analyse beginnt beim konkreten Prozess und nicht bei einem bestimmten Tool. Ergibt sich kein sinnvoller KI-Einsatz, werden geeignetere Alternativen oder notwendige Vorarbeiten benannt.</p><div class="actions"><a class="btn" href="analyse.html">Analyse starten</a><a class="btn" href="index.html#leistungen">Leistungen ansehen</a></div></article></div></section>
+<!-- ========================= DEFINITION ========================= -->
+<section class="section" id="was-ist-das"><div class="section-inner">
+<div class="kicker">Definition</div>
+<h2>Was ist eine KI-Potenzialanalyse?</h2>
+<p class="sub">Eine KI-Potenzialanalyse ist eine strukturierte Ersteinschätzung betrieblicher Abläufe.</p>
+<div class="text-cols">
+<p>Sie zeigt, an welchen Stellen KI, Automatisierung oder datenbasierte Systeme einen nachvollziehbaren Nutzen erzeugen können. Dabei werden nicht einzelne Werkzeuge betrachtet, sondern Prozesse, Datenquellen, Systemgrenzen und organisatorische Voraussetzungen.</p>
+<p>Das Ergebnis ist eine priorisierte Übersicht geeigneter Handlungsfelder.</p>
+</div>
+</div></section>
 </main>
 <footer class="footer" id="footer">
       <div class="footer-inner">
