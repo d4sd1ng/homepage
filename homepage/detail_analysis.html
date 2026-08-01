@@ -37,6 +37,7 @@
   --color-text-muted: #B9C3BD;
 
   --gold-1: linear-gradient(135deg, #AE8625, #F7EF8A, #D2AC47, #EDC967);
+  --gold-2: linear-gradient(135deg, #DFBD69, #926F34);
   --gold-3: linear-gradient(135deg, #F9F295, #E0AA3E, #FAF398, #B88A44);
 
   --t-zwischentitel: 24px;    --w-zwischentitel: 600;
@@ -213,7 +214,9 @@ main h3 { font: 700 clamp(19px,1.4vw,24px)/1.15 "Exo 2",Inter,Arial,sans-serif; 
 .content-grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 18px; margin-top: 0; }
 .panel { border: 1px solid rgba(240,160,90,.32); border-radius: 8px; background: rgba(0,0,0,.22); padding: 20px; }
 .panel p,.panel li { font: 400 16px/1.7 "Inter",Arial,sans-serif; color: #b9c3bd; }
-.panel ul { margin-left: 17px; margin-top: 10px; }
+.panel ul { list-style: none; margin: 12px 0 0; padding: 0; }
+.panel ul li { position: relative; padding-left: 20px; margin-bottom: 8px; font: 550 18px/1.5 "Inter",Arial,sans-serif; background: var(--gold-2); background-clip: text; -webkit-background-clip: text; color: transparent; -webkit-text-fill-color: transparent; }
+.panel ul li::before { content: ""; position: absolute; left: 0; top: calc(50% - 3.5px); width: 7px; height: 7px; border-radius: 2px; background: #DFBD69; }
 .summary { border: 1px solid rgba(255,215,163,.78); background: linear-gradient(180deg,#ffd7a3 0%,#f0a05a 24%,#d89828 58%,#7a3518 100%); box-shadow: inset 0 0 0 1px rgba(255,244,199,.20),0 8px 16px rgba(0,0,0,.30); }
 .summary h2,.summary p { color: #050505; text-shadow: none; }
 .summary h2 { background: none; -webkit-background-clip: initial; background-clip: initial; color: #112A20; -webkit-text-fill-color: #112A20; }
