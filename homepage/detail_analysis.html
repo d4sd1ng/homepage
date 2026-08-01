@@ -272,6 +272,11 @@ main h3 { font: 700 clamp(19px,1.4vw,24px)/1.15 "Exo 2",Inter,Arial,sans-serif; 
 .result-points { display: grid; gap: 8px; list-style: none; margin: 0; padding: 0; }
 .result-points li { position: relative; padding-left: 14px; font-family: "Inter",Arial,sans-serif; font-size: 12.5px; font-weight: 600; letter-spacing: .04em; text-transform: uppercase; color: #F5F7F4; }
 .result-points li::before { content: ""; position: absolute; left: 0; top: .4em; width: 5px; height: 5px; border-radius: 2px; background: #f7c64a; }
+.analysis-status { margin-top: 10px; min-height: 17px; font-family: "Inter",Arial,sans-serif; font-size: 11px; font-weight: 600; line-height: 1.45; letter-spacing: .045em; text-transform: uppercase; color: rgba(247,215,122,.9); }
+.result-strip.is-active { box-shadow: 0 0 16px rgba(212,175,55,.35); }
+.result-strip.is-error { background-image: linear-gradient(135deg, rgba(205,82,66,.16), rgba(0,0,0,0) 55%), linear-gradient(#080B09,#080B09), linear-gradient(135deg,#e0705f,#7a2f26); }
+.analysis-result-link { display: inline-flex; margin-top: 12px; color: var(--nv-gold-text-dark); background-image: var(--nv-gold-gradient); border: 1px solid var(--nv-gold-border); border-radius: 5px; padding: 9px 14px; font-family: "Inter",Arial,sans-serif; font-size: 12px; font-weight: 800; letter-spacing: .045em; text-transform: uppercase; text-shadow: 0 2px 2px var(--nv-gold-highlight); }
+.analysis-result-link[hidden] { display: none; }
 button[disabled] { opacity: .58; cursor: not-allowed; }
 @media (max-width: 1200px) { .pair-grid { grid-template-columns: 1fr; } }
 @media (max-width: 900px) { .analysis-layout, .result-strip { grid-template-columns: 1fr; } }
@@ -408,7 +413,7 @@ button[disabled] { opacity: .58; cursor: not-allowed; }
 <h2>Kostenlose Potenzialanalyse starten.</h2>
 <p class="sub">Kurze Angaben reichen für die erste Einordnung. Das Formular bleibt bewusst kompakt.</p>
 <div class="analysis-layout">
-<form class="form-panel" action="analyse.html" method="get">
+<form class="form-panel" action="analyse.html" method="get" id="nurovelle-analysis-form">
 <h3>Potenzialanalyse starten</h3>
 <div class="form-grid">
 <input autocomplete="given-name" name="vorname" placeholder="Vorname" required="" type="text"/>
@@ -451,7 +456,7 @@ button[disabled] { opacity: .58; cursor: not-allowed; }
 <input name="newsletter" type="checkbox" value="yes"/>
 <span><strong>Newsletter und Follow-up-Hinweise erhalten.</strong> Ich möchte passende Hinweise zur Potenzialanalyse per E-Mail erhalten.</span>
 </label>
-<button class="hero-cta" type="submit">
+<button class="hero-cta" type="submit" id="nurovelle-analysis-submit">
 <span class="golden-button">
 <svg class="nv-calendly-icon" aria-hidden="true">
 <use href="#nv-calendly-mark"></use>
@@ -460,15 +465,17 @@ button[disabled] { opacity: .58; cursor: not-allowed; }
 </span>
 </button>
 </div>
+<div class="analysis-status" id="nurovelle-analysis-status" aria-live="polite"></div>
 <p class="form-note">Ihre Angaben werden ausschließlich zur Durchführung und Auswertung der Potenzialanalyse verwendet. Personenbezogene Angaben werden nach Abschluss gelöscht; interne Auswertungen erfolgen nur anonymisiert. Details stehen in der <a href="datenschutz.html">Datenschutzerklärung</a>.</p>
 </form>
 </div>
-<div class="result-strip">
+<div class="result-strip" id="nurovelle-analysis-result">
 <div>
-<h3>Was Sie danach erhalten</h3>
-<p>Eine klare erste Einschätzung, ob und wo sich KI-Automatisierung lohnt. Fokus: Aufwand, Nutzen, Priorität und ein sinnvoller nächster Schritt.</p>
+<h3 id="nurovelle-analysis-result-title">Was Sie danach erhalten</h3>
+<p id="nurovelle-analysis-result-copy">Eine klare erste Einschätzung, ob und wo sich KI-Automatisierung lohnt. Fokus: Aufwand, Nutzen, Priorität und ein sinnvoller nächster Schritt.</p>
+<a class="analysis-result-link" id="nurovelle-analysis-result-link" href="#" hidden>Ergebnis öffnen</a>
 </div>
-<ul class="result-points">
+<ul class="result-points" id="nurovelle-analysis-result-points">
 <li>Prozess-Einschätzung</li>
 <li>Automatisierungs-Potenzial</li>
 <li>Priorisierte Empfehlung</li>
@@ -616,5 +623,412 @@ button[disabled] { opacity: .58; cursor: not-allowed; }
     <path d="M47 28C43 24 37 24 34 28C30 32 32 38 36 40C40 42 45 40 48 36" fill="none" stroke="#046bf7" stroke-width="5" stroke-linecap="round" />
   </symbol>
 </svg>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const breadcrumbGroups = [...document.querySelectorAll(".nv-breadcrumb__group")];
+  const hoverNavigation = window.matchMedia("(hover: hover) and (pointer: fine)");
+
+  breadcrumbGroups.forEach(group => {
+    let closeTimer = 0;
+    const cancelClose = () => { window.clearTimeout(closeTimer); closeTimer = 0; };
+
+    group.addEventListener("toggle", () => {
+      if (!group.open) return;
+      breadcrumbGroups.forEach(otherGroup => { if (otherGroup !== group) otherGroup.open = false; });
+    });
+
+    group.addEventListener("mouseenter", () => {
+      if (!hoverNavigation.matches) return;
+      cancelClose();
+      breadcrumbGroups.forEach(otherGroup => { if (otherGroup !== group) otherGroup.open = false; });
+      group.open = true;
+    });
+
+    group.addEventListener("mouseleave", () => {
+      if (!hoverNavigation.matches || group.matches(":focus-within")) return;
+      cancelClose();
+      closeTimer = window.setTimeout(() => {
+        if (!group.matches(":hover") && !group.matches(":focus-within")) group.open = false;
+      }, 160);
+    });
+
+    group.addEventListener("focusin", cancelClose);
+  });
+
+  document.addEventListener("click", event => {
+    if (event.target.closest(".nv-breadcrumb__group")) return;
+    breadcrumbGroups.forEach(group => { group.open = false; });
+  });
+
+  document.addEventListener("keydown", event => {
+    if (event.key !== "Escape") return;
+    breadcrumbGroups.forEach(group => { group.open = false; });
+  });
+});
+</script>
+<script>
+const NUROVELLE_API_BASE = window.NUROVELLE_API_BASE || 'https://nurovelle.de/api/v1';
+const NUROVELLE_RESULT_BASE = window.NUROVELLE_RESULT_BASE || 'https://nurovelle.de/results/';
+const NUROVELLE_API_TIMEOUT_MS = Number(window.NUROVELLE_API_TIMEOUT_MS || 20000);
+
+const analysisForm = document.querySelector('#nurovelle-analysis-form');
+const analysisSubmit = document.querySelector('#nurovelle-analysis-submit');
+const analysisStatus = document.querySelector('#nurovelle-analysis-status');
+const analysisResult = document.querySelector('#nurovelle-analysis-result');
+const analysisResultTitle = document.querySelector('#nurovelle-analysis-result-title');
+const analysisResultCopy = document.querySelector('#nurovelle-analysis-result-copy');
+const analysisResultLink = document.querySelector('#nurovelle-analysis-result-link');
+const analysisResultPoints = document.querySelector('#nurovelle-analysis-result-points');
+
+const branchToIndustry = {
+  'Industrie & Produktion': 'manufacturing',
+  'Gesundheitswesen & Pflege': 'care',
+  'Dienstleistungen & KMU': 'service',
+  'Verwaltung, Vertrieb, Einkauf & Marketing': 'service',
+  'Finanzen & Versicherung': 'service',
+  'Energie & Versorgung': 'service',
+  'Immobilien & Facility Management': 'service',
+  'Bildung & Forschung': 'service',
+  'Sonstiges': 'service'
+};
+
+const sizeToApiValue = {
+  'Einzelunternehmer / Freelancer': '1',
+  '2–10 Mitarbeiter': '2_10',
+  '11–50 Mitarbeiter': '11_50',
+  '51–250 Mitarbeiter': '51_250',
+  '250+ Mitarbeiter': '250_plus'
+};
+
+function setAnalysisStatus(message) {
+  if (analysisStatus) analysisStatus.textContent = message || '';
+}
+
+function setResultPoints(items) {
+  if (!analysisResultPoints) return;
+  analysisResultPoints.innerHTML = '';
+  items.forEach((item) => {
+    const li = document.createElement('li');
+    li.textContent = item;
+    analysisResultPoints.appendChild(li);
+  });
+}
+
+function setResultState({ title, copy, points, link, error = false }) {
+  if (!analysisResult) return;
+  analysisResult.classList.add('is-active');
+  analysisResult.classList.toggle('is-error', error);
+  if (analysisResultTitle) analysisResultTitle.textContent = title;
+  if (analysisResultCopy) analysisResultCopy.textContent = copy;
+  if (points) setResultPoints(points);
+  if (analysisResultLink) {
+    analysisResultLink.hidden = !link;
+    if (link) analysisResultLink.href = link;
+  }
+  analysisResult.scrollIntoView({ behavior: 'smooth', block: 'center' });
+}
+
+async function apiRequest(path, options = {}) {
+  const controller = new AbortController();
+  const timeoutId = window.setTimeout(() => controller.abort(), NUROVELLE_API_TIMEOUT_MS);
+  let response;
+  try {
+    response = await fetch(`${NUROVELLE_API_BASE}${path}`, {
+      ...options,
+      signal: controller.signal,
+      headers: {
+        'Content-Type': 'application/json',
+        ...(options.headers || {})
+      }
+    });
+  } catch (error) {
+    if (error?.name === 'AbortError') {
+      throw new Error('Das Analyse-Backend hat nicht rechtzeitig geantwortet. Bitte später erneut versuchen.');
+    }
+    throw error;
+  } finally {
+    window.clearTimeout(timeoutId);
+  }
+
+  let payload = null;
+  try {
+    payload = await response.json();
+  } catch {
+    payload = null;
+  }
+
+  if (!response.ok || payload?.success === false) {
+    const message = payload?.message || payload?.error || `API request failed: ${response.status}`;
+    throw new Error(typeof message === 'string' ? message : JSON.stringify(message));
+  }
+
+  return payload;
+}
+
+function optionValues(question) {
+  const options = question.options || question.answer_options || [];
+  return new Set(options.map((option) => option.value));
+}
+
+function firstAvailable(question, preferredValues) {
+  const values = optionValues(question);
+  for (const value of preferredValues) {
+    if (values.has(value)) return value;
+  }
+  return Array.from(values)[Math.max(0, Math.floor((values.size - 1) / 2))] || '';
+}
+
+function selectAnswerValue(question, formState) {
+  const id = question.id || question.question_id;
+  const category = question.category || '';
+  const time = formState.zeitaufwand;
+  const dataState = formState.datenlage;
+  const textLength = formState.herausforderung.length;
+  const highManualWork = time === '25+ Stunden pro Woche' || time === '10–25 Stunden pro Woche';
+  const lowManualWork = time === 'unter 5 Stunden pro Woche';
+  const structuredData = dataState === 'CRM / ERP / Fachsystem' || dataState === 'mehrere Quellen';
+  const weakData = dataState === 'E-Mails / Dokumente' || dataState === 'noch unklar';
+
+  const byId = {
+    ai_current_usage: ['experimental', 'none'],
+    ai_team_knowledge: ['medium', 'partial'],
+    ai_process_automation: highManualWork ? ['few', 'none'] : ['multiple', 'few'],
+    ai_strategy: ['partial', 'none'],
+    ai_data_usability: structuredData ? ['structured_sources', 'single_sources'] : ['single_sources', 'poor'],
+    data_centralization: structuredData ? ['partial', 'centralized'] : ['distributed', 'partial'],
+    data_silos: structuredData ? ['some_breaks', 'few_breaks'] : ['many_breaks', 'some_breaks'],
+    data_api_connectivity: structuredData ? ['partial_api', 'manual_exports'] : ['manual_exports', 'none'],
+    data_quality: weakData ? ['partial', 'poor'] : ['good', 'partial'],
+    data_accessibility: weakData ? ['partial', 'hard'] : ['fast', 'partial'],
+    data_reporting_reliability: weakData ? ['partial', 'poor'] : ['good', 'partial'],
+    process_manual_data_entry: highManualWork ? ['very_high', 'medium'] : lowManualWork ? ['low', 'medium'] : ['medium'],
+    process_excel_dependency: dataState === 'Tabellen / CSV' ? ['very_high', 'partial'] : ['partial', 'low'],
+    process_duplicate_work: highManualWork ? ['very_often', 'sometimes'] : ['sometimes', 'rarely'],
+    service_manual_data_entry: highManualWork ? ['very_high', 'medium'] : ['medium', 'low'],
+    service_customer_requests: ['partial_ticketing', 'unstructured'],
+    service_information_access: weakData ? ['partial', 'slow'] : ['fast', 'partial'],
+    service_knowledge_management: textLength > 120 ? ['partial', 'very_high'] : ['partial', 'low'],
+    service_process_documentation: ['partial', 'low'],
+    service_process_failures: highManualWork ? ['sometimes', 'very_often'] : ['rarely', 'sometimes']
+  };
+
+  if (byId[id]) return firstAvailable(question, byId[id]);
+  if (category === 'infrastructure') return firstAvailable(question, ['partial', 'manual', 'system_monitoring', 'hybrid_structured', 'structured', 'hours', 'good']);
+  if (category === 'documentation') return firstAvailable(question, ['partial', 'manual', 'good', 'sometimes', 'defined_process']);
+  if (category === 'collaboration') return firstAvailable(question, ['partial', 'good', 'standardized']);
+  if (category === 'scalability') return firstAvailable(question, ['partial', 'medium', 'structured', 'expandable', 'low']);
+  if (category === 'service') return firstAvailable(question, ['teilweise_geregelt', 'ueberwiegend_manuell', 'partial', 'medium']);
+  return firstAvailable(question, ['partial', 'medium', 'sometimes', 'manual', 'few', 'good']);
+}
+
+function buildAnswers(questions, formState) {
+  return questions.map((question) => ({
+    question_id: question.id || question.question_id,
+    category: question.category || 'unknown',
+    answer: selectAnswerValue(question, formState)
+  })).filter((answer) => answer.question_id && answer.answer);
+}
+
+function getFormState(form) {
+  const data = new FormData(form);
+  return {
+    vorname: String(data.get('vorname') || '').trim(),
+    nachname: String(data.get('nachname') || '').trim(),
+    email: String(data.get('email') || '').trim(),
+    unternehmen: String(data.get('unternehmen') || '').trim(),
+    branche: String(data.get('branche') || 'Sonstiges'),
+    mitarbeiteranzahl: String(data.get('mitarbeiteranzahl') || ''),
+    zeitaufwand: String(data.get('zeitaufwand') || ''),
+    datenlage: String(data.get('datenlage') || ''),
+    herausforderung: String(data.get('herausforderung') || '').trim(),
+    telefon: String(data.get('telefon') || '').trim(),
+    website: String(data.get('website') || '').trim(),
+    newsletter: data.get('newsletter') === 'yes',
+    privacyConsent: data.get('privacy_consent') === 'yes'
+  };
+}
+
+function prefillFromQuery(form) {
+  const params = new URLSearchParams(window.location.search);
+  if (!params.size) return false;
+  for (const [key, value] of params.entries()) {
+    const field = form.elements.namedItem(key);
+    if (!field) continue;
+    if (field.type === 'checkbox') {
+      field.checked = value === 'yes' || value === 'true' || value === 'on';
+    } else if ('value' in field) {
+      field.value = value;
+    }
+  }
+  return true;
+}
+
+function hasRequiredFormData(form) {
+  return ['vorname', 'nachname', 'email', 'unternehmen', 'branche', 'zeitaufwand', 'datenlage', 'herausforderung', 'privacy_consent']
+    .every((name) => String(new FormData(form).get(name) || '').trim());
+}
+
+async function postLeadWithRetry(payload, maxAttempts = 3) {
+  let lastError;
+  for (let attempt = 1; attempt <= maxAttempts; attempt++) {
+    try {
+      return await apiRequest('/lead', {
+        method: 'POST',
+        body: JSON.stringify(payload)
+      });
+    } catch (error) {
+      lastError = error;
+      if (attempt < maxAttempts) {
+        setAnalysisStatus(`Lead wird gespeichert... (Versuch ${attempt + 1} von ${maxAttempts})`);
+        await new Promise((resolve) => window.setTimeout(resolve, attempt * 1200));
+      }
+    }
+  }
+  throw lastError;
+}
+
+async function startAnalysis(form) {
+  if (!form.reportValidity()) return;
+
+  if (String(new FormData(form).get('website_confirmation') || '').trim()) {
+    setAnalysisStatus('Anfrage konnte nicht verarbeitet werden.');
+    return;
+  }
+
+  const formState = getFormState(form);
+  const industry = branchToIndustry[formState.branche] || 'service';
+  const resultBase = NUROVELLE_RESULT_BASE.endsWith('/') ? NUROVELLE_RESULT_BASE : `${NUROVELLE_RESULT_BASE}/`;
+
+  if (analysisSubmit) analysisSubmit.disabled = true;
+  setAnalysisStatus('Analyse wird gestartet...');
+
+  try {
+    const questionsResponse = await apiRequest(`/questions?industry=${encodeURIComponent(industry)}&tier=basic&include_risk=false`);
+    const questions = questionsResponse.questions || [];
+    if (!questions.length) throw new Error('Keine Fragen vom Analyse-Backend erhalten.');
+
+    setAnalysisStatus('Analyse wird angelegt...');
+    const startResponse = await apiRequest('/analysis/start', {
+      method: 'POST',
+      body: JSON.stringify({
+        company: {
+          company_name: formState.unternehmen,
+          industry,
+          company_size: sizeToApiValue[formState.mitarbeiteranzahl] || formState.mitarbeiteranzahl || 'unknown',
+          website: formState.website
+        },
+        contact: {
+          first_name: formState.vorname,
+          last_name: formState.nachname,
+          email: formState.email,
+          phone: formState.telefon
+        },
+        source: 'nurovelle_homepage_static',
+        initial_context: {
+          branch_label: formState.branche,
+          weekly_time_spend: formState.zeitaufwand,
+          data_state: formState.datenlage,
+          challenge: formState.herausforderung
+        }
+      })
+    });
+
+    const analysisId = startResponse.analysis_id || startResponse.id || startResponse.analysis?.analysis_id;
+    if (!analysisId) throw new Error('Analyse-ID wurde nicht erzeugt.');
+
+    setAnalysisStatus('Antworten werden gespeichert...');
+    await apiRequest(`/analysis/${encodeURIComponent(analysisId)}/answers`, {
+      method: 'POST',
+      body: JSON.stringify({ answers: buildAnswers(questions, formState) })
+    });
+
+    setAnalysisStatus('Scores werden berechnet...');
+    await apiRequest(`/analysis/${encodeURIComponent(analysisId)}/score`, {
+      method: 'POST',
+      body: JSON.stringify({})
+    });
+
+    setAnalysisStatus('Report wird erzeugt...');
+    await apiRequest(`/analysis/${encodeURIComponent(analysisId)}/report`, {
+      method: 'POST',
+      body: JSON.stringify({})
+    });
+
+    const resultUrl = `${resultBase}${encodeURIComponent(analysisId)}`;
+    let leadSaved = true;
+    let leadMessage = 'Lead gespeichert';
+
+    setAnalysisStatus('Lead wird gespeichert...');
+    try {
+      await postLeadWithRetry({
+        name: `${formState.vorname} ${formState.nachname}`.trim(),
+        email: formState.email,
+        phone: formState.telefon,
+        company: formState.unternehmen,
+        newsletter: formState.newsletter,
+        privacy_consent: formState.privacyConsent,
+        message: [
+          `Analyse-ID: ${analysisId}`,
+          `Ergebnis: ${resultUrl}`,
+          `Branche: ${formState.branche}`,
+          `Unternehmensgröße: ${formState.mitarbeiteranzahl || 'nicht angegeben'}`,
+          `Zeitaufwand: ${formState.zeitaufwand}`,
+          `Datenlage: ${formState.datenlage}`,
+          `Herausforderung: ${formState.herausforderung}`,
+          `Newsletter: ${formState.newsletter ? 'ja' : 'nein'}`,
+          `Datenschutz-Einwilligung: ${formState.privacyConsent ? 'ja' : 'nein'}`
+        ].join('\n')
+      });
+    } catch (leadError) {
+      leadSaved = false;
+      leadMessage = `Lead nicht bestätigt: ${leadError?.message || 'unbekannter Fehler'}`;
+    }
+
+    setResultState({
+      title: 'Analyse gestartet und Report erzeugt.',
+      copy: `${formState.unternehmen}: Die Potenzialanalyse wurde im Backend verarbeitet. ${leadMessage}.`,
+      points: [
+        `Analyse-ID: ${analysisId}`,
+        `Fragen geladen: ${questions.length}`,
+        leadSaved ? 'Lead angelegt' : 'Lead nicht bestätigt',
+        formState.newsletter ? 'Newsletter-Opt-in gesendet' : 'Kein Newsletter-Opt-in'
+      ],
+      link: resultUrl
+    });
+    setAnalysisStatus('Analyse abgeschlossen.');
+  } catch (error) {
+    setResultState({
+      title: 'Analyse konnte nicht abgeschlossen werden.',
+      copy: error?.message || 'Der Analyse-Flow konnte nicht abgeschlossen werden.',
+      points: [
+        'Backend-Flow abgebrochen',
+        'Keine lokale Score-Berechnung',
+        'Bitte Angaben prüfen oder später erneut starten',
+        'Kontakt: info@nurovelle.de'
+      ],
+      error: true
+    });
+    setAnalysisStatus('Analyse-Flow fehlgeschlagen.');
+  } finally {
+    if (analysisSubmit) analysisSubmit.disabled = false;
+  }
+}
+
+if (analysisForm) {
+  const wasPrefilled = prefillFromQuery(analysisForm);
+  analysisForm.addEventListener('submit', (event) => {
+    event.preventDefault();
+    startAnalysis(analysisForm);
+  });
+
+  if (wasPrefilled && hasRequiredFormData(analysisForm)) {
+    const signature = window.location.search;
+    if (sessionStorage.getItem('nurovelle-analysis-autostart') !== signature) {
+      sessionStorage.setItem('nurovelle-analysis-autostart', signature);
+      window.setTimeout(() => startAnalysis(analysisForm), 250);
+    }
+  }
+}
+</script>
 </body>
 </html>
