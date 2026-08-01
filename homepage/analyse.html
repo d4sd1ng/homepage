@@ -247,6 +247,16 @@ main h3 { font: 700 clamp(19px,1.4vw,24px)/1.15 "Exo 2",Inter,Arial,sans-serif; 
 .pair-chip--gold { background-image: linear-gradient(180deg,#ffd7a3 0%,#f0a05a 24%,#d89828 58%,#7a3518 100%), var(--gold-3); border-color: rgba(255,215,163,.78); color: #112A20; box-shadow: inset 0 0 0 1px rgba(255,244,199,.20); }
 .pair-arrow { align-self: center; display: flex; align-items: center; justify-content: center; color: #d4af37; }
 .pair-arrow svg { width: 32px; height: 32px; }
+/* ---------- FAQ ---------- */
+.faq-grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 18px; align-items: start; margin-top: 8px; }
+.faq-item summary { list-style: none; cursor: pointer; }
+.faq-item summary::-webkit-details-marker { display: none; }
+.faq-item summary > span { display: flex; width: 100%; box-sizing: border-box; align-items: center; justify-content: space-between; gap: 14px; min-height: 52px; padding: 13px 18px; border-radius: 6px; border: 1.25px solid var(--nv-gold-border); background-image: var(--nv-gold-gradient); background-size: 150% 150%; color: var(--nv-gold-text-dark); text-align: left; white-space: normal; font: 600 14px/1.4 "Inter",Arial,sans-serif; letter-spacing: .02em; text-transform: uppercase; }
+.faq-item summary > span::after { content: "+"; flex: 0 0 auto; font-size: 18px; }
+.faq-item[open] summary > span::after { content: "\2212"; }
+.faq-item p { margin: 14px 4px 0; font: 400 15px/1.7 "Inter",Arial,sans-serif; color: #b9c3bd; }
+@media (max-width: 900px) { .faq-grid { grid-template-columns: 1fr; } }
+
 /* ---------- CTA-Formular (aus analyse.html übernommen) ---------- */
 .analysis-layout { display: grid; grid-template-columns: minmax(0, 820px); justify-content: center; margin-top: 26px; width: 100%; }
 .form-panel { width: 100%; min-width: 0; border: 1.25px solid transparent; border-radius: 10px; background-image: linear-gradient(#080B09,#080B09), var(--gold-3); background-origin: border-box; background-clip: padding-box, border-box; padding: 26px; }
@@ -406,6 +416,23 @@ button[disabled] { opacity: .58; cursor: not-allowed; }
 <li><strong>Bessere Planbarkeit</strong>Datenarbeiten, Schnittstellen und organisatorische Voraussetzungen können früh eingeplant werden.</li>
 <li><strong>Grundlage für den nächsten Schritt</strong>Das Ergebnis zeigt, ob eine Roadmap, ein Pilotprojekt, eine Prozessbereinigung oder eine technische Detailanalyse sinnvoll ist.</li>
 </ul>
+</div></section>
+<!-- ========================= FAQ ========================= -->
+<section class="section" id="faq"><div class="section-inner">
+<div class="kicker">Häufige Fragen</div>
+<h2>FAQ</h2>
+<div class="faq-grid">
+<details class="faq-item"><summary><span>Ist die Analyse wirklich kostenlos?</span></summary><p>Ja. Die erste Einschätzung ist kostenlos und dient dazu, sinnvolle Potenziale zu erkennen.</p></details>
+<details class="faq-item"><summary><span>Muss bereits ein KI-System vorhanden sein?</span></summary><p>Nein. Die Analyse startet bei Ihren bestehenden Abläufen, Daten und Aufgaben.</p></details>
+<details class="faq-item"><summary><span>Für welche Unternehmen passt das?</span></summary><p>Für Unternehmen mit wiederkehrenden Aufgaben, manuellen Dokumentenprozessen oder verteilten Datenquellen.</p></details>
+<details class="faq-item"><summary><span>Welche Bereiche werden untersucht?</span></summary><p>Untersucht werden Prozesse, Dokumente, Datenflüsse, Wissenszugriffe, Systembrüche und standardisierte Kommunikationsvorgänge.</p></details>
+<details class="faq-item"><summary><span>Wird bereits eine bestimmte Software ausgewählt?</span></summary><p>Nein. Zunächst werden fachlicher Bedarf und technische Voraussetzungen bestimmt.</p></details>
+<details class="faq-item"><summary><span>Ersetzt die Analyse eine technische Konzeption?</span></summary><p>Nein. Sie dient der Ersteinschätzung und Priorisierung. Für die Umsetzung kann anschließend eine technische Detailkonzeption erforderlich sein.</p></details>
+<details class="faq-item"><summary><span>Werden Datenschutz und Informationssicherheit berücksichtigt?</span></summary><p>Ja. Datenarten, Zugriffsrechte, Protokollierung und notwendige Kontrollpunkte werden in die Bewertung einbezogen.</p></details>
+<details class="faq-item"><summary><span>Wie werden Anwendungsfälle priorisiert?</span></summary><p>Bewertet werden Nutzen, Häufigkeit, Datenlage, Integrationsaufwand, Risiko und Erweiterbarkeit.</p></details>
+<details class="faq-item"><summary><span>Was erhalte ich als Ergebnis?</span></summary><p>Sie erhalten eine strukturierte Einordnung der identifizierten Potenziale und Empfehlungen für die nächsten Schritte.</p></details>
+<details class="faq-item"><summary><span>Was folgt nach der Analyse?</span></summary><p>Je nach Ergebnis kann eine KI-Roadmap, ein Pilotprojekt oder zunächst eine vorbereitende Prozess- und Datenarbeit folgen.</p></details>
+</div>
 </div></section>
 <!-- ==================== CTA — POTENZIALANALYSE STARTEN ==================== -->
 <section class="section" id="analyse-formular"><div class="section-inner">
@@ -663,6 +690,15 @@ document.addEventListener("DOMContentLoaded", function () {
   document.addEventListener("keydown", event => {
     if (event.key !== "Escape") return;
     breadcrumbGroups.forEach(group => { group.open = false; });
+  });
+
+  document.querySelectorAll(".faq-item").forEach(item => {
+    item.addEventListener("toggle", () => {
+      if (!item.open) return;
+      document.querySelectorAll(".faq-item").forEach(other => {
+        if (other !== item) other.open = false;
+      });
+    });
   });
 });
 </script>

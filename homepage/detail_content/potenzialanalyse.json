@@ -96,5 +96,21 @@
       { "label": "Grundlage für den nächsten Schritt", "text": "Das Ergebnis zeigt, ob eine Roadmap, ein Pilotprojekt, eine Prozessbereinigung oder eine technische Detailanalyse sinnvoll ist." }
     ]
   },
+  "faq": {
+    "kicker": "Häufige Fragen",
+    "title": "FAQ",
+    "items": [
+      { "q": "Ist die Analyse wirklich kostenlos?", "a": "Ja. Die erste Einschätzung ist kostenlos und dient dazu, sinnvolle Potenziale zu erkennen." },
+      { "q": "Muss bereits ein KI-System vorhanden sein?", "a": "Nein. Die Analyse startet bei Ihren bestehenden Abläufen, Daten und Aufgaben." },
+      { "q": "Für welche Unternehmen passt das?", "a": "Für Unternehmen mit wiederkehrenden Aufgaben, manuellen Dokumentenprozessen oder verteilten Datenquellen." },
+      { "q": "Welche Bereiche werden untersucht?", "a": "Untersucht werden Prozesse, Dokumente, Datenflüsse, Wissenszugriffe, Systembrüche und standardisierte Kommunikationsvorgänge." },
+      { "q": "Wird bereits eine bestimmte Software ausgewählt?", "a": "Nein. Zunächst werden fachlicher Bedarf und technische Voraussetzungen bestimmt." },
+      { "q": "Ersetzt die Analyse eine technische Konzeption?", "a": "Nein. Sie dient der Ersteinschätzung und Priorisierung. Für die Umsetzung kann anschließend eine technische Detailkonzeption erforderlich sein." },
+      { "q": "Werden Datenschutz und Informationssicherheit berücksichtigt?", "a": "Ja. Datenarten, Zugriffsrechte, Protokollierung und notwendige Kontrollpunkte werden in die Bewertung einbezogen." },
+      { "q": "Wie werden Anwendungsfälle priorisiert?", "a": "Bewertet werden Nutzen, Häufigkeit, Datenlage, Integrationsaufwand, Risiko und Erweiterbarkeit." },
+      { "q": "Was erhalte ich als Ergebnis?", "a": "Sie erhalten eine strukturierte Einordnung der identifizierten Potenziale und Empfehlungen für die nächsten Schritte." },
+      { "q": "Was folgt nach der Analyse?", "a": "Je nach Ergebnis kann eine KI-Roadmap, ein Pilotprojekt oder zunächst eine vorbereitende Prozess- und Datenarbeit folgen." }
+    ]
+  },
   "cta_form": true
 }

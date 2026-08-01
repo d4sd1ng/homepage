@@ -27,6 +27,7 @@ SECTION_MARKERS = {
     "leistungen": "<!-- ========================= LEISTUNGEN ========================= -->",
     "pairs": "<!-- ============ EINSATZBEREICHE + WAS DAMIT MÖGLICH WIRD ============ -->",
     "nutzen": "<!-- ========================= NUTZEN ========================= -->",
+    "faq": "<!-- ========================= FAQ ========================= -->",
     "cta_form": "<!-- ==================== CTA — POTENZIALANALYSE STARTEN ==================== -->",
     "cta_buttons": "<!-- ==================== CTA — BUTTONS ==================== -->",
 }
@@ -51,6 +52,13 @@ def render_paragraphs(items):
 
 def render_cols(items):
     return "\n".join(f"<p>{t}</p>" for t in items)
+
+
+def render_faq(items):
+    return "\n".join(
+        f'<details class="faq-item"><summary><span>{i["q"]}</span></summary><p>{i["a"]}</p></details>'
+        for i in items
+    )
 
 
 def render_buttons(items):
@@ -141,6 +149,12 @@ def placeholder_map(c):
             "{{NUTZEN_KICKER}}": c["nutzen"]["kicker"],
             "{{NUTZEN_TITLE}}": c["nutzen"]["title"],
             "{{NUTZEN_ITEMS}}": render_label_items(c["nutzen"]["items"]),
+        })
+    if "faq" in c:
+        m.update({
+            "{{FAQ_KICKER}}": c["faq"]["kicker"],
+            "{{FAQ_TITLE}}": c["faq"]["title"],
+            "{{FAQ_ITEMS}}": render_faq(c["faq"]["items"]),
         })
     if "cta_buttons" in c:
         m.update({
