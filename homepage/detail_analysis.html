@@ -248,13 +248,9 @@ main h3 { font: 700 clamp(19px,1.4vw,24px)/1.15 "Exo 2",Inter,Arial,sans-serif; 
 .pair-arrow { align-self: center; display: flex; align-items: center; justify-content: center; color: #d4af37; }
 .pair-arrow svg { width: 32px; height: 32px; }
 /* ---------- CTA-Formular (aus analyse.html übernommen) ---------- */
-.analysis-layout { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 34px; margin-top: 26px; align-items: start; width: 100%; }
-.info-panel, .form-panel { width: 100%; min-width: 0; border: 1.25px solid transparent; border-radius: 10px; background-image: linear-gradient(#080B09,#080B09), var(--gold-3); background-origin: border-box; background-clip: padding-box, border-box; padding: 26px; }
-.form-panel { align-self: stretch; }
-.info-panel h3, .form-panel h3 { font-size: 24px; line-height: 1.05; margin-bottom: 16px; text-transform: uppercase; background: var(--gold-1); -webkit-background-clip: text; background-clip: text; color: transparent; -webkit-text-fill-color: transparent; }
-.info-list { display: grid; gap: 12px; list-style: none; margin: 0; padding: 0; }
-.info-list li { font-size: 14px; line-height: 1.55; color: #b9c3bd; padding: 14px 16px; border: 1.25px solid transparent; border-radius: 10px; background-image: linear-gradient(#112A20,#112A20), var(--gold-3); background-origin: border-box; background-clip: padding-box, border-box; }
-.info-list strong { display: block; margin-bottom: 4px; font-family: "Inter",Arial,sans-serif; font-size: 14px; line-height: 1.25; font-weight: 700; letter-spacing: .05em; text-transform: uppercase; color: #e7dcbf; }
+.analysis-layout { display: grid; grid-template-columns: minmax(0, 820px); justify-content: center; margin-top: 26px; width: 100%; }
+.form-panel { width: 100%; min-width: 0; border: 1.25px solid transparent; border-radius: 10px; background-image: linear-gradient(#080B09,#080B09), var(--gold-3); background-origin: border-box; background-clip: padding-box, border-box; padding: 26px; }
+.form-panel h3 { font-size: 24px; line-height: 1.05; margin-bottom: 16px; text-transform: uppercase; background: var(--gold-1); -webkit-background-clip: text; background-clip: text; color: transparent; -webkit-text-fill-color: transparent; }
 .form-grid { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 10px; width: 100%; }
 .form-grid > * { min-width: 0; width: 100%; }
 .form-grid input, .form-grid select, .form-grid textarea { height: 40px; border: 1px solid rgba(240,160,90,.82); border-radius: 5px; background: rgba(235,235,226,.96); color: #111; font-family: "Inter",Arial,sans-serif; font-size: 13px; font-weight: 500; padding: 0 10px; outline: none; }
@@ -412,15 +408,6 @@ button[disabled] { opacity: .58; cursor: not-allowed; }
 <h2>Kostenlose Potenzialanalyse starten.</h2>
 <p class="sub">Kurze Angaben reichen für die erste Einordnung. Das Formular bleibt bewusst kompakt.</p>
 <div class="analysis-layout">
-<aside class="info-panel">
-<h3>Was geprüft wird</h3>
-<ul class="info-list">
-<li><strong>Prozesslage</strong>Welche wiederkehrenden Aufgaben aktuell Zeit binden, wo Rückfragen entstehen und welche Übergaben manuell laufen.</li>
-<li><strong>Datenlage</strong>Welche Systeme, Tabellen, E-Mails oder Dokumente beteiligt sind und ob die Informationen nutzbar zusammengeführt werden können.</li>
-<li><strong>Automatisierungspotenzial</strong>Ob KI, Automatisierung, SaaS-Tool oder ein normaler Prozessumbau für den konkreten Ablauf sinnvoller ist.</li>
-<li><strong>Nächster Schritt</strong>Welche Umsetzung zuerst den größten Nutzen bringt und welcher Einstieg realistisch vorbereitet werden sollte.</li>
-</ul>
-</aside>
 <form class="form-panel" action="analyse.html" method="get">
 <h3>Potenzialanalyse starten</h3>
 <div class="form-grid">
