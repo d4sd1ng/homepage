@@ -235,16 +235,16 @@ main h3 { font: 700 clamp(19px,1.4vw,24px)/1.15 "Exo 2",Inter,Arial,sans-serif; 
 .text--after { margin-top: 26px; }
 .num-list { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 26px 48px; list-style: none; counter-reset: dpnum; margin: 14px 0 0; padding: 0; }
 .num-list li { counter-increment: dpnum; position: relative; padding-left: 60px; font: 400 16px/1.7 "Inter",Arial,sans-serif; color: #b9c3bd; }
-.num-list li::before { content: counter(dpnum,decimal-leading-zero); position: absolute; left: 0; top: 0; display: grid; place-items: center; width: 44px; height: 44px; border-radius: 10px; border: 1.25px solid transparent; background-image: linear-gradient(#112A20,#112A20), var(--gold-3); background-origin: border-box; background-clip: padding-box, border-box; color: #d4af37; font: 600 16px/1 "Exo 2",Inter,Arial,sans-serif; }
+.num-list li::before { content: counter(dpnum,decimal-leading-zero); position: absolute; left: 0; top: 0; display: grid; place-items: center; width: 44px; height: 44px; border-radius: 10px; border: 1.25px solid transparent; background-image: linear-gradient(#080B09,#080B09), var(--gold-3); background-origin: border-box; background-clip: padding-box, border-box; color: #d4af37; font: 600 16px/1 "Exo 2",Inter,Arial,sans-serif; }
 .num-list b { display: block; margin-bottom: 4px; font: 550 18px/1.4 "Inter",Arial,sans-serif; background: var(--gold-2); background-clip: text; -webkit-background-clip: text; color: transparent; -webkit-text-fill-color: transparent; }
 .num-list span { display: block; }
-.pair-grid { display: grid; grid-template-columns: repeat(5,minmax(0,1fr)); gap: 30px 18px; }
-.pair { display: flex; flex-direction: column; }
-.pair-chip { flex: 1; display: flex; align-items: center; padding: 12px 14px; border-radius: 10px; color: #e4e0d6; border: 1.25px solid transparent; background-image: linear-gradient(#112A20,#112A20), var(--gold-3); background-origin: border-box; background-clip: padding-box, border-box; font: 550 14px/1.35 "Inter",Arial,sans-serif; }
-.pair-arrow { text-align: center; padding: 5px 0; color: #d4af37; font: 700 20px/1 "Exo 2",Inter,Arial,sans-serif; }
-@media (max-width: 1200px) { .pair-grid { grid-template-columns: repeat(3,minmax(0,1fr)); } }
-@media (max-width: 900px) { .detail-hero,.content-grid,.text-cols,.label-list,.num-list { grid-template-columns: 1fr; } .pair-grid { grid-template-columns: repeat(2,minmax(0,1fr)); } }
-@media (max-width: 640px) { .pair-grid { grid-template-columns: 1fr; } }
+.pair-grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 16px 56px; }
+.pair { display: grid; grid-template-columns: 1fr 30px 1.15fr; align-items: stretch; gap: 12px; }
+.pair-chip { display: flex; align-items: center; min-height: 60px; padding: 10px 18px; border-radius: 10px; color: #e4e0d6; border: 1.25px solid transparent; background-image: linear-gradient(#080B09,#080B09), var(--gold-3); background-origin: border-box; background-clip: padding-box, border-box; font: 550 15px/1.4 "Inter",Arial,sans-serif; }
+.chip-icon { flex: 0 0 auto; width: 24px; height: 24px; margin-right: 14px; color: #E0AA3E; }
+.pair-arrow { align-self: center; text-align: center; color: #d4af37; font: 700 22px/1 "Exo 2",Inter,Arial,sans-serif; }
+@media (max-width: 1200px) { .pair-grid { grid-template-columns: 1fr; } }
+@media (max-width: 900px) { .detail-hero,.content-grid,.text-cols,.label-list,.num-list { grid-template-columns: 1fr; } }
 
 </style>
 </head>
@@ -346,16 +346,16 @@ main h3 { font: 700 clamp(19px,1.4vw,24px)/1.15 "Exo 2",Inter,Arial,sans-serif; 
 <p class="sub">Die Potenzialanalyse schafft eine belastbare Grundlage für weitere Entscheidungen.</p>
 <article class="panel">
 <div class="pair-grid">
-<div class="pair"><span class="pair-chip">Dokumentenverarbeitung</span><span class="pair-arrow">&#8595;</span><span class="pair-chip">Entwicklung eines Dokumenten- oder Datenabgleichsystems</span></div>
-<div class="pair"><span class="pair-chip">interne Wissenssysteme</span><span class="pair-arrow">&#8595;</span><span class="pair-chip">Einführung eines Wissenssystems</span></div>
-<div class="pair"><span class="pair-chip">Datenabgleich und Datenbereinigung</span><span class="pair-arrow">&#8595;</span><span class="pair-chip">Vorbereitung von Daten, Prozessen oder Schnittstellen</span></div>
-<div class="pair"><span class="pair-chip">Prozessautomatisierung</span><span class="pair-arrow">&#8595;</span><span class="pair-chip">Automatisierung eines bestehenden Workflows</span></div>
-<div class="pair"><span class="pair-chip">Vertriebs- und Serviceunterstützung</span><span class="pair-arrow">&#8595;</span><span class="pair-chip">Umsetzung eines klar abgegrenzten Pilotprojekts</span></div>
-<div class="pair"><span class="pair-chip">Chatbots und Sprachassistenten</span><span class="pair-arrow">&#8595;</span><span class="pair-chip">Aufbau eines KI-Agenten</span></div>
-<div class="pair"><span class="pair-chip">KI-Agenten</span><span class="pair-arrow">&#8595;</span><span class="pair-chip">Entwicklung einer KI-Roadmap</span></div>
-<div class="pair"><span class="pair-chip">Erweiterung bestehender Software</span><span class="pair-arrow">&#8595;</span><span class="pair-chip">Integration von KI in vorhandene Software</span></div>
-<div class="pair"><span class="pair-chip">SEO- und Contentprozesse</span><span class="pair-arrow">&#8595;</span><span class="pair-chip">Aufbau einer SEO- und Content-Automatisierung</span></div>
-<div class="pair"><span class="pair-chip">Berichtserstellung und Auswertung</span><span class="pair-arrow">&#8595;</span><span class="pair-chip">Einführung eines automatisierten Berichtssystems</span></div>
+<div class="pair"><span class="pair-chip"><svg class="chip-icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-doc"/></svg>Dokumentenverarbeitung</span><span class="pair-arrow">&#8594;</span><span class="pair-chip"><svg class="chip-icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-sync"/></svg>Entwicklung eines Dokumenten- oder Datenabgleichsystems</span></div>
+<div class="pair"><span class="pair-chip"><svg class="chip-icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-book"/></svg>interne Wissenssysteme</span><span class="pair-arrow">&#8594;</span><span class="pair-chip"><svg class="chip-icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-bulb"/></svg>Einführung eines Wissenssystems</span></div>
+<div class="pair"><span class="pair-chip"><svg class="chip-icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-db"/></svg>Datenabgleich und Datenbereinigung</span><span class="pair-arrow">&#8594;</span><span class="pair-chip"><svg class="chip-icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-wrench"/></svg>Vorbereitung von Daten, Prozessen oder Schnittstellen</span></div>
+<div class="pair"><span class="pair-chip"><svg class="chip-icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-gear"/></svg>Prozessautomatisierung</span><span class="pair-arrow">&#8594;</span><span class="pair-chip"><svg class="chip-icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-loop"/></svg>Automatisierung eines bestehenden Workflows</span></div>
+<div class="pair"><span class="pair-chip"><svg class="chip-icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-headset"/></svg>Vertriebs- und Serviceunterstützung</span><span class="pair-arrow">&#8594;</span><span class="pair-chip"><svg class="chip-icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-rocket"/></svg>Umsetzung eines klar abgegrenzten Pilotprojekts</span></div>
+<div class="pair"><span class="pair-chip"><svg class="chip-icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-chat"/></svg>Chatbots und Sprachassistenten</span><span class="pair-arrow">&#8594;</span><span class="pair-chip"><svg class="chip-icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-bot"/></svg>Aufbau eines KI-Agenten</span></div>
+<div class="pair"><span class="pair-chip"><svg class="chip-icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-bot"/></svg>KI-Agenten</span><span class="pair-arrow">&#8594;</span><span class="pair-chip"><svg class="chip-icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-map"/></svg>Entwicklung einer KI-Roadmap</span></div>
+<div class="pair"><span class="pair-chip"><svg class="chip-icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-plus"/></svg>Erweiterung bestehender Software</span><span class="pair-arrow">&#8594;</span><span class="pair-chip"><svg class="chip-icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-plug"/></svg>Integration von KI in vorhandene Software</span></div>
+<div class="pair"><span class="pair-chip"><svg class="chip-icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-seo"/></svg>SEO- und Contentprozesse</span><span class="pair-arrow">&#8594;</span><span class="pair-chip"><svg class="chip-icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-pen"/></svg>Aufbau einer SEO- und Content-Automatisierung</span></div>
+<div class="pair"><span class="pair-chip"><svg class="chip-icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-chart"/></svg>Berichtserstellung und Auswertung</span><span class="pair-arrow">&#8594;</span><span class="pair-chip"><svg class="chip-icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-trend"/></svg>Einführung eines automatisierten Berichtssystems</span></div>
 </div>
 <p class="text text--after">Nicht jedes identifizierte Potenzial führt unmittelbar zu einer technischen Umsetzung. In einzelnen Fällen ist zunächst eine Standardisierung, Datenbereinigung oder organisatorische Klärung erforderlich.</p>
 </article>
@@ -487,6 +487,25 @@ main h3 { font: 700 clamp(19px,1.4vw,24px)/1.15 "Exo 2",Inter,Arial,sans-serif; 
     </footer>
 
 <svg style="display:none">
+  <symbol id="i-doc" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3h7l4 4v14H7z"/><path d="M14 3v4h4"/><path d="M10 12h5M10 16h5"/></g></symbol>
+  <symbol id="i-book" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19V5a2 2 0 0 1 2-2h14v16H6a2 2 0 0 0-2 2 2 2 0 0 0 2 2h14"/></g></symbol>
+  <symbol id="i-db" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="7" ry="2.5"/><path d="M5 5v14c0 1.4 3.1 2.5 7 2.5s7-1.1 7-2.5V5"/><path d="M5 12c0 1.4 3.1 2.5 7 2.5s7-1.1 7-2.5"/></g></symbol>
+  <symbol id="i-gear" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3.2"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9l2.1 2.1M17 17l2.1 2.1M19.1 4.9L17 7M7 17l-2.1 2.1"/></g></symbol>
+  <symbol id="i-headset" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 14a8 8 0 0 1 16 0"/><rect x="3" y="14" width="4" height="6" rx="1.5"/><rect x="17" y="14" width="4" height="6" rx="1.5"/></g></symbol>
+  <symbol id="i-chat" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v11H9l-5 4z"/><path d="M8 9h8"/></g></symbol>
+  <symbol id="i-bot" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="8" width="14" height="10" rx="2"/><path d="M12 8V5"/><circle cx="12" cy="4" r="1"/><path d="M9.5 12.5v1M14.5 12.5v1"/></g></symbol>
+  <symbol id="i-plus" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M12 9v6M9 12h6"/></g></symbol>
+  <symbol id="i-seo" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="10.5" cy="10.5" r="5.5"/><path d="M15 15l6 6"/></g></symbol>
+  <symbol id="i-chart" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4v16h16"/><path d="M8 16v-5M12 16V8M16 16v-3"/></g></symbol>
+  <symbol id="i-sync" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M20 12a8 8 0 1 1-2.3-5.7"/><path d="M20 3v4h-4"/><path d="M9 12l2 2 4-4"/></g></symbol>
+  <symbol id="i-bulb" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a6 6 0 0 1 4 10.4c-.8.7-1 1.6-1 2.6H9c0-1-.2-1.9-1-2.6A6 6 0 0 1 12 3z"/><path d="M9 19h6M10 22h4"/></g></symbol>
+  <symbol id="i-wrench" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 6.5a4 4 0 0 1 5.2-4.7l-2.9 2.9 2.5 2.5 2.9-2.9a4 4 0 0 1-4.7 5.2L8 19a2.1 2.1 0 1 1-3-3z"/></g></symbol>
+  <symbol id="i-loop" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12a8 8 0 0 1 14-5.3"/><path d="M18 3v4h-4"/><path d="M20 12a8 8 0 0 1-14 5.3"/><path d="M6 21v-4h4"/></g></symbol>
+  <symbol id="i-rocket" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3c3 2 5 6 5 10l-2 2H9l-2-2c0-4 2-8 5-10z"/><circle cx="12" cy="9" r="1.5"/><path d="M9 17l-1.5 4M15 17l1.5 4M12 17v4"/></g></symbol>
+  <symbol id="i-map" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6l5-2 6 2 5-2v14l-5 2-6-2-5 2z"/><path d="M9 4v14M15 6v14"/></g></symbol>
+  <symbol id="i-plug" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3v5M15 3v5"/><path d="M6 8h12v3a6 6 0 0 1-12 0z"/><path d="M12 17v4"/></g></symbol>
+  <symbol id="i-pen" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20l1-4L17 4l3 3L8 19l-4 1z"/><path d="M14 7l3 3"/></g></symbol>
+  <symbol id="i-trend" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h16"/><path d="M5 16l4-4 3 3 6-7"/><path d="M14 8h4v4"/></g></symbol>
   <symbol id="nv-calendly-mark" viewBox="0 0 64 64">
     <path d="M50 14C42 7 30 5 20 11C9 17 5 31 10 42C15 53 28 59 40 55C46 53 51 49 54 44" fill="none" stroke="#046bf7" stroke-width="7" stroke-linecap="round" />
     <path d="M50 22C44 16 35 15 28 19C20 23 17 32 21 40C25 48 35 51 43 47C47 45 50 42 52 38" fill="none" stroke="#12e0f7" stroke-width="6" stroke-linecap="round" />
