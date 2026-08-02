@@ -43,6 +43,17 @@
       }
     },
     {
+      "type": "textcols",
+      "id": "einordnung",
+      "kicker": "Einordnung",
+      "title": "Substanz statt Hype",
+      "sub": "KI ist kein Selbstzweck",
+      "cols": [
+        "Vor jeder Umsetzung werden Nutzen, Datenlage, technische Machbarkeit und notwendige Kontrollen geprüft. Ist eine einfachere Lösung geeigneter, wird keine unnötige KI-Komplexität aufgebaut.",
+        "Ausgangspunkt sind die bestehende Aufgabe, beteiligte Systeme und das gewünschte Ergebnis. Erst danach werden Technologie, Architektur und Umsetzungsumfang festgelegt."
+      ]
+    },
+    {
       "type": "labellist",
       "id": "nutzen",
       "kicker": "Nutzen",
@@ -191,10 +202,6 @@
         {
           "label": "Grundsätze",
           "text": "Klarer Anwendungsfall, geeignete Datenbasis, sinnvolle Systemintegration, begrenzte Berechtigungen, definierte Kontrollpunkte, nachvollziehbarer Nutzen."
-        },
-        {
-          "label": "Arbeitsweise",
-          "text": "Erst verstehen, dann entwickeln. Aus Aufgabe, Systemen und Ziel entsteht die passende technische Lösung."
         }
       ]
     },
