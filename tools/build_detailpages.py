@@ -126,6 +126,8 @@ def render_section(s, fragments):
              .replace("{{GOLD_SUB}}", gold["sub"])
              .replace("{{GOLD_TEXTS}}", "".join(f"<p>{p}</p>" for p in gold["texts"])))
     elif t == "textcols":
+        if s.get("single") or len(s["cols"]) == 1:
+            r = r.replace('class="text-cols"', 'class="text-cols text-cols--1"')
         r = r.replace("{{COLS}}", "\n".join(f"<p>{c}</p>" for c in s["cols"]))
     elif t == "labellist":
         r = r.replace("{{EXTRA}}", sub_text_extra(s))
