@@ -224,6 +224,9 @@ main h3 { font: 700 clamp(19px,1.4vw,24px)/1.15 "Exo 2",Inter,Arial,sans-serif; 
 .summary h2,.summary p { color: #050505; text-shadow: none; }
 .summary h2 { background: none; -webkit-background-clip: initial; background-clip: initial; color: #112A20; -webkit-text-fill-color: #112A20; }
 .summary .sub { color: #050505; }
+.summary h3 { color: #112A20; }
+.summary .dot-list li { color: #112A20; }
+.summary .dot-list li::before { background: #112A20; }
 .actions { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 22px; }
 .text-cols { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 18px 48px; margin-top: 6px; }
 .text-cols p { font: 400 16px/1.7 "Inter",Arial,sans-serif; color: #b9c3bd; }
@@ -357,24 +360,9 @@ button[disabled] { opacity: .58; cursor: not-allowed; }
 </header>
 <main>
 <!-- ============================ HERO ============================ -->
-<section class="section"><div class="section-inner detail-hero"><div><div class="kicker">Warum Nurovelle</div><h1>Technik mit messbarem Nutzen</h1><p class="sub">KI und Software für klare Prozesse und bestehende Systeme</p><p class="lead">Nurovelle entwickelt Lösungen aus realen Geschäftsprozessen. Technologie folgt dem Ergebnis.</p><div class="actions"><a class="btn" href="analyse.html">Potenzial prüfen</a></div></div><div class="visual-card"><img src="assets/Module/Ablauf/Prozesse_planen.png" alt="Warum Nurovelle"/></div></div></section>
-<!-- ===== chips ===== -->
-<section class="section" id="ueberblick"><div class="section-inner">
-<div class="kicker">Überblick</div>
-<h2>Ganzheitliche Systemsicht</h2>
-<p class="sub">Prozesse, Daten und Systeme gemeinsam gedacht</p>
-<p class="text">Erweiterbare Strukturen statt Insellösungen durch gemeinsame Betrachtung aller Komponenten.</p>
-<ul class="chip-list">
-<li>Prozesse analysieren</li>
-<li>Daten bewerten</li>
-<li>Technologie wählen</li>
-<li>Software entwickeln</li>
-<li>Systeme integrieren</li>
-<li>Umsetzung steuern</li>
-</ul>
-</div></section>
-<!-- ===== panel_cta ===== -->
-<section class="section" id="einordnung"><div class="section-inner"><article class="panel"><h2>Ergebnis vor Technologie</h2><p class="sub">Einfachste funktionierende Lösung zuerst</p><p>Nutzen, Datenlage und Aufwand bestimmen die Lösung. Komplexität nur bei Bedarf.</p><div class="actions"><a class="btn" href="analyse.html">Potenzialanalyse starten</a><a class="btn" href="index.html#leistungen">Leistungen ansehen</a></div></article></div></section>
+<section class="section"><div class="section-inner detail-hero"><div><div class="kicker">Warum Nurovelle</div><h1>Technik mit messbarem Nutzen</h1><p class="sub">KI und Software für klare Prozesse und bestehende Systeme</p><p class="lead">Nurovelle entwickelt Lösungen aus realen Geschäftsprozessen. Technologie folgt dem Ergebnis.</p><div class="actions"><a class="btn" href="analyse.html">Potenzial prüfen</a></div></div><div class="visual-card"><img src="assets/Module/Ablauf/umsetzung_struturieren.png" alt="Warum Nurovelle"/></div></div></section>
+<!-- ===== cards ===== -->
+<section class="section"><div class="section-inner content-grid"><article class="panel"><h2>Ganzheitliche Systemsicht</h2><p class="sub">Prozesse, Daten und Systeme gemeinsam gedacht</p><p>Erweiterbare Strukturen statt Insellösungen durch gemeinsame Betrachtung aller Komponenten.</p><ul><li>Prozesse analysieren</li><li>Daten bewerten</li><li>Technologie wählen</li><li>Software entwickeln</li><li>Systeme integrieren</li><li>Umsetzung steuern</li></ul></article><article class="panel summary"><h2>Ergebnis vor Technologie</h2><p class="sub">Einfachste funktionierende Lösung zuerst</p><p>Nutzen, Datenlage und Aufwand bestimmen die Lösung. Komplexität nur bei Bedarf.</p></article></div></section>
 <!-- ===== textcols ===== -->
 <section class="section" id="arbeitsweise"><div class="section-inner">
 <div class="kicker">Arbeitsweise</div>
@@ -463,7 +451,7 @@ button[disabled] { opacity: .58; cursor: not-allowed; }
 <p class="sub">Klare Grenzen statt Blackbox</p>
 <p class="text">Automatisierung unterstützt Entscheidungen, ersetzt sie nicht.</p>
 <div class="content-grid group-cards">
-<article class="panel"><h3>Mechanismen</h3><ul class="dot-list"><li>Freigaben</li><li>Übergaben bei Unsicherheit</li><li>Prüfungen</li><li>begrenzte Zugriffe</li><li>Protokolle</li><li>Abbruchregeln</li><li>manuelle Korrekturen</li><li>klare Zuständigkeiten</li></ul></article>
+<article class="panel summary"><h3>Mechanismen</h3><ul class="dot-list"><li>Freigaben</li><li>Übergaben bei Unsicherheit</li><li>Prüfungen</li><li>begrenzte Zugriffe</li><li>Protokolle</li><li>Abbruchregeln</li><li>manuelle Korrekturen</li><li>klare Zuständigkeiten</li></ul></article>
 </div>
 </div></section>
 <!-- ===== chips ===== -->
@@ -575,7 +563,7 @@ button[disabled] { opacity: .58; cursor: not-allowed; }
 <h2>Sinnvoll starten</h2>
 <p class="sub">Erst verstehen, dann umsetzen</p>
 <p class="text">Die Potenzialanalyse zeigt den passenden Weg.</p>
-<div class="actions"><a class="btn" href="analyse.html">Potenzialanalyse starten</a></div>
+<div class="actions"><a class="btn" href="analyse.html">Potenzialanalyse starten</a><a class="btn" href="index.html#leistungen">Leistungen ansehen</a></div>
 </div></section>
 </main>
 <footer class="footer" id="footer">

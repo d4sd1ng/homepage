@@ -9,39 +9,38 @@
     "title": "Technik mit messbarem Nutzen",
     "sub": "KI und Software für klare Prozesse und bestehende Systeme",
     "lead": "Nurovelle entwickelt Lösungen aus realen Geschäftsprozessen. Technologie folgt dem Ergebnis.",
-    "image": "assets/Module/Ablauf/Prozesse_planen.png",
+    "image": "assets/Module/Ablauf/umsetzung_struturieren.png",
     "image_alt": "Warum Nurovelle",
     "actions": [
-      { "label": "Potenzial prüfen", "href": "analyse.html" }
+      {
+        "label": "Potenzial prüfen",
+        "href": "analyse.html"
+      }
     ]
   },
   "sections": [
     {
-      "type": "chips",
-      "id": "ueberblick",
-      "kicker": "Überblick",
-      "title": "Ganzheitliche Systemsicht",
-      "sub": "Prozesse, Daten und Systeme gemeinsam gedacht",
-      "text": "Erweiterbare Strukturen statt Insellösungen durch gemeinsame Betrachtung aller Komponenten.",
-      "items": [
-        "Prozesse analysieren",
-        "Daten bewerten",
-        "Technologie wählen",
-        "Software entwickeln",
-        "Systeme integrieren",
-        "Umsetzung steuern"
-      ]
-    },
-    {
-      "type": "panel_cta",
-      "id": "einordnung",
-      "title": "Ergebnis vor Technologie",
-      "sub": "Einfachste funktionierende Lösung zuerst",
-      "text": "Nutzen, Datenlage und Aufwand bestimmen die Lösung. Komplexität nur bei Bedarf.",
-      "buttons": [
-        { "label": "Potenzialanalyse starten", "href": "analyse.html" },
-        { "label": "Leistungen ansehen", "href": "index.html#leistungen" }
-      ]
+      "type": "cards",
+      "left": {
+        "title": "Ganzheitliche Systemsicht",
+        "sub": "Prozesse, Daten und Systeme gemeinsam gedacht",
+        "text": "Erweiterbare Strukturen statt Insellösungen durch gemeinsame Betrachtung aller Komponenten.",
+        "bullets": [
+          "Prozesse analysieren",
+          "Daten bewerten",
+          "Technologie wählen",
+          "Software entwickeln",
+          "Systeme integrieren",
+          "Umsetzung steuern"
+        ]
+      },
+      "gold": {
+        "title": "Ergebnis vor Technologie",
+        "sub": "Einfachste funktionierende Lösung zuerst",
+        "texts": [
+          "Nutzen, Datenlage und Aufwand bestimmen die Lösung. Komplexität nur bei Bedarf."
+        ]
+      }
     },
     {
       "type": "textcols",
@@ -78,14 +77,38 @@
       "sub": "Technologie folgt dem Anwendungsfall",
       "text": "Bausteine werden je nach Aufgabe kombiniert:",
       "items": [
-        { "label": "KI-Agent", "text": "steuert Aufgaben und Systeme" },
-        { "label": "Workflow", "text": "automatisiert Prozesse" },
-        { "label": "Chatbot", "text": "beantwortet Anfragen" },
-        { "label": "Wissenssystem", "text": "strukturiert Informationen" },
-        { "label": "Datenprüfung", "text": "validiert Daten" },
-        { "label": "Software", "text": "bildet Spezialprozesse ab" },
-        { "label": "Integration", "text": "verbindet Systeme" },
-        { "label": "Automatisierung", "text": "setzt Regeln um" }
+        {
+          "label": "KI-Agent",
+          "text": "steuert Aufgaben und Systeme"
+        },
+        {
+          "label": "Workflow",
+          "text": "automatisiert Prozesse"
+        },
+        {
+          "label": "Chatbot",
+          "text": "beantwortet Anfragen"
+        },
+        {
+          "label": "Wissenssystem",
+          "text": "strukturiert Informationen"
+        },
+        {
+          "label": "Datenprüfung",
+          "text": "validiert Daten"
+        },
+        {
+          "label": "Software",
+          "text": "bildet Spezialprozesse ab"
+        },
+        {
+          "label": "Integration",
+          "text": "verbindet Systeme"
+        },
+        {
+          "label": "Automatisierung",
+          "text": "setzt Regeln um"
+        }
       ]
     },
     {
@@ -162,14 +185,38 @@
       "sub": "Acht Schritte",
       "text": "Klare Abfolge von Analyse bis Validierung.",
       "items": [
-        { "label": "Zieldefinition", "text": "Ziel festlegen" },
-        { "label": "Prozessanalyse", "text": "Ist-Zustand prüfen" },
-        { "label": "Datenprüfung", "text": "Datenbestand klären" },
-        { "label": "Lösungsfindung", "text": "Technologie wählen" },
-        { "label": "Architektur", "text": "System strukturieren" },
-        { "label": "Prototyp", "text": "Erste Version testen" },
-        { "label": "Umsetzung", "text": "Lösung entwickeln" },
-        { "label": "Validierung", "text": "Nutzen prüfen" }
+        {
+          "label": "Zieldefinition",
+          "text": "Ziel festlegen"
+        },
+        {
+          "label": "Prozessanalyse",
+          "text": "Ist-Zustand prüfen"
+        },
+        {
+          "label": "Datenprüfung",
+          "text": "Datenbestand klären"
+        },
+        {
+          "label": "Lösungsfindung",
+          "text": "Technologie wählen"
+        },
+        {
+          "label": "Architektur",
+          "text": "System strukturieren"
+        },
+        {
+          "label": "Prototyp",
+          "text": "Erste Version testen"
+        },
+        {
+          "label": "Umsetzung",
+          "text": "Lösung entwickeln"
+        },
+        {
+          "label": "Validierung",
+          "text": "Nutzen prüfen"
+        }
       ]
     },
     {
@@ -191,7 +238,8 @@
             "Abbruchregeln",
             "manuelle Korrekturen",
             "klare Zuständigkeiten"
-          ]
+          ],
+          "gold": true
         }
       ]
     },
@@ -275,12 +323,42 @@
       "title": "Von Idee zur Lösung",
       "sub": "Abhängig von Ausgangslage",
       "items": [
-        { "from_icon": "bulb", "from": "unklare Idee", "to_icon": "doc", "to": "klarer Anwendungsfall" },
-        { "from_icon": "seo", "from": "kein Nutzen definiert", "to_icon": "chart", "to": "geprüfte Basis" },
-        { "from_icon": "db", "from": "verteilte Systeme", "to_icon": "plug", "to": "passende Lösung" },
-        { "from_icon": "wrench", "from": "fehlende Daten", "to_icon": "map", "to": "saubere Architektur" },
-        { "from_icon": "chat", "from": "offene Fragen", "to_icon": "gear", "to": "kontrollierte Umsetzung" },
-        { "from_icon": "sync", "from": "Risiken unklar", "to_icon": "trend", "to": "schrittweiser Ausbau" }
+        {
+          "from_icon": "bulb",
+          "from": "unklare Idee",
+          "to_icon": "doc",
+          "to": "klarer Anwendungsfall"
+        },
+        {
+          "from_icon": "seo",
+          "from": "kein Nutzen definiert",
+          "to_icon": "chart",
+          "to": "geprüfte Basis"
+        },
+        {
+          "from_icon": "db",
+          "from": "verteilte Systeme",
+          "to_icon": "plug",
+          "to": "passende Lösung"
+        },
+        {
+          "from_icon": "wrench",
+          "from": "fehlende Daten",
+          "to_icon": "map",
+          "to": "saubere Architektur"
+        },
+        {
+          "from_icon": "chat",
+          "from": "offene Fragen",
+          "to_icon": "gear",
+          "to": "kontrollierte Umsetzung"
+        },
+        {
+          "from_icon": "sync",
+          "from": "Risiken unklar",
+          "to_icon": "trend",
+          "to": "schrittweiser Ausbau"
+        }
       ],
       "note": "Lösung entsteht aus Prozess, Daten und Ziel."
     },
@@ -292,14 +370,38 @@
       "sub": "Kurz beantwortet",
       "text": "Klare Orientierung für den Einstieg.",
       "items": [
-        { "q": "Brauche ich eine KI-Idee?", "a": "Nein, ein Problem reicht." },
-        { "q": "Nur KI-Agenten?", "a": "Nein, auch Software und Integrationen." },
-        { "q": "Bestehende Systeme?", "a": "Ja, wenn sinnvoll." },
-        { "q": "Spezifikation nötig?", "a": "Nein, entsteht im Prozess." },
-        { "q": "Prototyp möglich?", "a": "Ja." },
-        { "q": "Alles automatisiert?", "a": "Nur was sinnvoll ist." },
-        { "q": "KI prüfen?", "a": "Ja." },
-        { "q": "Startpunkt?", "a": "Potenzialanalyse." }
+        {
+          "q": "Brauche ich eine KI-Idee?",
+          "a": "Nein, ein Problem reicht."
+        },
+        {
+          "q": "Nur KI-Agenten?",
+          "a": "Nein, auch Software und Integrationen."
+        },
+        {
+          "q": "Bestehende Systeme?",
+          "a": "Ja, wenn sinnvoll."
+        },
+        {
+          "q": "Spezifikation nötig?",
+          "a": "Nein, entsteht im Prozess."
+        },
+        {
+          "q": "Prototyp möglich?",
+          "a": "Ja."
+        },
+        {
+          "q": "Alles automatisiert?",
+          "a": "Nur was sinnvoll ist."
+        },
+        {
+          "q": "KI prüfen?",
+          "a": "Ja."
+        },
+        {
+          "q": "Startpunkt?",
+          "a": "Potenzialanalyse."
+        }
       ]
     },
     {
@@ -310,7 +412,14 @@
       "sub": "Erst verstehen, dann umsetzen",
       "text": "Die Potenzialanalyse zeigt den passenden Weg.",
       "buttons": [
-        { "label": "Potenzialanalyse starten", "href": "analyse.html" }
+        {
+          "label": "Potenzialanalyse starten",
+          "href": "analyse.html"
+        },
+        {
+          "label": "Leistungen ansehen",
+          "href": "index.html#leistungen"
+        }
       ]
     }
   ]
