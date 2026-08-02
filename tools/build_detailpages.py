@@ -134,9 +134,10 @@ def render_section(s, fragments):
     elif t == "groups":
         r = r.replace("{{EXTRA}}", sub_text_extra(s))
         r = r.replace("{{GROUPS}}", "\n".join(
-            '<article class="{cls}"><h3>{t}</h3><ul class="dot-list">{items}</ul></article>'.format(
+            '<article class="{cls}">{head}<ul class="dot-list">{items}</ul></article>'.format(
                 cls="panel summary" if g.get("gold") else "panel",
-                t=g["title"], items="".join(f"<li>{i}</li>" for i in g["items"]))
+                head=f'<h3>{g["title"]}</h3>' if g.get("title") else "",
+                items="".join(f"<li>{i}</li>" for i in g["items"]))
             for g in s["groups"]))
     elif t == "chips":
         r = r.replace("{{EXTRA}}", sub_text_extra(s))
