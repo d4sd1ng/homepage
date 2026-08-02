@@ -191,7 +191,8 @@ def build(content, skeleton, fragments):
             raise SystemExit(f"placeholder missing in template: {ph}")
         html = html.replace(ph, value)
 
-    sections = "".join(render_section(s, fragments) for s in content["sections"])
+    ordered = sorted(content["sections"], key=lambda s: s["type"] == "faq")
+    sections = "".join(render_section(s, fragments) for s in ordered)
     html = html.replace("{{SECTIONS}}\n", sections)
 
     if not any(s["type"] == "cta_form" for s in content["sections"]):

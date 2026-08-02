@@ -419,6 +419,24 @@
       "note": "Lösung entsteht aus Prozess, Daten und Ziel."
     },
     {
+      "type": "cta_buttons",
+      "id": "kontakt",
+      "kicker": "Abschluss",
+      "title": "Sinnvoll starten",
+      "sub": "Erst verstehen, dann umsetzen",
+      "text": "Die Potenzialanalyse zeigt den passenden Weg.",
+      "buttons": [
+        {
+          "label": "Potenzialanalyse starten",
+          "href": "analyse.html"
+        },
+        {
+          "label": "Leistungen ansehen",
+          "href": "index.html#leistungen"
+        }
+      ]
+    },
+    {
       "type": "faq",
       "id": "faq",
       "kicker": "FAQ",
@@ -457,24 +475,6 @@
         {
           "q": "Startpunkt?",
           "a": "Potenzialanalyse."
-        }
-      ]
-    },
-    {
-      "type": "cta_buttons",
-      "id": "kontakt",
-      "kicker": "Abschluss",
-      "title": "Sinnvoll starten",
-      "sub": "Erst verstehen, dann umsetzen",
-      "text": "Die Potenzialanalyse zeigt den passenden Weg.",
-      "buttons": [
-        {
-          "label": "Potenzialanalyse starten",
-          "href": "analyse.html"
-        },
-        {
-          "label": "Leistungen ansehen",
-          "href": "index.html#leistungen"
         }
       ]
     }
