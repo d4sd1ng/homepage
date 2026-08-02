@@ -1,6 +1,14 @@
 #!/usr/bin/env python3
 """Generate detail pages from homepage/detail_template.html + homepage/detail_content/*.json.
 
+DESIGN RULE (fixed): every detail page mirrors the Potenzialanalyse page
+(analyse.html) exactly — same sections, same order, same forms:
+  1 Hero | 2 black+gold cards | 3 two-column text | 4 gold-label list
+  | 5 numbered tiles | 6 emerald base card (chips/pairs) | 7 gold-label list
+  | 8 CTA (form only on analyse, buttons elsewhere) | 9 FAQ (always last).
+Layout hints inside delivered copy (e.g. "Holo-Card", "best_card_single")
+are IGNORED — content is distributed into the fixed slots above.
+
 Usage:
   python3 tools/build_detailpages.py            # build all content files
   python3 tools/build_detailpages.py --check    # build and diff against existing output files
@@ -157,6 +165,9 @@ def render_section(s, fragments):
             side = f'<ul class="{cls}">\n' + "\n".join(f"<li>{i}</li>" for i in s["items"]) + "\n</ul>"
         r = r.replace("{{SIDE}}", head + side)
     elif t == "pairs":
+        r = r.replace("{{CHIPS_ROW}}",
+                      f'<ul class="chip-list pair-chips-row">\n{render_chip_items(s["chips"])}\n</ul>\n'
+                      if s.get("chips") else "")
         r = r.replace("{{ITEMS}}", render_pair_items(s["items"]))
         r = r.replace("{{NOTE_BLOCK}}",
                       f'\n<p class="text text--after">{s["note"]}</p>' if s.get("note") else "")

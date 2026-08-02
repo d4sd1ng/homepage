@@ -217,8 +217,8 @@ main h3 { font: 700 clamp(19px,1.4vw,24px)/1.15 "Exo 2",Inter,Arial,sans-serif; 
 .panel p { margin: 0 0 12px; }
 .panel p:last-child { margin-bottom: 0; }
 .panel .sub { font: 600 19px/1.45 "Inter",Arial,sans-serif; color: #F5F7F4; margin: 0 0 16px; }
-.card-bullets { list-style: none; margin: 12px 0 0; padding: 0; }
-.card-bullets li { position: relative; padding-left: 20px; margin-bottom: 8px; font: 550 18px/1.5 "Inter",Arial,sans-serif; background: var(--gold-2); background-clip: text; -webkit-background-clip: text; color: transparent; -webkit-text-fill-color: transparent; }
+.card-bullets { list-style: none; margin: 14px 0 0; padding: 0; display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 8px 24px; }
+.card-bullets li { position: relative; padding-left: 20px; font: 550 18px/1.5 "Inter",Arial,sans-serif; background: var(--gold-2); background-clip: text; -webkit-background-clip: text; color: transparent; -webkit-text-fill-color: transparent; }
 .card-bullets li::before { content: ""; position: absolute; left: 0; top: calc(50% - 3.5px); width: 7px; height: 7px; border-radius: 2px; background: #DFBD69; }
 .summary { border: 1px solid rgba(255,215,163,.78); background: linear-gradient(180deg,#ffd7a3 0%,#f0a05a 24%,#d89828 58%,#7a3518 100%); box-shadow: inset 0 0 0 1px rgba(255,244,199,.20),0 8px 16px rgba(0,0,0,.30); }
 .summary h2,.summary p { color: #050505; text-shadow: none; }
@@ -241,6 +241,7 @@ main h3 { font: 700 clamp(19px,1.4vw,24px)/1.15 "Exo 2",Inter,Arial,sans-serif; 
 .num-list li::before { content: counter(dpnum,decimal-leading-zero); position: absolute; left: 0; top: 2px; display: grid; place-items: center; width: 30px; height: 30px; border-radius: 8px; border: 1.25px solid transparent; background-image: linear-gradient(#080B09,#080B09), var(--gold-3); background-origin: border-box; background-clip: padding-box, border-box; color: #d4af37; font: 600 12px/1 "Exo 2",Inter,Arial,sans-serif; }
 .num-list b { display: block; margin-bottom: 4px; font: 550 18px/1.4 "Inter",Arial,sans-serif; background: var(--gold-2); background-clip: text; -webkit-background-clip: text; color: transparent; -webkit-text-fill-color: transparent; }
 .num-list span { display: block; }
+.pair-chips-row { margin: 0 0 32px; }
 .pair-grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); grid-auto-rows: 1fr; gap: 32px 56px; }
 .pair { display: grid; grid-template-columns: minmax(0,1fr) 30px minmax(0,1fr); align-items: stretch; gap: 12px; }
 #einsatzbereiche .panel { padding: 38px; background-image: linear-gradient(#112A20,#112A20), var(--gold-3); }

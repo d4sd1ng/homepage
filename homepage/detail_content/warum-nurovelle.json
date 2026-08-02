@@ -40,73 +40,26 @@
       }
     },
     {
-      "type": "panel_cta",
+      "type": "textcols",
       "id": "einordnung",
+      "kicker": "Einordnung",
       "title": "Substanz statt Hype",
       "sub": "KI ist kein Selbstzweck",
-      "text": "Vor jeder Umsetzung werden Nutzen, Datenlage, technische Machbarkeit und notwendige Kontrollen geprüft. Ist eine einfachere Lösung geeigneter, wird keine unnötige KI-Komplexität aufgebaut.",
-      "buttons": [
-        { "label": "Potenzialanalyse starten", "href": "analyse.html" },
-        { "label": "Leistungen ansehen", "href": "index.html#leistungen" }
-      ]
-    },
-    {
-      "type": "textcols",
-      "id": "arbeitsweise",
-      "kicker": "Arbeitsweise",
-      "title": "Vom Prozess zur Lösung",
-      "sub": "Erst verstehen, dann entwickeln",
       "cols": [
+        "Vor jeder Umsetzung werden Nutzen, Datenlage, technische Machbarkeit und notwendige Kontrollen geprüft. Ist eine einfachere Lösung geeigneter, wird keine unnötige KI-Komplexität aufgebaut.",
         "Ausgangspunkt sind die bestehende Aufgabe, beteiligte Systeme und das gewünschte Ergebnis. Erst danach werden Technologie, Architektur und Umsetzungsumfang festgelegt."
       ]
     },
     {
-      "type": "groups",
-      "id": "grundsaetze",
-      "kicker": "Grundsätze",
-      "title": "Was entscheidend ist",
-      "sub": "Klare Anforderungen und kontrollierbare Technik",
-      "text": "Eine tragfähige Lösung benötigt mehr als ein KI-Modell.",
-      "groups": [
-        {
-          "gold": true,
-          "items": [
-            "klarer Anwendungsfall",
-            "geeignete Datenbasis",
-            "sinnvolle Systemintegration",
-            "begrenzte Berechtigungen",
-            "definierte Kontrollpunkte",
-            "nachvollziehbarer Nutzen"
-          ]
-        }
-      ]
-    },
-    {
-      "type": "groups",
-      "id": "leistungsumfang",
-      "kicker": "Leistungsumfang",
-      "title": "Analyse und Umsetzung",
-      "sub": "Ein durchgängiger technischer Ansatz",
-      "text": "Nurovelle begleitet die Klärung des Anwendungsfalls, die technische Planung und die Umsetzung der passenden Lösung.",
-      "groups": [
-        {
-          "title": "Analyse",
-          "items": [
-            "Prozesse erfassen",
-            "Anforderungen klären",
-            "Daten und Systeme prüfen",
-            "Lösungstyp bestimmen"
-          ]
-        },
-        {
-          "title": "Umsetzung",
-          "items": [
-            "Architektur entwickeln",
-            "Systeme integrieren",
-            "Funktionen testen",
-            "Lösung dokumentieren"
-          ]
-        }
+      "type": "labellist",
+      "id": "nutzen",
+      "kicker": "Nutzen",
+      "title": "Ihr konkreter Nutzen",
+      "items": [
+        { "label": "Klare Entscheidungen", "text": "Anforderungen und Voraussetzungen werden vor der Umsetzung geprüft." },
+        { "label": "Passende Technologie", "text": "Die Lösung richtet sich nach Aufgabe und Nutzen." },
+        { "label": "Weniger Insellösungen", "text": "Bestehende Systeme werden berücksichtigt und verbunden." },
+        { "label": "Kontrollierte Umsetzung", "text": "Zugriffe, Aktionen und Freigaben bleiben begrenzt." }
       ]
     },
     {
@@ -114,8 +67,6 @@
       "id": "projektablauf",
       "kicker": "Projektablauf",
       "title": "Strukturiertes Vorgehen",
-      "sub": "Vom Bedarf bis zur geprüften Lösung",
-      "text": "Der genaue Ablauf richtet sich nach Aufgabe, Systemlandschaft und Projektumfang.",
       "items": [
         { "label": "Aufgabe", "text": "Ziel und gewünschtes Ergebnis festlegen." },
         { "label": "Prozess", "text": "Abläufe, Engpässe und Zuständigkeiten prüfen." },
@@ -128,28 +79,12 @@
       ]
     },
     {
-      "type": "labellist",
-      "id": "nutzen",
-      "kicker": "Nutzen",
-      "title": "Ihr konkreter Nutzen",
-      "sub": "Technisch belastbare Lösungen ohne unnötige Komplexität",
-      "text": "Prozessverständnis, Entwicklung und Integration werden nicht getrennt betrachtet.",
-      "items": [
-        { "label": "Klare Entscheidungen", "text": "Anforderungen und Voraussetzungen werden vor der Umsetzung geprüft." },
-        { "label": "Passende Technologie", "text": "Die Lösung richtet sich nach Aufgabe und Nutzen." },
-        { "label": "Weniger Insellösungen", "text": "Bestehende Systeme werden berücksichtigt und verbunden." },
-        { "label": "Kontrollierte Umsetzung", "text": "Zugriffe, Aktionen und Freigaben bleiben begrenzt." }
-      ]
-    },
-    {
-      "type": "chips",
-      "id": "ausgangslagen",
+      "type": "pairs",
+      "id": "moeglichkeiten",
       "kicker": "Ausgangslagen",
       "title": "Wann Nurovelle unterstützt",
       "sub": "Von der ersten Prozessfrage bis zur konkreten Projektidee",
-      "text": "Ein Projekt kann mit einem Engpass, einer wiederkehrenden Aufgabe oder einer bereits geplanten technischen Lösung beginnen.",
-      "base": true,
-      "items": [
+      "chips": [
         { "icon": "gear", "label": "manuelle Prozesse" },
         { "icon": "db", "label": "verteilte Daten" },
         { "icon": "plug", "label": "fehlende Schnittstellen" },
@@ -158,14 +93,7 @@
         { "icon": "doc", "label": "bestehende Einzellösung" },
         { "icon": "plus", "label": "individuelle Software" },
         { "icon": "sync", "label": "technische Integration" }
-      ]
-    },
-    {
-      "type": "pairs",
-      "id": "moeglichkeiten",
-      "kicker": "Möglichkeiten",
-      "title": "Was daraus entstehen kann",
-      "sub": "Eine Lösung passend zur tatsächlichen Aufgabe",
+      ],
       "items": [
         { "from_icon": "bulb", "from": "unklarer Anwendungsfall", "to_icon": "doc", "to": "klarer Lösungsansatz" },
         { "from_icon": "db", "from": "verteilte Systeme", "to_icon": "chart", "to": "geprüfte Voraussetzungen" },
@@ -175,6 +103,18 @@
       "note": "Das Ergebnis wird nicht vorab auf eine bestimmte Technologie festgelegt."
     },
     {
+      "type": "labellist",
+      "id": "leistungsumfang",
+      "kicker": "Leistungsumfang",
+      "title": "Analyse und Umsetzung",
+      "items": [
+        { "label": "Analyse", "text": "Prozesse erfassen, Anforderungen klären, Daten und Systeme prüfen, Lösungstyp bestimmen." },
+        { "label": "Umsetzung", "text": "Architektur entwickeln, Systeme integrieren, Funktionen testen, Lösung dokumentieren." },
+        { "label": "Grundsätze", "text": "Klarer Anwendungsfall, geeignete Datenbasis, sinnvolle Systemintegration, begrenzte Berechtigungen, definierte Kontrollpunkte, nachvollziehbarer Nutzen." },
+        { "label": "Arbeitsweise", "text": "Erst verstehen, dann entwickeln. Aus Aufgabe, Systemen und Ziel entsteht die passende technische Lösung." }
+      ]
+    },
+    {
       "type": "cta_buttons",
       "id": "kontakt",
       "kicker": "Abschluss",
@@ -182,7 +122,8 @@
       "sub": "Klären Sie den passenden technischen Weg vor der Umsetzung",
       "text": "Die Potenzialanalyse zeigt, welche Lösung sinnvoll ist und welche Voraussetzungen dafür bestehen.",
       "buttons": [
-        { "label": "Potenzialanalyse starten", "href": "analyse.html" }
+        { "label": "Potenzialanalyse starten", "href": "analyse.html" },
+        { "label": "Leistungen ansehen", "href": "index.html#leistungen" }
       ]
     },
     {
@@ -191,7 +132,6 @@
       "kicker": "FAQ",
       "title": "Häufige Fragen",
       "sub": "Zusammenarbeit und Umsetzung im Überblick",
-      "text": "Der Projektweg richtet sich nach Ausgangslage, Aufgabe und technischer Komplexität.",
       "items": [
         { "q": "Muss bereits eine konkrete KI-Idee vorhanden sein?", "a": "Nein. Ausgangspunkt kann auch ein bestehender Prozess oder Engpass sein." },
         { "q": "Entwickelt Nurovelle ausschließlich KI-Lösungen?", "a": "Nein. Je nach Aufgabe können klassische Automatisierung oder individuelle Software geeigneter sein." },
