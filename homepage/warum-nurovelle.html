@@ -259,10 +259,17 @@ main h3 { font: 700 clamp(19px,1.4vw,24px)/1.15 "Exo 2",Inter,Arial,sans-serif; 
 .group-cards article:only-child { grid-column: 1 / -1; }
 .group-cards article:only-child .dot-list { grid-template-columns: repeat(2,minmax(0,1fr)); }
 .group-cards h3 { margin-bottom: 2px; }
+.split-grid { display: grid; grid-template-columns: minmax(0,5fr) minmax(0,7fr); gap: 28px 72px; align-items: start; }
+.split-side h3 { margin-bottom: 12px; }
+.split-side .dot-list, .split-side .chip-list { margin-top: 0; }
+.chips-panel { margin-top: 18px; padding: 32px; }
+.chips-panel .chip-list { margin-top: 0; }
 .chip-list { display: grid; grid-template-columns: repeat(4,minmax(0,1fr)); gap: 14px; list-style: none; margin: 18px 0 0; padding: 0; }
+.chip-list--2 { grid-template-columns: repeat(2,minmax(0,1fr)); }
+.dot-list--1 { grid-template-columns: 1fr; }
 .chip-list li { display: flex; align-items: center; min-height: 58px; padding: 12px 16px; border-radius: 10px; color: #e4e0d6; border: 1.25px solid transparent; background-image: linear-gradient(#080B09,#080B09), var(--gold-3); background-origin: border-box; background-clip: padding-box, border-box; font: 550 14px/1.4 "Inter",Arial,sans-serif; hyphens: auto; overflow-wrap: break-word; }
 @media (max-width: 1200px) { .chip-list { grid-template-columns: repeat(3,minmax(0,1fr)); } }
-@media (max-width: 900px) { .dot-list { grid-template-columns: 1fr; } .chip-list { grid-template-columns: repeat(2,minmax(0,1fr)); } }
+@media (max-width: 900px) { .dot-list, .split-grid { grid-template-columns: 1fr; } .chip-list { grid-template-columns: repeat(2,minmax(0,1fr)); } }
 @media (max-width: 640px) { .chip-list { grid-template-columns: 1fr; } }
 
 /* ---------- FAQ ---------- */
@@ -372,21 +379,23 @@ button[disabled] { opacity: .58; cursor: not-allowed; }
 <p>Aus dem Ziel entsteht eine passende technische Lösung mit messbarem Nutzen.</p>
 </div>
 </div></section>
-<!-- ===== bullets ===== -->
-<section class="section" id="prozess"><div class="section-inner">
+<!-- ===== split ===== -->
+<section class="section" id="prozess"><div class="section-inner split-grid">
+<div>
 <div class="kicker">Prozess</div>
 <h2>Abläufe verstehen</h2>
 <p class="sub">Grundlage jeder Lösung</p>
 <p class="text">Analyse von Aufgaben, Entscheidungen und Übergaben vor jeder Entwicklung.</p>
-<h3>Typische Herausforderungen</h3>
-<ul class="dot-list">
+</div>
+<div class="split-side"><h3>Typische Herausforderungen</h3>
+<ul class="dot-list dot-list--1">
 <li>unklare Ziele</li>
 <li>unnötige Schritte</li>
 <li>manuelle Übergaben</li>
 <li>fehlende Verantwortlichkeiten</li>
 <li>uneinheitliche Abläufe</li>
 <li>unklare Ergebnisse</li>
-</ul>
+</ul></div>
 </div></section>
 <!-- ===== labellist ===== -->
 <section class="section" id="technologie"><div class="section-inner">
@@ -454,31 +463,35 @@ button[disabled] { opacity: .58; cursor: not-allowed; }
 <article class="panel summary"><h3>Mechanismen</h3><ul class="dot-list"><li>Freigaben</li><li>Übergaben bei Unsicherheit</li><li>Prüfungen</li><li>begrenzte Zugriffe</li><li>Protokolle</li><li>Abbruchregeln</li><li>manuelle Korrekturen</li><li>klare Zuständigkeiten</li></ul></article>
 </div>
 </div></section>
-<!-- ===== chips ===== -->
-<section class="section" id="skalierung"><div class="section-inner">
+<!-- ===== split ===== -->
+<section class="section" id="skalierung"><div class="section-inner split-grid">
+<div>
 <div class="kicker">Skalierung</div>
 <h2>Sinnvoll wachsen</h2>
 <p class="sub">Erweiterung nur mit Nutzen</p>
 <p class="text">Ausbau erfolgt auf stabiler Basis und nur bei messbarem Mehrwert.</p>
-<h3>Erweiterungen</h3>
-<ul class="chip-list">
-<li>neue Datenquellen</li>
-<li>Nutzerrollen</li>
-<li>Prozesse</li>
-<li>Systemanbindungen</li>
-<li>KI-Funktionen</li>
-<li>Reports</li>
-<li>Freigabestufen</li>
-<li>Geschäftsbereiche</li>
-</ul>
+</div>
+<div class="split-side"><h3>Erweiterungen</h3>
+<ul class="chip-list chip-list--2">
+<li><svg class="chip-icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-db"/></svg>neue Datenquellen</li>
+<li><svg class="chip-icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-headset"/></svg>Nutzerrollen</li>
+<li><svg class="chip-icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-gear"/></svg>Prozesse</li>
+<li><svg class="chip-icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-plug"/></svg>Systemanbindungen</li>
+<li><svg class="chip-icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-bulb"/></svg>KI-Funktionen</li>
+<li><svg class="chip-icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-chart"/></svg>Reports</li>
+<li><svg class="chip-icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-sync"/></svg>Freigabestufen</li>
+<li><svg class="chip-icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-map"/></svg>Geschäftsbereiche</li>
+</ul></div>
 </div></section>
-<!-- ===== bullets ===== -->
-<section class="section" id="abgrenzung"><div class="section-inner">
+<!-- ===== split ===== -->
+<section class="section" id="abgrenzung"><div class="section-inner split-grid">
+<div>
 <div class="kicker">Abgrenzung</div>
 <h2>Klare Prinzipien</h2>
 <p class="sub">Technologie nur mit Zweck</p>
 <p class="text">Keine Umsetzung ohne klaren Nutzen.</p>
-<ul class="dot-list">
+</div>
+<div class="split-side"><ul class="dot-list">
 <li>keine KI als Selbstzweck</li>
 <li>keine Insellösungen</li>
 <li>keine unkontrollierte Automatisierung</li>
@@ -487,22 +500,24 @@ button[disabled] { opacity: .58; cursor: not-allowed; }
 <li>keine offenen Zugriffe</li>
 <li>keine unklaren Prozesse</li>
 <li>keine Komplexität ohne Mehrwert</li>
-</ul>
+</ul></div>
 </div></section>
-<!-- ===== bullets ===== -->
-<section class="section" id="nutzen"><div class="section-inner">
+<!-- ===== split ===== -->
+<section class="section" id="nutzen"><div class="section-inner split-grid">
+<div>
 <div class="kicker">Nutzen</div>
 <h2>Konkreter Mehrwert</h2>
 <p class="sub">Von Analyse zur Lösung</p>
 <p class="text">Systeme mit messbarem Nutzen im Alltag.</p>
-<ul class="dot-list">
+</div>
+<div class="split-side"><ul class="dot-list dot-list--1">
 <li>klare Ausgangslage</li>
 <li>passende Technologie</li>
 <li>weniger Insellösungen</li>
 <li>kontrollierte Umsetzung</li>
 <li>frühe Validierung</li>
 <li>schrittweiser Ausbau</li>
-</ul>
+</ul></div>
 </div></section>
 <!-- ===== chips ===== -->
 <section class="section" id="einsatzfelder"><div class="section-inner">
@@ -510,18 +525,20 @@ button[disabled] { opacity: .58; cursor: not-allowed; }
 <h2>Typische Ausgangssituationen</h2>
 <p class="sub">Von Problem bis Idee</p>
 <p class="text">Einstieg über Prozess, Idee oder System.</p>
+<article class="panel chips-panel">
 <ul class="chip-list">
-<li>manuelle Aufgaben</li>
-<li>verteilte Daten</li>
-<li>fehlende Integration</li>
-<li>unklare KI-Ideen</li>
-<li>bestehende Automatisierung</li>
-<li>Agenten / Chatbots</li>
-<li>Softwarebedarf</li>
-<li>Prototypen</li>
-<li>Systemerweiterung</li>
-<li>KI-Absicherung</li>
+<li><svg class="chip-icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-doc"/></svg>manuelle Aufgaben</li>
+<li><svg class="chip-icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-db"/></svg>verteilte Daten</li>
+<li><svg class="chip-icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-plug"/></svg>fehlende Integration</li>
+<li><svg class="chip-icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-bulb"/></svg>unklare KI-Ideen</li>
+<li><svg class="chip-icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-loop"/></svg>bestehende Automatisierung</li>
+<li><svg class="chip-icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-bot"/></svg>Agenten / Chatbots</li>
+<li><svg class="chip-icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-plus"/></svg>Softwarebedarf</li>
+<li><svg class="chip-icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-rocket"/></svg>Prototypen</li>
+<li><svg class="chip-icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-trend"/></svg>Systemerweiterung</li>
+<li><svg class="chip-icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-wrench"/></svg>KI-Absicherung</li>
 </ul>
+</article>
 </div></section>
 <!-- ===== pairs ===== -->
 <section class="section" id="moeglichkeiten"><div class="section-inner">

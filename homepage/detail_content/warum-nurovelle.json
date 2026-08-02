@@ -53,7 +53,7 @@
       ]
     },
     {
-      "type": "bullets",
+      "type": "split",
       "id": "prozess",
       "kicker": "Prozess",
       "title": "Abläufe verstehen",
@@ -244,7 +244,7 @@
       ]
     },
     {
-      "type": "chips",
+      "type": "split",
       "id": "skalierung",
       "kicker": "Skalierung",
       "title": "Sinnvoll wachsen",
@@ -252,18 +252,43 @@
       "text": "Ausbau erfolgt auf stabiler Basis und nur bei messbarem Mehrwert.",
       "group": "Erweiterungen",
       "items": [
-        "neue Datenquellen",
-        "Nutzerrollen",
-        "Prozesse",
-        "Systemanbindungen",
-        "KI-Funktionen",
-        "Reports",
-        "Freigabestufen",
-        "Geschäftsbereiche"
-      ]
+        {
+          "icon": "db",
+          "label": "neue Datenquellen"
+        },
+        {
+          "icon": "headset",
+          "label": "Nutzerrollen"
+        },
+        {
+          "icon": "gear",
+          "label": "Prozesse"
+        },
+        {
+          "icon": "plug",
+          "label": "Systemanbindungen"
+        },
+        {
+          "icon": "bulb",
+          "label": "KI-Funktionen"
+        },
+        {
+          "icon": "chart",
+          "label": "Reports"
+        },
+        {
+          "icon": "sync",
+          "label": "Freigabestufen"
+        },
+        {
+          "icon": "map",
+          "label": "Geschäftsbereiche"
+        }
+      ],
+      "style": "chips"
     },
     {
-      "type": "bullets",
+      "type": "split",
       "id": "abgrenzung",
       "kicker": "Abgrenzung",
       "title": "Klare Prinzipien",
@@ -281,7 +306,7 @@
       ]
     },
     {
-      "type": "bullets",
+      "type": "split",
       "id": "nutzen",
       "kicker": "Nutzen",
       "title": "Konkreter Mehrwert",
@@ -304,17 +329,48 @@
       "sub": "Von Problem bis Idee",
       "text": "Einstieg über Prozess, Idee oder System.",
       "items": [
-        "manuelle Aufgaben",
-        "verteilte Daten",
-        "fehlende Integration",
-        "unklare KI-Ideen",
-        "bestehende Automatisierung",
-        "Agenten / Chatbots",
-        "Softwarebedarf",
-        "Prototypen",
-        "Systemerweiterung",
-        "KI-Absicherung"
-      ]
+        {
+          "icon": "doc",
+          "label": "manuelle Aufgaben"
+        },
+        {
+          "icon": "db",
+          "label": "verteilte Daten"
+        },
+        {
+          "icon": "plug",
+          "label": "fehlende Integration"
+        },
+        {
+          "icon": "bulb",
+          "label": "unklare KI-Ideen"
+        },
+        {
+          "icon": "loop",
+          "label": "bestehende Automatisierung"
+        },
+        {
+          "icon": "bot",
+          "label": "Agenten / Chatbots"
+        },
+        {
+          "icon": "plus",
+          "label": "Softwarebedarf"
+        },
+        {
+          "icon": "rocket",
+          "label": "Prototypen"
+        },
+        {
+          "icon": "trend",
+          "label": "Systemerweiterung"
+        },
+        {
+          "icon": "wrench",
+          "label": "KI-Absicherung"
+        }
+      ],
+      "base": true
     },
     {
       "type": "pairs",

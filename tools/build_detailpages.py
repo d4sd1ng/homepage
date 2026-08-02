@@ -18,7 +18,10 @@ Section types and fields (optional fields may be omitted):
   labellist  kicker,title,[sub],[text],items[{label,text}]
   numlist    kicker,title,[sub],[text],items[{label,text}]
   bullets    kicker,title,[sub],[text],[group],items[]   (gold-dot list)
-  chips      kicker,title,[sub],[text],[group],items[]   (gold-framed chip grid)
+  chips      kicker,title,[sub],[text],[group],items[]   (gold-framed chip grid;
+             items may be {icon,label}; "base": true wraps the grid in a panel card)
+  split      kicker,title,[sub],[text],[group],[style:"dots"|"chips"],items[]
+             (text column left, list column right)
   groups     kicker,title,[sub],[text],groups[{title,items[]}]
   pairs      kicker,title,sub,items[{from_icon,from,to_icon,to}],[note]
   panel_cta  title,sub,text,buttons[{label,href}]
@@ -59,6 +62,18 @@ def sub_text_extra(s):
     if s.get("text"):
         out += f'\n<p class="text">{s["text"]}</p>'
     return out
+
+
+def render_chip_items(items):
+    out = []
+    for i in items:
+        if isinstance(i, dict):
+            out.append(
+                f'<li><svg class="chip-icon" viewBox="0 0 24 24" aria-hidden="true">'
+                f'<use href="#i-{i["icon"]}"/></svg>{i["label"]}</li>')
+        else:
+            out.append(f"<li>{i}</li>")
+    return "\n".join(out)
 
 
 def render_buttons(items):
@@ -126,7 +141,20 @@ def render_section(s, fragments):
     elif t == "chips":
         r = r.replace("{{EXTRA}}", sub_text_extra(s))
         r = r.replace("{{GROUP_HEAD}}", f'\n<h3>{s["group"]}</h3>' if s.get("group") else "")
-        r = r.replace("{{ITEMS}}", "\n".join(f"<li>{i}</li>" for i in s["items"]))
+        grid = f'<ul class="chip-list">\n{render_chip_items(s["items"])}\n</ul>'
+        if s.get("base"):
+            grid = f'<article class="panel chips-panel">\n{grid}\n</article>'
+        r = r.replace('<ul class="chip-list">\n{{ITEMS}}\n</ul>', grid)
+    elif t == "split":
+        r = r.replace("{{EXTRA}}", sub_text_extra(s))
+        head = f'<h3>{s["group"]}</h3>\n' if s.get("group") else ""
+        n = len(s["items"])
+        if s.get("style") == "chips":
+            side = f'<ul class="chip-list chip-list--2">\n{render_chip_items(s["items"])}\n</ul>'
+        else:
+            cls = "dot-list dot-list--1" if n <= 6 else "dot-list"
+            side = f'<ul class="{cls}">\n' + "\n".join(f"<li>{i}</li>" for i in s["items"]) + "\n</ul>"
+        r = r.replace("{{SIDE}}", head + side)
     elif t == "pairs":
         r = r.replace("{{ITEMS}}", render_pair_items(s["items"]))
         r = r.replace("{{NOTE_BLOCK}}",
