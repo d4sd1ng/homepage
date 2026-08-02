@@ -17,7 +17,8 @@ Section types and fields (optional fields may be omitted):
   textcols   kicker,title,sub,cols[]
   labellist  kicker,title,[sub],[text],items[{label,text}]
   numlist    kicker,title,[sub],[text],items[{label,text}]
-  bullets    kicker,title,[sub],[text],[group],items[]
+  bullets    kicker,title,[sub],[text],[group],items[]   (gold-dot list)
+  chips      kicker,title,[sub],[text],[group],items[]   (gold-framed chip grid)
   groups     kicker,title,[sub],[text],groups[{title,items[]}]
   pairs      kicker,title,sub,items[{from_icon,from,to_icon,to}],[note]
   panel_cta  title,sub,text,buttons[{label,href}]
@@ -118,9 +119,13 @@ def render_section(s, fragments):
     elif t == "groups":
         r = r.replace("{{EXTRA}}", sub_text_extra(s))
         r = r.replace("{{GROUPS}}", "\n".join(
-            '<div><h3>{t}</h3><ul class="dot-list">{items}</ul></div>'.format(
+            '<article class="panel"><h3>{t}</h3><ul class="dot-list">{items}</ul></article>'.format(
                 t=g["title"], items="".join(f"<li>{i}</li>" for i in g["items"]))
             for g in s["groups"]))
+    elif t == "chips":
+        r = r.replace("{{EXTRA}}", sub_text_extra(s))
+        r = r.replace("{{GROUP_HEAD}}", f'\n<h3>{s["group"]}</h3>' if s.get("group") else "")
+        r = r.replace("{{ITEMS}}", "\n".join(f"<li>{i}</li>" for i in s["items"]))
     elif t == "pairs":
         r = r.replace("{{ITEMS}}", render_pair_items(s["items"]))
         r = r.replace("{{NOTE_BLOCK}}",
