@@ -6,8 +6,11 @@ DESIGN RULE (fixed): every detail page mirrors the Potenzialanalyse page
   1 Hero | 2 black+gold cards | 3 two-column text | 4 gold-label list
   | 5 numbered tiles | 6 emerald base card (chips/pairs) | 7 gold-label list
   | 8 CTA (form only on analyse, buttons elsewhere) | 9 FAQ (always last).
-Layout hints inside delivered copy (e.g. "Holo-Card", "best_card_single")
-are IGNORED — content is distributed into the fixed slots above.
+Layout hints inside delivered copy — component names ("Holo-Card",
+"best_card_single"), emojis, AND layout sketches/ASCII diagrams — are
+IGNORED. Content is distributed into the fixed slots above. New visual
+components are NEVER invented; anything that seems to need one requires
+explicit sign-off from the owner BEFORE building.
 
 Usage:
   python3 tools/build_detailpages.py            # build all content files
@@ -25,7 +28,6 @@ Section types and fields (optional fields may be omitted):
   textcols   kicker,title,sub,cols[]
   labellist  kicker,title,[sub],[text],items[{label,text}]
   numlist    kicker,title,[sub],[text],items[{label,text}]
-  autocards  kicker,title,[sub],[text],items[{icon,label,text}]  (3-col card grid)
   bullets    kicker,title,[sub],[text],[group],items[]   (gold-dot list)
   chips      kicker,title,[sub],[text],[group],items[]   (gold-framed chip grid;
              items may be {icon,label}; "base": true wraps the grid in a panel card)
@@ -140,12 +142,6 @@ def render_section(s, fragments):
         r = r.replace("{{EXTRA}}", sub_text_extra(s))
         r = r.replace("{{ITEMS}}", "\n".join(
             f"<li><b>{i['label']}</b><span>{i['text']}</span></li>" for i in s["items"]))
-    elif t == "autocards":
-        r = r.replace("{{EXTRA}}", sub_text_extra(s))
-        r = r.replace("{{ITEMS}}", "\n".join(
-            '<article class="panel auto-card"><h3><svg class="chip-icon" viewBox="0 0 24 24" '
-            'aria-hidden="true"><use href="#i-{icon}"/></svg>{label}</h3><p>{text}</p></article>'.format(**i)
-            for i in s["items"]))
     elif t == "bullets":
         r = r.replace("{{EXTRA}}", sub_text_extra(s))
         r = r.replace("{{GROUP_HEAD}}", f'\n<h3>{s["group"]}</h3>' if s.get("group") else "")
