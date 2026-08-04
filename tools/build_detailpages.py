@@ -25,6 +25,7 @@ Section types and fields (optional fields may be omitted):
   textcols   kicker,title,sub,cols[]
   labellist  kicker,title,[sub],[text],items[{label,text}]
   numlist    kicker,title,[sub],[text],items[{label,text}]
+  autocards  kicker,title,[sub],[text],items[{icon,label,text}]  (3-col card grid)
   bullets    kicker,title,[sub],[text],[group],items[]   (gold-dot list)
   chips      kicker,title,[sub],[text],[group],items[]   (gold-framed chip grid;
              items may be {icon,label}; "base": true wraps the grid in a panel card)
@@ -76,9 +77,11 @@ def render_chip_items(items):
     out = []
     for i in items:
         if isinstance(i, dict):
-            out.append(
-                f'<li><svg class="chip-icon" viewBox="0 0 24 24" aria-hidden="true">'
-                f'<use href="#i-{i["icon"]}"/></svg>{i["label"]}</li>')
+            inner = (f'<svg class="chip-icon" viewBox="0 0 24 24" aria-hidden="true">'
+                     f'<use href="#i-{i["icon"]}"/></svg>{i["label"]}')
+            if i.get("href"):
+                inner = f'<a href="{i["href"]}">{inner}</a>'
+            out.append(f"<li>{inner}</li>")
         else:
             out.append(f"<li>{i}</li>")
     return "\n".join(out)
@@ -137,6 +140,12 @@ def render_section(s, fragments):
         r = r.replace("{{EXTRA}}", sub_text_extra(s))
         r = r.replace("{{ITEMS}}", "\n".join(
             f"<li><b>{i['label']}</b><span>{i['text']}</span></li>" for i in s["items"]))
+    elif t == "autocards":
+        r = r.replace("{{EXTRA}}", sub_text_extra(s))
+        r = r.replace("{{ITEMS}}", "\n".join(
+            '<article class="panel auto-card"><h3><svg class="chip-icon" viewBox="0 0 24 24" '
+            'aria-hidden="true"><use href="#i-{icon}"/></svg>{label}</h3><p>{text}</p></article>'.format(**i)
+            for i in s["items"]))
     elif t == "bullets":
         r = r.replace("{{EXTRA}}", sub_text_extra(s))
         r = r.replace("{{GROUP_HEAD}}", f'\n<h3>{s["group"]}</h3>' if s.get("group") else "")
