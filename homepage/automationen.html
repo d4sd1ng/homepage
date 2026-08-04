@@ -252,7 +252,7 @@ main > section:nth-child(n+4):before { content: ""; position: absolute; left: 7%
 .section-inner { max-width: var(--content-max); margin-left: auto; margin-right: auto; }
 .kicker { font: var(--w-kicker-sektion) var(--t-kicker-sektion)/1.15 "Inter",Arial,sans-serif; letter-spacing: .14em; text-transform: uppercase; color: #55863f; margin-bottom: 10px; }
 h1,h2,h3 { font-family: "Exo 2",Inter,Arial,sans-serif; }
-h1 { max-width: 860px; margin-bottom: 22px; font: var(--w-sektionstitel) var(--t-sektionstitel)/1.08 "Exo 2",Inter,Arial,sans-serif; background: var(--gold-1); background-clip: text; -webkit-background-clip: text; color: transparent; -webkit-text-fill-color: transparent; }
+h1 { max-width: 100%; margin-bottom: 22px; font: var(--w-sektionstitel) var(--t-sektionstitel)/1.08 "Exo 2",Inter,Arial,sans-serif; background: var(--gold-1); background-clip: text; -webkit-background-clip: text; color: transparent; -webkit-text-fill-color: transparent; }
 main h2 { font: var(--w-kartentitel) var(--t-kartentitel)/1.15 "Exo 2",Inter,Arial,sans-serif; margin-bottom: 23px; background: var(--gold-1); background-clip: text; -webkit-background-clip: text; color: transparent; -webkit-text-fill-color: transparent; }
 main h3 { font: var(--w-zwischentitel) var(--t-zwischentitel)/1.2 "Exo 2",Inter,Arial,sans-serif; color: #f5f1e8; margin-bottom: 8px; }
 .lead { max-width: 875px; font: var(--w-fliesstext) var(--t-fliesstext)/1.75 "Inter",Arial,sans-serif; color: #b9c3bd; }
@@ -270,7 +270,7 @@ main h3 { font: var(--w-zwischentitel) var(--t-zwischentitel)/1.2 "Exo 2",Inter,
 .panel p { margin: 0 0 12px; }
 .panel p:last-child { margin-bottom: 0; }
 .panel .sub { font: 600 19px/1.45 "Inter",Arial,sans-serif; color: #F5F7F4; margin: 0 0 24px; }
-.card-bullets { list-style: none; margin: 21px auto 0; padding: 0; display: grid; grid-template-columns: repeat(2,max-content); justify-content: center; gap: 10px 120px; }
+.card-bullets { list-style: none; margin: 21px 0 0; padding: 0 0 0 100px; display: grid; grid-template-columns: repeat(2,max-content); justify-content: start; gap: 10px 120px; }
 .card-bullets li { 
   position: relative; 
   padding-left: 20px; 
@@ -392,6 +392,14 @@ button[disabled] { opacity: .58; cursor: not-allowed; }
 @media (max-width: 1200px) { .pair-grid { grid-template-columns: 1fr; } }
 @media (max-width: 900px) { .analysis-layout, .result-strip { grid-template-columns: 1fr; } }
 @media (max-width: 900px) { .detail-hero,.content-grid,.text-cols,.label-list,.num-list { grid-template-columns: 1fr; } }
+
+/* warum-nurovelle: eigene Abstaende, die von analyse.html abweichen */
+.page-warum main h2 { margin-bottom: 40px; }
+.page-warum .label-list,
+.page-warum .num-list { margin-top: 25px; }
+.page-warum .chip-list--stacked { margin-bottom: 40px; }
+.page-warum #kontakt .sub { margin-bottom: 40px; }
+.chip-list li.pair-chip { min-height: 92px; padding: 6px 10px; border-radius: 10px; }
 </style>
 </head>
 <body>
@@ -448,11 +456,11 @@ button[disabled] { opacity: .58; cursor: not-allowed; }
 <div class="kicker">Einsatzbereiche</div>
 <h2>Springen Sie direkt zu Ihrem Bereich</h2>
 <ul class="chip-list">
-<li><a href="#gruppe-buero"><svg class="chip-icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-doc"/></svg>Büro – 6 Automationen</a></li>
-<li><a href="#gruppe-baustelle"><svg class="chip-icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-wrench"/></svg>Baustelle – 5 Automationen</a></li>
-<li><a href="#gruppe-personal"><svg class="chip-icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-headset"/></svg>Personal – 3 Automationen</a></li>
-<li><a href="#gruppe-betreuung"><svg class="chip-icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-bot"/></svg>Betreuung – 6 Automationen</a></li>
-<li><a href="#gruppe-marketing"><svg class="chip-icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-trend"/></svg>Marketing & Kommunikation – 5 Automationen</a></li>
+<li class="pair-chip"><a href="#gruppe-buero"><span class="chip-icon"><img src="assets/cards/service/icons/9.png" alt="" /></span>Büro – 6 Automationen</a></li>
+<li class="pair-chip"><a href="#gruppe-baustelle"><span class="chip-icon"><img src="assets/cards/service/icons/8.png" alt="" /></span>Baustelle – 5 Automationen</a></li>
+<li class="pair-chip"><a href="#gruppe-personal"><span class="chip-icon"><img src="assets/cards/service/icons/3.png" alt="" /></span>Personal – 3 Automationen</a></li>
+<li class="pair-chip"><a href="#gruppe-betreuung"><span class="chip-icon"><img src="assets/cards/service/icons/4.png" alt="" /></span>Betreuung – 6 Automationen</a></li>
+<li class="pair-chip"><a href="#gruppe-marketing"><span class="chip-icon"><img src="assets/cards/service/icons/1.png" alt="" /></span>Marketing & Kommunikation – 5 Automationen</a></li>
 </ul>
 </div></section>
 <!-- ===== textcols ===== -->

@@ -4,7 +4,7 @@
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>Nurovelle | Warum Nurovelle</title>
-<meta name="description" content="Nurovelle verbindet Prozessanalyse, Softwareentwicklung und KI-Technologie zu einer funktionalen Lösung für eine klar definierte Aufgabe."/>
+<meta name="description" content="Nurovelle verbindet Prozessanalyse, Softwareentwicklung und KI-Technologie zu einer funktionalen Lösung für eine klar definierte Aufgabe. KI ist dabei kein Selbstzweck: Vor jeder Umsetzung werden Nutzen, Datenlage, technische Machbarkeit und notwendige Kontrollen geprüft. Ist eine einfachere Lösung geeigneter, wird keine unnötige KI-Komplexität aufgebaut."/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;550;600;650;700;750;800&family=Exo+2:wght@600;700;800&display=swap" rel="stylesheet"/>
@@ -28,7 +28,7 @@
   --shadow-hover-1: rgba(0, 0, 0, 0.19);
   --shadow-hover-2: rgba(0, 0, 0, 0.23);
 
-  --color-bg-black: #050505;
+  --color-bg-black: #080B09;
   --header-height: 84px;
   --page-gutter: clamp(18px, 3vw, 32px);
   --side: clamp(30px, 4.2vw, 56px);
@@ -78,7 +78,7 @@ img { display: block; max-width: 100%; }
   top: 0; left: 0; right: 0;
   z-index: 100;
   border-bottom: 1px solid #E0AA3E;
-  background: #050505;
+  background: #080B09;
   backdrop-filter: blur(8px);
 }
 .header-inner { position: relative; z-index: 1; height: 100%; padding: 0 var(--page-gutter); display: grid; grid-template-columns: auto minmax(0, 1fr) auto; align-items: center; }
@@ -209,7 +209,7 @@ a:active .golden-button {
 .golden-button .nv-calendly-icon { width: 20px; height: 20px; flex: 0 0 auto; }
 .header-cta { justify-self: end; }
 .header-cta .golden-button { min-width: 0; height: 39.6px; padding: 0 11px; font-size: 12.1px; line-height: 37.4px; letter-spacing: 0.02em; }
-.footer { background-color: #050505; margin-left: 0px; width: calc(100% - 0px); padding: 54px calc(var(--side) * 2); border-top: 1px solid var(--nv-gold-divider-strong); color: var(--color-text-light); background: #121212; }
+.footer { background-color: #080B09; margin-left: 0px; width: calc(100% - 0px); padding: 54px calc(var(--side) * 2); border-top: 1px solid var(--nv-gold-divider-strong); color: var(--color-text-light); background: #121212; }
 .footer-inner { display: grid;
         grid-template-columns: minmax(0, 400px) auto minmax(0, 380px) auto; justify-content: space-between; gap: 96px; width: 100%; max-width: none; margin: 0; }
 .footer h4 { margin: 0 0 var(--nv-space-md); color: #fae385; font: var(--w-zwischentitel) var(--t-zwischentitel)/1.2 "Exo 2",Inter,Arial,sans-serif; letter-spacing: 0.06em; text-transform: uppercase; }
@@ -247,12 +247,14 @@ a:active .golden-button {
 .gold { background: linear-gradient(180deg,#ffd7a3 0%,#f0a05a 22%,#c76b2b 58%,#7a3518 100%); -webkit-background-clip: text; background-clip: text; color: transparent; -webkit-text-fill-color: transparent; }
 .btn { display: inline-flex; align-items: center; justify-content: center; box-sizing: border-box; height: 40px; padding: 0 18px; border: 1px solid var(--nv-gold-border); border-radius: 0.3em; color: var(--nv-gold-text-dark); background-image: var(--nv-gold-gradient); background-position: center; background-size: 100% 100%; box-shadow: 0 3px 6px var(--shadow-soft), 0 3px 6px var(--shadow-soft-2), inset 0 -2px 5px 1px var(--nv-gold-inner-dark), inset 0 -1px 1px 3px var(--nv-gold-highlight); font-family: "Inter",Arial,sans-serif; font-size: var(--t-cta); font-weight: 700; line-height: 1; letter-spacing: 0.045em; text-shadow: 0 2px 2px var(--nv-gold-highlight); text-transform: uppercase; transition: all 0.2s ease-in-out; }
 .btn:hover, .btn:focus-visible { color: var(--nv-gold-text-hover); border-color: var(--nv-gold-border-hover); background-size: 150% 150%; transform: translateY(-2px); box-shadow: 0 10px 20px var(--shadow-hover-1), 0 6px 6px var(--shadow-hover-2), inset 0 -2px 5px 1px var(--nv-gold-inner-mid), inset 0 -1px 1px 3px var(--nv-gold-highlight); }
-.section { position: relative; padding: 42px var(--side); background: #000; }
+.section { position: relative; padding: 88px var(--side); background: #000; }
+.section--landing { padding-block: max(24px, calc(20.83vh - 168px)); }
+
 main > section:nth-child(n+4):before { content: ""; position: absolute; left: 7%; right: 7%; top: 0; height: 2px; background: linear-gradient(90deg,transparent 0%,#E0AA3E 14%,#FAF398 50%,#E0AA3E 86%,transparent 100%); box-shadow: 0 0 8px rgba(250,227,133,.4); }
 .section-inner { max-width: var(--content-max); margin-left: auto; margin-right: auto; }
 .kicker { font: var(--w-kicker-sektion) var(--t-kicker-sektion)/1.15 "Inter",Arial,sans-serif; letter-spacing: .14em; text-transform: uppercase; color: #55863f; margin-bottom: 10px; }
 h1,h2,h3 { font-family: "Exo 2",Inter,Arial,sans-serif; }
-h1 { max-width: 860px; margin-bottom: 22px; font: var(--w-sektionstitel) var(--t-sektionstitel)/1.08 "Exo 2",Inter,Arial,sans-serif; background: var(--gold-1); background-clip: text; -webkit-background-clip: text; color: transparent; -webkit-text-fill-color: transparent; }
+h1 { max-width: 100%; margin-bottom: 22px; font: var(--w-sektionstitel) var(--t-sektionstitel)/1.08 "Exo 2",Inter,Arial,sans-serif; background: var(--gold-1); background-clip: text; -webkit-background-clip: text; color: transparent; -webkit-text-fill-color: transparent; }
 main h2 { font: var(--w-kartentitel) var(--t-kartentitel)/1.15 "Exo 2",Inter,Arial,sans-serif; margin-bottom: 23px; background: var(--gold-1); background-clip: text; -webkit-background-clip: text; color: transparent; -webkit-text-fill-color: transparent; }
 main h3 { font: var(--w-zwischentitel) var(--t-zwischentitel)/1.2 "Exo 2",Inter,Arial,sans-serif; color: #f5f1e8; margin-bottom: 8px; }
 .lead { max-width: 875px; font: var(--w-fliesstext) var(--t-fliesstext)/1.75 "Inter",Arial,sans-serif; color: #b9c3bd; }
@@ -266,11 +268,11 @@ main h3 { font: var(--w-zwischentitel) var(--t-zwischentitel)/1.2 "Exo 2",Inter,
 .visual-card>img:first-child { width: 100%; height: auto; max-height: 230px; object-fit: contain; }
 .content-grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 108px; margin-top: 0; }
 .panel { border: 1.25px solid transparent; border-radius: 10px; background-image: linear-gradient(#080B09,#080B09), var(--gold-3); background-origin: border-box; background-clip: padding-box, border-box; padding: 13px; }
-.panel p,.panel li { font: var(--w-fliesstext) var(--t-fliesstext)/1.7 "Inter",Arial,sans-serif; color: #b9c3bd; }
+.panel p,.panel li:not(.pair-chip) { font: var(--w-fliesstext) var(--t-fliesstext)/1.7 "Inter",Arial,sans-serif; color: #b9c3bd; }
 .panel p { margin: 0 0 12px; }
 .panel p:last-child { margin-bottom: 0; }
 .panel .sub { font: 600 19px/1.45 "Inter",Arial,sans-serif; color: #F5F7F4; margin: 0 0 24px; }
-.card-bullets { list-style: none; margin: 21px auto 0; padding: 0; display: grid; grid-template-columns: repeat(2,max-content); justify-content: center; gap: 10px 120px; }
+.card-bullets { list-style: none; margin: 21px 0 0; padding: 0 0 0 100px; display: grid; grid-template-columns: repeat(2,max-content); justify-content: start; gap: 10px 120px; }
 .card-bullets li { 
   position: relative; 
   padding-left: 20px; 
@@ -290,13 +292,13 @@ main h3 { font: var(--w-zwischentitel) var(--t-zwischentitel)/1.2 "Exo 2",Inter,
   background: #DFBD69; 
   }
 .summary { border: 1px solid rgba(255,215,163,.78); background: linear-gradient(180deg,#ffd7a3 0%,#f0a05a 24%,#d89828 58%,#7a3518 100%); box-shadow: inset 0 0 0 1px rgba(255,244,199,.20),0 8px 16px rgba(0,0,0,.30); }
-.summary h2,.summary p { color: #050505; text-shadow: none; }
+.summary h2,.summary p { color: #080B09; text-shadow: none; }
 .summary h2 { background: none; -webkit-background-clip: initial; background-clip: initial; color: #112A20; -webkit-text-fill-color: #112A20; }
-.summary .sub { color: #050505; }
+.summary .sub { color: #080B09; }
 .summary h3 { color: #0A1913; }
 .summary .dot-list li { color: #0A1913; font: 600 17px/1.55 "Inter",Arial,sans-serif; }
 .summary .dot-list li::before { background: #0A1913; top: 10px; }
-.actions { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 33px; }
+.actions { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 99px; }
 .text-cols { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 18px 48px; margin-top: 9px; }
 .text-cols p { font: var(--w-fliesstext) var(--t-fliesstext)/1.7 "Inter",Arial,sans-serif; color: #b9c3bd; }
 .text-cols--1 { grid-template-columns: minmax(0,1fr); max-width: 1060px; gap: 14px; }
@@ -311,12 +313,14 @@ main h3 { font: var(--w-zwischentitel) var(--t-zwischentitel)/1.2 "Exo 2",Inter,
 .num-list li::before { content: counter(dpnum,decimal-leading-zero); position: absolute; left: 0; top: 2px; display: grid; place-items: center; width: 30px; height: 30px; border-radius: 8px; border: 1.25px solid transparent; background-image: linear-gradient(#080B09,#080B09), var(--gold-3); background-origin: border-box; background-clip: padding-box, border-box; color: #d4af37; font: 600 12px/1 "Exo 2",Inter,Arial,sans-serif; }
 .num-list b { display: block; margin-bottom: 4px; font: var(--w-bulletlabel) var(--t-bulletlabel)/1.35 "Inter",Arial,sans-serif; background: var(--gold-2); background-clip: text; -webkit-background-clip: text; color: transparent; -webkit-text-fill-color: transparent; }
 .num-list span { display: block; }
-.pair-chips-row { margin: 0 0 32px; }
+.pair-chips-row { display: grid; grid-template-columns: repeat(4,minmax(0,1fr)); gap: 20px 56px; list-style: none; margin: 0 0 20px; padding: 0; }
 #einsatzbereiche .panel { margin-top: 41px; }
-.pair-grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); grid-auto-rows: 1fr; gap: calc(31.25vh - 214px) 56px; }
+#moeglichkeiten .panel { padding: 38px; background-image: linear-gradient(#112A20,#112A20), var(--gold-3); }
+.pair-grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); grid-auto-rows: 1fr; gap: 20px 56px; }
 .pair { display: grid; grid-template-columns: minmax(0,1fr) 30px minmax(0,1fr); align-items: stretch; gap: 12px; }
 #einsatzbereiche .panel { padding: 38px; background-image: linear-gradient(#112A20,#112A20), var(--gold-3); }
 #einsatzbereiche .text--after { margin-top: 34px; }
+#moeglichkeiten .text--after { margin-top: 34px; }
 .pair-chip { display: flex; align-items: center; min-height: 92px; padding: 6px 10px; border-radius: 10px; color: #e4e0d6; border: 1.25px solid transparent; background-image: linear-gradient(#080B09,#080B09), var(--gold-3); background-origin: border-box; background-clip: padding-box, border-box; font: var(--w-bildunterschrift) var(--t-bildunterschrift)/1.4 "Inter",Arial,sans-serif; hyphens: auto; overflow-wrap: break-word; min-width: 0; }
 .chip-icon { flex: 0 0 auto; box-sizing: border-box; width: 48px; height: 48px; margin-right: 14px; overflow: hidden; border-radius: 8px; border: 1.25px solid transparent; background-image: linear-gradient(#080B09,#080B09), var(--gold-3); background-origin: border-box; background-clip: padding-box, border-box; }
 .chip-icon img { display: block; width: 100%; height: 100%; object-fit: cover; scale: 1.12; }
@@ -337,7 +341,7 @@ main h3 { font: var(--w-zwischentitel) var(--t-zwischentitel)/1.2 "Exo 2",Inter,
 .split-side .dot-list, .split-side .chip-list { margin-top: 0; }
 .chips-panel { margin-top: 18px; padding: 32px; }
 .chips-panel .chip-list { margin-top: 0; }
-.chip-list { display: grid; grid-template-columns: repeat(4,minmax(0,1fr)); gap: 14px; list-style: none; margin: 18px 0 0; padding: 0; }
+.chip-list { display: grid; grid-template-columns: repeat(4,minmax(0,1fr)); gap: 20px 56px; list-style: none; margin: 18px 0 0; padding: 0; }
 .chip-list--2 { grid-template-columns: repeat(2,minmax(0,1fr)); }
 .chip-list a { display: flex; align-items: center; width: 100%; color: inherit; }
 .chip-list a:hover { color: #fae385; }
@@ -392,9 +396,17 @@ button[disabled] { opacity: .58; cursor: not-allowed; }
 @media (max-width: 1200px) { .pair-grid { grid-template-columns: 1fr; } }
 @media (max-width: 900px) { .analysis-layout, .result-strip { grid-template-columns: 1fr; } }
 @media (max-width: 900px) { .detail-hero,.content-grid,.text-cols,.label-list,.num-list { grid-template-columns: 1fr; } }
+
+/* warum-nurovelle: eigene Abstaende, die von analyse.html abweichen */
+.page-warum main h2 { margin-bottom: 40px; }
+.page-warum .label-list,
+.page-warum .num-list { margin-top: 25px; }
+.page-warum .chip-list--stacked { margin-bottom: 40px; }
+.page-warum #kontakt .sub { margin-bottom: 40px; }
+.chip-list li.pair-chip { min-height: 92px; padding: 6px 10px; border-radius: 10px; }
 </style>
 </head>
-<body>
+<body class="page-warum">
 <header class="site-header">
   <div class="header-inner">
     <a class="logo-link" href="index.html" aria-label="Nurovelle Startseite">
@@ -442,13 +454,12 @@ button[disabled] { opacity: .58; cursor: not-allowed; }
 </header>
 <main>
 <!-- ============================ HERO ============================ -->
-<section class="section"><div class="section-inner detail-hero"><div><div class="kicker">Warum Nurovelle</div><h1>Technik mit Systemverständnis</h1><p class="sub">KI für reale Prozesse und bestehende Systemlandschaften</p><p class="lead">Nurovelle verbindet Prozessanalyse, Softwareentwicklung und KI-Technologie zu einer funktionalen Lösung für eine klar definierte Aufgabe.</p><div class="actions"><a class="btn" href="analyse.html">Projektpotenzial prüfen</a></div></div><div class="visual-card"><img src="assets/Module/Ablauf/umsetzung_struturieren.png" alt="Warum Nurovelle"/></div></div></section>
+<section class="section section--landing"><div class="section-inner detail-hero"><div><div class="kicker">Warum Nurovelle</div><h1>Technik mit Systemverständnis</h1><p class="sub">KI für reale Prozesse und bestehende Systemlandschaften</p><p class="lead">Nurovelle verbindet Prozessanalyse, Softwareentwicklung und KI-Technologie zu einer funktionalen Lösung für eine klar definierte Aufgabe.</p><div class="actions"><a class="btn" href="analyse.html">Projektpotenzial prüfen</a></div></div><div class="visual-card"><img src="assets/Module/Ablauf/umsetzung_struturieren.png" alt="Warum Nurovelle"/></div></div></section>
 <!-- ===== cards ===== -->
-<section class="section"><div class="section-inner content-grid"><article class="panel"><h2>Was Nurovelle verbindet</h2><p class="sub">Prozesse, Daten, Systeme und Umsetzung</p><p>Jedes Projekt wird fachlich und technisch betrachtet. So entstehen keine isolierten KI-Lösungen ohne stabile Prozessgrundlage.</p><ul class="card-bullets"><li>Prozesse verstehen</li><li>KI-Einsatz bewerten</li><li>Daten prüfen</li><li>Systeme verbinden</li><li>Software entwickeln</li><li>Umsetzung steuern</li></ul></article><article class="panel summary"><h2>Die passende Lösung</h2><p class="sub">Technologie folgt der Aufgabe</p><p>Je nach Anforderung entsteht ein KI-Agent, Workflow, Datenabgleich, Wissenssystem oder eine individuelle Softwarelösung.</p></article></div></section>
+<section class="section section--landing"><div class="section-inner content-grid"><article class="panel"><h2>Was Nurovelle verbindet</h2><p class="sub">Prozesse, Daten, Systeme und Umsetzung</p><p>Jedes Projekt wird fachlich und technisch betrachtet. So entstehen keine isolierten KI-Lösungen ohne stabile Prozessgrundlage.</p><ul class="card-bullets"><li>Prozesse verstehen</li><li>KI-Einsatz bewerten</li><li>Daten prüfen</li><li>Systeme verbinden</li><li>Software entwickeln</li><li>Umsetzung steuern</li></ul></article><article class="panel summary"><h2>Die passende Lösung</h2><p class="sub">Technologie folgt der Aufgabe</p><p>Je nach Anforderung entsteht ein KI-Agent, Workflow, Datenabgleich, Wissenssystem oder eine individuelle Softwarelösung.</p></article></div></section>
 <!-- ===== panel_cta ===== -->
-<section class="section" id="einordnung"><div class="section-inner"><article class="panel"><h2>Substanz statt Hype</h2><p class="sub">KI ist kein Selbstzweck</p><p>Vor jeder Umsetzung werden Nutzen, Datenlage, technische Machbarkeit und notwendige Kontrollen geprüft. Ist eine einfachere Lösung geeigneter, wird keine unnötige KI-Komplexität aufgebaut.</p><div class="actions"><a class="btn" href="analyse.html">Potenzialanalyse starten</a><a class="btn" href="index.html#leistungen">Leistungen ansehen</a></div></article></div></section>
 <!-- ===== labellist ===== -->
-<section class="section" id="nutzen"><div class="section-inner">
+<section class="section section--landing" id="nutzen"><div class="section-inner">
 <div class="kicker">Nutzen</div>
 <h2>Ihr konkreter Nutzen</h2>
 <ul class="label-list">
@@ -459,7 +470,7 @@ button[disabled] { opacity: .58; cursor: not-allowed; }
 </ul>
 </div></section>
 <!-- ===== numlist ===== -->
-<section class="section" id="projektablauf"><div class="section-inner">
+<section class="section section--landing" id="projektablauf"><div class="section-inner">
 <div class="kicker">Projektablauf</div>
 <h2>Strukturiertes Vorgehen</h2>
 <ol class="num-list">
@@ -479,21 +490,16 @@ button[disabled] { opacity: .58; cursor: not-allowed; }
 <h2>Wann Nurovelle unterstützt</h2>
 <p class="sub">Von der ersten Prozessfrage bis zur konkreten Projektidee</p>
 <article class="panel">
-<ul class="chip-list pair-chips-row">
-<li><svg class="chip-icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-gear"/></svg>manuelle Prozesse</li>
-<li><svg class="chip-icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-db"/></svg>verteilte Daten</li>
-<li><svg class="chip-icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-plug"/></svg>fehlende Schnittstellen</li>
-<li><svg class="chip-icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-bulb"/></svg>konkrete KI-Idee</li>
-<li><svg class="chip-icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-loop"/></svg>geplanter Workflow</li>
-<li><svg class="chip-icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-doc"/></svg>bestehende Einzellösung</li>
-<li><svg class="chip-icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-plus"/></svg>individuelle Software</li>
-<li><svg class="chip-icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-sync"/></svg>technische Integration</li>
-</ul>
+
 <div class="pair-grid">
-<div class="pair"><span class="pair-chip"><svg class="chip-icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-bulb"/></svg>unklarer Anwendungsfall</span><span class="pair-arrow"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-chev"/></svg></span><span class="pair-chip pair-chip--gold"><svg class="chip-icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-doc"/></svg>klarer Lösungsansatz</span></div>
-<div class="pair"><span class="pair-chip"><svg class="chip-icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-db"/></svg>verteilte Systeme</span><span class="pair-arrow"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-chev"/></svg></span><span class="pair-chip pair-chip--gold"><svg class="chip-icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-chart"/></svg>geprüfte Voraussetzungen</span></div>
-<div class="pair"><span class="pair-chip"><svg class="chip-icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-loop"/></svg>manuelle Zwischenschritte</span><span class="pair-arrow"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-chev"/></svg></span><span class="pair-chip pair-chip--gold"><svg class="chip-icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-plug"/></svg>verbundene Systeme</span></div>
-<div class="pair"><span class="pair-chip"><svg class="chip-icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-chat"/></svg>offene technische Fragen</span><span class="pair-arrow"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-chev"/></svg></span><span class="pair-chip pair-chip--gold"><svg class="chip-icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-gear"/></svg>kontrollierte Umsetzung</span></div>
+<div class="pair"><span class="pair-chip"><span class="chip-icon"><img src="assets/cards/service/icons/8.png" alt="" /></span>manuelle Prozesse</span><span class="pair-arrow"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-chev"/></svg></span><span class="pair-chip pair-chip--gold"><span class="chip-icon"><img src="assets/cards/service/icons/10.png" alt="" /></span>verteilte Daten</span></div>
+<div class="pair"><span class="pair-chip"><span class="chip-icon"><img src="assets/cards/service/icons/6.png" alt="" /></span>fehlende Schnittstellen</span><span class="pair-arrow"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-chev"/></svg></span><span class="pair-chip pair-chip--gold"><span class="chip-icon"><img src="assets/cards/service/icons/5.png" alt="" /></span>konkrete KI-Idee</span></div>
+<div class="pair"><span class="pair-chip"><span class="chip-icon"><img src="assets/cards/service/icons/9.png" alt="" /></span>geplanter Workflow</span><span class="pair-arrow"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-chev"/></svg></span><span class="pair-chip pair-chip--gold"><span class="chip-icon"><img src="assets/cards/service/icons/4.png" alt="" /></span>bestehende Einzellösung</span></div>
+<div class="pair"><span class="pair-chip"><span class="chip-icon"><img src="assets/cards/service/icons/2.png" alt="" /></span>individuelle Software</span><span class="pair-arrow"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-chev"/></svg></span><span class="pair-chip pair-chip--gold"><span class="chip-icon"><img src="assets/cards/service/icons/7.png" alt="" /></span>technische Integration</span></div>
+<div class="pair"><span class="pair-chip"><span class="chip-icon"><img src="assets/cards/service/icons/3.png" alt="" /></span>unklarer Anwendungsfall</span><span class="pair-arrow"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-chev"/></svg></span><span class="pair-chip pair-chip--gold"><span class="chip-icon"><img src="assets/cards/service/icons/11.png" alt="" /></span>klarer Lösungsansatz</span></div>
+<div class="pair"><span class="pair-chip"><span class="chip-icon"><img src="assets/cards/service/icons/1.png" alt="" /></span>verteilte Systeme</span><span class="pair-arrow"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-chev"/></svg></span><span class="pair-chip pair-chip--gold"><span class="chip-icon"><img src="assets/cards/service/icons/8.png" alt="" /></span>geprüfte Voraussetzungen</span></div>
+<div class="pair"><span class="pair-chip"><span class="chip-icon"><img src="assets/cards/service/icons/10.png" alt="" /></span>manuelle Zwischenschritte</span><span class="pair-arrow"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-chev"/></svg></span><span class="pair-chip pair-chip--gold"><span class="chip-icon"><img src="assets/cards/service/icons/6.png" alt="" /></span>verbundene Systeme</span></div>
+<div class="pair"><span class="pair-chip"><span class="chip-icon"><img src="assets/cards/service/icons/5.png" alt="" /></span>offene technische Fragen</span><span class="pair-arrow"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-chev"/></svg></span><span class="pair-chip pair-chip--gold"><span class="chip-icon"><img src="assets/cards/service/icons/9.png" alt="" /></span>kontrollierte Umsetzung</span></div>
 </div>
 <p class="text text--after">Das Ergebnis wird nicht vorab auf eine bestimmte Technologie festgelegt.</p>
 </article>
