@@ -43,16 +43,21 @@
       }
     },
     {
-      "type": "textcols",
+      "type": "panel_cta",
       "id": "einordnung",
-      "kicker": "Einordnung",
       "title": "Substanz statt Hype",
       "sub": "KI ist kein Selbstzweck",
-      "cols": [
-        "Vor jeder Umsetzung werden Nutzen, Datenlage, technische Machbarkeit und notwendige Kontrollen geprüft. Ist eine einfachere Lösung geeigneter, wird keine unnötige KI-Komplexität aufgebaut.",
-        "Ausgangspunkt sind die bestehende Aufgabe, beteiligte Systeme und das gewünschte Ergebnis. Erst danach werden Technologie, Architektur und Umsetzungsumfang festgelegt."
-      ],
-      "single": true
+      "text": "Vor jeder Umsetzung werden Nutzen, Datenlage, technische Machbarkeit und notwendige Kontrollen geprüft. Ist eine einfachere Lösung geeigneter, wird keine unnötige KI-Komplexität aufgebaut.",
+      "buttons": [
+        {
+          "label": "Potenzialanalyse starten",
+          "href": "analyse.html"
+        },
+        {
+          "label": "Leistungen ansehen",
+          "href": "index.html#leistungen"
+        }
+      ]
     },
     {
       "type": "labellist",
