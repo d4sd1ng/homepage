@@ -261,13 +261,14 @@ main h2 { font: var(--w-kartentitel) var(--t-kartentitel)/1.15 "Exo 2",Inter,Ari
 main h3 { font: var(--w-zwischentitel) var(--t-zwischentitel)/1.2 "Exo 2",Inter,Arial,sans-serif; color: #f5f1e8; margin-bottom: 8px; }
 .lead { max-width: 875px; font: var(--w-fliesstext) var(--t-fliesstext)/1.75 "Inter",Arial,sans-serif; color: #b9c3bd; }
 .sub { max-width: 820px; font: var(--w-subtitle) var(--t-subtitle)/1.4 "Inter",Arial,sans-serif; color: #D7DDD9; margin-bottom: 27px; }
-.detail-hero { display: grid; grid-template-columns: minmax(0,1fr) minmax(200px,270px); gap: 56px; align-items: center; }
+.detail-hero { display: grid; grid-template-columns: minmax(0,1fr) minmax(280px,680px); gap: 56px; align-items: center; }
 .detail-hero .kicker { margin-bottom: 14px; }
 .detail-hero h1 { margin-bottom: 21px; }
 .detail-hero .sub { font-size: 20px; margin-bottom: 39px; }
 .detail-hero .actions { margin-top: 63px; }
 .visual-card { position: relative; overflow: hidden; border: 1.25px solid transparent; border-radius: 10px; background-image: linear-gradient(#080B09,#080B09), var(--gold-3); background-origin: border-box; background-clip: padding-box, border-box; filter: drop-shadow(0 16px 24px rgba(0,0,0,.34)); }
 .visual-card>img:first-child { width: 100%; height: auto; max-height: 230px; object-fit: contain; }
+.visual-card--empty { aspect-ratio: 16 / 9; }
 .content-grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 108px; margin-top: 0; }
 .panel { border: 1.25px solid transparent; border-radius: 10px; background-image: linear-gradient(#080B09,#080B09), var(--gold-3); background-origin: border-box; background-clip: padding-box, border-box; padding: 13px; }
 .panel p,.panel li:not(.pair-chip) { font: var(--w-fliesstext) var(--t-fliesstext)/1.7 "Inter",Arial,sans-serif; color: #b9c3bd; }
@@ -486,7 +487,7 @@ h1, main h2, .label-list strong, .num-list b, .result-strip h3, .form-panel h3, 
   </div>
 </header>
 <main>
-<section class="section section--landing"><div class="section-inner detail-hero"><div><div class="kicker">Prompting</div><h1>Prompt Engineering</h1><p class="sub">Klare Anweisungen für verlässliche KI-Ergebnisse.</p><p class="lead">Professionelle Prompt-Systeme strukturieren Aufgaben, Kontext, Regeln und Ausgabeformate so, dass KI-Modelle konsistent und nachvollziehbar arbeiten.</p><div class="actions"><a class="btn" href="analyse.html">Prompt-Potenzial prüfen</a></div></div><div class="visual-card"><img src="assets/Module/ai_doku.png" alt="Prompt Engineering"/></div></div></section>
+<section class="section section--landing"><div class="section-inner detail-hero"><div><div class="kicker">Prompting</div><h1>Prompt Engineering</h1><p class="sub">Klare Anweisungen für verlässliche KI-Ergebnisse.</p><p class="lead">Professionelle Prompt-Systeme strukturieren Aufgaben, Kontext, Regeln und Ausgabeformate so, dass KI-Modelle konsistent und nachvollziehbar arbeiten.</p><div class="actions"><a class="btn" href="analyse.html">Prompt-Potenzial prüfen</a></div></div><div class="visual-card visual-card--empty" aria-hidden="true"></div></div></section>
 <section class="section section--landing"><div class="section-inner content-grid"><article class="panel"><h2>Was ist Prompt Engineering?</h2><p>Prompt Engineering strukturiert Aufgaben, Kontext und Ausgabevorgaben für KI-Modelle. Dadurch entstehen wiederholbare Ergebnisse, die sich an festen Anforderungen statt an spontanen Einzeleingaben orientieren.</p></article><article class="panel summary"><h2>Klare Entscheidungsgrundlage</h2><p>Vor der Entwicklung wird festgelegt, welche Aufgabe unterstützt werden soll und welche Qualitätsanforderungen gelten. So wird sichtbar, ob ein einzelner Prompt, ein Prompt-System oder eine technische Integration benötigt wird.</p></article></div></section>
 <section class="section section--landing" id="ausgangslage"><div class="section-inner">
 <h2>Ausgangslage</h2>
@@ -514,12 +515,12 @@ h1, main h2, .label-list strong, .num-list b, .result-strip h3, .form-panel h3, 
 <p class="sub">Vom Anwendungsfall bis zum geprüften Ergebnis.</p>
 <p class="text">Die Module schaffen eine wiederholbare und kontrollierbare Nutzung. Der genaue Aufbau richtet sich nach Aufgabe, eingesetztem Modell und gewünschter Einbindung in bestehende Arbeitsabläufe.</p>
 <ol class="num-list">
-<li><img class="module-img" src="assets/Module/austausch2.png" alt="" /><div><b>Anwendungsfall</b><span>Aufgabe, Zielgruppe und gewünschtes Ergebnis werden eindeutig festgelegt.</span></div></li>
-<li><img class="module-img" src="assets/Module/austausch.png" alt="" /><div><b>Rolle</b><span>Die fachliche Perspektive und der zulässige Handlungsspielraum der KI werden definiert.</span></div></li>
-<li><img class="module-img" src="assets/Module/speicher_vernetzt.png" alt="" /><div><b>Kontext</b><span>Benötigte Informationen, Daten und Hintergrundangaben werden strukturiert bereitgestellt.</span></div></li>
-<li><img class="module-img" src="assets/Module/displsx_lupe_auge.png" alt="" /><div><b>Anforderungen</b><span>Regeln, Grenzen, Qualitätskriterien und notwendige Prüfschritte werden festgelegt.</span></div></li>
-<li><img class="module-img" src="assets/Module/papierstapel.png" alt="" /><div><b>Format</b><span>Struktur, Umfang und Darstellungsform der Ausgabe werden bestimmt.</span></div></li>
-<li><img class="module-img" src="assets/Module/display_data_ai.png" alt="" /><div><b>Test</b><span>Der Prompt wird mit realistischen Eingaben, typischen Varianten und unvollständigen Angaben geprüft.</span></div></li>
+<li><img class="module-img" src="assets/Module/ziele.png" alt="" /><div><b>Anwendungsfall</b><span>Aufgabe, Zielgruppe und gewünschtes Ergebnis werden eindeutig festgelegt.</span></div></li>
+<li><img class="module-img" src="assets/Module/figur_tablett.png" alt="" /><div><b>Rolle</b><span>Die fachliche Perspektive und der zulässige Handlungsspielraum der KI werden definiert.</span></div></li>
+<li><img class="module-img" src="assets/Module/sprechblasen_i.png" alt="" /><div><b>Kontext</b><span>Benötigte Informationen, Daten und Hintergrundangaben werden strukturiert bereitgestellt.</span></div></li>
+<li><img class="module-img" src="assets/Module/notizblock.png" alt="" /><div><b>Anforderungen</b><span>Regeln, Grenzen, Qualitätskriterien und notwendige Prüfschritte werden festgelegt.</span></div></li>
+<li><img class="module-img" src="assets/Module/report.png" alt="" /><div><b>Format</b><span>Struktur, Umfang und Darstellungsform der Ausgabe werden bestimmt.</span></div></li>
+<li><img class="module-img" src="assets/Module/valedierung.png" alt="" /><div><b>Test</b><span>Der Prompt wird mit realistischen Eingaben, typischen Varianten und unvollständigen Angaben geprüft.</span></div></li>
 <li><img class="module-img" src="assets/Module/chip_gehirn.png" alt="" /><div><b>Optimierung</b><span>Fehler, Missverständnisse und Schwächen werden gezielt korrigiert.</span></div></li>
 <li><img class="module-img" src="assets/Module/dokumente.png" alt="" /><div><b>Dokumentation</b><span>Nutzung, Varianten, Voraussetzungen und Einsatzgrenzen werden nachvollziehbar festgehalten.</span></div></li>
 </ol>

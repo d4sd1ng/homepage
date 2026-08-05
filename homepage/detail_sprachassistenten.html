@@ -261,13 +261,14 @@ main h2 { font: var(--w-kartentitel) var(--t-kartentitel)/1.15 "Exo 2",Inter,Ari
 main h3 { font: var(--w-zwischentitel) var(--t-zwischentitel)/1.2 "Exo 2",Inter,Arial,sans-serif; color: #f5f1e8; margin-bottom: 8px; }
 .lead { max-width: 875px; font: var(--w-fliesstext) var(--t-fliesstext)/1.75 "Inter",Arial,sans-serif; color: #b9c3bd; }
 .sub { max-width: 820px; font: var(--w-subtitle) var(--t-subtitle)/1.4 "Inter",Arial,sans-serif; color: #D7DDD9; margin-bottom: 27px; }
-.detail-hero { display: grid; grid-template-columns: minmax(0,1fr) minmax(200px,270px); gap: 56px; align-items: center; }
+.detail-hero { display: grid; grid-template-columns: minmax(0,1fr) minmax(280px,680px); gap: 56px; align-items: center; }
 .detail-hero .kicker { margin-bottom: 14px; }
 .detail-hero h1 { margin-bottom: 21px; }
 .detail-hero .sub { font-size: 20px; margin-bottom: 39px; }
 .detail-hero .actions { margin-top: 63px; }
 .visual-card { position: relative; overflow: hidden; border: 1.25px solid transparent; border-radius: 10px; background-image: linear-gradient(#080B09,#080B09), var(--gold-3); background-origin: border-box; background-clip: padding-box, border-box; filter: drop-shadow(0 16px 24px rgba(0,0,0,.34)); }
 .visual-card>img:first-child { width: 100%; height: auto; max-height: 230px; object-fit: contain; }
+.visual-card--empty { aspect-ratio: 16 / 9; }
 .content-grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 108px; margin-top: 0; }
 .panel { border: 1.25px solid transparent; border-radius: 10px; background-image: linear-gradient(#080B09,#080B09), var(--gold-3); background-origin: border-box; background-clip: padding-box, border-box; padding: 13px; }
 .panel p,.panel li:not(.pair-chip) { font: var(--w-fliesstext) var(--t-fliesstext)/1.7 "Inter",Arial,sans-serif; color: #b9c3bd; }
@@ -486,13 +487,13 @@ h1, main h2, .label-list strong, .num-list b, .result-strip h3, .form-panel h3, 
   </div>
 </header>
 <main>
-<section class="section section--landing"><div class="section-inner detail-hero"><div><div class="kicker">Sprache</div><h1>KI-Sprachassistenten</h1><p class="sub">Informationen per Sprache erfassen und Prozesse direkt im Gespräch steuern.</p><p class="lead">Sie sprechen Ihr Anliegen, der Assistent versteht es, greift auf freigegebene Daten zu und führt passende Prozessschritte automatisch aus.</p><div class="actions"><a class="btn" href="analyse.html">Sprachpotenzial prüfen</a></div></div><div class="visual-card"><img src="assets/Module/sprachassistent.png" alt="KI-Sprachassistenten"/></div></div></section>
+<section class="section section--landing"><div class="section-inner detail-hero"><div><div class="kicker">Sprache</div><h1>KI-Sprachassistenten</h1><p class="sub">Informationen per Sprache erfassen und Prozesse direkt im Gespräch steuern.</p><p class="lead">Sie sprechen Ihr Anliegen, der Assistent versteht es, greift auf freigegebene Daten zu und führt passende Prozessschritte automatisch aus.</p><div class="actions"><a class="btn" href="analyse.html">Sprachpotenzial prüfen</a></div></div><div class="visual-card visual-card--empty" aria-hidden="true"></div></div></section>
 <section class="section section--landing"><div class="section-inner content-grid"><article class="panel"><h2>Was sind KI-Sprachassistenten?</h2><p>KI-Sprachassistenten wandeln gesprochene Anliegen in strukturierte Informationen um und erkennen den jeweiligen Gesprächskontext. Sie können passende Antworten bereitstellen, Daten erfassen oder definierte Prozessschritte auslösen.</p></article><article class="panel summary"><h2>Klare Entscheidungsgrundlage</h2><p>Vor der Umsetzung wird festgelegt, welche Anliegen der Assistent bearbeiten darf und auf welche Daten oder Systeme er zugreifen kann. Unklare, sensible oder nicht freigegebene Fälle werden kontrolliert an zuständige Mitarbeitende übergeben.</p></article></div></section>
 <section class="section section--landing" id="ausgangslage"><div class="section-inner">
 <h2>Ausgangslage</h2>
 <p class="sub">Telefon- und Mobilprozesse verursachen häufig zusätzlichen Erfassungs- und Abstimmungsaufwand.</p>
 <p class="text">Wiederkehrende Anfragen werden telefonisch aufgenommen, anschließend manuell dokumentiert und an andere Stellen weitergeleitet. Dabei fehlen häufig Angaben, Gesprächsinhalte werden unterschiedlich erfasst und Informationen müssen mehrfach übertragen werden. Hohe Anruflast, lange Wartezeiten und unvollständige Übergaben erschweren eine schnelle Bearbeitung.</p>
-<ul class="card-bullets"><li>schnellere Bearbeitung wiederkehrender Anrufe</li><li>keine manuellen Gesprächsnotizen</li><li>weniger unvollständige Angaben</li><li>bessere Erreichbarkeit</li><li>geringerer Erfassungsaufwand</li></ul>
+<ul class="card-bullets"><li>hohe Anruflast</li><li>lange Wartezeiten</li><li>manuelle Gesprächsnotizen</li><li>unvollständige Angaben</li><li>mehrfache Datenübertragung</li><li>uneinheitliche Erfassung</li></ul>
 </div></section>
 <section class="section" id="leistungsumfang"><div class="section-inner">
 <h2>Leistungsumfang</h2>

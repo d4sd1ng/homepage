@@ -261,13 +261,14 @@ main h2 { font: var(--w-kartentitel) var(--t-kartentitel)/1.15 "Exo 2",Inter,Ari
 main h3 { font: var(--w-zwischentitel) var(--t-zwischentitel)/1.2 "Exo 2",Inter,Arial,sans-serif; color: #f5f1e8; margin-bottom: 8px; }
 .lead { max-width: 875px; font: var(--w-fliesstext) var(--t-fliesstext)/1.75 "Inter",Arial,sans-serif; color: #b9c3bd; }
 .sub { max-width: 820px; font: var(--w-subtitle) var(--t-subtitle)/1.4 "Inter",Arial,sans-serif; color: #D7DDD9; margin-bottom: 27px; }
-.detail-hero { display: grid; grid-template-columns: minmax(0,1fr) minmax(200px,270px); gap: 56px; align-items: center; }
+.detail-hero { display: grid; grid-template-columns: minmax(0,1fr) minmax(280px,680px); gap: 56px; align-items: center; }
 .detail-hero .kicker { margin-bottom: 14px; }
 .detail-hero h1 { margin-bottom: 21px; }
 .detail-hero .sub { font-size: 20px; margin-bottom: 39px; }
 .detail-hero .actions { margin-top: 63px; }
 .visual-card { position: relative; overflow: hidden; border: 1.25px solid transparent; border-radius: 10px; background-image: linear-gradient(#080B09,#080B09), var(--gold-3); background-origin: border-box; background-clip: padding-box, border-box; filter: drop-shadow(0 16px 24px rgba(0,0,0,.34)); }
 .visual-card>img:first-child { width: 100%; height: auto; max-height: 230px; object-fit: contain; }
+.visual-card--empty { aspect-ratio: 16 / 9; }
 .content-grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 108px; margin-top: 0; }
 .panel { border: 1.25px solid transparent; border-radius: 10px; background-image: linear-gradient(#080B09,#080B09), var(--gold-3); background-origin: border-box; background-clip: padding-box, border-box; padding: 13px; }
 .panel p,.panel li:not(.pair-chip) { font: var(--w-fliesstext) var(--t-fliesstext)/1.7 "Inter",Arial,sans-serif; color: #b9c3bd; }
@@ -487,7 +488,7 @@ h1, main h2, .label-list strong, .num-list b, .result-strip h3, .form-panel h3, 
   </div>
 </header>
 <main>
-<section class="section section--landing"><div class="section-inner detail-hero"><div><div class="kicker">Prozessautomatisierung &amp; Workflows</div><h1>Abläufe automatisieren</h1><p class="sub">Wiederkehrende Aufgaben, Freigaben und Systemübergaben effizient verbinden.</p><p class="lead">Automatisierte Workflows steuern klar definierte Prozesse über mehrere Arbeitsschritte und Systeme hinweg. Manuelle Übertragungen, wiederkehrende Abstimmungen und vermeidbare Wartezeiten werden reduziert, während Freigaben und Verantwortlichkeiten erhalten bleiben.</p><div class="actions"><a class="btn" href="analyse.html">Automatisierungspotenziale analysieren</a></div></div><div class="visual-card"><img src="assets/Module/zahnrad_umlauf.png" alt="Automatisierung und Workflows"/></div></div></section>
+<section class="section section--landing"><div class="section-inner detail-hero"><div><div class="kicker">Prozessautomatisierung &amp; Workflows</div><h1>Abläufe automatisieren</h1><p class="sub">Wiederkehrende Aufgaben, Freigaben und Systemübergaben effizient verbinden.</p><p class="lead">Automatisierte Workflows steuern klar definierte Prozesse über mehrere Arbeitsschritte und Systeme hinweg. Manuelle Übertragungen, wiederkehrende Abstimmungen und vermeidbare Wartezeiten werden reduziert, während Freigaben und Verantwortlichkeiten erhalten bleiben.</p><div class="actions"><a class="btn" href="analyse.html">Automatisierungspotenziale analysieren</a></div></div><div class="visual-card visual-card--empty" aria-hidden="true"></div></div></section>
 <section class="section section--landing"><div class="section-inner content-grid"><article class="panel"><h2>Was sind automatisierte Workflows?</h2><p>Automatisierte Workflows verbinden Aufgaben, Daten, Entscheidungen und Systemaktionen zu einem festgelegten Prozess. Klassische Automatisierung, KI-gestützte Verarbeitung und manuelle Kontrollschritte können dabei gezielt kombiniert werden.</p></article><article class="panel summary"><h2>Klare Entscheidungsgrundlage</h2><p>Vor der Umsetzung wird geprüft, welche Schritte automatisiert, vereinfacht oder weiterhin manuell kontrolliert werden sollten. So entsteht ein belastbarer Ablauf mit klaren Zuständigkeiten, definierten Ausnahmen und technisch beherrschbaren Systemzugriffen.</p></article></div></section>
 <section class="section section--landing" id="ausgangslage"><div class="section-inner">
 <h2>Ausgangslage</h2>
