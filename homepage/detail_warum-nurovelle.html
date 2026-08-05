@@ -36,9 +36,11 @@
   --color-text-light: #F5F7F4;
   --color-text-muted: #B9C3BD;
 
-  --gold-1: linear-gradient(135deg, #AE8625, #F7EF8A, #D2AC47, #EDC967);
+  --gold-1: linear-gradient(110deg, #8B641A 0%, #DFBD69 18%, #FFF6BD 34%, #B98424 48%, #F7DF82 66%, #926F34 82%, #E6C45F 100%);
+  --gold-glow: drop-shadow(0 1px 0 rgba(255,245,180,.18)) drop-shadow(0 0 10px rgba(247,239,138,.28)) drop-shadow(0 0 26px rgba(224,170,62,.16));
   --gold-2: linear-gradient(135deg, #DFBD69, #926F34);
-  --gold-3: linear-gradient(135deg, #F9F295, #E0AA3E, #FAF398, #B88A44);
+  --gold-3: linear-gradient(135deg, #76551A 0%, #AE8625 13%, #F7EF8A 27%, #FFF9C9 33%, #D2AC47 43%, #926F34 57%, #EDC967 72%, #FFF3A1 80%, #9B7423 100%);
+  --frame-glow: 0 1px 0 rgba(255,255,220,.30) inset, 0 -2px 3px rgba(76,46,5,.60) inset, 0 0 0 1px rgba(146,111,52,.55), 0 6px 16px rgba(0,0,0,.42), 0 0 22px rgba(212,175,55,.16);
 
   --t-sektionstitel: clamp(40px, 4.6vw, 72px); --w-sektionstitel: 800;
   --t-kartentitel: clamp(22px, 1.8vw, 40px);   --w-kartentitel: 700;
@@ -404,6 +406,32 @@ button[disabled] { opacity: .58; cursor: not-allowed; }
 .page-warum .chip-list--stacked { margin-bottom: 40px; }
 .page-warum #kontakt .sub { margin-bottom: 40px; }
 .chip-list li.pair-chip { min-height: 92px; padding: 6px 10px; border-radius: 10px; }
+h1, main h2, .label-list strong, .num-list b, .result-strip h3, .form-panel h3, .gold {
+  filter: var(--gold-glow);
+  -webkit-text-stroke: .6px rgba(255,248,207,.40);
+  background-size: 250% auto;
+  animation: nv-gold-shine 6s linear infinite;
+}
+@keyframes nv-gold-shine { to { background-position: 250% center; } }
+@media (prefers-reduced-motion: reduce) { h1, main h2, .label-list strong, .num-list b, .result-strip h3, .form-panel h3, .gold { animation: none; } }
+/* Goldrahmen: metallischer Verlauf mit Lichtkante, dunkler Innenkante und wanderndem Glanzband */
+.visual-card, .panel, .form-panel, .result-strip, .pair-chip, .chip-list li, .chip-icon, .num-list li::before {
+  background-size: 250% auto;
+  animation: nv-frame-shine 7s linear infinite;
+}
+.visual-card, .panel, .form-panel, .result-strip, .pair-chip, .chip-list li { box-shadow: var(--frame-glow); }
+.chip-icon, .num-list li::before { box-shadow: 0 1px 0 rgba(255,255,220,.26) inset, 0 0 0 1px rgba(146,111,52,.55), 0 0 14px rgba(212,175,55,.14); }
+.pair-chip--gold {
+  border-color: transparent;
+  background-image: linear-gradient(105deg, transparent 41%, rgba(255,255,220,.10) 46%, rgba(255,255,225,.46) 50%, rgba(255,255,220,.12) 54%, transparent 59%),
+                    linear-gradient(180deg,#ffd7a3 0%,#f0a05a 24%,#d89828 58%,#7a3518 100%), var(--gold-3);
+  background-origin: border-box;
+  background-clip: padding-box, padding-box, border-box;
+  background-size: 250% auto, auto, 250% auto;
+  box-shadow: var(--frame-glow), inset 0 0 0 1px rgba(255,244,199,.20);
+}
+@keyframes nv-frame-shine { to { background-position: 250% center; } }
+@media (prefers-reduced-motion: reduce) { .visual-card, .panel, .form-panel, .result-strip, .pair-chip, .chip-list li, .chip-icon, .num-list li::before { animation: none; } }
 </style>
 </head>
 <body class="page-warum">
