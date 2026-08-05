@@ -438,6 +438,41 @@ h1, main h2, .label-list strong, .num-list b, .result-strip h3, .form-panel h3, 
 }
 @keyframes nv-frame-shine { to { background-position: 250% center; } }
 @media (prefers-reduced-motion: reduce) { .visual-card, .panel, .form-panel, .result-strip, .pair-chip, .chip-list li, .chip-icon, .num-list li::before { animation: none; } }
+/* ==========================================================================
+   MOBIL — Desktop-Raster wird einspaltig
+   ========================================================================== */
+@media (max-width: 900px) {
+  /* Kopfzeile */
+  .logo-wordmark { display: none; }
+  .nv-breadcrumb { overflow-x: auto; overflow-y: hidden; scrollbar-width: none; }
+  .nv-breadcrumb::-webkit-scrollbar { display: none; }
+  .header-cta .golden-button { min-width: 0; padding: 0 .6em; font-size: 11px; letter-spacing: .02em; }
+  .header-inner { padding-left: 12px; padding-right: 12px; column-gap: 8px; }
+  .logo-link { gap: 6px; }
+  .header-inner { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+  .nv-breadcrumb { flex: 1 1 0; min-width: 0; }
+  .header-cta { flex: 0 0 auto; }
+
+  /* Hero und Raster */
+  .detail-hero { grid-template-columns: minmax(0,1fr); gap: 28px; }
+  .analysis-layout { grid-template-columns: minmax(0,1fr); gap: 32px; margin-top: 40px; }
+  .pair-grid, .faq-grid { grid-template-columns: minmax(0,1fr); }
+  .pair-grid { gap: 16px; }
+  .pair { grid-template-columns: minmax(0,1fr); gap: 6px; }
+  .pair-arrow { justify-self: center; transform: rotate(90deg); }
+  /* lange Komposita duerfen umbrechen, sonst sprengt die Mindestbreite die Karte */
+  .pair-chip, .chip-list li { overflow-wrap: anywhere; }
+  #einsatzbereiche .panel { padding: 18px; }
+  .panel .card-bullets, .card-bullets { padding-left: 0; gap: 10px 24px; }
+  .section { padding-left: 18px; padding-right: 18px; }
+
+  /* FAQ-Knoepfe wachsen mit der Frage */
+  .faq-item summary > span { height: auto; min-height: 50px; padding: 12px 16px; line-height: 1.3; }
+}
+@media (max-width: 560px) {
+  .header-cta .golden-button { padding: 0 .4em; font-size: 9.5px; gap: 5px; }
+  .header-cta .nv-calendly-icon { width: 14px; height: 14px; }
+}
 </style>
 </head>
 <body class="page-chat">
