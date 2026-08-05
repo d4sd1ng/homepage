@@ -92,9 +92,11 @@
   --color-text-muted: #B9C3BD;
   --color-text-sub: #D7DDD9;
 
-  --gold-1: linear-gradient(135deg, #AE8625, #F7EF8A, #D2AC47, #EDC967);
+  --gold-1: linear-gradient(110deg, #8B641A 0%, #DFBD69 18%, #FFF6BD 34%, #B98424 48%, #F7DF82 66%, #926F34 82%, #E6C45F 100%);
+  --gold-glow: drop-shadow(0 1px 0 rgba(255,245,180,.18)) drop-shadow(0 0 10px rgba(247,239,138,.28)) drop-shadow(0 0 26px rgba(224,170,62,.16));
   --gold-2: linear-gradient(135deg, #DFBD69, #926F34);
-  --gold-3: linear-gradient(135deg, #F9F295, #E0AA3E, #FAF398, #B88A44);
+  --gold-3: linear-gradient(135deg, #76551A 0%, #AE8625 13%, #F7EF8A 27%, #FFF9C9 33%, #D2AC47 43%, #926F34 57%, #EDC967 72%, #FFF3A1 80%, #9B7423 100%);
+  --frame-glow: 0 1px 0 rgba(255,255,220,.30) inset, 0 -2px 3px rgba(76,46,5,.60) inset, 0 0 0 1px rgba(146,111,52,.55), 0 6px 16px rgba(0,0,0,.42), 0 0 22px rgba(212,175,55,.16);
   --gold-text-alt: linear-gradient(135deg, #C5A059 0%, #FDF0CD 50%, #D4AF37 100%);
 
   --bg-green-1: linear-gradient(135deg, #0A1913 0%, #112A20 50%, #1D4234 100%);
@@ -635,6 +637,7 @@ a:active .golden-button {
 .nv-s7__subtitle { max-width: 60ch; margin: 0 0 116px; color: var(--color-text-sub); font: var(--w-subtitle) var(--t-subtitle)/1.22 "Inter",Arial,sans-serif; }
 .nv-s7__intro { max-width: 760px; margin: 0; color: var(--color-text-muted); font-family: "Inter", Arial, sans-serif; font-size: var(--t-fliesstext); line-height: 1.85; font-weight: var(--w-fliesstext); }
 .nv-s7__cards { display: grid; grid-template-columns: repeat(3, 900px); gap: 300px; width: max-content; margin: 0 auto; zoom: 0.75; }
+.nv-s7-card[data-href] { cursor: pointer; }
 .nv-s7-card { --card-index: 0; position: relative; width: 900px; height: 512px; min-width: 0; overflow: hidden; isolation: isolate; border: 1px solid transparent; border-radius: 7px; background: transparent; box-shadow: none; opacity: 0; transform: translateY(22px); transition: opacity 0.55s ease, transform 0.55s ease, border-color 0.28s ease, box-shadow 0.28s ease; }
 .nv-s7-card::before { content: ""; position: absolute; inset: 0; z-index: 0; border-radius: inherit; background: linear-gradient(135deg, #050706 0%, #080b09 58%, #030504 100%); opacity: 0; transition: opacity 0.38s ease; pointer-events: none; }
 .nv-s7-card:hover::before, .nv-s7-card:focus-visible::before, .nv-s7-card.is-active::before { opacity: 1; }
@@ -651,7 +654,7 @@ a:active .golden-button {
 .nv-s7-card:nth-child(11) { --card-index: 10; }
 .nv-s7-card:nth-child(10), .nv-s7-card:nth-child(11) { margin-left: 600px; }
 .nv-s7-card.is-visible { opacity: 1; transform: none; transition-delay: calc(var(--card-index) * 45ms); }
-.nv-s7-card:hover, .nv-s7-card:focus-visible, .nv-s7-card.is-active { z-index: 3; border-color: #f7ef8a; outline: none; transform: perspective(1200px) rotateY(-3deg); }
+.nv-s7-card:hover, .nv-s7-card:focus-visible, .nv-s7-card.is-active { z-index: 3; border-color: #f7ef8a; outline: none; }
 .nv-s7-card__visual { position: absolute; inset: 0 0 0 auto; z-index: 0; width: 73%; height: 100%; object-fit: cover; object-position: center; opacity: 0; filter: brightness(0.62) contrast(1.08) saturate(0.72); transform: none; transition: opacity 0.38s ease 0.08s, filter 0.38s ease; }
 .nv-s7-card::after { content: ""; position: absolute; inset: 0; z-index: 1; background: linear-gradient(90deg, #050706e6 0%, #050706cc 30%, #05070666 55%, #05070626 100%); opacity: 0; pointer-events: none; transition: opacity 0.35s ease; }
 .nv-s7-card:hover .nv-s7-card__visual, .nv-s7-card:focus-visible .nv-s7-card__visual, .nv-s7-card.is-active .nv-s7-card__visual { opacity: 1; }
@@ -835,8 +838,8 @@ canvas.nv-step-viz {
 .nv-analyse__title { margin: 0 0 49px; white-space: nowrap; width: max-content; color: transparent; background: var(--gold-1); background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent; font: var(--w-sektionstitel) var(--t-sektionstitel)/1.15 "Exo 2",Inter,Arial,sans-serif; }
 .nv-analyse__subtitle { max-width: 60ch; margin: 0 0 116px; color: var(--color-text-sub); font: var(--w-subtitle) var(--t-subtitle)/1.22 "Inter",Arial,sans-serif; }
 .nv-analyse__intro { max-width: 1068px; margin: 0 0 12px 187.5px; color: #b9c3bd; font: var(--w-fliesstext) var(--t-fliesstext)/1.85 "Inter",Arial,sans-serif; }
-.nv-analyse__layout { display: grid; grid-template-columns: minmax(0,1fr) 1068px; gap: 48px; align-items: start; }@media(max-width:1200px){ .nv-analyse__layout{ grid-template-columns:1fr; } }
-.nv-analyse__grid { display: grid; grid-template-columns: 1068px; gap: 12px; align-items: start;  margin-left: -318.75px; }@media(max-width:980px){ .nv-analyse__grid{ grid-template-columns:1fr; } }
+.nv-analyse__layout { display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1068px); gap: 48px; align-items: start; }@media(max-width:1200px){ .nv-analyse__layout{ grid-template-columns:1fr; } }
+.nv-analyse__grid { display: grid; grid-template-columns: minmax(0,1fr); gap: 12px; align-items: start; }@media(max-width:980px){ .nv-analyse__grid{ grid-template-columns:1fr; } }
 /* uniform card shell for all 4 cards */
 .nv-acard { border:1px solid transparent; background-image:linear-gradient(#1a1a1a,#1a1a1a), var(--gold-3); background-origin:border-box; background-clip:padding-box,border-box; border-radius:10px; padding:32px; }
 
@@ -1228,6 +1231,164 @@ canvas.nv-step-viz {
           background: #1f5f3b;
         }
       }
+.nv-step-card h3,
+.nv-s7-card__uses h4,
+.nv-s7-card__number,
+.nv-s7-card__heading h3,
+.nv-s7-card__result h4,
+.nv-about__mini b,
+.nv-comp__title,
+.nv-comp__radar h3,
+.nv-analyse__title,
+.nv-acard__title,
+.nv-aform > h3,
+.nv-agauge__pct,
+.nv-ametrics b,
+.hero-stat b,
+.nv-process__title,
+.nv-contact__title,
+.nv-contact__portrait h3,
+.nv-contact__card h3,
+.download-item h3,
+.downloads-section__title,
+.gold {
+  filter: var(--gold-glow);
+  -webkit-text-stroke: .6px rgba(255,248,207,.40);
+  background-size: 250% auto;
+  animation: nv-gold-shine 6s linear infinite;
+}
+@keyframes nv-gold-shine { to { background-position: 250% center; } }
+@media (prefers-reduced-motion: reduce) { .nv-step-card h3, .nv-s7-card__uses h4, .nv-s7-card__number, .nv-s7-card__heading h3, .nv-s7-card__result h4, .nv-about__mini b, .nv-comp__title, .nv-comp__radar h3, .nv-analyse__title, .nv-acard__title, .nv-aform > h3, .nv-agauge__pct, .nv-ametrics b, .hero-stat b, .nv-process__title, .nv-contact__title, .nv-contact__portrait h3, .nv-contact__card h3, .download-item h3, .downloads-section__title, .gold { animation: none; } }
+/* Goldrahmen: metallischer Verlauf mit Lichtkante, dunkler Innenkante und wanderndem Glanzband */
+.nv-s7-card__result, .nv-about__mini > div, .nv-comp__radar, .nv-ametrics > div, .nv-aform__row, .nv-about__play {
+  background-size: 250% auto;
+  animation: nv-frame-shine 7s linear infinite;
+  box-shadow: var(--frame-glow);
+}
+.nv-about__media { box-shadow: var(--frame-glow); }
+@keyframes nv-frame-shine { to { background-position: 250% center; } }
+@media (prefers-reduced-motion: reduce) { .nv-s7-card__result, .nv-about__mini > div, .nv-comp__radar, .nv-ametrics > div, .nv-aform__row, .nv-about__play { animation: none; } }
+/* ==========================================================================
+   MOBIL — ab hier wird die Desktop-Rasterbreite aufgeloest
+   ========================================================================== */
+@media (max-width: 900px) {
+  /* Kopfzeile: Wortmarke weicht, Breadcrumb scrollt, CTA wird kompakt */
+  .logo-wordmark { display: none; }
+  .nv-breadcrumb { overflow-x: auto; overflow-y: hidden; scrollbar-width: none; }
+  .nv-breadcrumb::-webkit-scrollbar { display: none; }
+  .header-cta .golden-button { min-width: 0; padding: 0 .6em; font-size: 11px; letter-spacing: .02em; }
+  .header-inner { padding-left: 12px; padding-right: 12px; column-gap: 8px; }
+  .logo-link { gap: 6px; }
+
+  /* Hero: Inhalt ist hoeher als der Bildschirm, deshalb oben ausrichten statt zentrieren */
+  .hero { height: auto; min-height: 0; align-items: flex-start; padding-top: 24px; padding-bottom: 40px; }
+  .hero-content { padding: 0; }
+  .hero h1 { font-size: clamp(34px, 9vw, 56px); margin-bottom: 24px; }
+  .hero h2 { margin-bottom: 24px; }
+  .header-inner { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+  .nv-breadcrumb { flex: 1 1 0; min-width: 0; }
+  .header-cta { flex: 0 0 auto; }
+
+  /* Feste Spaltenbreiten aufloesen */
+  :root { --nv-about-text-width: 100%; --nv-step-card-width: 100%; }
+  .nv-step-ladder, .nv-step-card { width: 100%; }
+  .nvp4-projectidea__image, .nvp4-projectidea__image--wide { width: 100%; }
+  .nv-comp__radar-stage { width: 100%; }
+  .nv-analyse__grid > :nth-child(2) { width: 100%; max-width: 100%; padding: 18px; }
+  .nv-arange label, .nv-arange input[type=range] { width: 100%; }
+  .nv-contact__grid { grid-template-columns: minmax(0,1fr); width: 100%; margin-top: 0; }
+  .nv-comp__grid { grid-template-columns: minmax(0,1fr); gap: 40px; }
+  .nv-analyse__layout, .nv-analyse__grid { grid-template-columns: minmax(0,1fr); }
+  .nv-about__body, .nv-about__mini { max-width: 100%; }
+
+  /* Ueberschriften duerfen umbrechen */
+  h1, h2, h3, .hero-title-l1, .hero-subtitle-l1 { white-space: normal; overflow-wrap: break-word; hyphens: auto; }
+
+  /* Segmentschalter und Kennzahlen umbrechen statt ueberlaufen */
+  .nv-aseg { flex-wrap: wrap; }
+  .nv-aseg button { flex: 1 1 96px; min-width: 96px; }
+  .nv-ametrics { grid-template-columns: repeat(2, minmax(0,1fr)); }
+
+  /* Prozessband horizontal scrollbar statt abgeschnitten */
+  .nv-process__track { overflow-x: auto; scrollbar-width: none; }
+  .nv-process__track::-webkit-scrollbar { display: none; }
+
+  /* Titel sind auf Desktop auf Inhaltsbreite fixiert und duerfen hier umbrechen */
+  .nvp4-projectidea__title, .nv-s7__title, .nv-analyse__title, .nvp4-projectidea__text {
+    white-space: normal; width: auto; max-width: 100%;
+  }
+  .nvp4-projectidea__idea, .nv-s7__head, .nv-s7__subtitle, .nv-s7__intro { max-width: 100%; }
+
+  /* Leistungskarten: drei 900px-Spalten werden eine Spalte */
+  .nv-s7__cards { grid-template-columns: minmax(0,1fr); gap: 40px; width: 100%; margin: 0; zoom: 1; }
+
+  /* Zweispaltige Bloecke stapeln */
+  .nv-about__body { grid-template-columns: minmax(0,1fr); column-gap: 0; }
+  .nv-about__mini { grid-auto-flow: row; grid-auto-columns: auto; grid-template-columns: repeat(2, minmax(0,1fr)); width: 100%; }
+  .footer-inner { grid-template-columns: minmax(0,1fr); gap: 40px; }
+  .nv-faq-metrics { padding: 20px 0 0; border-left: 0; }
+  .nv-acard__col { min-width: 0; }
+  .nv-about__mediacol, .nv-about__bullets { max-width: 100%; }
+
+  /* Leistungskarten: ohne Hover bleibt am Telefon alles dauerhaft sichtbar.
+     Dafuer muss das absolut positionierte Desktop-Layout in den Fluss. */
+  .nv-s7-card { display: flex; flex-direction: column; height: auto; min-height: 0; padding: 22px 18px; opacity: 1; transform: none; }
+  .nv-s7-card::before, .nv-s7-card::after { opacity: 1; }
+  .nv-s7-card__visual { position: absolute; inset: 0; width: 100%; height: 100%; opacity: .22; }
+  .nv-s7-card__main, .nv-s7-card__left, .nv-s7-card__heading,
+  .nv-s7-card__short-rule, .nv-s7-card__points, .nv-s7-card__result {
+    position: static; inset: auto; width: auto; height: auto; min-height: 0;
+    opacity: 1; transform: none;
+  }
+  .nv-s7-card__main { order: 1; }
+  .nv-s7-card__left { order: 2; padding: 0; }
+  .nv-s7-card__divider { display: none; }
+  .nv-s7-card__heading { gap: 14px; margin-bottom: 14px; }
+  .nv-s7-card__number { width: 54px; height: 58px; flex: 0 0 54px; }
+  .nv-s7-card__heading h3 { font-size: 26px; }
+  .nv-s7-card__heading p { margin-top: 8px; font-size: 14px; }
+  .nv-s7-card__short-rule { margin: 14px 0; }
+  .nv-s7-card__points { margin: 0 0 18px; }
+  .nv-s7-card__result { margin-top: 14px; padding: 12px 14px; }
+  .nv-s7-card__iconbox, .nv-s7-card__iconbox img { width: 64px; height: 64px; }
+  .nv-s7-card__iconbox { margin: 0 0 14px; place-items: start; }
+  .nv-s7-card__uses li { font-size: 15px; }
+  .nv-s7-card:nth-child(10), .nv-s7-card:nth-child(11) { margin-left: 0; }
+
+  /* Desktop-Einzuege der Potenzialanalyse zuruecknehmen */
+  .nv-analyse__intro, .nv-ainfo { margin-left: 0; max-width: 100%; }
+  .nv-ainfo ul { margin-left: 0; }
+  .nv-about__media { margin-left: 0; }
+  .nv-about__bullets { width: 100%; margin-left: 0; }
+
+  /* Stufenleiter: die gestaffelten Karten stapeln sich */
+  .nv-step-item { --nv-step-offset: 0px; width: 100%; }
+  .nv-step-item:nth-child(1) { margin-top: 0; }
+  .nv-step-item:nth-child(2), .nv-step-item:nth-child(3) { margin-top: 32px; }
+  .nv-step-item:nth-child(1) .nv-step-card,
+  .nv-step-item:nth-child(3) .nv-step-card { transform: none; }
+  .nv-step-item .nv-step-card__content { position: static; width: 100%; }
+
+  /* Projektidee: der Slider bekommt eine Spalte */
+  .nvp4-projectidea__slider { width: 100%; margin-left: 0; min-height: 640px; }
+  .nvp4-projectidea__slide,
+  .nvp4-projectidea__slide:nth-child(1) { grid-template-columns: minmax(0,1fr); gap: 20px; align-content: start; }
+  .nvp4-projectidea__content { max-width: 100%; }
+
+  /* Analysekarten, FAQ, Downloads */
+  .nv-acard { padding: 18px; }
+  .nv-acard__split { grid-template-columns: minmax(0,1fr); gap: 20px; }
+  .nv-faq-layout { grid-template-columns: minmax(0,1fr); gap: 32px; transform: none; }
+  .download-button { justify-self: start; }
+  .nv-faq-grid { grid-template-columns: minmax(0,1fr); gap: 18px; }
+  .downloads-grid, .download-list { grid-template-columns: minmax(0,1fr); }
+  /* FAQ-Knoepfe: mehrzeilige Fragen brauchen eine mitwachsende Hoehe */
+  .nv-faq-item summary { height: auto; min-height: 2.75em; padding: 10px 14px; line-height: 1.3; white-space: normal; }
+}
+@media (max-width: 560px) {
+  .header-cta .golden-button { padding: 0 .4em; font-size: 9.5px; gap: 5px; }
+  .header-cta .nv-calendly-icon { width: 14px; height: 14px; }
+}
 </style>
 </head>
 <body>
@@ -1512,7 +1673,7 @@ canvas.nv-step-viz {
     </header>
 
     <div class="nv-s7__cards">
-      <article class="nv-s7-card" data-card tabindex="0">
+      <article class="nv-s7-card" data-card tabindex="0" data-href="analyse.html" role="link">
         <img class="nv-s7-card__visual" src="assets/cards/cards_service/1_neu.png" alt="" aria-hidden="true" />
         <div class="nv-s7-card__left">
           <div class="nv-s7-card__iconbox"><img src="assets/cards/service/icons/1.png" alt="" aria-hidden="true" /></div>
@@ -1540,7 +1701,7 @@ canvas.nv-step-viz {
         </div>
       </article>
 
-      <article class="nv-s7-card" data-card tabindex="0">
+      <article class="nv-s7-card" data-card tabindex="0" data-href="detail_roadmap.html" role="link">
         <img class="nv-s7-card__visual" src="assets/cards/cards_service/2_neu.png" alt="" aria-hidden="true" />
         <div class="nv-s7-card__left">
           <div class="nv-s7-card__iconbox"><img src="assets/cards/service/icons/2.png" alt="" aria-hidden="true" /></div>
@@ -1568,7 +1729,7 @@ canvas.nv-step-viz {
         </div>
       </article>
 
-      <article class="nv-s7-card" data-card tabindex="0">
+      <article class="nv-s7-card" data-card tabindex="0" data-href="detail_ki-agenten.html" role="link">
         <img class="nv-s7-card__visual" src="assets/cards/cards_service/3_neu.png" alt="" aria-hidden="true" />
         <div class="nv-s7-card__left">
           <div class="nv-s7-card__iconbox"><img src="assets/cards/service/icons/3.png" alt="" aria-hidden="true" /></div>
@@ -1596,7 +1757,7 @@ canvas.nv-step-viz {
         </div>
       </article>
 
-      <article class="nv-s7-card" data-card tabindex="0">
+      <article class="nv-s7-card" data-card tabindex="0" data-href="detail_chatbots.html" role="link">
         <img class="nv-s7-card__visual" src="assets/cards/cards_service/4_neu.png" alt="" aria-hidden="true" />
         <div class="nv-s7-card__left">
           <div class="nv-s7-card__iconbox"><img src="assets/cards/service/icons/4.png" alt="" aria-hidden="true" /></div>
@@ -1624,7 +1785,7 @@ canvas.nv-step-viz {
         </div>
       </article>
 
-      <article class="nv-s7-card" data-card tabindex="0">
+      <article class="nv-s7-card" data-card tabindex="0" data-href="detail_sprachassistenten.html" role="link">
         <img class="nv-s7-card__visual" src="assets/cards/cards_service/5_neu.png" alt="" aria-hidden="true" />
         <div class="nv-s7-card__left">
           <div class="nv-s7-card__iconbox"><img src="assets/cards/service/icons/5.png" alt="" aria-hidden="true" /></div>
@@ -1652,7 +1813,7 @@ canvas.nv-step-viz {
         </div>
       </article>
 
-      <article class="nv-s7-card" data-card tabindex="0">
+      <article class="nv-s7-card" data-card tabindex="0" data-href="detail_prompt-engineering.html" role="link">
         <img class="nv-s7-card__visual" src="assets/cards/cards_service/6_neu.png" alt="" aria-hidden="true" />
         <div class="nv-s7-card__left">
           <div class="nv-s7-card__iconbox"><img src="assets/cards/service/icons/6.png" alt="" aria-hidden="true" /></div>
@@ -1680,7 +1841,7 @@ canvas.nv-step-viz {
         </div>
       </article>
 
-      <article class="nv-s7-card" data-card tabindex="0">
+      <article class="nv-s7-card" data-card tabindex="0" data-href="detail_ki-sicherheit.html" role="link">
         <img class="nv-s7-card__visual" src="assets/cards/cards_service/7_neu.png" alt="" aria-hidden="true" />
         <div class="nv-s7-card__left">
           <div class="nv-s7-card__iconbox"><img src="assets/cards/service/icons/7.png" alt="" aria-hidden="true" /></div>
@@ -1708,7 +1869,7 @@ canvas.nv-step-viz {
         </div>
       </article>
 
-      <article class="nv-s7-card" data-card tabindex="0">
+      <article class="nv-s7-card" data-card tabindex="0" data-href="detail_workflows.html" role="link">
         <img class="nv-s7-card__visual" src="assets/cards/cards_service/8_neu.png" alt="" aria-hidden="true" />
         <div class="nv-s7-card__left">
           <div class="nv-s7-card__iconbox"><img src="assets/cards/service/icons/8.png" alt="" aria-hidden="true" /></div>
@@ -1736,7 +1897,7 @@ canvas.nv-step-viz {
         </div>
       </article>
 
-      <article class="nv-s7-card" data-card tabindex="0">
+      <article class="nv-s7-card" data-card tabindex="0" data-href="detail_datenabgleich.html" role="link">
         <img class="nv-s7-card__visual" src="assets/cards/cards_service/9_neu.png" alt="" aria-hidden="true" />
         <div class="nv-s7-card__left">
           <div class="nv-s7-card__iconbox"><img src="assets/cards/service/icons/9.png" alt="" aria-hidden="true" /></div>
@@ -1764,7 +1925,7 @@ canvas.nv-step-viz {
         </div>
       </article>
 
-      <article class="nv-s7-card" data-card tabindex="0">
+      <article class="nv-s7-card" data-card tabindex="0" data-href="detail_ki-software.html" role="link">
         <img class="nv-s7-card__visual" src="assets/cards/cards_service/10_neu.png" alt="" aria-hidden="true" />
         <div class="nv-s7-card__left">
           <div class="nv-s7-card__iconbox"><img src="assets/cards/service/icons/10.png" alt="" aria-hidden="true" /></div>
@@ -1792,7 +1953,7 @@ canvas.nv-step-viz {
         </div>
       </article>
 
-      <article class="nv-s7-card" data-card tabindex="0">
+      <article class="nv-s7-card" data-card tabindex="0" data-href="detail_seo.html" role="link">
         <img class="nv-s7-card__visual" src="assets/cards/cards_service/11_neu.png" alt="" aria-hidden="true" />
         <div class="nv-s7-card__left">
           <div class="nv-s7-card__iconbox"><img src="assets/cards/service/icons/11.png" alt="" aria-hidden="true" /></div>
@@ -2817,13 +2978,23 @@ void main(){
     cards.forEach(card => {
       if (reveal) reveal.observe(card);
       else card.classList.add("is-visible");
+      const go = () => {
+        const href = card.getAttribute("data-href");
+        if (href) window.location.href = href;
+      };
+      card.addEventListener("keydown", e => {
+        if (e.key === "Enter") { e.preventDefault(); go(); }
+      });
       card.addEventListener("click", () => {
         if (
           window.matchMedia(
             "(min-width: 900px) and (hover: hover) and (pointer: fine)"
           ).matches
-        )
+        ) {
+          go();
           return;
+        }
+        if (card.classList.contains("is-active")) { go(); return; }
         cards.forEach(other => {
           if (other !== card) other.classList.remove("is-active");
         });
@@ -3067,6 +3238,20 @@ void main(){
         });
       });
     });
+</script>
+<script>
+  (() => {
+    const groups = [...document.querySelectorAll("details.nv-breadcrumb__group")];
+    if (!groups.length) return;
+    groups.forEach(g => g.addEventListener("toggle", () => {
+      if (!g.open) return;
+      groups.forEach(o => { if (o !== g) o.open = false; });
+    }));
+    document.addEventListener("click", e => {
+      if (e.target.closest("details.nv-breadcrumb__group")) return;
+      groups.forEach(g => { g.open = false; });
+    });
+  })();
 </script>
 </body>
 </html>

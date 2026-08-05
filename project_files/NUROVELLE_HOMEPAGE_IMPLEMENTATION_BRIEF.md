@@ -112,14 +112,15 @@ Diese IDs müssen existieren:
 | Bereich | ID | Zweck |
 |---|---|---|
 | Hero | `#hero` | Startbereich |
-| Erster Schritt | `#ki-projekt-start` | Einstiegserklärung |
-| Potenzialanalyse | `#potenzialanalyse` | Analyse-Angebot |
-| Projektidee | `#projektidee` | konkrete Idee prüfen |
-| Leistungen | `#leistungen` | 11 Leistungs-Cards |
-| Prozess/Roadmap | `#prozess-zur-loesung` | Geschäftsprozess zu KI-Lösung |
 | Warum Nurovelle | `#warum-nurovelle` | Glaubwürdigkeit ohne Trust-Box |
-| Downloads | `#downloads` | Downloadbereich |
+| Erster Schritt | `#ki-projekt-start` | Einstiegserklärung 
+| Projektidee | `#projektidee` | konkrete Idee prüfen ||
+| Leistungen | `#leistungen` | 11 Leistungs-Cards |
+| Kompetenzen | Wo Nurovelle stark ist | Diagramm + Radar
+| Potenzialanalyse | `#potenzialanalyse` | Analyse-Angebot |
 | Potenzialanalyse / Anfrage | `analyse.html` | aktuelle Analyse-Seite mit Formular und API-Flow |
+| Prozess/Roadmap | `#prozess-zur-loesung` | Geschäftsprozess zu KI-Lösung |
+| Downloads | `#downloads` | Downloadbereich |
 
 CTA-Regel:
 
@@ -148,6 +149,7 @@ Diese Werte sind als CSS-Variablen anzulegen oder äquivalent im bestehenden CSS
   --gold-2: linear-gradient(135deg, #DFBD69, #926F34);
   --gold-3: linear-gradient(135deg, #F9F295, #E0AA3E, #FAF398, #B88A44);
   --gold-text-alt: linear-gradient(135deg, #C5A059 0%, #FDF0CD 50%, #D4AF37 100%);
+  --gold-4: 180deg, #b8892f → #f0d488 → #c8952a soft;
 
   --bg-green-1: linear-gradient(135deg, #0A1913 0%, #112A20 50%, #1D4234 100%);
   --bg-green-2: linear-gradient(180deg, #071412 0%, #163A35 100%);
@@ -176,19 +178,13 @@ Nicht verwenden:
 
 | Element | Schrift | Desktop | Mobile | Regel |
 |---|---:|---:|---:|---|
-| H1 | Bebas Neue | 64–88 px | 42–56 px | All Caps möglich, Goldverlauf erlaubt |
-| Section-H2 | Bebas Neue | 44–60 px | 34–42 px | Goldverlauf oder hell auf dunkel |
-| H3 / Card-Titel | Anca Coder / Coder Pro | 18–24 px | 17–21 px | technische Labels / Cards |
-| Body | Raleway oder Roboto | 17–19 px | 16–18 px | gut lesbar, keine zu engen Zeilen |
-| Label / Zahlen | Anca Coder / Coder Pro | 12–15 px | 12–14 px | technische Akzente |
-| Button | Raleway oder Roboto | 15–17 px | 15–16 px | klar, klickbar |
+| H1 | EXO2 | 64–88 px | 42–56 px | All Caps möglich, Goldverlauf erlaubt |
+| Section-H2 | Inter | 44–60 px | 34–42 px | Goldverlauf oder hell auf dunkel |
+| H3 / Card-Titel | EXO2 | 18–24 px | 17–21 px | technische Labels / Cards |
+| Body | Inter | 17–19 px | 16–18 px | gut lesbar, keine zu engen Zeilen |
+| Label / Zahlen | EXO2 | 12–15 px | 12–14 px | technische Akzente |
+| Button | EXO2 | 15–17 px | 15–16 px | klar, klickbar |
 
-Fallbacks:
-
-```css
-font-family: 'Bebas Neue', Impact, sans-serif;
-font-family: 'Anca Coder', 'Coder Pro', monospace;
-font-family: 'Raleway', 'Roboto', Arial, sans-serif;
 ```
 
 ---
@@ -2569,95 +2565,3 @@ Keine lange Leistungsbeschreibung, Unternehmensgeschichte oder technische Erklä
 - Kein bisheriger vollständiger Sektionstext darf ungeprüft als final verwendet werden.
 - Nur die in diesem Nachtrag wörtlich festgelegten Texte gelten als freigegeben.
 - Fehlende Texte dürfen nicht selbstständig erfunden, ergänzt oder aus alten Dateien übernommen werden.
-
----
-
-## 0.17 Nachtrag 2026-07-31 – Umsetzungsstand Startseite
-
-Dieser Nachtrag geht den Abschnitten 0.7 bis 0.9 vor, wo er ihnen widerspricht. Er beschreibt, was in `homepage/index.html` tatsächlich gebaut ist.
-
-### Schriften
-
-Nicht Bebas Neue / Anca Coder / Raleway, sondern **Exo 2** für Titel und **Inter** für alles Übrige. Inter wird mit den Schnitten 400, 500, 550, 600, 650, 700, 750, 800 geladen.
-
-### Typo-Rollensystem statt Größenbereiche
-
-Abschnitt 0.7 nennt Spannen. Gebaut ist stattdessen: jede Rolle hat genau eine Größe und genau ein Gewicht, hinterlegt als `--t-<rolle>` / `--w-<rolle>` in `:root`.
-
-| Rolle | Größe / Gewicht | Schrift |
-|---|---|---|
-| sektionstitel | clamp(48px, 7.5vw, 100px) / 800 | Exo 2 |
-| hero-kennzahl | 42 / 750 | Exo 2 |
-| kartentitel | 36 / 750 | Exo 2 |
-| kennzahl | 26 / 650 | Exo 2 |
-| subtitle | 24 / 600 | Inter |
-| zwischentitel | 24 / 600 | Exo 2 |
-| bulletlabel | 22 / 550 | Inter |
-| fliesstext | 20 / 400 | Inter |
-| kartenbullet | 20 / 500 | Inter |
-| feldlabel | 20 / 500 | Inter |
-| wert | 20 / 500 | Inter |
-| formularfeld | 20 / 400 | Inter |
-| kicker-sektion | 16 / 600 | Inter |
-| bildunterschrift | 16 / 500 | Exo 2 |
-| cta | 16 / 600 | Inter |
-| hero-statlabel | 16 / 400 | Inter |
-| kicker-karte | 15 / 600 | Inter |
-
-Bindend: kein Element darf kleiner und zugleich schwerer sein als ein größeres.
-
-### Skalierung
-
-`body { zoom: 0.8 }`. Alle Werte im Stylesheet sind CSS-Pixel, gerendert wird das 0.8-fache. Wer einen sichtbaren Wert vorgibt, teilt durch 0.8. Viewporthöhe deshalb `calc(125vh - var(--header-height))`. Hairlines brauchen 1.25px CSS, sonst fallen sie zwischen zwei Bildschirmzeilen und wirken blass.
-
-### Flächen – ersetzt 0.9 „Section-Hintergründe"
-
-Genau zwei Sektionsfarben im Wechsel:
-
-- dunkel `#050505`
-- grün `#010603`
-
-Karte auf dunkler Sektion `#17251d`, Karte auf grüner Sektion `#1a1a1a`, Elemente darauf `#17251d`. Reines `#000000` wird nicht verwendet.
-
-### Rahmen – ersetzt 0.9 „kein Goldrahmen um alle Cards"
-
-Karten tragen einen Goldrahmen. Alle Rahmen nutzen `--gold-3`, umgesetzt über die Doppel-Hintergrund-Technik, weil `border-image` den `border-radius` ignoriert:
-
-```css
-border: 1px solid transparent;
-background-image: linear-gradient(<Flächenfarbe>, <Flächenfarbe>), var(--gold-3);
-background-origin: border-box;
-background-clip: padding-box, border-box;
-```
-
-Die Flächenfarbe der ersten Ebene muss der Fläche des Elements entsprechen, sonst entsteht ein falscher Innenrand.
-
-### Radien
-
-8–12px, keine Pill-Form. Ersetzt die Vorgabe „runde Pill-Form" aus 0.9.
-
-### Breite
-
-Kein `max-width: 1200px`. Die Seite ist auf 2300px Entwurfsbreite gebaut, Sektionsrand über `--side: clamp(24px, 6vw, 120px)`.
-
-### Abschnittsreihenfolge
-
-1. Hero
-2. `warum-nurovelle`
-3. `ki-projekt-start`
-4. `projektidee`
-5. `leistungen`
-6. `kompetenzen`
-7. `potenzialanalyse`
-8. `prozess-zur-loesung`
-9. `kontakt`
-10. `downloads`
-11. `faq`
-12. Footer
-
-Alle Abschnitte auf Viewporthöhe mit vertikal zentriertem Inhalt. Ausnahmen: `leistungen` und `potenzialanalyse` dürfen scrollen.
-
-### Offen
-
-- Footer-Typografie: index1 nutzt 17px, 14px und 13px; unterhalb von 15px gibt es keine Rolle.
-- Kopfzeile im Download-Block bei 10px, ebenfalls ohne Rolle.
