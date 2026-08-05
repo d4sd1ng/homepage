@@ -22,5 +22,20 @@ jobs:
             git fetch origin main
             git reset --hard origin/main
             mkdir -p /opt/nurovell-potential-analysis/frontend/public/homepage
-            cp homepage/index.html /opt/nurovell-potential-analysis/frontend/public/homepage/index.html
+            rsync -a --delete \
+              --exclude='*.py' \
+              --exclude='*.xlsx' \
+              --exclude='*.blend' \
+              --exclude='*.blend1' \
+              --exclude='*backup*' \
+              --exclude='index1.html' \
+              --exclude='indexvor.html' \
+              --exclude='analyse1.html' \
+              --exclude='nurovelle_cheatsheet.html' \
+              --exclude='overwrite-audit.json' \
+              --exclude='potenzialanalyse-detail.html' \
+              --exclude='slack.md' \
+              --exclude='detailseiten/' \
+              --exclude='xcomponents/' \
+              homepage/ /opt/nurovell-potential-analysis/frontend/public/homepage/
             echo "Deployed commit: $(git rev-parse --short HEAD)"
