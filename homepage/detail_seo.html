@@ -415,18 +415,20 @@ button[disabled] { opacity: .58; cursor: not-allowed; }
 .page-seo #kontakt .sub { margin-bottom: 40px; }
 .chip-list li.pair-chip { min-height: 92px; padding: 6px 10px; border-radius: 10px; }
 @media (max-width: 900px) { .card-bullets { grid-template-columns: minmax(0,1fr); } }
-h1, main h2, .label-list strong, .num-list b, .result-strip h3, .form-panel h3, .gold {
+/* Glanzband nur auf den grossen Ueberschriften, nicht auf Kartentiteln,
+   Bullet-Labels oder Kleintext. */
+h1, main > section > .section-inner > h2 {
   filter: var(--gold-glow);
   -webkit-text-stroke: .6px rgba(255,248,207,.40);
   background-size: 250% auto;
-  animation: nv-gold-shine 6s linear infinite;
+  animation: nv-gold-shine 16s linear infinite;
 }
 @keyframes nv-gold-shine { to { background-position: 250% center; } }
-@media (prefers-reduced-motion: reduce) { h1, main h2, .label-list strong, .num-list b, .result-strip h3, .form-panel h3, .gold { animation: none; } }
+@media (prefers-reduced-motion: reduce) { h1, main > section > .section-inner > h2 { animation: none; } }
 /* Goldrahmen: metallischer Verlauf mit Lichtkante, dunkler Innenkante und wanderndem Glanzband */
 .visual-card, .panel, .form-panel, .result-strip, .pair-chip, .chip-list li, .chip-icon, .num-list li::before {
   background-size: 250% auto;
-  animation: nv-frame-shine 7s linear infinite;
+  animation: nv-frame-shine 18s linear infinite;
 }
 .visual-card, .panel, .form-panel, .result-strip, .pair-chip, .chip-list li { box-shadow: var(--frame-glow); }
 .chip-icon, .num-list li::before { box-shadow: 0 1px 0 rgba(255,255,220,.26) inset, 0 0 0 1px rgba(146,111,52,.55), 0 0 14px rgba(212,175,55,.14); }
@@ -546,12 +548,12 @@ h1, main h2, .label-list strong, .num-list b, .result-strip h3, .form-panel h3, 
 <p class="text">Der genaue Ablauf richtet sich nach Website-Umfang, technischer Ausgangslage und vorhandenen Inhalten. Die einzelnen Module verbinden strategische Planung, inhaltliche Optimierung und technische Prüfung.</p>
 <ol class="num-list">
 <li><img class="module-img" src="assets/Module/ziele.png" alt="" /><div><b>Zielsetzung</b><span>Leistungen, Zielgruppen, regionale Ausrichtung und gewünschte Anfragen werden festgelegt.</span></div></li>
-<li><img class="module-img" src="assets/Module/displsx_lupe_auge.png" alt="" /><div><b>Bestandsaufnahme</b><span>Seiten, Inhalte, Rankings, interne Verbindungen und technische Grundlagen werden erfasst.</span></div></li>
+<li><img class="module-img" src="assets/opt/Module/displsx_lupe_auge.jpg" alt="" /><div><b>Bestandsaufnahme</b><span>Seiten, Inhalte, Rankings, interne Verbindungen und technische Grundlagen werden erfasst.</span></div></li>
 <li><img class="module-img" src="assets/Module/lupe_keyword.png" alt="" /><div><b>Keyword-Recherche</b><span>Zentrale Leistungsbegriffe, problemorientierte Suchanfragen, Long-Tail-Keywords, regionale Begriffe und verwandte Themenfelder werden untersucht.</span></div></li>
 <li><img class="module-img" src="assets/Module/trichrter.png" alt="" /><div><b>Suchintention</b><span>Suchbegriffe werden nach Informations-, Problem-, Vergleichs-, Leistungs-, Lokal- und Aktionsabsicht eingeordnet.</span></div></li>
 <li><img class="module-img" src="assets/Module/ablauf.png" alt="" /><div><b>Seitenplanung</b><span>Suchbegriffe werden passenden Seiten, Seitentypen und Angeboten zugeordnet. Überschneidungen und konkurrierende Inhalte werden identifiziert.</span></div></li>
 <li><img class="module-img" src="assets/Module/valedierung.png" alt="" /><div><b>Content-Struktur</b><span>Hauptthemen, Unterthemen, Überschriften, Leistungsbeschreibungen, Nutzenargumente, Fragen und nächste Schritte werden entwickelt.</span></div></li>
-<li><img class="module-img" src="assets/Module/eingabe.png" alt="" /><div><b>OnPage-Optimierung</b><span>Seitentitel, Meta-Beschreibungen, Überschriften, Texte, URLs, Bildbeschreibungen, CTAs und interne Links werden angepasst.</span></div></li>
+<li><img class="module-img" src="assets/opt/Module/eingabe.jpg" alt="" /><div><b>OnPage-Optimierung</b><span>Seitentitel, Meta-Beschreibungen, Überschriften, Texte, URLs, Bildbeschreibungen, CTAs und interne Links werden angepasst.</span></div></li>
 <li><img class="module-img" src="assets/Module/klembrett.png" alt="" /><div><b>Technische Prüfung</b><span>Crawling, Indexierung, Weiterleitungen, Canonical-Tags, Sitemap, robots.txt, Performance, mobile Darstellung und strukturierte Daten werden kontrolliert.</span></div></li>
 <li><img class="module-img" src="assets/Module/weltkugel.png" alt="" /><div><b>Veröffentlichung</b><span>Optimierte Seiten werden geprüft, technisch bereitgestellt und für Suchmaschinen zugänglich gemacht.</span></div></li>
 <li><img class="module-img" src="assets/Module/hand_diagramm.png" alt="" /><div><b>Auswertung</b><span>Rankings, Impressionen, Klicks, Einstiegsseiten, Anfragen, Conversions und technische Fehler werden beobachtet und weiterentwickelt.</span></div></li>

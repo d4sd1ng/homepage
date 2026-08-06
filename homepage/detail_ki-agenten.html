@@ -415,18 +415,20 @@ button[disabled] { opacity: .58; cursor: not-allowed; }
 .page-agenten #kontakt .sub { margin-bottom: 40px; }
 .chip-list li.pair-chip { min-height: 92px; padding: 6px 10px; border-radius: 10px; }
 @media (max-width: 900px) { .card-bullets { grid-template-columns: minmax(0,1fr); } }
-h1, main h2, .label-list strong, .num-list b, .result-strip h3, .form-panel h3, .gold {
+/* Glanzband nur auf den grossen Ueberschriften, nicht auf Kartentiteln,
+   Bullet-Labels oder Kleintext. */
+h1, main > section > .section-inner > h2 {
   filter: var(--gold-glow);
   -webkit-text-stroke: .6px rgba(255,248,207,.40);
   background-size: 250% auto;
-  animation: nv-gold-shine 6s linear infinite;
+  animation: nv-gold-shine 16s linear infinite;
 }
 @keyframes nv-gold-shine { to { background-position: 250% center; } }
-@media (prefers-reduced-motion: reduce) { h1, main h2, .label-list strong, .num-list b, .result-strip h3, .form-panel h3, .gold { animation: none; } }
+@media (prefers-reduced-motion: reduce) { h1, main > section > .section-inner > h2 { animation: none; } }
 /* Goldrahmen: metallischer Verlauf mit Lichtkante, dunkler Innenkante und wanderndem Glanzband */
 .visual-card, .panel, .form-panel, .result-strip, .pair-chip, .chip-list li, .chip-icon, .num-list li::before {
   background-size: 250% auto;
-  animation: nv-frame-shine 7s linear infinite;
+  animation: nv-frame-shine 18s linear infinite;
 }
 .visual-card, .panel, .form-panel, .result-strip, .pair-chip, .chip-list li { box-shadow: var(--frame-glow); }
 .chip-icon, .num-list li::before { box-shadow: 0 1px 0 rgba(255,255,220,.26) inset, 0 0 0 1px rgba(146,111,52,.55), 0 0 14px rgba(212,175,55,.14); }
@@ -555,13 +557,13 @@ h1, main h2, .label-list strong, .num-list b, .result-strip h3, .form-panel h3, 
 <p class="text">Die tatsächliche Zusammensetzung richtet sich nach Aufgabe, Systemlandschaft und gewünschtem Automatisierungsgrad.</p>
 <ol class="num-list">
 <li><img class="module-img" src="assets/Module/mail_bot.png" alt="" /><div><b>Eingang</b><span>Anfragen, Aufgaben oder Systemmeldungen erfassen.</span></div></li>
-<li><img class="module-img" src="assets/Module/displsx_lupe_auge.png" alt="" /><div><b>Kontext</b><span>Thema, Vorgang und Zuständigkeit bestimmen.</span></div></li>
+<li><img class="module-img" src="assets/opt/Module/displsx_lupe_auge.jpg" alt="" /><div><b>Kontext</b><span>Thema, Vorgang und Zuständigkeit bestimmen.</span></div></li>
 <li><img class="module-img" src="assets/Module/speicher_vernetzt.png" alt="" /><div><b>Datenzugriff</b><span>Benötigte Informationen aus freigegebenen Quellen abrufen.</span></div></li>
 <li><img class="module-img" src="assets/Module/datenanalyse.png" alt="" /><div><b>Prüfung</b><span>Fehlende, widersprüchliche oder unvollständige Angaben erkennen.</span></div></li>
 <li><img class="module-img" src="assets/Module/papierstapel.png" alt="" /><div><b>Vorbereitung</b><span>Antworten, Aufgaben oder Entscheidungsvorlagen erstellen.</span></div></li>
 <li><img class="module-img" src="assets/Module/prozesse.png" alt="" /><div><b>Aktion</b><span>Freigegebene Schritte in verbundenen Systemen ausführen.</span></div></li>
 <li><img class="module-img" src="assets/Module/freigabe.png" alt="" /><div><b>Übergabe</b><span>Unklare oder sensible Fälle mit dem vorhandenen Kontext an eine zuständige Person weiterleiten.</span></div></li>
-<li><img class="module-img" src="assets/Module/dokumente.png" alt="" /><div><b>Dokumentation</b><span>Bearbeitung und ausgeführte Aktionen nachvollziehbar protokollieren.</span></div></li>
+<li><img class="module-img" src="assets/opt/Module/dokumente.jpg" alt="" /><div><b>Dokumentation</b><span>Bearbeitung und ausgeführte Aktionen nachvollziehbar protokollieren.</span></div></li>
 </ol>
 </div></section>
 <section class="section" id="anwendung"><div class="section-inner">

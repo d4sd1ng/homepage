@@ -415,18 +415,20 @@ button[disabled] { opacity: .58; cursor: not-allowed; }
 .page-daten #kontakt .sub { margin-bottom: 40px; }
 .chip-list li.pair-chip { min-height: 92px; padding: 6px 10px; border-radius: 10px; }
 @media (max-width: 900px) { .card-bullets { grid-template-columns: minmax(0,1fr); } }
-h1, main h2, .label-list strong, .num-list b, .result-strip h3, .form-panel h3, .gold {
+/* Glanzband nur auf den grossen Ueberschriften, nicht auf Kartentiteln,
+   Bullet-Labels oder Kleintext. */
+h1, main > section > .section-inner > h2 {
   filter: var(--gold-glow);
   -webkit-text-stroke: .6px rgba(255,248,207,.40);
   background-size: 250% auto;
-  animation: nv-gold-shine 6s linear infinite;
+  animation: nv-gold-shine 16s linear infinite;
 }
 @keyframes nv-gold-shine { to { background-position: 250% center; } }
-@media (prefers-reduced-motion: reduce) { h1, main h2, .label-list strong, .num-list b, .result-strip h3, .form-panel h3, .gold { animation: none; } }
+@media (prefers-reduced-motion: reduce) { h1, main > section > .section-inner > h2 { animation: none; } }
 /* Goldrahmen: metallischer Verlauf mit Lichtkante, dunkler Innenkante und wanderndem Glanzband */
 .visual-card, .panel, .form-panel, .result-strip, .pair-chip, .chip-list li, .chip-icon, .num-list li::before {
   background-size: 250% auto;
-  animation: nv-frame-shine 7s linear infinite;
+  animation: nv-frame-shine 18s linear infinite;
 }
 .visual-card, .panel, .form-panel, .result-strip, .pair-chip, .chip-list li { box-shadow: var(--frame-glow); }
 .chip-icon, .num-list li::before { box-shadow: 0 1px 0 rgba(255,255,220,.26) inset, 0 0 0 1px rgba(146,111,52,.55), 0 0 14px rgba(212,175,55,.14); }
@@ -557,16 +559,16 @@ h1, main h2, .label-list strong, .num-list b, .result-strip h3, .form-panel h3, 
 <p class="sub">Zehn Schritte von der Datenquelle bis zum geprüften Ergebnis.</p>
 <p class="text">Die tatsächliche Zusammensetzung richtet sich nach Informationsart, Systemlandschaft und gewünschter Verarbeitungstiefe.</p>
 <ol class="num-list">
-<li><img class="module-img" src="assets/Module/eingabe.png" alt="" /><div><b>Eingang</b><span>Dokumente, Dateien oder Datensätze werden übernommen.</span></div></li>
-<li><img class="module-img" src="assets/Module/displsx_lupe_auge.png" alt="" /><div><b>Erkennung</b><span>Dateityp, Dokumentenart und vorhandene Struktur werden bestimmt.</span></div></li>
+<li><img class="module-img" src="assets/opt/Module/eingabe.jpg" alt="" /><div><b>Eingang</b><span>Dokumente, Dateien oder Datensätze werden übernommen.</span></div></li>
+<li><img class="module-img" src="assets/opt/Module/displsx_lupe_auge.jpg" alt="" /><div><b>Erkennung</b><span>Dateityp, Dokumentenart und vorhandene Struktur werden bestimmt.</span></div></li>
 <li><img class="module-img" src="assets/Module/papierstapel.png" alt="" /><div><b>Extraktion</b><span>Relevante Inhalte und Datenfelder werden ausgelesen.</span></div></li>
 <li><img class="module-img" src="assets/Module/speicher_sortierung.png" alt="" /><div><b>Aufbereitung</b><span>Formate, Schreibweisen und Datenstrukturen werden vereinheitlicht.</span></div></li>
 <li><img class="module-img" src="assets/Module/valedierung.png" alt="" /><div><b>Validierung</b><span>Pflichtangaben, Formate und grundlegende Werte werden geprüft.</span></div></li>
 <li><img class="module-img" src="assets/Module/datenabgleich.png" alt="" /><div><b>Abgleich</b><span>Informationen werden mit Referenzdaten oder weiteren Quellen verglichen.</span></div></li>
-<li><img class="module-img" src="assets/Module/display_data_ai.png" alt="" /><div><b>Bewertung</b><span>Abweichungen werden nach Art, Ursache und Relevanz eingeordnet.</span></div></li>
+<li><img class="module-img" src="assets/opt/Module/display_data_ai.jpg" alt="" /><div><b>Bewertung</b><span>Abweichungen werden nach Art, Ursache und Relevanz eingeordnet.</span></div></li>
 <li><img class="module-img" src="assets/Module/team.png" alt="" /><div><b>Übergabe</b><span>Unklare oder kritische Fälle werden mit dem vollständigen Vergleichskontext zur Prüfung weitergeleitet.</span></div></li>
 <li><img class="module-img" src="assets/Module/speicher_vernetzt.png" alt="" /><div><b>Aktualisierung</b><span>Freigegebene Daten werden in Zielsysteme übertragen oder bestehende Datensätze aktualisiert.</span></div></li>
-<li><img class="module-img" src="assets/Module/dokumente.png" alt="" /><div><b>Dokumentation</b><span>Ergebnisse, Abweichungen, Prüfungen und Änderungen werden protokolliert.</span></div></li>
+<li><img class="module-img" src="assets/opt/Module/dokumente.jpg" alt="" /><div><b>Dokumentation</b><span>Ergebnisse, Abweichungen, Prüfungen und Änderungen werden protokolliert.</span></div></li>
 </ol>
 <h3>Weitere Bestandteile</h3>
 <h3>Dokumentenverarbeitung</h3><p class="text">Dokumente können automatisiert erkannt, klassifiziert und in definierte Datenfelder überführt werden. Die Verarbeitung wird auf konkrete Dokumenttypen und benötigte Informationen begrenzt.</p><ul class="card-bullets"><li>Rechnungen</li><li>Angebote</li><li>Verträge</li><li>Bestellungen</li><li>Lieferscheine</li><li>Berichte</li><li>technische Unterlagen</li><li>Formulare</li><li>Richtlinien</li><li>E-Mail-Anhänge</li></ul><h3>Datenaufbereitung</h3><p class="text">Unterschiedliche Schreibweisen, Felder und Formate werden in eine konsistente Struktur überführt.</p><ul class="card-bullets"><li>Spalten und Felder zuordnen</li><li>Datums- und Zahlenformate vereinheitlichen</li><li>Schreibweisen normalisieren</li><li>fehlende Werte kennzeichnen</li><li>Dubletten erkennen</li><li>Datensätze zusammenführen</li><li>Kategorien und Wertebereiche standardisieren</li><li>fehlerhafte Eingaben markieren</li></ul><h3>Datenabgleich</h3><p class="text">Datensätze aus mehreren Quellen werden anhand definierter Merkmale miteinander verglichen. Exakte Regeln und tolerante Ähnlichkeitsprüfungen können abhängig vom Anwendungsfall kombiniert werden.</p><ul class="card-bullets"><li>Bestellung gegen Rechnung</li><li>Vertrag gegen Stammdaten</li><li>Formular gegen CRM-Eintrag</li><li>Produktliste gegen Warenwirtschaft</li><li>Lieferantendaten gegen Referenzdaten</li><li>Dokumentversion gegen aktuelle Vorlage</li><li>Systemexport gegen Datenbankbestand</li><li>neue Datensätze gegen vorhandene Dubletten</li></ul><ul class="label-list"><li><strong>Anonymisierung</strong>Personenbezogene oder vertrauliche Informationen können erkannt, maskiert oder durch neutrale Platzhalter ersetzt werden. Regeln und Umfang richten sich nach Datenart und vorgesehener Weiterverarbeitung.</li><li><strong>Menschliche Prüfung</strong>Eindeutige Standardfälle werden automatisch verarbeitet. Unklare, kritische oder unsichere Fälle werden gezielt an Mitarbeitende übergeben, statt den gesamten Prozess manuell durchführen zu müssen.</li><li><strong>Datenqualität</strong>Wiederkehrende Prüfungen zeigen, wo Fehler entstehen, welche Quellen regelmäßig unvollständige Angaben liefern und wo systematische Abweichungen zwischen Datensätzen bestehen.</li></ul>
