@@ -412,18 +412,24 @@ button[disabled] { opacity: .58; cursor: not-allowed; }
 .page-chat #kontakt .sub { margin-bottom: 40px; }
 .chip-list li.pair-chip { min-height: 92px; padding: 6px 10px; border-radius: 10px; }
 @media (max-width: 900px) { .card-bullets { grid-template-columns: minmax(0,1fr); } }
-h1, main h2, .label-list strong, .num-list b, .result-strip h3, .form-panel h3, .gold {
+/* Glanzband nur auf den grossen Ueberschriften, nicht auf Kartentiteln,
+   Bullet-Labels oder Kleintext. */
+h1, main > section > .section-inner > h2 {
   filter: var(--gold-glow);
   -webkit-text-stroke: .6px rgba(255,248,207,.40);
   background-size: 250% auto;
-  animation: nv-gold-shine 6s linear infinite;
+  animation: nv-gold-shine 18s linear infinite;
 }
-@keyframes nv-gold-shine { to { background-position: 250% center; } }
-@media (prefers-reduced-motion: reduce) { h1, main h2, .label-list strong, .num-list b, .result-strip h3, .form-panel h3, .gold { animation: none; } }
+@keyframes nv-gold-shine {
+  0%   { background-position: 0% center; }
+  33%  { background-position: 250% center; }   /* Durchlauf in 6s wie zuvor */
+  100% { background-position: 250% center; }   /* danach 12s Pause */
+}
+@media (prefers-reduced-motion: reduce) { h1, main > section > .section-inner > h2 { animation: none; } }
 /* Goldrahmen: metallischer Verlauf mit Lichtkante, dunkler Innenkante und wanderndem Glanzband */
 .visual-card, .panel, .form-panel, .result-strip, .pair-chip, .chip-list li, .chip-icon, .num-list li::before {
   background-size: 250% auto;
-  animation: nv-frame-shine 7s linear infinite;
+  animation: nv-frame-shine 18s linear infinite;
 }
 .visual-card, .panel, .form-panel, .result-strip, .pair-chip, .chip-list li { box-shadow: var(--frame-glow); }
 .chip-icon, .num-list li::before { box-shadow: 0 1px 0 rgba(255,255,220,.26) inset, 0 0 0 1px rgba(146,111,52,.55), 0 0 14px rgba(212,175,55,.14); }
@@ -436,7 +442,11 @@ h1, main h2, .label-list strong, .num-list b, .result-strip h3, .form-panel h3, 
   background-size: 250% auto, auto, 250% auto;
   box-shadow: var(--frame-glow), inset 0 0 0 1px rgba(255,244,199,.20);
 }
-@keyframes nv-frame-shine { to { background-position: 250% center; } }
+@keyframes nv-frame-shine {
+  0%   { background-position: 0% center; }
+  33%  { background-position: 250% center; }
+  100% { background-position: 250% center; }
+}
 @media (prefers-reduced-motion: reduce) { .visual-card, .panel, .form-panel, .result-strip, .pair-chip, .chip-list li, .chip-icon, .num-list li::before { animation: none; } }
 /* ==========================================================================
    MOBIL — Desktop-Raster wird einspaltig
@@ -552,12 +562,12 @@ h1, main h2, .label-list strong, .num-list b, .result-strip h3, .form-panel h3, 
 <ol class="num-list">
 <li><img class="module-img" src="assets/Module/mail_bot.png" alt="" /><div><b>Eingang</b><span>Die Anfrage wird über Website, internes System oder einen anderen Kommunikationskanal erfasst.</span></div></li>
 <li><img class="module-img" src="assets/Module/chip_gehirn.png" alt="" /><div><b>Erkennung</b><span>Thema, Absicht und zuständiger Anwendungsbereich werden bestimmt.</span></div></li>
-<li><img class="module-img" src="assets/Module/displsx_lupe_auge.png" alt="" /><div><b>Kontext</b><span>Gesprächsverlauf, vorhandene Angaben und relevante Vorgangsdaten werden berücksichtigt.</span></div></li>
+<li><img class="module-img" src="assets/opt/Module/displsx_lupe_auge.jpg" alt="" /><div><b>Kontext</b><span>Gesprächsverlauf, vorhandene Angaben und relevante Vorgangsdaten werden berücksichtigt.</span></div></li>
 <li><img class="module-img" src="assets/Module/austausch.png" alt="" /><div><b>Rückfrage</b><span>Fehlende oder unklare Informationen werden gezielt ergänzt.</span></div></li>
 <li><img class="module-img" src="assets/Module/papierstapel.png" alt="" /><div><b>Wissenszugriff</b><span>Passende Inhalte werden aus freigegebenen Dokumenten, Datenquellen oder Systemen abgerufen.</span></div></li>
 <li><img class="module-img" src="assets/Module/austausch2.png" alt="" /><div><b>Antwort</b><span>Eine verständliche und zum Anliegen passende Auskunft wird erstellt.</span></div></li>
 <li><img class="module-img" src="assets/Module/freigabe.png" alt="" /><div><b>Übergabe</b><span>Komplexe, sensible oder nicht eindeutig lösbare Fälle werden mit vollständigem Kontext weitergeleitet.</span></div></li>
-<li><img class="module-img" src="assets/Module/dokumente.png" alt="" /><div><b>Dokumentation</b><span>Anfrage, Antwort, Übergabe und relevante Bearbeitungsschritte werden nachvollziehbar gespeichert.</span></div></li>
+<li><img class="module-img" src="assets/opt/Module/dokumente.jpg" alt="" /><div><b>Dokumentation</b><span>Anfrage, Antwort, Übergabe und relevante Bearbeitungsschritte werden nachvollziehbar gespeichert.</span></div></li>
 </ol>
 </div></section>
 <section class="section" id="anwendung"><div class="section-inner">

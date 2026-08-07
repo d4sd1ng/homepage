@@ -426,7 +426,7 @@ a:active .golden-button {
 .nv-step-item:nth-child(3) { --nv-step-offset: 1172px; margin-top: -419px; }
  /* offset was 1200px/800px/930px/1042px real; margin-top -200px -> -300px to tighten card-to-card vertical spacing so Section 3 CTAs fit the viewport per explicit instruction */
 .nv-step-ladder.is-visible .nv-step-item {
-  animation: nv-step-enter 700ms cubic-bezier(0.22, 1, 0.36, 1) both;
+  animation: nv-step-enter 420ms cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 
   from { opacity: 0; transform: translateX(calc(-100% - var(--nv-step-offset))); }
@@ -454,8 +454,8 @@ a:active .golden-button {
   font-size: var(--t-subtitle); line-height: 1.22; font-weight: var(--w-subtitle); margin: 0 0 116px; }
 .nv-step-item { --nv-step-offset: 0px; display: block; width: var(--nv-step-card-width); overflow: hidden; margin-left: var(--nv-step-offset); opacity: 0; transform: translateX(calc(-100% - var(--nv-step-offset))); }
 .nv-step-item:nth-child(1) { margin-top: 98px; }
-.nv-step-ladder.is-visible .nv-step-item:nth-child(2) { animation-delay: 950ms; }
-.nv-step-ladder.is-visible .nv-step-item:nth-child(3) { animation-delay: 1900ms; }
+.nv-step-ladder.is-visible .nv-step-item:nth-child(2) { animation-delay: 140ms; }
+.nv-step-ladder.is-visible .nv-step-item:nth-child(3) { animation-delay: 280ms; }
 .nv-step-card { position: relative; width: 535px; /* shrunk 15% from 630px */
   aspect-ratio: 470 / 360; padding: 67px 44px 47px; /* was 69px 45px 48px real / 46px 30px 32px / 54px 35px 37px / 60px 39px 42px last passes */
   display: flex; flex-direction: column; justify-content: flex-start;
@@ -472,9 +472,9 @@ a:active .golden-button {
   right: 120px; /* was 123px real / 82px / 95px / 107px last passes */
   bottom: 213px; /* was 218px real / 145px / 169px / 189px last passes */
   opacity: 0; }
-.nv-step-ladder.is-visible .nv-step-item:nth-child(1) .nv-step-card__content { animation: nv-step-content-reveal 250ms linear 700ms forwards; }
-.nv-step-ladder.is-visible .nv-step-item:nth-child(2) .nv-step-card__content { animation: nv-step-content-reveal 250ms linear 1650ms forwards; }
-.nv-step-ladder.is-visible .nv-step-item:nth-child(3) .nv-step-card__content { animation: nv-step-content-reveal 250ms linear 2600ms forwards; }@media (prefers-reduced-motion: reduce) {
+.nv-step-ladder.is-visible .nv-step-item:nth-child(1) .nv-step-card__content { animation: nv-step-content-reveal 200ms linear 300ms forwards; }
+.nv-step-ladder.is-visible .nv-step-item:nth-child(2) .nv-step-card__content { animation: nv-step-content-reveal 200ms linear 440ms forwards; }
+.nv-step-ladder.is-visible .nv-step-item:nth-child(3) .nv-step-card__content { animation: nv-step-content-reveal 200ms linear 580ms forwards; }@media (prefers-reduced-motion: reduce) {
   .nv-step-item { opacity: 1; transform: none; animation: none; }
   .nv-step-card__content { opacity: 1; animation: none; }
 }
@@ -729,17 +729,7 @@ a:active .golden-button {
   .nv-about__media { width: 100%; margin-left: 0; }
 
   .nv-step-ladder { left: auto; width: 100%; transform: none; }
-  .nv-step-item,
-  .nv-step-item:nth-child(2),
-  .nv-step-item:nth-child(3) {
-    --nv-step-offset: 0px;
-    width: min(100%, 332px); /* was 340px real / 227px / 264px / 295px last passes */
-    margin-top: 0;
-    margin-right: auto;
-    margin-left: auto;
-  }
-  .nv-step-card { width: min(100%, 332px); padding: 43px 23px 29px; } /* was 340px/44px 24px 30px real, 227px/29px 16px 20px, 264px/34px 19px 23px & 295px/38px 21px 26px last passes */
-  .nv-step-card__content { left: calc(96px - 3.5ch); right: 63px; } /* was 98px/65px real, 65px/43px, 76px/50px & 85px/56px last passes */
+  /* step-card layout for this width is fully handled in the @media (max-width: 900px) block below */
 
   .nvp4-projectidea { padding: 72px var(--side) 84px; } /* real 639px override */
   .nvp4-projectidea__content { text-align: left; margin-bottom: 34px; }
@@ -1039,7 +1029,7 @@ canvas.nv-step-viz {
 .download-display__header { display: flex; align-items: center; justify-content: space-between; gap: var(--nv-space-2xl); min-height: 38px; padding: 0 var(--nv-space-xs) var(--nv-space-sm); border-bottom: 1px solid rgba(212, 175, 55, 0.26); color: #d4af37; font: 700 10px/1 Inter, Arial, sans-serif; letter-spacing: 0.12em; }
 .download-display__grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; padding-top: var(--nv-space-md); perspective: 1100px; }
 .download-item { position: relative; display: grid; grid-template-columns: 62px minmax(0, 1fr); grid-template-rows: auto 1fr auto; column-gap: 14px; row-gap: 8px; min-width: 0; min-height: 245px; padding: 14px; overflow: hidden; border: 1px solid transparent; border-radius: 12px; background: linear-gradient(#000000, #000000) padding-box, var(--gold-3) border-box; transform-style: preserve-3d; transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1); }
-.download-item::before { content: ""; position: absolute; inset: 0; z-index: 0; background: linear-gradient(135deg, rgba(0, 0, 0, 0.78), rgba(0, 0, 0, 0.92)), url("assets/cards/cards_service/1_neu.png") center / cover no-repeat; opacity: 0.5; pointer-events: none; transition: opacity 0.35s ease; }
+.download-item::before { content: ""; position: absolute; inset: 0; z-index: 0; background: linear-gradient(135deg, rgba(0, 0, 0, 0.78), rgba(0, 0, 0, 0.92)), url("assets/opt/cards/cards_service/1_neu.jpg") center / cover no-repeat; opacity: 0.5; pointer-events: none; transition: opacity 0.35s ease; }
 .download-item::after { content: ""; position: absolute; inset: 0; z-index: 1; background: radial-gradient( circle at 30% 0%, rgba(250, 227, 133, 0.16), transparent 55% ); opacity: 0; pointer-events: none; transition: opacity 0.35s ease; }
 .download-item > * { position: relative; z-index: 2; }
 .download-item:hover, .download-item:focus-within { transform: rotateX(5deg) rotateY(-5deg) translateZ(6px); }
@@ -1231,42 +1221,42 @@ canvas.nv-step-viz {
           background: #1f5f3b;
         }
       }
-.nv-step-card h3,
-.nv-s7-card__uses h4,
-.nv-s7-card__number,
-.nv-s7-card__heading h3,
-.nv-s7-card__result h4,
-.nv-about__mini b,
+/* Glanzband nur auf den grossen Sektionsueberschriften -- nicht auf
+   Kartentiteln, Kennzahlen oder Kleintext. */
+.hero h1,
+.nv-about__title,
+.nv-section-step__content h2,
+.nvp4-projectidea__title,
+.nv-s7__title,
 .nv-comp__title,
-.nv-comp__radar h3,
 .nv-analyse__title,
-.nv-acard__title,
-.nv-aform > h3,
-.nv-agauge__pct,
-.nv-ametrics b,
-.hero-stat b,
 .nv-process__title,
 .nv-contact__title,
-.nv-contact__portrait h3,
-.nv-contact__card h3,
-.download-item h3,
 .downloads-section__title,
-.gold {
+.nv-resource-section__title {
   filter: var(--gold-glow);
   -webkit-text-stroke: .6px rgba(255,248,207,.40);
   background-size: 250% auto;
-  animation: nv-gold-shine 6s linear infinite;
+  animation: nv-gold-shine 18s linear infinite;
 }
-@keyframes nv-gold-shine { to { background-position: 250% center; } }
-@media (prefers-reduced-motion: reduce) { .nv-step-card h3, .nv-s7-card__uses h4, .nv-s7-card__number, .nv-s7-card__heading h3, .nv-s7-card__result h4, .nv-about__mini b, .nv-comp__title, .nv-comp__radar h3, .nv-analyse__title, .nv-acard__title, .nv-aform > h3, .nv-agauge__pct, .nv-ametrics b, .hero-stat b, .nv-process__title, .nv-contact__title, .nv-contact__portrait h3, .nv-contact__card h3, .download-item h3, .downloads-section__title, .gold { animation: none; } }
+@keyframes nv-gold-shine {
+  0%   { background-position: 0% center; }
+  33%  { background-position: 250% center; }   /* Durchlauf in 6s wie zuvor */
+  100% { background-position: 250% center; }   /* danach 12s Pause */
+}
+@media (prefers-reduced-motion: reduce) { .hero h1, .nv-about__title, .nv-section-step__content h2, .nvp4-projectidea__title, .nv-s7__title, .nv-comp__title, .nv-analyse__title, .nv-process__title, .nv-contact__title, .downloads-section__title, .nv-resource-section__title { animation: none; } }
 /* Goldrahmen: metallischer Verlauf mit Lichtkante, dunkler Innenkante und wanderndem Glanzband */
 .nv-s7-card__result, .nv-about__mini > div, .nv-comp__radar, .nv-ametrics > div, .nv-aform__row, .nv-about__play {
   background-size: 250% auto;
-  animation: nv-frame-shine 7s linear infinite;
+  animation: nv-frame-shine 18s linear infinite;
   box-shadow: var(--frame-glow);
 }
 .nv-about__media { box-shadow: var(--frame-glow); }
-@keyframes nv-frame-shine { to { background-position: 250% center; } }
+@keyframes nv-frame-shine {
+  0%   { background-position: 0% center; }
+  33%  { background-position: 250% center; }
+  100% { background-position: 250% center; }
+}
 @media (prefers-reduced-motion: reduce) { .nv-s7-card__result, .nv-about__mini > div, .nv-comp__radar, .nv-ametrics > div, .nv-aform__row, .nv-about__play { animation: none; } }
 /* ==========================================================================
    MOBIL — ab hier wird die Desktop-Rasterbreite aufgeloest
@@ -1291,9 +1281,11 @@ canvas.nv-step-viz {
 
   /* Feste Spaltenbreiten aufloesen */
   :root { --nv-about-text-width: 100%; --nv-step-card-width: 100%; }
-  .nv-step-ladder, .nv-step-card { width: 100%; }
   .nvp4-projectidea__image, .nvp4-projectidea__image--wide { width: 100%; }
-  .nv-comp__radar-stage { width: 100%; }
+  /* Radar: Achsenbeschriftungen sind absolut um die 576px-Buehne gesetzt.
+     Buehne schmaler machen wuerde sie abschneiden, also verkleinern. */
+  .nv-comp__radar-stage { width: 576px; zoom: 0.66; }
+  .nv-comp__radar { padding: 16px 8px; }
   .nv-analyse__grid > :nth-child(2) { width: 100%; max-width: 100%; padding: 18px; }
   .nv-arange label, .nv-arange input[type=range] { width: 100%; }
   .nv-contact__grid { grid-template-columns: minmax(0,1fr); width: 100%; margin-top: 0; }
@@ -1308,10 +1300,6 @@ canvas.nv-step-viz {
   .nv-aseg { flex-wrap: wrap; }
   .nv-aseg button { flex: 1 1 96px; min-width: 96px; }
   .nv-ametrics { grid-template-columns: repeat(2, minmax(0,1fr)); }
-
-  /* Prozessband horizontal scrollbar statt abgeschnitten */
-  .nv-process__track { overflow-x: auto; scrollbar-width: none; }
-  .nv-process__track::-webkit-scrollbar { display: none; }
 
   /* Titel sind auf Desktop auf Inhaltsbreite fixiert und duerfen hier umbrechen */
   .nvp4-projectidea__title, .nv-s7__title, .nv-analyse__title, .nvp4-projectidea__text {
@@ -1330,30 +1318,19 @@ canvas.nv-step-viz {
   .nv-acard__col { min-width: 0; }
   .nv-about__mediacol, .nv-about__bullets { max-width: 100%; }
 
-  /* Leistungskarten: ohne Hover bleibt am Telefon alles dauerhaft sichtbar.
-     Dafuer muss das absolut positionierte Desktop-Layout in den Fluss. */
-  .nv-s7-card { display: flex; flex-direction: column; height: auto; min-height: 0; padding: 22px 18px; opacity: 1; transform: none; }
-  .nv-s7-card::before, .nv-s7-card::after { opacity: 1; }
-  .nv-s7-card__visual { position: absolute; inset: 0; width: 100%; height: 100%; opacity: .22; }
-  .nv-s7-card__main, .nv-s7-card__left, .nv-s7-card__heading,
-  .nv-s7-card__short-rule, .nv-s7-card__points, .nv-s7-card__result {
-    position: static; inset: auto; width: auto; height: auto; min-height: 0;
-    opacity: 1; transform: none;
+  /* Leistungskarten: Desktop-Layout unveraendert, nur per zoom verkleinert
+     und alle Hover-Zustaende dauerhaft aufgedeckt. */
+  .nv-s7-card, .nv-s7-card:nth-child(10), .nv-s7-card:nth-child(11) {
+    width: 900px; height: 512px; min-height: 512px; margin-left: 0; left: auto;
+    justify-self: center; opacity: 1; transform: none; zoom: 0.46;
+    border-color: #f7ef8a;
   }
-  .nv-s7-card__main { order: 1; }
-  .nv-s7-card__left { order: 2; padding: 0; }
-  .nv-s7-card__divider { display: none; }
-  .nv-s7-card__heading { gap: 14px; margin-bottom: 14px; }
-  .nv-s7-card__number { width: 54px; height: 58px; flex: 0 0 54px; }
-  .nv-s7-card__heading h3 { font-size: 26px; }
-  .nv-s7-card__heading p { margin-top: 8px; font-size: 14px; }
-  .nv-s7-card__short-rule { margin: 14px 0; }
-  .nv-s7-card__points { margin: 0 0 18px; }
-  .nv-s7-card__result { margin-top: 14px; padding: 12px 14px; }
-  .nv-s7-card__iconbox, .nv-s7-card__iconbox img { width: 64px; height: 64px; }
-  .nv-s7-card__iconbox { margin: 0 0 14px; place-items: start; }
-  .nv-s7-card__uses li { font-size: 15px; }
-  .nv-s7-card:nth-child(10), .nv-s7-card:nth-child(11) { margin-left: 0; }
+  .nv-s7-card::before, .nv-s7-card::after { opacity: 1; }
+  .nv-s7-card__visual { opacity: 1; }
+  .nv-s7-card__left { opacity: 1; transform: none; padding: 39px 20px; }
+  .nv-s7-card__divider { display: block; opacity: 1; }
+  .nv-s7-card__short-rule, .nv-s7-card__points { opacity: 1; transform: none; }
+  .nv-s7-card__result { opacity: 1; transform: translate(-50%, -50%); }
 
   /* Desktop-Einzuege der Potenzialanalyse zuruecknehmen */
   .nv-analyse__intro, .nv-ainfo { margin-left: 0; max-width: 100%; }
@@ -1361,16 +1338,53 @@ canvas.nv-step-viz {
   .nv-about__media { margin-left: 0; }
   .nv-about__bullets { width: 100%; margin-left: 0; }
 
-  /* Stufenleiter: die gestaffelten Karten stapeln sich */
-  .nv-step-item { --nv-step-offset: 0px; width: 100%; }
+  /* Stufenleiter: Kartenlayout bleibt exakt wie am Desktop, nur verkleinert.
+     Der Inhalt ist absolut auf die 535x410-Karte gesetzt; wird er in den
+     Fluss geholt, laeuft der Text aus der Glasplatte heraus. */
+  .nv-step-ladder { width: 100%; }
+  .nv-step-item, .nv-step-item:nth-child(2), .nv-step-item:nth-child(3) {
+    --nv-step-offset: 0px !important; margin-left: 0 !important; margin-top: 0;
+    width: 535px; zoom: 0.8;
+  }
   .nv-step-item:nth-child(1) { margin-top: 0; }
-  .nv-step-item:nth-child(2), .nv-step-item:nth-child(3) { margin-top: 32px; }
+  .nv-step-item:nth-child(2), .nv-step-item:nth-child(3) { margin-top: 24px; }
+  /* Text sitzt auf der Glasplatte statt darueber; die dekorative
+     Canvas-Grafik darunter weicht, sonst waere er unlesbar. */
+  .nv-step-item .nv-step-card__content {
+    left: 9%; right: 13%; top: 9%; bottom: auto; width: auto; text-align: left;
+  }
+  canvas.nv-step-viz { display: none; }
   .nv-step-item:nth-child(1) .nv-step-card,
   .nv-step-item:nth-child(3) .nv-step-card { transform: none; }
-  .nv-step-item .nv-step-card__content { position: static; width: 100%; }
+  .nv-step-card { width: 535px; }
+  .nv-section-step { min-height: auto; }
+  .nv-section-step__actions { margin-top: 48px; }
+
+  /* Analyse-Formular: mehrere feste, hoeher-spezifische Desktop-Layouts
+     (nth-child-Selektoren auf .nv-acard__split, feste Rasterspalten auf
+     .nv-ametrics und .nv-aform__grid) schlugen die einfachen Klassen-Regeln
+     oben aus, weil sie ausserhalb der Media Query stehen und hoehere
+     Spezifitaet haben. Hier deshalb gezielt mit !important erzwungen. */
+  .nv-acard__split,
+  .nv-analyse__grid > :nth-child(1) .nv-acard__split,
+  .nv-analyse__grid > :nth-child(2) .nv-acard__split {
+    grid-template-columns: minmax(0,1fr) !important;
+    justify-content: normal !important;
+    column-gap: 0 !important;
+  }
+  .nv-agauge-wrap, .nv-acard__col { min-width: 0; }
+  .nv-ametrics { grid-template-columns: repeat(2, minmax(0,1fr)) !important; }
+  .nv-ametrics > div { min-width: 0; }
+  .nv-ametrics span { overflow-wrap: break-word; }
+  .nv-aform__grid { grid-template-columns: minmax(0,1fr) !important; }
+  .nv-aform__grid > * { grid-area: auto !important; }
+  .nv-aform__grid > [name=herausforderung] { height: 120px; }
 
   /* Projektidee: der Slider bekommt eine Spalte */
-  .nvp4-projectidea__slider { width: 100%; margin-left: 0; min-height: 640px; }
+  .nvp4-projectidea__slider { width: 100%; margin-left: 0; min-height: 0; }
+  .nvp4-projectidea__slide { position: static !important; }
+  .nvp4-projectidea__slide:not(:first-child) { display: none; }
+  .nvp4-projectidea__dots { display: none; }
   .nvp4-projectidea__slide,
   .nvp4-projectidea__slide:nth-child(1) { grid-template-columns: minmax(0,1fr); gap: 20px; align-content: start; }
   .nvp4-projectidea__content { max-width: 100%; }
@@ -1381,7 +1395,8 @@ canvas.nv-step-viz {
   .nv-faq-layout { grid-template-columns: minmax(0,1fr); gap: 32px; transform: none; }
   .download-button { justify-self: start; }
   .nv-faq-grid { grid-template-columns: minmax(0,1fr); gap: 18px; }
-  .downloads-grid, .download-list { grid-template-columns: minmax(0,1fr); }
+  .download-display__grid { grid-template-columns: minmax(0,1fr); }
+  .download-display__header { flex-wrap: wrap; gap: 4px; }
   /* FAQ-Knoepfe: mehrzeilige Fragen brauchen eine mitwachsende Hoehe */
   .nv-faq-item summary { height: auto; min-height: 2.75em; padding: 10px 14px; line-height: 1.3; white-space: normal; }
 }
@@ -1442,7 +1457,7 @@ canvas.nv-step-viz {
 <main class="hero" id="hero">
   <canvas class="hero-particle-bg" id="heroParticleCanvas" aria-hidden="true"></canvas>
 
-  <img class="hero-cube" src="assets/hero/round.png" alt="" aria-hidden="true" />
+  <img class="hero-cube" src="assets/opt/hero/round.png" alt="" aria-hidden="true" />
 
   <div class="hero-content">
     <p class="hero-kicker">INDIVIDUELLE KI-SYSTEME</p>
@@ -1505,7 +1520,7 @@ canvas.nv-step-viz {
       </div>
       <div class="nv-about__mediacol">
         <figure class="nv-about__media" aria-hidden="true">
-          <img src="assets/Fotos/12.png" alt="" loading="lazy" decoding="async" />
+          <img src="assets/opt/Fotos/12.png" alt="" loading="lazy" decoding="async" />
           <span class="nv-about__play"></span>
         </figure>
       </div>
@@ -1601,7 +1616,7 @@ canvas.nv-step-viz {
     <div class="nvp4-projectidea__slider" aria-label="Beispiele für konkrete KI-Projektideen">
       <article class="nvp4-projectidea__slide">
         <figure class="nvp4-projectidea__image nvp4-projectidea__image--wide">
-          <img src="assets/Fotos/13.png" alt="Datenbasierte Entscheidungshilfe" loading="lazy" decoding="async" />
+          <img src="assets/opt/Fotos/13.png" alt="Datenbasierte Entscheidungshilfe" loading="lazy" decoding="async" />
         </figure>
         <div class="nvp4-projectidea__idea">
           <h3>Datenbasierte Entscheidungshilfe</h3>
@@ -1615,7 +1630,7 @@ canvas.nv-step-viz {
 
       <article class="nvp4-projectidea__slide">
         <figure class="nvp4-projectidea__image">
-          <img src="assets/Fotos/10.png" alt="Prozessautomatisierung" loading="lazy" decoding="async" />
+          <img src="assets/opt/Fotos/10.jpg" alt="Prozessautomatisierung" loading="lazy" decoding="async" />
         </figure>
         <div class="nvp4-projectidea__idea">
           <h3>Prozessautomatisierung</h3>
@@ -1628,7 +1643,7 @@ canvas.nv-step-viz {
 
       <article class="nvp4-projectidea__slide">
         <figure class="nvp4-projectidea__image">
-          <img src="assets/Fotos/9.png" alt="Unternehmenswissen schnell finden" loading="lazy" decoding="async" />
+          <img src="assets/opt/Fotos/9.jpg" alt="Unternehmenswissen schnell finden" loading="lazy" decoding="async" />
         </figure>
         <div class="nvp4-projectidea__idea">
           <h3>Unternehmenswissen schnell finden</h3>
@@ -1674,9 +1689,9 @@ canvas.nv-step-viz {
 
     <div class="nv-s7__cards">
       <article class="nv-s7-card" data-card tabindex="0" data-href="analyse.html" role="link">
-        <img class="nv-s7-card__visual" src="assets/cards/cards_service/1_neu.png" alt="" aria-hidden="true" />
+        <img class="nv-s7-card__visual" src="assets/opt/cards/cards_service/1_neu.jpg" alt="" aria-hidden="true" / loading="lazy" decoding="async" />
         <div class="nv-s7-card__left">
-          <div class="nv-s7-card__iconbox"><img src="assets/cards/service/icons/1.png" alt="" aria-hidden="true" /></div>
+          <div class="nv-s7-card__iconbox"><img src="assets/cards/service/icons/1.png" alt="" aria-hidden="true" / loading="lazy" decoding="async" /></div>
           <div class="nv-s7-card__left-rule"></div>
           <div class="nv-s7-card__uses">
             <h4><span class="nv-s7-card__target" aria-hidden="true">◎</span> Einsatzbereiche</h4>
@@ -1702,9 +1717,9 @@ canvas.nv-step-viz {
       </article>
 
       <article class="nv-s7-card" data-card tabindex="0" data-href="detail_roadmap.html" role="link">
-        <img class="nv-s7-card__visual" src="assets/cards/cards_service/2_neu.png" alt="" aria-hidden="true" />
+        <img class="nv-s7-card__visual" src="assets/opt/cards/cards_service/2_neu.jpg" alt="" aria-hidden="true" / loading="lazy" decoding="async" />
         <div class="nv-s7-card__left">
-          <div class="nv-s7-card__iconbox"><img src="assets/cards/service/icons/2.png" alt="" aria-hidden="true" /></div>
+          <div class="nv-s7-card__iconbox"><img src="assets/cards/service/icons/2.png" alt="" aria-hidden="true" / loading="lazy" decoding="async" /></div>
           <div class="nv-s7-card__left-rule"></div>
           <div class="nv-s7-card__uses">
             <h4><span class="nv-s7-card__target" aria-hidden="true">◎</span> Einsatzbereiche</h4>
@@ -1730,9 +1745,9 @@ canvas.nv-step-viz {
       </article>
 
       <article class="nv-s7-card" data-card tabindex="0" data-href="detail_ki-agenten.html" role="link">
-        <img class="nv-s7-card__visual" src="assets/cards/cards_service/3_neu.png" alt="" aria-hidden="true" />
+        <img class="nv-s7-card__visual" src="assets/opt/cards/cards_service/3_neu.jpg" alt="" aria-hidden="true" / loading="lazy" decoding="async" />
         <div class="nv-s7-card__left">
-          <div class="nv-s7-card__iconbox"><img src="assets/cards/service/icons/3.png" alt="" aria-hidden="true" /></div>
+          <div class="nv-s7-card__iconbox"><img src="assets/cards/service/icons/3.png" alt="" aria-hidden="true" / loading="lazy" decoding="async" /></div>
           <div class="nv-s7-card__left-rule"></div>
           <div class="nv-s7-card__uses">
             <h4><span class="nv-s7-card__target" aria-hidden="true">◎</span> Einsatzbereiche</h4>
@@ -1758,9 +1773,9 @@ canvas.nv-step-viz {
       </article>
 
       <article class="nv-s7-card" data-card tabindex="0" data-href="detail_chatbots.html" role="link">
-        <img class="nv-s7-card__visual" src="assets/cards/cards_service/4_neu.png" alt="" aria-hidden="true" />
+        <img class="nv-s7-card__visual" src="assets/opt/cards/cards_service/4_neu.jpg" alt="" aria-hidden="true" / loading="lazy" decoding="async" />
         <div class="nv-s7-card__left">
-          <div class="nv-s7-card__iconbox"><img src="assets/cards/service/icons/4.png" alt="" aria-hidden="true" /></div>
+          <div class="nv-s7-card__iconbox"><img src="assets/cards/service/icons/4.png" alt="" aria-hidden="true" / loading="lazy" decoding="async" /></div>
           <div class="nv-s7-card__left-rule"></div>
           <div class="nv-s7-card__uses">
             <h4><span class="nv-s7-card__target" aria-hidden="true">◎</span> Einsatzbereiche</h4>
@@ -1786,9 +1801,9 @@ canvas.nv-step-viz {
       </article>
 
       <article class="nv-s7-card" data-card tabindex="0" data-href="detail_sprachassistenten.html" role="link">
-        <img class="nv-s7-card__visual" src="assets/cards/cards_service/5_neu.png" alt="" aria-hidden="true" />
+        <img class="nv-s7-card__visual" src="assets/opt/cards/cards_service/5_neu.jpg" alt="" aria-hidden="true" / loading="lazy" decoding="async" />
         <div class="nv-s7-card__left">
-          <div class="nv-s7-card__iconbox"><img src="assets/cards/service/icons/5.png" alt="" aria-hidden="true" /></div>
+          <div class="nv-s7-card__iconbox"><img src="assets/cards/service/icons/5.png" alt="" aria-hidden="true" / loading="lazy" decoding="async" /></div>
           <div class="nv-s7-card__left-rule"></div>
           <div class="nv-s7-card__uses">
             <h4><span class="nv-s7-card__target" aria-hidden="true">◎</span> Einsatzbereiche</h4>
@@ -1814,9 +1829,9 @@ canvas.nv-step-viz {
       </article>
 
       <article class="nv-s7-card" data-card tabindex="0" data-href="detail_prompt-engineering.html" role="link">
-        <img class="nv-s7-card__visual" src="assets/cards/cards_service/6_neu.png" alt="" aria-hidden="true" />
+        <img class="nv-s7-card__visual" src="assets/opt/cards/cards_service/6_neu.jpg" alt="" aria-hidden="true" / loading="lazy" decoding="async" />
         <div class="nv-s7-card__left">
-          <div class="nv-s7-card__iconbox"><img src="assets/cards/service/icons/6.png" alt="" aria-hidden="true" /></div>
+          <div class="nv-s7-card__iconbox"><img src="assets/cards/service/icons/6.png" alt="" aria-hidden="true" / loading="lazy" decoding="async" /></div>
           <div class="nv-s7-card__left-rule"></div>
           <div class="nv-s7-card__uses">
             <h4><span class="nv-s7-card__target" aria-hidden="true">◎</span> Einsatzbereiche</h4>
@@ -1842,9 +1857,9 @@ canvas.nv-step-viz {
       </article>
 
       <article class="nv-s7-card" data-card tabindex="0" data-href="detail_ki-sicherheit.html" role="link">
-        <img class="nv-s7-card__visual" src="assets/cards/cards_service/7_neu.png" alt="" aria-hidden="true" />
+        <img class="nv-s7-card__visual" src="assets/opt/cards/cards_service/7_neu.jpg" alt="" aria-hidden="true" / loading="lazy" decoding="async" />
         <div class="nv-s7-card__left">
-          <div class="nv-s7-card__iconbox"><img src="assets/cards/service/icons/7.png" alt="" aria-hidden="true" /></div>
+          <div class="nv-s7-card__iconbox"><img src="assets/cards/service/icons/7.png" alt="" aria-hidden="true" / loading="lazy" decoding="async" /></div>
           <div class="nv-s7-card__left-rule"></div>
           <div class="nv-s7-card__uses">
             <h4><span class="nv-s7-card__target" aria-hidden="true">◎</span> Einsatzbereiche</h4>
@@ -1870,9 +1885,9 @@ canvas.nv-step-viz {
       </article>
 
       <article class="nv-s7-card" data-card tabindex="0" data-href="detail_workflows.html" role="link">
-        <img class="nv-s7-card__visual" src="assets/cards/cards_service/8_neu.png" alt="" aria-hidden="true" />
+        <img class="nv-s7-card__visual" src="assets/cards/cards_service/8_neu.png" alt="" aria-hidden="true" / loading="lazy" decoding="async" />
         <div class="nv-s7-card__left">
-          <div class="nv-s7-card__iconbox"><img src="assets/cards/service/icons/8.png" alt="" aria-hidden="true" /></div>
+          <div class="nv-s7-card__iconbox"><img src="assets/cards/service/icons/8.png" alt="" aria-hidden="true" / loading="lazy" decoding="async" /></div>
           <div class="nv-s7-card__left-rule"></div>
           <div class="nv-s7-card__uses">
             <h4><span class="nv-s7-card__target" aria-hidden="true">◎</span> Einsatzbereiche</h4>
@@ -1898,9 +1913,9 @@ canvas.nv-step-viz {
       </article>
 
       <article class="nv-s7-card" data-card tabindex="0" data-href="detail_datenabgleich.html" role="link">
-        <img class="nv-s7-card__visual" src="assets/cards/cards_service/9_neu.png" alt="" aria-hidden="true" />
+        <img class="nv-s7-card__visual" src="assets/opt/cards/cards_service/9_neu.jpg" alt="" aria-hidden="true" / loading="lazy" decoding="async" />
         <div class="nv-s7-card__left">
-          <div class="nv-s7-card__iconbox"><img src="assets/cards/service/icons/9.png" alt="" aria-hidden="true" /></div>
+          <div class="nv-s7-card__iconbox"><img src="assets/cards/service/icons/9.png" alt="" aria-hidden="true" / loading="lazy" decoding="async" /></div>
           <div class="nv-s7-card__left-rule"></div>
           <div class="nv-s7-card__uses">
             <h4><span class="nv-s7-card__target" aria-hidden="true">◎</span> Einsatzbereiche</h4>
@@ -1926,9 +1941,9 @@ canvas.nv-step-viz {
       </article>
 
       <article class="nv-s7-card" data-card tabindex="0" data-href="detail_ki-software.html" role="link">
-        <img class="nv-s7-card__visual" src="assets/cards/cards_service/10_neu.png" alt="" aria-hidden="true" />
+        <img class="nv-s7-card__visual" src="assets/opt/cards/cards_service/10_neu.jpg" alt="" aria-hidden="true" / loading="lazy" decoding="async" />
         <div class="nv-s7-card__left">
-          <div class="nv-s7-card__iconbox"><img src="assets/cards/service/icons/10.png" alt="" aria-hidden="true" /></div>
+          <div class="nv-s7-card__iconbox"><img src="assets/cards/service/icons/10.png" alt="" aria-hidden="true" / loading="lazy" decoding="async" /></div>
           <div class="nv-s7-card__left-rule"></div>
           <div class="nv-s7-card__uses">
             <h4><span class="nv-s7-card__target" aria-hidden="true">◎</span> Einsatzbereiche</h4>
@@ -1954,9 +1969,9 @@ canvas.nv-step-viz {
       </article>
 
       <article class="nv-s7-card" data-card tabindex="0" data-href="detail_seo.html" role="link">
-        <img class="nv-s7-card__visual" src="assets/cards/cards_service/11_neu.png" alt="" aria-hidden="true" />
+        <img class="nv-s7-card__visual" src="assets/opt/cards/cards_service/11_neu.jpg" alt="" aria-hidden="true" / loading="lazy" decoding="async" />
         <div class="nv-s7-card__left">
-          <div class="nv-s7-card__iconbox"><img src="assets/cards/service/icons/11.png" alt="" aria-hidden="true" /></div>
+          <div class="nv-s7-card__iconbox"><img src="assets/cards/service/icons/11.png" alt="" aria-hidden="true" / loading="lazy" decoding="async" /></div>
           <div class="nv-s7-card__left-rule"></div>
           <div class="nv-s7-card__uses">
             <h4><span class="nv-s7-card__target" aria-hidden="true">◎</span> Einsatzbereiche</h4>
@@ -2180,12 +2195,12 @@ canvas.nv-step-viz {
                 src="assets/Module/Ablauf/aufgabe_erfassen.png"
                 alt=""
                 aria-hidden="true"
-              /><img
+              / loading="lazy" decoding="async" /><img
                 class="nv-process__base"
-                src="assets/Module/sockel.png"
+                src="assets/opt/Module/sockel.png"
                 alt=""
                 aria-hidden="true"
-              />
+              / loading="lazy" decoding="async" />
             </div>
             <h3>Aufgabe erfassen</h3>
           </li>
@@ -2193,15 +2208,15 @@ canvas.nv-step-viz {
             <div class="nv-process__visual">
               <img
                 class="nv-process__module"
-                src="assets/Module/Ablauf/ki_potential.png"
+                src="assets/opt/Module/Ablauf/ki_potential.png"
                 alt=""
                 aria-hidden="true"
-              /><img
+              / loading="lazy" decoding="async" /><img
                 class="nv-process__base"
-                src="assets/Module/sockel.png"
+                src="assets/opt/Module/sockel.png"
                 alt=""
                 aria-hidden="true"
-              />
+              / loading="lazy" decoding="async" />
             </div>
             <h3>KI-Potenzial bewerten</h3>
           </li>
@@ -2212,12 +2227,12 @@ canvas.nv-step-viz {
                 src="assets/Module/Ablauf/daten_prüfen1.png"
                 alt=""
                 aria-hidden="true"
-              /><img
+              / loading="lazy" decoding="async" /><img
                 class="nv-process__base"
-                src="assets/Module/sockel.png"
+                src="assets/opt/Module/sockel.png"
                 alt=""
                 aria-hidden="true"
-              />
+              / loading="lazy" decoding="async" />
             </div>
             <h3>Daten prüfen</h3>
           </li>
@@ -2228,12 +2243,12 @@ canvas.nv-step-viz {
                 src="assets/Module/Ablauf/Prozesse_planen.png"
                 alt=""
                 aria-hidden="true"
-              /><img
+              / loading="lazy" decoding="async" /><img
                 class="nv-process__base"
-                src="assets/Module/sockel.png"
+                src="assets/opt/Module/sockel.png"
                 alt=""
                 aria-hidden="true"
-              />
+              / loading="lazy" decoding="async" />
             </div>
             <h3>Prozess modellieren</h3>
           </li>
@@ -2244,12 +2259,12 @@ canvas.nv-step-viz {
                 src="assets/Module/Ablauf/lösung_wählen.png"
                 alt=""
                 aria-hidden="true"
-              /><img
+              / loading="lazy" decoding="async" /><img
                 class="nv-process__base"
-                src="assets/Module/sockel.png"
+                src="assets/opt/Module/sockel.png"
                 alt=""
                 aria-hidden="true"
-              />
+              / loading="lazy" decoding="async" />
             </div>
             <h3>Lösung auswählen</h3>
           </li>
@@ -2257,15 +2272,15 @@ canvas.nv-step-viz {
             <div class="nv-process__visual">
               <img
                 class="nv-process__module"
-                src="assets/Module/Ablauf/umsetzung_struturieren.png"
+                src="assets/opt/Module/Ablauf/umsetzung_struturieren.png"
                 alt=""
                 aria-hidden="true"
-              /><img
+              / loading="lazy" decoding="async" /><img
                 class="nv-process__base"
-                src="assets/Module/sockel.png"
+                src="assets/opt/Module/sockel.png"
                 alt=""
                 aria-hidden="true"
-              />
+              / loading="lazy" decoding="async" />
             </div>
             <h3>Umsetzung strukturieren</h3>
           </li>
@@ -2312,7 +2327,7 @@ canvas.nv-step-viz {
                 class="nv-contact__portrait-image"
                 src="assets/Whisk_ac35ee0e10.jpg"
                 alt="Portrait von Tino Schneider"
-              />
+              / loading="lazy" decoding="async" />
             </figure>
             <h3>Tino Schneider</h3>
             <p>Nurovelle</p>
@@ -2399,7 +2414,7 @@ canvas.nv-step-viz {
                   src="assets/dokument_icons/pdf.png"
                   alt=""
                   aria-hidden="true"
-                />
+                / loading="lazy" decoding="async" />
               </div>
               <div class="download-item__content">
                 <h3>Case Study KI-Automatisierung</h3>
@@ -2426,7 +2441,7 @@ canvas.nv-step-viz {
                   src="assets/dokument_icons/xls.png"
                   alt=""
                   aria-hidden="true"
-                />
+                / loading="lazy" decoding="async" />
               </div>
               <div class="download-item__content">
                 <h3>ROI-Rechner für KI-Automatisierung</h3>
@@ -2453,7 +2468,7 @@ canvas.nv-step-viz {
                   src="assets/dokument_icons/pdf.png"
                   alt=""
                   aria-hidden="true"
-                />
+                / loading="lazy" decoding="async" />
               </div>
               <div class="download-item__content">
                 <h3>Prompt Guide</h3>
@@ -2480,7 +2495,7 @@ canvas.nv-step-viz {
                   src="assets/dokument_icons/pdf.png"
                   alt=""
                   aria-hidden="true"
-                />
+                / loading="lazy" decoding="async" />
               </div>
               <div class="download-item__content">
                 <h3>Checkliste KI-Potenziale</h3>
