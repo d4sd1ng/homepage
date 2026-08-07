@@ -1354,7 +1354,7 @@ canvas.nv-step-viz {
   /* Glasplatte im Asset gemessen: 18,3% von links, 18,7% von rechts,
      8,3% von oben. Textkasten liegt mit Puffer innerhalb dieser Kanten. */
   .nv-step-item .nv-step-card__content {
-    left: 20%; right: 22%; top: 11%; bottom: auto; width: auto; text-align: left;
+    left: 20%; right: 22%; top: 15%; bottom: auto; width: auto; text-align: left;
   }
   canvas.nv-step-viz { display: none; }
   /* Schriftgroessen so bemessen, dass der Text auch mit den breiteren
@@ -1366,6 +1366,20 @@ canvas.nv-step-viz {
   .nv-step-card { width: 535px; }
   .nv-section-step { min-height: auto; }
   .nv-section-step__actions { margin-top: 48px; }
+
+  /* Prozessschritte: die Modulbox war 103x201 bei quadratischem Bild, mit
+     object-fit: contain blieb oben und unten je rund 50px Leerraum stehen.
+     Modul und Sockel laufen hier im Fluss und werden ueberlappt gesetzt. */
+  .nv-process__steps { flex-direction: column; align-items: center; row-gap: 30px; }
+  .nv-process__step { width: 100%; max-width: 280px; margin: 0 auto; }
+  .nv-process__visual { height: auto; margin-bottom: 18px; transform: none;
+    display: flex; flex-direction: column; align-items: center; }
+  /* transform: translateX(-50%) stammt aus der absoluten Desktop-Variante und
+     wuerde die jetzt statischen Bilder halb aus dem Bild schieben. */
+  .nv-process__module { position: static; transform: none; width: 72%; height: auto; }
+  /* sockel.png ist 1067x759, die Platte liegt darin nur bei y 300..578 --
+     oben stehen 40% leerer Rand. Der negative Rand gleicht genau das aus. */
+  .nv-process__base { position: static; transform: none; width: 96%; height: auto; margin-top: -27%; }
 
   /* Analyse-Formular: mehrere feste, hoeher-spezifische Desktop-Layouts
      (nth-child-Selektoren auf .nv-acard__split, feste Rasterspalten auf
