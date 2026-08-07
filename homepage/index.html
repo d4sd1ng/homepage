@@ -778,6 +778,7 @@ canvas.nv-step-viz {
 
 /* MEHR ERFAHREN as a button on the sockel */
 .nv-step-card__more {
+  text-decoration: none;
   position: absolute; left: 44%; bottom: 15.5%; transform: translateX(-50%) rotate(8deg);
   z-index: 3; margin: 0; padding: 5px 10px; display: inline-flex; align-items: center; gap: 8px;
   border: 1px solid transparent; border-radius: 8px;
@@ -1356,6 +1357,10 @@ canvas.nv-step-viz {
     left: 20%; right: 22%; top: 11%; bottom: auto; width: auto; text-align: left;
   }
   canvas.nv-step-viz { display: none; }
+  /* Schriftgroessen so bemessen, dass der Text auch mit den breiteren
+     Webfonts (Exo 2 / Inter) innerhalb der Glasplatte bleibt. */
+  .nv-step-card h3 { font-size: 31px; line-height: 1.05; margin-bottom: 8px; }
+  .nv-step-card p { font-size: 17px; line-height: 1.4; }
   .nv-step-item:nth-child(1) .nv-step-card,
   .nv-step-item:nth-child(3) .nv-step-card { transform: none; }
   .nv-step-card { width: 535px; }
@@ -1555,7 +1560,7 @@ canvas.nv-step-viz {
             <h3>Prozess klären</h3>
             <p>Welcher Geschäftsprozess verbessert werden soll und welches konkrete Ergebnis durch KI entstehen muss.</p>
           </div>
-          <span class="nv-step-card__more">Mehr erfahren</span>
+          <a class="nv-step-card__more" href="analyse.html">Mehr erfahren</a>
         </article>
       </div>
       <div class="nv-step-item">
@@ -1566,7 +1571,7 @@ canvas.nv-step-viz {
             <h3>Daten prüfen</h3>
             <p>Welche Daten, Systeme und Wissensquellen bereits vorhanden sind und technisch nutzbar gemacht werden können.</p>
           </div>
-          <span class="nv-step-card__more">Mehr erfahren</span>
+          <a class="nv-step-card__more" href="analyse.html">Mehr erfahren</a>
         </article>
       </div>
       <div class="nv-step-item">
@@ -1577,7 +1582,7 @@ canvas.nv-step-viz {
             <h3>Umsetzung planen</h3>
             <p>Ob ein KI-Agent, ein Wissenssystem, Automatisierung oder individuelle Software der sinnvolle nächste Schritt ist.</p>
           </div>
-          <span class="nv-step-card__more">Mehr erfahren</span>
+          <a class="nv-step-card__more" href="analyse.html">Mehr erfahren</a>
         </article>
       </div>
     </div>
