@@ -1350,8 +1350,10 @@ canvas.nv-step-viz {
   .nv-step-item:nth-child(2), .nv-step-item:nth-child(3) { margin-top: 24px; }
   /* Text sitzt auf der Glasplatte statt darueber; die dekorative
      Canvas-Grafik darunter weicht, sonst waere er unlesbar. */
+  /* Glasplatte im Asset gemessen: 18,3% von links, 18,7% von rechts,
+     8,3% von oben. Textkasten liegt mit Puffer innerhalb dieser Kanten. */
   .nv-step-item .nv-step-card__content {
-    left: 9%; right: 13%; top: 9%; bottom: auto; width: auto; text-align: left;
+    left: 20%; right: 22%; top: 11%; bottom: auto; width: auto; text-align: left;
   }
   canvas.nv-step-viz { display: none; }
   .nv-step-item:nth-child(1) .nv-step-card,
