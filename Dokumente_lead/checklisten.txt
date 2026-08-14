@@ -1,0 +1,72 @@
+### **Pre-Project Checklist**
+
+```
+BUSINESS CASE:
+□ ROI > 100% berechnet und validiert
+□ Amortisationszeit < 24 Monate
+□ Budget genehmigt und verfügbar
+□ Stakeholder identifiziert und eingebunden
+□ Success Metrics definiert
+
+TECHNISCHE VORBEREITUNG:
+□ Ist-Prozess vollständig dokumentiert
+□ Datenqualität geprüft und akzeptabel
+□ Tool-Alternativen evaluiert
+□ Integration-Möglichkeiten geprüft
+□ Security-Anforderungen geklärt
+
+ORGANISATORISCHE VORBEREITUNG:
+□ Projektteam zusammengestellt
+□ Zeitplan erstellt mit Puffern
+□ Change Management Plan erstellt
+□ Schulungskonzept entwickelt
+□ Backup-Pläne definiert
+```
+
+### **Tool-Evaluations-Template**
+
+```
+TOOL-NAME: _______________
+
+FUNKTIONALITÄT (1-10):
+- Erfüllt alle Anforderungen: ___
+- Benutzerfreundlichkeit: ___
+- Integration-Möglichkeiten: ___
+- Skalierbarkeit: ___
+
+KOSTEN:
+- Setup-Kosten: ___€
+- Monatliche Kosten: ___€
+- Schulungskosten: ___€
+- Versteckte Kosten: ___€
+
+RISIKEN:
+- Vendor-Lock-in: Hoch/Mittel/Niedrig
+- Komplexität: Hoch/Mittel/Niedrig
+- Support-Qualität: Gut/Mittel/Schlecht
+
+GESAMTBEWERTUNG: ___/10
+EMPFEHLUNG: Ja/Nein/Bedingt
+```
+
+### **ROI-Tracking-Template**
+
+```
+PROJEKT: _______________
+START-DATUM: ___________
+
+GEPLANTE WERTE:
+- Investition: ___€
+- Jährliche Einsparung: ___€
+- ROI (3 Jahre): ___%
+- Amortisation: ___ Monate
+
+AKTUELLE WERTE (Monat ___):
+- Tatsächliche Investition: ___€
+- Tatsächliche Einsparung: ___€/Monat
+- Hochgerechneter Jahres-ROI: ___%
+- Voraussichtliche Amortisation: ___ Monate
+
+ABWEICHUNGEN:
+- Investition: +/-___€ (Grund: _______)
+- Einsparung: +/-___€ (Grund: _______)

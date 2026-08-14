@@ -1,8 +1,8 @@
 /*
  * Nurovelle website design tokens
- * Canonical source: NUROVELLE_HOMEPAGE_IMPLEMENTATION_BRIEF.md sections 0.6–0.9.
- * Keep component CSS semantic: components should consume these variables instead
- * of introducing new colors, gradients, type sizes, radii, or spacing values.
+ * Canonical design source: styleguide.md
+ * Stand: 2026-08-14
+ * Do not introduce design decisions here. This file mirrors the styleguide.
  */
 
 :root {
@@ -13,7 +13,7 @@
   --color-gunmetal-dark: #15191a;
   --color-deep-green: #0a1913;
   --color-emerald: #112b21;
-  --color-emerald-bright: #163A26;
+  --color-emerald-bright: #163a26;
 
   /* Text */
   --color-text-light: #f5f7f4;
@@ -21,21 +21,33 @@
   --color-text-subtle: rgba(245, 247, 244, 0.68);
   --color-text-on-gold: #050706;
 
-  /* Gold palette and approved gradients */
+  /* Gold */
   --color-gold-deep: #926f34;
   --color-gold: #d2ac47;
   --color-gold-light: #f7ef8a;
   --gradient-gold-border: linear-gradient(135deg, #ae8625, #f7ef8a, #d2ac47, #edc967);
   --gradient-gold-title: linear-gradient(135deg, #dfbd69, #926f34);
   --gradient-gold-cta: linear-gradient(135deg, #f9f295, #e0aa3e, #faf398, #b88a44);
-  --gradient-gold-text-alt: linear-gradient(135deg, #c5a059 0%, #fdf0cd 50%, #d4af37 100%);
+  --gradient-gold-metallic-text: linear-gradient(135deg, #c5a059 0%, #fdf0cd 50%, #d4af37 100%);
 
-  /* Approved website mapping, selected in visual comparison (2026-07-04). */
-  --gradient-title: var(--gradient-gold-title);       /* Gold 2 */
-  --gradient-frame: var(--gradient-gold-border);     /* Gold 1 */
-  --gradient-action: var(--gradient-gold-cta);       /* Gold 3 */
-  --gradient-divider: var(--gradient-gold-cta);      /* Gold 3 */
-  --gradient-highlight: var(--gradient-gold-cta);    /* Gold 3 */
+  /* Semantic gold mapping */
+  --gradient-title: var(--gradient-gold-metallic-text);
+  --gradient-frame: var(--gradient-gold-border);
+  --gradient-action: var(--gradient-gold-cta);
+  --gradient-divider: var(--gradient-gold-cta);
+  --gradient-highlight: var(--gradient-gold-metallic-text);
+
+  /* CTA material */
+  --cta-gold-dark: #a54e07;
+  --cta-gold-mid: #b47e11;
+  --cta-gold-light: #fef1a2;
+  --cta-gold-core: #bc881b;
+  --cta-gold-border: #a55d07;
+  --cta-gold-inner-dark: #8b4208;
+  --cta-gold-inner-mid: #b17d10;
+  --cta-gold-highlight: #fae385;
+  --cta-gold-text-dark: #783205;
+  --cta-gold-material: linear-gradient(160deg, #a54e07, #b47e11, #fef1a2, #bc881b, #a54e07);
 
   /* Dark section gradients */
   --gradient-green-deep: linear-gradient(135deg, #0a1913 0%, #112b21 50%, #1d4234 100%);
@@ -43,9 +55,11 @@
   --gradient-section-black: linear-gradient(180deg, #050706 0%, #080b09 100%);
 
   /* Typography */
-  --font-display: "Eastman Grotesque Alt", "Eastman Grotesque", "Inter", Arial, sans-serif;
-  --font-technical: "Eastman Grotesque Alt", "Eastman Grotesque", "Inter", Arial, sans-serif;
+  /* Fontsystem seit 2026-08-14: Exo 2 fuer Display, Inter fuer alles uebrige.
+     Beide OFL, variable TrueType, systemweit installiert. Siehe decision_log.md. */
+  --font-display: "Exo 2", "Inter", Arial, sans-serif;
   --font-body: "Inter", Arial, sans-serif;
+  --font-ui: "Inter", Arial, sans-serif;
   --font-size-h1: clamp(4rem, 6vw, 5.5rem);
   --font-size-h2: clamp(2.75rem, 4vw, 3.75rem);
   --font-size-h3: clamp(1.125rem, 1.6vw, 1.5rem);
@@ -70,20 +84,20 @@
   --space-9: 5.5rem;
   --space-10: 7.5rem;
 
-  /* Shape, borders, depth, and motion */
+  /* Shape, borders, depth, motion */
   --radius-card: 1.125rem;
   --radius-control: 0.75rem;
   --radius-button: 999px;
   --control-height: 2.75rem;
   --border-subtle: 1px solid rgba(46, 139, 103, 0.28);
-  --border-gold: 1px solid rgba(212, 175, 55, 0.72);
+  --border-gold: 1px solid rgba(210, 172, 71, 0.72);
   --shadow-card: 0 1rem 2.5rem rgba(0, 0, 0, 0.34);
-  --shadow-gold: 0 0 1.5rem rgba(212, 175, 55, 0.18);
-  --shadow-emerald: 0 0 2rem rgba(46, 139, 103, 0.16);
+  --shadow-gold: 0 0 1.5rem rgba(210, 172, 71, 0.18);
+  --shadow-emerald: 0 0 2rem rgba(22, 58, 38, 0.16);
   --transition-fast: 160ms ease;
   --transition-base: 240ms ease;
 
-  /* Structural values retained from the current homepage */
+  /* Existing structural values */
   --header-height: 2.75rem;
   --sidebar-width: 14.6875rem;
 }

@@ -1,0 +1,706 @@
+Designer-Drehbuch: LinkedIn-Karussell Case Study
+Projekt: API-Latenz um 42 % reduziert – Case Study
+Format: 1080 × 1350 px, 5 Slides, Hochformat
+Ziel: LinkedIn-Karussell (PDF-Upload)
+
+Globale Spezifikationen
+Bereich	Wert
+Canvas	1080 × 1350 px
+Sicherheitsbereich	80 px nach innen (keine Inhalte außerhalb)
+Hintergrund-Hauptfarbe	#05070B
+Hintergrund-Verlauf (Slide 1 + 5)	#05070B → #0A1630 (linear, 45°)
+Hintergrund (Slide 2–4)	#0A1630 (einfarbig)
+Card-Füllung	#111827 (Standard), #112B4A (Akzent-Cards)
+Card-Eckenradius	16 px
+Card-Innenabstand	32 px (oben/unten), 28 px (links/rechts)
+Primärtext	#F5F7FA
+Sekundärtext	#B8C7D9
+Linien/Rahmen/Diagramme	#6E8CA6 (Standard), #8A96A8 (heller)
+Gold (nur KPIs & Akzente)	#C6A86A
+Schriftfamilie	Inter (oder Montserrat/Open Sans)
+Logo-Position	oben links, x = 40, y = 40, max. 160 × 40 px
+Slide 1: Titel + KPI-Kacheln
+Hintergrund: Verlauf #05070B → #0A1630 (45°), rechts abstrakte Tech-Visuals (feine Linien, Knotenpunkte, Transparenz max. 15 %)
+
+Elemente Positionen
+Element	Position (x, y)	Breite	Höhe	Anmerkung
+Logo	40, 40	160	40	weiß/#C6A86A, transparent
+Haupttitel	80, 280	600	auto	siehe Typografie
+Untertitel	80, 420	550	auto	unter Haupttitel
+KPI-Kachel 1	80, 1050	280	140	goldener Rand oder goldene Zahl
+KPI-Kachel 2	400, 1050	280	140	
+KPI-Kachel 3	720, 1050	280	140	
+Typografie Slide 1
+Element	Schriftgröße	Gewicht	Farbe	Zeilenhöhe
+Logo-Schrift (falls Text)	16 px	Semibold	#F5F7FA	1.2
+Haupttitel	56 px	Bold	#F5F7FA	1.2
+Untertitel	20 px	Regular	#B8C7D9	1.4
+KPI-Zahl	52 px	Bold	#C6A86A	1.0
+KPI-Label	14 px	Regular	#B8C7D9	1.2
+KPI-Kacheln Details
+Kachel 1:
+
+Zahl: -42 %
+
+Label: API-Latenz
+
+Kachel 2:
+
+Zahl: -32 %
+
+Label: MTTR
+
+Kachel 3:
+
+Zahl: -28 %
+
+Label: Cloud-Kosten
+
+Kachel-Design:
+
+Hintergrund: #111827
+
+Rahmen: 1 px #6E8CA6 (oder goldener unterer Rand, 2 px #C6A86A)
+
+Eckenradius: 12 px
+
+Zahl zentriert, 20 px vom oberen Rand
+
+Label zentriert, 20 px unter Zahl
+
+Haupttitel & Untertitel (Text)
+Haupttitel (zwei Zeilen):
+
+text
+API-Latenz um 42 % reduziert
+durch Plattform-Automatisierung
+Untertitel (eine Zeile):
+
+text
+Von manuellen Deployments zu stabiler, messbarer Infrastruktur
+
+---
+
+# Slide 2: Ausgangslage + Challenge
+
+**Hintergrund:** `#0A1630` einfarbig + feines Grid (6 × 6 px Raster, Linienstärke 0.5 px, Farbe `#6E8CA6`, Deckkraft 8 %)
+
+## Layout
+
+Zwei Cards vertikal angeordnet, Abstand 32 px.
+
+| Element | Position (x, y) | Breite | Höhe |
+|---------|----------------|--------|------|
+| Logo | 40, 40 | 160 | 40 |
+| Card 1 (Ausgangslage) | 80, 160 | 920 | 400 |
+| Card 2 (Challenge) | 80, 592 | 920 | 400 |
+| Ziel-Text (optional) | 80, 1050 | 920 | auto |
+
+## Card 1: Ausgangslage
+
+**Card-Titel:** `Ausgangslage` (oben links innerhalb Card, 20 px vom oberen Rand, 28 px vom linken Rand)
+
+**Aufzählungspunkte (Abstand innerhalb Card):**
+
+- Start nach Titel: 60 px
+- Jeder Punkt: 28 px Abstand nach unten
+- Linker Rand der Aufzählung: 28 px
+
+**Punkte (Text):**
+• Manuelle Deployments ohne standardisierten Prozess
+• Keine zentrale Observability (Logs, Metriken, Traces)
+• API-Latenz schwankte stark, besonders unter Last
+• Fehleranalyse dauerte im Schnitt mehrere Stunden
+• Cloud-Kosten stiegen ohne klare Ursache
+
+text
+
+**Aufzählungszeichen:** `•` in `#C6A86A` (Gold), Text in `#B8C7D9`
+
+## Card 2: Challenge
+
+**Card-Titel:** `Challenge` (oben links innerhalb Card, 20 px vom oberen Rand, 28 px vom linken Rand)
+
+**Nummerierte Punkte:**
+
+Start nach Titel: 60 px, jeder Punkt 28 px Abstand
+API-Latenz zu hoch (850 ms P95)
+
+MTTR zu lang (47 min)
+
+Rollbacks zu langsam (20 % der Deployments)
+
+Infrastrukturkosten zu hoch
+
+ML-/AI-Workflows nicht reproduzierbar
+
+text
+
+**Zahlen 1–5:** `#C6A86A` (Gold)  
+**Text:** `#B8C7D9`
+
+## Ziel-Text (unter Card 2)
+
+Position: unter Card 2, 32 px Abstand
+
+**Text:** `Ziel: Latenz unter 500 ms, Rollback-Rate unter 5 %, Kosten um mindestens 20 % senken`  
+**Format:** kursiv, 14 px, `#8A96A8`, zentriert
+
+## Typografie Slide 2
+
+| Element | Schriftgröße | Gewicht | Farbe |
+|---------|--------------|---------|-------|
+| Card-Titel | 20 px | Bold | `#F5F7FA` |
+| Aufzählungstext | 15 px | Regular | `#B8C7D9` |
+| Ziel-Text | 14 px | Regular (kursiv) | `#8A96A8` |
+
+---
+
+# Slide 3: Lösung + Architektur-Diagramm
+
+**Hintergrund:** `#05070B` einfarbig, absolut ruhig – keine Grids, keine Linien
+
+## Layout
+
+| Element | Position (x, y) | Breite | Höhe |
+|---------|----------------|--------|------|
+| Logo | 40, 40 | 160 | 40 |
+| Card 1 (Vorgehen) | 80, 160 | 920 | 180 |
+| Card 2 (Architektur) | 80, 380 | 920 | 580 |
+| Zusatzpunkte | innerhalb Card 2 | - | - |
+
+## Card 1: Vorgehen (Prozessgrafik)
+
+**Titel:** `Vorgehen` (oben links innerhalb Card)
+
+**Prozesskette (horizontal, zentriert innerhalb Card):**
+
+5 Kacheln nebeneinander, verbunden mit Pfeilen:
+
+| Kachel | Text |
+|--------|------|
+| 1 | Ist-Zustand |
+| 2 | Analyse |
+| 3 | Automatisierung |
+| 4 | Observability |
+| 5 | Ergebnis |
+
+**Kachel-Design:**
+- Hintergrund: `#112B4A`
+- Text: `#F5F7FA`, 14 px, Bold
+- Breite: 140 px, Höhe: 56 px
+- Eckenradius: 8 px
+- Abstand zwischen Kacheln: 16 px
+
+**Pfeile:**
+- Farbe: `#6E8CA6`, Strichstärke: 2 px
+- Pfeilspitze: Länge 8 px
+
+**Positionierung der Kacheln (innerhalb Card):**
+- Card-Innenabstand: 28 px
+- Kacheln horizontal zentriert (Start-x = 80 + (920 - 5×140 - 4×16)/2 = ca. 174 px)
+
+## Card 2: Architektur-Diagramm
+
+**Titel:** `Architektur (vereinfacht)`
+
+**Diagramm (zentriert, hierarchisch):**
+[ User ]
+↓
+[ API Gateway / Traefik ]
+↓
+[ Backend Services ]
+↙ ↘
+[ Redis ] [ Postgres ]
+↘ ↙
+[ Prometheus ]
+↓
+[ Grafana ]
+
+text
+
+**Kasten-Design:**
+- Hintergrund: `#112B4A`
+- Rahmen: 1 px `#6E8CA6`
+- Eckenradius: 8 px
+- Breite: 180 px, Höhe: 48 px
+- Text zentriert, `#F5F7FA`, 14 px
+
+**Pfeile:**
+- Farbe: `#8A96A8`
+- Strichstärke: 2 px
+- Länge: variabel (30–40 px)
+
+**Positionierung (innerhalb Card, ab Titel 28 px):**
+- Zentrum des Diagramms bei x = 540 px (Card-Mitte)
+- User: y = 80 px
+- Gateway: y = 160 px
+- Backend: y = 240 px
+- Redis: x = 420 px, y = 340 px
+- Postgres: x = 660 px, y = 340 px
+- Prometheus: y = 440 px
+- Grafana: y = 520 px
+
+## Zusatzpunkte (innerhalb Card 2, unter Diagramm)
+
+Position: y = 600 px, horizontal zentriert
+
+**Text:** `✓ Monitoring  ✓ CI/CD  ✓ Canary-Deployments  ✓ Autoscaling  ✓ Infrastructure as Code`
+
+Format: 13 px, `#B8C7D9`, Abstand zwischen Häkchen: 16 px
+
+## Typografie Slide 3
+
+| Element | Schriftgröße | Gewicht | Farbe |
+|---------|--------------|---------|-------|
+| Card-Titel | 20 px | Bold | `#F5F7FA` |
+| Prozess-Kacheln | 14 px | Semibold | `#F5F7FA` |
+| Diagramm-Kästen | 14 px | Regular | `#F5F7FA` |
+| Zusatzpunkte | 13 px | Regular | `#B8C7D9` |
+
+---
+
+# Slide 4: Ergebnis-Tabelle + Diagramme
+
+**Hintergrund:** `#0A1630` einfarbig – maximal reduziert, keine Hintergrundelemente
+
+## Layout
+
+| Element | Position (x, y) | Breite | Höhe |
+|---------|----------------|--------|------|
+| Logo | 40, 40 | 160 | 40 |
+| Card (Tabelle) | 80, 160 | 920 | 500 |
+| KPI-Highlights (optional) | 80, 700 | 920 | 80 |
+| Card Diagramm links | 80, 820 | 440 | 350 |
+| Card Diagramm rechts | 560, 820 | 440 | 350 |
+
+## Card 1: Ergebnis-Metriken (Tabelle)
+
+**Titel:** `Ergebnis-Metriken`
+
+**Tabelle (Spalten):**
+
+| Kennzahl | Vorher | Nachher | Veränderung |
+|----------|--------|---------|-------------|
+| API-Latenz (P95) | 850 ms | 490 ms | **-42 %** |
+| MTTR | 47 min | 32 min | **-32 %** |
+| Rollback-Rate | 20 % | 3 % | **-85 %** |
+| Cloud-Kosten (Monat) | 1.000 € | 720 € | **-28 %** |
+| Time-to-Production | 6 Wochen | 2 Wochen | **-67 %** |
+
+**Tabellen-Design:**
+- Kopfzeile: Hintergrund `#112B4A`, Text `#F5F7FA` Bold
+- Zeilen: `#111827`
+- Trennlinien: 1 px `#6E8CA6`
+- Zellen-Innenabstand: 16 px vertikal, 12 px horizontal
+- Veränderung-Spalte: Text in `#C6A86A` Bold
+
+**Tabellen-Abmessungen (innerhalb Card):**
+- Tabelle beginnt 28 px unter Titel
+- Gesamtbreite: 864 px
+- Spaltenbreiten: 220 px / 140 px / 140 px / 120 px (plus Abstände)
+
+## KPI-Highlights (optional – kleine Kacheln unter Tabelle)
+
+Drei kleine Kacheln nebeneinander, Abstand 16 px:
+
+| Kachel 1 | Kachel 2 | Kachel 3 |
+|----------|----------|----------|
+| -42 % | -32 % | -28 % |
+| Latenz | MTTR | Kosten |
+
+- Kachel-Hintergrund: `#112B4A`
+- Breite: 130 px, Höhe: 60 px
+- Zahl: 20 px, Bold, `#C6A86A`
+- Label: 12 px, Regular, `#B8C7D9`
+
+## Card 2 (links): Balkendiagramm Latenz
+
+**Titel:** `API-Latenz (P95)`
+
+**Balken (vertikal oder horizontal – hier horizontal):**
+Vorher: ████████████████████ 850 ms
+Nachher: ████████████ 490 ms
+
+text
+
+**Design:**
+- Vorher-Balken: `#6E8CA6`, Länge proportional 850 → 420 px (maximale Balkenlänge)
+- Nachher-Balken: `#C6A86A`, Länge proportional 490 → 242 px
+- Balkenhöhe: 24 px
+- Beschriftung rechts neben Balken: `850 ms` / `490 ms`, `#B8C7D9`, 13 px
+
+**Positionierung:**
+- Vorher-Balken: y = 100 px
+- Nachher-Balken: y = 160 px
+- Linker Rand der Balken: 140 px (Platz für Label "Vorher:" etc.)
+
+## Card 3 (rechts): Balkendiagramm Kosten
+
+**Titel:** `Cloud-Kosten (Monat)`
+
+**Balken:**
+Vorher: ████████████████████ 1.000 €
+Nachher: ██████████████ 720 €
+
+text
+
+- Vorher-Balken: `#6E8CA6`, Länge 420 px
+- Nachher-Balken: `#C6A86A`, Länge 302 px
+
+**Positionierung:** analog zu linkem Diagramm
+
+## Typografie Slide 4
+
+| Element | Schriftgröße | Gewicht | Farbe |
+|---------|--------------|---------|-------|
+| Card-Titel | 20 px | Bold | `#F5F7FA` |
+| Tabellen-Kopf | 14 px | Bold | `#F5F7FA` |
+| Tabellen-Zellen | 14 px | Regular | `#B8C7D9` |
+| Veränderung | 14 px | Bold | `#C6A86A` |
+| Diagramm-Titel | 16 px | Semibold | `#F5F7FA` |
+| Diagramm-Labels | 13 px | Regular | `#B8C7D9` |
+
+---
+
+# Slide 5: Business Impact + CTA
+
+**Hintergrund:** Oben `#0A1630` (0–600 px), unten Übergang zu `#05070B` → `#0A1630` Verlauf (ab 600 px)
+
+## Layout
+
+| Element | Position (x, y) | Breite | Höhe |
+|---------|----------------|--------|------|
+| Logo | 40, 40 | 160 | 40 |
+| Card 1 (Business Impact) | 80, 160 | 920 | 380 |
+| Card 2 (Lessons Learned) | 80, 580 | 920 | 220 |
+| Card 3 (CTA) | 80, 840 | 920 | 280 |
+| Logo (unten rechts) | 920, 1270 | 100 | 30 | klein, transparent |
+
+## Card 1: Business Impact
+
+**Titel:** `Business Impact`
+
+**Aufzählung (Häkchen statt Punkten):**
+✓ Weniger Ausfallzeit – Geringere Umsatzverluste bei Lastspitzen
+✓ Schnellere Releases – Neue KI-Funktionen in 2 statt 6 Wochen
+✓ Geringere Betriebskosten – 28 % niedrigere Cloud-Kosten
+✓ Mehr Vertrauen in KI-Systeme – Stabile Latenz schafft Akzeptanz
+✓ Weniger manuelle Arbeit – Fokus auf Features statt Firefighting
+
+text
+
+**Design:**
+- Häkchen (`✓`) in `#C6A86A` (Gold), 18 px
+- Text in `#B8C7D9`, 15 px
+- Abstand zwischen Punkten: 32 px
+- Linker Rand: 28 px
+
+## Card 2: Lessons Learned
+
+**Titel:** `Lessons Learned (3)`
+
+**Drei Punkte, nummeriert:**
+Automatisierung bringt nur Wert, wenn sie messbar ist.
+
+Observability ist Voraussetzung für stabile KI-Systeme.
+
+Kostenoptimierung beginnt bei Architektur, nicht bei Rabatten.
+
+text
+
+**Design:**
+- Zahlen in `#C6A86A`, 18 px, Bold
+- Text in `#B8C7D9`, 15 px
+- Abstand zwischen Punkten: 28 px
+- Linker Rand: 28 px
+
+## Card 3: CTA
+
+**Titel (optional): `Nächster Schritt`** – oder CTA direkt ohne Titel
+
+**Text (zentriert, innerhalb Card):**
+Sie möchten wissen, wo Ihre Infrastruktur
+Zeit, Geld oder Stabilität verliert?
+
+Ich analysiere Ihre KI- und Automatisierungsprozesse
+strukturiert und messbar.
+
+👉 Schreiben Sie mir direkt oder besuchen Sie meine Website.
+
+text
+
+**Design:**
+- Erste zwei Zeilen: `#F5F7FA`, 18 px, Bold
+- Dritte Zeile: `#B8C7D9`, 16 px, Regular
+- Letzte Zeile mit Pfeil: `#C6A86A`, 16 px, Semibold
+
+**Button (optional, unter dem Text):**
+- Hintergrund: `#C6A86A`
+- Text: `Jetzt Infrastruktur-Check anfragen` in `#05070B`, Bold, 14 px
+- Breite: 280 px, Höhe: 48 px
+- Eckenradius: 8 px
+- Position: horizontal zentriert, y = 200 px innerhalb Card
+
+**Kontaktzeile (unter Button oder statt Button):**
+LinkedIn · Website · kontakt@unternehmen.de
+
+text
+Format: 13 px, `#8A96A8`, zentriert
+
+## Logo unten rechts
+
+- Position: x = 920 px, y = 1270 px
+- Breite: 100 px, Höhe: auto
+- Deckkraft: 60 %
+- Farbe: weiß oder `#C6A86A`
+
+## Typografie Slide 5
+
+| Element | Schriftgröße | Gewicht | Farbe |
+|---------|--------------|---------|-------|
+| Card-Titel | 20 px | Bold | `#F5F7FA` |
+| Business Impact Text | 15 px | Regular | `#B8C7D9` |
+| Business Impact Häkchen | 18 px | Regular | `#C6A86A` |
+| Lessons Learned Zahlen | 18 px | Bold | `#C6A86A` |
+| Lessons Learned Text | 15 px | Regular | `#B8C7D9` |
+| CTA Haupttext | 18 px | Bold | `#F5F7FA` |
+| CTA Subtext | 16 px | Regular | `#B8C7D9` |
+| CTA Pfeilzeile | 16 px | Semibold | `#C6A86A` |
+| Kontaktzeile | 13 px | Regular | `#8A96A8` |
+
+---
+
+# Export-Spezifikation
+
+| Parameter | Wert |
+|-----------|------|
+| Format | PDF (für LinkedIn-Karussell) |
+| Auflösung | 1080 × 1350 px |
+| Farbprofil | sRGB |
+| Komprimierung | keine (maximale Qualität) |
+| Dateiname | `Case-Study-API-Latenz-Slide1.pdf` bis `Slide5.pdf` oder eine PDF mit 5 Seiten |
+
+---
+
+# Kurz-Checkliste für Designer:in
+
+- [ ] Alle Hintergründe entsprechen den Farbwerten
+- [ ] Cards haben 16 px Eckenradius
+- [ ] Gold (`#C6A86A`) nur für KPIs, Zahlen, Häkchen, dezenten Button
+- [ ] Keine Serverraum-Bilder
+- [ ] Keine Neon-Farben
+- [ ] Abstände einhalten (insb. Sicherheitsbereich 80 px)
+- [ ] Schriftart Inter oder vergleichbare Sans-Serif
+- [ ] 5 Slides, kein Slide 6
+- [ ] Lesbarkeit auf Dunkel bestätigen (Kontrast testen)
+
+---
+
+**Möchten Sie, dass ich dieses Drehbuch als PDF zum Download oder als ausdruckbare Checkliste für Ihr Team erstelle? Oder soll ich die nächste Case Study (anderes Thema, z. B. ML-Modell-Optimierung oder Echtzeit-Personalisierung) vorbereiten?**
+
+
+LinkedIn-Karussell: 5 Slides
+Globale Design-Regeln (wie zuvor):
+
+Element	Spezifikation
+Format	1080 × 1350 px
+Hintergrund	#05070B bis #0A1630
+Cards	#111827 oder #112B4A, abgerundete Ecken
+Primärtext	#F5F7FA
+Sekundärtext	#B8C7D9
+Linien/Icons	#6E8CA6 / #8A96A8
+Akzente (KPIs)	#C6A86A (Gold)
+Logo	oben links oder unten rechts, dezent
+Slide 1: Titel + KPIs
+Hintergrund: #05070B → #0A1630 Verlauf, rechts dezente Tech-Visuals (abstrakte Linien/Knoten), links viel Freiraum
+
+Layout:
+
+text
+┌─────────────────────────────────────┐
+│  [Logo]                             │
+│                                     │
+│  API-Latenz um 42 % reduziert       │
+│  durch Plattform-Automatisierung    │
+│                                     │
+│  Von manuellen Deployments zu       │
+│  stabiler, messbarer Infrastruktur  │
+│                                     │
+│  ┌─────────┐ ┌─────────┐ ┌─────────┐
+│  │ -42 %   │ │ -32 %   │ │ -28 %   │
+│  │ Latenz  │ │ MTTR    │ │ Kosten  │
+│  └─────────┘ └─────────┘ └─────────┘
+│                                     │
+└─────────────────────────────────────┘
+Text (als LinkedIn-Caption zum Karussell):
+
+🚀 Case Study: API-Latenz um 42 % reduziert – durch Plattform-Automatisierung
+
+5 Slides. 5 Minuten Lesezeit. Messbare Ergebnisse aus einem echten Optimierungsprojekt.
+
+👉 Weiterklicken
+
+Slide 2: Ausgangslage + Challenge
+Hintergrund: #0A1630 mit sehr feinem Grid (Transparenz ca. 10 %)
+
+Layout:
+
+text
+┌─────────────────────────────────────┐
+│  [Logo]                             │
+│                                     │
+│  ┌───────────────────────────────┐  │
+│  │  Ausgangslage                 │  │
+│  │  • Manuelle Deployments       │  │
+│  │  • Keine Observability        │  │
+│  │  • Hohe Latenz (850 ms)       │  │
+│  │  • Lange Fehleranalyse        │  │
+│  │  • Steigende Cloud-Kosten     │  │
+│  └───────────────────────────────┘  │
+│                                     │
+│  ┌───────────────────────────────┐  │
+│  │  Challenge                    │  │
+│  │  1. API-Latenz zu hoch        │  │
+│  │  2. MTTR zu lang (47 min)     │  │
+│  │  3. Rollbacks zu langsam      │  │
+│  │  4. ML-Workflows nicht reproduzierbar │
+│  └───────────────────────────────┘  │
+│                                     │
+└─────────────────────────────────────┘
+Ziel (unten, kleiner Text): *Ziel: Latenz <500 ms, Rollback-Rate <5 %, Kosten -20 %*
+
+Slide 3: Lösung + Architektur
+Hintergrund: #05070B – sehr ruhig, keine Serverbilder hinter dem Diagramm
+
+Layout:
+
+text
+┌─────────────────────────────────────┐
+│  [Logo]                             │
+│                                     │
+│  ┌───────────────────────────────┐  │
+│  │  Vorgehen                     │  │
+│  │  Ist → Analyse → Automatisierung → Observability → Ergebnis │
+│  └───────────────────────────────┘  │
+│                                     │
+│  ┌───────────────────────────────┐  │
+│  │  Architektur (vereinfacht)    │  │
+│  │                               │  │
+│  │  User → Gateway → Services    │  │
+│  │              ↓                │  │
+│  │         Redis / Postgres      │  │
+│  │              ↓                │  │
+│  │      Prometheus → Grafana     │  │
+│  └───────────────────────────────┘  │
+│                                     │
+└─────────────────────────────────────┘
+Zusätzliche Punkte (klein unter der Architektur oder innerhalb der Card):
+
+✓ Monitoring ✓ CI/CD ✓ Canary-Deployments ✓ Autoscaling ✓ IaC
+
+Slide 4: Ergebnisse (Tabelle + Diagramme)
+Hintergrund: #0A1630 – sehr reduziert, maximale Lesbarkeit
+
+Layout:
+
+text
+┌─────────────────────────────────────┐
+│  [Logo]                             │
+│                                     │
+│  ┌───────────────────────────────┐  │
+│  │  Kennzahl    Vorher  Nachher  │  │
+│  │  Latenz      850 ms   490 ms  │  │
+│  │  MTTR        47 min   32 min  │  │
+│  │  Rollbacks   20 %      3 %    │  │
+│  │  Kosten      1000 €    720 €  │  │
+│  │  TTP         6 Wo      2 Wo   │  │
+│  └───────────────────────────────┘  │
+│                                     │
+│  ┌─────────────┐ ┌─────────────┐    │
+│  │  Latenz     │ │  Kosten     │    │
+│  │  ████ 850   │ │ ████ 1000   │    │
+│  │  ██ 490     │ │ ███ 720     │    │
+│  └─────────────┘ └─────────────┘    │
+│                                     │
+└─────────────────────────────────────┘
+Metriken-Highlights (als kleine Kacheln unter oder über der Tabelle, optional):
+
+| -42 % Latenz | -32 % MTTR | -85 % Rollbacks | -28 % Kosten | -67 % TTP |
+
+Slide 5: Business Impact + CTA
+Hintergrund: Oben ruhig (#0A1630), unten dezent Premium (wie Slide 1)
+
+Layout:
+
+text
+┌─────────────────────────────────────┐
+│  [Logo]                             │
+│                                     │
+│  ┌───────────────────────────────┐  │
+│  │  Business Impact              │  │
+│  │  ✓ Weniger Ausfallzeit        │  │
+│  │  ✓ Schnellere Releases        │  │
+│  │  ✓ Niedrigere Kosten (-28 %)  │  │
+│  │  ✓ Mehr Vertrauen in KI       │  │
+│  │  ✓ Weniger manuelle Arbeit    │  │
+│  └───────────────────────────────┘  │
+│                                     │
+│  ┌───────────────────────────────┐  │
+│  │  Lessons Learned (3)          │  │
+│  └───────────────────────────────┘  │
+│                                     │
+│  ┌───────────────────────────────┐  │
+│  │  CTA                          │  │
+│  │  👉 Jetzt Infrastruktur-Check  │  │
+│  │  [LinkedIn] [Website]         │  │
+│  └───────────────────────────────┘  │
+│                                     │
+└─────────────────────────────────────┘
+Lessons Learned (Kurzform):
+
+Automatisierung muss messbar sein.
+
+Observability zuerst, dann KI.
+
+Kostenoptimierung beginnt bei Architektur.
+
+CTA-Text (zentriert, goldener Rahmen oder goldener Button-Hintergrund):
+
+Sie möchten wissen, wo Ihre Infrastruktur Zeit, Geld oder Stabilität verliert?
+
+Ich analysiere Ihre KI- und Automatisierungsprozesse – strukturiert und messbar.
+
+👉 Schreiben Sie mir direkt oder besuchen Sie meine Website.
+
+LinkedIn-Caption zum Karussell (Vorschlag)
+Für den Post über dem Karussell:
+
+🚀 Case Study: API-Latenz um 42 % reduziert
+
+Manuelle Deployments → automatisiert
+Hohe Latenz → stabil
+Hohe Kosten → optimiert
+
+Die Ergebnisse im Detail (5 Slides):
+
+📉 -42 % API-Latenz
+⏱️ -32 % MTTR
+💰 -28 % Cloud-Kosten
+🔄 -85 % Rollback-Rate
+
+👉 Durch Klicken auf das Karussell erfahren Sie, wie wir es umgesetzt haben.
+
+P.S. Meine 3 wichtigsten Lessons Learned finden Sie auf Slide 5.
+
+Hashtags (Vorschlag):
+#KIOps #APILatency #PlatformEngineering #MLOps #InfrastructureAsCode #CaseStudy #DevOps #MarketingInfrastructure
+
+Umsetzungshinweise für Canva/Figma/InDesign
+Schritt	Empfehlung
+Vorlage	Canva: Suche nach "LinkedIn Carousel Dark Tech" oder "Dark Enterprise" – dann Farben anpassen
+Hintergrund	Eigener Verlauf #05070B → #0A1630
+Cards	Rechteck mit #111827, 16 px Eckenradius, kein harter Schatten (eher flach)
+Diagramme	Manuell mit Balken oder Canva-eigene Diagramme – Farben auf #6E8CA6 und #C6A86A begrenzen
+Schrift	Inter oder Montserrat – keine Serifen
+Export	PDF (für LinkedIn als Karussell) – LinkedIn akzeptiert PDFs und wandelt sie in Slides um

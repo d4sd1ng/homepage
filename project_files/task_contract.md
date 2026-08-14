@@ -1,554 +1,203 @@
-# Homepage Task Contract
+# Nurovelle Homepage – Task Contract
 
-## Ziel dieses Dokuments
-
-Dieses Dokument definiert, was die Homepage, Detailseiten und Hero-Assets leisten müssen und was nicht gebaut wird.
-
-## Hauptaufgabe
-
-Die Homepage führt Besucher zur Anfrage einer kostenlosen KI-Potenzialanalyse.
-
-Detailseiten erklären einzelne Leistungen vertieft und führen ebenfalls zur Potenzialanalyse oder zum Erstgespräch.
-
-## Definition of Done – Homepage
-
-Die Homepage ist fertig, wenn folgende Punkte erfüllt sind:
-
-- Startseite ist vollständig strukturiert
-- Hero-Bereich hat klare Headline, Subline und CTA
-- Nutzen ist verständlich erklärt
-- Zielgruppe ist klar benannt
-- Leistungsbereiche sind sichtbar
-- SEO ist als eigener Leistungsbereich sichtbar
-- Ablauf ist einfach erklärt
-- Sektion 6 führt zur Potenzialanalyse
-- Leadformular ist eingebunden
-- Whitepaper-CTA ist vorhanden
-- Downloads sind vorbereitet
-- Danke-Seite ist vorhanden
-- Datenschutzlink ist vorhanden
-- Impressumlink ist vorhanden
-- Seite funktioniert auf Desktop und Mobil
-- keine Platzhaltertexte mehr vorhanden
-
-## Definition of Done – Detailseiten
-
-Die Detailseiten sind fertig, wenn folgende Punkte erfüllt sind:
-
-- eine wiederverwendbare Vorlage für alle 11 Detailseiten existiert
-- Header entspricht der Homepage
-- Sidebar entspricht der Homepage
-- Footer entspricht der Homepage
-- Hero entspricht der Homepage-Logik, aber mit wechselnder passender Grafik
-- jede Detailseite hat eine eigene Hero-Grafik
-- Struktur 1 bis 10 ist umgesetzt
-- Kartenzahlen sind flexibel, wo Inhalte je Leistung variieren
-- FAQ ist einheitlich planbar
-- verwandte Leistungen sind einheitlich planbar
-- Erstgespräch-CTA mit Portraitkarte ist vorhanden
-- keine unnötige Dopplung mit Homepage-Abschnitt „So läuft die Zusammenarbeit“
-
-## Detailseiten-Struktur verbindlich
-
-1. Hero
-2. Was ist ...?
-3. Warum ist ... wichtig / entscheidend?
-4. Unsere Lösungen / Leistungen für ...
-5. Steigerung von ... durch ...
-6. Ihr Nutzen von ...
-7. Typische Einsatzbereiche
-8. Was damit möglich wird
-9. FAQ
-10. Erstgespräch-CTA mit Portraitkarte
-
-## Layoutregeln Detailseiten
-
-- Punkt 2: nur Überschrift und Blocktext
-- Punkt 3: schwarze Cards
-- Punkt 4: Problem-/Lösungs-Cards
-- Punkt 5: CSS-Cards
-- Punkt 6: CSS-Cards
-- Punkt 7: wie Homepage
-- Punkt 8: wie Card auf Homepage
-- Punkt 10: rechteckige Karte mit rundem Portrait, Social-Media-Icons und Kontaktdaten
-
-## Hero-Asset-Regeln
-
-Für Hero-Grafiken gilt:
-
-- keine Texte
-- keine Labels
-- keine Zahlen
-- keine Logos
-- keine UI-Texte
-- keine überladenen Dashboards
-- keine Sci-Fi-Konsolen
-- keine wechselnden Farbstile
-- kein Cyan
-- kein Blau
-- kein Violett
-- kein Bronze
-- kein Kupfer
-- keine weißen Plattformen als neues Hauptdesign
-- Gold nur als feiner Premium-Akzent
-- matte schwarze Hauptflächen
-- dunkles Petrol nur kontrolliert als Verlauf oder Akzent
-
-## CSS-Board-Regel
-
-Boards, Panels, spätere Texte und Darstellungsflächen werden bevorzugt per HTML/CSS umgesetzt.
-
-Bildassets liefern nur technische Module und abstrakte Systemelemente.
-
-## Social-Button-Regel
-
-Social Buttons werden nicht als Bild generiert.
-
-Verbindlich:
-
-- nur das jeweilige Symbol sichtbar
-- keine sichtbaren Textlabels im Button
-- richtige Plattformfarbe oder freigegebene Nurovelle-kompatible Markenfarb-Variante
-- SVG, Inline-SVG oder saubere Icon-Bibliothek verwenden
-- Animation per CSS/JS, nicht als GIF/Video/Bildsequenz
-- Hover-/Focus-Animation dezent: Lift, Scale, Glow, Linienimpuls oder kurzer Farbimpuls
-- keine Regenbogen-, Neon-, Bounce- oder Comic-Wirkung
-- `aria-label` und ausreichende Tap-Fläche verpflichtend
-- reale Ziel-URLs erforderlich, keine finalen Platzhalterlinks
-
-## Fokus
-
-Priorität hat Conversion.
-
-Design unterstützt den Inhalt.
-Design ersetzt keinen klaren Text.
-
-## Nicht Teil dieser Version
-
-- Loginbereich
-- Kundenportal
-- komplexes Dashboard
-- SaaS-Abrechnung
-- Blog-System
-- Newsletter-Archiv
-- mehrsprachige Website
-- vollständiges CRM
-- eigene Authentifizierung
-
-## Technische Mindestanforderungen
-
-- schnelle Ladezeit
-- responsive Layout
-- saubere Sections
-- klare CTA-Buttons
-- Formularweiterleitung oder Formularspeicherung
-- Download-Verlinkung
-- Danke-Seite nach Conversion
-- Tracking optional
-- SEO-Grundstruktur
-
-## Inhaltliche Mindestanforderungen
-
-Die Homepage und Detailseiten müssen diese Fragen beantworten:
-
-1. Was bietet Neurova an?
-2. Für wen ist es gedacht?
-3. Welches Problem wird gelöst?
-4. Was bekommt der Kunde konkret?
-5. Wie läuft der Prozess ab?
-6. Warum ist das glaubwürdig?
-7. Was soll der Besucher jetzt tun?
-
-
-
-## Arbeitsregel – Content-Dokumente
-
-Bei Content-Dokumenten, Guides, PDFs, Arbeitsdokumenten und Download-Dokumenten ist das dokumentierte Typografie- und Farbsystem verbindlich. Website-Verläufe dürfen nicht ungeprüft auf Content-Dokumente übertragen werden.
-
----
-
-## Nachtrag 2026-06-30 – Asset-Erstellung
-
-Für weitere Hero- und Icon-Assets gilt:
-
-- keine freie Neuinterpretation
-- keine neuen Formen ohne Auftrag
-- keine Stiländerung ohne Auftrag
-- keine Prompt-Umformulierung ohne dokumentierte Freigabe
-- bei Bildserien nur eine Variable ändern: die Form oder das konkrete Motiv
-- zuerst ein Test-Asset prüfen, dann Serienumsetzung entscheiden
-
----
-
-## Arbeitsregel – Section-Divider
-
-Section-Divider sind für die Homepage verbindlich vorgesehen, aber die finale Form ist noch zu prüfen.
-
-Verbindlich:
-
-- Divider werden als HTML/CSS/SVG-Komponenten umgesetzt.
-- Divider werden nicht als Bild, GIF oder Video erzeugt.
-- Der gezeigte schräge SVG-Separator gilt als Prüfvariante A.
-- Fremde Beispiel-Farben werden nicht übernommen.
-- Nurovelle-Farben und Design-Tokens sind zu verwenden.
-- Gold wird nur als feiner Akzent eingesetzt, nicht als großflächige Trennfläche.
-- Divider dürfen keine Texte, CTAs, Cards oder Hero-Visuals verdecken.
-- Desktop, Tablet und Mobile sind zu prüfen.
-- Horizontales Scrollen durch zu breite Divider ist zu verhindern.
-- Animationen sind optional und müssen dezent, performant und abschaltbar sein.
-
-## Nachtrag 2026-07-02 – Divider-Prüfvariante B
-
-Neben dem schrägen SVG-Separator wird eine zweite Divider-Variante geprüft: Pure-CSS-Angled-Sections.
-
-Verbindlich:
-
-- Umsetzung nur als HTML/CSS/SCSS, nicht als Bild.
-- `clip-path`-basierte schräge Section-Kanten dürfen geprüft werden.
-- CSS-Variablen und SCSS-Berechnungen dürfen genutzt werden.
-- CSS-Trigonometrie darf nur mit sauberem Fallback genutzt werden.
-- Beispiel-Farben, Demo-Inhalte, interaktive Demo-Elemente und fremde Footer-/Header-Inhalte werden nicht übernommen.
-- Nurovelle-Farb- und Stilregeln bleiben vorrangig.
-- Browser-Support, Responsiveness, Lesbarkeit und Performance sind vor Freigabe zu prüfen.
-
-## Nachtrag 2026-07-02 – Divider-Prüfvariante C
-
-Neben dem SVG-Separator und den Pure-CSS-Angled-Sections wird eine dritte Divider-Variante geprüft: Diagonal Box / SkewY + Clip-Path.
-
-Verbindlich:
-
-- Die Technik darf als Section-Übergang geprüft werden.
-- `skewY()` darf nur auf Hintergrund-/Pseudo-Elemente angewendet werden, nicht auf Content, Text, Cards oder CTAs.
-- Content muss horizontal, lesbar und im sicheren Inhaltsbereich bleiben.
-- CSS-Variablen für Winkel, Padding und Clip-Abstände dürfen genutzt werden.
-- Demo-Farben, Demo-Texte, Controls, Beispielgrafiken und Playground-Elemente werden nicht übernommen.
-- Keine violetten, pinken, cyanfarbenen, blauen oder bunten Demo-Verläufe.
-- Farben ausschließlich aus dem Nurovelle-System ableiten.
-- Finale Nutzung erst nach Prüfung von Desktop, Tablet, Mobile, Browser-Support, Lesbarkeit und Performance.
-
-
-## Nachtrag 2026-07-02 – Breadcrumb-Prüfvariante
-
-Die ausgewählte Breadcrumb-Referenz wird als CSS-Komponentenvariante aufgenommen.
-
-Verbindlich:
-
-- Breadcrumbs für Unterseiten und Detailseiten vorsehen.
-- Umsetzung semantisch als Navigation, nicht nur als dekorative Leiste.
-- Pfeil-/Chevron-Optik darf per CSS-Pseudo-Elementen (`::after`) umgesetzt werden.
-- Hover- und Active-Zustände werden per CSS animiert.
-- Die aktuelle Seite muss eindeutig erkennbar sein.
-- Mobile Lesbarkeit und Tap-Flächen sind zu prüfen.
-
-Nicht erlaubt:
-
-- keine Demo-Farben übernehmen
-- kein Google-Font-Import aus der Referenz
-- kein Prefixfree-Script
-- keine fremden Beispieltexte
-- keine Nummernkreise als Pflicht, außer später ausdrücklich freigegeben
-- keine neue Markenfarbe
-
-Die FreeFrontend-CSS-Infografik-Sammlung darf nur als optionale Inspirationsquelle geprüft werden. Sie ist keine Freigabe für fremde Farben, fremde Layoutsprache oder zusätzliche Komponenten.
-
-
-## Arbeitsregel – Card-Prüfvariante Frosted Glass Overlay
-
-Als Card-Option wird eine Frosted-Glass-Overlay-Logik geprüft.
-
-Pflichtregeln:
-
-- HTML/CSS statt Bild
-- echte Textinhalte im Markup
-- Desktop: Hover-Zustand zulässig
-- Mobile: Tap-/Focus-Zustand erforderlich
-- keine externen Unsplash-/Demo-Bilder
-- keine Demo-Farben, keine Demo-Schriften, keine fremden Layouttexte
-- keine weißen Overlay-Flächen, wenn sie nicht zum dunklen Nurovelle-Stil passen
-- Blur nur so einsetzen, dass Textkontrast und Performance stabil bleiben
-- `prefers-reduced-motion` berücksichtigen
-
-Die Card-Option darf erst final eingesetzt werden, wenn Lesbarkeit, Responsiveness, Accessibility und Performance geprüft sind.
-
-## Nachtrag 2026-07-02 – Dashboard-Board-Section-Prüfvariante
-
-Die CodePen-Referenz `https://codepen.io/josephrexme/pen/oNNpZYJ` wird als technische Prüfoption für eine Section-/Board-Komponente aufgenommen.
-
-Verbindlich:
-
-- Prüfvariante, keine finale Layoutentscheidung.
-- Umsetzung nur per HTML/CSS/SVG.
-- Keine Bildgenerierung.
-- Keine Demo-Farben, Demo-Texte, Demo-Logos, Demo-Daten, Demo-Avatare oder fremde Bildquellen übernehmen.
-- Keine externe Bild- oder Avatar-URL als finale Ressource verwenden.
-- Nurovelle-Farbsystem bleibt verbindlich.
-- Die Variante darf nur eingesetzt werden, wenn sie auf Desktop, Tablet und Mobile lesbar, performant und zugänglich bleibt.
-- UI-Elemente müssen echte HTML/SVG-Komponenten bleiben und dürfen keine unkontrollierbaren Bildbeschriftungen enthalten.
-
-
-## CTA-Button-Regel – Prüfvariante
-
-Für zentrale CTA-Buttons darf die vom Nutzer ausgewählte Arrow-/Circle-Reveal-zu-Press-Button-Logik geprüft werden.
-
-Verbindlich:
-
-- nur technische Logik übernehmen
-- keine Demo-Farben
-- keine Demo-Texte
-- keine React-/styled-components-Pflicht
-- Umsetzung bevorzugt HTML/CSS/JS
-- semantischer Link- oder Button-Typ
-- Focus-State, Tastaturbedienbarkeit und mobile Tap-Flächen prüfen
-- `prefers-reduced-motion` berücksichtigen
-
-Status: Prüfvariante, keine pauschale Freigabe für alle Buttons.
-
----
-
-## Nachtrag 2026-07-02 – CTA-Goldfarbe
-
-Für die CTA-Button-Prüfvariante ist die vom Nutzer gelieferte Golden-Button-Farblogik als Prüfgrundlage aufzunehmen. Übernommen werden Goldverlauf, Lichtkante, Innenkante und Press-State-Logik. Nicht übernommen werden Demo-Text, React-Pflicht, Styled-Components-Pflicht oder übertriebene Glanzwirkung.
-
-Verbindliche Prüfung:
-
-- Goldwirkung muss zum Nurovelle-Premium-Stil passen.
-- CTA bleibt semantisch korrekt als `<button>` oder `<a>`.
-- Hover, Focus und Active müssen zugänglich und mobil nutzbar sein.
-- `prefers-reduced-motion` bleibt Pflicht.
-
----
-
-## Nachtrag 2026-07-02 – Download-Button zu Danke-Button
-
-Für Download-CTAs wird eine weitere Interaktionsvariante geprüft: Der Downloadbutton transformiert nach erfolgreicher Aktion in einen größeren Danke-/Bestätigungsbutton.
-
-Verbindlich:
-
-- Prüfvariante, keine finale Freigabe.
-- Umsetzung per HTML/CSS/JS.
-- Keine Bildgenerierung.
-- Keine Demo-Farben oder fremden Texte übernehmen.
-- Button bleibt semantisch korrekt als `<button>` oder `<a>` umgesetzt.
-- Erfolgszustand muss klar erkennbar sein: Download gestartet, Anfrage bestätigt oder Datei verfügbar.
-- Bei Downloads darf die Transformation keine notwendige Rückmeldung ersetzen, sondern muss die Rückmeldung visuell unterstützen.
-- Focus-State, Tastaturbedienung, Mobile-Tap-Verhalten und `prefers-reduced-motion` sind Pflicht.
-- Nach Transformation darf der Button keine falsche Aktion suggerieren.
-
-
-## Nachtrag 2026-07-02 – Statuskorrektur UX-/CSS-Komponenten
-
-Für die aktuelle Umsetzung gilt folgende Korrektur des offenen Status:
-
-- Divider: live prüfen, keine finale Auswahl ohne Sichtprüfung.
-- Button-Animation: bestimmt; Arrow-/Circle-Reveal zu Press-Button mit Golden-Button-Farblogik ist die maßgebliche Button-Prüflogik.
-- Breadcrumbs: bestimmt; CSS-Chevron-/Pfeil-Breadcrumbs werden als Grundlage verwendet, Nurovelle-konform umgesetzt.
-- Hero-Animation: live prüfen, keine finale Auswahl ohne Sichtprüfung.
-- Section-Zuordnung der Komponenten: offen.
-- Rolle von Temkuri/Zra: offen prüfen, ob Basis oder nur Strukturreferenz.
-
-## Arbeitsregel – Keine verstreuten Zusatzdateien für Referenzcode
-
-Referenzcodes, CSS-Prüfvarianten, Buttonlogiken, Divider-Varianten, Hero-Animationen und Board-Referenzen werden nicht als dauerhaft verstreute Einzeldokumente geführt.
-
-Verbindlich:
-
-- Originalreferenzen werden im Referenzarchiv der Projektfiles dokumentiert.
-- Aktive Designregeln stehen im `styleguide.md`.
-- Freigegebene Entscheidungen stehen im `decision_log.md`.
-- Umsetzungsstatus steht im `todo.md`.
-- Tatsächlich ausgeführte Änderungen stehen im `changelog.md`.
-- Produktions-CSS bleibt in `nurovelle-animations.css` beziehungsweise den späteren finalen CSS-Dateien.
-
-Nicht erlaubt:
-
-- neue gleichrangige Designquellen ohne Auftrag
-- unmarkierte Vermischung aus Originalcode und Nurovelle-Adaption
-- Interpretation als finale Freigabe ohne Entscheidungseintrag
-
-
----
-
-## Verbindlicher Homepage-Stand – 2026-07-14
-
+Stand: 2026-08-14  
 Status: freigegeben
 
-Diese Festlegung ersetzt abweichende ältere Homepage-Strukturen und Textstände in dieser Datei. Ältere Angaben zu Trust-Bereich, klassischer Navigation, zusätzlichem SEO-Bereich als aktuelle Sektion, ausführlichen Prozesskarten oder einer anderen Sektionsreihenfolge dürfen nicht mehr verwendet werden.
+## Zweck dieser Datei
 
-### Header
+Diese Datei enthält ausschließlich **Arbeitsregeln**.
 
-- Breadcrumbs ersetzen die klassische Navigation vollständig.
-- Der Header enthält genau drei Breadcrumbs mit Submenüs.
-- Die Submenüs öffnen sich per Hover.
-- Keine zusätzliche klassische Hauptnavigation.
+Sie beschreibt nicht das Design, die Seitenstruktur oder offene Aufgaben.
 
-### Verbindliche Homepage-Reihenfolge
+## Prioritätenrangfolge
 
-1. Hero
-2. Warum Nurovelle
-3. Der erste Schritt zu Ihrem KI-Projekt
-4. Sie haben bereits eine konkrete KI-Idee?
-5. Branchen – optional, noch nicht final entschieden
-6. Kostenlose KI-Potenzialanalyse
-7. Formular
-8. KI-Leistungen von Nurovelle
-9. Vom Geschäftsprozess zur KI-Lösung
-10. Download-Bereich
-11. Kontakt
-12. FAQ
-13. Footer
+1. Explizite aktuelle Benutzervorgabe
+2. `task_contract.md`
+3. `decision_log.md`
+4. `project_overview.md`
+5. `todo.md`
+6. `styleguide.md`
+7. `architecture.md`
+8. `assets.md`
+9. technische Referenzdateien
+10. bestehender Produktionscode
 
-Ein separater SEO-Bereich ist für einen späteren Ausbau vorgesehen und gehört nicht zur aktuell verbindlichen Reihenfolge.
+Bei Widersprüchen gilt immer die höher priorisierte Quelle.
 
-### Hero
+## Pflichtprüfung vor Änderungen
 
-Kicker:
+Vor jeder projektbezogenen Änderung sind mindestens zu prüfen:
 
-`INDIVIDUELLE KI-SYSTEME`
+- `project_overview.md`
+- `task_contract.md`
+- `decision_log.md`
+- `todo.md`
+- `styleguide.md`
+- `nurovelle-tokens.css`
+- relevante CSS-/Animationsreferenzen
+- `architecture.md`
+- `assets.md`
+- `changelog.md`
 
-H1:
+Zusätzlich muss der tatsächlich zu ändernde Produktionscode geprüft werden.
 
-`KI-Agenten für echte Geschäftsprozesse.`
+## Grundregel
 
-Subline:
+Existiert eine exakte Vorgabe, Entscheidung, Vorlage oder bestehende freigegebene Umsetzung, wird sie übernommen.
 
-`Nurovelle entwickelt individuelle KI-Systeme für Datenverarbeitung, Wissenszugriff, Prozessautomatisierung und Unternehmenssoftware.`
+Nicht erlaubt ohne ausdrücklichen Auftrag:
 
-Zusatzzeile:
+- interpretieren
+- umgestalten
+- vereinfachen
+- erweitern
+- kürzen
+- neue Inhalte ergänzen
+- Layout verändern
+- neue Komponenten erfinden
+- Farben verändern
+- Fonts verändern
+- Assets austauschen
+- IDs oder Klassen umbenennen
+- bestehende Funktionen entfernen
 
-`Von der Potenzialanalyse über Prompt Engineering und MCP bis zur Umsetzung maßgeschneiderter KI-Lösungen.`
+## Keine stillen Änderungen
 
-CTAs:
+Änderungen dürfen nicht nebenbei an Bereichen vorgenommen werden, die nicht zum Auftrag gehören.
 
-- `Kostenlose KI-Potenzialanalyse anfordern` → Potenzialanalyse
-- `Unverbindliches Erstgespräch` → Kontaktbereich
+Wenn eine notwendige Folgeänderung erkannt wird:
 
-Nicht verwenden:
+- nicht still ausführen
+- als Abhängigkeit oder offenen Punkt dokumentieren
+- nur ausführen, wenn sie technisch zwingend zum beauftragten Änderungsumfang gehört
 
-- `Künstliche Intelligenz. Echte Ergebnisse.`
-- `35+ Jahre Code`
-- Trust-Aussagen im Hero
-- Praxisleitfaden als zweiter Hero-CTA
+## Keine Annahmen
 
-### Warum Nurovelle
+Fehlt eine notwendige Information:
 
-- Der Abschnitt benötigt eine Einleitung aus mindestens zwei bis drei Sätzen.
-- Danach folgen fünf bis sechs konkrete Bulletpoints.
-- Keine Trust-Kennzahlenleiste.
-- Keine Unternehmensgeschichte.
-- Keine unbelegten Erfahrungs- oder Leistungsversprechen.
-- Der finale Wortlaut der Einleitung und Bulletpoints ist noch nicht freigegeben und darf nicht frei erfunden werden.
+- vorhandene Projektdateien und Produktionscode prüfen
+- vorhandene Entscheidung suchen
+- nichts erfinden
+- bei weiterhin fehlender Grundlage als `blockiert` oder `offen` dokumentieren
 
-### Der erste Schritt zu Ihrem KI-Projekt
+## Produktionscode
 
-Einleitung:
+- bestehende verantwortliche Regel direkt ändern
+- keine Emergency-Overrides
+- keine doppelten CSS-Regeln als Workaround
+- keine widersprüchlichen Implementierungen
+- kein unnötiges `!important`
+- reale bestehende Selektoren verwenden
+- keine Selektoren aus Annahmen erzeugen
 
-`Ob erste Orientierung oder konkrete Projektidee: Wir prüfen Prozesse, Daten und technische Voraussetzungen und zeigen den passenden nächsten Schritt.`
+## Inhalte
 
-Card 1:
+- freigegebene Texte unverändert übernehmen
+- keine Textkürzung ohne Auftrag
+- keine Ergänzung nicht freigegebener Aussagen
+- keine erfundenen Leistungsversprechen, Kennzahlen, Referenzen oder Erfahrungswerte
+- keine vollständigen Detailseiten-Inhalte auf Homepage-Cards kopieren
 
-**Prozess klären**
+## Platzhalter
 
-`Welcher Geschäftsprozess verbessert werden soll und welches konkrete Ergebnis durch KI entstehen muss.`
+Ein Erzeugnis mit Platzhaltern gilt nicht als fertig und wird nicht vorgelegt. Das gilt auch für einen begleitenden Hinweis wie „vor Veröffentlichung durch belegte Werte ersetzen".
 
-`Mehr erfahren`
+Lässt sich eine Zahl nicht belegen:
 
-Card 2:
+- das Stück so bauen, dass es ohne Zahlen trägt – aus Aussagen statt Statistik
+- wird die unbelegte Zahl trotzdem gewünscht, sind **beide** Fassungen zu liefern: die mit der Zahl und eine vollständige ohne
 
-**Daten prüfen**
+## Agenten-Team
 
-`Welche Daten, Systeme und Wissensquellen bereits vorhanden sind und technisch nutzbar gemacht werden können.`
+Für das Jude-Agententeam gelten dieselben Regeln wie für jede andere Bearbeitung. Zusätzlich:
 
-`Mehr erfahren`
+- `homepage_repo` ist **ausschließlich lesbar**. Kein Anlegen, kein Ändern, kein Löschen, kein Umbenennen – auch nicht von Assets.
+- Vor jedem Erzeugnis sind die zuständigen Projectfiles zu lesen; die Rangfolge oben gilt unverändert.
+- Was in keiner Projectfile steht, wird nicht erfunden, sondern als `offen` gemeldet.
+- Jedes fertige Erzeugnis wird zur Abnahme vorgelegt und geht erst nach Freigabe nach außen.
+- Ergebnisse werden nur als geprüft oder geändert bezeichnet, wenn sie es tatsächlich sind.
 
-Card 3:
+## Design
 
-**Umsetzung planen**
+Alle Designentscheidungen kommen ausschließlich aus:
 
-`Ob ein KI-Agent, ein Wissenssystem, Automatisierung oder individuelle Software der sinnvolle nächste Schritt ist.`
+```text
+styleguide.md
+nurovelle-tokens.css
+```
 
-`Mehr erfahren`
+Der Task Contract wiederholt keine Farben, Fonts, Verläufe oder Komponentenwerte.
 
-CTA:
+## Assets
 
-`Potenzialanalyse starten`
+Alle Assetnamen, Pfade und Verwendungszwecke kommen ausschließlich aus:
 
-### Sie haben bereits eine konkrete KI-Idee?
+```text
+assets.md
+```
 
-Einleitung:
+Vor Verwendung ist zu prüfen, ob das Asset im realen Projektbestand existiert.
 
-`Wir prüfen Machbarkeit, Datenlage und Integrationsaufwand, bevor unnötige Entwicklungs- oder Folgekosten entstehen.`
+Keine Umbenennung, Ersetzung oder Neuinterpretation ohne Auftrag.
 
-CTA:
+## Bildgenerierung / Bildbearbeitung
 
-`Projektidee prüfen lassen`
+Für Nurovelle-Bilder gilt immer der freigegebene Nurovelle-Stil und transparenter Hintergrund.
 
-### Kostenlose KI-Potenzialanalyse
+Bei bestehenden Formen:
 
-- Eigene Sektion vor dem Formular.
-- Nicht mit dem Formular oder einer Trust-Section vermischen.
-- Der finale vollständige Text dieser Sektion ist noch nicht freigegeben und darf nicht frei ergänzt werden.
+- Form nicht frei verändern
+- keine neue Form erfinden
+- keine zusätzliche Plattform oder Bodenplatte
+- keine Texte, Labels, Logos oder lesbare UI ins Bild
+- bei Serien nur die ausdrücklich genannte Variable ändern
 
-### Formular
+## Dokumentation
 
-- Eigene Sektion direkt nach der Potenzialanalyse.
-- Formular rechts, begleitende Card links.
-- Pflichtfelder, Einwilligung, Datenschutz, Honeypot, Submission sowie Success-/Error-Logik bleiben erhalten.
-- Der finale Text der linken Card ist noch nicht freigegeben.
+Jede Information hat genau eine zuständige Datei.
 
-### KI-Leistungen von Nurovelle
+- Projektumfang und Seitenlogik → `project_overview.md`
+- Arbeitsregeln → `task_contract.md`
+- Entscheidungen → `decision_log.md`
+- offene Aufgaben → `todo.md`
+- Design → `styleguide.md`
+- Assets → `assets.md`
+- technische Struktur → `architecture.md`
+- ausgeführte Änderungen → `changelog.md`
 
-Jede Leistungskarte enthält:
+Andere Dateien dürfen auf die zuständige Datei verweisen, aber deren Inhalt nicht vollständig duplizieren.
 
-- links oben ein Icon mit Rahmen
-- rechts daneben einen Trennstrich
-- eine Nummer mit eigenem Rahmen
-- Titel und Untertitel
-- eine mittig angeordnete Nummernkarte links neben dem Inhaltsbereich
-- maximal vier Bulletpoints
+## Statuswerte
 
-Inhaltsregeln:
+Nur diese Statuswerte verwenden:
 
-- Kein zusätzlicher Fließtext, der die Bulletpoints wiederholt.
-- Keine weitere Text-Card auf der Leistungskarte.
-- Titel, Untertitel und Bulletpoints dürfen denselben Inhalt nicht mehrfach ausdrücken.
-- Keine vollständigen Detailseiten-Inhalte auf der Homepage.
+- offen
+- in Arbeit
+- fertig
+- geprüft
+- freigegeben
+- blockiert
 
-### Vom Geschäftsprozess zur KI-Lösung
+## Änderungsnachweis
 
-- Die bisherigen Prozesskarten mit Beschreibungstexten entfallen.
-- Nur Module in der freigegebenen Stepdiagramm-Anordnung verwenden.
-- Je Modul ausschließlich die Modulbezeichnung anzeigen.
-- Keine Erklärungssätze, Bulletpoints oder zusätzlichen Cards.
-- Kein CTA.
+Nach tatsächlichen Projektänderungen muss `changelog.md` aktualisiert werden.
 
-### Download-Bereich
+Ein Changelog-Eintrag enthält nur:
 
-- Eigene Sektion nach dem Stepdiagramm.
-- Bestehende Downloads mit kurzen, nicht wiederholenden Beschreibungen.
-- Finale Einzeltexte sind noch zu prüfen.
+- Datum
+- Status
+- tatsächlich geänderte Dateien/Bereiche
+- tatsächlich nicht geänderte relevante Bereiche, wenn dies zur Abgrenzung notwendig ist
 
-### Kontakt
+## Prüfung vor Abschluss eines Arbeitsauftrags
 
-- Eigene Kontaktsektion nach dem Download-Bereich.
-- Nicht mit Potenzialanalyse oder Formular vermischen.
-- Finale Kontakttexte sind noch zu prüfen.
+Vor Meldung eines Ergebnisses prüfen:
 
-### FAQ
+- Vorgabe vollständig eingehalten?
+- unbeauftragte Änderung vorgenommen?
+- alte Quelle statt aktueller Quelle verwendet?
+- neue Annahme eingeführt?
+- Datei tatsächlich geändert oder nur vorgeschlagen?
+- Changelog bei tatsächlicher Änderung aktualisiert?
 
-- Abschnitt 12.
-- Bestehende Fragen und Antworten nicht ungeprüft verändern.
-- Finale FAQ-Texte sind gesondert zu prüfen.
-
-### Footer
-
-Verbindlicher Beschreibungstext:
-
-`Individuelle KI-Systeme für reale Geschäftsprozesse.`
-
-Keine lange Leistungsbeschreibung, Unternehmensgeschichte oder technische Erklärung im Footer.
-
-### Textstatus
-
-- Kein bisheriger vollständiger Sektionstext darf ungeprüft als final verwendet werden.
-- Nur die in diesem Nachtrag wörtlich festgelegten Texte gelten als freigegeben.
-- Fehlende Texte dürfen nicht selbstständig erfunden, ergänzt oder aus alten Dateien übernommen werden.
+Nur tatsächlich geprüfte oder geänderte Zustände als solche bezeichnen.

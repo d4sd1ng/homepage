@@ -1,0 +1,823 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Nurovelle | KI-Chatbots</title>
+<meta name="description" content="KI-Chatbots beantworten wiederkehrende Anfragen, erfassen Anliegen und greifen auf freigegebene Informationen aus Dokumenten, Wissensquellen und Systemen zu."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;550;600;650;700;750;800&family=Exo+2:wght@600;700;800&display=swap" rel="stylesheet"/>
+<style>
+/* ==========================================================================
+   GEMEINSAMES GERÜST — Header, Buttons, Footer, aus index.html übernommen
+   ========================================================================== */
+:root {
+  --sidebar-gold: #d89828;
+  --sidebar-gold-light: #e8b048;
+  --nv-gold-border: #a55d07;
+  --nv-gold-inner-dark: #8b4208;
+  --nv-gold-inner-mid: #b17d10;
+  --nv-gold-highlight: #fae385;
+  --nv-gold-text-dark: rgb(120, 50, 5);
+  --nv-gold-gradient: linear-gradient(160deg, #a54e07, #b47e11, #fef1a2, #bc881b, #a54e07);
+  --nv-gold-text-hover: rgba(120, 50, 5, 0.8);
+  --nv-gold-border-hover: rgba(165, 93, 7, 0.6);
+  --shadow-soft: rgba(0, 0, 0, 0.16);
+  --shadow-soft-2: rgba(110, 80, 20, 0.4);
+  --shadow-hover-1: rgba(0, 0, 0, 0.19);
+  --shadow-hover-2: rgba(0, 0, 0, 0.23);
+
+  --color-bg-black: #080B09;
+  --header-height: 84px;
+  --page-gutter: clamp(18px, 3vw, 32px);
+  --side: clamp(30px, 4.2vw, 56px);
+
+  --color-text-light: #F5F7F4;
+  --color-text-muted: #B9C3BD;
+
+  --gold-1: linear-gradient(110deg, #8B641A 0%, #DFBD69 18%, #FFF6BD 34%, #B98424 48%, #F7DF82 66%, #926F34 82%, #E6C45F 100%);
+  --gold-glow: drop-shadow(0 1px 0 rgba(255,245,180,.18)) drop-shadow(0 0 10px rgba(247,239,138,.28)) drop-shadow(0 0 26px rgba(224,170,62,.16));
+  --gold-2: linear-gradient(135deg, #DFBD69, #926F34);
+  --gold-3: linear-gradient(135deg, #76551A 0%, #AE8625 13%, #F7EF8A 27%, #FFF9C9 33%, #D2AC47 43%, #926F34 57%, #EDC967 72%, #FFF3A1 80%, #9B7423 100%);
+  --frame-glow: 0 1px 0 rgba(255,255,220,.30) inset, 0 -2px 3px rgba(76,46,5,.60) inset, 0 0 0 1px rgba(146,111,52,.55), 0 6px 16px rgba(0,0,0,.42), 0 0 22px rgba(212,175,55,.16);
+
+  --t-sektionstitel: clamp(40px, 4.6vw, 72px); --w-sektionstitel: 800;
+  --t-kartentitel: clamp(22px, 1.8vw, 40px);   --w-kartentitel: 700;
+  --t-subtitle: 19px;         --w-subtitle: 600;
+  --t-zwischentitel: clamp(19px, 1.4vw, 24px); --w-zwischentitel: 700;
+  --t-bulletlabel: 17px;      --w-bulletlabel: 500;
+  --t-kartenbullet: 15px;     --w-kartenbullet: 500;
+  --t-fliesstext: 16px;       --w-fliesstext: 400;
+  --t-kicker-sektion: 12px;   --w-kicker-sektion: 600;
+  --t-bildunterschrift: 17px; --w-bildunterschrift: 550;
+  --t-cta: 16px;              --w-cta: 600;
+
+  --logo-box: 54px;
+  --logo-w: 58px;
+  --logo-h: 46px;
+
+  --gold2: #f0a05a;
+  --muted: rgba(255,255,255,.78);
+  --content-max: 1560px;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; background: #000; scroll-padding-top: var(--header-height); }
+body {
+  zoom: 0.8;
+  margin: 0;
+  background: var(--color-bg-black);
+  color: #fff;
+  font-family: "Inter", Arial, sans-serif;
+  padding-top: var(--header-height);
+  overflow-x: hidden;
+}
+a { text-decoration: none; color: inherit; }
+img { display: block; max-width: 100%; }
+.site-header {
+  height: var(--header-height);
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  border-bottom: 1px solid #E0AA3E;
+  background: #080B09;
+  backdrop-filter: blur(8px);
+}
+.header-inner { position: relative; z-index: 1; height: 100%; padding: 0 var(--page-gutter); display: grid; grid-template-columns: auto minmax(0, 1fr) auto; align-items: center; }
+.logo-wordmark { height: calc(var(--logo-h) * 1); width: auto; display: block; align-self: center; }
+.logo-link { display: inline-flex; align-items: center; gap: 24px; height: var(--logo-box); perspective: 600px; text-decoration: none; flex: 0 0 auto; }
+.logo-spin { 
+  display: block;
+  position: relative;
+  top: -5px; 
+  width: var(--logo-w); 
+  height: var(--logo-h); 
+  animation: nv-logo-y-spin 11.5s linear infinite; 
+  background: url("assets/hero/nurovelle_logo.png") center / contain no-repeat;
+  filter: drop-shadow(0 0 8px #fae3853d); 
+  transform-style: preserve-3d; 
+  transform-origin: center; 
+  will-change: transform; 
+  }
+@keyframes nv-logo-y-spin {
+  from { transform: rotateY(0deg); } 
+  to { transform: rotateY(360deg); } }
+.nv-breadcrumb {
+  display: inline-flex;
+  max-width: 100%;
+  overflow: visible;
+  justify-self: center;
+  white-space: nowrap;
+  filter: drop-shadow(0 12px 18px #00000047);
+}
+.nv-breadcrumb__group { position: relative; }
+.nv-breadcrumb__group + .nv-breadcrumb__group {
+  margin-left: -8px; 
+  }
+.nv-breadcrumb__group:first-child .nv-breadcrumb__trigger {
+  padding-left: 14px; 
+  }
+.nv-breadcrumb__trigger {
+  --nv-crumb-point: 14px;
+  --nv-crumb-bg: linear-gradient(180deg, #112a20eb, #080b09f5); 
+    position: relative;
+    display: flex; 
+    align-items: center; 
+    min-height: 46px; 
+    padding: 0 22px; 
+    color: var(--color-text-light); 
+    background: none; 
+    font-size: 16px; 
+    line-height: 1; 
+    cursor: pointer; 
+    list-style: none; 
+    user-select: none; 
+    transition: color 0.18s ease, transform 0.18s ease; z-index: 1; 
+  }
+.nv-breadcrumb__trigger::-webkit-details-marker { display: none; }
+.nv-breadcrumb__trigger::marker { content: ""; }
+.nv-breadcrumb__trigger > span { position: relative; z-index: 1; }
+.nv-breadcrumb__trigger::before, .nv-breadcrumb__trigger::after {
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  clip-path: polygon(0 0, calc(100% - var(--nv-crumb-point)) 0, 100% 50%, calc(100% - var(--nv-crumb-point)) 100%, 0 100%, var(--nv-crumb-point) 50%);
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+}
+.nv-breadcrumb__trigger::before { 
+  inset: 0; 
+  background: 
+  linear-gradient(135deg, #fae3855c, #0000007a 58%, #fae38524); 
+  z-index: -2; 
+  }
+.nv-breadcrumb__trigger::after { 
+  inset: 1px; 
+  background: 
+  var(--nv-crumb-bg); 
+  z-index: -1; 
+  }
+.nv-breadcrumb__group:first-child .nv-breadcrumb__trigger::before, .nv-breadcrumb__group:first-child .nv-breadcrumb__trigger::after { clip-path: polygon(0 0, calc(100% - var(--nv-crumb-point)) 0, 100% 50%, calc(100% - var(--nv-crumb-point)) 100%, 0 100%); }
+.nv-breadcrumb__group:first-child .nv-breadcrumb__trigger::before { border-radius: 10px 0 0 10px; }
+.nv-breadcrumb__group:first-child .nv-breadcrumb__trigger::after { border-radius: 9px 0 0 9px; }
+.nv-breadcrumb__group[open] .nv-breadcrumb__trigger, .nv-breadcrumb__group:hover .nv-breadcrumb__trigger { --nv-crumb-bg: linear-gradient(180deg, #163a35f2, #0a1913fa); color: #fae385; transform: translateY(-1px); }
+.nv-breadcrumb__group[open] .nv-breadcrumb__trigger::before, .nv-breadcrumb__group:hover .nv-breadcrumb__trigger::before { background: linear-gradient(135deg, #fae385a8, #8b5b12a3 58%, #fae38566); }
+.nv-breadcrumb__group[open] .nv-breadcrumb__trigger::after, .nv-breadcrumb__group:hover .nv-breadcrumb__trigger::after { box-shadow: inset 0 1px 0 #fae38529, 0 5px 14px #00000052; }
+.nv-breadcrumb__menu { position: absolute; top: calc(100% + 6px); left: 12px; z-index: 50; display: none; min-width: 220px; padding: 8px; border: 1px solid transparent; border-radius: 10px; background-image: linear-gradient(#050706,#050706), var(--gold-3); background-origin: border-box; background-clip: padding-box, border-box; box-shadow: 0 18px 38px #000000b8; backdrop-filter: blur(12px); }
+.nv-breadcrumb__group[open] .nv-breadcrumb__menu, .nv-breadcrumb__group:hover .nv-breadcrumb__menu { display: grid; }
+.nv-breadcrumb__menu a { padding: 9px 12px; border-radius: 6px; color: var(--color-text-light); font-size: 15px; line-height: 1.2; }
+.nv-breadcrumb__menu a:hover, .nv-breadcrumb__menu a:focus-visible { color: #fae385; background: #bc881b1a; outline: none; }
+.golden-button {
+  touch-action: manipulation;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  justify-content: center;
+  min-width: 220px;
+  box-sizing: border-box;
+  height: 2.75em;
+  padding: 0 1em;
+  border: 1px solid var(--nv-gold-border);
+  border-radius: 0.3em;
+  color: var(--nv-gold-text-dark);
+  background-image: var(--nv-gold-gradient);
+  background-position: center;
+  background-size: 100% 100%;
+  box-shadow: 0 3px 6px var(--shadow-soft), 0 3px 6px var(--shadow-soft-2),
+    inset 0 -2px 5px 1px var(--nv-gold-inner-dark), inset 0 -1px 1px 3px var(--nv-gold-highlight);
+  font-family: "Inter", Arial, sans-serif;
+  font-size: 1em;
+  font-weight: 800;
+  line-height: 2.5em;
+  letter-spacing: 0.045em;
+  text-shadow: 0 2px 2px var(--nv-gold-highlight);
+  text-transform: uppercase;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  position: relative;
+}
+a:hover .golden-button, a:focus-visible .golden-button {
+  color: var(--nv-gold-text-hover);
+  border-color: var(--nv-gold-border-hover);
+  background-size: 150% 150%;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px var(--shadow-hover-1), 0 6px 6px var(--shadow-hover-2),
+    inset 0 -2px 5px 1px var(--nv-gold-inner-mid), inset 0 -1px 1px 3px var(--nv-gold-highlight);
+}
+a:active .golden-button {
+  box-shadow: 0 3px 6px var(--shadow-soft), 0 3px 6px var(--shadow-soft-2),
+    inset 0 -2px 5px 1px var(--nv-gold-inner-mid), inset 0 -1px 1px 3px var(--nv-gold-highlight);
+}
+.golden-button .nv-calendly-icon { width: 20px; height: 20px; flex: 0 0 auto; }
+.header-cta { justify-self: end; }
+.header-cta .golden-button { min-width: 0; height: 39.6px; padding: 0 11px; font-size: 12.1px; line-height: 37.4px; letter-spacing: 0.02em; }
+.footer { background-color: #080B09; margin-left: 0px; width: calc(100% - 0px); padding: 54px calc(var(--side) * 2); border-top: 1px solid var(--nv-gold-divider-strong); color: var(--color-text-light); background: #121212; }
+.footer-inner { display: grid;
+        grid-template-columns: minmax(0, 400px) auto minmax(0, 380px) auto; justify-content: space-between; gap: 96px; width: 100%; max-width: none; margin: 0; }
+.footer h4 { margin: 0 0 var(--nv-space-md); color: #fae385; font: var(--w-zwischentitel) var(--t-zwischentitel)/1.2 "Exo 2",Inter,Arial,sans-serif; letter-spacing: 0.06em; text-transform: uppercase; }
+.footer a:not(.footer-top):not(.footer-social a), .footer p { display: block; margin: 0 0 7px; color: #c4ccc6; font: 400 15px/1.7 Inter, Arial, sans-serif; text-decoration: none; }
+.footer-col--about p { color: #aab2ad; }
+.footer a:hover, .footer a:focus-visible { color: #fae385; outline: none; }
+.footer-newsletter { display: flex; gap: 8px; margin-top: 12px; }
+.footer-newsletter__input { flex: 1 1 auto; min-width: 0; height: 42px; padding: 0 12px; border: 1px solid rgba(212, 175, 55, 0.5); border-radius: 6px; color: #f0efe6; background: #0c0c0c; font: 400 14px/1.3 Inter, Arial, sans-serif; outline: none; }
+.footer-newsletter__input::placeholder { color: #8b938d; }
+.footer-newsletter__input:focus { border-color: #d4af37; box-shadow: 0 0 0 2px rgba(212, 175, 55, 0.28); }
+.footer-newsletter__btn { flex: 0 0 auto; height: 42px; padding: 0 18px; border: 0; border-radius: 6px; color: var(--nv-gold-text-dark); background-image: var(--nv-gold-gradient); font: 700 13px/1 Inter, Arial, sans-serif; text-transform: uppercase; letter-spacing: 0.04em; cursor: pointer; transition: filter 0.2s ease; }
+.footer-newsletter__btn:hover, .footer-newsletter__btn:focus-visible { filter: brightness(1.08); outline: none; }
+.footer-social { display: flex; gap: 12px; margin-top: 14px; }
+.footer-social a { display: inline-flex; align-items: center; justify-content: center; width: 38px; height: 38px; margin: 0; border: 1px solid var(--nv-gold-border); border-radius: 8px; color: #783205; background-image: var(--nv-gold-gradient); background-position: center; background-size: 100% 100%; transition: color 0.2s ease, border-color 0.2s ease, background 0.2s ease; }
+.footer-social a svg { width: 19px; height: 19px; }
+.footer-social a:hover, .footer-social a:focus-visible { color: rgba(120, 50, 5, 0.8); background-size: 150% 150%; transform: translateY(-2px); outline: none; }
+.footer-bottom { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px 28px; max-width: none; margin-top: 34px; padding-top: 22px; border-top: 1px solid rgba(212, 175, 55, 0.28); }
+.footer-legal { display: flex; flex-wrap: wrap; gap: 22px; }
+.footer-legal a { display: inline; margin: 0; color: #c4ccc6; font: 500 14px/1.4 Inter, Arial, sans-serif; }
+.footer-copy { margin: 0; color: #8b938d; font: 400 13px/1.4 Inter, Arial, sans-serif; }
+.footer-top { display: inline-flex; align-items: center; justify-content: center; width: 54px; height: 54px; margin: 0; color: #783205; border: 1px solid var(--nv-gold-border); border-radius: 8px; background-image: var(--nv-gold-gradient); background-position: center; background-size: 100% 100%; box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(110, 80, 20, 0.4), inset 0 -2px 5px 1px var(--nv-gold-inner-dark), inset 0 -1px 1px 3px #fae385; transition: color 0.2s ease, background-size 0.2s ease, transform 0.2s ease; }
+.footer-top svg { width: 26px; height: 26px; }
+.footer-top:hover, .footer-top:focus-visible { color: rgba(120, 50, 5, 0.8); background-size: 150% 150%; transform: translateY(-2px); outline: none; }
+.footer-col--about p, .footer-col > a, .footer-legal > a, .footer-copy { color: #b9c3bd; font: 400 15px/1.7 "Inter",Arial,sans-serif; }
+@media (max-width: 900px) {
+  .footer-inner { grid-template-columns: 1fr; gap: 38px; }
+}
+@media (max-width: 640px) {
+  .nv-breadcrumb { display: none; }
+}
+
+/* ==========================================================================
+   DETAILSEITE — Inhalt (Hero, Schwerpunkte, Kernnutzen, Einordnung)
+   ========================================================================== */
+.gold { background: linear-gradient(180deg,#ffd7a3 0%,#f0a05a 22%,#c76b2b 58%,#7a3518 100%); -webkit-background-clip: text; background-clip: text; color: transparent; -webkit-text-fill-color: transparent; }
+.btn { display: inline-flex; align-items: center; justify-content: center; box-sizing: border-box; height: 40px; padding: 0 18px; border: 1px solid var(--nv-gold-border); border-radius: 0.3em; color: var(--nv-gold-text-dark); background-image: var(--nv-gold-gradient); background-position: center; background-size: 100% 100%; box-shadow: 0 3px 6px var(--shadow-soft), 0 3px 6px var(--shadow-soft-2), inset 0 -2px 5px 1px var(--nv-gold-inner-dark), inset 0 -1px 1px 3px var(--nv-gold-highlight); font-family: "Inter",Arial,sans-serif; font-size: var(--t-cta); font-weight: 700; line-height: 1; letter-spacing: 0.045em; text-shadow: 0 2px 2px var(--nv-gold-highlight); text-transform: uppercase; transition: all 0.2s ease-in-out; }
+.btn:hover, .btn:focus-visible { color: var(--nv-gold-text-hover); border-color: var(--nv-gold-border-hover); background-size: 150% 150%; transform: translateY(-2px); box-shadow: 0 10px 20px var(--shadow-hover-1), 0 6px 6px var(--shadow-hover-2), inset 0 -2px 5px 1px var(--nv-gold-inner-mid), inset 0 -1px 1px 3px var(--nv-gold-highlight); }
+.section { position: relative; padding: 88px var(--side); background: #000; }
+.section--landing { padding-block: max(24px, calc(20.83vh - 168px)); }
+
+main > section:nth-child(n+4):before { content: ""; position: absolute; left: 7%; right: 7%; top: 0; height: 2px; background: linear-gradient(90deg,transparent 0%,#E0AA3E 14%,#FAF398 50%,#E0AA3E 86%,transparent 100%); box-shadow: 0 0 8px rgba(250,227,133,.4); }
+.section-inner { max-width: var(--content-max); margin-left: auto; margin-right: auto; }
+.kicker { font: var(--w-kicker-sektion) var(--t-kicker-sektion)/1.15 "Inter",Arial,sans-serif; letter-spacing: .14em; text-transform: uppercase; color: #55863f; margin-bottom: 10px; }
+h1,h2,h3 { font-family: "Exo 2",Inter,Arial,sans-serif; }
+h1 { max-width: 100%; margin-bottom: 22px; font: var(--w-sektionstitel) var(--t-sektionstitel)/1.08 "Exo 2",Inter,Arial,sans-serif; background: var(--gold-1); background-clip: text; -webkit-background-clip: text; color: transparent; -webkit-text-fill-color: transparent; }
+main h2 { font: var(--w-kartentitel) var(--t-kartentitel)/1.15 "Exo 2",Inter,Arial,sans-serif; margin-bottom: 23px; background: var(--gold-1); background-clip: text; -webkit-background-clip: text; color: transparent; -webkit-text-fill-color: transparent; }
+main h3 { font: var(--w-zwischentitel) var(--t-zwischentitel)/1.2 "Exo 2",Inter,Arial,sans-serif; color: #f5f1e8; margin-bottom: 8px; }
+.lead { max-width: 875px; font: var(--w-fliesstext) var(--t-fliesstext)/1.75 "Inter",Arial,sans-serif; color: #b9c3bd; }
+.sub { max-width: 820px; font: var(--w-subtitle) var(--t-subtitle)/1.4 "Inter",Arial,sans-serif; color: #D7DDD9; margin-bottom: 27px; }
+.detail-hero { display: grid; grid-template-columns: minmax(0,1fr) minmax(280px,680px); gap: 56px; align-items: center; }
+.detail-hero .kicker { margin-bottom: 14px; }
+.detail-hero h1 { margin-bottom: 21px; }
+.detail-hero .sub { font-size: 20px; margin-bottom: 39px; }
+.detail-hero .actions { margin-top: 63px; }
+.visual-card { position: relative; overflow: hidden; border: 1.25px solid transparent; border-radius: 10px; background-image: linear-gradient(#080B09,#080B09), var(--gold-3); background-origin: border-box; background-clip: padding-box, border-box; filter: drop-shadow(0 16px 24px rgba(0,0,0,.34)); }
+.visual-card>img:first-child { width: 100%; height: auto; max-height: 230px; object-fit: contain; }
+.visual-card--empty { aspect-ratio: 16 / 9; }
+.content-grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 108px; margin-top: 0; }
+.panel { border: 1.25px solid transparent; border-radius: 10px; background-image: linear-gradient(#080B09,#080B09), var(--gold-3); background-origin: border-box; background-clip: padding-box, border-box; padding: 13px; }
+.panel p,.panel li:not(.pair-chip) { font: var(--w-fliesstext) var(--t-fliesstext)/1.7 "Inter",Arial,sans-serif; color: #b9c3bd; }
+.panel p { margin: 0 0 12px; }
+.panel p:last-child { margin-bottom: 0; }
+.panel .sub { font: 600 19px/1.45 "Inter",Arial,sans-serif; color: #F5F7F4; margin: 0 0 24px; }
+.text + .panel, .sub + .panel { margin-top: 26px; }
+.text + .content-grid, .label-list + .content-grid { margin-top: 88px; }
+.panel h2 + .card-bullets { margin-top: 0; }
+.page-chat .panel h2 { margin-bottom: 14px; }
+.card-bullets { list-style: none; margin: 21px 0 0; padding: 0; display: grid; grid-template-columns: repeat(2,max-content); justify-content: start; gap: 10px 48px; }
+.card-bullets li { 
+  position: relative; 
+  padding-left: 20px; 
+  font: var(--w-kartenbullet) var(--t-kartenbullet)/1.4 "Inter",Arial,sans-serif; 
+  background: var(--gold-2); 
+  background-clip: text; 
+  -webkit-background-clip: text; 
+  color: transparent; 
+  -webkit-text-fill-color: transparent; 
+  }
+.card-bullets li::before { 
+  content: ""; 
+  position: absolute; 
+  left: 0; top: calc(50% - 3.5px); 
+  width: 7px; height: 7px; 
+  border-radius: 2px; 
+  background: #DFBD69; 
+  }
+.summary { border: 1px solid rgba(255,215,163,.78); background: linear-gradient(180deg,#ffd7a3 0%,#f0a05a 24%,#d89828 58%,#7a3518 100%); box-shadow: inset 0 0 0 1px rgba(255,244,199,.20),0 8px 16px rgba(0,0,0,.30); }
+.summary h2,.summary p { color: #080B09; text-shadow: none; }
+.summary h2 { background: none; -webkit-background-clip: initial; background-clip: initial; color: #112A20; -webkit-text-fill-color: #112A20; }
+.summary .sub { color: #080B09; }
+.summary h3 { color: #0A1913; }
+.summary .dot-list li { color: #0A1913; font: 600 17px/1.55 "Inter",Arial,sans-serif; }
+.summary .dot-list li::before { background: #0A1913; top: 10px; }
+.actions { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 99px; }
+.text-cols { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 18px 48px; margin-top: 9px; }
+.text-cols p { font: var(--w-fliesstext) var(--t-fliesstext)/1.7 "Inter",Arial,sans-serif; color: #b9c3bd; }
+.text-cols--1 { grid-template-columns: minmax(0,1fr); max-width: 1060px; gap: 14px; }
+.label-list { column-count: 2; column-gap: 48px; list-style: none; margin: 97px 0 0; padding: 0; }
+.label-list li { position: relative; break-inside: avoid; margin-bottom: 26px; padding-left: 20px; font: var(--w-fliesstext) var(--t-fliesstext)/1.7 "Inter",Arial,sans-serif; color: #b9c3bd; }
+.label-list li::before { content: ""; position: absolute; left: 0; top: 8px; width: 7px; height: 7px; border-radius: 2px; background: #DFBD69; }
+.label-list strong { display: block; margin-bottom: 4px; font: var(--w-bulletlabel) var(--t-bulletlabel)/1.35 "Inter",Arial,sans-serif; background: var(--gold-2); background-clip: text; -webkit-background-clip: text; color: transparent; -webkit-text-fill-color: transparent; }
+.text { max-width: 88ch; font: var(--w-fliesstext) var(--t-fliesstext)/1.7 "Inter",Arial,sans-serif; color: #b9c3bd; }
+.text--after { margin-top: 26px; }
+.num-list { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 26px 48px; list-style: none; margin: 97px 0 0; padding: 0; }
+.num-list li { display: flex; align-items: flex-start; gap: 18px; font: var(--w-fliesstext) var(--t-fliesstext)/1.7 "Inter",Arial,sans-serif; color: #b9c3bd; }
+.module-img { flex: 0 0 auto; width: 72px; height: 72px; object-fit: contain; }
+.num-list b { display: block; margin-bottom: 4px; font: var(--w-bulletlabel) var(--t-bulletlabel)/1.35 "Inter",Arial,sans-serif; background: var(--gold-2); background-clip: text; -webkit-background-clip: text; color: transparent; -webkit-text-fill-color: transparent; }
+.num-list span { display: block; }
+.pair-chips-row { display: grid; grid-template-columns: repeat(4,minmax(0,1fr)); gap: 20px 56px; list-style: none; margin: 0 0 20px; padding: 0; }
+#einsatzbereiche .panel { margin-top: 41px; }
+#moeglichkeiten .panel { padding: 38px; background-image: linear-gradient(#112A20,#112A20), var(--gold-3); }
+.pair-grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); grid-auto-rows: 1fr; gap: 20px 56px; }
+.pair { display: grid; grid-template-columns: minmax(0,1fr) 30px minmax(0,1fr); align-items: stretch; gap: 12px; }
+#einsatzbereiche .panel { padding: 38px; background-image: linear-gradient(#112A20,#112A20), var(--gold-3); }
+#einsatzbereiche .text--after { margin-top: 34px; }
+#moeglich .text--after { margin-top: 34px; }
+.pair-chip { display: flex; align-items: center; min-height: 92px; padding: 6px 10px; border-radius: 10px; color: #e4e0d6; border: 1.25px solid transparent; background-image: linear-gradient(#080B09,#080B09), var(--gold-3); background-origin: border-box; background-clip: padding-box, border-box; font: var(--w-bildunterschrift) var(--t-bildunterschrift)/1.4 "Inter",Arial,sans-serif; hyphens: auto; overflow-wrap: break-word; min-width: 0; }
+.chip-icon { flex: 0 0 auto; box-sizing: border-box; width: 48px; height: 48px; margin-right: 14px; overflow: hidden; border-radius: 8px; border: 1.25px solid transparent; background-image: linear-gradient(#080B09,#080B09), var(--gold-3); background-origin: border-box; background-clip: padding-box, border-box; }
+.chip-icon img { display: block; width: 100%; height: 100%; object-fit: cover; scale: 1.12; }
+.pair-chip--gold { background-image: linear-gradient(180deg,#ffd7a3 0%,#f0a05a 24%,#d89828 58%,#7a3518 100%), var(--gold-3); border-color: rgba(255,215,163,.78); color: #112A20; box-shadow: inset 0 0 0 1px rgba(255,244,199,.20); }
+.pair-arrow { align-self: center; display: flex; align-items: center; justify-content: center; color: #d4af37; }
+.pair-arrow svg { width: 32px; height: 32px; }
+/* ---------- Punktlisten & Gruppen ---------- */
+.dot-list { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 10px 48px; list-style: none; margin: 14px 0 0; padding: 0; }
+.dot-list li { position: relative; padding-left: 20px; font: var(--w-fliesstext) var(--t-fliesstext)/1.65 "Inter",Arial,sans-serif; color: #b9c3bd; }
+.dot-list li::before { content: ""; position: absolute; left: 0; top: 9px; width: 7px; height: 7px; border-radius: 2px; background: #DFBD69; }
+.group-cards { margin-top: 16px; }
+.group-cards .dot-list { grid-template-columns: 1fr; margin-top: 12px; }
+.group-cards article:only-child { grid-column: 1 / -1; }
+.group-cards article:only-child .dot-list { grid-template-columns: repeat(2,minmax(0,1fr)); }
+.group-cards h3 { margin-bottom: 2px; }
+.split-grid { display: grid; grid-template-columns: minmax(0,5fr) minmax(0,7fr); gap: 28px 72px; align-items: start; }
+.split-side h3 { margin-bottom: 12px; }
+.split-side .dot-list, .split-side .chip-list { margin-top: 0; }
+.chips-panel { margin-top: 18px; padding: 32px; }
+.chips-panel .chip-list { margin-top: 0; }
+.chip-list { display: grid; grid-template-columns: repeat(4,minmax(0,1fr)); gap: 20px 56px; list-style: none; margin: 18px 0 0; padding: 0; }
+.chip-list--2 { grid-template-columns: repeat(2,minmax(0,1fr)); }
+.chip-list a { display: flex; align-items: center; width: 100%; color: inherit; }
+.chip-list a:hover { color: #fae385; }
+.dot-list--1 { grid-template-columns: 1fr; }
+.chip-list li { display: flex; align-items: center; min-height: 58px; padding: 12px 16px; border-radius: 10px; color: #e4e0d6; border: 1.25px solid transparent; background-image: linear-gradient(#080B09,#080B09), var(--gold-3); background-origin: border-box; background-clip: padding-box, border-box; font: var(--w-bildunterschrift) var(--t-bildunterschrift)/1.4 "Inter",Arial,sans-serif; hyphens: auto; overflow-wrap: break-word; }
+@media (max-width: 1200px) { .chip-list { grid-template-columns: repeat(3,minmax(0,1fr)); } }
+@media (max-width: 900px) { .dot-list, .split-grid { grid-template-columns: 1fr; } .chip-list { grid-template-columns: repeat(2,minmax(0,1fr)); } }
+@media (max-width: 640px) { .chip-list { grid-template-columns: 1fr; } }
+
+/* ---------- FAQ ---------- */
+.faq-grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 36px; align-items: start; margin-top: 16px; }
+.faq-item summary { list-style: none; cursor: pointer; }
+.faq-item summary::-webkit-details-marker { display: none; }
+.faq-item summary > span { display: flex; width: 100%; box-sizing: border-box; align-items: center; justify-content: space-between; gap: 14px; height: 50px; padding: 0 18px; border-radius: 0.3em; border: 1px solid var(--nv-gold-border); background-image: var(--nv-gold-gradient); background-position: center; background-size: 100% 100%; box-shadow: 0 3px 6px var(--shadow-soft), 0 3px 6px var(--shadow-soft-2), inset 0 -2px 5px 1px var(--nv-gold-inner-dark), inset 0 -1px 1px 3px var(--nv-gold-highlight); color: var(--nv-gold-text-dark); text-align: left; white-space: normal; font-family: "Inter",Arial,sans-serif; font-size: var(--t-cta); font-weight: 700; line-height: 1.2; letter-spacing: 0.045em; text-shadow: 0 2px 2px var(--nv-gold-highlight); text-transform: uppercase; transition: all 0.2s ease-in-out; }
+.faq-item summary:hover > span { color: var(--nv-gold-text-hover); border-color: var(--nv-gold-border-hover); background-size: 150% 150%; transform: translateY(-2px); }
+.faq-item summary > span::after { content: "+"; flex: 0 0 auto; font-size: 18px; }
+.faq-item[open] summary > span::after { content: "\2212"; }
+.faq-item p { margin: 16px 4px 0; font: var(--w-fliesstext) var(--t-fliesstext)/1.7 "Inter",Arial,sans-serif; color: #b9c3bd; }
+@media (max-width: 900px) { .faq-grid { grid-template-columns: 1fr; } }
+
+/* ---------- CTA-Formular (aus analyse.html übernommen) ---------- */
+.analysis-layout { display: grid; grid-template-columns: 500px minmax(0,1fr); align-items: center; gap: 90px; margin-top: 98px; width: 100%; }
+.form-panel { width: 100%; min-width: 0; border: 1.25px solid transparent; border-radius: 10px; background-image: linear-gradient(#080B09,#080B09), var(--gold-3); background-origin: border-box; background-clip: padding-box, border-box; padding: 13px; }
+.form-panel h3 { font-size: 24px; line-height: 1.05; margin-bottom: 16px; text-transform: uppercase; background: var(--gold-1); -webkit-background-clip: text; background-clip: text; color: transparent; -webkit-text-fill-color: transparent; }
+.form-grid { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 10px; width: 100%; }
+.form-grid > * { min-width: 0; width: 100%; }
+.form-grid input, .form-grid select, .form-grid textarea { height: 40px; border: 1px solid rgba(240,160,90,.82); border-radius: 5px; background: rgba(235,235,226,.96); color: #111; font-family: "Inter",Arial,sans-serif; font-size: 13px; font-weight: 500; padding: 0 10px; outline: none; }
+.form-grid input:focus, .form-grid select:focus, .form-grid textarea:focus { box-shadow: 0 0 0 2px rgba(212,175,55,.34); }
+.form-grid textarea { grid-column: 1/-1; height: 68px; padding-top: 9px; resize: none; }
+.form-grid .hero-cta { grid-column: 1/-1; margin-top: 4px; width: 100%; border: 0; background: none; padding: 0; cursor: pointer; }
+.form-grid .hero-cta .golden-button { display: flex; align-items: center; justify-content: center; gap: 8px; width: 100%; min-width: 0; height: 44px; font-size: 13px; line-height: 1.2; }
+.consent-row { grid-column: 1/-1; display: flex; align-items: flex-start; gap: 10px; border: 1px solid rgba(212,175,55,.36); border-radius: 5px; background: #000; padding: 11px 12px; font-size: 12px; line-height: 1.45; color: #aeb7b2; }
+.consent-row input { width: auto; height: auto; flex: 0 0 auto; margin-top: 2px; accent-color: #d4af37; }
+.consent-row span { display: block; }
+.consent-row strong { display: block; margin-bottom: 2px; color: #f7d77a; font-weight: 600; }
+.consent-row a { color: #e8b048; text-decoration: underline; }
+.hp-field { position: absolute; left: -10000px; top: auto; width: 1px; height: 1px; overflow: hidden; }
+.form-note { margin-top: 12px; font-family: "Inter",Arial,sans-serif; font-size: 11px; line-height: 1.5; color: #aeb7b2; }
+.form-note a { color: #e8b048; text-decoration: underline; }
+.result-strip { width: 100%; border: 1.25px solid transparent; border-radius: 10px; background-image: linear-gradient(135deg, rgba(212,175,55,.12), rgba(0,0,0,0) 55%), linear-gradient(#080B09,#080B09), var(--gold-3); background-origin: border-box; background-clip: padding-box, padding-box, border-box; padding: 17px; display: block; }
+.result-strip h3 { font-size: 26px; line-height: 1; margin-bottom: 10px; background: var(--gold-1); -webkit-background-clip: text; background-clip: text; color: transparent; -webkit-text-fill-color: transparent; }
+.result-strip p { font-size: 14px; line-height: 1.6; color: #b9c3bd; }
+.result-points { display: grid; gap: 8px; list-style: none; margin: 21px 0 0 20px; padding: 0; }
+.result-points li { position: relative; padding-left: 14px; font-family: "Inter",Arial,sans-serif; font-size: 12.5px; font-weight: 600; letter-spacing: .04em; text-transform: uppercase; color: #F5F7F4; }
+.result-points li::before { content: ""; position: absolute; left: 0; top: .4em; width: 5px; height: 5px; border-radius: 2px; background: #f7c64a; }
+.analysis-status { margin-top: 10px; min-height: 17px; font-family: "Inter",Arial,sans-serif; font-size: 11px; font-weight: 600; line-height: 1.45; letter-spacing: .045em; text-transform: uppercase; color: rgba(247,215,122,.9); }
+.result-strip.is-active { box-shadow: 0 0 16px rgba(212,175,55,.35); }
+.result-strip.is-error { background-image: linear-gradient(135deg, rgba(205,82,66,.16), rgba(0,0,0,0) 55%), linear-gradient(#080B09,#080B09), linear-gradient(135deg,#e0705f,#7a2f26); }
+.analysis-result-link { display: inline-flex; margin-top: 12px; color: var(--nv-gold-text-dark); background-image: var(--nv-gold-gradient); border: 1px solid var(--nv-gold-border); border-radius: 5px; padding: 9px 14px; font-family: "Inter",Arial,sans-serif; font-size: 12px; font-weight: 800; letter-spacing: .045em; text-transform: uppercase; text-shadow: 0 2px 2px var(--nv-gold-highlight); }
+.analysis-result-link[hidden] { display: none; }
+button[disabled] { opacity: .58; cursor: not-allowed; }
+@media (max-width: 1200px) { .pair-grid { grid-template-columns: 1fr; } }
+@media (max-width: 900px) { .analysis-layout, .result-strip { grid-template-columns: 1fr; } }
+@media (max-width: 900px) { .detail-hero,.content-grid,.text-cols,.label-list,.num-list { grid-template-columns: 1fr; } }
+
+/* warum-nurovelle: eigene Abstaende, die von analyse.html abweichen */
+.page-chat main h2 { margin-bottom: 40px; }
+.page-chat .label-list,
+.page-chat .num-list { margin-top: 25px; }
+.page-chat .chip-list--stacked { margin-bottom: 40px; }
+.page-chat #kontakt .sub { margin-bottom: 40px; }
+.chip-list li.pair-chip { min-height: 92px; padding: 6px 10px; border-radius: 10px; }
+@media (max-width: 900px) { .card-bullets { grid-template-columns: minmax(0,1fr); } }
+/* Glanzband nur auf den grossen Ueberschriften, nicht auf Kartentiteln,
+   Bullet-Labels oder Kleintext. */
+h1, main > section > .section-inner > h2 {
+  filter: var(--gold-glow);
+  -webkit-text-stroke: .6px rgba(255,248,207,.40);
+  background-size: 250% auto;
+  animation: nv-gold-shine 18s linear infinite;
+}
+@keyframes nv-gold-shine {
+  0%   { background-position: 0% center; }
+  33%  { background-position: 250% center; }   /* Durchlauf in 6s wie zuvor */
+  100% { background-position: 250% center; }   /* danach 12s Pause */
+}
+@media (prefers-reduced-motion: reduce) { h1, main > section > .section-inner > h2 { animation: none; } }
+/* Goldrahmen: metallischer Verlauf mit Lichtkante, dunkler Innenkante und wanderndem Glanzband */
+.visual-card, .panel, .form-panel, .result-strip, .pair-chip, .chip-list li, .chip-icon, .num-list li::before {
+  background-size: 250% auto;
+  animation: nv-frame-shine 18s linear infinite;
+}
+.visual-card, .panel, .form-panel, .result-strip, .pair-chip, .chip-list li { box-shadow: var(--frame-glow); }
+.chip-icon, .num-list li::before { box-shadow: 0 1px 0 rgba(255,255,220,.26) inset, 0 0 0 1px rgba(146,111,52,.55), 0 0 14px rgba(212,175,55,.14); }
+.pair-chip--gold {
+  border-color: transparent;
+  background-image: linear-gradient(105deg, transparent 41%, rgba(255,255,220,.10) 46%, rgba(255,255,225,.46) 50%, rgba(255,255,220,.12) 54%, transparent 59%),
+                    linear-gradient(180deg,#ffd7a3 0%,#f0a05a 24%,#d89828 58%,#7a3518 100%), var(--gold-3);
+  background-origin: border-box;
+  background-clip: padding-box, padding-box, border-box;
+  background-size: 250% auto, auto, 250% auto;
+  box-shadow: var(--frame-glow), inset 0 0 0 1px rgba(255,244,199,.20);
+}
+@keyframes nv-frame-shine {
+  0%   { background-position: 0% center; }
+  33%  { background-position: 250% center; }
+  100% { background-position: 250% center; }
+}
+@media (prefers-reduced-motion: reduce) { .visual-card, .panel, .form-panel, .result-strip, .pair-chip, .chip-list li, .chip-icon, .num-list li::before { animation: none; } }
+/* ==========================================================================
+   MOBIL — Desktop-Raster wird einspaltig
+   ========================================================================== */
+@media (max-width: 900px) {
+  /* Kopfzeile */
+  .logo-wordmark { height: calc(var(--logo-h) * 0.72); }
+  .nv-breadcrumb { overflow-x: auto; overflow-y: hidden; scrollbar-width: none; }
+  .nv-breadcrumb::-webkit-scrollbar { display: none; }
+  .header-cta .golden-button { min-width: 0; padding: 0 .6em; font-size: 11px; letter-spacing: .02em; }
+  .header-inner { padding-left: 12px; padding-right: 12px; column-gap: 8px; }
+  .logo-link { gap: 6px; }
+  .header-inner { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+  .nv-breadcrumb { flex: 1 1 0; min-width: 0; }
+  .header-cta { flex: 0 0 auto; }
+
+  /* Hero und Raster */
+  .detail-hero { grid-template-columns: minmax(0,1fr); gap: 28px; }
+  .analysis-layout { grid-template-columns: minmax(0,1fr); gap: 32px; margin-top: 40px; }
+  .pair-grid, .faq-grid { grid-template-columns: minmax(0,1fr); }
+  .pair-grid { gap: 16px; }
+  .pair { grid-template-columns: minmax(0,1fr); gap: 6px; }
+  .pair-arrow { justify-self: center; transform: rotate(90deg); }
+  /* lange Komposita duerfen umbrechen, sonst sprengt die Mindestbreite die Karte */
+  .pair-chip, .chip-list li { overflow-wrap: anywhere; }
+  #einsatzbereiche .panel { padding: 18px; }
+  .panel .card-bullets, .card-bullets { padding-left: 0; gap: 10px 24px; }
+  .section { padding-left: 18px; padding-right: 18px; }
+
+  /* FAQ-Knoepfe wachsen mit der Frage */
+  .faq-item summary > span { height: auto; min-height: 50px; padding: 12px 16px; line-height: 1.3; }
+}
+@media (max-width: 560px) {
+  .header-cta .golden-button { padding: 0 .4em; font-size: 9.5px; gap: 5px; }
+  .header-cta .nv-calendly-icon { width: 14px; height: 14px; }
+}
+</style>
+</head>
+<body class="page-chat">
+<header class="site-header">
+  <div class="header-inner">
+    <a class="logo-link" href="index.html" aria-label="Nurovelle Startseite">
+      <span class="logo-spin" aria-hidden="true"></span>
+
+            <img class="logo-wordmark" src="assets/hero/Nurovelle_schrift.png" alt="Nurovelle — Building Intelligent Systems" />
+          </a>
+
+    <nav class="nv-breadcrumb" aria-label="Hauptnavigation">
+      <details class="nv-breadcrumb__group">
+        <summary class="nv-breadcrumb__trigger"><span>Leistungen</span></summary>
+        <div class="nv-breadcrumb__menu">
+          <a href="index.html">Startseite</a>
+          <a href="index.html#warum-nurovelle">Warum Nurovelle</a>
+          <a href="index.html#leistungen">KI-Leistungen</a>
+        </div>
+      </details>
+      <details class="nv-breadcrumb__group">
+        <summary class="nv-breadcrumb__trigger"><span>Potenzialanalyse</span></summary>
+        <div class="nv-breadcrumb__menu">
+          <a href="index.html#ki-projekt-start">Erster Schritt</a>
+          <a href="index.html#projektidee">Projektidee</a>
+          <a href="index.html#potenzialanalyse">Potenzialanalyse</a>
+          <a href="index.html#formular">Formular</a>
+        </div>
+      </details>
+      <details class="nv-breadcrumb__group">
+        <summary class="nv-breadcrumb__trigger"><span>Zusammenarbeit</span></summary>
+        <div class="nv-breadcrumb__menu">
+          <a href="index.html#prozess-zur-loesung">Prozess</a>
+          <a href="index.html#downloads">Downloads</a>
+          <a href="index.html#kontakt">Kontakt</a>
+          <a href="index.html#faq">FAQ</a>
+        </div>
+      </details>
+    </nav>
+
+    <a class="header-cta" href="analyse.html" aria-label="Kostenlose KI-Potenzialanalyse öffnen">
+      <span class="golden-button">
+        <svg class="nv-calendly-icon" viewBox="0 0 64 64" aria-hidden="true"><use href="#nv-calendly-mark"></use></svg>
+        <span class="golden-text">Unverbindliches Erstgespräch</span>
+      </span>
+    </a>
+  </div>
+</header>
+<main>
+<section class="section section--landing"><div class="section-inner detail-hero"><div><div class="kicker">Dialog</div><h1>KI-Chatbots</h1><p class="sub">Strukturierte Dialoge mit direkten Antworten.</p><p class="lead">KI-Chatbots beantworten wiederkehrende Anfragen, erfassen Anliegen und greifen auf freigegebene Informationen aus Dokumenten, Wissensquellen und Systemen zu.</p><div class="actions"><a class="btn" href="analyse.html">Chatbot-Potenzial prüfen</a></div></div><div class="visual-card visual-card--empty" aria-hidden="true"></div></div></section>
+<section class="section section--landing"><div class="section-inner content-grid"><article class="panel"><h2>Was sind KI-Chatbots?</h2><p>KI-Chatbots verstehen natürliche Sprache, erkennen den Gesprächskontext und liefern passende Antworten auf Basis freigegebener Wissensquellen. Bei fehlenden Informationen können sie Rückfragen stellen oder den Vorgang gezielt weiterleiten.</p></article><article class="panel summary"><h2>Klare Entscheidungsgrundlage</h2><p>Vor der Umsetzung wird festgelegt, welche Themen der Chatbot bearbeiten darf und welche Inhalte er verwenden kann. Unsichere, komplexe oder nicht freigegebene Anliegen werden kontrolliert an zuständige Mitarbeitende übergeben.</p></article></div></section>
+<section class="section section--landing" id="ausgangslage"><div class="section-inner">
+<h2>Ausgangslage</h2>
+<p class="sub">Standardanfragen verursachen hohen Aufwand und verzögern die Bearbeitung wichtiger Anliegen.</p>
+<p class="text">Viele wiederkehrende Fragen werden täglich manuell beantwortet, obwohl die benötigten Informationen bereits in Dokumenten, Wissenssammlungen oder Systemen vorhanden sind. Antworten fallen unterschiedlich aus, Rückfragen werden unvollständig aufgenommen und Anliegen müssen mehrfach weitergeleitet werden. Dadurch entstehen längere Reaktionszeiten und unnötige Standardarbeit.</p>
+<ul class="card-bullets"><li>wiederkehrende Standardfragen</li><li>lange Reaktionszeiten</li><li>verstreute Informationen</li><li>unvollständige Anfragen</li><li>manuelle Weiterleitungen</li></ul>
+</div></section>
+<section class="section" id="leistungsumfang"><div class="section-inner">
+<h2>Leistungsumfang</h2>
+<p class="sub">Von der Konzeption bis zum einsatzfähigen Chatbot.</p>
+<p class="text">Der Chatbot wird auf den jeweiligen Anwendungsfall, die verfügbaren Wissensquellen und die erforderlichen Kontrollmechanismen abgestimmt. Themenbereiche, Dialoglogik, Systemzugriffe und Übergaben werden vor der technischen Umsetzung eindeutig festgelegt.</p>
+<ul class="label-list">
+<li><strong>Wissenszugriff</strong>Inhalte aus Dokumenten und Systemen nutzen</li>
+<li><strong>Frageerkennung</strong>Anliegen und Intention bestimmen</li>
+<li><strong>Rückfragen</strong>fehlende Informationen ergänzen</li>
+<li><strong>Datenerfassung</strong>Anfragen strukturiert aufnehmen</li>
+<li><strong>Integration</strong>externe Systeme anbinden</li>
+<li><strong>Übergabe</strong>komplexe Fälle weiterleiten</li>
+</ul>
+<div class="content-grid"><article class="panel"><h2>Konzeption</h2><ul class="card-bullets"><li>Anwendungsfälle definieren</li><li>typische Fragen analysieren</li><li>Wissensquellen auswählen</li><li>Dialoglogik strukturieren</li><li>Übergaben festlegen</li></ul></article><article class="panel"><h2>Umsetzung</h2><ul class="card-bullets"><li>Wissensbasis integrieren</li><li>Dialoglogik konfigurieren</li><li>Systeme anbinden</li><li>Zugriffe steuern</li><li>Antworten testen</li></ul></article></div>
+</div></section>
+<section class="section" id="module"><div class="section-inner">
+<div class="kicker">Module</div>
+<h2>Module des Dialogs</h2>
+<p class="sub">Strukturierter Ablauf von der Anfrage bis zur Lösung oder Übergabe.</p>
+<p class="text">Die Module werden abhängig vom Einsatzbereich, den vorhandenen Informationen und dem gewünschten Funktionsumfang kombiniert.</p>
+<ol class="num-list">
+<li><img class="module-img" src="assets/Module/mail_bot.png" alt="" /><div><b>Eingang</b><span>Die Anfrage wird über Website, internes System oder einen anderen Kommunikationskanal erfasst.</span></div></li>
+<li><img class="module-img" src="assets/Module/chip_gehirn.png" alt="" /><div><b>Erkennung</b><span>Thema, Absicht und zuständiger Anwendungsbereich werden bestimmt.</span></div></li>
+<li><img class="module-img" src="assets/Module/displsx_lupe_auge.png" alt="" /><div><b>Kontext</b><span>Gesprächsverlauf, vorhandene Angaben und relevante Vorgangsdaten werden berücksichtigt.</span></div></li>
+<li><img class="module-img" src="assets/Module/austausch.png" alt="" /><div><b>Rückfrage</b><span>Fehlende oder unklare Informationen werden gezielt ergänzt.</span></div></li>
+<li><img class="module-img" src="assets/Module/papierstapel.png" alt="" /><div><b>Wissenszugriff</b><span>Passende Inhalte werden aus freigegebenen Dokumenten, Datenquellen oder Systemen abgerufen.</span></div></li>
+<li><img class="module-img" src="assets/Module/austausch2.png" alt="" /><div><b>Antwort</b><span>Eine verständliche und zum Anliegen passende Auskunft wird erstellt.</span></div></li>
+<li><img class="module-img" src="assets/Module/freigabe.png" alt="" /><div><b>Übergabe</b><span>Komplexe, sensible oder nicht eindeutig lösbare Fälle werden mit vollständigem Kontext weitergeleitet.</span></div></li>
+<li><img class="module-img" src="assets/Module/dokumente.png" alt="" /><div><b>Dokumentation</b><span>Anfrage, Antwort, Übergabe und relevante Bearbeitungsschritte werden nachvollziehbar gespeichert.</span></div></li>
+</ol>
+</div></section>
+<section class="section" id="anwendung"><div class="section-inner">
+<h2>Anwendung</h2>
+<p class="sub">KI-Chatbots unterstützen interne und externe Kommunikationsprozesse.</p>
+<p class="text">Geeignet sind wiederkehrende Dialoge, bei denen Informationen klar abgegrenzt und über freigegebene Quellen bereitgestellt werden können. Wissen, Rückfragen, Datenerfassung und Übergaben werden dabei zu einem steuerbaren Ablauf verbunden.</p>
+<ul class="card-bullets"><li>Kundenservice</li><li>Website-Beratung</li><li>Produktauskunft</li><li>Lead-Erfassung</li><li>Terminvorbereitung</li><li>Mitarbeiter-Support</li><li>Wissensmanagement</li><li>Onboarding</li><li>interne Richtlinien</li><li>technische Unterstützung</li></ul>
+</div></section>
+<section class="section" id="moeglich"><div class="section-inner">
+<div class="kicker">Ergebnis</div>
+<h2>Was damit möglich wird</h2>
+<p class="sub">Aus einzelnen Anfragen entstehen strukturierte und nachvollziehbare Dialogprozesse.</p>
+<p class="text">Nutzer erhalten sofort erste Informationen, während fehlende Angaben gezielt ergänzt werden. Komplexe Fälle werden nicht einfach abgebrochen, sondern mit dem bisherigen Gesprächskontext an die zuständige Stelle übergeben.</p>
+<article class="panel">
+<div class="pair-grid">
+<div class="pair"><span class="pair-chip"><span class="chip-icon"><img src="assets/cards/service/icons/3.png" alt="" /></span>viele Standardfragen</span><span class="pair-arrow"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-chev"/></svg></span><span class="pair-chip pair-chip--gold"><span class="chip-icon"><img src="assets/cards/service/icons/6.png" alt="" /></span>sofortige Erstinformation</span></div>
+<div class="pair"><span class="pair-chip"><span class="chip-icon"><img src="assets/cards/service/icons/2.png" alt="" /></span>verzögerte Antworten</span><span class="pair-arrow"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-chev"/></svg></span><span class="pair-chip pair-chip--gold"><span class="chip-icon"><img src="assets/cards/service/icons/7.png" alt="" /></span>einheitliche Antworten</span></div>
+<div class="pair"><span class="pair-chip"><span class="chip-icon"><img src="assets/cards/service/icons/9.png" alt="" /></span>uneinheitliche Auskünfte</span><span class="pair-arrow"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-chev"/></svg></span><span class="pair-chip pair-chip--gold"><span class="chip-icon"><img src="assets/cards/service/icons/1.png" alt="" /></span>gezielte Rückfragen</span></div>
+<div class="pair"><span class="pair-chip"><span class="chip-icon"><img src="assets/cards/service/icons/5.png" alt="" /></span>fehlende Informationen</span><span class="pair-arrow"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-chev"/></svg></span><span class="pair-chip pair-chip--gold"><span class="chip-icon"><img src="assets/cards/service/icons/10.png" alt="" /></span>strukturierte Datenerfassung</span></div>
+<div class="pair"><span class="pair-chip"><span class="chip-icon"><img src="assets/cards/service/icons/8.png" alt="" /></span>manuelle Weiterleitung</span><span class="pair-arrow"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-chev"/></svg></span><span class="pair-chip pair-chip--gold"><span class="chip-icon"><img src="assets/cards/service/icons/4.png" alt="" /></span>Übergabe mit Kontext</span></div>
+</div>
+</article>
+</div></section>
+<section class="section" id="nutzen"><div class="section-inner">
+<div class="kicker">Nutzen</div>
+<h2>Ihr konkreter Nutzen</h2>
+<p class="sub">Schnellere Kommunikation bei geringerer Standardlast.</p>
+<p class="text">KI-Chatbots verbessern die Erreichbarkeit und entlasten Mitarbeitende bei wiederkehrenden Informations- und Erfassungsaufgaben. Antworten werden schneller bereitgestellt, Anfragen vollständiger aufgenommen und Übergaben gezielter vorbereitet.</p>
+<ul class="label-list">
+<li><strong>Direkte Auskunft</strong>Häufige Fragen werden ohne unnötige Wartezeit beantwortet.</li>
+<li><strong>Weniger Routinearbeit</strong>Wiederkehrende Standardanfragen werden innerhalb festgelegter Grenzen automatisiert bearbeitet.</li>
+<li><strong>Strukturierte Erfassung</strong>Anliegen und benötigte Angaben werden vollständig und einheitlich aufgenommen.</li>
+<li><strong>Einheitliche Informationen</strong>Antworten basieren auf freigegebenem Wissen und definierten Regeln.</li>
+<li><strong>Gezielte Übergaben</strong>Komplexe Fälle werden mit dem vorhandenen Gesprächskontext an die richtige Stelle weitergeleitet.</li>
+</ul>
+</div></section>
+<section class="section" id="kontakt"><div class="section-inner">
+<div class="kicker">Abschluss</div>
+<h2>Dialogpotenzial prüfen</h2>
+<p class="sub">Ermitteln Sie sinnvolle Einsatzbereiche für KI-Chatbots.</p>
+<p class="text">Die Potenzialanalyse zeigt geeignete Anwendungsfälle, benötigte Wissensquellen, mögliche Systemanbindungen und notwendige Regeln für Antworten und Übergaben.</p>
+<div class="actions"><a class="btn" href="analyse.html">Potenzialanalyse starten</a><a class="btn" href="index.html#leistungen">Leistungen ansehen</a></div>
+</div></section>
+<section class="section" id="faq"><div class="section-inner">
+<div class="kicker">FAQ</div>
+<h2>Häufige Fragen</h2>
+<p class="sub">Wichtige Informationen zu Einsatz, Integration und Kontrolle.</p>
+<p class="text">Der Chatbot arbeitet ausschließlich mit freigegebenen Inhalten, definierten Themenbereichen und festgelegten Funktionen.</p>
+<div class="faq-grid">
+<details class="faq-item"><summary><span>Kann der Chatbot eigene Dokumente nutzen?</span></summary><p>Ja. Freigegebene Dokumente, Wissensquellen und interne Inhalte können integriert werden.</p></details>
+<details class="faq-item"><summary><span>Was passiert bei unsicheren Antworten?</span></summary><p>Der Chatbot kann Rückfragen stellen, eine Antwort ablehnen oder den Vorgang an eine zuständige Person weiterleiten.</p></details>
+<details class="faq-item"><summary><span>Können Leads erfasst werden?</span></summary><p>Ja. Kontaktdaten, Anliegen und weitere relevante Informationen können strukturiert aufgenommen werden.</p></details>
+<details class="faq-item"><summary><span>Ist eine Übergabe an Mitarbeitende möglich?</span></summary><p>Ja. Der Vorgang kann inklusive vollständigem Gesprächskontext weitergeleitet werden.</p></details>
+<details class="faq-item"><summary><span>Kann der Chatbot intern genutzt werden?</span></summary><p>Ja. Mögliche Einsatzbereiche sind interne Prozesse, IT-Support, Wissensmanagement oder Onboarding.</p></details>
+<details class="faq-item"><summary><span>Können bestehende Systeme angebunden werden?</span></summary><p>Ja. Voraussetzung sind geeignete Schnittstellen oder andere kontrollierbare Zugriffsmöglichkeiten.</p></details>
+<details class="faq-item"><summary><span>Ist der Chatbot dauerhaft verfügbar?</span></summary><p>Grundsätzlich ja. Die tatsächliche Verfügbarkeit hängt von der eingesetzten technischen Infrastruktur ab.</p></details>
+<details class="faq-item"><summary><span>Kann der Chatbot später erweitert werden?</span></summary><p>Ja. Weitere Inhalte, Funktionen, Datenquellen und Dialogabläufe können ergänzt werden.</p></details>
+</div>
+</div></section>
+</main>
+<footer class="footer" id="footer">
+      <div class="footer-inner">
+        <div class="footer-col footer-col--about">
+          <h4>Nurovelle</h4>
+          <p>Individuelle KI-Systeme für reale Geschäftsprozesse.</p>
+          <p>
+            Nurovelle entwickelt KI-Agenten, Automatisierungssysteme und
+            datenbasierte Lösungen, die Unternehmen bei wiederkehrenden
+            Abläufen, Wissenszugriff und Datenverarbeitung unterstützen.
+          </p>
+        </div>
+        <div class="footer-col">
+          <h4>Nützliche Links</h4>
+          <a href="index.html#hero">Startseite</a>
+          <a href="index.html#warum-nurovelle">Über Nurovelle</a>
+          <a href="index.html#leistungen">Leistungen</a>
+          <a href="index.html#potenzialanalyse">Potenzialanalyse</a>
+          <a href="index.html#downloads">Downloads</a>
+          <a href="index.html#faq">FAQ</a>
+          <a href="index.html#kontakt">Kontakt</a>
+        </div>
+        <div class="footer-col">
+          <h4>Newsletter</h4>
+          <p>
+            Erhalten Sie ausgewählte Informationen zu KI-Agenten,
+            Automatisierung, Unternehmenssoftware und neuen Nurovelle-Lösungen
+            direkt per E-Mail.
+          </p>
+          <form
+            class="footer-newsletter"
+            action="#"
+            method="post"
+            aria-label="Newsletter abonnieren"
+          >
+            <input
+              class="footer-newsletter__input"
+              type="email"
+              name="email"
+              placeholder="Ihre E-Mail-Adresse"
+              autocomplete="email"
+              required
+            />
+            <button class="footer-newsletter__btn" type="submit">
+              Abonnieren
+            </button>
+          </form>
+        </div>
+        <div class="footer-col">
+          <h4>Kontakt</h4>
+          <p>Marburg, Deutschland</p>
+          <p><a href="tel:+4964218097347">06421 8097347</a></p>
+          <p><a href="mailto:demo@nurovelle.de">demo@nurovelle.de</a></p>
+          <div class="footer-social" aria-label="Social Media">
+            <a href="index.html#" aria-label="LinkedIn">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path
+                  fill="currentColor"
+                  d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM9 9h3.8v1.7h.05c.53-1 1.83-2.05 3.77-2.05C20.4 8.65 22 10.9 22 14.2V21h-4v-6c0-1.43-.03-3.27-2-3.27-2 0-2.3 1.56-2.3 3.17V21H9z"
+                />
+              </svg>
+            </a>
+            <a href="index.html#" aria-label="YouTube">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path
+                  fill="currentColor"
+                  d="M23 12s0-3.2-.4-4.7a2.5 2.5 0 0 0-1.75-1.75C19.3 5.2 12 5.2 12 5.2s-7.3 0-8.85.35A2.5 2.5 0 0 0 1.4 7.3C1 8.8 1 12 1 12s0 3.2.4 4.7a2.5 2.5 0 0 0 1.75 1.75C4.7 18.8 12 18.8 12 18.8s7.3 0 8.85-.35A2.5 2.5 0 0 0 22.6 16.7C23 15.2 23 12 23 12zM9.75 15.02V8.98L15.5 12z"
+                />
+              </svg>
+            </a>
+            <a href="index.html#" aria-label="Instagram">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path
+                  fill="currentColor"
+                  d="M12 2.2c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.42.56.22.96.48 1.38.9.42.42.68.82.9 1.38.17.42.37 1.06.42 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.42 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.17-1.06.37-2.23.42-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.42a3.7 3.7 0 0 1-1.38-.9 3.7 3.7 0 0 1-.9-1.38c-.17-.42-.37-1.06-.42-2.23C2.21 15.58 2.2 15.2 2.2 12s.01-3.58.07-4.85c.05-1.17.25-1.8.42-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.17 1.06-.37 2.23-.42C8.42 2.21 8.8 2.2 12 2.2zm0 3.05A6.75 6.75 0 1 0 18.75 12 6.75 6.75 0 0 0 12 5.25zm0 11.13A4.38 4.38 0 1 1 16.38 12 4.38 4.38 0 0 1 12 16.38zm6.99-11.4a1.58 1.58 0 1 1-1.57-1.58 1.58 1.58 0 0 1 1.57 1.58z"
+                />
+              </svg>
+            </a>
+            <a href="index.html#" aria-label="GitHub">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path
+                  fill="currentColor"
+                  d="M12 1.5a10.5 10.5 0 0 0-3.32 20.47c.53.1.72-.23.72-.5v-1.9c-2.93.64-3.55-1.24-3.55-1.24-.48-1.22-1.17-1.55-1.17-1.55-.96-.65.07-.64.07-.64 1.06.08 1.62 1.09 1.62 1.09.94 1.6 2.46 1.14 3.06.87.1-.68.37-1.14.67-1.4-2.34-.27-4.8-1.17-4.8-5.2 0-1.15.4-2.09 1.08-2.83-.1-.27-.47-1.34.1-2.8 0 0 .88-.28 2.88 1.08a10 10 0 0 1 5.24 0c2-1.36 2.88-1.08 2.88-1.08.57 1.46.2 2.53.1 2.8.68.74 1.08 1.68 1.08 2.83 0 4.04-2.47 4.93-4.82 5.19.38.33.72.98.72 1.98v2.93c0 .28.19.61.73.5A10.5 10.5 0 0 0 12 1.5z"
+                />
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <nav class="footer-legal" aria-label="Rechtliches">
+          <a href="impressum.html">Impressum</a>
+          <a href="datenschutz.html">Datenschutz</a>
+          <a href="agb.html">AGB</a>
+        </nav>
+        <p class="footer-copy">
+          © Nurovelle. By d4sd1ng. All rights reserved.
+        </p>
+        <a class="footer-top" href="#" aria-label="Nach oben">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path
+              fill="none"
+              stroke="currentColor"
+              stroke-width="3"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M12 19V5M6 11l6-6 6 6"
+            />
+          </svg>
+        </a>
+      </div>
+    </footer>
+
+<svg style="display:none">
+  <symbol id="i-chev" viewBox="0 0 24 24"><path d="M8 4l9 8-9 8" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-doc" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3h7l4 4v14H7z"/><path d="M14 3v4h4"/><path d="M10 12h5M10 16h5"/></g></symbol>
+  <symbol id="i-book" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19V5a2 2 0 0 1 2-2h14v16H6a2 2 0 0 0-2 2 2 2 0 0 0 2 2h14"/></g></symbol>
+  <symbol id="i-db" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="7" ry="2.5"/><path d="M5 5v14c0 1.4 3.1 2.5 7 2.5s7-1.1 7-2.5V5"/><path d="M5 12c0 1.4 3.1 2.5 7 2.5s7-1.1 7-2.5"/></g></symbol>
+  <symbol id="i-gear" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3.2"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9l2.1 2.1M17 17l2.1 2.1M19.1 4.9L17 7M7 17l-2.1 2.1"/></g></symbol>
+  <symbol id="i-headset" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 14a8 8 0 0 1 16 0"/><rect x="3" y="14" width="4" height="6" rx="1.5"/><rect x="17" y="14" width="4" height="6" rx="1.5"/></g></symbol>
+  <symbol id="i-chat" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v11H9l-5 4z"/><path d="M8 9h8"/></g></symbol>
+  <symbol id="i-bot" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="8" width="14" height="10" rx="2"/><path d="M12 8V5"/><circle cx="12" cy="4" r="1"/><path d="M9.5 12.5v1M14.5 12.5v1"/></g></symbol>
+  <symbol id="i-plus" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M12 9v6M9 12h6"/></g></symbol>
+  <symbol id="i-seo" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="10.5" cy="10.5" r="5.5"/><path d="M15 15l6 6"/></g></symbol>
+  <symbol id="i-chart" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4v16h16"/><path d="M8 16v-5M12 16V8M16 16v-3"/></g></symbol>
+  <symbol id="i-sync" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M20 12a8 8 0 1 1-2.3-5.7"/><path d="M20 3v4h-4"/><path d="M9 12l2 2 4-4"/></g></symbol>
+  <symbol id="i-bulb" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a6 6 0 0 1 4 10.4c-.8.7-1 1.6-1 2.6H9c0-1-.2-1.9-1-2.6A6 6 0 0 1 12 3z"/><path d="M9 19h6M10 22h4"/></g></symbol>
+  <symbol id="i-wrench" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 6.5a4 4 0 0 1 5.2-4.7l-2.9 2.9 2.5 2.5 2.9-2.9a4 4 0 0 1-4.7 5.2L8 19a2.1 2.1 0 1 1-3-3z"/></g></symbol>
+  <symbol id="i-loop" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12a8 8 0 0 1 14-5.3"/><path d="M18 3v4h-4"/><path d="M20 12a8 8 0 0 1-14 5.3"/><path d="M6 21v-4h4"/></g></symbol>
+  <symbol id="i-rocket" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3c3 2 5 6 5 10l-2 2H9l-2-2c0-4 2-8 5-10z"/><circle cx="12" cy="9" r="1.5"/><path d="M9 17l-1.5 4M15 17l1.5 4M12 17v4"/></g></symbol>
+  <symbol id="i-map" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6l5-2 6 2 5-2v14l-5 2-6-2-5 2z"/><path d="M9 4v14M15 6v14"/></g></symbol>
+  <symbol id="i-plug" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3v5M15 3v5"/><path d="M6 8h12v3a6 6 0 0 1-12 0z"/><path d="M12 17v4"/></g></symbol>
+  <symbol id="i-pen" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20l1-4L17 4l3 3L8 19l-4 1z"/><path d="M14 7l3 3"/></g></symbol>
+  <symbol id="i-trend" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h16"/><path d="M5 16l4-4 3 3 6-7"/><path d="M14 8h4v4"/></g></symbol>
+  <symbol id="nv-calendly-mark" viewBox="0 0 64 64">
+    <path d="M50 14C42 7 30 5 20 11C9 17 5 31 10 42C15 53 28 59 40 55C46 53 51 49 54 44" fill="none" stroke="#046bf7" stroke-width="7" stroke-linecap="round" />
+    <path d="M50 22C44 16 35 15 28 19C20 23 17 32 21 40C25 48 35 51 43 47C47 45 50 42 52 38" fill="none" stroke="#12e0f7" stroke-width="6" stroke-linecap="round" />
+    <path d="M47 28C43 24 37 24 34 28C30 32 32 38 36 40C40 42 45 40 48 36" fill="none" stroke="#046bf7" stroke-width="5" stroke-linecap="round" />
+  </symbol>
+</svg>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const breadcrumbGroups = [...document.querySelectorAll(".nv-breadcrumb__group")];
+  const hoverNavigation = window.matchMedia("(hover: hover) and (pointer: fine)");
+
+  breadcrumbGroups.forEach(group => {
+    let closeTimer = 0;
+    const cancelClose = () => { window.clearTimeout(closeTimer); closeTimer = 0; };
+
+    group.addEventListener("toggle", () => {
+      if (!group.open) return;
+      breadcrumbGroups.forEach(otherGroup => { if (otherGroup !== group) otherGroup.open = false; });
+    });
+
+    group.addEventListener("mouseenter", () => {
+      if (!hoverNavigation.matches) return;
+      cancelClose();
+      breadcrumbGroups.forEach(otherGroup => { if (otherGroup !== group) otherGroup.open = false; });
+      group.open = true;
+    });
+
+    group.addEventListener("mouseleave", () => {
+      if (!hoverNavigation.matches || group.matches(":focus-within")) return;
+      cancelClose();
+      closeTimer = window.setTimeout(() => {
+        if (!group.matches(":hover") && !group.matches(":focus-within")) group.open = false;
+      }, 160);
+    });
+
+    group.addEventListener("focusin", cancelClose);
+  });
+
+  document.addEventListener("click", event => {
+    if (event.target.closest(".nv-breadcrumb__group")) return;
+    breadcrumbGroups.forEach(group => { group.open = false; });
+  });
+
+  document.addEventListener("keydown", event => {
+    if (event.key !== "Escape") return;
+    breadcrumbGroups.forEach(group => { group.open = false; });
+  });
+
+  document.querySelectorAll(".faq-item").forEach(item => {
+    item.addEventListener("toggle", () => {
+      if (!item.open) return;
+      document.querySelectorAll(".faq-item").forEach(other => {
+        if (other !== item) other.open = false;
+      });
+    });
+  });
+});
+</script>
+</body>
+</html>

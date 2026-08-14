@@ -1,53 +1,27 @@
 # Nurovelle Styleguide
 
-Stand: 2026-07-31  
-Status: aktive Design- und Komponentenquelle
+Stand: 2026-08-14  
+Status: freigegeben
 
-Dieser Styleguide bündelt die verbindlichen Designregeln für Homepage und Detailseiten. Er ersetzt verstreute Zwischenstände und verweist für konkrete CSS-Umsetzung nur auf zwei technische Dateien:
+## Zweck dieser Datei
 
-- `nurovelle-tokens.css`
-- `nurovelle-animations.css`
+Diese Datei ist die **einzige fachliche Quelle für Design, visuelle Komponenten und Interaktionsstil**.
+
+Technische Token werden in `nurovelle-tokens.css` gespiegelt.
+
+Projektstruktur gehört in `project_overview.md`, technische Datenflüsse in `architecture.md`.
 
 ## 1. Designprinzip
 
 Nurovelle nutzt eine dunkle, technische Premium-Optik:
 
-- matte schwarze Flächen
-- sehr dunkles Petrol / dunkles Grün-Schwarz
+- mattes Schwarz
+- dunkles glänzendes Smaragdgrün
+- Gunmetal
 - Gold als hochwertiger Akzent
-- klare B2B-SaaS-Anmutung
-- kontrollierte technische Animationen
-- keine Bildgenerierung für steuerbare UI-Komponenten
-
-## 2. Farben
-
-### Basisflächen
-
-- Schwarz: `#050706`
-- Mattes Schwarz: `#080B09`
-- Tiefgrün: `#0A1913`
-- Smaragd dunkel: `#112A20`
-- Dunkles Teal/Petrol: `#163A35`
-
-### Text
-
-- Haupttext hell: `#F5F7F4`
-- Sekundärtext: `#B9C3BD`
-- Text auf Gold: `#050706`
-
-### Gold
-
-Gold wird eingesetzt für:
-
-- CTA-Buttons
-- Rahmen
-- aktive Elemente
-- Hover-/Fokuszustände
-- Divider
-- feine Lichtkanten
-- Premium-Akzente
-
-Verbindliche Goldverläufe liegen in `nurovelle-tokens.css`.
+- kontrollierte Glas-/Metallwirkung
+- technische B2B-Anmutung
+- klare, ruhige Komposition
 
 Nicht verwenden:
 
@@ -55,260 +29,286 @@ Nicht verwenden:
 - Blau als Hauptfarbe
 - Violett
 - Neon
-- Bronze
-- Kupfer
-- Gaming-/Comic-Buttonwirkung
+- Bronze/Kupfer als eigenständige Hauptmaterialsprache
+- Regenbogenverläufe
+- generische KI-Roboter
+- Sci-Fi-Konsolen
+- Gaming-/Comic-Wirkung
 - Casino-/Spielautomatwirkung
 
-## 3. Typografie
+## 2. Farben
 
-Aktive Schriftentscheidung:
+### Basis
 
-- Display / große Headlines: `Tapera`
-- Fließtext, Navigation, Buttons, Formulare, Cards, Footer: `Inter`
+- Schwarz: `#050706`
+- Mattes Schwarz: `#080B09`
+- Gunmetal: `#252B2C`
+- Gunmetal dunkel: `#15191A`
+- Deep Green: `#0A1913`
+- Emerald: `#112B21`
+- Emerald Highlight: `#163A26`
 
-Keine Rückkehr zu den alten Font-Stacks aus früheren Zwischenständen:
+### Text
 
-- Bebas Neue
-- Anca Coder / Coder Pro
-- Raleway / Roboto als Hauptsystem
+- Haupttext hell: `#F5F7F4`
+- Sekundärtext: `#B9C3BD`
+- Text auf Gold: `#050706`
 
-## 4. Layoutgrundlagen
+## 3. Goldsystem
 
-- Maximalbreite: `75rem`
-- Seitengutter: responsiv über `--page-gutter`
-- Sections arbeiten mit großzügigem vertikalem Abstand
-- Mobile Layouts werden nicht separat neu gestaltet, sondern aus dem gleichen System sauber reduziert
+Gold wird für Premium-Akzente verwendet:
 
-## 5. Header
+- CTA
+- Rahmen
+- aktive Zustände
+- Hover-/Focus-Zustände
+- Trennlinien
+- Knotenpunkte
+- technische Highlights
+- Titel/Text-Highlights
 
-Der Header folgt dem freigegebenen Vorgabedesign.
+### Goldrahmen
+
+```css
+linear-gradient(135deg, #AE8625, #F7EF8A, #D2AC47, #EDC967)
+```
+
+### Goldtitel
+
+```css
+linear-gradient(135deg, #DFBD69, #926F34)
+```
+
+### Gold-CTA
+
+```css
+linear-gradient(135deg, #F9F295, #E0AA3E, #FAF398, #B88A44)
+```
+
+### Metallic-Gold Textverlauf
+
+```css
+linear-gradient(135deg, #C5A059 0%, #FDF0CD 50%, #D4AF37 100%)
+```
+
+Verwendung: Titel und hochwertige Text-Highlights.
+
+### Goldwort-Regel
+
+Die Regel unterscheidet nach Medium.
+
+**Website:** Die Überschrift trägt den Goldverlauf über den **kompletten Text**. So ist die Homepage umgesetzt und so bleibt es.
+
+**Alles andere** – Dokumente, Angebote, Verträge, Social-Beiträge, Newsletter: In einer Überschrift trägt **genau ein Wort** den Goldverlauf, das inhaltlich tragende. Der Rest der Zeile bleibt im Haupttextton.
+
+- nie zwei goldene Wörter, nie eine ganze goldene Zeile
+- das goldene Wort muss optisch Gewicht haben; ein kurzes Wort wirkt in einer langen Überschrift verloren
+- findet sich kein tragendes Wort, wird die Überschrift gekürzt statt ein beliebiges Wort eingefärbt
+
+Das Wort **Nurovelle** wird immer in Gold gesetzt, unabhängig vom Umfeld und Medium.
+
+### Goldverlauf in Dokumenten
+
+Dokumente verwenden **einen einzigen** Goldverlauf, nicht mehrere nebeneinander:
+
+```css
+linear-gradient(110deg, #B8933F 0%, #C9A659 50%, #A8842F 100%)
+```
+
+Drei Stufen, gleichmäßig. Der siebenstufige Website-Verlauf (`--gold-1`) springt mehrfach zwischen hell und dunkel; die Sprünge werden als Wellen quer durch die Wörter sichtbar, und die hellste Stelle landet je nach Textlänge zufällig – bei „Warum Nurovelle" mitten im Markennamen. Für Fließtext auf Papier ist das ungeeignet.
+
+In E-Mails wird kein Verlauf verwendet: `background-clip:text` unterstützen Outlook und Gmail nicht, der Text bliebe unsichtbar. Dort gilt der Vollton `#A8842F`.
+
+### CTA-Materialgold
+
+Für die freigegebene haptische CTA-Materialwirkung:
+
+```css
+--cta-gold-dark: #A54E07;
+--cta-gold-mid: #B47E11;
+--cta-gold-light: #FEF1A2;
+--cta-gold-core: #BC881B;
+--cta-gold-border: #A55D07;
+--cta-gold-inner-dark: #8B4208;
+--cta-gold-inner-mid: #B17D10;
+--cta-gold-highlight: #FAE385;
+--cta-gold-text-dark: #783205;
+--cta-gold-material: linear-gradient(160deg, #A54E07, #B47E11, #FEF1A2, #BC881B, #A54E07);
+```
+
+Die Wirkung bleibt hochwertig und ruhig. Kein übertriebener Glanz.
+
+## 4. Typografie
+
+Aktive Website-Schriften:
+
+- Display / große Headlines: `Exo 2`
+- Fließtext, Navigation, Buttons, Formulare, Cards und Footer: `Inter`
+
+Beide sind variable TrueType-Schriften unter der Open Font License und seit 2026-08-14 systemweit installiert (`/usr/local/share/fonts/nurovelle/`), inklusive aller Schnitte von Thin bis Black. Für die Website sind sie zusätzlich als Webfont einzubinden – siehe `todo.md`.
+
+Es gibt kein zweites Fontsystem. Ältere Stacks sind abgelöst; die Historie steht in `decision_log.md`.
+
+## 5. Layout
+
+- maximale Inhaltsbreite: `75rem`
+- Seitengutter über Token `--page-gutter`
+- großzügige, aber konsistente Section-Abstände
+- Section-Separator und Titel nicht unnötig weit auseinander
+- keine individuellen Abstands-Overrides, wenn eine zentrale Regel zuständig ist
+- Mobile wird aus demselben Layoutsystem responsiv reduziert
+
+## 6. Section-Hintergründe
+
+- Wechsel zwischen mattem Schwarz und sehr dunklem Grün/Smaragd
+- Gunmetal als technische Fläche oder Tiefe
+- keine hellen Vollflächen
+- keine Stockfoto-Hintergründe
+- Gold niemals als großflächiger Section-Hintergrund
+
+## 7. Header
 
 Aufbau:
 
-- Logo links, klickbar zur Startseite
-- Breadcrumbs im Header
+- Logo links
+- drei Breadcrumb-Bereiche im Header
+- Breadcrumbs ersetzen die klassische Navigation
+- Submenüs öffnen per Hover; Tastaturzugang muss erhalten bleiben
 - Analyse-CTA rechts
-- Hamburger unterhalb des Headers zur Sidebar-Steuerung
+- Hamburger/Sidebar-Steuerung gemäß bestehender freigegebener Struktur
 
-Der Analyse-CTA führt zu:
+Breadcrumbs:
 
-```text
-analyse.html
-```
+- Chevron-/Pfeilsegmente
+- semantische Navigation
+- aktueller Punkt klar sichtbar
+- Hover/Focus/Active im Nurovelle-System
 
-Der Header-CTA verwendet die freigegebene CTA-Button-Komponente aus `nurovelle-animations.css`.
+## 8. Sidebar
 
-## 6. Sidebar
+- bestehende freigegebene Grundstruktur beibehalten
+- keine neue Informationsarchitektur ohne Auftrag
+- Öffnen/Schließen über Hamburger
+- keine Überlagerung des eigentlichen Seiteninhalts
+- auf mobilen Breakpoints sauber aus dem Layout nehmen oder als freigegebenes Overlay führen
 
-Die Sidebar bleibt gemäß Vorgabedesign.
-
-Einzige funktionale Festlegung:
-
-- Öffnen und Schließen über den Hamburger unter dem Header
-
-Keine neue Sidebar-Struktur und keine frei erfundene Zusatzlogik.
-
-## 7. Hero
-
-### Homepage-Hero
-
-Inhalt:
-
-```text
-KI-Agenten für echte Geschäftsprozesse.
-```
-
-Subline:
-
-```text
-Nurovelle entwickelt individuelle KI-Systeme für Datenverarbeitung, Wissenszugriff, Prozessautomatisierung und Unternehmenssoftware.
-```
-
-Zusatzzeile:
-
-```text
-Von der Potenzialanalyse über Prompt Engineering und MCP bis zur Umsetzung maßgeschneiderter KI-Lösungen.
-```
-
-CTAs:
-
-- `Kostenlose KI-Potenzialanalyse anfordern` → `analyse.html`
-- `Praxisleitfaden herunterladen` → Download-Bereich
-- `Kostenloses Erstgespräch vereinbaren` → Kontakt-/Portraitbereich
+## 9. Hero
 
 Hero-Visual:
 
-- bestehender finaler Cube / Würfel
-- keine Texte im Bild
-- keine Labels
-- keine Zahlen
-- keine Logos
+- bestehender freigegebener Cube/Würfel
+- keine Texte, Labels, Zahlen oder Logos im Bild
+- dunkles Gunmetal / Smaragd / Gold-Highlights
 
 Animation:
 
-- Hero-Orb kommt hinter den bestehenden Cube / Würfel
-- Originalvorgabe ist die SCSS/HAML-Partikel-Orb-Animation mit `.wrap` und 300 `.c`-Partikeln
-- goldene Cube-Ecken dürfen dezent pulsieren
+- Partikel-Orb hinter dem Cube
+- Originalquelle: SCSS/HAML-Partikel-Orb mit `.wrap` und 300 `.c`-Partikeln
+- Cube selbst nicht unkontrolliert bewegen
+- goldene Eck-/Knotenpunkte dürfen dezent pulsieren
 - ruhiger technischer Lichtimpuls
-- keine unkontrollierte Bewegung des gesamten Hero-Visuals
-- keine freie Conic-/Noise-Mask-Interpretation als Ersatz für die Original-Orb-Vorgabe
+- `prefers-reduced-motion` berücksichtigen
 
-## 8. CTAs und Buttons
+## 10. CTAs
 
-Aktive Buttonvarianten:
+Es gibt zwei visuelle CTA-Varianten:
 
-1. CTA-Button mit Arrow-Reveal und Gold-Fill
-2. Press-Button mit haptischer Absenkung
-3. Downloadbutton mit Success-/Danke-Transformation
+1. Full Gold
+2. Gold Outline
 
-Die technische Umsetzung liegt in `nurovelle-animations.css`.
+Beide verwenden dieselbe Interaktionslogik:
 
-Grundregeln:
+- rechter Pfeil initial sichtbar
+- linker Pfeil initial außerhalb
+- Hover/Focus: rechter Pfeil verlässt den Button
+- linker Pfeil fährt ein
+- Text verschiebt sich kontrolliert
+- Circle-Fill expandiert
+- Active/Klick: gesamte Buttonfläche drückt sich haptisch ab
+- Materialwirkung aus dem CTA-Goldsystem
 
-- keine generischen Standard-Gold-Pills
-- keine neuen Buttonvarianten ohne Freigabe
-- Hover, Focus und Tap müssen funktionieren
-- Success-Zustände nur nach echter erfolgreicher Aktion setzen
+Nicht verwenden:
 
-## 9. Download- / Danke-Button
+- generische Flat Buttons
+- einfache Standard-Gold-Pills ohne die freigegebene Interaktion
+- zusätzliche Buttonvarianten ohne Freigabe
 
-Die Download-Interaktion ist verbindlich als Microinteraction vorgesehen.
+## 11. Download-Button
 
-Verhalten:
+Zustände:
 
-- Startzustand: Downloadbutton / Anfragebutton
-- Während Aktion: Ladezustand aus realer Download- oder Formularlogik
-- Erfolgszustand: größerer Danke-/Bestätigungsbutton
-- Fehlerzustand: Fehler-/Retry-Button
+1. Idle
+2. Loading/Aktion
+3. Success – größere Bestätigungsfläche
+4. Error/Retry
 
-Der Button darf nicht in den Danke-Zustand wechseln, wenn die Aktion technisch fehlgeschlagen ist.
+Success darf nur nach echter erfolgreicher Aktion gezeigt werden.
 
-Konkrete CSS-Basis:
+## 12. Cards
 
-- `.nv-download-confirm`
-- `.nv-download-confirm.is-success`
+### Homepage-Leistungskarten
 
-## 10. Breadcrumbs
+Struktur:
 
-Breadcrumbs werden als Chevron-/Pfeil-Segmente umgesetzt.
+- Icon mit Rahmen
+- Trennlinie
+- Nummer mit eigenem Rahmen
+- Titel
+- Untertitel
+- maximal vier Bulletpoints
+- `Mehr erfahren`
 
-Grundregeln:
+Keine langen Detailseiten-Texte auf Homepage-Cards.
 
-- im Header integriert
-- über `aria-label="Breadcrumb"`
-- aktueller Punkt mit `aria-current="page"`
-- keine externen Fonts oder Demo-Scripts
+Interaktion:
 
-Konkrete CSS-Basis:
+- gesamte Karte bewegt/rotiert/flipt als Einheit
+- interne Elemente bewegen sich nicht unabhängig voneinander
+- Card bleibt an ihrer Layoutposition
+- Desktop: Hover/Focus
+- Mobile: Tap/Focus
+- Reduced-Motion-Fallback
 
-- `.nv-breadcrumb`
+### Weitere Card-Systeme
 
-## 11. Cards
+- schwarze Cards
+- Problem-/Lösungs-Cards
+- CSS-Cards
+- Frosted-Glass/Overlay nur dort, wo ausdrücklich freigegeben oder noch als Prüfvariante geführt
 
-Card-Varianten:
+## 13. Download-Cards
 
-- schwarze Cards für Relevanz-/Warum-Bereiche
-- Problem-Lösungs-Cards für Nutzen-/Problemabschnitte
-- CSS-Cards für Einsatzbereiche und verwandte Leistungen
-- Frosted-Glass / Overlay-Reveal als Prüfvariante
+- vier schmale Cards in einer horizontalen Reihe im gemeinsamen Displaycontainer
+- gleiche Breite
+- kompakte Höhe
+- vollständiger Goldgradient-Rahmen
+- separater Goldgradient-Rahmen um das Dokument-Icon
+- Titel
+- kurze Beschreibung
+- bestehender Download-CTA
+- keine doppelten PDF/XLSX-Labels
+- auf kleinen Screens horizontal scrollen statt ungefragt auf 2×2 umzubauen
 
-Konkrete CSS-Basis:
+Rahmenprinzip:
 
-- `.nv-reveal-card`
-- `.nv-reveal-card.is-open`
+```css
+background:
+  linear-gradient(var(--color-black), var(--color-black)) padding-box,
+  var(--gradient-gold-border) border-box;
+border: 1px solid transparent;
+```
 
-Mobile:
+## 14. Stepdiagramm / Workflow
 
-- Hover-Logik wird per Tap/Focus beziehungsweise `.is-open` abgebildet
+- technisch-mechanische Modulwelt
+- vorhandene freigegebene Module und Assets
+- klare Stepdiagramm-Anordnung
+- keine zusätzlichen erfundenen Schritte
+- keine Texte innerhalb von Modulbildern
+- Module können eine konsistente Basis / ein Pedestal erhalten, wenn dies bereits freigegeben ist
+- keine separate Erklär-Card pro Schritt
 
-## 12. Social Icons
-
-Social Icons werden als CSS/SVG-Komponenten umgesetzt.
-
-Regeln:
-
-- nur Symbol sichtbar
-- keine sichtbaren Textlabels
-- `aria-label` Pflicht
-- keine Bildgenerierung
-- Farben aus Nurovelle-System
-
-Konkrete CSS-Basis:
-
-- `.nv-socials`
-- `.nv-social`
-
-## 13. Divider
-
-Divider werden auf der Homepage verbindlich eingesetzt.
-
-Die finale Divider-Form ist noch nicht freigegeben und muss live beurteilt werden. Aktive Prüfvarianten:
-
-- Variante A: SVG-Schräg-Divider / Separator
-- Variante B: Pure-CSS-Angled-Sections
-- Variante C: Diagonal Box / SkewY + Clip-Path
-
-Für Variante A liegt die Nutzerreferenz separat als `nurovelle-divider-svg-original-reference.txt` vor.
-Für Variante B liegt die Nutzerreferenz separat als `nurovelle-divider-pure-css-angled-original-reference.scss` vor.
-Für Variante C liegt die Nutzerreferenz separat als `nurovelle-divider-diagonal-original-reference.txt` vor.
-
-Regeln für alle Divider:
-
-- Divider sind Pflichtbestandteil der Homepage, aber die konkrete Variante bleibt Prüfentscheidung.
-- Umsetzung per HTML/CSS/SVG, nicht als Bild, GIF oder Video.
-- Keine Demo-Farben übernehmen.
-- Keine Demo-Texte, fremden Links, Playground-Controls oder Beispielseitenstruktur übernehmen.
-- Farben ausschließlich aus dem Nurovelle-System ableiten: mattes Schwarz, sehr dunkles Petrol/Smaragd, Gold nur als feiner Akzent.
-- Divider dürfen Inhalte, CTAs, Cards, Text und Hero-Visuals nicht verdecken.
-- `overflow-x: hidden` darf kontrolliert eingesetzt werden, um horizontales Scrollen durch breite oder gedrehte Divider zu verhindern.
-- Desktop, Tablet und Mobile müssen geprüft werden.
-
-Regeln für Variante A:
-
-- SVG sitzt als absolut positionierter Separator am unteren Section-Rand.
-- SVG nutzt `preserveAspectRatio="none"`, damit die schräge Fläche über volle Breite skaliert.
-- Mobile darf mit breiterem SVG und leichter Rotation geprüft werden.
-- Demo-Grün aus der Referenz wird nicht übernommen.
-
-Regeln für Variante B:
-
-- Section-Kanten dürfen über `clip-path: polygon(...)` angeschnitten werden.
-- CSS-Trigonometrie (`tan()`, `cos()`, `atan2()`) darf nur als progressive Enhancement mit Fallback geprüft werden.
-- SCSS-Winkelwerte müssen mit Guardrails begrenzt werden.
-- `@property`-Fallbacks für Winkel, Abstand und Hypotenuse dürfen geprüft werden.
-- Content, Text, Cards, CTAs und Hero-Visuals dürfen nicht verzerrt oder aus dem sicheren Bereich gedrückt werden.
-- Demo-Fonts, Demo-Verläufe, Support-Infoboxen, Code-Demos, Linkeffekte und Footer-Lochmuster werden nicht übernommen.
-
-Regeln für Variante C:
-
-- `skewY()` nur auf Hintergrund-/Pseudo-Elemente anwenden.
-- Content, Text, Cards, CTAs und Hero-Visuals bleiben unverzerrt.
-- Winkel-/Padding-Berechnung darf geprüft werden.
-- `clip-path` darf geprüft werden.
-
-## 14. Detailseiten
-
-Detailseiten nutzen eine gemeinsame Vorlage.
-
-Aktuelle Layoutlogik:
-
-1. Hero wie Homepage-Hero, aber mit passendem Bild je Detailseite
-2. Was ist ...? — nur Überschrift und Blocktext, keine Cards
-3. Warum wichtig / entscheidend? — schwarze Cards
-4. Ihr Nutzen — Problem-Lösungs-Cards
-5. Typische Einsatzbereiche — CSS-Cards
-6. Verwandte Leistungen — CSS-Cards
-7. FAQ — wie Homepage, Akkordeon / Expander, 8 Fragen
-8. Potenzialanalyse — gleiche Card wie Homepage, bestehender CTA
-9. Kontakt / Erstgespräch — rechteckige Card, rundes Portrait-Mockup, Social Icons, Kontakt / Erstgespräch-CTA
-10. Formular
-
-## 15. Workflow-Bildsprache
-
-Ein Workflow wird technisch-mechanisch gedacht, nicht als generisches Dashboard.
-
-Zulässige Modulwelt:
+Zulässige Bildsprache:
 
 - Mechanik
 - Schalter
@@ -322,367 +322,68 @@ Zulässige Modulwelt:
 - Verteiler
 - Kontrollmodule
 
-## 16. Animationen
+## 15. Divider
 
-Aktive Animationen und Interaktionen liegen in `nurovelle-animations.css`:
+Divider sind Bestandteil des Systems, finale konkrete Variante bleibt nur dann offen, wenn sie in `todo.md` noch als offen geführt wird.
 
-- CTA Arrow-Reveal + Gold-Fill
-- Press-Button / haptische Absenkung
-- Downloadbutton → Danke-/Bestätigungsbutton
-- Breadcrumb Chevron-Segmente
-- Hero Orb hinter Cube — Originalvorgabe SCSS/HAML, Adaption nur nach Freigabe
-- Conic-/Noise-Mask
-- Divider-Prüfvarianten
-- Card Overlay-Reveal
-- Social Icon Hover/Focus
-- Board-/Dashboard-Prüfvariante
-- Reduced Motion
+Prüfvarianten:
 
-## 17. Accessibility und Motion
+- SVG-Schräg-Divider
+- Pure-CSS-Angled-Sections
+- Diagonal Box / SkewY + Clip-Path
+
+Allgemein:
+
+- HTML/CSS/SVG, nicht als Bild
+- Nurovelle-Farben
+- Content nie verzerren
+- keine Inhalte verdecken
+- kein horizontales Scrollen erzeugen
+- responsive und reduced-motion beachten
+
+## 16. Social Icons
+
+- SVG / Inline-SVG / freigegebene Iconbibliothek
+- nur Symbol sichtbar
+- `aria-label` Pflicht
+- keine Bildgenerierung
+- dezenter Lift/Scale/Glow/Linienimpuls
+- keine Bounce-/Comic-/Rainbow-Effekte
+
+## 17. Bildstil / Nurovelle Assets
+
+Alle neu erstellten Nurovelle-Bilder:
+
+- transparenter Hintergrund
+- dunkles glänzendes Smaragdgrün
+- Gunmetal
+- Gold-Highlights
+- räumliche Form erhalten
+- technische Glas-/Metallwirkung
+- keine freien neuen Materialien
+- keine Texte, Labels oder Logos, sofern nicht ausdrücklich beauftragt
+
+Bestehende Formen nicht neu interpretieren.
+
+## 18. Accessibility
 
 Pflicht:
 
 - Tastaturbedienung
 - sichtbare Focus-States
-- sinnvolle `aria-label`s bei Iconlinks
+- ausreichende Tap-Flächen
+- semantische Links/Buttons
+- `aria-label` bei Iconlinks
 - `prefers-reduced-motion`
-- keine Success-Zustände ohne echte Aktion
+- Success-Zustände nur nach echter erfolgreicher Aktion
 
-## 18. Aktive Dateien
+## 19. Technische Designquelle
 
-Verbindliche Designquelle:
+`nurovelle-tokens.css` enthält die maschinenlesbaren Werte dieses Styleguides.
 
-```text
-styleguide.md
-```
+Bei Konflikt gilt:
 
-Technische CSS-Quellen:
-
-```text
-nurovelle-tokens.css
-nurovelle-animations.css
-```
-
-Nicht als aktive Designquelle führen:
-
-- alte Prompt-/Design-/Brief-Zwischenstände
-- einzelne fremde CSS-Fragmente ohne Nurovelle-Namen
-- doppelte Token-Dateien
-- separate Animations-Referenz als dauerhafte Pflichtdatei
-
----
-
-## 19. CSS-First-Regel und Prüfkomponenten – Nachtrag 2026-07-07
-
-Für kontrollierbare Website-Elemente gilt CSS-first.
-
-Das betrifft insbesondere:
-
-- Navigation neu bewerten
-- Burger-Menü
-- Breadcrumbs
-- Social Buttons
-- Hero-Animation hinter dem Cube / Cube-Entstehungseffekt
-- alternative Hero-Hintergrundvariante mit Conic-/Noise-Maske
-- Divider-System
-- SVG-Schräg-Divider
-- Pure-CSS-Angled-Sections
-- Diagonal Box / SkewY + Clip-Path
-- Card-Interaktionen
-- Frosted-Glass-/Overlay-Card als Prüfvariante
-- Section-/Board-Referenz
-- Dashboard-/Board-Komponente als Prüfvariante
-- CTA-Button-System
-- Arrow-Reveal
-- Press-Button-Logik
-- Golden-Button-Farblogik
-- Downloadbutton → größerer Danke-/Bestätigungsbutton
-
-Regel:
-
-- Originalreferenzen werden separat gesichert.
-- Nurovelle-Adaptionen werden klar als Adaptionen gekennzeichnet.
-- Demo-Farben, Demo-Texte, externe Demo-Assets, React-/styled-components-Pflichten und fehlerhafte ARIA-Bezeichnungen werden nicht übernommen.
-- Finale Nutzung erst nach Live-Prüfung und Freigabe.
-
-## 20. CTA-Button-System – Nachtrag 2026-07-07
-
-Die Button-Referenzen liegen zusätzlich separat vor:
-
-```text
-nurovelle-button-original-references.md
-```
-
-Für das Nurovelle-CTA-System gilt:
-
-- Arrow-Reveal / Circle-Fill ist die Start-CTA-Logik.
-- Press-Button ist die haptische Klick-/Active-Logik.
-- Golden-Button-Farblogik liefert die Material-/Farbgrundlage.
-- Es wird nur die Logik der Referenzen übernommen, nicht deren Demo-Farben oder Demo-Struktur.
-- React und styled-components sind keine Pflicht.
-- Die finale Website-Umsetzung erfolgt als HTML/CSS/JS-Komponente.
-
-## 21. Section-/Board-Option – Nachtrag 2026-07-07
-
-Die CodePen-Referenz `https://codepen.io/josephrexme/pen/oNNpZYJ` ist als Option für eine Section-/Board-Komponente aufgenommen.
-
-Status:
-
-- Prüfvariante
-- nicht final
-- keine 1:1-Übernahme
-
-Ausgeschlossen:
-
-- Demo-Texte
-- Demo-Farben
-- Demo-Logo
-- Finanz-/Wallet-Kontext
-- externe Bild-URLs
-- fehlerhafte `arial-label`-Schreibweise
-
-Verbindlich bei Adaption:
-
-- `aria-label` korrekt setzen
-- Nurovelle-Farbsystem verwenden
-- Focus-/Hover-Zustände prüfen
-- Mobile und Desktop prüfen
-
-## 20. Referenzcode-Archiv / übernommene Zusatzdateien
-
-Status: aktiv als Dokumentationsregel seit 2026-07-07
-
-Die zuvor separat erzeugten 8 Arbeits-/Referenzdateien wurden in die Projektfiles übernommen. Maßgebliche Sammelstelle ist:
-
-```text
-NUROVELLE_CSS_ANIMATIONEN_REFERENZ.md
-```
-
-Dort liegen die Originalreferenzen und Arbeitsstände als Archivanhang.
-
-Verbindliche Trennung:
-
-- Originalreferenz: unverändert dokumentierter Ausgangscode oder Arbeitsstand.
-- Nurovelle-Adaption: abgeleitete Umsetzung mit Nurovelle-Farben, Klassen und Regeln.
-- Prüfvariante: noch nicht final freigegeben.
-- Produktionscode: erst nach Sichtprüfung und ausdrücklicher Freigabe.
-
-Die ehemaligen Einzeldateien sind nicht als eigenständige aktive Designquellen zu behandeln. Sie dienen nur noch als Ursprung der übernommenen Archivblöcke.
-
-
----
-
-## Verbindlicher Homepage-Stand – 2026-07-14
-
-Status: freigegeben
-
-Diese Festlegung ersetzt abweichende ältere Homepage-Strukturen und Textstände in dieser Datei. Ältere Angaben zu Trust-Bereich, klassischer Navigation, zusätzlichem SEO-Bereich als aktuelle Sektion, ausführlichen Prozesskarten oder einer anderen Sektionsreihenfolge dürfen nicht mehr verwendet werden.
-
-### Header
-
-- Breadcrumbs ersetzen die klassische Navigation vollständig.
-- Der Header enthält genau drei Breadcrumbs mit Submenüs.
-- Die Submenüs öffnen sich per Hover.
-- Keine zusätzliche klassische Hauptnavigation.
-
-### Verbindliche Homepage-Reihenfolge
-
-1. Hero
-2. Warum Nurovelle
-3. Der erste Schritt zu Ihrem KI-Projekt
-4. Sie haben bereits eine konkrete KI-Idee?
-5. Branchen – optional, noch nicht final entschieden
-6. Kostenlose KI-Potenzialanalyse
-7. Formular
-8. KI-Leistungen von Nurovelle
-9. Vom Geschäftsprozess zur KI-Lösung
-10. Download-Bereich
-11. Kontakt
-12. FAQ
-13. Footer
-
-Ein separater SEO-Bereich ist für einen späteren Ausbau vorgesehen und gehört nicht zur aktuell verbindlichen Reihenfolge.
-
-### Hero
-
-Kicker:
-
-`INDIVIDUELLE KI-SYSTEME`
-
-H1:
-
-`KI-Agenten für echte Geschäftsprozesse.`
-
-Subline:
-
-`Nurovelle entwickelt individuelle KI-Systeme für Datenverarbeitung, Wissenszugriff, Prozessautomatisierung und Unternehmenssoftware.`
-
-Zusatzzeile:
-
-`Von der Potenzialanalyse über Prompt Engineering und MCP bis zur Umsetzung maßgeschneiderter KI-Lösungen.`
-
-CTAs:
-
-- `Kostenlose KI-Potenzialanalyse anfordern` → Potenzialanalyse
-- `Unverbindliches Erstgespräch` → Kontaktbereich
-
-Nicht verwenden:
-
-- `Künstliche Intelligenz. Echte Ergebnisse.`
-- `35+ Jahre Code`
-- Trust-Aussagen im Hero
-- Praxisleitfaden als zweiter Hero-CTA
-
-### Warum Nurovelle
-
-- Der Abschnitt benötigt eine Einleitung aus mindestens zwei bis drei Sätzen.
-- Danach folgen fünf bis sechs konkrete Bulletpoints.
-- Keine Trust-Kennzahlenleiste.
-- Keine Unternehmensgeschichte.
-- Keine unbelegten Erfahrungs- oder Leistungsversprechen.
-- Der finale Wortlaut der Einleitung und Bulletpoints ist noch nicht freigegeben und darf nicht frei erfunden werden.
-
-### Der erste Schritt zu Ihrem KI-Projekt
-
-Einleitung:
-
-`Ob erste Orientierung oder konkrete Projektidee: Wir prüfen Prozesse, Daten und technische Voraussetzungen und zeigen den passenden nächsten Schritt.`
-
-Card 1:
-
-**Prozess klären**
-
-`Welcher Geschäftsprozess verbessert werden soll und welches konkrete Ergebnis durch KI entstehen muss.`
-
-`Mehr erfahren`
-
-Card 2:
-
-**Daten prüfen**
-
-`Welche Daten, Systeme und Wissensquellen bereits vorhanden sind und technisch nutzbar gemacht werden können.`
-
-`Mehr erfahren`
-
-Card 3:
-
-**Umsetzung planen**
-
-`Ob ein KI-Agent, ein Wissenssystem, Automatisierung oder individuelle Software der sinnvolle nächste Schritt ist.`
-
-`Mehr erfahren`
-
-CTA:
-
-`Potenzialanalyse starten`
-
-### Sie haben bereits eine konkrete KI-Idee?
-
-Einleitung:
-
-`Wir prüfen Machbarkeit, Datenlage und Integrationsaufwand, bevor unnötige Entwicklungs- oder Folgekosten entstehen.`
-
-CTA:
-
-`Projektidee prüfen lassen`
-
-### Kostenlose KI-Potenzialanalyse
-
-- Eigene Sektion vor dem Formular.
-- Nicht mit dem Formular oder einer Trust-Section vermischen.
-- Der finale vollständige Text dieser Sektion ist noch nicht freigegeben und darf nicht frei ergänzt werden.
-
-### Formular
-
-- Eigene Sektion direkt nach der Potenzialanalyse.
-- Formular rechts, begleitende Card links.
-- Pflichtfelder, Einwilligung, Datenschutz, Honeypot, Submission sowie Success-/Error-Logik bleiben erhalten.
-- Der finale Text der linken Card ist noch nicht freigegeben.
-
-### KI-Leistungen von Nurovelle
-
-Jede Leistungskarte enthält:
-
-- links oben ein Icon mit Rahmen
-- rechts daneben einen Trennstrich
-- eine Nummer mit eigenem Rahmen
-- Titel und Untertitel
-- eine mittig angeordnete Nummernkarte links neben dem Inhaltsbereich
-- maximal vier Bulletpoints
-
-Inhaltsregeln:
-
-- Kein zusätzlicher Fließtext, der die Bulletpoints wiederholt.
-- Keine weitere Text-Card auf der Leistungskarte.
-- Titel, Untertitel und Bulletpoints dürfen denselben Inhalt nicht mehrfach ausdrücken.
-- Keine vollständigen Detailseiten-Inhalte auf der Homepage.
-
-### Vom Geschäftsprozess zur KI-Lösung
-
-- Die bisherigen Prozesskarten mit Beschreibungstexten entfallen.
-- Nur Module in der freigegebenen Stepdiagramm-Anordnung verwenden.
-- Je Modul ausschließlich die Modulbezeichnung anzeigen.
-- Keine Erklärungssätze, Bulletpoints oder zusätzlichen Cards.
-- Kein CTA.
-
-### Download-Bereich
-
-- Eigene Sektion nach dem Stepdiagramm.
-- Bestehende Downloads mit kurzen, nicht wiederholenden Beschreibungen.
-- Finale Einzeltexte sind noch zu prüfen.
-
-### Kontakt
-
-- Eigene Kontaktsektion nach dem Download-Bereich.
-- Nicht mit Potenzialanalyse oder Formular vermischen.
-- Finale Kontakttexte sind noch zu prüfen.
-
-### FAQ
-
-- Abschnitt 12.
-- Bestehende Fragen und Antworten nicht ungeprüft verändern.
-- Finale FAQ-Texte sind gesondert zu prüfen.
-
-### Footer
-
-Verbindlicher Beschreibungstext:
-
-`Individuelle KI-Systeme für reale Geschäftsprozesse.`
-
-Keine lange Leistungsbeschreibung, Unternehmensgeschichte oder technische Erklärung im Footer.
-
-### Textstatus
-
-- Kein bisheriger vollständiger Sektionstext darf ungeprüft als final verwendet werden.
-- Nur die in diesem Nachtrag wörtlich festgelegten Texte gelten als freigegeben.
-- Fehlende Texte dürfen nicht selbstständig erfunden, ergänzt oder aus alten Dateien übernommen werden.
-
----
-
-## Nachtrag 2026-07-31 – verbindlicher Umsetzungsstand
-
-Dieser Nachtrag geht den Abschnitten oben vor, wo er ihnen widerspricht.
-
-### Schriften
-
-**Exo 2** für Titel, **Inter** für alles Übrige. Inter mit 400, 500, 550, 600, 650, 700, 750, 800.
-
-### Typo-Rollen
-
-Je Rolle eine Größe und ein Gewicht, als `--t-<rolle>` / `--w-<rolle>` in `:root`. Kein Element darf kleiner und zugleich schwerer sein als ein größeres.
-
-sektionstitel clamp(48,7.5vw,100)/800 · hero-kennzahl 42/750 · kartentitel 36/750 · kennzahl 26/650 · subtitle 24/600 · zwischentitel 24/600 · bulletlabel 22/550 · fliesstext 20/400 · kartenbullet 20/500 · feldlabel 20/500 · wert 20/500 · formularfeld 20/400 · kicker-sektion 16/600 · bildunterschrift 16/500 · cta 16/600 · hero-statlabel 16/400 · kicker-karte 15/600
-
-### Flächen
-
-Zwei Sektionsfarben im Wechsel: `#050505` dunkel, `#010603` grün. Karte auf dunkel `#17251d`, Karte auf grün `#1a1a1a`, Elemente darauf `#17251d`. Kein `#000000`.
-
-Die Basisflächen aus Abschnitt 2 (`#050706`, `#080B09`, `#0A1913`, `#112A20`, `#163A35`) sind damit ersetzt.
-
-### Rahmen
-
-Alle Rahmen über `--gold-3`, Doppel-Hintergrund-Technik wegen `border-radius`. Radien 8–12px, keine Pill-Form.
-
-### Skalierung
-
-`body { zoom: 0.8 }` — Werte im Stylesheet sind CSS-Pixel, gerendert wird das 0.8-fache. Hairlines brauchen 1.25px CSS.
+1. explizite aktuelle Benutzervorgabe
+2. dieser Styleguide
+3. `nurovelle-tokens.css`
+4. bestehender Produktionscode
