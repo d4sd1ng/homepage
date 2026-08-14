@@ -1,0 +1,379 @@
+PDF-Spezifikation: Case Study (1080 × 1350 px, 5 Seiten)
+Globale Formatregeln
+Element	Spezifikation
+Format	1080 × 1350 px, hochformat
+Seiten	5
+Hintergrund Hauptfarbe	#05070B bis #0A1630 (Verlauf oder Fläche)
+Card-Füllung	#111827 oder #112B4A, abgerundete Ecken (12–16 px)
+Primärtext	#F5F7FA
+Sekundärtext	#B8C7D9
+Linien, Diagramme, Icons	#6E8CA6 / #8A96A8
+Akzente (nur kleine KPIs)	#C6A86A (Gold)
+Schriftart	Sans-Serif (z. B. Inter, Open Sans, Montserrat)
+Logo-Position	oben links oder unten rechts (klein, dezent, weiß/gold)
+Was nicht:
+
+Keine vollen Serverraum-Bilder
+
+Kein zu dunkler Text auf dunkel
+
+Kein Blau auf Blau ohne Kontrast
+
+Keine grellen Neon-Linien
+
+Keine Bilder hinter Text
+
+Seite 1: Titel + KPI-Kacheln
+Hintergrund
+Dunkler, abstrakter Tech-Hintergrund (#05070B → #0A1630 sanfter Verlauf)
+
+Rechts: dezente Infrastruktur-Visuals (feine Linien, Knoten, abstrakte Verbindungen – kein echter Serverraum)
+
+Links: viel Freiraum für Titel
+
+Layout (von oben nach unten)
+text
+┌─────────────────────────────────────┐
+│  [Logo]                      (leer) │
+│                                     │
+│  ← 80–100 px Rand links →           │
+│                                     │
+│  TITEL (groß, fett, #F5F7FA)        │
+│  Untertitel (kleiner, #B8C7D9)      │
+│                                     │
+│  (viel Freiraum)                    │
+│                                     │
+│  ┌─────────┐ ┌─────────┐ ┌─────────┐│
+│  │ -42%    │ │ -32%    │ │ -28%    ││
+│  │ Latenz  │ │ MTTR    │ │ Kosten  ││
+│  └─────────┘ └─────────┘ └─────────┘│
+│   (goldener Rand oder goldene Zahl)  │
+│                                     │
+└─────────────────────────────────────┘
+Inhalte
+Titel (Haupttitel):
+
+API-Latenz um 42 % reduziert
+durch Plattform-Automatisierung
+
+Untertitel:
+
+Von manuellen Deployments zu stabiler, messbarer Infrastruktur
+
+3 KPI-Kacheln (unten, nebeneinander):
+
+Kachel 1	Kachel 2	Kachel 3
+-42 %	-32 %	-28 %
+API-Latenz	MTTR	Cloud-Kosten
+KPI-Zahlen in Gold (#C6A86A), groß (ca. 48–56 px)
+
+Label darunter in #B8C7D9, klein (ca. 14 px)
+
+Kacheln mit #111827, feiner goldener Rahmen oder goldener unterer Strich
+
+Typografie
+Titel: 52–64 px, fett
+
+Untertitel: 18–22 px, regular
+
+KPI-Zahlen: 48–56 px, fett, gold
+
+KPI-Label: 14 px, #B8C7D9
+
+Seite 2: Ausgangslage + Challenge
+Hintergrund
+Fast einfarbig dunkel (#0A1630 oder #05070B)
+
+Sehr subtile feine Linien / dezentes Grid / einzelne abstrakte Datenpunkte (Transparenz ca. 10–15 %)
+
+Kein starker Tech-Hintergrund – Ruhe für Text
+
+Layout
+text
+┌─────────────────────────────────────┐
+│  [Logo]                             │
+│                                     │
+│  ┌───────────────────────────────┐  │
+│  │  Ausgangslage                 │  │
+│  │                               │  │
+│  │  • Punkt 1                    │  │
+│  │  • Punkt 2                    │  │
+│  │  • Punkt 3                    │  │
+│  │  • Punkt 4                    │  │
+│  └───────────────────────────────┘  │
+│                                     │
+│  ┌───────────────────────────────┐  │
+│  │  Challenge                    │  │
+│  │                               │  │
+│  │  1. Problem                   │  │
+│  │  2. Problem                   │  │
+│  │  3. Problem                   │  │
+│  │  4. Problem                   │  │
+│  │  5. Problem                   │  │
+│  └───────────────────────────────┘  │
+│                                     │
+│  Ziel: messbare Verbesserung        │
+│                                     │
+└─────────────────────────────────────┘
+Inhalte
+Card 1: Ausgangslage (#111827)
+
+Manuelle Deployments ohne standardisierten Prozess
+
+Keine zentrale Observability (Logs, Metriken, Traces)
+
+API-Latenz schwankte stark, besonders unter Last
+
+Fehleranalyse dauerte im Schnitt mehrere Stunden
+
+Cloud-Kosten stiegen ohne klare Ursache
+
+Card 2: Challenge (#112B4A oder #111827)
+
+API-Latenz zu hoch (850 ms P95)
+
+MTTR zu lang (47 min)
+
+Rollbacks zu langsam (20 % der Deployments)
+
+Infrastrukturkosten zu hoch
+
+ML-Workflows nicht reproduzierbar
+
+Unterhalb der Cards (Text, zentriert oder linksbündig):
+
+Ziel: Latenz unter 500 ms, Rollback-Rate unter 5 %, Kosten um mindestens 20 % senken
+
+Typografie
+Card-Titel: 18–22 px, fett, #F5F7FA
+
+Card-Inhalt: 14 px, #B8C7D9
+
+Aufzählungszeichen: Gold (#C6A86A) oder dezent #6E8CA6
+
+Seite 3: Lösung + Architektur-Diagramm
+Hintergrund
+Sehr ruhig – fast einfarbig dunkel (#05070B oder #0A1630)
+
+Keine Serverbilder hinter dem Diagramm
+
+Dezente, feine Linien erlaubt (max. 5–10 % Deckkraft)
+
+Layout
+text
+┌─────────────────────────────────────┐
+│  [Logo]                             │
+│                                     │
+│  ┌───────────────────────────────┐  │
+│  │  Vorgehen (Prozessgrafik)     │  │
+│  │                               │  │
+│  │  Ist → Analyse → Auto → Obs → │  │
+│  │  Ergebnis                     │  │
+│  └───────────────────────────────┘  │
+│                                     │
+│  ┌───────────────────────────────┐  │
+│  │  Architektur-Diagramm         │  │
+│  │                               │  │
+│  │  [User → Gateway → Services   │  │
+│  │   → Cache/DB → Monitoring]    │  │
+│  │                               │  │
+│  └───────────────────────────────┘  │
+│                                     │
+└─────────────────────────────────────┘
+Inhalte
+Card 1: Vorgehen (oben)
+
+Prozessgrafik als horizontale Kette:
+Ist-Zustand → Analyse → Automatisierung → Observability → Ergebnis
+
+Jeder Schritt als kleine Kachel oder mit Pfeilen verbunden
+
+Farben: #6E8CA6 für Linien, #F5F7FA für Text
+
+Card 2: Architektur-Diagramm
+
+Einfache, saubere Darstellung:
+
+text
+User
+   ↓
+Traefik / API Gateway
+   ↓
+Backend Services
+   ↓
+Redis ← → Postgres
+   ↓
+Prometheus → Grafana
+Kästen in #112B4A mit Rahmen #6E8CA6
+
+Pfeile in #8A96A8
+
+Keine 3D-Effekte, keine Schattenüberladung
+
+Ergänzende Punkte (unter oder in Card 2, klein):
+• Monitoring eingeführt
+• CI/CD verbessert
+• Canary-Deployments
+• Autoscaling optimiert
+• Infrastruktur als Code
+
+Typografie
+Diagramm-Labels: 12–14 px, #B8C7D9
+
+Prozessschritte: 14 px, #F5F7FA
+
+Seite 4: Ergebnis-Tabelle + Diagramme
+Hintergrund
+Sehr reduziert – fast einfarbig dunkel (#0A1630)
+
+Hier muss Lesbarkeit gewinnen – minimalster Hintergrund
+
+Keine Linien/Grids, die mit Diagrammen konkurrieren
+
+Layout
+text
+┌─────────────────────────────────────┐
+│  [Logo]                             │
+│                                     │
+│  ┌───────────────────────────────┐  │
+│  │  Ergebnis-Metriken (Tabelle)  │  │
+│  │                               │  │
+│  │  Kennzahl | Vorher | Nachher  │  │
+│  │  ---------|--------|---------  │  │
+│  │  Latenz   | 850 ms | 490 ms   │  │
+│  │  MTTR     | 47 min | 32 min   │  │
+│  │  Rollbacks| 20%    | 3%       │  │
+│  │  Kosten   | 1000€  | 720€     │  │
+│  │  TTP      | 6 Wo   | 2 Wo     │  │
+│  └───────────────────────────────┘  │
+│                                     │
+│  ┌─────────────┐ ┌─────────────┐    │
+│  │ Latenz      │ │ Kosten      │    │
+│  │ Balken     │ │ Balken      │    │
+│  │ 850 vs 490 │ │ 1000 vs 720 │    │
+│  └─────────────┘ └─────────────┘    │
+│                                     │
+└─────────────────────────────────────┘
+Inhalte
+Card 1: Ergebnis-Metriken (Tabelle)
+
+Kennzahl	Vorher	Nachher	Veränderung
+API-Latenz (P95)	850 ms	490 ms	-42 %
+MTTR	47 min	32 min	-32 %
+Rollback-Rate	20 %	3 %	-85 %
+Cloud-Kosten	1.000 €	720 €	-28 %
+Time-to-Production	6 Wochen	2 Wochen	-67 %
+Tabellenlinien in #6E8CA6
+
+Veränderung in Gold (#C6A86A) hervorheben
+
+Card 2: Zwei Balkendiagramme
+
+Diagramm links: API-Latenz
+
+Vorher: ████████████████ 850 ms
+
+Nachher: ██████████ 490 ms
+
+Farbe Balken: #6E8CA6 (vorher), #C6A86A (nachher – dezent)
+
+Diagramm rechts: Cloud-Kosten
+
+Vorher: ████████████████ 1.000 €
+
+Nachher: ███████████ 720 €
+
+Diagramm-Hintergrund: #111827
+
+Achsen und Labels: #B8C7D9
+
+Typografie
+Tabellen-Header: 14 px, fett, #F5F7FA
+
+Tabellen-Zellen: 13 px, #B8C7D9
+
+Diagramm-Labels: 12 px, #B8C7D9
+
+Seite 5: Business Impact + CTA
+Hintergrund
+Oben ruhiger Hintergrund (#0A1630)
+
+Unten kann etwas stärkerer Premium-Hintergrund sein (wie Seite 1)
+
+Keine Überladung – Fokus auf Text und CTA
+
+Layout
+text
+┌─────────────────────────────────────┐
+│  [Logo]                             │
+│                                     │
+│  ┌───────────────────────────────┐  │
+│  │  Business Impact             │  │
+│  │                               │  │
+│  │  ✓ Weniger Ausfallzeit        │  │
+│  │  ✓ Schnellere Releases        │  │
+│  │  ✓ Geringere Betriebskosten   │  │
+│  │  ✓ Mehr Vertrauen in KI       │  │
+│  │  ✓ Weniger manuelle Arbeit    │  │
+│  └───────────────────────────────┘  │
+│                                     │
+│  ┌───────────────────────────────┐  │
+│  │  Lessons Learned (3 Punkte)  │  │
+│  └───────────────────────────────┘  │
+│                                     │
+│  ┌───────────────────────────────┐  │
+│  │  CTA                          │  │
+│  │  [Kontakt / LinkedIn / Web]   │  │
+│  └───────────────────────────────┘  │
+│                                     │
+│  [Logo klein unten rechts]          │
+└─────────────────────────────────────┘
+Inhalte
+Card 1: Business Impact (#111827)
+
+Weniger Ausfallzeit – Geringere Umsatzverluste bei Lastspitzen
+
+Schnellere Releases – Neue KI-Funktionen in 2 statt 6 Wochen
+
+Geringere Betriebskosten – 28 % niedrigere Cloud-Kosten
+
+Mehr Vertrauen in KI-Systeme – Stabile Latenz schafft Akzeptanz
+
+Weniger manuelle Arbeit – Fokus auf Features statt Firefighting
+
+Card 2: Lessons Learned (#112B4A)
+
+Automatisierung bringt nur Wert, wenn sie messbar ist.
+
+Observability ist Voraussetzung für stabile KI-Systeme.
+
+Kostenoptimierung beginnt bei Architektur, nicht bei Rabatten.
+
+Card 3: CTA (#111827 mit goldener Umrandung)
+
+Sie möchten wissen, wo Ihre Infrastruktur Zeit, Geld oder Stabilität verliert?
+
+Ich analysiere Ihre KI- und Automatisierungsprozesse strukturiert und zeige konkrete Optimierungspunkte.
+
+[LinkedIn-Profil] · [Website] · [Kontakt]
+
+Logo: klein, unten rechts oder oben links, weiß oder gold (#C6A86A), dezent
+
+Typografie
+Business Impact Titel: 18–22 px, fett, #F5F7FA
+
+Business Impact Punkte: 14 px, #B8C7D9
+
+Lessons Learned: 14 px, #B8C7D9
+
+CTA-Text: 16 px, #F5F7FA
+
+CTA-Hintergrund: #C6A86A als schmaler Rahmen oder goldener Button
+
+Zusammenfassung der Seiten-Hintergründe
+Seite	Hintergrund-Intensität	Empfehlung
+1	Stärker	Verlauf #05070B → #0A1630 + dezente Tech-Visuals rechts
+2	Ruhig	Fast einfarbig #0A1630 + sehr feines Grid
+3	Sehr ruhig	#05070B + minimale Linien (10 % Deckkraft)
+4	Minimal	#0A1630 – fast ohne Hintergrundelemente
+5	Oben ruhig, unten Premium	#0A1630 mit sanftem Übergang
