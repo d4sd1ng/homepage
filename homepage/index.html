@@ -4,12 +4,8 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Nurovelle | KI-Systeme für den Mittelstand</title>
-<link href="https://fonts.googleapis.com" rel="preconnect" />
-<link href="https://fonts.gstatic.com" rel="preconnect" crossorigin />
-<link
-  rel="stylesheet"
-  href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;550;600;650;700;750;800&family=Exo+2:wght@600;700;800&display=swap"
-/>
+<link rel="preload" href="assets/fonts/inter-var-latin.woff2" as="font" type="font/woff2" crossorigin />
+<link rel="stylesheet" href="assets/fonts/fonts.css" />
 <style>
 
 /* ==========================================================================
@@ -2864,22 +2860,20 @@ canvas.nv-step-viz {
 </svg>
 
 <!-- Hero particle background — verbatim from index.html (lines 5243-5431) -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 <script>
+  /* Hero-Hintergrund in reinem WebGL. Ersetzt three.js r128 (600 KB von
+     cdnjs) - gerendert wird ein Vollbild-Dreieck mit demselben
+     Fragment-Shader wie zuvor, unveraendert uebernommen. */
   (function () {
     "use strict";
-    if (typeof THREE === "undefined") return;
     var mount = document.querySelector(".hero");
     var canvas = document.getElementById("heroParticleCanvas");
     if (!mount || !canvas) return;
-    var renderer = new THREE.WebGLRenderer({ canvas: canvas, antialias: false, alpha: true, powerPreference: "high-performance" });
+    var gl = canvas.getContext("webgl", { antialias: false, alpha: true, powerPreference: "high-performance" });
+    if (!gl) return;
     var baseDPR = Math.min(window.devicePixelRatio || 1, 2);
-    var escena = new THREE.Scene();
-    var camara = new THREE.OrthographicCamera(-1, 1, 1, -1, 0, 1);
-    var malla = new THREE.Mesh(new THREE.PlaneBufferGeometry(2, 2));
-    malla.frustumCulled = false;
-    escena.add(malla);
-    var VERT = "void main(){ gl_Position = vec4(position, 1.0); }";
+
+    var VERT = "attribute vec2 position; void main(){ gl_Position = vec4(position, 0.0, 1.0); }";
     var GLSL_COMUN = `
   vec3 decodificar(vec3 e){
     e = min(e, vec3(0.996));
@@ -2889,14 +2883,7 @@ canvas.nv-step-viz {
     return c / (1.0 + c);
   }
 `;
-    var uSim = {
-      uTime: { value: 0 },
-      uRes: { value: new THREE.Vector2(1, 1) },
-      uYaw: { value: 0.0 },
-      uPitch: { value: 0.12 },
-      uFondo: { value: 0.0 },
-    };
-    var FRAG_SIM = GLSL_COMUN + `
+    var FRAG = "precision highp float;\n" + GLSL_COMUN + `
 uniform float uTime, uYaw, uPitch, uFondo;
 uniform vec2  uRes;
 
@@ -2973,31 +2960,64 @@ void main(){
   gl_FragColor = vec4(codificar(col), 1.0);
 }
 `;
-    var matSim = new THREE.ShaderMaterial({ uniforms: uSim, vertexShader: VERT, fragmentShader: FRAG_SIM, transparent: true });
-    malla.material = matSim;
-    var yaw = 0, pitch = 0.12;
+
+    function shader(typ, quelle) {
+      var s = gl.createShader(typ);
+      gl.shaderSource(s, quelle); gl.compileShader(s);
+      if (!gl.getShaderParameter(s, gl.COMPILE_STATUS)) { return null; }
+      return s;
+    }
+    var vs = shader(gl.VERTEX_SHADER, VERT);
+    var fs = shader(gl.FRAGMENT_SHADER, FRAG);
+    if (!vs || !fs) return;
+    var prog = gl.createProgram();
+    gl.attachShader(prog, vs); gl.attachShader(prog, fs); gl.linkProgram(prog);
+    if (!gl.getProgramParameter(prog, gl.LINK_STATUS)) return;
+    gl.useProgram(prog);
+
+    var buf = gl.createBuffer();
+    gl.bindBuffer(gl.ARRAY_BUFFER, buf);
+    gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1,-1, 3,-1, -1,3]), gl.STATIC_DRAW);
+    var loc = gl.getAttribLocation(prog, "position");
+    gl.enableVertexAttribArray(loc);
+    gl.vertexAttribPointer(loc, 2, gl.FLOAT, false, 0, 0);
+
+    var uTime = gl.getUniformLocation(prog, "uTime");
+    var uRes = gl.getUniformLocation(prog, "uRes");
+    var uYaw = gl.getUniformLocation(prog, "uYaw");
+    var uPitch = gl.getUniformLocation(prog, "uPitch");
+    var uFondo = gl.getUniformLocation(prog, "uFondo");
+    gl.uniform1f(uPitch, 0.12);
+    gl.uniform1f(uFondo, 0.0);
+
+    var yaw = 0;
     var autoOrbita = true;
     if (window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches) autoOrbita = false;
+
     function resize() {
       var rect = mount.getBoundingClientRect();
-      var w = Math.max(2, Math.floor(rect.width));
-      var h = Math.max(2, Math.floor(rect.height));
-      renderer.setPixelRatio(baseDPR);
-      renderer.setSize(w, h, false);
-      uSim.uRes.value.set(w * renderer.getPixelRatio(), h * renderer.getPixelRatio());
+      var w = Math.max(2, Math.floor(rect.width * baseDPR));
+      var h = Math.max(2, Math.floor(rect.height * baseDPR));
+      if (canvas.width !== w || canvas.height !== h) {
+        canvas.width = w; canvas.height = h;
+        canvas.style.width = Math.floor(rect.width) + "px";
+        canvas.style.height = Math.floor(rect.height) + "px";
+      }
+      gl.viewport(0, 0, w, h);
+      gl.uniform2f(uRes, w, h);
     }
     window.addEventListener("resize", resize, { passive: true });
     resize();
+
     var tPrev = performance.now();
     function animar(t) {
       requestAnimationFrame(animar);
       var dt = Math.min((t - tPrev) / 1000, 0.05);
       tPrev = t;
       if (autoOrbita) yaw += dt * 0.04;
-      uSim.uTime.value = t / 1000;
-      uSim.uYaw.value = yaw;
-      uSim.uPitch.value = pitch;
-      renderer.render(escena, camara);
+      gl.uniform1f(uTime, t / 1000);
+      gl.uniform1f(uYaw, yaw);
+      gl.drawArrays(gl.TRIANGLES, 0, 3);
     }
     requestAnimationFrame(animar);
   })();
