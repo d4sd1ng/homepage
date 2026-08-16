@@ -1,0 +1,87 @@
+/* Mobil- und Bewegungsregeln der Detailseiten. Wird NACH dem seiten-
+   spezifischen Block geladen, damit die Kaskadenreihenfolge der alten
+   Inline-Fassung erhalten bleibt. */
+
+/* Glanzband nur auf den grossen Ueberschriften, nicht auf Kartentiteln,
+   Bullet-Labels oder Kleintext. */
+h1, main > section > .section-inner > h2 {
+  filter: var(--gold-glow);
+  -webkit-text-stroke: 0.48px rgba(255,248,207,.40);
+  background-size: 250% auto;
+  animation: nv-gold-shine 18s linear infinite;
+}
+@keyframes nv-gold-shine {
+  0%   { background-position: 0% center; }
+  33%  { background-position: 250% center; }   /* Durchlauf in 6s wie zuvor */
+  100% { background-position: 250% center; }   /* danach 12s Pause */
+}
+@media (prefers-reduced-motion: reduce) { h1, main > section > .section-inner > h2 { animation: none; } }
+/* Goldrahmen: metallischer Verlauf mit Lichtkante, dunkler Innenkante und wanderndem Glanzband */
+.visual-card, .panel, .form-panel, .result-strip, .pair-chip, .chip-list li, .chip-icon, .num-list li::before {
+  background-size: 250% auto;
+  animation: nv-frame-shine 18s linear infinite;
+}
+.visual-card, .panel, .form-panel, .result-strip, .pair-chip, .chip-list li { box-shadow: var(--frame-glow); }
+.chip-icon, .num-list li::before { box-shadow: 0 0.8px 0 rgba(255,255,220,.26) inset, 0 0 0 0.8px rgba(146,111,52,.55), 0 0 11px rgba(212,175,55,.14); }
+.pair-chip--gold {
+  border-color: transparent;
+  background-image: linear-gradient(105deg, transparent 41%, rgba(255,255,220,.10) 46%, rgba(255,255,225,.46) 50%, rgba(255,255,220,.12) 54%, transparent 59%),
+                    linear-gradient(180deg,#ffd7a3 0%,#f0a05a 24%,#d89828 58%,#7a3518 100%), var(--gold-3);
+  background-origin: border-box;
+  background-clip: padding-box, padding-box, border-box;
+  background-size: 250% auto, auto, 250% auto;
+  box-shadow: var(--frame-glow), inset 0 0 0 0.8px rgba(255,244,199,.20);
+}
+@keyframes nv-frame-shine {
+  0%   { background-position: 0% center; }
+  33%  { background-position: 250% center; }
+  100% { background-position: 250% center; }
+}
+@media (prefers-reduced-motion: reduce) { .visual-card, .panel, .form-panel, .result-strip, .pair-chip, .chip-list li, .chip-icon, .num-list li::before { animation: none; } }
+/* ==========================================================================
+   MOBIL — Desktop-Raster wird einspaltig
+   ========================================================================== */
+@media (max-width: 900px) {
+  /* Kopfzeile */
+  .logo-wordmark { height: calc(var(--logo-h) * 0.72); }
+  .nv-breadcrumb { overflow-x: auto; overflow-y: hidden; scrollbar-width: none; }
+  .nv-breadcrumb::-webkit-scrollbar { display: none; }
+  .header-cta .golden-button { min-width: 0; padding: 0 .6em; font-size: 8.8px; letter-spacing: .02em; }
+  .header-inner { padding-left: 9.6px; padding-right: 9.6px; column-gap: 6.4px; }
+  .logo-link { gap: 4.8px; }
+  .header-inner { display: flex; align-items: center; justify-content: space-between; gap: 6.4px; }
+  .nv-breadcrumb { flex: 1 1 0; min-width: 0; }
+  .header-cta { flex: 0 0 auto; }
+
+  /* Hero und Raster */
+  .detail-hero { grid-template-columns: minmax(0,1fr); gap: 22.4px; }
+  .analysis-layout { grid-template-columns: minmax(0,1fr); gap: 25.6px; margin-top: 32px; }
+  .pair-grid, .faq-grid { grid-template-columns: minmax(0,1fr); }
+  .pair-grid { gap: 13px; }
+  .pair { grid-template-columns: minmax(0,1fr); gap: 4.8px; }
+  .pair-arrow { justify-self: center; transform: rotate(90deg); }
+  /* lange Komposita duerfen umbrechen, sonst sprengt die Mindestbreite die Karte */
+  .pair-chip, .chip-list li { overflow-wrap: anywhere; }
+  #einsatzbereiche .panel { padding: 14.4px; }
+  .panel .card-bullets, .card-bullets { padding-left: 0; gap: 8px 19px; }
+  .section { padding-left: 14.4px; padding-right: 14.4px; }
+
+  /* FAQ-Knoepfe wachsen mit der Frage */
+  .faq-item summary > span { height: auto; min-height: 40px; padding: 9.6px 13px; line-height: 1.3; }
+}
+@media (max-width: 640px) {
+  /* Zweispaltige Listen passen unter 640px nicht mehr nebeneinander,
+     seit die Seite ohne zoom auf echter Breite rechnet. */
+  .num-list, .label-list { grid-template-columns: 1fr; }
+}
+@media (max-width: 900px) {
+  /* Klammer gegen seitliches Wandern: breitester sichtbarer Inhalt liegt
+     innerhalb der Seite, aber einzelne Sektionen melden Phantombreite. */
+  html, body { overflow-x: clip; }
+}
+@media (max-width: 560px) {
+  .header-cta .golden-button { padding: 0 .4em; font-size: 7.6px; gap: 4px; }
+  .header-cta .nv-calendly-icon { width: 11px; height: 11px; }
+}
+.skip-link { position: absolute; left: 9.6px; top: -48px; z-index: 200; padding: 8px 13px; border-radius: 0 0 6.4px 6.4px; background: #0a0d0b; color: #fae385; font: 600 11px/1 Inter, Arial, sans-serif; text-decoration: none; border: 0.8px solid #8a6a24; transition: top 0.15s ease; }
+.skip-link:focus-visible { top: 0; outline: none; }
