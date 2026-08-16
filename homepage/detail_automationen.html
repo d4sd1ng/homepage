@@ -214,7 +214,7 @@ a:active .golden-button {
 .footer { background-color: #050505; margin-left: 0px; width: calc(100% - 0px); padding: 54px calc(var(--side) * 2); border-top: 1px solid var(--nv-gold-divider-strong); color: var(--color-text-light); background: #121212; }
 .footer-inner { display: grid;
         grid-template-columns: minmax(0, 400px) auto minmax(0, 380px) auto; justify-content: space-between; gap: 96px; width: 100%; max-width: none; margin: 0; }
-.footer h4 { margin: 0 0 var(--nv-space-md); color: #fae385; font: var(--w-zwischentitel) var(--t-zwischentitel)/1.2 "Exo 2",Inter,Arial,sans-serif; letter-spacing: 0.06em; text-transform: uppercase; }
+.footer h4, .footer .footer-col__title { margin: 0 0 var(--nv-space-md); color: #fae385; font: var(--w-zwischentitel) var(--t-zwischentitel)/1.2 "Exo 2",Inter,Arial,sans-serif; letter-spacing: 0.06em; text-transform: uppercase; }
 .footer a:not(.footer-top):not(.footer-social a), .footer p { display: block; margin: 0 0 7px; color: #c4ccc6; font: 400 15px/1.7 Inter, Arial, sans-serif; text-decoration: none; }
 .footer-col--about p { color: #aab2ad; }
 .footer a:hover, .footer a:focus-visible { color: #fae385; outline: none; }
@@ -474,6 +474,9 @@ h1, main > section > .section-inner > h2 {
   .header-cta .golden-button { padding: 0 .4em; font-size: 9.5px; gap: 5px; }
   .header-cta .nv-calendly-icon { width: 14px; height: 14px; }
 }
+
+.skip-link { position: absolute; left: 12px; top: -60px; z-index: 200; padding: 10px 16px; border-radius: 0 0 8px 8px; background: #0a0d0b; color: #fae385; font: 600 14px/1 Inter, Arial, sans-serif; text-decoration: none; border: 1px solid #8a6a24; transition: top 0.15s ease; }
+.skip-link:focus-visible { top: 0; outline: none; }
 </style>
 
 <link rel="canonical" href="https://nurovelle.de/homepage/detail_automationen.html" />
@@ -490,12 +493,13 @@ h1, main > section > .section-inner > h2 {
 <meta name="theme-color" content="#050505" />
 </head>
 <body>
+<a class="skip-link" href="#inhalt">Zum Inhalt springen</a>
 <header class="site-header">
   <div class="header-inner">
     <a class="logo-link" href="index.html" aria-label="Nurovelle Startseite">
       <span class="logo-spin" aria-hidden="true"></span>
 
-            <img class="logo-wordmark" src="assets/hero/Nurovelle_schrift.png" alt="Nurovelle — Building Intelligent Systems" />
+            <img class="logo-wordmark" src="assets/hero/Nurovelle_schrift.png" alt="Nurovelle — Building Intelligent Systems" width="1098" height="250" />
           </a>
 
     <nav class="nv-breadcrumb" aria-label="Hauptnavigation">
@@ -546,7 +550,7 @@ h1, main > section > .section-inner > h2 {
     </a>
   </div>
 </header>
-<main>
+<main id="inhalt">
 <!-- ============================ HERO ============================ -->
 <section class="section"><div class="section-inner detail-hero"><div><div class="kicker">KI-Automationen</div><h1>25 intelligente Helfer für Ihren Arbeitsalltag</h1><p class="sub">Automatisierte Prozesse in 5 Einsatzbereichen – von der Baustelle bis ins Büro</p><p class="lead">In der täglichen Praxis wiederholen sich immer die gleichen Aufgaben: Belege erfassen, Termine koordinieren, Berichte schreiben, Material buchen, Anfragen beantworten. Unsere 25 KI-Automationen übernehmen genau diese repetitiven, aber notwendigen Aufgaben: schnell, fehlerfrei und rund um die Uhr. Das Ergebnis: entlastete Teams, geringere Fehlerquoten, kürzere Bearbeitungszeiten und messbar höhere Effizienz in Ihrem gesamten Unternehmen.</p><div class="actions"><a class="btn" href="analyse.html">Kostenloses Erstgespräch</a></div></div><div class="visual-card visual-card--empty" aria-hidden="true"></div></div></section>
 <!-- ===== chips ===== -->
@@ -554,11 +558,11 @@ h1, main > section > .section-inner > h2 {
 <div class="kicker">Einsatzbereiche</div>
 <h2>Springen Sie direkt zu Ihrem Bereich</h2>
 <ul class="chip-list">
-<li class="pair-chip"><a href="#gruppe-buero"><span class="chip-icon"><img src="assets/cards/service/icons/9.png" alt="" /></span>Büro – 6 Automationen</a></li>
-<li class="pair-chip"><a href="#gruppe-baustelle"><span class="chip-icon"><img src="assets/cards/service/icons/8.png" alt="" /></span>Baustelle – 5 Automationen</a></li>
-<li class="pair-chip"><a href="#gruppe-personal"><span class="chip-icon"><img src="assets/cards/service/icons/3.png" alt="" /></span>Personal – 3 Automationen</a></li>
-<li class="pair-chip"><a href="#gruppe-betreuung"><span class="chip-icon"><img src="assets/cards/service/icons/4.png" alt="" /></span>Betreuung – 6 Automationen</a></li>
-<li class="pair-chip"><a href="#gruppe-marketing"><span class="chip-icon"><img src="assets/cards/service/icons/1.png" alt="" /></span>Marketing & Kommunikation – 5 Automationen</a></li>
+<li class="pair-chip"><a href="#gruppe-buero"><span class="chip-icon"><img src="assets/cards/service/icons/9.png" alt="" width="100" height="100" /></span>Büro – 6 Automationen</a></li>
+<li class="pair-chip"><a href="#gruppe-baustelle"><span class="chip-icon"><img src="assets/cards/service/icons/8.png" alt="" width="100" height="100" loading="lazy" /></span>Baustelle – 5 Automationen</a></li>
+<li class="pair-chip"><a href="#gruppe-personal"><span class="chip-icon"><img src="assets/cards/service/icons/3.png" alt="" width="100" height="100" loading="lazy" /></span>Personal – 3 Automationen</a></li>
+<li class="pair-chip"><a href="#gruppe-betreuung"><span class="chip-icon"><img src="assets/cards/service/icons/4.png" alt="" width="100" height="100" loading="lazy" /></span>Betreuung – 6 Automationen</a></li>
+<li class="pair-chip"><a href="#gruppe-marketing"><span class="chip-icon"><img src="assets/cards/service/icons/1.png" alt="" width="100" height="100" loading="lazy" /></span>Marketing & Kommunikation – 5 Automationen</a></li>
 </ul>
 </div></section>
 <!-- ===== textcols ===== -->
@@ -694,7 +698,7 @@ h1, main > section > .section-inner > h2 {
 <footer class="footer" id="footer">
       <div class="footer-inner">
         <div class="footer-col footer-col--about">
-          <h4>Nurovelle</h4>
+          <h3 class="footer-col__title">Nurovelle</h3>
           <p>Individuelle KI-Systeme für reale Geschäftsprozesse.</p>
           <p>
             Nurovelle entwickelt KI-Agenten, Automatisierungssysteme und
@@ -703,7 +707,7 @@ h1, main > section > .section-inner > h2 {
           </p>
         </div>
         <div class="footer-col">
-          <h4>Nützliche Links</h4>
+          <h3 class="footer-col__title">Nützliche Links</h3>
           <a href="index.html#hero">Startseite</a>
           <a href="index.html#warum-nurovelle">Über Nurovelle</a>
           <a href="index.html#leistungen">Leistungen</a>
@@ -713,7 +717,7 @@ h1, main > section > .section-inner > h2 {
           <a href="index.html#kontakt">Kontakt</a>
         </div>
         <div class="footer-col">
-          <h4>Newsletter</h4>
+          <h3 class="footer-col__title">Newsletter</h3>
           <p>
             Erhalten Sie ausgewählte Informationen zu KI-Agenten,
             Automatisierung, Unternehmenssoftware und neuen Nurovelle-Lösungen
@@ -739,7 +743,7 @@ h1, main > section > .section-inner > h2 {
           </form>
         </div>
         <div class="footer-col">
-          <h4>Kontakt</h4>
+          <h3 class="footer-col__title">Kontakt</h3>
           <p>Marburg, Deutschland</p>
           <p><a href="tel:+4964218097347">06421 8097347</a></p>
           <p><a href="mailto:info@nurovelle.de">info@nurovelle.de</a></p>

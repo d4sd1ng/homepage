@@ -214,7 +214,7 @@ a:active .golden-button {
 .footer { background-color: #080B09; margin-left: 0px; width: calc(100% - 0px); padding: 54px calc(var(--side) * 2); border-top: 1px solid var(--nv-gold-divider-strong); color: var(--color-text-light); background: #121212; }
 .footer-inner { display: grid;
         grid-template-columns: minmax(0, 400px) auto minmax(0, 380px) auto; justify-content: space-between; gap: 96px; width: 100%; max-width: none; margin: 0; }
-.footer h4 { margin: 0 0 var(--nv-space-md); color: #fae385; font: var(--w-zwischentitel) var(--t-zwischentitel)/1.2 "Exo 2",Inter,Arial,sans-serif; letter-spacing: 0.06em; text-transform: uppercase; }
+.footer h4, .footer .footer-col__title { margin: 0 0 var(--nv-space-md); color: #fae385; font: var(--w-zwischentitel) var(--t-zwischentitel)/1.2 "Exo 2",Inter,Arial,sans-serif; letter-spacing: 0.06em; text-transform: uppercase; }
 .footer a:not(.footer-top):not(.footer-social a), .footer p { display: block; margin: 0 0 7px; color: #c4ccc6; font: 400 15px/1.7 Inter, Arial, sans-serif; text-decoration: none; }
 .footer-col--about p { color: #aab2ad; }
 .footer a:hover, .footer a:focus-visible { color: #fae385; outline: none; }
@@ -483,6 +483,9 @@ h1, main > section > .section-inner > h2 {
   .header-cta .golden-button { padding: 0 .4em; font-size: 9.5px; gap: 5px; }
   .header-cta .nv-calendly-icon { width: 14px; height: 14px; }
 }
+
+.skip-link { position: absolute; left: 12px; top: -60px; z-index: 200; padding: 10px 16px; border-radius: 0 0 8px 8px; background: #0a0d0b; color: #fae385; font: 600 14px/1 Inter, Arial, sans-serif; text-decoration: none; border: 1px solid #8a6a24; transition: top 0.15s ease; }
+.skip-link:focus-visible { top: 0; outline: none; }
 </style>
 
 <link rel="canonical" href="https://nurovelle.de/homepage/detail_roadmap.html" />
@@ -499,12 +502,13 @@ h1, main > section > .section-inner > h2 {
 <meta name="theme-color" content="#050505" />
 </head>
 <body class="page-roadmap">
+<a class="skip-link" href="#inhalt">Zum Inhalt springen</a>
 <header class="site-header">
   <div class="header-inner">
     <a class="logo-link" href="index.html" aria-label="Nurovelle Startseite">
       <span class="logo-spin" aria-hidden="true"></span>
 
-            <img class="logo-wordmark" src="assets/hero/Nurovelle_schrift.png" alt="Nurovelle — Building Intelligent Systems" />
+            <img class="logo-wordmark" src="assets/hero/Nurovelle_schrift.png" alt="Nurovelle — Building Intelligent Systems" width="1098" height="250" />
           </a>
 
     <nav class="nv-breadcrumb" aria-label="Hauptnavigation">
@@ -555,7 +559,7 @@ h1, main > section > .section-inner > h2 {
     </a>
   </div>
 </header>
-<main>
+<main id="inhalt">
 <section class="section section--landing"><div class="section-inner detail-hero"><div><div class="kicker">KI-Beratung</div><h1>KI-Roadmap</h1><p class="sub">Klare Prioritäten für den strukturierten Einsatz von KI.</p><p class="lead">Die KI-Beratung übersetzt Ziele, Prozesse und technische Voraussetzungen in einen realistischen Umsetzungsplan mit klaren Prioritäten.</p><div class="actions"><a class="btn" href="analyse.html">KI-Roadmap planen</a></div></div><div class="visual-card visual-card--empty" aria-hidden="true"></div></div></section>
 <section class="section section--landing"><div class="section-inner content-grid"><article class="panel"><h2>Was ist eine KI-Roadmap?</h2><p>Eine KI-Roadmap ordnet mögliche Vorhaben nach Nutzen, Aufwand, Risiken und technischen Voraussetzungen. Sie verbindet kurzfristig realisierbare Maßnahmen mit langfristigen Entwicklungszielen.</p></article><article class="panel summary"><h2>Klare Entscheidungsgrundlage</h2><p>Die Roadmap zeigt, welche Vorhaben zuerst verfolgt werden sollten und welche Voraussetzungen dafür geschaffen werden müssen. Aus einzelnen Ideen entsteht dadurch ein abgestimmter und nachvollziehbarer Umsetzungsplan.</p></article></div></section>
 <section class="section section--landing" id="ausgangslage"><div class="section-inner">
@@ -576,14 +580,14 @@ h1, main > section > .section-inner > h2 {
 <p class="sub">Acht Schritte vom Zielbild bis zum Umsetzungspfad.</p>
 <p class="text">Die Module schaffen eine gemeinsame Grundlage für Entscheidungen und nachfolgende Projekte. Bestehende Ziele, Prozesse, Systeme und bereits geplante Vorhaben werden dabei in die Bewertung einbezogen.</p>
 <ol class="num-list">
-<li><img class="module-img" src="assets/Module/analyse/4.png" alt="" /><div><b>Ziele</b><span>Geschäftliche Anforderungen und gewünschte Ergebnisse festlegen.</span></div></li>
-<li><img class="module-img" src="assets/Module/Ablauf/aufgabe_erfassen.png" alt="" /><div><b>Ausgangslage</b><span>Bestehende Prozesse, Systeme, Initiativen und Verantwortungsbereiche erfassen.</span></div></li>
-<li><img class="module-img" src="assets/Module/Ablauf/Prozesse_planen.png" alt="" /><div><b>Handlungsfelder</b><span>Geeignete Bereiche für KI und Automatisierung bestimmen.</span></div></li>
-<li><img class="module-img" src="assets/Module/Ablauf/ki_potential.png" alt="" /><div><b>Anwendungsfälle</b><span>Konkrete Vorhaben entwickeln und voneinander abgrenzen.</span></div></li>
-<li><img class="module-img" src="assets/Module/analyse/3.png" alt="" /><div><b>Bewertung</b><span>Nutzen, Aufwand, Risiken und Umsetzbarkeit vergleichen.</span></div></li>
-<li><img class="module-img" src="assets/Module/Ablauf/daten_prüfen1.png" alt="" /><div><b>Voraussetzungen</b><span>Daten, Systeme, Kompetenzen, Zugriffsrechte und Verantwortlichkeiten klären.</span></div></li>
-<li><img class="module-img" src="assets/Module/Ablauf/lösung_wählen.png" alt="" /><div><b>Priorisierung</b><span>Maßnahmen unter Berücksichtigung ihrer Abhängigkeiten in eine sinnvolle Reihenfolge bringen.</span></div></li>
-<li><img class="module-img" src="assets/Module/Ablauf/umsetzung_struturieren.png" alt="" /><div><b>Umsetzungsplan</b><span>Pilotprojekte, Ausbaustufen und nächste Entscheidungen festlegen.</span></div></li>
+<li><img class="module-img" src="assets/Module/analyse/4.png" alt="" width="200" height="200" /><div><b>Ziele</b><span>Geschäftliche Anforderungen und gewünschte Ergebnisse festlegen.</span></div></li>
+<li><img class="module-img" src="assets/Module/Ablauf/aufgabe_erfassen.png" alt="" width="524" height="578" loading="lazy" /><div><b>Ausgangslage</b><span>Bestehende Prozesse, Systeme, Initiativen und Verantwortungsbereiche erfassen.</span></div></li>
+<li><img class="module-img" src="assets/Module/Ablauf/Prozesse_planen.png" alt="" width="506" height="673" loading="lazy" /><div><b>Handlungsfelder</b><span>Geeignete Bereiche für KI und Automatisierung bestimmen.</span></div></li>
+<li><img class="module-img" src="assets/Module/Ablauf/ki_potential.png" alt="" width="730" height="697" loading="lazy" /><div><b>Anwendungsfälle</b><span>Konkrete Vorhaben entwickeln und voneinander abgrenzen.</span></div></li>
+<li><img class="module-img" src="assets/Module/analyse/3.png" alt="" width="200" height="200" loading="lazy" /><div><b>Bewertung</b><span>Nutzen, Aufwand, Risiken und Umsetzbarkeit vergleichen.</span></div></li>
+<li><img class="module-img" src="assets/Module/Ablauf/daten_prüfen1.png" alt="" width="658" height="595" loading="lazy" /><div><b>Voraussetzungen</b><span>Daten, Systeme, Kompetenzen, Zugriffsrechte und Verantwortlichkeiten klären.</span></div></li>
+<li><img class="module-img" src="assets/Module/Ablauf/lösung_wählen.png" alt="" width="620" height="507" loading="lazy" /><div><b>Priorisierung</b><span>Maßnahmen unter Berücksichtigung ihrer Abhängigkeiten in eine sinnvolle Reihenfolge bringen.</span></div></li>
+<li><img class="module-img" src="assets/Module/Ablauf/umsetzung_struturieren.png" alt="" width="594" height="635" loading="lazy" /><div><b>Umsetzungsplan</b><span>Pilotprojekte, Ausbaustufen und nächste Entscheidungen festlegen.</span></div></li>
 </ol>
 </div></section>
 <section class="section" id="anwendung"><div class="section-inner">
@@ -598,11 +602,11 @@ h1, main > section > .section-inner > h2 {
 <p class="sub">Aus Zielen und Ideen entsteht ein nachvollziehbarer Umsetzungspfad.</p>
 <article class="panel">
 <div class="pair-grid">
-<div class="pair"><span class="pair-chip"><span class="chip-icon"><img src="assets/cards/service/icons/5.png" alt="" /></span>viele Einzelideen</span><span class="pair-arrow"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-chev"/></svg></span><span class="pair-chip pair-chip--gold"><span class="chip-icon"><img src="assets/cards/service/icons/2.png" alt="" /></span>priorisierte Vorhaben</span></div>
-<div class="pair"><span class="pair-chip"><span class="chip-icon"><img src="assets/cards/service/icons/9.png" alt="" /></span>unklare Reihenfolge</span><span class="pair-arrow"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-chev"/></svg></span><span class="pair-chip pair-chip--gold"><span class="chip-icon"><img src="assets/cards/service/icons/1.png" alt="" /></span>definierte Voraussetzungen</span></div>
-<div class="pair"><span class="pair-chip"><span class="chip-icon"><img src="assets/cards/service/icons/6.png" alt="" /></span>fehlende Abhängigkeiten</span><span class="pair-arrow"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-chev"/></svg></span><span class="pair-chip pair-chip--gold"><span class="chip-icon"><img src="assets/cards/service/icons/3.png" alt="" /></span>klare Zuständigkeiten</span></div>
-<div class="pair"><span class="pair-chip"><span class="chip-icon"><img src="assets/cards/service/icons/10.png" alt="" /></span>keine gemeinsame Bewertung</span><span class="pair-arrow"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-chev"/></svg></span><span class="pair-chip pair-chip--gold"><span class="chip-icon"><img src="assets/cards/service/icons/7.png" alt="" /></span>abgestimmte Pilotprojekte</span></div>
-<div class="pair"><span class="pair-chip"><span class="chip-icon"><img src="assets/cards/service/icons/8.png" alt="" /></span>offene Verantwortlichkeiten</span><span class="pair-arrow"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-chev"/></svg></span><span class="pair-chip pair-chip--gold"><span class="chip-icon"><img src="assets/cards/service/icons/4.png" alt="" /></span>planbare Ausbaustufen</span></div>
+<div class="pair"><span class="pair-chip"><span class="chip-icon"><img src="assets/cards/service/icons/5.png" alt="" width="100" height="100" loading="lazy" /></span>viele Einzelideen</span><span class="pair-arrow"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-chev"/></svg></span><span class="pair-chip pair-chip--gold"><span class="chip-icon"><img src="assets/cards/service/icons/2.png" alt="" width="100" height="100" loading="lazy" /></span>priorisierte Vorhaben</span></div>
+<div class="pair"><span class="pair-chip"><span class="chip-icon"><img src="assets/cards/service/icons/9.png" alt="" width="100" height="100" loading="lazy" /></span>unklare Reihenfolge</span><span class="pair-arrow"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-chev"/></svg></span><span class="pair-chip pair-chip--gold"><span class="chip-icon"><img src="assets/cards/service/icons/1.png" alt="" width="100" height="100" loading="lazy" /></span>definierte Voraussetzungen</span></div>
+<div class="pair"><span class="pair-chip"><span class="chip-icon"><img src="assets/cards/service/icons/6.png" alt="" width="100" height="100" loading="lazy" /></span>fehlende Abhängigkeiten</span><span class="pair-arrow"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-chev"/></svg></span><span class="pair-chip pair-chip--gold"><span class="chip-icon"><img src="assets/cards/service/icons/3.png" alt="" width="100" height="100" loading="lazy" /></span>klare Zuständigkeiten</span></div>
+<div class="pair"><span class="pair-chip"><span class="chip-icon"><img src="assets/cards/service/icons/10.png" alt="" width="100" height="100" loading="lazy" /></span>keine gemeinsame Bewertung</span><span class="pair-arrow"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-chev"/></svg></span><span class="pair-chip pair-chip--gold"><span class="chip-icon"><img src="assets/cards/service/icons/7.png" alt="" width="100" height="100" loading="lazy" /></span>abgestimmte Pilotprojekte</span></div>
+<div class="pair"><span class="pair-chip"><span class="chip-icon"><img src="assets/cards/service/icons/8.png" alt="" width="100" height="100" loading="lazy" /></span>offene Verantwortlichkeiten</span><span class="pair-arrow"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-chev"/></svg></span><span class="pair-chip pair-chip--gold"><span class="chip-icon"><img src="assets/cards/service/icons/4.png" alt="" width="100" height="100" loading="lazy" /></span>planbare Ausbaustufen</span></div>
 </div>
 </article>
 </div></section>
@@ -646,7 +650,7 @@ h1, main > section > .section-inner > h2 {
 <footer class="footer" id="footer">
       <div class="footer-inner">
         <div class="footer-col footer-col--about">
-          <h4>Nurovelle</h4>
+          <h3 class="footer-col__title">Nurovelle</h3>
           <p>Individuelle KI-Systeme für reale Geschäftsprozesse.</p>
           <p>
             Nurovelle entwickelt KI-Agenten, Automatisierungssysteme und
@@ -655,7 +659,7 @@ h1, main > section > .section-inner > h2 {
           </p>
         </div>
         <div class="footer-col">
-          <h4>Nützliche Links</h4>
+          <h3 class="footer-col__title">Nützliche Links</h3>
           <a href="index.html#hero">Startseite</a>
           <a href="index.html#warum-nurovelle">Über Nurovelle</a>
           <a href="index.html#leistungen">Leistungen</a>
@@ -665,7 +669,7 @@ h1, main > section > .section-inner > h2 {
           <a href="index.html#kontakt">Kontakt</a>
         </div>
         <div class="footer-col">
-          <h4>Newsletter</h4>
+          <h3 class="footer-col__title">Newsletter</h3>
           <p>
             Erhalten Sie ausgewählte Informationen zu KI-Agenten,
             Automatisierung, Unternehmenssoftware und neuen Nurovelle-Lösungen
@@ -691,7 +695,7 @@ h1, main > section > .section-inner > h2 {
           </form>
         </div>
         <div class="footer-col">
-          <h4>Kontakt</h4>
+          <h3 class="footer-col__title">Kontakt</h3>
           <p>Marburg, Deutschland</p>
           <p><a href="tel:+4964218097347">06421 8097347</a></p>
           <p><a href="mailto:info@nurovelle.de">info@nurovelle.de</a></p>

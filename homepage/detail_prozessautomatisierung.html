@@ -214,7 +214,7 @@ a:active .golden-button {
 .footer { background-color: #080B09; margin-left: 0px; width: calc(100% - 0px); padding: 54px calc(var(--side) * 2); border-top: 1px solid var(--nv-gold-divider-strong); color: var(--color-text-light); background: #121212; }
 .footer-inner { display: grid;
         grid-template-columns: minmax(0, 400px) auto minmax(0, 380px) auto; justify-content: space-between; gap: 96px; width: 100%; max-width: none; margin: 0; }
-.footer h4 { margin: 0 0 var(--nv-space-md); color: #fae385; font: var(--w-zwischentitel) var(--t-zwischentitel)/1.2 "Exo 2",Inter,Arial,sans-serif; letter-spacing: 0.06em; text-transform: uppercase; }
+.footer h4, .footer .footer-col__title { margin: 0 0 var(--nv-space-md); color: #fae385; font: var(--w-zwischentitel) var(--t-zwischentitel)/1.2 "Exo 2",Inter,Arial,sans-serif; letter-spacing: 0.06em; text-transform: uppercase; }
 .footer a:not(.footer-top):not(.footer-social a), .footer p { display: block; margin: 0 0 7px; color: #c4ccc6; font: 400 15px/1.7 Inter, Arial, sans-serif; text-decoration: none; }
 .footer-col--about p { color: #aab2ad; }
 .footer a:hover, .footer a:focus-visible { color: #fae385; outline: none; }
@@ -437,6 +437,9 @@ h1, main h2, .label-list strong, .num-list b, .result-strip h3, .form-panel h3, 
 }
 @keyframes nv-frame-shine { to { background-position: 250% center; } }
 @media (prefers-reduced-motion: reduce) { .visual-card, .panel, .form-panel, .result-strip, .pair-chip, .chip-list li, .chip-icon, .num-list li::before { animation: none; } }
+
+.skip-link { position: absolute; left: 12px; top: -60px; z-index: 200; padding: 10px 16px; border-radius: 0 0 8px 8px; background: #0a0d0b; color: #fae385; font: 600 14px/1 Inter, Arial, sans-serif; text-decoration: none; border: 1px solid #8a6a24; transition: top 0.15s ease; }
+.skip-link:focus-visible { top: 0; outline: none; }
 </style>
 
 <link rel="canonical" href="https://nurovelle.de/homepage/detail_prozessautomatisierung.html" />
@@ -453,12 +456,13 @@ h1, main h2, .label-list strong, .num-list b, .result-strip h3, .form-panel h3, 
 <meta name="theme-color" content="#050505" />
 </head>
 <body class="page-prozess">
+<a class="skip-link" href="#inhalt">Zum Inhalt springen</a>
 <header class="site-header">
   <div class="header-inner">
     <a class="logo-link" href="index.html" aria-label="Nurovelle Startseite">
       <span class="logo-spin" aria-hidden="true"></span>
 
-            <img class="logo-wordmark" src="assets/hero/Nurovelle_schrift.png" alt="Nurovelle — Building Intelligent Systems" />
+            <img class="logo-wordmark" src="assets/hero/Nurovelle_schrift.png" alt="Nurovelle — Building Intelligent Systems" width="1098" height="250" />
           </a>
 
     <nav class="nv-breadcrumb" aria-label="Hauptnavigation">
@@ -509,8 +513,8 @@ h1, main h2, .label-list strong, .num-list b, .result-strip h3, .form-panel h3, 
     </a>
   </div>
 </header>
-<main>
-<section class="section section--landing"><div class="section-inner detail-hero"><div><div class="kicker">Automatisierung</div><h1>Prozesse automatisieren</h1><p class="sub">Wiederkehrende Abläufe verbinden und manuelle Arbeitsschritte reduzieren.</p><p class="lead">Prozessautomatisierung steuert Aufgaben, Daten, Freigaben und Übergaben zwischen Mitarbeitenden und bestehenden Systemen.</p><div class="actions"><a class="btn" href="analyse.html">Automatisierungspotenzial prüfen</a></div></div><div class="visual-card"><img src="assets/Module/Ablauf/lösung_wählen.png" alt="Prozessautomatisierung"/></div></div></section>
+<main id="inhalt">
+<section class="section section--landing"><div class="section-inner detail-hero"><div><div class="kicker">Automatisierung</div><h1>Prozesse automatisieren</h1><p class="sub">Wiederkehrende Abläufe verbinden und manuelle Arbeitsschritte reduzieren.</p><p class="lead">Prozessautomatisierung steuert Aufgaben, Daten, Freigaben und Übergaben zwischen Mitarbeitenden und bestehenden Systemen.</p><div class="actions"><a class="btn" href="analyse.html">Automatisierungspotenzial prüfen</a></div></div><div class="visual-card"><img src="assets/Module/Ablauf/lösung_wählen.png" alt="Prozessautomatisierung" width="620" height="507" /></div></div></section>
 <section class="section section--landing"><div class="section-inner content-grid"><article class="panel"><h2>Was ist Prozessautomatisierung?</h2><p>Prozessautomatisierung verbindet wiederkehrende Aufgaben, Daten und Systeme zu einem definierten Workflow. Einzelne Schritte werden automatisch ausgelöst, geprüft, weitergeleitet oder dokumentiert.</p></article><article class="panel summary"><h2>Klare Entscheidungsgrundlage</h2><p>Vor der Umsetzung wird geprüft, welche Prozessschritte notwendig sind, wo Vereinfachungen möglich sind und welche Entscheidungen bei Mitarbeitenden verbleiben müssen. So wird nur automatisiert, was fachlich sinnvoll und technisch kontrollierbar ist.</p></article></div></section>
 <section class="section section--landing" id="ausgangslage"><div class="section-inner">
 <h2>Ausgangslage</h2>
@@ -538,14 +542,14 @@ h1, main h2, .label-list strong, .num-list b, .result-strip h3, .form-panel h3, 
 <p class="sub">Acht Schritte für einen kontrollierten automatisierten Ablauf.</p>
 <p class="text">Die tatsächlichen Module richten sich nach Prozess, Datenlage und beteiligten Systemen. Automatische Bearbeitung, menschliche Kontrolle und geregelte Ausnahmebehandlung können innerhalb eines Workflows kombiniert werden.</p>
 <ol class="num-list">
-<li><img class="module-img" src="assets/Module/Ablauf/aufgabe_erfassen.png" alt="" /><div><b>Auslöser</b><span>Ein Ereignis, eine Eingabe oder ein festgelegter Zeitpunkt startet den Prozess.</span></div></li>
-<li><img class="module-img" src="assets/Module/analyse/1.png" alt="" /><div><b>Datenerfassung</b><span>Benötigte Informationen werden aufgenommen oder aus angebundenen Systemen abgerufen.</span></div></li>
-<li><img class="module-img" src="assets/Module/Ablauf/daten_prüfen1.png" alt="" /><div><b>Prüfung</b><span>Daten werden auf Vollständigkeit, Format und definierte Bedingungen geprüft.</span></div></li>
-<li><img class="module-img" src="assets/Module/analyse/3.png" alt="" /><div><b>Verarbeitung</b><span>Informationen werden umgewandelt, ergänzt, vereinheitlicht oder einem Vorgang zugeordnet.</span></div></li>
-<li><img class="module-img" src="assets/Module/Ablauf/lösung_wählen.png" alt="" /><div><b>Entscheidung</b><span>Festgelegte Regeln bestimmen den nächsten Bearbeitungsschritt.</span></div></li>
-<li><img class="module-img" src="assets/Module/analyse/2.png" alt="" /><div><b>Systemaktion</b><span>Daten werden übertragen oder freigegebene Aktionen in Anwendungen ausgeführt.</span></div></li>
-<li><img class="module-img" src="assets/Module/analyse/4.png" alt="" /><div><b>Übergabe</b><span>Freigaben, Ausnahmen und unklare Fälle werden an die zuständigen Personen geleitet.</span></div></li>
-<li><img class="module-img" src="assets/Module/Ablauf/umsetzung_struturieren.png" alt="" /><div><b>Dokumentation</b><span>Ergebnisse, Bearbeitungsstände und ausgeführte Prozessschritte werden protokolliert.</span></div></li>
+<li><img class="module-img" src="assets/Module/Ablauf/aufgabe_erfassen.png" alt="" width="524" height="578" loading="lazy" /><div><b>Auslöser</b><span>Ein Ereignis, eine Eingabe oder ein festgelegter Zeitpunkt startet den Prozess.</span></div></li>
+<li><img class="module-img" src="assets/Module/analyse/1.png" alt="" width="200" height="200" loading="lazy" /><div><b>Datenerfassung</b><span>Benötigte Informationen werden aufgenommen oder aus angebundenen Systemen abgerufen.</span></div></li>
+<li><img class="module-img" src="assets/Module/Ablauf/daten_prüfen1.png" alt="" width="658" height="595" loading="lazy" /><div><b>Prüfung</b><span>Daten werden auf Vollständigkeit, Format und definierte Bedingungen geprüft.</span></div></li>
+<li><img class="module-img" src="assets/Module/analyse/3.png" alt="" width="200" height="200" loading="lazy" /><div><b>Verarbeitung</b><span>Informationen werden umgewandelt, ergänzt, vereinheitlicht oder einem Vorgang zugeordnet.</span></div></li>
+<li><img class="module-img" src="assets/Module/Ablauf/lösung_wählen.png" alt="" width="620" height="507" loading="lazy" /><div><b>Entscheidung</b><span>Festgelegte Regeln bestimmen den nächsten Bearbeitungsschritt.</span></div></li>
+<li><img class="module-img" src="assets/Module/analyse/2.png" alt="" width="200" height="200" loading="lazy" /><div><b>Systemaktion</b><span>Daten werden übertragen oder freigegebene Aktionen in Anwendungen ausgeführt.</span></div></li>
+<li><img class="module-img" src="assets/Module/analyse/4.png" alt="" width="200" height="200" loading="lazy" /><div><b>Übergabe</b><span>Freigaben, Ausnahmen und unklare Fälle werden an die zuständigen Personen geleitet.</span></div></li>
+<li><img class="module-img" src="assets/Module/Ablauf/umsetzung_struturieren.png" alt="" width="594" height="635" loading="lazy" /><div><b>Dokumentation</b><span>Ergebnisse, Bearbeitungsstände und ausgeführte Prozessschritte werden protokolliert.</span></div></li>
 </ol>
 </div></section>
 <section class="section" id="anwendung"><div class="section-inner">
@@ -561,11 +565,11 @@ h1, main h2, .label-list strong, .num-list b, .result-strip h3, .form-panel h3, 
 <p class="text">Informationen werden nach festgelegten Regeln geprüft und weitergeleitet. Bearbeitungsstände bleiben nachvollziehbar, während Freigaben und notwendige menschliche Entscheidungen als feste Kontrollpunkte erhalten bleiben.</p>
 <article class="panel">
 <div class="pair-grid">
-<div class="pair"><span class="pair-chip"><span class="chip-icon"><img src="assets/cards/service/icons/9.png" alt="" /></span>manuelle Dateneingaben</span><span class="pair-arrow"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-chev"/></svg></span><span class="pair-chip pair-chip--gold"><span class="chip-icon"><img src="assets/cards/service/icons/6.png" alt="" /></span>verbundene Systeme</span></div>
-<div class="pair"><span class="pair-chip"><span class="chip-icon"><img src="assets/cards/service/icons/3.png" alt="" /></span>unklare Übergaben</span><span class="pair-arrow"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-chev"/></svg></span><span class="pair-chip pair-chip--gold"><span class="chip-icon"><img src="assets/cards/service/icons/10.png" alt="" /></span>automatische Weiterleitung</span></div>
-<div class="pair"><span class="pair-chip"><span class="chip-icon"><img src="assets/cards/service/icons/2.png" alt="" /></span>lange Wartezeiten</span><span class="pair-arrow"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-chev"/></svg></span><span class="pair-chip pair-chip--gold"><span class="chip-icon"><img src="assets/cards/service/icons/1.png" alt="" /></span>definierte Prüfungen</span></div>
-<div class="pair"><span class="pair-chip"><span class="chip-icon"><img src="assets/cards/service/icons/5.png" alt="" /></span>fehlende Statusinformationen</span><span class="pair-arrow"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-chev"/></svg></span><span class="pair-chip pair-chip--gold"><span class="chip-icon"><img src="assets/cards/service/icons/7.png" alt="" /></span>transparente Bearbeitungsstände</span></div>
-<div class="pair"><span class="pair-chip"><span class="chip-icon"><img src="assets/cards/service/icons/8.png" alt="" /></span>wiederkehrende Fehler</span><span class="pair-arrow"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-chev"/></svg></span><span class="pair-chip pair-chip--gold"><span class="chip-icon"><img src="assets/cards/service/icons/4.png" alt="" /></span>kontrollierte Ausnahmebehandlung</span></div>
+<div class="pair"><span class="pair-chip"><span class="chip-icon"><img src="assets/cards/service/icons/9.png" alt="" width="100" height="100" loading="lazy" /></span>manuelle Dateneingaben</span><span class="pair-arrow"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-chev"/></svg></span><span class="pair-chip pair-chip--gold"><span class="chip-icon"><img src="assets/cards/service/icons/6.png" alt="" width="100" height="100" loading="lazy" /></span>verbundene Systeme</span></div>
+<div class="pair"><span class="pair-chip"><span class="chip-icon"><img src="assets/cards/service/icons/3.png" alt="" width="100" height="100" loading="lazy" /></span>unklare Übergaben</span><span class="pair-arrow"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-chev"/></svg></span><span class="pair-chip pair-chip--gold"><span class="chip-icon"><img src="assets/cards/service/icons/10.png" alt="" width="100" height="100" loading="lazy" /></span>automatische Weiterleitung</span></div>
+<div class="pair"><span class="pair-chip"><span class="chip-icon"><img src="assets/cards/service/icons/2.png" alt="" width="100" height="100" loading="lazy" /></span>lange Wartezeiten</span><span class="pair-arrow"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-chev"/></svg></span><span class="pair-chip pair-chip--gold"><span class="chip-icon"><img src="assets/cards/service/icons/1.png" alt="" width="100" height="100" loading="lazy" /></span>definierte Prüfungen</span></div>
+<div class="pair"><span class="pair-chip"><span class="chip-icon"><img src="assets/cards/service/icons/5.png" alt="" width="100" height="100" loading="lazy" /></span>fehlende Statusinformationen</span><span class="pair-arrow"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-chev"/></svg></span><span class="pair-chip pair-chip--gold"><span class="chip-icon"><img src="assets/cards/service/icons/7.png" alt="" width="100" height="100" loading="lazy" /></span>transparente Bearbeitungsstände</span></div>
+<div class="pair"><span class="pair-chip"><span class="chip-icon"><img src="assets/cards/service/icons/8.png" alt="" width="100" height="100" loading="lazy" /></span>wiederkehrende Fehler</span><span class="pair-arrow"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-chev"/></svg></span><span class="pair-chip pair-chip--gold"><span class="chip-icon"><img src="assets/cards/service/icons/4.png" alt="" width="100" height="100" loading="lazy" /></span>kontrollierte Ausnahmebehandlung</span></div>
 </div>
 </article>
 </div></section>
@@ -609,7 +613,7 @@ h1, main h2, .label-list strong, .num-list b, .result-strip h3, .form-panel h3, 
 <footer class="footer" id="footer">
       <div class="footer-inner">
         <div class="footer-col footer-col--about">
-          <h4>Nurovelle</h4>
+          <h3 class="footer-col__title">Nurovelle</h3>
           <p>Individuelle KI-Systeme für reale Geschäftsprozesse.</p>
           <p>
             Nurovelle entwickelt KI-Agenten, Automatisierungssysteme und
@@ -618,7 +622,7 @@ h1, main h2, .label-list strong, .num-list b, .result-strip h3, .form-panel h3, 
           </p>
         </div>
         <div class="footer-col">
-          <h4>Nützliche Links</h4>
+          <h3 class="footer-col__title">Nützliche Links</h3>
           <a href="index.html#hero">Startseite</a>
           <a href="index.html#warum-nurovelle">Über Nurovelle</a>
           <a href="index.html#leistungen">Leistungen</a>
@@ -628,7 +632,7 @@ h1, main h2, .label-list strong, .num-list b, .result-strip h3, .form-panel h3, 
           <a href="index.html#kontakt">Kontakt</a>
         </div>
         <div class="footer-col">
-          <h4>Newsletter</h4>
+          <h3 class="footer-col__title">Newsletter</h3>
           <p>
             Erhalten Sie ausgewählte Informationen zu KI-Agenten,
             Automatisierung, Unternehmenssoftware und neuen Nurovelle-Lösungen
@@ -654,7 +658,7 @@ h1, main h2, .label-list strong, .num-list b, .result-strip h3, .form-panel h3, 
           </form>
         </div>
         <div class="footer-col">
-          <h4>Kontakt</h4>
+          <h3 class="footer-col__title">Kontakt</h3>
           <p>Marburg, Deutschland</p>
           <p><a href="tel:+4964218097347">06421 8097347</a></p>
           <p><a href="mailto:info@nurovelle.de">info@nurovelle.de</a></p>

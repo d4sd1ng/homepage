@@ -214,7 +214,7 @@ a:active .golden-button {
 .footer { background-color: #080B09; margin-left: 0px; width: calc(100% - 0px); padding: 54px calc(var(--side) * 2); border-top: 1px solid var(--nv-gold-divider-strong); color: var(--color-text-light); background: #121212; }
 .footer-inner { display: grid;
         grid-template-columns: minmax(0, 400px) auto minmax(0, 380px) auto; justify-content: space-between; gap: 96px; width: 100%; max-width: none; margin: 0; }
-.footer h4 { margin: 0 0 var(--nv-space-md); color: #fae385; font: var(--w-zwischentitel) var(--t-zwischentitel)/1.2 "Exo 2",Inter,Arial,sans-serif; letter-spacing: 0.06em; text-transform: uppercase; }
+.footer h4, .footer .footer-col__title { margin: 0 0 var(--nv-space-md); color: #fae385; font: var(--w-zwischentitel) var(--t-zwischentitel)/1.2 "Exo 2",Inter,Arial,sans-serif; letter-spacing: 0.06em; text-transform: uppercase; }
 .footer a:not(.footer-top):not(.footer-social a), .footer p { display: block; margin: 0 0 7px; color: #c4ccc6; font: 400 15px/1.7 Inter, Arial, sans-serif; text-decoration: none; }
 .footer-col--about p { color: #aab2ad; }
 .footer a:hover, .footer a:focus-visible { color: #fae385; outline: none; }
@@ -486,6 +486,9 @@ h1, main > section > .section-inner > h2 {
   .header-cta .golden-button { padding: 0 .4em; font-size: 9.5px; gap: 5px; }
   .header-cta .nv-calendly-icon { width: 14px; height: 14px; }
 }
+
+.skip-link { position: absolute; left: 12px; top: -60px; z-index: 200; padding: 10px 16px; border-radius: 0 0 8px 8px; background: #0a0d0b; color: #fae385; font: 600 14px/1 Inter, Arial, sans-serif; text-decoration: none; border: 1px solid #8a6a24; transition: top 0.15s ease; }
+.skip-link:focus-visible { top: 0; outline: none; }
 </style>
 
 <link rel="canonical" href="https://nurovelle.de/homepage/detail_seo.html" />
@@ -502,12 +505,13 @@ h1, main > section > .section-inner > h2 {
 <meta name="theme-color" content="#050505" />
 </head>
 <body class="page-seo">
+<a class="skip-link" href="#inhalt">Zum Inhalt springen</a>
 <header class="site-header">
   <div class="header-inner">
     <a class="logo-link" href="index.html" aria-label="Nurovelle Startseite">
       <span class="logo-spin" aria-hidden="true"></span>
 
-            <img class="logo-wordmark" src="assets/hero/Nurovelle_schrift.png" alt="Nurovelle — Building Intelligent Systems" />
+            <img class="logo-wordmark" src="assets/hero/Nurovelle_schrift.png" alt="Nurovelle — Building Intelligent Systems" width="1098" height="250" />
           </a>
 
     <nav class="nv-breadcrumb" aria-label="Hauptnavigation">
@@ -558,7 +562,7 @@ h1, main > section > .section-inner > h2 {
     </a>
   </div>
 </header>
-<main>
+<main id="inhalt">
 <section class="section section--landing"><div class="section-inner detail-hero"><div><div class="kicker">SEO &amp; digitale Sichtbarkeit</div><h1>Sichtbarkeit aufbauen</h1><p class="sub">Suchmaschinenoptimierung für relevante Inhalte, technische Qualität und qualifizierte Anfragen.</p><p class="lead">SEO verbindet technische Optimierung, klare Seitenstrukturen und suchrelevante Inhalte. Ziel ist eine Website, die von Suchmaschinen verstanden wird und potenzielle Kunden genau bei den passenden Leistungen erreicht.</p><div class="actions"><a class="btn" href="analyse.html">SEO-Potenzial analysieren</a></div></div><div class="visual-card visual-card--empty" aria-hidden="true"></div></div></section>
 <section class="section section--landing"><div class="section-inner content-grid"><article class="panel"><h2>Was ist SEO?</h2><p>Suchmaschinenoptimierung verbessert die technische Erreichbarkeit, thematische Verständlichkeit und Relevanz einer Website für passende Suchanfragen. Dafür werden Seitenstruktur, Inhalte, Suchintention, interne Verlinkung und technische Grundlagen miteinander verbunden.</p></article><article class="panel summary"><h2>Klare Entscheidungsgrundlage</h2><p>Die SEO-Analyse zeigt, welche technischen, strukturellen und inhaltlichen Faktoren die Sichtbarkeit begrenzen. Daraus entsteht eine nachvollziehbare Priorisierung der Maßnahmen, die für bessere Rankings und qualifiziertere Anfragen erforderlich sind.</p></article></div></section>
 <section class="section section--landing" id="ausgangslage"><div class="section-inner">
@@ -579,16 +583,16 @@ h1, main > section > .section-inner > h2 {
 <p class="sub">Zehn Schritte von der Analyse bis zur laufenden Weiterentwicklung.</p>
 <p class="text">Der genaue Ablauf richtet sich nach Website-Umfang, technischer Ausgangslage und vorhandenen Inhalten. Die einzelnen Module verbinden strategische Planung, inhaltliche Optimierung und technische Prüfung.</p>
 <ol class="num-list">
-<li><img class="module-img" src="assets/Module/ziele.png" alt="" /><div><b>Zielsetzung</b><span>Leistungen, Zielgruppen, regionale Ausrichtung und gewünschte Anfragen werden festgelegt.</span></div></li>
-<li><img class="module-img" src="assets/Module/displsx_lupe_auge.png" alt="" /><div><b>Bestandsaufnahme</b><span>Seiten, Inhalte, Rankings, interne Verbindungen und technische Grundlagen werden erfasst.</span></div></li>
-<li><img class="module-img" src="assets/Module/lupe_keyword.png" alt="" /><div><b>Keyword-Recherche</b><span>Zentrale Leistungsbegriffe, problemorientierte Suchanfragen, Long-Tail-Keywords, regionale Begriffe und verwandte Themenfelder werden untersucht.</span></div></li>
-<li><img class="module-img" src="assets/Module/trichrter.png" alt="" /><div><b>Suchintention</b><span>Suchbegriffe werden nach Informations-, Problem-, Vergleichs-, Leistungs-, Lokal- und Aktionsabsicht eingeordnet.</span></div></li>
-<li><img class="module-img" src="assets/Module/ablauf.png" alt="" /><div><b>Seitenplanung</b><span>Suchbegriffe werden passenden Seiten, Seitentypen und Angeboten zugeordnet. Überschneidungen und konkurrierende Inhalte werden identifiziert.</span></div></li>
-<li><img class="module-img" src="assets/Module/valedierung.png" alt="" /><div><b>Content-Struktur</b><span>Hauptthemen, Unterthemen, Überschriften, Leistungsbeschreibungen, Nutzenargumente, Fragen und nächste Schritte werden entwickelt.</span></div></li>
-<li><img class="module-img" src="assets/Module/eingabe.png" alt="" /><div><b>OnPage-Optimierung</b><span>Seitentitel, Meta-Beschreibungen, Überschriften, Texte, URLs, Bildbeschreibungen, CTAs und interne Links werden angepasst.</span></div></li>
-<li><img class="module-img" src="assets/Module/klembrett.png" alt="" /><div><b>Technische Prüfung</b><span>Crawling, Indexierung, Weiterleitungen, Canonical-Tags, Sitemap, robots.txt, Performance, mobile Darstellung und strukturierte Daten werden kontrolliert.</span></div></li>
-<li><img class="module-img" src="assets/Module/weltkugel.png" alt="" /><div><b>Veröffentlichung</b><span>Optimierte Seiten werden geprüft, technisch bereitgestellt und für Suchmaschinen zugänglich gemacht.</span></div></li>
-<li><img class="module-img" src="assets/Module/hand_diagramm.png" alt="" /><div><b>Auswertung</b><span>Rankings, Impressionen, Klicks, Einstiegsseiten, Anfragen, Conversions und technische Fehler werden beobachtet und weiterentwickelt.</span></div></li>
+<li><img class="module-img" src="assets/Module/ziele.png" alt="" width="1067" height="759" /><div><b>Zielsetzung</b><span>Leistungen, Zielgruppen, regionale Ausrichtung und gewünschte Anfragen werden festgelegt.</span></div></li>
+<li><img class="module-img" src="assets/Module/displsx_lupe_auge.png" alt="" width="1067" height="759" loading="lazy" /><div><b>Bestandsaufnahme</b><span>Seiten, Inhalte, Rankings, interne Verbindungen und technische Grundlagen werden erfasst.</span></div></li>
+<li><img class="module-img" src="assets/Module/lupe_keyword.png" alt="" width="1067" height="759" loading="lazy" /><div><b>Keyword-Recherche</b><span>Zentrale Leistungsbegriffe, problemorientierte Suchanfragen, Long-Tail-Keywords, regionale Begriffe und verwandte Themenfelder werden untersucht.</span></div></li>
+<li><img class="module-img" src="assets/Module/trichrter.png" alt="" width="1067" height="759" loading="lazy" /><div><b>Suchintention</b><span>Suchbegriffe werden nach Informations-, Problem-, Vergleichs-, Leistungs-, Lokal- und Aktionsabsicht eingeordnet.</span></div></li>
+<li><img class="module-img" src="assets/Module/ablauf.png" alt="" width="1067" height="759" loading="lazy" /><div><b>Seitenplanung</b><span>Suchbegriffe werden passenden Seiten, Seitentypen und Angeboten zugeordnet. Überschneidungen und konkurrierende Inhalte werden identifiziert.</span></div></li>
+<li><img class="module-img" src="assets/Module/valedierung.png" alt="" width="1067" height="759" loading="lazy" /><div><b>Content-Struktur</b><span>Hauptthemen, Unterthemen, Überschriften, Leistungsbeschreibungen, Nutzenargumente, Fragen und nächste Schritte werden entwickelt.</span></div></li>
+<li><img class="module-img" src="assets/Module/eingabe.png" alt="" width="1067" height="759" loading="lazy" /><div><b>OnPage-Optimierung</b><span>Seitentitel, Meta-Beschreibungen, Überschriften, Texte, URLs, Bildbeschreibungen, CTAs und interne Links werden angepasst.</span></div></li>
+<li><img class="module-img" src="assets/Module/klembrett.png" alt="" width="1067" height="759" loading="lazy" /><div><b>Technische Prüfung</b><span>Crawling, Indexierung, Weiterleitungen, Canonical-Tags, Sitemap, robots.txt, Performance, mobile Darstellung und strukturierte Daten werden kontrolliert.</span></div></li>
+<li><img class="module-img" src="assets/Module/weltkugel.png" alt="" width="1067" height="759" loading="lazy" /><div><b>Veröffentlichung</b><span>Optimierte Seiten werden geprüft, technisch bereitgestellt und für Suchmaschinen zugänglich gemacht.</span></div></li>
+<li><img class="module-img" src="assets/Module/hand_diagramm.png" alt="" width="1067" height="759" loading="lazy" /><div><b>Auswertung</b><span>Rankings, Impressionen, Klicks, Einstiegsseiten, Anfragen, Conversions und technische Fehler werden beobachtet und weiterentwickelt.</span></div></li>
 </ol>
 <h3>Keyword-Strategie</h3>
 <p class="text">Keywords werden nicht isoliert gesammelt. Sie werden Themen, Seitentypen und konkreten Angeboten zugeordnet und nach Bedeutung, Wettbewerb und Nutzerabsicht priorisiert.</p>
@@ -640,12 +644,12 @@ h1, main > section > .section-inner > h2 {
 <p class="sub">Aus einzelnen Seiten entsteht eine strukturierte und sichtbare Themenlandschaft.</p>
 <article class="panel">
 <div class="pair-grid">
-<div class="pair"><span class="pair-chip"><span class="chip-icon"><img src="assets/cards/service/icons/11.png" alt="" /></span>geringe organische Sichtbarkeit</span><span class="pair-arrow"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-chev"/></svg></span><span class="pair-chip pair-chip--gold"><span class="chip-icon"><img src="assets/cards/service/icons/1.png" alt="" /></span>priorisierte Suchthemen</span></div>
-<div class="pair"><span class="pair-chip"><span class="chip-icon"><img src="assets/cards/service/icons/9.png" alt="" /></span>unklare Keyword-Zuordnung</span><span class="pair-arrow"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-chev"/></svg></span><span class="pair-chip pair-chip--gold"><span class="chip-icon"><img src="assets/cards/service/icons/2.png" alt="" /></span>klare Seitenarchitektur</span></div>
-<div class="pair"><span class="pair-chip"><span class="chip-icon"><img src="assets/cards/service/icons/3.png" alt="" /></span>schwache Leistungsseiten</span><span class="pair-arrow"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-chev"/></svg></span><span class="pair-chip pair-chip--gold"><span class="chip-icon"><img src="assets/cards/service/icons/6.png" alt="" /></span>optimierte Leistungsinhalte</span></div>
-<div class="pair"><span class="pair-chip"><span class="chip-icon"><img src="assets/cards/service/icons/10.png" alt="" /></span>verstreute Inhalte</span><span class="pair-arrow"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-chev"/></svg></span><span class="pair-chip pair-chip--gold"><span class="chip-icon"><img src="assets/cards/service/icons/5.png" alt="" /></span>gezielte interne Verlinkung</span></div>
-<div class="pair"><span class="pair-chip"><span class="chip-icon"><img src="assets/cards/service/icons/4.png" alt="" /></span>technische Fehler</span><span class="pair-arrow"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-chev"/></svg></span><span class="pair-chip pair-chip--gold"><span class="chip-icon"><img src="assets/cards/service/icons/8.png" alt="" /></span>technisch erreichbare Seiten</span></div>
-<div class="pair"><span class="pair-chip"><span class="chip-icon"><img src="assets/cards/service/icons/7.png" alt="" /></span>hohe Anzeigenabhängigkeit</span><span class="pair-arrow"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-chev"/></svg></span><span class="pair-chip pair-chip--gold"><span class="chip-icon"><img src="assets/cards/service/icons/1.png" alt="" /></span>messbare organische Entwicklung</span></div>
+<div class="pair"><span class="pair-chip"><span class="chip-icon"><img src="assets/cards/service/icons/11.png" alt="" width="100" height="100" loading="lazy" /></span>geringe organische Sichtbarkeit</span><span class="pair-arrow"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-chev"/></svg></span><span class="pair-chip pair-chip--gold"><span class="chip-icon"><img src="assets/cards/service/icons/1.png" alt="" width="100" height="100" loading="lazy" /></span>priorisierte Suchthemen</span></div>
+<div class="pair"><span class="pair-chip"><span class="chip-icon"><img src="assets/cards/service/icons/9.png" alt="" width="100" height="100" loading="lazy" /></span>unklare Keyword-Zuordnung</span><span class="pair-arrow"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-chev"/></svg></span><span class="pair-chip pair-chip--gold"><span class="chip-icon"><img src="assets/cards/service/icons/2.png" alt="" width="100" height="100" loading="lazy" /></span>klare Seitenarchitektur</span></div>
+<div class="pair"><span class="pair-chip"><span class="chip-icon"><img src="assets/cards/service/icons/3.png" alt="" width="100" height="100" loading="lazy" /></span>schwache Leistungsseiten</span><span class="pair-arrow"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-chev"/></svg></span><span class="pair-chip pair-chip--gold"><span class="chip-icon"><img src="assets/cards/service/icons/6.png" alt="" width="100" height="100" loading="lazy" /></span>optimierte Leistungsinhalte</span></div>
+<div class="pair"><span class="pair-chip"><span class="chip-icon"><img src="assets/cards/service/icons/10.png" alt="" width="100" height="100" loading="lazy" /></span>verstreute Inhalte</span><span class="pair-arrow"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-chev"/></svg></span><span class="pair-chip pair-chip--gold"><span class="chip-icon"><img src="assets/cards/service/icons/5.png" alt="" width="100" height="100" loading="lazy" /></span>gezielte interne Verlinkung</span></div>
+<div class="pair"><span class="pair-chip"><span class="chip-icon"><img src="assets/cards/service/icons/4.png" alt="" width="100" height="100" loading="lazy" /></span>technische Fehler</span><span class="pair-arrow"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-chev"/></svg></span><span class="pair-chip pair-chip--gold"><span class="chip-icon"><img src="assets/cards/service/icons/8.png" alt="" width="100" height="100" loading="lazy" /></span>technisch erreichbare Seiten</span></div>
+<div class="pair"><span class="pair-chip"><span class="chip-icon"><img src="assets/cards/service/icons/7.png" alt="" width="100" height="100" loading="lazy" /></span>hohe Anzeigenabhängigkeit</span><span class="pair-arrow"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-chev"/></svg></span><span class="pair-chip pair-chip--gold"><span class="chip-icon"><img src="assets/cards/service/icons/1.png" alt="" width="100" height="100" loading="lazy" /></span>messbare organische Entwicklung</span></div>
 </div>
 </article>
 </div></section>
@@ -690,7 +694,7 @@ h1, main > section > .section-inner > h2 {
 <footer class="footer" id="footer">
       <div class="footer-inner">
         <div class="footer-col footer-col--about">
-          <h4>Nurovelle</h4>
+          <h3 class="footer-col__title">Nurovelle</h3>
           <p>Individuelle KI-Systeme für reale Geschäftsprozesse.</p>
           <p>
             Nurovelle entwickelt KI-Agenten, Automatisierungssysteme und
@@ -699,7 +703,7 @@ h1, main > section > .section-inner > h2 {
           </p>
         </div>
         <div class="footer-col">
-          <h4>Nützliche Links</h4>
+          <h3 class="footer-col__title">Nützliche Links</h3>
           <a href="index.html#hero">Startseite</a>
           <a href="index.html#warum-nurovelle">Über Nurovelle</a>
           <a href="index.html#leistungen">Leistungen</a>
@@ -709,7 +713,7 @@ h1, main > section > .section-inner > h2 {
           <a href="index.html#kontakt">Kontakt</a>
         </div>
         <div class="footer-col">
-          <h4>Newsletter</h4>
+          <h3 class="footer-col__title">Newsletter</h3>
           <p>
             Erhalten Sie ausgewählte Informationen zu KI-Agenten,
             Automatisierung, Unternehmenssoftware und neuen Nurovelle-Lösungen
@@ -735,7 +739,7 @@ h1, main > section > .section-inner > h2 {
           </form>
         </div>
         <div class="footer-col">
-          <h4>Kontakt</h4>
+          <h3 class="footer-col__title">Kontakt</h3>
           <p>Marburg, Deutschland</p>
           <p><a href="tel:+4964218097347">06421 8097347</a></p>
           <p><a href="mailto:info@nurovelle.de">info@nurovelle.de</a></p>

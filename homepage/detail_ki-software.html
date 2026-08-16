@@ -214,7 +214,7 @@ a:active .golden-button {
 .footer { background-color: #080B09; margin-left: 0px; width: calc(100% - 0px); padding: 54px calc(var(--side) * 2); border-top: 1px solid var(--nv-gold-divider-strong); color: var(--color-text-light); background: #121212; }
 .footer-inner { display: grid;
         grid-template-columns: minmax(0, 400px) auto minmax(0, 380px) auto; justify-content: space-between; gap: 96px; width: 100%; max-width: none; margin: 0; }
-.footer h4 { margin: 0 0 var(--nv-space-md); color: #fae385; font: var(--w-zwischentitel) var(--t-zwischentitel)/1.2 "Exo 2",Inter,Arial,sans-serif; letter-spacing: 0.06em; text-transform: uppercase; }
+.footer h4, .footer .footer-col__title { margin: 0 0 var(--nv-space-md); color: #fae385; font: var(--w-zwischentitel) var(--t-zwischentitel)/1.2 "Exo 2",Inter,Arial,sans-serif; letter-spacing: 0.06em; text-transform: uppercase; }
 .footer a:not(.footer-top):not(.footer-social a), .footer p { display: block; margin: 0 0 7px; color: #c4ccc6; font: 400 15px/1.7 Inter, Arial, sans-serif; text-decoration: none; }
 .footer-col--about p { color: #aab2ad; }
 .footer a:hover, .footer a:focus-visible { color: #fae385; outline: none; }
@@ -486,6 +486,9 @@ h1, main > section > .section-inner > h2 {
   .header-cta .golden-button { padding: 0 .4em; font-size: 9.5px; gap: 5px; }
   .header-cta .nv-calendly-icon { width: 14px; height: 14px; }
 }
+
+.skip-link { position: absolute; left: 12px; top: -60px; z-index: 200; padding: 10px 16px; border-radius: 0 0 8px 8px; background: #0a0d0b; color: #fae385; font: 600 14px/1 Inter, Arial, sans-serif; text-decoration: none; border: 1px solid #8a6a24; transition: top 0.15s ease; }
+.skip-link:focus-visible { top: 0; outline: none; }
 </style>
 
 <link rel="canonical" href="https://nurovelle.de/homepage/detail_ki-software.html" />
@@ -502,12 +505,13 @@ h1, main > section > .section-inner > h2 {
 <meta name="theme-color" content="#050505" />
 </head>
 <body class="page-software">
+<a class="skip-link" href="#inhalt">Zum Inhalt springen</a>
 <header class="site-header">
   <div class="header-inner">
     <a class="logo-link" href="index.html" aria-label="Nurovelle Startseite">
       <span class="logo-spin" aria-hidden="true"></span>
 
-            <img class="logo-wordmark" src="assets/hero/Nurovelle_schrift.png" alt="Nurovelle — Building Intelligent Systems" />
+            <img class="logo-wordmark" src="assets/hero/Nurovelle_schrift.png" alt="Nurovelle — Building Intelligent Systems" width="1098" height="250" />
           </a>
 
     <nav class="nv-breadcrumb" aria-label="Hauptnavigation">
@@ -558,7 +562,7 @@ h1, main > section > .section-inner > h2 {
     </a>
   </div>
 </header>
-<main>
+<main id="inhalt">
 <section class="section section--landing"><div class="section-inner detail-hero"><div><div class="kicker">Individualsoftware</div><h1>KI passend integrieren</h1><p class="sub">Individuelle Software für besondere Prozesse und bestehende Systemlandschaften.</p><p class="lead">Individuelle KI-Software verbindet spezialisierte Funktionen, Unternehmensdaten und bestehende Anwendungen in einer passgenauen Lösung. Statt zusätzlicher Inselsysteme entsteht eine Integration, die sich an den tatsächlichen Prozessen orientiert.</p><div class="actions"><a class="btn" href="analyse.html">Softwarepotenzial analysieren</a></div></div><div class="visual-card visual-card--empty" aria-hidden="true"></div></div></section>
 <section class="section section--landing"><div class="section-inner content-grid"><article class="panel"><h2>Was ist individuelle KI-Software?</h2><p>Individuelle KI-Software verbindet klassische Softwareentwicklung mit KI-Funktionen, Datenverarbeitung und bestehenden Anwendungen. Sie wird eingesetzt, wenn Standardlösungen wichtige Prozesse, Datenstrukturen oder Kontrollmechanismen nicht ausreichend abbilden.</p></article><article class="panel summary"><h2>Klare Entscheidungsgrundlage</h2><p>Vor der Entwicklung wird geprüft, welche Funktionen tatsächlich benötigt werden und welche bestehenden Systeme erhalten bleiben können. Dadurch wird sichtbar, ob eine Integration, ein internes Tool, ein Prototyp oder eine vollständige Individualentwicklung sinnvoll ist.</p></article></div></section>
 <section class="section section--landing" id="ausgangslage"><div class="section-inner">
@@ -591,16 +595,16 @@ h1, main > section > .section-inner > h2 {
 <p class="sub">Zehn Schritte von der Anforderung bis zum produktiven Betrieb.</p>
 <p class="text">Der genaue Ablauf wird an Umfang, Risiko und technische Ausgangslage angepasst. Kritische Funktionen und Integrationen können zunächst in einem Prototyp oder MVP geprüft werden.</p>
 <ol class="num-list">
-<li><img class="module-img" src="assets/Module/klembrett.png" alt="" /><div><b>Anforderung</b><span>Ziele, Nutzergruppen und benötigte Funktionen werden festgelegt.</span></div></li>
-<li><img class="module-img" src="assets/Module/ablauf.png" alt="" /><div><b>Prozessanalyse</b><span>Abläufe, Datenflüsse, bestehende Zwischenlösungen und Engpässe werden untersucht.</span></div></li>
-<li><img class="module-img" src="assets/Module/displsx_lupe_auge.png" alt="" /><div><b>Systemprüfung</b><span>Vorhandene Anwendungen, Schnittstellen und technische Abhängigkeiten werden erfasst.</span></div></li>
-<li><img class="module-img" src="assets/Module/layoutr_steps.png" alt="" /><div><b>Architektur</b><span>Komponenten, Datenhaltung, Berechtigungen und Integrationen werden geplant.</span></div></li>
-<li><img class="module-img" src="assets/Module/roadmap.png" alt="" /><div><b>Prototyp</b><span>Kritische Funktionen, Datenzugriffe und Bedienlogik werden frühzeitig getestet.</span></div></li>
-<li><img class="module-img" src="assets/Module/software.png" alt="" /><div><b>Entwicklung</b><span>Anwendung, Benutzeroberfläche und fachliche Geschäftslogik werden umgesetzt.</span></div></li>
-<li><img class="module-img" src="assets/Module/chip_gehirn.png" alt="" /><div><b>KI-Integration</b><span>Modelle, Agenten, Prompt-Systeme oder Wissenszugriffe werden eingebunden.</span></div></li>
-<li><img class="module-img" src="assets/Module/api.png" alt="" /><div><b>Systemanbindung</b><span>Datenquellen und bestehende Anwendungen werden kontrolliert verbunden.</span></div></li>
-<li><img class="module-img" src="assets/Module/valedierung.png" alt="" /><div><b>Prüfung</b><span>Funktion, Sicherheit, Nutzerführung, Berechtigungen und Fehlerfälle werden getestet.</span></div></li>
-<li><img class="module-img" src="assets/Module/team.png" alt="" /><div><b>Einführung</b><span>Lösung, Dokumentation und notwendige Betriebsabläufe werden übergeben.</span></div></li>
+<li><img class="module-img" src="assets/Module/klembrett.png" alt="" width="1067" height="759" /><div><b>Anforderung</b><span>Ziele, Nutzergruppen und benötigte Funktionen werden festgelegt.</span></div></li>
+<li><img class="module-img" src="assets/Module/ablauf.png" alt="" width="1067" height="759" loading="lazy" /><div><b>Prozessanalyse</b><span>Abläufe, Datenflüsse, bestehende Zwischenlösungen und Engpässe werden untersucht.</span></div></li>
+<li><img class="module-img" src="assets/Module/displsx_lupe_auge.png" alt="" width="1067" height="759" loading="lazy" /><div><b>Systemprüfung</b><span>Vorhandene Anwendungen, Schnittstellen und technische Abhängigkeiten werden erfasst.</span></div></li>
+<li><img class="module-img" src="assets/Module/layoutr_steps.png" alt="" width="1920" height="1920" loading="lazy" /><div><b>Architektur</b><span>Komponenten, Datenhaltung, Berechtigungen und Integrationen werden geplant.</span></div></li>
+<li><img class="module-img" src="assets/Module/roadmap.png" alt="" width="1067" height="759" loading="lazy" /><div><b>Prototyp</b><span>Kritische Funktionen, Datenzugriffe und Bedienlogik werden frühzeitig getestet.</span></div></li>
+<li><img class="module-img" src="assets/Module/software.png" alt="" width="1067" height="759" loading="lazy" /><div><b>Entwicklung</b><span>Anwendung, Benutzeroberfläche und fachliche Geschäftslogik werden umgesetzt.</span></div></li>
+<li><img class="module-img" src="assets/Module/chip_gehirn.png" alt="" width="1067" height="759" loading="lazy" /><div><b>KI-Integration</b><span>Modelle, Agenten, Prompt-Systeme oder Wissenszugriffe werden eingebunden.</span></div></li>
+<li><img class="module-img" src="assets/Module/api.png" alt="" width="1067" height="759" loading="lazy" /><div><b>Systemanbindung</b><span>Datenquellen und bestehende Anwendungen werden kontrolliert verbunden.</span></div></li>
+<li><img class="module-img" src="assets/Module/valedierung.png" alt="" width="1067" height="759" loading="lazy" /><div><b>Prüfung</b><span>Funktion, Sicherheit, Nutzerführung, Berechtigungen und Fehlerfälle werden getestet.</span></div></li>
+<li><img class="module-img" src="assets/Module/team.png" alt="" width="1067" height="759" loading="lazy" /><div><b>Einführung</b><span>Lösung, Dokumentation und notwendige Betriebsabläufe werden übergeben.</span></div></li>
 </ol>
 <h3>Weitere Bestandteile</h3>
 <ul class="label-list"><li><strong>Prototypen und MVPs</strong>Ein Prototyp oder Minimum Viable Product bildet zunächst nur die wichtigsten Funktionen ab. Dadurch können technische Machbarkeit, Datenzugriffe, KI-Qualität, Bedienbarkeit und tatsächlicher Nutzen geprüft werden, bevor eine vollständige Lösung entwickelt wird.</li></ul><h3>Benutzeroberflächen</h3><p class="text">Die Oberfläche wird am konkreten Arbeitsprozess ausgerichtet. Nutzer sehen nur die Informationen, Funktionen und Entscheidungen, die für ihre jeweilige Aufgabe erforderlich sind.</p><ul class="card-bullets"><li>Eingabemasken</li><li>Aufgabenübersichten</li><li>Prüf- und Freigabeansichten</li><li>Ergebnisdarstellungen</li><li>Such- und Filterfunktionen</li><li>Statusanzeigen</li><li>Dokumentenansichten</li><li>rollenbasierte Dashboards</li><li>Export- und Übergabefunktionen</li></ul><h3>API-Integration</h3><p class="text">APIs ermöglichen den kontrollierten Datenaustausch zwischen bestehenden Anwendungen und der neuen Lösung.</p><ul class="card-bullets"><li>Daten abrufen und aktualisieren</li><li>neue Vorgänge erstellen</li><li>Dokumente übertragen</li><li>Aufgaben und Status synchronisieren</li><li>Ereignisse per Webhook auslösen</li><li>Nutzer und Berechtigungen abgleichen</li><li>Ergebnisse an Zielsysteme zurückgeben</li><li>externe Dienste kontrolliert einbinden</li></ul><h3>MCP-Integration</h3><p class="text">Über MCP können KI-Systeme auf freigegebene Werkzeuge und Unternehmensressourcen zugreifen. Dabei wird genau festgelegt, welche Informationen gelesen und welche Aktionen ausgeführt werden dürfen.</p><ul class="card-bullets"><li>Datenbanken</li><li>Dokumentensammlungen</li><li>interne Wissensquellen</li><li>Dateisysteme</li><li>Geschäftsanwendungen</li><li>Suchfunktionen</li><li>Berechnungs- und Prüftools</li><li>unternehmensspezifische Aktionen</li></ul><ul class="label-list"><li><strong>Sicherheit und Rollen</strong>Berechtigungen, Freigaben und Protokollierung werden direkt in die Anwendung eingebunden. Funktionen und Daten stehen nur den vorgesehenen Nutzern und Systemen zur Verfügung.</li><li><strong>Betrieb und Erweiterung</strong>Die technische Struktur wird so geplant, dass weitere Funktionen, Rollen, Datenquellen und Systemanbindungen später kontrolliert ergänzt werden können.</li></ul>
@@ -618,12 +622,12 @@ h1, main > section > .section-inner > h2 {
 <p class="text">Fehlende Funktionen werden gezielt ergänzt, Datenflüsse automatisiert und bestehende Anwendungen über eine gemeinsame Oberfläche oder technische Integration verbunden. Neue KI-Funktionen werden dabei in vorhandene Berechtigungen, Prozesse und Kontrollmechanismen eingeordnet.</p>
 <article class="panel">
 <div class="pair-grid">
-<div class="pair"><span class="pair-chip"><span class="chip-icon"><img src="assets/cards/service/icons/9.png" alt="" /></span>fehlende Standardfunktionen</span><span class="pair-arrow"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-chev"/></svg></span><span class="pair-chip pair-chip--gold"><span class="chip-icon"><img src="assets/cards/service/icons/6.png" alt="" /></span>passende Funktionsmodule</span></div>
-<div class="pair"><span class="pair-chip"><span class="chip-icon"><img src="assets/cards/service/icons/2.png" alt="" /></span>mehrere isolierte Tools</span><span class="pair-arrow"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-chev"/></svg></span><span class="pair-chip pair-chip--gold"><span class="chip-icon"><img src="assets/cards/service/icons/8.png" alt="" /></span>verbundene Systeme</span></div>
-<div class="pair"><span class="pair-chip"><span class="chip-icon"><img src="assets/cards/service/icons/10.png" alt="" /></span>manuelle Datenübertragung</span><span class="pair-arrow"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-chev"/></svg></span><span class="pair-chip pair-chip--gold"><span class="chip-icon"><img src="assets/cards/service/icons/1.png" alt="" /></span>zentrale Arbeitsoberfläche</span></div>
-<div class="pair"><span class="pair-chip"><span class="chip-icon"><img src="assets/cards/service/icons/3.png" alt="" /></span>unpassende Bedienabläufe</span><span class="pair-arrow"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-chev"/></svg></span><span class="pair-chip pair-chip--gold"><span class="chip-icon"><img src="assets/cards/service/icons/7.png" alt="" /></span>automatisierte Datenflüsse</span></div>
-<div class="pair"><span class="pair-chip"><span class="chip-icon"><img src="assets/cards/service/icons/5.png" alt="" /></span>eingeschränkte Integrationen</span><span class="pair-arrow"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-chev"/></svg></span><span class="pair-chip pair-chip--gold"><span class="chip-icon"><img src="assets/cards/service/icons/4.png" alt="" /></span>kontrollierte KI-Funktionen</span></div>
-<div class="pair"><span class="pair-chip"><span class="chip-icon"><img src="assets/cards/service/icons/11.png" alt="" /></span>hoher Abstimmungsaufwand</span><span class="pair-arrow"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-chev"/></svg></span><span class="pair-chip pair-chip--gold"><span class="chip-icon"><img src="assets/cards/service/icons/9.png" alt="" /></span>erweiterbare Architektur</span></div>
+<div class="pair"><span class="pair-chip"><span class="chip-icon"><img src="assets/cards/service/icons/9.png" alt="" width="100" height="100" loading="lazy" /></span>fehlende Standardfunktionen</span><span class="pair-arrow"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-chev"/></svg></span><span class="pair-chip pair-chip--gold"><span class="chip-icon"><img src="assets/cards/service/icons/6.png" alt="" width="100" height="100" loading="lazy" /></span>passende Funktionsmodule</span></div>
+<div class="pair"><span class="pair-chip"><span class="chip-icon"><img src="assets/cards/service/icons/2.png" alt="" width="100" height="100" loading="lazy" /></span>mehrere isolierte Tools</span><span class="pair-arrow"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-chev"/></svg></span><span class="pair-chip pair-chip--gold"><span class="chip-icon"><img src="assets/cards/service/icons/8.png" alt="" width="100" height="100" loading="lazy" /></span>verbundene Systeme</span></div>
+<div class="pair"><span class="pair-chip"><span class="chip-icon"><img src="assets/cards/service/icons/10.png" alt="" width="100" height="100" loading="lazy" /></span>manuelle Datenübertragung</span><span class="pair-arrow"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-chev"/></svg></span><span class="pair-chip pair-chip--gold"><span class="chip-icon"><img src="assets/cards/service/icons/1.png" alt="" width="100" height="100" loading="lazy" /></span>zentrale Arbeitsoberfläche</span></div>
+<div class="pair"><span class="pair-chip"><span class="chip-icon"><img src="assets/cards/service/icons/3.png" alt="" width="100" height="100" loading="lazy" /></span>unpassende Bedienabläufe</span><span class="pair-arrow"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-chev"/></svg></span><span class="pair-chip pair-chip--gold"><span class="chip-icon"><img src="assets/cards/service/icons/7.png" alt="" width="100" height="100" loading="lazy" /></span>automatisierte Datenflüsse</span></div>
+<div class="pair"><span class="pair-chip"><span class="chip-icon"><img src="assets/cards/service/icons/5.png" alt="" width="100" height="100" loading="lazy" /></span>eingeschränkte Integrationen</span><span class="pair-arrow"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-chev"/></svg></span><span class="pair-chip pair-chip--gold"><span class="chip-icon"><img src="assets/cards/service/icons/4.png" alt="" width="100" height="100" loading="lazy" /></span>kontrollierte KI-Funktionen</span></div>
+<div class="pair"><span class="pair-chip"><span class="chip-icon"><img src="assets/cards/service/icons/11.png" alt="" width="100" height="100" loading="lazy" /></span>hoher Abstimmungsaufwand</span><span class="pair-arrow"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-chev"/></svg></span><span class="pair-chip pair-chip--gold"><span class="chip-icon"><img src="assets/cards/service/icons/9.png" alt="" width="100" height="100" loading="lazy" /></span>erweiterbare Architektur</span></div>
 </div>
 </article>
 </div></section>
@@ -668,7 +672,7 @@ h1, main > section > .section-inner > h2 {
 <footer class="footer" id="footer">
       <div class="footer-inner">
         <div class="footer-col footer-col--about">
-          <h4>Nurovelle</h4>
+          <h3 class="footer-col__title">Nurovelle</h3>
           <p>Individuelle KI-Systeme für reale Geschäftsprozesse.</p>
           <p>
             Nurovelle entwickelt KI-Agenten, Automatisierungssysteme und
@@ -677,7 +681,7 @@ h1, main > section > .section-inner > h2 {
           </p>
         </div>
         <div class="footer-col">
-          <h4>Nützliche Links</h4>
+          <h3 class="footer-col__title">Nützliche Links</h3>
           <a href="index.html#hero">Startseite</a>
           <a href="index.html#warum-nurovelle">Über Nurovelle</a>
           <a href="index.html#leistungen">Leistungen</a>
@@ -687,7 +691,7 @@ h1, main > section > .section-inner > h2 {
           <a href="index.html#kontakt">Kontakt</a>
         </div>
         <div class="footer-col">
-          <h4>Newsletter</h4>
+          <h3 class="footer-col__title">Newsletter</h3>
           <p>
             Erhalten Sie ausgewählte Informationen zu KI-Agenten,
             Automatisierung, Unternehmenssoftware und neuen Nurovelle-Lösungen
@@ -713,7 +717,7 @@ h1, main > section > .section-inner > h2 {
           </form>
         </div>
         <div class="footer-col">
-          <h4>Kontakt</h4>
+          <h3 class="footer-col__title">Kontakt</h3>
           <p>Marburg, Deutschland</p>
           <p><a href="tel:+4964218097347">06421 8097347</a></p>
           <p><a href="mailto:info@nurovelle.de">info@nurovelle.de</a></p>
