@@ -1,153 +1,137 @@
-# Nurovelle Social-Media-Kalender: Master (4 Wochen)
+# Nurovelle Social-Media-Kalender: Master (4 Wochen) — WELLEN-MODELL
+
+**Stand: 2026-08-15.** Ersetzt die Vorversion (in Git erhalten). Verbindliche Regel des Inhabers: **Ein Thema = alle Plattformen.** Pro Posting-Tag („Welle") läuft EIN Thema zeitgleich auf allen 6 Kanälen — derselbe Inhalt, nur ans Format angepasst (Textpost, Kurzfassung, Karussell, Video/Reel/Short). Alle produzierten Assets eines Tages tragen dieselbe Kernbotschaft.
 
 ## Legende
 
-- **Pflicht (✅):** Kennzeichnet einen zwingenden **Potenzialanalyse-Post**. Jeder Kanal hat mindestens 1× pro Woche einen Pflicht-Post zur KI-Potenzialanalyse (Haupt-Leadmagnet). Variante und Hook wechseln jede Woche.
-- **Kanal:** LinkedIn, Xing, Instagram, Facebook, TikTok, YouTube
-- **Format:** Textpost, Karussell, Reel, Video/Short, Langform
-- **Thema:** Kurzbeschreibung des Inhalts (siehe Kanal-Datei für vollständigen Text/Skript)
-- **Asset:** Verweis auf Grafik/Video oder „Text only"
-- **CTA-Link:** `analyse.html` = Potenzialanalyse | `#downloads` = Lead-Magnete | `kontakt` = Erstgespräch
+- **Welle 1 = Montag** (Wochenthema A) · **Welle 2 = Mittwoch** (Wochenthema B) · **Welle 3 = Freitag** ([PFLICHT] Potenzialanalyse, jede Woche neue Hook)
+- **Pflicht ✅:** wöchentlicher Potenzialanalyse-Post — freitags auf ALLEN Kanälen gleichzeitig
+- **Uhrzeiten je Kanal (an jedem Wellen-Tag):** LinkedIn 08:00 · Xing 09:00 · YouTube 17:00 · Instagram 18:00 · Facebook 18:00 · TikTok 18:00
+- **CTA-Kurzform:** `analyse.html` = Potenzialanalyse | `#downloads` = Lead-Magnete | `kontakt` = Erstgespräch
+- **Quelle:** Verweis auf vorhandenes Material in den Kanal-Dateien; „NEU (aus X)" = vom Team zu produzierende Formatadaption
 
 ---
 
-## WOCHE 1: Positionierung — „Wer ist Nurovelle?"
+## WOCHE 1 — Positionierung
 
-| Tag | Uhrzeit | Kanal | Format | Thema | Pflicht | Asset | CTA-Link |
-|---|---|---|---|---|---|---|---|
-| Mo | 08:00 | LinkedIn | Textpost | „Warum es Nurovelle gibt" — Positionierung, manuelle Prozesse kosten Geld | | Text only | kontakt |
-| Mo | 18:00 | TikTok | Video (30–60s) | Edutainment: „Was kostet ein manueller Prozess wirklich?" (Rechenbeispiel als Beispiel gekennzeichnet) | | Skript + Einblendungen | analyse.html |
-| Di | 09:00 | Xing | Textpost | Gekürzte, sachliche Adaption LinkedIn Mo (max. 120 Wörter) | | Text only | kontakt |
-| Di | 17:00 | YouTube | Video (Short ≤60s) | [PFLICHT] Potenzialanalyse-Short — Hook W1: „Prozesskosten sichtbar machen" | ✅ | Skript + Grafiken | analyse.html |
-| Di | 18:00 | Instagram | Karussell | 5-Slide-Karussell: „Was macht Nurovelle?" (Leistungen, Branchen, Positionierung) | | Asset 1080×1350 | #downloads |
-| Mi | 17:00 | LinkedIn | Textpost | „3 Anzeichen, dass manuelle Prozesse Sie Geld kosten" — Praktische Signale | | Text only | kontakt |
-| Mi | 18:00 | TikTok | Video (30–60s) | Praxis-Tipp: „3 Anzeichen, dass ihr automatisieren solltet" | | Skript + Einblendungen | analyse.html |
-| Mi | 18:00 | Facebook | Bild+Text | Zweitverwertung IG-Karussell (Di) mit erklärenderem Text | | Asset 1080×1350 | #downloads |
-| Do | 12:00 | Xing | Textpost | [PFLICHT] Potenzialanalyse — Sachliche Variante Woche 1 | ✅ | Text only | analyse.html |
-| Do | 18:00 | Instagram | Reel | Reel: Skript = TikTok-Video Mittwoch derselben Woche (Praxis-Tipp) | | Skript (TikTok-Mi) | analyse.html |
-| Fr | 12:00 | LinkedIn | Textpost | [PFLICHT] Potenzialanalyse — Hook: „In 5 Minuten wissen, wo KI sich rechnet" | ✅ | Text only | analyse.html |
-| Fr | 15:00 | Facebook | Bild+Text | [PFLICHT] Potenzialanalyse — KMU-nahe Ansprache, Link direkt im Post | ✅ | Single-Image oder 3-Slide | analyse.html |
-| Fr | 18:00 | TikTok | Video (30–60s) | [PFLICHT] Potenzialanalyse — Hook: „5 Minuten, die dir zeigen, wo KI sich rechnet" | ✅ | Skript + Grafiken | analyse.html |
-| Sa | 10:00 | YouTube | Video (Short ≤60s) | Short: „Wer ist Nurovelle?" — Positionierung | | Skript + Grafiken | analyse.html |
-| Sa | 11:00 | Instagram | Single/Karussell | [PFLICHT] Potenzialanalyse — Single-Image oder 3-Slide, Caption + Asset | ✅ | Single-Image oder 3-Slide | analyse.html (Link in Bio) |
+**Thema A (Mo): „Warum es Nurovelle gibt"** · **Thema B (Mi): „3 Anzeichen, dass manuelle Prozesse Sie Geld kosten"** · **Fr: Potenzialanalyse Hook 1 „In 5 Minuten wissen, wo KI sich rechnet"**
 
-**Slots Woche 1: 15 Slots** (6 davon Pflicht-Potenzialanalyse)
-
----
-
-## WOCHE 2: Probleme & Quick-Wins — „7 Prozesse, konkrete Beispiele"
-
-| Tag | Uhrzeit | Kanal | Format | Thema | Pflicht | Asset | CTA-Link |
-|---|---|---|---|---|---|---|---|
-| Mo | 08:00 | LinkedIn | Karussell | Karussell: „7 Prozesse, die fast jedes Unternehmen automatisieren kann" (Asset existiert) | | Asset 1080×1350 | kontakt |
-| Mo | 18:00 | TikTok | Video (30–60s) | Edutainment: „Ein Prozess, in 60 Sekunden automatisiert erklärt" | | Skript + Animationen | analyse.html |
-| Di | 09:00 | Xing | Textpost | Gekürzte, sachliche Adaption LinkedIn Mo (7 Prozesse, max. 120 Wörter) | | Text only | kontakt |
-| Di | 17:00 | YouTube | Video (Short ≤60s) | [PFLICHT] Potenzialanalyse-Short — Hook W2: „Was manuelle Routinearbeit kostet" | ✅ | Skript + Grafiken | analyse.html |
-| Di | 18:00 | Instagram | Karussell | 8-Slide-Karussell: „7 Prozesse" mit Automatisierungsbeispielen je Branche | | Asset 1080×1350 | #downloads |
-| Mi | 17:00 | LinkedIn | Textpost | Quick-Win-Beispiel Dokumenten-/Datenabgleich (als Beispiel gekennzeichnet) | | Text only | kontakt |
-| Mi | 18:00 | TikTok | Video (30–60s) | Praxis-Tipp: „Quick-Win: E-Mail-/Dokumentenflut sortieren" | | Skript + Einblendungen | analyse.html |
-| Mi | 18:00 | Facebook | Bild+Text | Zweitverwertung IG-Karussell (Di, 7 Prozesse) mit erklärenderem Text | | Asset 1080×1350 | #downloads |
-| Do | 12:00 | Xing | Textpost | [PFLICHT] Potenzialanalyse — Sachliche Variante Woche 2: Ablauf (Fragen → Score → Report) | ✅ | Text only | analyse.html |
-| Do | 18:00 | Instagram | Reel | Reel: Skript = TikTok-Video Mittwoch derselben Woche (Praxis-Tipp) | | Skript (TikTok-Mi) | analyse.html |
-| Fr | 12:00 | LinkedIn | Textpost | [PFLICHT] Potenzialanalyse — Hook: Ablauf erklärt (Fragen → Score → Report) | ✅ | Text only | analyse.html |
-| Fr | 15:00 | Facebook | Bild+Text | [PFLICHT] Potenzialanalyse — KMU-nahe Ansprache, Link direkt im Post | ✅ | Single-Image oder 3-Slide | analyse.html |
-| Fr | 18:00 | TikTok | Video (30–60s) | [PFLICHT] Potenzialanalyse — Hook: Ablauf in 60 Sekunden erklärt | ✅ | Skript + Grafiken | analyse.html |
-| Sa | 10:00 | YouTube | Video (Long-Form 8–12 min) | Long-Form: „KI im Mittelstand: Wo sich Automatisierung wirklich rechnet" (Kapitel-Skript) | | Video + Kapitelbeschreibung | analyse.html |
-| Sa | 11:00 | Instagram | Single/Karussell | [PFLICHT] Potenzialanalyse — Single-Image oder 3-Slide, Caption + Asset | ✅ | Single-Image oder 3-Slide | analyse.html (Link in Bio) |
-
-**Slots Woche 2: 15 Slots** (6 davon Pflicht-Potenzialanalyse)
+| Tag | Kanal | Format | Pflicht | Quelle | CTA |
+|---|---|---|---|---|---|
+| Mo | LinkedIn | Textpost | | linkedin.md W1-Mo | kontakt |
+| Mo | Xing | Kurztext | | xing.md W1-Di (vorhanden) | kontakt |
+| Mo | Instagram | Karussell (5 Slides) „Was macht Nurovelle?" | | instagram.md W1-Di | #downloads |
+| Mo | Facebook | Text + IG-Grafik | | facebook.md W1-Mi | analyse.html |
+| Mo | TikTok | Video 30–60s | | **NEU** (aus youtube.md W1-Sa-Short „Wer ist Nurovelle?") | analyse.html |
+| Mo | YouTube | Short | | youtube.md W1-Sa | analyse.html |
+| Mi | LinkedIn | Textpost | | linkedin.md W1-Mi | analyse.html |
+| Mi | Xing | Kurztext | | **NEU** (Kurzfassung aus linkedin.md W1-Mi) | analyse.html |
+| Mi | Instagram | Reel | | = TikTok-Video (tiktok.md W1-Mi „3 Anzeichen") | analyse.html |
+| Mi | Facebook | Text + Grafik | | **NEU** (Adaption linkedin.md W1-Mi) | analyse.html |
+| Mi | TikTok | Video 30–60s | | tiktok.md W1-Mi | analyse.html |
+| Mi | YouTube | Short | | **NEU** (aus tiktok.md W1-Mi-Skript) | analyse.html |
+| Fr | LinkedIn | Textpost | ✅ | linkedin.md W1-Fr | analyse.html |
+| Fr | Xing | Kurztext | ✅ | xing.md W1-Do | analyse.html |
+| Fr | Instagram | Single/3-Slide | ✅ | instagram.md W1-Sa | analyse.html (Bio) |
+| Fr | Facebook | Text + Grafik | ✅ | facebook.md W1-Fr | analyse.html |
+| Fr | TikTok | Video 30–60s | ✅ | tiktok.md W1-Fr | analyse.html |
+| Fr | YouTube | Short | ✅ | youtube.md W1-Di | analyse.html |
 
 ---
 
-## WOCHE 3: Beweis & ROI — „Case Study, KI-Mythen, echte Zahlen"
+## WOCHE 2 — Probleme & Quick-Wins
 
-| Tag | Uhrzeit | Kanal | Format | Thema | Pflicht | Asset | CTA-Link |
-|---|---|---|---|---|---|---|---|
-| Mo | 08:00 | LinkedIn | Textpost | Case Study mit echten Zahlen: API-Latenz −42 %, MTTR −32 %, Kosten −28 % | | Text only | kontakt |
-| Mo | 18:00 | TikTok | Video (30–60s) | Edutainment: „KI-Mythos zerlegt: ‚KI ist nur was für Konzerne'" | | Skript + Grafiken | analyse.html |
-| Di | 09:00 | Xing | Textpost | Gekürzte, sachliche Adaption LinkedIn Mo (Case Study, max. 120 Wörter) | | Text only | kontakt |
-| Di | 17:00 | YouTube | Video (Short ≤60s) | [PFLICHT] Potenzialanalyse-Short — Hook W3: „Fünf Minuten für Klarheit" | ✅ | Skript + Grafiken | analyse.html |
-| Di | 18:00 | Instagram | Karussell | 5-Slide-Karussell Case Study: −42 % Latenz, −32 % MTTR, −28 % Kosten mit Kontext | | Asset 1080×1350 | kontakt |
-| Mi | 17:00 | LinkedIn | Textpost | „KI-Mythen vs. Fakten im Mittelstand" — 3–5 Mythen mit sachlichen Gegendarstellungen | | Text only | kontakt |
-| Mi | 18:00 | TikTok | Video (30–60s) | Praxis-Tipp: „Die eine ROI-Frage vor jedem KI-Projekt" | | Skript + Einblendungen | analyse.html |
-| Mi | 18:00 | Facebook | Bild+Text | Zweitverwertung IG-Karussell (Di, Case Study) mit erklärenderem Text | | Asset 1080×1350 | kontakt |
-| Do | 12:00 | Xing | Textpost | [PFLICHT] Potenzialanalyse — Sachliche Variante Woche 3: „Was steht im Report?" | ✅ | Text only | analyse.html |
-| Do | 18:00 | Instagram | Reel | Reel: Skript = TikTok-Video Mittwoch derselben Woche (ROI-Frage) | | Skript (TikTok-Mi) | analyse.html |
-| Fr | 12:00 | LinkedIn | Textpost | [PFLICHT] Potenzialanalyse — Hook: „Was steht eigentlich im Report?" mit Beispiel-Ergebnis | ✅ | Text only | analyse.html |
-| Fr | 15:00 | Facebook | Bild+Text | [PFLICHT] Potenzialanalyse — KMU-nahe Ansprache, Link direkt im Post | ✅ | Single-Image oder 3-Slide | analyse.html |
-| Fr | 18:00 | TikTok | Video (30–60s) | [PFLICHT] Potenzialanalyse — Hook: „Was hast du nach der Analyse?" | ✅ | Skript + Grafiken | analyse.html |
-| Sa | 10:00 | YouTube | Video (Short ≤60s) | Short: „Eine echte Case Study in 60 Sekunden" — nur echte Zahlen (−42 % / −32 % / −28 %) | | Skript + Grafiken | analyse.html |
-| Sa | 11:00 | Instagram | Single/Karussell | [PFLICHT] Potenzialanalyse — Single-Image oder 3-Slide, Caption + Asset | ✅ | Single-Image oder 3-Slide | analyse.html (Link in Bio) |
+**Thema A (Mo): „7 Prozesse, die fast jedes Unternehmen automatisieren kann"** · **Thema B (Mi): „Quick-Win: Dokumenten-/Datenabgleich" (als Beispiel gekennzeichnet)** · **Fr: Potenzialanalyse Hook 2 „Der Ablauf: Fragen → Score → Report"**
 
-**Slots Woche 3: 15 Slots** (6 davon Pflicht-Potenzialanalyse)
+| Tag | Kanal | Format | Pflicht | Quelle | CTA |
+|---|---|---|---|---|---|
+| Mo | LinkedIn | Karussell-Post (Asset „Linkedin Karussell 7 Prozesse.pdf") | | linkedin.md W2-Mo | kontakt |
+| Mo | Xing | Kurztext | | xing.md W2-Di | analyse.html |
+| Mo | Instagram | Karussell (8 Slides) | | instagram.md W2-Di | #downloads |
+| Mo | Facebook | Text + IG-Grafik | | facebook.md W2-Mi | analyse.html |
+| Mo | TikTok | Video 30–60s „7 Prozesse in 60 Sekunden" | | **NEU** (aus IG-Karussell-Inhalt W2) | analyse.html |
+| Mo | YouTube | Short | | **NEU** (= neues TikTok-Skript „7 Prozesse") | analyse.html |
+| Mi | LinkedIn | Textpost | | linkedin.md W2-Mi | analyse.html |
+| Mi | Xing | Kurztext | | **NEU** (Kurzfassung aus linkedin.md W2-Mi) | analyse.html |
+| Mi | Instagram | Reel | | = TikTok-Video (tiktok.md W2-Mo „Ein Prozess automatisiert erklärt") | analyse.html |
+| Mi | Facebook | Text + Grafik | | **NEU** (Adaption linkedin.md W2-Mi) | analyse.html |
+| Mi | TikTok | Video 30–60s | | tiktok.md W2-Mo (alternativ W2-Mi „E-Mail-/Dokumentenflut") | analyse.html |
+| Mi | YouTube | **Long-Form 8–12 min** „KI im Mittelstand: Wo sich Automatisierung wirklich rechnet" (Thema-B-passend) | | youtube.md W2-Sa | analyse.html |
+| Fr | LinkedIn | Textpost | ✅ | linkedin.md W2-Fr | analyse.html |
+| Fr | Xing | Kurztext | ✅ | xing.md W2-Do | analyse.html |
+| Fr | Instagram | Single/3-Slide | ✅ | instagram.md W2-Sa | analyse.html (Bio) |
+| Fr | Facebook | Text + Grafik | ✅ | facebook.md W2-Fr | analyse.html |
+| Fr | TikTok | Video 30–60s | ✅ | tiktok.md W2-Fr | analyse.html |
+| Fr | YouTube | Short | ✅ | youtube.md W2-Di | analyse.html |
 
 ---
 
-## WOCHE 4: Conversion & Monetarisierung — „Lead-Magnete, Quick-Start, Erstgespräch"
+## WOCHE 3 — Beweis & ROI
 
-| Tag | Uhrzeit | Kanal | Format | Thema | Pflicht | Asset | CTA-Link |
-|---|---|---|---|---|---|---|---|
-| Mo | 08:00 | LinkedIn | Textpost | Executive Briefing „5 Hebel für profitable KI-Automatisierung" als Download bewerben | | Text only | #downloads |
-| Mo | 18:00 | TikTok | Video (30–60s) | Edutainment: „5 Hebel für profitable KI-Automatisierung in 60 s" | | Skript + Grafiken | #downloads |
-| Di | 09:00 | Xing | Textpost | Gekürzte, sachliche Adaption LinkedIn Mo (Executive Briefing, max. 120 Wörter) | | Text only | #downloads |
-| Di | 17:00 | YouTube | Video (Short ≤60s) | [PFLICHT] Potenzialanalyse-Short — Hook W4: „Der einfachste erste Schritt" | ✅ | Skript + Grafiken | analyse.html |
-| Di | 18:00 | Instagram | Karussell | 7-Slide-Karussell: „5 Hebel für profitable KI-Automatisierung" — Detailliert | | Asset 1080×1350 | #downloads |
-| Mi | 17:00 | LinkedIn | Textpost | KI-Quick-Start / Erstgespräch — Offer-Ankündigung + Eckdaten `[PREIS]` | | Text only | kontakt |
-| Mi | 18:00 | TikTok | Video (30–60s) | Praxis-Tipp: „Was in einem Erstgespräch wirklich passiert" | | Skript + Einblendungen | kontakt |
-| Mi | 18:00 | Facebook | Bild+Text | Zweitverwertung IG-Karussell (Di, 5 Hebel) mit erklärenderem Text | | Asset 1080×1350 | #downloads |
-| Do | 12:00 | Xing | Textpost | [PFLICHT] Potenzialanalyse — Sachliche Variante Woche 4: „Der einfachste erste Schritt" | ✅ | Text only | analyse.html |
-| Do | 18:00 | Instagram | Reel | Reel: Skript = TikTok-Video Mittwoch derselben Woche (Erstgespräch) | | Skript (TikTok-Mi) | kontakt |
-| Fr | 12:00 | LinkedIn | Textpost | [PFLICHT] Potenzialanalyse — Abschluss-CTA: „Der einfachste erste Schritt" (Recap + finale Hook) | ✅ | Text only | analyse.html |
-| Fr | 15:00 | Facebook | Bild+Text | [PFLICHT] Potenzialanalyse — KMU-nahe Ansprache, Link direkt im Post | ✅ | Single-Image oder 3-Slide | analyse.html |
-| Fr | 18:00 | TikTok | Video (30–60s) | [PFLICHT] Potenzialanalyse — Abschluss-Hook, Recap 4 Wochen | ✅ | Skript + Grafiken | analyse.html |
-| Sa | 10:00 | YouTube | Video (Long-Form 8–12 min) | Long-Form: „Von der Potenzialanalyse zum KI-Projekt: Alle Schritte im Detail" (Gliederung, Sprechtext) | | Video + Kapitelbeschreibung | analyse.html |
-| Sa | 11:00 | Instagram | Single/Karussell | [PFLICHT] Potenzialanalyse — Single-Image oder 3-Slide, Caption + Asset | ✅ | Single-Image oder 3-Slide | analyse.html (Link in Bio) |
+**Thema A (Mo): Case Study — nur echte Zahlen (API-Latenz −42 %, MTTR −32 %, Kosten −28 %)** · **Thema B (Mi): „KI-Mythen vs. Fakten im Mittelstand"** · **Fr: Potenzialanalyse Hook 3 „Was steht eigentlich im Report?"**
 
-**Slots Woche 4: 15 Slots** (6 davon Pflicht-Potenzialanalyse)
+| Tag | Kanal | Format | Pflicht | Quelle | CTA |
+|---|---|---|---|---|---|
+| Mo | LinkedIn | Textpost | | linkedin.md W3-Mo | analyse.html |
+| Mo | Xing | Kurztext | | xing.md W3-Di | analyse.html |
+| Mo | Instagram | Karussell (5 Slides, KPI-Zahlen) | | instagram.md W3-Di | analyse.html (Bio) |
+| Mo | Facebook | Text + IG-Grafik | | facebook.md W3-Mi | analyse.html |
+| Mo | TikTok | Video 30–60s | | **NEU** (aus youtube.md W3-Sa-Short „Case Study in 60 Sekunden") | analyse.html |
+| Mo | YouTube | Short | | youtube.md W3-Sa | analyse.html |
+| Mi | LinkedIn | Textpost | | linkedin.md W3-Mi | analyse.html |
+| Mi | Xing | Kurztext | | **NEU** (Kurzfassung aus linkedin.md W3-Mi) | analyse.html |
+| Mi | Instagram | Reel | | = TikTok-Video (tiktok.md W3-Mo „KI-Mythos zerlegt") | analyse.html |
+| Mi | Facebook | Text + Grafik | | **NEU** (Adaption linkedin.md W3-Mi) | analyse.html |
+| Mi | TikTok | Video 30–60s | | tiktok.md W3-Mo | analyse.html |
+| Mi | YouTube | Short | | **NEU** (aus tiktok.md W3-Mo-Skript) | analyse.html |
+| Fr | LinkedIn | Textpost | ✅ | linkedin.md W3-Fr | analyse.html |
+| Fr | Xing | Kurztext | ✅ | xing.md W3-Do | analyse.html |
+| Fr | Instagram | Single/3-Slide | ✅ | instagram.md W3-Sa | analyse.html (Bio) |
+| Fr | Facebook | Text + Grafik | ✅ | facebook.md W3-Fr | analyse.html |
+| Fr | TikTok | Video 30–60s | ✅ | tiktok.md W3-Fr | analyse.html |
+| Fr | YouTube | Short | ✅ | youtube.md W3-Di | analyse.html |
+
+---
+
+## WOCHE 4 — Conversion
+
+**Thema A (Mo): Executive Briefing „5 Hebel für profitable KI-Automatisierung" (Download)** · **Thema B (Mi): „Vom Potenzial zum Projekt: Quick-Start & Erstgespräch"** · **Fr: Potenzialanalyse Abschluss-Hook „Der einfachste erste Schritt"**
+
+| Tag | Kanal | Format | Pflicht | Quelle | CTA |
+|---|---|---|---|---|---|
+| Mo | LinkedIn | Textpost | | linkedin.md W4-Mo | #downloads |
+| Mo | Xing | Kurztext | | xing.md W4-Di | #downloads |
+| Mo | Instagram | Karussell (7 Slides) | | instagram.md W4-Di | #downloads |
+| Mo | Facebook | Text + IG-Grafik | | facebook.md W4-Mi | #downloads |
+| Mo | TikTok | Video 30–60s „5 Hebel in 60 s" | | tiktok.md W4-Mo | #downloads |
+| Mo | YouTube | Short | | **NEU** (aus tiktok.md W4-Mo-Skript) | #downloads |
+| Mi | LinkedIn | Textpost | | linkedin.md W4-Mi | kontakt |
+| Mi | Xing | Kurztext | | **NEU** (Kurzfassung aus linkedin.md W4-Mi) | kontakt |
+| Mi | Instagram | Reel | | = TikTok-Video (tiktok.md W4-Mi „Erstgespräch") | kontakt |
+| Mi | Facebook | Text + Grafik | | **NEU** (Adaption linkedin.md W4-Mi) | kontakt |
+| Mi | TikTok | Video 30–60s | | tiktok.md W4-Mi | kontakt |
+| Mi | YouTube | **Long-Form 8–12 min** „Von der Potenzialanalyse zum KI-Projekt: So läuft der Weg" (Thema-B-passend) | | youtube.md W4-Sa | analyse.html |
+| Fr | LinkedIn | Textpost | ✅ | linkedin.md W4-Fr | analyse.html |
+| Fr | Xing | Kurztext | ✅ | xing.md W4-Do | analyse.html |
+| Fr | Instagram | Single/3-Slide | ✅ | instagram.md W4-Sa | analyse.html (Bio) |
+| Fr | Facebook | Text + Grafik | ✅ | facebook.md W4-Fr | analyse.html |
+| Fr | TikTok | Video 30–60s | ✅ | tiktok.md W4-Fr | analyse.html |
+| Fr | YouTube | Short | ✅ | youtube.md W4-Di | analyse.html |
 
 ---
 
 ## Zusammenfassung
 
-| Woche | Total-Slots | Davon Pflicht-Potenzialanalyse | Kanäle | Format-Mix |
-|---|---|---|---|---|
-| **W1** | 15 | 6 | LinkedIn (3), Xing (2), Instagram (3), Facebook (2), TikTok (3), YouTube (2) | 4 Textposts, 2 Karusselle, 2 Reels, 5 Videos/Shorts, 2 Longform-Vorbereitungen |
-| **W2** | 15 | 6 | LinkedIn (3), Xing (2), Instagram (3), Facebook (2), TikTok (3), YouTube (2) | 4 Textposts, 2 Karusselle, 2 Reels, 5 Videos/Shorts, 1 Longform |
-| **W3** | 15 | 6 | LinkedIn (3), Xing (2), Instagram (3), Facebook (2), TikTok (3), YouTube (2) | 4 Textposts, 2 Karusselle, 2 Reels, 5 Videos/Shorts, 1 Longform |
-| **W4** | 15 | 6 | LinkedIn (3), Xing (2), Instagram (3), Facebook (2), TikTok (3), YouTube (2) | 4 Textposts, 2 Karusselle, 2 Reels, 5 Videos/Shorts, 1 Longform |
-| **GESAMT** | **60** | **24** | 6 Kanäle | 16 Textposts, 8 Karusselle, 8 Reels, 20 Videos/Shorts, 4 Longforms |
+| Woche | Slots | Davon Pflicht (Fr, alle Kanäle) | Neu zu produzieren (Formatadaptionen) |
+|---|---|---|---|
+| W1 | 18 | 6 | 4 (TikTok-A, Xing-B, FB-B, YT-B) |
+| W2 | 18 | 6 | 5 (TikTok-A + YT-A „7 Prozesse", Xing-B, FB-B) |
+| W3 | 18 | 6 | 4 (TikTok-A, Xing-B, FB-B, YT-B) |
+| W4 | 18 | 6 | 3 (YT-A, Xing-B, FB-B) |
+| **Gesamt** | **72** | **24** | **16** |
 
----
+**Reserve (nicht löschen, für Woche 5+ vormerken):** tiktok.md W1-Mo „Was kostet ein manueller Prozess wirklich?", tiktok.md W2-Mi „E-Mail-/Dokumentenflut" (falls W2-Mo genutzt wird), tiktok.md W3-Mi „Die eine ROI-Frage".
 
-## Posting-Zeiten (DE Zeit)
+**Hinweis:** Alle 16 NEU-Stücke sind Formatadaptionen vorhandener, bereits korrigierter Inhalte — keine neuen Themen, keine neuen Fakten. Guardrails aus `00_STRATEGIE.md` gelten unverändert (nur echte Zahlen, kein Alt-Branding, Beispiele kennzeichnen).
 
-### LinkedIn (3/Woche)
-- **Mo 08:00** (Positionierung/Case Study/Executive Brief)
-- **Mi 17:00** (Praxis/Quick-Win/Offer)
-- **Fr 12:00** (Potenzialanalyse — Pflicht)
-
-### Xing (2/Woche)
-- **Di 09:00** (Gekürzte Adaption LinkedIn Mo)
-- **Do 12:00** (Potenzialanalyse — Pflicht)
-
-### Instagram (3/Woche)
-- **Di 18:00** (Karussell)
-- **Do 18:00** (Reel)
-- **Sa 11:00** (Potenzialanalyse — Pflicht)
-
-### Facebook (2/Woche)
-- **Mi 18:00** (Zweitverwertung IG-Karussell)
-- **Fr 15:00** (Potenzialanalyse — Pflicht)
-
-### TikTok (3/Woche)
-- **Mo 18:00** (Edutainment)
-- **Mi 18:00** (Praxis-Tipp)
-- **Fr 18:00** (Potenzialanalyse — Pflicht)
-
-### YouTube (2/Woche)
-- **Di 17:00** (Potenzialanalyse-Short — Pflicht, jede Woche neue Hook)
-- **Sa 10:00** (Short Woche 1 & 3, Long-Form Woche 2 & 4)
-
----
-
-*Master-Kalender für Nurovelle Social-Media-Kampagne (4 Wochen). Detaillierte Post-Inhalte, Skripte und Asset-Beschreibungen finden sich in den Kanal-Dateien (linkedin.md, xing.md, instagram.md, facebook.md, tiktok.md, youtube.md).*
+*Detaillierte Texte/Skripte in den Kanal-Dateien (linkedin.md, xing.md, instagram.md, facebook.md, tiktok.md, youtube.md). Die Kanal-Dateien werden vom Jude-Team auf die Wellen-Slots umsortiert und um die 16 Adaptionen ergänzt.*

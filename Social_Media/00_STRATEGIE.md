@@ -71,6 +71,8 @@ Executive Briefing „5 Hebel für profitable KI-Automatisierung" · Case Study 
    - Keine ROI-Zahlen außerhalb der echten Case Study (−42 %, −32 %, −28 %)
    - Illustrative Szenarien immer klar kennzeichnen: „Ein Beispiel: …", „Typisches Szenario: …"
 4. **Verboten:** „Autonova", „Neurova", „35 Jahre Erfahrung"-Behauptung
+5. **QA-Gate (verbindlich, Ansage Inhaber 2026-08-15):** Es wird NICHTS gepostet, solange Fehler offen sind. Erst wenn mindestens **5 Dokumente/Läufe in Folge komplett fehlerfrei** abgenommen wurden, wird über das Posten überhaupt entschieden. Freigegebene Inhalte gehören nach `Jude/austausch/freigegeben/`.
+6. **Wellen-Regel (verbindlich, Ansage Inhaber 2026-08-15):** Ein Thema = alle Plattformen. Pro Posting-Tag läuft EIN Thema zeitgleich auf allen Kanälen — derselbe Inhalt, nur ans Format angepasst; auch alle Videos/Reels/Grafiken des Tages tragen diese eine Kernbotschaft. Kein Kanal postet am selben Tag ein anderes Thema. Umsetzung siehe `01_KALENDER_MASTER.md` (Wellen-Modell: Mo Thema A, Mi Thema B, Fr Potenzialanalyse überall).
 5. **Emojis:** Max. 1–2 dezente Emojis pro Post (Xing: keine)
 6. **Hashtags:** 3–6 pro Post aus: #KI #Automatisierung #Mittelstand #Digitalisierung #Prozessoptimierung #KIAgenten #Effizienz #ROI #Unternehmer #KMU (TikTok/IG zusätzlich: #kiimalltag #businesstipps #automation)
 7. **CTAs je Kontext:**
@@ -128,7 +130,7 @@ Diese Punkte müssen **vor Woche 1 / Posting-Start** gelöst sein:
 - [ ] **Resend/Nurturing-Mailstrecke live schalten**  
   Nach Potenzialanalyse-Abschluss automatisierte Report-Mail + Nurturing-Sequenz starten
 
-- [ ] **Download-Sektion mit echten PDFs befüllen**  
+- [x] **Download-Sektion mit echten PDFs befüllen** — ERLEDIGT (Downloads sind laut Inhaber bereits auf der Homepage live, Stand 2026-08-15)  
   (https://nurovelle.de/#downloads)  
   **BLOCKER für Woche-4-Download-Posts:**  
   - Executive Briefing „5 Hebel"  

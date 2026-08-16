@@ -1,0 +1,19 @@
+<svg width="2048" height="1152" viewBox="0 0 2048 1152" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <defs>
+    <linearGradient id="goldTitle" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#dfbd69"/>
+      <stop offset="100%" stop-color="#926f34"/>
+    </linearGradient>
+    <radialGradient id="glowC" cx="50%" cy="50%" r="55%">
+      <stop offset="0%" stop-color="#163a26" stop-opacity="0.5"/>
+      <stop offset="100%" stop-color="#163a26" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="2048" height="1152" fill="#050706"/>
+  <rect width="2048" height="1152" fill="url(#glowC)"/>
+  <!-- Safe Area (TV/Desktop/Mobile): 1235x338 zentriert, x 407-1641, y 407-745 -->
+  <image x="470" y="451" width="242" height="250" xlink:href="file:///media/d4sd1ng/AI-Data/Projects/homepage_repo/Social_Media/assets/src/icon_1024.png"/>
+  <text x="760" y="560" font-family="Exo 2" font-weight="700" font-size="88" fill="#f5f7f4" letter-spacing="10">NUROVELLE</text>
+  <text x="760" y="628" font-family="Inter" font-weight="400" font-size="34" fill="#b9c3bd">Individuelle <tspan fill="url(#goldTitle)" font-weight="600">KI-Systeme</tspan> für den Mittelstand</text>
+  <text x="760" y="686" font-family="Inter" font-weight="400" font-size="26" fill="#b9c3bd">nurovelle.de</text>
+</svg>
