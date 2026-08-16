@@ -7,13 +7,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>Nurovelle | KI-Potenzialanalyse</title>
 <meta name="description" content="Die KI-Potenzialanalyse zeigt, welche Prozesse für KI oder Automatisierung geeignet sind, welche Voraussetzungen fehlen und welche nächsten Schritte sinnvoll sind."/>
-<link rel="preconnect" href="https://fonts.googleapis.com"/>
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;550;600;650;700;750;800&family=Exo+2:wght@600;700;800&display=swap" rel="stylesheet"/>
+<link rel="preload" href="assets/fonts/inter-var-latin.woff2" as="font" type="font/woff2" crossorigin />
+<link rel="stylesheet" href="assets/fonts/fonts.css" />
 <meta name="description" content="Die KI-Potenzialanalyse zeigt, welche Prozesse für KI oder Automatisierung geeignet sind, welche Voraussetzungen fehlen und welche nächsten Schritte sinnvoll sind."/>
-<link rel="preconnect" href="https://fonts.googleapis.com"/>
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;550;600;650;700;750;800&family=Exo+2:wght@600;700;800&display=swap" rel="stylesheet"/>
+
 <style>
 /* ==========================================================================
    GEMEINSAMES GERÜST — Header, Buttons, Footer, aus index.html übernommen
@@ -358,7 +355,7 @@ a:active .golden-button {
 .footer { background-color: #050505; margin-left: 0px; width: calc(100% - 0px); padding: 54px calc(var(--side) * 2); border-top: 1px solid var(--nv-gold-divider-strong); color: var(--color-text-light); background: #121212; }
 .footer-inner { display: grid;
         grid-template-columns: minmax(0, 400px) auto minmax(0, 380px) auto; justify-content: space-between; gap: 96px; width: 100%; max-width: none; margin: 0; }
-.footer h4 { margin: 0 0 var(--nv-space-md); color: #fae385; font: var(--w-zwischentitel) var(--t-zwischentitel)/1.2 "Exo 2",Inter,Arial,sans-serif; letter-spacing: 0.06em; text-transform: uppercase; }
+.footer h4, .footer .footer-col__title { margin: 0 0 var(--nv-space-md); color: #fae385; font: var(--w-zwischentitel) var(--t-zwischentitel)/1.2 "Exo 2",Inter,Arial,sans-serif; letter-spacing: 0.06em; text-transform: uppercase; }
 .footer a:not(.footer-top):not(.footer-social a), .footer p { display: block; margin: 0 0 7px; color: #c4ccc6; font: 400 15px/1.7 Inter, Arial, sans-serif; text-decoration: none; }
 .footer-col--about p { color: #aab2ad; }
 .footer a:hover, .footer a:focus-visible { color: #fae385; outline: none; }
@@ -529,7 +526,7 @@ a:active .golden-button {
 .footer { background-color: #050505; margin-left: 0px; width: calc(100% - 0px); padding: 54px calc(var(--side) * 2); border-top: 1px solid var(--nv-gold-divider-strong); color: var(--color-text-light); background: #121212; }
 .footer-inner { display: grid;
         grid-template-columns: minmax(0, 400px) auto minmax(0, 380px) auto; justify-content: space-between; gap: 96px; width: 100%; max-width: none; margin: 0; }
-.footer h4 { margin: 0 0 var(--nv-space-md); color: #fae385; font: var(--w-zwischentitel) var(--t-zwischentitel)/1.2 "Exo 2",Inter,Arial,sans-serif; letter-spacing: 0.06em; text-transform: uppercase; }
+.footer h4, .footer .footer-col__title { margin: 0 0 var(--nv-space-md); color: #fae385; font: var(--w-zwischentitel) var(--t-zwischentitel)/1.2 "Exo 2",Inter,Arial,sans-serif; letter-spacing: 0.06em; text-transform: uppercase; }
 .footer a:not(.footer-top):not(.footer-social a), .footer p { display: block; margin: 0 0 7px; color: #c4ccc6; font: 400 15px/1.7 Inter, Arial, sans-serif; text-decoration: none; }
 .footer-col--about p { color: #aab2ad; }
 .footer a:hover, .footer a:focus-visible { color: #fae385; outline: none; }
@@ -846,19 +843,36 @@ h1, main > section > .section-inner > h2 {
   .header-cta .golden-button { padding: 0 .4em; font-size: 9.5px; gap: 5px; }
   .header-cta .nv-calendly-icon { width: 14px; height: 14px; }
 }
+
+.skip-link { position: absolute; left: 12px; top: -60px; z-index: 200; padding: 10px 16px; border-radius: 0 0 8px 8px; background: #0a0d0b; color: #fae385; font: 600 14px/1 Inter, Arial, sans-serif; text-decoration: none; border: 1px solid #8a6a24; transition: top 0.15s ease; }
+.skip-link:focus-visible { top: 0; outline: none; }
 </style>
+
+<link rel="canonical" href="https://nurovelle.de/homepage/analyse.html" />
+<link rel="icon" type="image/svg+xml" href="favicon.svg" />
+<link rel="apple-touch-icon" href="assets/hero/round.png" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Nurovelle" />
+<meta property="og:locale" content="de_DE" />
+<meta property="og:url" content="https://nurovelle.de/homepage/analyse.html" />
+<meta property="og:title" content="Nurovelle | KI-Potenzialanalyse" />
+<meta property="og:description" content="Die KI-Potenzialanalyse zeigt, welche Prozesse für KI oder Automatisierung geeignet sind, welche Voraussetzungen fehlen und welche nächsten Schritte sinnvoll sind." />
+<meta property="og:image" content="https://nurovelle.de/homepage/assets/hero/round.png" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="theme-color" content="#050505" />
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Ist die Analyse wirklich kostenlos?", "acceptedAnswer": {"@type": "Answer", "text": "Ja. Die erste Einschätzung ist kostenlos und dient dazu, sinnvolle Potenziale zu erkennen."}}, {"@type": "Question", "name": "Muss bereits ein KI-System vorhanden sein?", "acceptedAnswer": {"@type": "Answer", "text": "Nein. Die Analyse startet bei Ihren bestehenden Abläufen, Daten und Aufgaben."}}, {"@type": "Question", "name": "Für welche Unternehmen passt das?", "acceptedAnswer": {"@type": "Answer", "text": "Für Unternehmen mit wiederkehrenden Aufgaben, manuellen Dokumentenprozessen oder verteilten Datenquellen."}}, {"@type": "Question", "name": "Welche Bereiche werden untersucht?", "acceptedAnswer": {"@type": "Answer", "text": "Untersucht werden Prozesse, Dokumente, Datenflüsse, Wissenszugriffe, Systembrüche und standardisierte Kommunikationsvorgänge."}}, {"@type": "Question", "name": "Ersetzt die Analyse eine technische Konzeption?", "acceptedAnswer": {"@type": "Answer", "text": "Nein. Sie dient der Ersteinschätzung und Priorisierung. Für die Umsetzung kann anschließend eine technische Detailkonzeption erforderlich sein."}}, {"@type": "Question", "name": "Wie werden Anwendungsfälle priorisiert?", "acceptedAnswer": {"@type": "Answer", "text": "Bewertet werden Nutzen, Häufigkeit, Datenlage, Integrationsaufwand, Risiko und Erweiterbarkeit."}}, {"@type": "Question", "name": "Was erhalte ich als Ergebnis?", "acceptedAnswer": {"@type": "Answer", "text": "Sie erhalten eine strukturierte Einordnung der identifizierten Potenziale und Empfehlungen für die nächsten Schritte."}}, {"@type": "Question", "name": "Was folgt nach der Analyse?", "acceptedAnswer": {"@type": "Answer", "text": "Je nach Ergebnis kann eine KI-Roadmap, ein Pilotprojekt oder zunächst eine vorbereitende Prozess- und Datenarbeit folgen."}}]}</script>
 </head>
 <body>
-<body>
+<a class="skip-link" href="#inhalt">Zum Inhalt springen</a>
 <header class="site-header">
   <div class="header-inner">
     <a class="logo-link" href="index.html" aria-label="Nurovelle Startseite">
       <span class="logo-spin" aria-hidden="true"></span>
 
-            <img class="logo-wordmark" src="assets/hero/Nurovelle_schrift.png" alt="Nurovelle — Building Intelligent Systems" />
+            <img class="logo-wordmark" src="assets/hero/Nurovelle_schrift.png" alt="Nurovelle — Building Intelligent Systems" width="1098" height="250" />
           </a>
 
-            <img class="logo-wordmark" src="assets/hero/Nurovelle_schrift.png" alt="Nurovelle — Building Intelligent Systems" />
+            <img class="logo-wordmark" src="assets/hero/Nurovelle_schrift.png" alt="Nurovelle — Building Intelligent Systems" width="1098" height="250" />
           </a>
 
     <nav class="nv-breadcrumb" aria-label="Hauptnavigation">
@@ -866,10 +880,19 @@ h1, main > section > .section-inner > h2 {
         <summary class="nv-breadcrumb__trigger"><span>Leistungen</span></summary>
         <summary class="nv-breadcrumb__trigger"><span>Leistungen</span></summary>
         <div class="nv-breadcrumb__menu">
-          <a href="index.html">Startseite</a>
-          <a href="index.html">Startseite</a>
-          <a href="index.html#warum-nurovelle">Warum Nurovelle</a>
-          <a href="index.html#leistungen">KI-Leistungen</a>
+          <a href="index.html#leistungen">Alle Leistungen</a>
+          <a href="analyse.html">Potenzialanalyse</a>
+          <a href="detail_roadmap.html">KI-Roadmap</a>
+          <a href="detail_ki-agenten.html">KI-Agenten</a>
+          <a href="detail_chatbots.html">Chatbots</a>
+          <a href="detail_sprachassistenten.html">Sprachassistenten</a>
+          <a href="detail_automationen.html">KI-Automationen</a>
+          <a href="detail_ki-sicherheit.html">KI-Governance</a>
+          <a href="detail_workflows.html">Prozessautomatisierung</a>
+          <a href="detail_datenabgleich.html">Daten-Abgleich</a>
+          <a href="detail_ki-software.html">KI-Software</a>
+          <a href="detail_seo.html">SEO-Systeme</a>
+          <a href="detail_prompt-engineering.html">Prompt Engineering</a>
         </div>
       </details>
       <details class="nv-breadcrumb__group">
@@ -880,17 +903,18 @@ h1, main > section > .section-inner > h2 {
           <a href="index.html#ki-projekt-start">Erster Schritt</a>
           <a href="index.html#projektidee">Projektidee</a>
           <a href="index.html#potenzialanalyse">Potenzialanalyse</a>
-          <a href="index.html#formular">Formular</a>
+          <a href="index.html#potenzialanalyse">Formular</a>
           <a href="index.html#ki-projekt-start">Erster Schritt</a>
           <a href="index.html#projektidee">Projektidee</a>
           <a href="index.html#potenzialanalyse">Potenzialanalyse</a>
-          <a href="index.html#formular">Formular</a>
+          <a href="index.html#potenzialanalyse">Formular</a>
         </div>
       </details>
       <details class="nv-breadcrumb__group">
         <summary class="nv-breadcrumb__trigger"><span>Zusammenarbeit</span></summary>
         <summary class="nv-breadcrumb__trigger"><span>Zusammenarbeit</span></summary>
         <div class="nv-breadcrumb__menu">
+          <a href="detail_warum-nurovelle.html">Warum Nurovelle</a>
           <a href="index.html#prozess-zur-loesung">Prozess</a>
           <a href="index.html#downloads">Downloads</a>
           <a href="index.html#kontakt">Kontakt</a>
@@ -910,174 +934,7 @@ h1, main > section > .section-inner > h2 {
     </a>
   </div>
 </header>
-<main>
-<!-- ============================ HERO ============================ -->
-<section class="section section--landing"><div class="section-inner detail-hero"><div><div class="kicker">KI-Potenzialanalyse</div><h1>Potenziale erkennen</h1><p class="sub">Bevor Zeit und Budget in eine KI-Lösung fließen.</p><p class="lead">Die KI-Potenzialanalyse zeigt, welche Prozesse für KI oder Automatisierung geeignet sind, welche Voraussetzungen fehlen und welche nächsten Schritte sinnvoll sind. Grundlage ist Ihr tatsächlicher Betrieb: bestehende Abläufe, Datenquellen und Systeme statt allgemeiner Annahmen. Sie erhalten eine priorisierte Übersicht der Handlungsfelder, bevor eine Software ausgewählt oder ein Projekt gestartet wird.</p><div class="actions"><a class="btn" href="#analyse-formular">KI-Potenzialanalyse starten</a></div></div><div class="visual-card"><img src="assets/Module/Ablauf/ki_potential.png" alt="KI-Potenzialanalyse"/></div></div></section>
-<!-- ===== cards ===== -->
-<section class="section section--landing"><div class="section-inner content-grid"><article class="panel"><h2>Was analysiert wird</h2><p class="sub">Prozesse, Aufgaben, Daten und bestehende Systeme.</p><p>Untersucht werden wiederkehrende Tätigkeiten, manuelle Übergaben, Dokumentenprozesse, Datenflüsse und technische Abhängigkeiten.</p><ul class="card-bullets"><li>Prozesse</li><li>Aufgaben</li><li>Dokumente</li><li>Daten</li><li>Systeme</li></ul></article><article class="panel summary"><h2>Klare Entscheidungsgrundlage</h2><p class="sub">Sinnvolle Anwendungsfälle erkennen und ungeeignete Investitionen vermeiden.</p><p>Die Analyse bewertet Potenziale nach Nutzen, Aufwand, Risiken und Umsetzungsreife.</p><p>Das Ergebnis ist eine priorisierte Übersicht geeigneter Handlungsfelder und eine belastbare Grundlage für den nächsten Schritt.</p></article></div></section>
-<!-- ===== textcols ===== -->
-<section class="section section--landing" id="was-ist-das"><div class="section-inner">
-<div class="kicker">Definition</div>
-<h2>Was ist eine KI-Potenzialanalyse?</h2>
-<p class="sub">Eine KI-Potenzialanalyse ist eine strukturierte Ersteinschätzung betrieblicher Abläufe.</p>
-<div class="text-cols text-cols--1">
-<p>Sie zeigt, an welchen Stellen KI, Automatisierung oder datenbasierte Systeme einen nachvollziehbaren Nutzen erzeugen können. Dabei werden nicht einzelne Werkzeuge betrachtet, sondern Prozesse, Datenquellen, Systemgrenzen und organisatorische Voraussetzungen.</p>
-<p>Das Ergebnis ist eine priorisierte Übersicht geeigneter Handlungsfelder.</p>
-</div>
-</div></section>
-<!-- ===== labellist ===== -->
-<section class="section" id="warum"><div class="section-inner">
-<div class="kicker">Ausgangslage</div>
-<h2>Warum ist die Analyse entscheidend?</h2>
-<ul class="label-list">
-<li><strong>Unklare Anwendungsfälle</strong>Nicht jede technisch mögliche KI-Anwendung ist fachlich oder wirtschaftlich sinnvoll.</li>
-<li><strong>Fehlende Prozessabgrenzung</strong>Automatisierung erfordert klar definierte Eingaben, Bearbeitungsschritte, Ausnahmen und Ergebnisse.</li>
-<li><strong>Unzureichende Datenbasis</strong>Fehlende, widersprüchliche oder schwer zugängliche Daten begrenzen die Qualität späterer Systeme.</li>
-<li><strong>Technische Abhängigkeiten</strong>Schnittstellen, Rechte, Softwarearchitektur und Systemverfügbarkeit beeinflussen die Umsetzbarkeit.</li>
-<li><strong>Ungeklärte Risiken</strong>Datenschutz, Informationssicherheit und menschliche Kontrollpunkte müssen früh berücksichtigt werden.</li>
-<li><strong>Fehlende Priorisierung</strong>Mehrere Ideen benötigen eine einheitliche Bewertung nach Nutzen, Aufwand, Risiko und Umsetzungsreife.</li>
-</ul>
-</div></section>
-<!-- ===== numlist ===== -->
-<section class="section" id="leistungen"><div class="section-inner">
-<div class="kicker">Leistungsumfang</div>
-<h2>Unsere Leistungen innerhalb der Potenzialanalyse</h2>
-<ol class="num-list">
-<li><b>Prozesserfassung</b><span>Wiederkehrende Abläufe, manuelle Bearbeitungsschritte, Übergaben und Medienbrüche werden strukturiert erfasst.</span></li>
-<li><b>Aufgabenklassifikation</b><span>Tätigkeiten werden nach Regelgebundenheit, Informationsbedarf, Entscheidungsanteil und Automatisierbarkeit eingeordnet.</span></li>
-<li><b>Datenprüfung</b><span>Relevante Datenquellen, Formate, Zugriffsrechte, Aktualität und Qualität werden geprüft.</span></li>
-<li><b>Systemanalyse</b><span>Bestehende Anwendungen, Schnittstellen und technische Abhängigkeiten werden berücksichtigt.</span></li>
-<li><b>Anwendungsfallentwicklung</b><span>Aus den analysierten Prozessen werden konkrete KI- und Automatisierungsanwendungen abgeleitet.</span></li>
-<li><b>Nutzenbewertung</b><span>Mögliche Verbesserungen bei Bearbeitungszeit, Fehlerquote, Informationszugriff und Prozessqualität werden eingeordnet.</span></li>
-<li><b>Risikobewertung</b><span>Datenschutz, Informationssicherheit, Fehlentscheidungen und notwendige Freigaben werden dokumentiert.</span></li>
-<li><b>Priorisierung</b><span>Die identifizierten Anwendungsfälle werden nach Nutzen, Aufwand, Risiko und Umsetzungsreife geordnet.</span></li>
-</ol>
-</div></section>
-<!-- ===== pairs ===== -->
-<section class="section" id="einsatzbereiche"><div class="section-inner">
-<div class="kicker">Anwendung</div>
-<h2>Typische Einsatzbereiche und was damit möglich wird</h2>
-<p class="sub">Die Potenzialanalyse schafft eine belastbare Grundlage für weitere Entscheidungen.</p>
-<article class="panel">
-<div class="pair-grid">
-<div class="pair"><span class="pair-chip"><span class="chip-icon"><img src="assets/cards/service/icons/9.png" alt="" /></span>Dokumentenverarbeitung</span><span class="pair-arrow"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-chev"/></svg></span><span class="pair-chip pair-chip--gold"><span class="chip-icon"><img src="assets/cards/service/icons/10.png" alt="" /></span>Entwicklung eines Dokumenten- oder Datenabgleichsystems</span></div>
-<div class="pair"><span class="pair-chip"><span class="chip-icon"><img src="assets/cards/service/icons/5.png" alt="" /></span>interne Wissenssysteme</span><span class="pair-arrow"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-chev"/></svg></span><span class="pair-chip pair-chip--gold"><span class="chip-icon"><img src="assets/cards/service/icons/9.png" alt="" /></span>Einführung eines Wissenssystems</span></div>
-<div class="pair"><span class="pair-chip"><span class="chip-icon"><img src="assets/cards/service/icons/10.png" alt="" /></span>Datenabgleich und Datenbereinigung</span><span class="pair-arrow"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-chev"/></svg></span><span class="pair-chip pair-chip--gold"><span class="chip-icon"><img src="assets/cards/service/icons/8.png" alt="" /></span>Vorbereitung von Daten, Prozessen oder Schnittstellen</span></div>
-<div class="pair"><span class="pair-chip"><span class="chip-icon"><img src="assets/cards/service/icons/8.png" alt="" /></span>Prozessautomatisierung</span><span class="pair-arrow"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-chev"/></svg></span><span class="pair-chip pair-chip--gold"><span class="chip-icon"><img src="assets/cards/service/icons/10.png" alt="" /></span>Automatisierung eines bestehenden Workflows</span></div>
-<div class="pair"><span class="pair-chip"><span class="chip-icon"><img src="assets/cards/service/icons/3.png" alt="" /></span>Vertriebs- und Serviceunterstützung</span><span class="pair-arrow"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-chev"/></svg></span><span class="pair-chip pair-chip--gold"><span class="chip-icon"><img src="assets/cards/service/icons/7.png" alt="" /></span>Umsetzung eines klar abgegrenzten Pilotprojekts</span></div>
-<div class="pair"><span class="pair-chip"><span class="chip-icon"><img src="assets/cards/service/icons/4.png" alt="" /></span>Chatbots und Sprachassistenten</span><span class="pair-arrow"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-chev"/></svg></span><span class="pair-chip pair-chip--gold"><span class="chip-icon"><img src="assets/cards/service/icons/5.png" alt="" /></span>Aufbau eines KI-Agenten</span></div>
-<div class="pair"><span class="pair-chip"><span class="chip-icon"><img src="assets/cards/service/icons/4.png" alt="" /></span>KI-Agenten</span><span class="pair-arrow"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-chev"/></svg></span><span class="pair-chip pair-chip--gold"><span class="chip-icon"><img src="assets/cards/service/icons/2.png" alt="" /></span>Entwicklung einer KI-Roadmap</span></div>
-<div class="pair"><span class="pair-chip"><span class="chip-icon"><img src="assets/cards/service/icons/6.png" alt="" /></span>Erweiterung bestehender Software</span><span class="pair-arrow"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-chev"/></svg></span><span class="pair-chip pair-chip--gold"><span class="chip-icon"><img src="assets/cards/service/icons/4.png" alt="" /></span>Integration von KI in vorhandene Software</span></div>
-<div class="pair"><span class="pair-chip"><span class="chip-icon"><img src="assets/cards/service/icons/11.png" alt="" /></span>SEO- und Contentprozesse</span><span class="pair-arrow"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-chev"/></svg></span><span class="pair-chip pair-chip--gold"><span class="chip-icon"><img src="assets/cards/service/icons/10.png" alt="" /></span>Aufbau einer SEO- und Content-Automatisierung</span></div>
-<div class="pair"><span class="pair-chip"><span class="chip-icon"><img src="assets/cards/service/icons/1.png" alt="" /></span>Berichtserstellung und Auswertung</span><span class="pair-arrow"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-chev"/></svg></span><span class="pair-chip pair-chip--gold"><span class="chip-icon"><img src="assets/cards/service/icons/10.png" alt="" /></span>Einführung eines automatisierten Berichtssystems</span></div>
-</div>
-<p class="text text--after">Nicht jedes identifizierte Potenzial führt unmittelbar zu einer technischen Umsetzung. In einzelnen Fällen ist zunächst eine Standardisierung, Datenbereinigung oder organisatorische Klärung erforderlich.</p>
-</article>
-</div></section>
-<!-- ===== labellist ===== -->
-<section class="section" id="nutzen"><div class="section-inner">
-<div class="kicker">Ihr Nutzen</div>
-<h2>Ihr Nutzen aus der Potenzialanalyse</h2>
-<ul class="label-list">
-<li><strong>Klare Handlungsfelder</strong>Geeignete Anwendungsfälle werden von allgemeinen oder technisch ungeeigneten Ideen getrennt.</li>
-<li><strong>Nachvollziehbare Prioritäten</strong>Vorhaben werden anhand einheitlicher Kriterien bewertet.</li>
-<li><strong>Vermeidung ungeeigneter Investitionen</strong>Software, Lizenzen und Entwicklungen werden nicht ohne belastbare Grundlage ausgewählt.</li>
-<li><strong>Frühzeitige Risikoerkennung</strong>Datenschutz, Sicherheitsanforderungen und technische Abhängigkeiten werden vor der Umsetzung sichtbar.</li>
-<li><strong>Bessere Planbarkeit</strong>Datenarbeiten, Schnittstellen und organisatorische Voraussetzungen können früh eingeplant werden.</li>
-<li><strong>Grundlage für den nächsten Schritt</strong>Das Ergebnis zeigt, ob eine Roadmap, ein Pilotprojekt, eine Prozessbereinigung oder eine technische Detailanalyse sinnvoll ist.</li>
-</ul>
-</div></section>
-<!-- ===== cta_form ===== -->
-<section class="section" id="analyse-formular"><div class="section-inner">
-<div class="kicker">Potenzialanalyse starten</div>
-<h2>Kostenlose Potenzialanalyse starten.</h2>
-<p class="sub">Kurze Angaben reichen für die erste Einordnung. Das Formular bleibt bewusst kompakt.</p>
-<div class="analysis-layout">
-<div class="result-strip" id="nurovelle-analysis-result">
-<div>
-<h3 id="nurovelle-analysis-result-title">Was Sie danach erhalten</h3>
-<p id="nurovelle-analysis-result-copy">Eine klare erste Einschätzung, ob und wo sich KI-Automatisierung lohnt. Fokus: Aufwand, Nutzen, Priorität und ein sinnvoller nächster Schritt.</p>
-<a class="analysis-result-link" id="nurovelle-analysis-result-link" href="#" hidden>Ergebnis öffnen</a>
-</div>
-<ul class="result-points" id="nurovelle-analysis-result-points">
-<li>Prozess-Einschätzung</li>
-<li>Automatisierungs-Potenzial</li>
-<li>Priorisierte Empfehlung</li>
-<li>Nächster Schritt</li>
-</ul>
-</div>
-<form class="form-panel" action="analyse.html" method="get" id="nurovelle-analysis-form">
-<h3>Potenzialanalyse starten</h3>
-<div class="form-grid">
-<input autocomplete="given-name" name="vorname" placeholder="Vorname" required="" type="text"/>
-<input autocomplete="family-name" name="nachname" placeholder="Nachname" required="" type="text"/>
-<input autocomplete="email" name="email" placeholder="E-Mail-Adresse" required="" type="email"/>
-<input autocomplete="organization" name="unternehmen" placeholder="Unternehmen" required="" type="text"/>
-<select name="branche" required="">
-<option value="">Branche auswählen</option>
-<option>Energie &amp; Versorgung</option>
-<option>Finanzen &amp; Versicherung</option>
-<option>Industrie &amp; Produktion</option>
-<option>Verwaltung, Vertrieb, Einkauf &amp; Marketing</option>
-<option>Gesundheitswesen &amp; Pflege</option>
-<option>Immobilien &amp; Facility Management</option>
-<option>Bildung &amp; Forschung</option>
-<option>Dienstleistungen &amp; KMU</option>
-<option>Sonstiges</option>
-</select>
-<select name="mitarbeiteranzahl">
-<option value="">Unternehmensgröße optional</option>
-<option>Einzelunternehmer / Freelancer</option>
-<option>2–10 Mitarbeiter</option>
-<option>11–50 Mitarbeiter</option>
-<option>51–250 Mitarbeiter</option>
-<option>250+ Mitarbeiter</option>
-</select>
-<select name="zeitaufwand" required=""><option value="">Aktuellen Zeitaufwand auswählen</option><option>unter 5 Stunden pro Woche</option><option>5–10 Stunden pro Woche</option><option>10–25 Stunden pro Woche</option><option>25+ Stunden pro Woche</option></select>
-<select name="datenlage" required=""><option value="">Datenlage auswählen</option><option>E-Mails / Dokumente</option><option>Tabellen / CSV</option><option>CRM / ERP / Fachsystem</option><option>mehrere Quellen</option><option>noch unklar</option></select>
-<textarea name="herausforderung" placeholder="Beschreiben Sie den Prozess, den Sie prüfen möchten: Aufgabe, Zeitaufwand, Datenquellen und aktuelles Problem." required=""></textarea>
-<input autocomplete="tel" name="telefon" placeholder="Telefon optional" type="tel"/>
-<input autocomplete="url" name="website" placeholder="Website optional" type="url"/>
-<div class="hp-field" aria-hidden="true">
-<label>Bitte dieses Feld leer lassen <input autocomplete="off" name="website_confirmation" tabindex="-1" type="text"/></label>
-</div>
-<label class="consent-row">
-<input name="privacy_consent" type="checkbox" value="yes" required/>
-<span><strong>Datenschutzerklärung akzeptieren (Pflichtfeld).</strong> Ich habe die <a href="datenschutz.html">Datenschutzerklärung</a> gelesen und bin mit der Verarbeitung meiner Angaben zur Durchführung der Potenzialanalyse einverstanden.</span>
-</label>
-<label class="consent-row">
-<input name="newsletter" type="checkbox" value="yes"/>
-<span><strong>Newsletter und Follow-up-Hinweise erhalten.</strong> Ich möchte passende Hinweise zur Potenzialanalyse per E-Mail erhalten.</span>
-</label>
-<button class="hero-cta" type="submit" id="nurovelle-analysis-submit">
-<span class="golden-button">
-<svg class="nv-calendly-icon" aria-hidden="true">
-<use href="#nv-calendly-mark"></use>
-</svg>
-<span class="golden-text">Potenzialanalyse starten</span>
-</span>
-</button>
-</div>
-<div class="analysis-status" id="nurovelle-analysis-status" aria-live="polite"></div>
-<p class="form-note">Ihre Angaben werden ausschließlich zur Durchführung und Auswertung der Potenzialanalyse verwendet. Personenbezogene Angaben werden nach Abschluss gelöscht; interne Auswertungen erfolgen nur anonymisiert. Details stehen in der <a href="datenschutz.html">Datenschutzerklärung</a>.</p>
-</form>
-</div>
-</div></section>
-<!-- ===== faq ===== -->
-<section class="section" id="faq"><div class="section-inner">
-<div class="kicker">Häufige Fragen</div>
-<h2>FAQ</h2>
-<div class="faq-grid">
-<details class="faq-item"><summary><span>Ist die Analyse wirklich kostenlos?</span></summary><p>Ja. Die erste Einschätzung ist kostenlos und dient dazu, sinnvolle Potenziale zu erkennen.</p></details>
-<details class="faq-item"><summary><span>Muss bereits ein KI-System vorhanden sein?</span></summary><p>Nein. Die Analyse startet bei Ihren bestehenden Abläufen, Daten und Aufgaben.</p></details>
-<details class="faq-item"><summary><span>Für welche Unternehmen passt das?</span></summary><p>Für Unternehmen mit wiederkehrenden Aufgaben, manuellen Dokumentenprozessen oder verteilten Datenquellen.</p></details>
-<details class="faq-item"><summary><span>Welche Bereiche werden untersucht?</span></summary><p>Untersucht werden Prozesse, Dokumente, Datenflüsse, Wissenszugriffe, Systembrüche und standardisierte Kommunikationsvorgänge.</p></details>
-<details class="faq-item"><summary><span>Ersetzt die Analyse eine technische Konzeption?</span></summary><p>Nein. Sie dient der Ersteinschätzung und Priorisierung. Für die Umsetzung kann anschließend eine technische Detailkonzeption erforderlich sein.</p></details>
-<details class="faq-item"><summary><span>Wie werden Anwendungsfälle priorisiert?</span></summary><p>Bewertet werden Nutzen, Häufigkeit, Datenlage, Integrationsaufwand, Risiko und Erweiterbarkeit.</p></details>
-<details class="faq-item"><summary><span>Was erhalte ich als Ergebnis?</span></summary><p>Sie erhalten eine strukturierte Einordnung der identifizierten Potenziale und Empfehlungen für die nächsten Schritte.</p></details>
-<details class="faq-item"><summary><span>Was folgt nach der Analyse?</span></summary><p>Je nach Ergebnis kann eine KI-Roadmap, ein Pilotprojekt oder zunächst eine vorbereitende Prozess- und Datenarbeit folgen.</p></details>
-</div>
-</div></section>
+<main id="inhalt">
 <!-- ============================ HERO ============================ -->
 <section class="section section--landing"><div class="section-inner detail-hero"><div><div class="kicker">KI-Potenzialanalyse</div><h1>Potenziale erkennen</h1><p class="sub">Bevor Zeit und Budget in eine KI-Lösung fließen.</p><p class="lead">Die KI-Potenzialanalyse zeigt, welche Prozesse für KI oder Automatisierung geeignet sind, welche Voraussetzungen fehlen und welche nächsten Schritte sinnvoll sind. Grundlage ist Ihr tatsächlicher Betrieb: bestehende Abläufe, Datenquellen und Systeme statt allgemeiner Annahmen. Sie erhalten eine priorisierte Übersicht der Handlungsfelder, bevor eine Software ausgewählt oder ein Projekt gestartet wird.</p><div class="actions"><a class="btn" href="#analyse-formular">KI-Potenzialanalyse starten</a></div></div><div class="visual-card visual-card--empty" aria-hidden="true"></div></div></section>
 <!-- ===== cards ===== -->
@@ -1127,16 +984,16 @@ h1, main > section > .section-inner > h2 {
 <p class="sub">Die Potenzialanalyse schafft eine belastbare Grundlage für weitere Entscheidungen.</p>
 <article class="panel">
 <div class="pair-grid">
-<div class="pair"><span class="pair-chip"><span class="chip-icon"><img src="assets/cards/service/icons/9.png" alt="" /></span>Dokumentenverarbeitung</span><span class="pair-arrow"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-chev"/></svg></span><span class="pair-chip pair-chip--gold"><span class="chip-icon"><img src="assets/cards/service/icons/10.png" alt="" /></span>Entwicklung eines Dokumenten- oder Datenabgleichsystems</span></div>
-<div class="pair"><span class="pair-chip"><span class="chip-icon"><img src="assets/cards/service/icons/5.png" alt="" /></span>interne Wissenssysteme</span><span class="pair-arrow"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-chev"/></svg></span><span class="pair-chip pair-chip--gold"><span class="chip-icon"><img src="assets/cards/service/icons/9.png" alt="" /></span>Einführung eines Wissenssystems</span></div>
-<div class="pair"><span class="pair-chip"><span class="chip-icon"><img src="assets/cards/service/icons/10.png" alt="" /></span>Datenabgleich und Datenbereinigung</span><span class="pair-arrow"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-chev"/></svg></span><span class="pair-chip pair-chip--gold"><span class="chip-icon"><img src="assets/cards/service/icons/8.png" alt="" /></span>Vorbereitung von Daten, Prozessen oder Schnittstellen</span></div>
-<div class="pair"><span class="pair-chip"><span class="chip-icon"><img src="assets/cards/service/icons/8.png" alt="" /></span>Prozessautomatisierung</span><span class="pair-arrow"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-chev"/></svg></span><span class="pair-chip pair-chip--gold"><span class="chip-icon"><img src="assets/cards/service/icons/10.png" alt="" /></span>Automatisierung eines bestehenden Workflows</span></div>
-<div class="pair"><span class="pair-chip"><span class="chip-icon"><img src="assets/cards/service/icons/3.png" alt="" /></span>Vertriebs- und Serviceunterstützung</span><span class="pair-arrow"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-chev"/></svg></span><span class="pair-chip pair-chip--gold"><span class="chip-icon"><img src="assets/cards/service/icons/7.png" alt="" /></span>Umsetzung eines klar abgegrenzten Pilotprojekts</span></div>
-<div class="pair"><span class="pair-chip"><span class="chip-icon"><img src="assets/cards/service/icons/4.png" alt="" /></span>Chatbots und Sprachassistenten</span><span class="pair-arrow"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-chev"/></svg></span><span class="pair-chip pair-chip--gold"><span class="chip-icon"><img src="assets/cards/service/icons/5.png" alt="" /></span>Aufbau eines KI-Agenten</span></div>
-<div class="pair"><span class="pair-chip"><span class="chip-icon"><img src="assets/cards/service/icons/4.png" alt="" /></span>KI-Agenten</span><span class="pair-arrow"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-chev"/></svg></span><span class="pair-chip pair-chip--gold"><span class="chip-icon"><img src="assets/cards/service/icons/2.png" alt="" /></span>Entwicklung einer KI-Roadmap</span></div>
-<div class="pair"><span class="pair-chip"><span class="chip-icon"><img src="assets/cards/service/icons/6.png" alt="" /></span>Erweiterung bestehender Software</span><span class="pair-arrow"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-chev"/></svg></span><span class="pair-chip pair-chip--gold"><span class="chip-icon"><img src="assets/cards/service/icons/4.png" alt="" /></span>Integration von KI in vorhandene Software</span></div>
-<div class="pair"><span class="pair-chip"><span class="chip-icon"><img src="assets/cards/service/icons/11.png" alt="" /></span>SEO- und Contentprozesse</span><span class="pair-arrow"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-chev"/></svg></span><span class="pair-chip pair-chip--gold"><span class="chip-icon"><img src="assets/cards/service/icons/10.png" alt="" /></span>Aufbau einer SEO- und Content-Automatisierung</span></div>
-<div class="pair"><span class="pair-chip"><span class="chip-icon"><img src="assets/cards/service/icons/1.png" alt="" /></span>Berichtserstellung und Auswertung</span><span class="pair-arrow"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-chev"/></svg></span><span class="pair-chip pair-chip--gold"><span class="chip-icon"><img src="assets/cards/service/icons/10.png" alt="" /></span>Einführung eines automatisierten Berichtssystems</span></div>
+<div class="pair"><span class="pair-chip"><span class="chip-icon"><img src="assets/cards/service/icons/9.png" alt="" width="100" height="100" loading="lazy" /></span>Dokumentenverarbeitung</span><span class="pair-arrow"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-chev"/></svg></span><span class="pair-chip pair-chip--gold"><span class="chip-icon"><img src="assets/cards/service/icons/10.png" alt="" width="100" height="100" loading="lazy" /></span>Entwicklung eines Dokumenten- oder Datenabgleichsystems</span></div>
+<div class="pair"><span class="pair-chip"><span class="chip-icon"><img src="assets/cards/service/icons/5.png" alt="" width="100" height="100" loading="lazy" /></span>interne Wissenssysteme</span><span class="pair-arrow"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-chev"/></svg></span><span class="pair-chip pair-chip--gold"><span class="chip-icon"><img src="assets/cards/service/icons/9.png" alt="" width="100" height="100" loading="lazy" /></span>Einführung eines Wissenssystems</span></div>
+<div class="pair"><span class="pair-chip"><span class="chip-icon"><img src="assets/cards/service/icons/10.png" alt="" width="100" height="100" loading="lazy" /></span>Datenabgleich und Datenbereinigung</span><span class="pair-arrow"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-chev"/></svg></span><span class="pair-chip pair-chip--gold"><span class="chip-icon"><img src="assets/cards/service/icons/8.png" alt="" width="100" height="100" loading="lazy" /></span>Vorbereitung von Daten, Prozessen oder Schnittstellen</span></div>
+<div class="pair"><span class="pair-chip"><span class="chip-icon"><img src="assets/cards/service/icons/8.png" alt="" width="100" height="100" loading="lazy" /></span>Prozessautomatisierung</span><span class="pair-arrow"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-chev"/></svg></span><span class="pair-chip pair-chip--gold"><span class="chip-icon"><img src="assets/cards/service/icons/10.png" alt="" width="100" height="100" loading="lazy" /></span>Automatisierung eines bestehenden Workflows</span></div>
+<div class="pair"><span class="pair-chip"><span class="chip-icon"><img src="assets/cards/service/icons/3.png" alt="" width="100" height="100" loading="lazy" /></span>Vertriebs- und Serviceunterstützung</span><span class="pair-arrow"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-chev"/></svg></span><span class="pair-chip pair-chip--gold"><span class="chip-icon"><img src="assets/cards/service/icons/7.png" alt="" width="100" height="100" loading="lazy" /></span>Umsetzung eines klar abgegrenzten Pilotprojekts</span></div>
+<div class="pair"><span class="pair-chip"><span class="chip-icon"><img src="assets/cards/service/icons/4.png" alt="" width="100" height="100" loading="lazy" /></span>Chatbots und Sprachassistenten</span><span class="pair-arrow"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-chev"/></svg></span><span class="pair-chip pair-chip--gold"><span class="chip-icon"><img src="assets/cards/service/icons/5.png" alt="" width="100" height="100" loading="lazy" /></span>Aufbau eines KI-Agenten</span></div>
+<div class="pair"><span class="pair-chip"><span class="chip-icon"><img src="assets/cards/service/icons/4.png" alt="" width="100" height="100" loading="lazy" /></span>KI-Agenten</span><span class="pair-arrow"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-chev"/></svg></span><span class="pair-chip pair-chip--gold"><span class="chip-icon"><img src="assets/cards/service/icons/2.png" alt="" width="100" height="100" loading="lazy" /></span>Entwicklung einer KI-Roadmap</span></div>
+<div class="pair"><span class="pair-chip"><span class="chip-icon"><img src="assets/cards/service/icons/6.png" alt="" width="100" height="100" loading="lazy" /></span>Erweiterung bestehender Software</span><span class="pair-arrow"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-chev"/></svg></span><span class="pair-chip pair-chip--gold"><span class="chip-icon"><img src="assets/cards/service/icons/4.png" alt="" width="100" height="100" loading="lazy" /></span>Integration von KI in vorhandene Software</span></div>
+<div class="pair"><span class="pair-chip"><span class="chip-icon"><img src="assets/cards/service/icons/11.png" alt="" width="100" height="100" loading="lazy" /></span>SEO- und Contentprozesse</span><span class="pair-arrow"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-chev"/></svg></span><span class="pair-chip pair-chip--gold"><span class="chip-icon"><img src="assets/cards/service/icons/10.png" alt="" width="100" height="100" loading="lazy" /></span>Aufbau einer SEO- und Content-Automatisierung</span></div>
+<div class="pair"><span class="pair-chip"><span class="chip-icon"><img src="assets/cards/service/icons/1.png" alt="" width="100" height="100" loading="lazy" /></span>Berichtserstellung und Auswertung</span><span class="pair-arrow"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-chev"/></svg></span><span class="pair-chip pair-chip--gold"><span class="chip-icon"><img src="assets/cards/service/icons/10.png" alt="" width="100" height="100" loading="lazy" /></span>Einführung eines automatisierten Berichtssystems</span></div>
 </div>
 <p class="text text--after">Nicht jedes identifizierte Potenzial führt unmittelbar zu einer technischen Umsetzung. In einzelnen Fällen ist zunächst eine Standardisierung, Datenbereinigung oder organisatorische Klärung erforderlich.</p>
 </article>
@@ -1249,7 +1106,7 @@ h1, main > section > .section-inner > h2 {
 <footer class="footer" id="footer">
       <div class="footer-inner">
         <div class="footer-col footer-col--about">
-          <h4>Nurovelle</h4>
+          <h3 class="footer-col__title">Nurovelle</h3>
           <p>Individuelle KI-Systeme für reale Geschäftsprozesse.</p>
           <p>
             Nurovelle entwickelt KI-Agenten, Automatisierungssysteme und
@@ -1258,7 +1115,7 @@ h1, main > section > .section-inner > h2 {
           </p>
         </div>
         <div class="footer-col">
-          <h4>Nützliche Links</h4>
+          <h3 class="footer-col__title">Nützliche Links</h3>
           <a href="index.html#hero">Startseite</a>
           <a href="index.html#warum-nurovelle">Über Nurovelle</a>
           <a href="index.html#leistungen">Leistungen</a>
@@ -1268,7 +1125,7 @@ h1, main > section > .section-inner > h2 {
           <a href="index.html#kontakt">Kontakt</a>
         </div>
         <div class="footer-col">
-          <h4>Newsletter</h4>
+          <h3 class="footer-col__title">Newsletter</h3>
           <p>
             Erhalten Sie ausgewählte Informationen zu KI-Agenten,
             Automatisierung, Unternehmenssoftware und neuen Nurovelle-Lösungen
@@ -1294,148 +1151,10 @@ h1, main > section > .section-inner > h2 {
           </form>
         </div>
         <div class="footer-col">
-          <h4>Kontakt</h4>
+          <h3 class="footer-col__title">Kontakt</h3>
           <p>Marburg, Deutschland</p>
           <p><a href="tel:+4964218097347">06421 8097347</a></p>
-          <p><a href="mailto:demo@nurovelle.de">demo@nurovelle.de</a></p>
-          <div class="footer-social" aria-label="Social Media">
-            <a href="index.html#" aria-label="LinkedIn">
-              <svg viewBox="0 0 24 24" aria-hidden="true">
-                <path
-                  fill="currentColor"
-                  d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM9 9h3.8v1.7h.05c.53-1 1.83-2.05 3.77-2.05C20.4 8.65 22 10.9 22 14.2V21h-4v-6c0-1.43-.03-3.27-2-3.27-2 0-2.3 1.56-2.3 3.17V21H9z"
-                />
-              </svg>
-            </a>
-            <a href="index.html#" aria-label="YouTube">
-              <svg viewBox="0 0 24 24" aria-hidden="true">
-                <path
-                  fill="currentColor"
-                  d="M23 12s0-3.2-.4-4.7a2.5 2.5 0 0 0-1.75-1.75C19.3 5.2 12 5.2 12 5.2s-7.3 0-8.85.35A2.5 2.5 0 0 0 1.4 7.3C1 8.8 1 12 1 12s0 3.2.4 4.7a2.5 2.5 0 0 0 1.75 1.75C4.7 18.8 12 18.8 12 18.8s7.3 0 8.85-.35A2.5 2.5 0 0 0 22.6 16.7C23 15.2 23 12 23 12zM9.75 15.02V8.98L15.5 12z"
-                />
-              </svg>
-            </a>
-            <a href="index.html#" aria-label="Instagram">
-              <svg viewBox="0 0 24 24" aria-hidden="true">
-                <path
-                  fill="currentColor"
-                  d="M12 2.2c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.42.56.22.96.48 1.38.9.42.42.68.82.9 1.38.17.42.37 1.06.42 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.42 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.17-1.06.37-2.23.42-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.42a3.7 3.7 0 0 1-1.38-.9 3.7 3.7 0 0 1-.9-1.38c-.17-.42-.37-1.06-.42-2.23C2.21 15.58 2.2 15.2 2.2 12s.01-3.58.07-4.85c.05-1.17.25-1.8.42-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.17 1.06-.37 2.23-.42C8.42 2.21 8.8 2.2 12 2.2zm0 3.05A6.75 6.75 0 1 0 18.75 12 6.75 6.75 0 0 0 12 5.25zm0 11.13A4.38 4.38 0 1 1 16.38 12 4.38 4.38 0 0 1 12 16.38zm6.99-11.4a1.58 1.58 0 1 1-1.57-1.58 1.58 1.58 0 0 1 1.57 1.58z"
-                />
-              </svg>
-            </a>
-            <a href="index.html#" aria-label="GitHub">
-              <svg viewBox="0 0 24 24" aria-hidden="true">
-                <path
-                  fill="currentColor"
-                  d="M12 1.5a10.5 10.5 0 0 0-3.32 20.47c.53.1.72-.23.72-.5v-1.9c-2.93.64-3.55-1.24-3.55-1.24-.48-1.22-1.17-1.55-1.17-1.55-.96-.65.07-.64.07-.64 1.06.08 1.62 1.09 1.62 1.09.94 1.6 2.46 1.14 3.06.87.1-.68.37-1.14.67-1.4-2.34-.27-4.8-1.17-4.8-5.2 0-1.15.4-2.09 1.08-2.83-.1-.27-.47-1.34.1-2.8 0 0 .88-.28 2.88 1.08a10 10 0 0 1 5.24 0c2-1.36 2.88-1.08 2.88-1.08.57 1.46.2 2.53.1 2.8.68.74 1.08 1.68 1.08 2.83 0 4.04-2.47 4.93-4.82 5.19.38.33.72.98.72 1.98v2.93c0 .28.19.61.73.5A10.5 10.5 0 0 0 12 1.5z"
-                />
-              </svg>
-            </a>
-          </div>
-        </div>
-      </div>
-      <div class="footer-bottom">
-        <nav class="footer-legal" aria-label="Rechtliches">
-          <a href="impressum.html">Impressum</a>
-          <a href="datenschutz.html">Datenschutz</a>
-          <a href="agb.html">AGB</a>
-        </nav>
-        <p class="footer-copy">
-          © Nurovelle. By d4sd1ng. All rights reserved.
-        </p>
-        <a class="footer-top" href="#" aria-label="Nach oben">
-          <svg viewBox="0 0 24 24" aria-hidden="true">
-            <path
-              fill="none"
-              stroke="currentColor"
-              stroke-width="3"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              d="M12 19V5M6 11l6-6 6 6"
-            />
-          </svg>
-        </a>
-      </div>
-    </footer>
-
-<svg style="display:none">
-  <symbol id="i-chev" viewBox="0 0 24 24"><path d="M8 4l9 8-9 8" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/></symbol>
-  <symbol id="i-doc" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3h7l4 4v14H7z"/><path d="M14 3v4h4"/><path d="M10 12h5M10 16h5"/></g></symbol>
-  <symbol id="i-book" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19V5a2 2 0 0 1 2-2h14v16H6a2 2 0 0 0-2 2 2 2 0 0 0 2 2h14"/></g></symbol>
-  <symbol id="i-db" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="7" ry="2.5"/><path d="M5 5v14c0 1.4 3.1 2.5 7 2.5s7-1.1 7-2.5V5"/><path d="M5 12c0 1.4 3.1 2.5 7 2.5s7-1.1 7-2.5"/></g></symbol>
-  <symbol id="i-gear" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3.2"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9l2.1 2.1M17 17l2.1 2.1M19.1 4.9L17 7M7 17l-2.1 2.1"/></g></symbol>
-  <symbol id="i-headset" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 14a8 8 0 0 1 16 0"/><rect x="3" y="14" width="4" height="6" rx="1.5"/><rect x="17" y="14" width="4" height="6" rx="1.5"/></g></symbol>
-  <symbol id="i-chat" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v11H9l-5 4z"/><path d="M8 9h8"/></g></symbol>
-  <symbol id="i-bot" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="8" width="14" height="10" rx="2"/><path d="M12 8V5"/><circle cx="12" cy="4" r="1"/><path d="M9.5 12.5v1M14.5 12.5v1"/></g></symbol>
-  <symbol id="i-plus" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M12 9v6M9 12h6"/></g></symbol>
-  <symbol id="i-seo" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="10.5" cy="10.5" r="5.5"/><path d="M15 15l6 6"/></g></symbol>
-  <symbol id="i-chart" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4v16h16"/><path d="M8 16v-5M12 16V8M16 16v-3"/></g></symbol>
-  <symbol id="i-sync" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M20 12a8 8 0 1 1-2.3-5.7"/><path d="M20 3v4h-4"/><path d="M9 12l2 2 4-4"/></g></symbol>
-  <symbol id="i-bulb" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a6 6 0 0 1 4 10.4c-.8.7-1 1.6-1 2.6H9c0-1-.2-1.9-1-2.6A6 6 0 0 1 12 3z"/><path d="M9 19h6M10 22h4"/></g></symbol>
-  <symbol id="i-wrench" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 6.5a4 4 0 0 1 5.2-4.7l-2.9 2.9 2.5 2.5 2.9-2.9a4 4 0 0 1-4.7 5.2L8 19a2.1 2.1 0 1 1-3-3z"/></g></symbol>
-  <symbol id="i-loop" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12a8 8 0 0 1 14-5.3"/><path d="M18 3v4h-4"/><path d="M20 12a8 8 0 0 1-14 5.3"/><path d="M6 21v-4h4"/></g></symbol>
-  <symbol id="i-rocket" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3c3 2 5 6 5 10l-2 2H9l-2-2c0-4 2-8 5-10z"/><circle cx="12" cy="9" r="1.5"/><path d="M9 17l-1.5 4M15 17l1.5 4M12 17v4"/></g></symbol>
-  <symbol id="i-map" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6l5-2 6 2 5-2v14l-5 2-6-2-5 2z"/><path d="M9 4v14M15 6v14"/></g></symbol>
-  <symbol id="i-plug" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3v5M15 3v5"/><path d="M6 8h12v3a6 6 0 0 1-12 0z"/><path d="M12 17v4"/></g></symbol>
-  <symbol id="i-pen" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20l1-4L17 4l3 3L8 19l-4 1z"/><path d="M14 7l3 3"/></g></symbol>
-  <symbol id="i-trend" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h16"/><path d="M5 16l4-4 3 3 6-7"/><path d="M14 8h4v4"/></g></symbol>
-  <symbol id="nv-calendly-mark" viewBox="0 0 64 64">
-    <path d="M50 14C42 7 30 5 20 11C9 17 5 31 10 42C15 53 28 59 40 55C46 53 51 49 54 44" fill="none" stroke="#046bf7" stroke-width="7" stroke-linecap="round" />
-    <path d="M50 22C44 16 35 15 28 19C20 23 17 32 21 40C25 48 35 51 43 47C47 45 50 42 52 38" fill="none" stroke="#12e0f7" stroke-width="6" stroke-linecap="round" />
-    <path d="M47 28C43 24 37 24 34 28C30 32 32 38 36 40C40 42 45 40 48 36" fill="none" stroke="#046bf7" stroke-width="5" stroke-linecap="round" />
-  </symbol>
-</svg>
-      <div class="footer-inner">
-        <div class="footer-col footer-col--about">
-          <h4>Nurovelle</h4>
-          <p>Individuelle KI-Systeme für reale Geschäftsprozesse.</p>
-          <p>
-            Nurovelle entwickelt KI-Agenten, Automatisierungssysteme und
-            datenbasierte Lösungen, die Unternehmen bei wiederkehrenden
-            Abläufen, Wissenszugriff und Datenverarbeitung unterstützen.
-          </p>
-        </div>
-        <div class="footer-col">
-          <h4>Nützliche Links</h4>
-          <a href="index.html#hero">Startseite</a>
-          <a href="index.html#warum-nurovelle">Über Nurovelle</a>
-          <a href="index.html#leistungen">Leistungen</a>
-          <a href="index.html#potenzialanalyse">Potenzialanalyse</a>
-          <a href="index.html#downloads">Downloads</a>
-          <a href="index.html#faq">FAQ</a>
-          <a href="index.html#kontakt">Kontakt</a>
-        </div>
-        <div class="footer-col">
-          <h4>Newsletter</h4>
-          <p>
-            Erhalten Sie ausgewählte Informationen zu KI-Agenten,
-            Automatisierung, Unternehmenssoftware und neuen Nurovelle-Lösungen
-            direkt per E-Mail.
-          </p>
-          <form
-            class="footer-newsletter"
-            action="#"
-            method="post"
-            aria-label="Newsletter abonnieren"
-          >
-            <input
-              class="footer-newsletter__input"
-              type="email"
-              name="email"
-              placeholder="Ihre E-Mail-Adresse"
-              autocomplete="email"
-              required
-            />
-            <button class="footer-newsletter__btn" type="submit">
-              Abonnieren
-            </button>
-          </form>
-        </div>
-        <div class="footer-col">
-          <h4>Kontakt</h4>
-          <p>Marburg, Deutschland</p>
-          <p><a href="tel:+4964218097347">06421 8097347</a></p>
-          <p><a href="mailto:demo@nurovelle.de">demo@nurovelle.de</a></p>
+          <p><a href="mailto:info@nurovelle.de">info@nurovelle.de</a></p>
           <div class="footer-social" aria-label="Social Media">
             <a href="index.html#" aria-label="LinkedIn">
               <svg viewBox="0 0 24 24" aria-hidden="true">
@@ -1527,24 +1246,19 @@ h1, main > section > .section-inner > h2 {
 document.addEventListener("DOMContentLoaded", function () {
   const breadcrumbGroups = [...document.querySelectorAll(".nv-breadcrumb__group")];
   const hoverNavigation = window.matchMedia("(hover: hover) and (pointer: fine)");
-  const breadcrumbGroups = [...document.querySelectorAll(".nv-breadcrumb__group")];
-  const hoverNavigation = window.matchMedia("(hover: hover) and (pointer: fine)");
 
   breadcrumbGroups.forEach(group => {
     let closeTimer = 0;
     const cancelClose = () => { window.clearTimeout(closeTimer); closeTimer = 0; };
-    const cancelClose = () => { window.clearTimeout(closeTimer); closeTimer = 0; };
 
     group.addEventListener("toggle", () => {
       if (!group.open) return;
-      breadcrumbGroups.forEach(otherGroup => { if (otherGroup !== group) otherGroup.open = false; });
       breadcrumbGroups.forEach(otherGroup => { if (otherGroup !== group) otherGroup.open = false; });
     });
 
     group.addEventListener("mouseenter", () => {
       if (!hoverNavigation.matches) return;
       cancelClose();
-      breadcrumbGroups.forEach(otherGroup => { if (otherGroup !== group) otherGroup.open = false; });
       breadcrumbGroups.forEach(otherGroup => { if (otherGroup !== group) otherGroup.open = false; });
       group.open = true;
     });
@@ -1553,7 +1267,6 @@ document.addEventListener("DOMContentLoaded", function () {
       if (!hoverNavigation.matches || group.matches(":focus-within")) return;
       cancelClose();
       closeTimer = window.setTimeout(() => {
-        if (!group.matches(":hover") && !group.matches(":focus-within")) group.open = false;
         if (!group.matches(":hover") && !group.matches(":focus-within")) group.open = false;
       }, 160);
     });
@@ -1564,20 +1277,10 @@ document.addEventListener("DOMContentLoaded", function () {
   document.addEventListener("click", event => {
     if (event.target.closest(".nv-breadcrumb__group")) return;
     breadcrumbGroups.forEach(group => { group.open = false; });
-    breadcrumbGroups.forEach(group => { group.open = false; });
   });
 
   document.addEventListener("keydown", event => {
     if (event.key !== "Escape") return;
-    breadcrumbGroups.forEach(group => { group.open = false; });
-  });
-
-  document.querySelectorAll(".faq-item").forEach(item => {
-    item.addEventListener("toggle", () => {
-      if (!item.open) return;
-      document.querySelectorAll(".faq-item").forEach(other => {
-        if (other !== item) other.open = false;
-      });
     breadcrumbGroups.forEach(group => { group.open = false; });
   });
 
@@ -1773,6 +1476,26 @@ function getFormState(form) {
   };
 }
 
+/* Uebergabe von der Startseite: dort wird das Formular in sessionStorage
+   abgelegt und hierher weitergeleitet. Wird nach dem Lesen verworfen,
+   damit ein spaeterer Aufruf der Seite nicht erneut startet. */
+function prefillFromHandoff(form) {
+  let roh;
+  try { roh = sessionStorage.getItem('nurovelle-analyse-uebergabe'); } catch (err) { return false; }
+  if (!roh) return false;
+  try { sessionStorage.removeItem('nurovelle-analyse-uebergabe'); } catch (err) {}
+  let daten;
+  try { daten = JSON.parse(roh); } catch (err) { return false; }
+  if (!daten || typeof daten !== 'object') return false;
+  for (const [key, value] of Object.entries(daten)) {
+    const field = form.elements.namedItem(key);
+    if (!field) continue;
+    if (field.type === 'checkbox') field.checked = value === 'yes' || value === 'true' || value === 'on';
+    else if ('value' in field) field.value = value;
+  }
+  return true;
+}
+
 function prefillFromQuery(form) {
   const params = new URLSearchParams(window.location.search);
   if (!params.size) return false;
@@ -1940,7 +1663,8 @@ async function startAnalysis(form) {
 }
 
 if (analysisForm) {
-  const wasPrefilled = prefillFromQuery(analysisForm);
+  const vonStartseite = prefillFromHandoff(analysisForm);
+  const wasPrefilled = prefillFromQuery(analysisForm) || vonStartseite;
   analysisForm.addEventListener('submit', (event) => {
     event.preventDefault();
     startAnalysis(analysisForm);

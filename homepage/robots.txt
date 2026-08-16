@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /.history/
+
+Sitemap: https://nurovelle.de/homepage/sitemap.xml

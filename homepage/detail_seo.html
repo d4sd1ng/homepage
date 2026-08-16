@@ -5,13 +5,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>Nurovelle | SEO &amp; digitale Sichtbarkeit</title>
 <meta name="description" content="SEO verbindet technische Optimierung, klare Seitenstrukturen und suchrelevante Inhalte für eine Website, die von Suchmaschinen verstanden wird."/>
-<link rel="preconnect" href="https://fonts.googleapis.com"/>
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;550;600;650;700;750;800&family=Exo+2:wght@600;700;800&display=swap" rel="stylesheet"/>
+<link rel="preload" href="assets/fonts/inter-var-latin.woff2" as="font" type="font/woff2" crossorigin />
+<link rel="stylesheet" href="assets/fonts/fonts.css" />
+<link rel="stylesheet" href="nurovelle.css" />
 <style>
-/* ==========================================================================
-   GEMEINSAMES GERÜST — Header, Buttons, Footer, aus index.html übernommen
-   ========================================================================== */
 :root {
   --sidebar-gold: #d89828;
   --sidebar-gold-light: #e8b048;
@@ -29,481 +26,120 @@
   --shadow-hover-2: rgba(0, 0, 0, 0.23);
 
   --color-bg-black: #080B09;
-  --header-height: 84px;
-  --page-gutter: clamp(18px, 3vw, 32px);
-  --side: clamp(30px, 4.2vw, 56px);
+  --header-height: 67px;
+  --page-gutter: clamp(14.4px, 2.4vw, 25.6px);
+  --side: clamp(24px, 3.36vw, 45px);
 
   --color-text-light: #F5F7F4;
   --color-text-muted: #B9C3BD;
 
   --gold-1: linear-gradient(110deg, #8B641A 0%, #DFBD69 18%, #FFF6BD 34%, #B98424 48%, #F7DF82 66%, #926F34 82%, #E6C45F 100%);
-  --gold-glow: drop-shadow(0 1px 0 rgba(255,245,180,.18)) drop-shadow(0 0 10px rgba(247,239,138,.28)) drop-shadow(0 0 26px rgba(224,170,62,.16));
+  --gold-glow: drop-shadow(0 0.8px 0 rgba(255,245,180,.18)) drop-shadow(0 0 8px rgba(247,239,138,.28)) drop-shadow(0 0 21px rgba(224,170,62,.16));
   --gold-2: linear-gradient(135deg, #DFBD69, #926F34);
   --gold-3: linear-gradient(135deg, #76551A 0%, #AE8625 13%, #F7EF8A 27%, #FFF9C9 33%, #D2AC47 43%, #926F34 57%, #EDC967 72%, #FFF3A1 80%, #9B7423 100%);
-  --frame-glow: 0 1px 0 rgba(255,255,220,.30) inset, 0 -2px 3px rgba(76,46,5,.60) inset, 0 0 0 1px rgba(146,111,52,.55), 0 6px 16px rgba(0,0,0,.42), 0 0 22px rgba(212,175,55,.16);
+  --frame-glow: 0 0.8px 0 rgba(255,255,220,.30) inset, 0 -1.6px 2.4px rgba(76,46,5,.60) inset, 0 0 0 0.8px rgba(146,111,52,.55), 0 4.8px 13px rgba(0,0,0,.42), 0 0 17.6px rgba(212,175,55,.16);
 
-  --t-sektionstitel: clamp(40px, 4.6vw, 72px); --w-sektionstitel: 800;
-  --t-kartentitel: clamp(22px, 1.8vw, 40px);   --w-kartentitel: 700;
-  --t-subtitle: 19px;         --w-subtitle: 600;
-  --t-zwischentitel: clamp(19px, 1.4vw, 24px); --w-zwischentitel: 700;
-  --t-bulletlabel: 17px;      --w-bulletlabel: 500;
-  --t-kartenbullet: 15px;     --w-kartenbullet: 500;
-  --t-fliesstext: 16px;       --w-fliesstext: 400;
-  --t-kicker-sektion: 12px;   --w-kicker-sektion: 600;
-  --t-bildunterschrift: 17px; --w-bildunterschrift: 550;
-  --t-cta: 16px;              --w-cta: 600;
+  --t-sektionstitel: clamp(32px, 3.68vw, 57.6px); --w-sektionstitel: 800;
+  --t-kartentitel: clamp(17.6px, 1.44vw, 32px);   --w-kartentitel: 700;
+  --t-subtitle: 15px;         --w-subtitle: 600;
+  --t-zwischentitel: clamp(15px, 1.12vw, 19px); --w-zwischentitel: 700;
+  --t-bulletlabel: 13.6px;      --w-bulletlabel: 500;
+  --t-kartenbullet: 12px;     --w-kartenbullet: 500;
+  --t-fliesstext: 13px;       --w-fliesstext: 400;
+  --t-kicker-sektion: 9.6px;   --w-kicker-sektion: 600;
+  --t-bildunterschrift: 13.6px; --w-bildunterschrift: 550;
+  --t-cta: 13px;              --w-cta: 600;
 
-  --logo-box: 54px;
-  --logo-w: 58px;
-  --logo-h: 46px;
+  --logo-box: 43px;
+  --logo-w: 46.4px;
+  --logo-h: 37px;
 
   --gold2: #f0a05a;
   --muted: rgba(255,255,255,.78);
-  --content-max: 1560px;
+  --content-max: 1248px;
 }
-* { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; background: #000; scroll-padding-top: var(--header-height); }
-body {
-  zoom: 0.8;
-  margin: 0;
-  background: var(--color-bg-black);
-  color: #fff;
-  font-family: "Inter", Arial, sans-serif;
-  padding-top: var(--header-height);
-  overflow-x: hidden;
-}
-a { text-decoration: none; color: inherit; }
-img { display: block; max-width: 100%; }
 .site-header {
   height: var(--header-height);
   position: fixed;
   top: 0; left: 0; right: 0;
   z-index: 100;
-  border-bottom: 1px solid #E0AA3E;
+  border-bottom: 0.8px solid #E0AA3E;
   background: #080B09;
-  backdrop-filter: blur(8px);
+  backdrop-filter: blur(6.4px);
 }
-.header-inner { position: relative; z-index: 1; height: 100%; padding: 0 var(--page-gutter); display: grid; grid-template-columns: auto minmax(0, 1fr) auto; align-items: center; }
-.logo-wordmark { height: calc(var(--logo-h) * 1); width: auto; display: block; align-self: center; }
-.logo-link { display: inline-flex; align-items: center; gap: 24px; height: var(--logo-box); perspective: 600px; text-decoration: none; flex: 0 0 auto; }
-.logo-spin { 
-  display: block;
-  position: relative;
-  top: -5px; 
-  width: var(--logo-w); 
-  height: var(--logo-h); 
-  animation: nv-logo-y-spin 11.5s linear infinite; 
-  background: url("assets/hero/nurovelle_logo.png") center / contain no-repeat;
-  filter: drop-shadow(0 0 8px #fae3853d); 
-  transform-style: preserve-3d; 
-  transform-origin: center; 
-  will-change: transform; 
-  }
-@keyframes nv-logo-y-spin {
-  from { transform: rotateY(0deg); } 
-  to { transform: rotateY(360deg); } }
-.nv-breadcrumb {
-  display: inline-flex;
-  max-width: 100%;
-  overflow: visible;
-  justify-self: center;
-  white-space: nowrap;
-  filter: drop-shadow(0 12px 18px #00000047);
-}
-.nv-breadcrumb__group { position: relative; }
-.nv-breadcrumb__group + .nv-breadcrumb__group {
-  margin-left: -8px; 
-  }
-.nv-breadcrumb__group:first-child .nv-breadcrumb__trigger {
-  padding-left: 14px; 
-  }
-.nv-breadcrumb__trigger {
-  --nv-crumb-point: 14px;
-  --nv-crumb-bg: linear-gradient(180deg, #112a20eb, #080b09f5); 
-    position: relative;
-    display: flex; 
-    align-items: center; 
-    min-height: 46px; 
-    padding: 0 22px; 
-    color: var(--color-text-light); 
-    background: none; 
-    font-size: 16px; 
-    line-height: 1; 
-    cursor: pointer; 
-    list-style: none; 
-    user-select: none; 
-    transition: color 0.18s ease, transform 0.18s ease; z-index: 1; 
-  }
-.nv-breadcrumb__trigger::-webkit-details-marker { display: none; }
-.nv-breadcrumb__trigger::marker { content: ""; }
-.nv-breadcrumb__trigger > span { position: relative; z-index: 1; }
-.nv-breadcrumb__trigger::before, .nv-breadcrumb__trigger::after {
-  content: "";
-  position: absolute;
-  pointer-events: none;
-  clip-path: polygon(0 0, calc(100% - var(--nv-crumb-point)) 0, 100% 50%, calc(100% - var(--nv-crumb-point)) 100%, 0 100%, var(--nv-crumb-point) 50%);
-  transition: background 0.3s ease, box-shadow 0.3s ease;
-}
-.nv-breadcrumb__trigger::before { 
-  inset: 0; 
-  background: 
-  linear-gradient(135deg, #fae3855c, #0000007a 58%, #fae38524); 
-  z-index: -2; 
-  }
-.nv-breadcrumb__trigger::after { 
-  inset: 1px; 
-  background: 
-  var(--nv-crumb-bg); 
-  z-index: -1; 
-  }
-.nv-breadcrumb__group:first-child .nv-breadcrumb__trigger::before, .nv-breadcrumb__group:first-child .nv-breadcrumb__trigger::after { clip-path: polygon(0 0, calc(100% - var(--nv-crumb-point)) 0, 100% 50%, calc(100% - var(--nv-crumb-point)) 100%, 0 100%); }
-.nv-breadcrumb__group:first-child .nv-breadcrumb__trigger::before { border-radius: 10px 0 0 10px; }
-.nv-breadcrumb__group:first-child .nv-breadcrumb__trigger::after { border-radius: 9px 0 0 9px; }
-.nv-breadcrumb__group[open] .nv-breadcrumb__trigger, .nv-breadcrumb__group:hover .nv-breadcrumb__trigger { --nv-crumb-bg: linear-gradient(180deg, #163a35f2, #0a1913fa); color: #fae385; transform: translateY(-1px); }
-.nv-breadcrumb__group[open] .nv-breadcrumb__trigger::before, .nv-breadcrumb__group:hover .nv-breadcrumb__trigger::before { background: linear-gradient(135deg, #fae385a8, #8b5b12a3 58%, #fae38566); }
-.nv-breadcrumb__group[open] .nv-breadcrumb__trigger::after, .nv-breadcrumb__group:hover .nv-breadcrumb__trigger::after { box-shadow: inset 0 1px 0 #fae38529, 0 5px 14px #00000052; }
-.nv-breadcrumb__menu { position: absolute; top: calc(100% + 6px); left: 12px; z-index: 50; display: none; min-width: 220px; padding: 8px; border: 1px solid transparent; border-radius: 10px; background-image: linear-gradient(#050706,#050706), var(--gold-3); background-origin: border-box; background-clip: padding-box, border-box; box-shadow: 0 18px 38px #000000b8; backdrop-filter: blur(12px); }
-.nv-breadcrumb__group[open] .nv-breadcrumb__menu, .nv-breadcrumb__group:hover .nv-breadcrumb__menu { display: grid; }
-.nv-breadcrumb__menu a { padding: 9px 12px; border-radius: 6px; color: var(--color-text-light); font-size: 15px; line-height: 1.2; }
-.nv-breadcrumb__menu a:hover, .nv-breadcrumb__menu a:focus-visible { color: #fae385; background: #bc881b1a; outline: none; }
-.golden-button {
-  touch-action: manipulation;
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  justify-content: center;
-  min-width: 220px;
-  box-sizing: border-box;
-  height: 2.75em;
-  padding: 0 1em;
-  border: 1px solid var(--nv-gold-border);
-  border-radius: 0.3em;
-  color: var(--nv-gold-text-dark);
-  background-image: var(--nv-gold-gradient);
-  background-position: center;
-  background-size: 100% 100%;
-  box-shadow: 0 3px 6px var(--shadow-soft), 0 3px 6px var(--shadow-soft-2),
-    inset 0 -2px 5px 1px var(--nv-gold-inner-dark), inset 0 -1px 1px 3px var(--nv-gold-highlight);
-  font-family: "Inter", Arial, sans-serif;
-  font-size: 1em;
-  font-weight: 800;
-  line-height: 2.5em;
-  letter-spacing: 0.045em;
-  text-shadow: 0 2px 2px var(--nv-gold-highlight);
-  text-transform: uppercase;
-  white-space: nowrap;
-  cursor: pointer;
-  transition: all 0.2s ease-in-out;
-  position: relative;
-}
-a:hover .golden-button, a:focus-visible .golden-button {
-  color: var(--nv-gold-text-hover);
-  border-color: var(--nv-gold-border-hover);
-  background-size: 150% 150%;
-  transform: translateY(-2px);
-  box-shadow: 0 10px 20px var(--shadow-hover-1), 0 6px 6px var(--shadow-hover-2),
-    inset 0 -2px 5px 1px var(--nv-gold-inner-mid), inset 0 -1px 1px 3px var(--nv-gold-highlight);
-}
-a:active .golden-button {
-  box-shadow: 0 3px 6px var(--shadow-soft), 0 3px 6px var(--shadow-soft-2),
-    inset 0 -2px 5px 1px var(--nv-gold-inner-mid), inset 0 -1px 1px 3px var(--nv-gold-highlight);
-}
-.golden-button .nv-calendly-icon { width: 20px; height: 20px; flex: 0 0 auto; }
-.header-cta { justify-self: end; }
-.header-cta .golden-button { min-width: 0; height: 39.6px; padding: 0 11px; font-size: 12.1px; line-height: 37.4px; letter-spacing: 0.02em; }
-.footer { background-color: #080B09; margin-left: 0px; width: calc(100% - 0px); padding: 54px calc(var(--side) * 2); border-top: 1px solid var(--nv-gold-divider-strong); color: var(--color-text-light); background: #121212; }
-.footer-inner { display: grid;
-        grid-template-columns: minmax(0, 400px) auto minmax(0, 380px) auto; justify-content: space-between; gap: 96px; width: 100%; max-width: none; margin: 0; }
-.footer h4 { margin: 0 0 var(--nv-space-md); color: #fae385; font: var(--w-zwischentitel) var(--t-zwischentitel)/1.2 "Exo 2",Inter,Arial,sans-serif; letter-spacing: 0.06em; text-transform: uppercase; }
-.footer a:not(.footer-top):not(.footer-social a), .footer p { display: block; margin: 0 0 7px; color: #c4ccc6; font: 400 15px/1.7 Inter, Arial, sans-serif; text-decoration: none; }
-.footer-col--about p { color: #aab2ad; }
-.footer a:hover, .footer a:focus-visible { color: #fae385; outline: none; }
-.footer-newsletter { display: flex; gap: 8px; margin-top: 12px; }
-.footer-newsletter__input { flex: 1 1 auto; min-width: 0; height: 42px; padding: 0 12px; border: 1px solid rgba(212, 175, 55, 0.5); border-radius: 6px; color: #f0efe6; background: #0c0c0c; font: 400 14px/1.3 Inter, Arial, sans-serif; outline: none; }
-.footer-newsletter__input::placeholder { color: #8b938d; }
-.footer-newsletter__input:focus { border-color: #d4af37; box-shadow: 0 0 0 2px rgba(212, 175, 55, 0.28); }
-.footer-newsletter__btn { flex: 0 0 auto; height: 42px; padding: 0 18px; border: 0; border-radius: 6px; color: var(--nv-gold-text-dark); background-image: var(--nv-gold-gradient); font: 700 13px/1 Inter, Arial, sans-serif; text-transform: uppercase; letter-spacing: 0.04em; cursor: pointer; transition: filter 0.2s ease; }
-.footer-newsletter__btn:hover, .footer-newsletter__btn:focus-visible { filter: brightness(1.08); outline: none; }
-.footer-social { display: flex; gap: 12px; margin-top: 14px; }
-.footer-social a { display: inline-flex; align-items: center; justify-content: center; width: 38px; height: 38px; margin: 0; border: 1px solid var(--nv-gold-border); border-radius: 8px; color: #783205; background-image: var(--nv-gold-gradient); background-position: center; background-size: 100% 100%; transition: color 0.2s ease, border-color 0.2s ease, background 0.2s ease; }
-.footer-social a svg { width: 19px; height: 19px; }
-.footer-social a:hover, .footer-social a:focus-visible { color: rgba(120, 50, 5, 0.8); background-size: 150% 150%; transform: translateY(-2px); outline: none; }
-.footer-bottom { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px 28px; max-width: none; margin-top: 34px; padding-top: 22px; border-top: 1px solid rgba(212, 175, 55, 0.28); }
-.footer-legal { display: flex; flex-wrap: wrap; gap: 22px; }
-.footer-legal a { display: inline; margin: 0; color: #c4ccc6; font: 500 14px/1.4 Inter, Arial, sans-serif; }
-.footer-copy { margin: 0; color: #8b938d; font: 400 13px/1.4 Inter, Arial, sans-serif; }
-.footer-top { display: inline-flex; align-items: center; justify-content: center; width: 54px; height: 54px; margin: 0; color: #783205; border: 1px solid var(--nv-gold-border); border-radius: 8px; background-image: var(--nv-gold-gradient); background-position: center; background-size: 100% 100%; box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(110, 80, 20, 0.4), inset 0 -2px 5px 1px var(--nv-gold-inner-dark), inset 0 -1px 1px 3px #fae385; transition: color 0.2s ease, background-size 0.2s ease, transform 0.2s ease; }
-.footer-top svg { width: 26px; height: 26px; }
-.footer-top:hover, .footer-top:focus-visible { color: rgba(120, 50, 5, 0.8); background-size: 150% 150%; transform: translateY(-2px); outline: none; }
-.footer-col--about p, .footer-col > a, .footer-legal > a, .footer-copy { color: #b9c3bd; font: 400 15px/1.7 "Inter",Arial,sans-serif; }
-@media (max-width: 900px) {
-  .footer-inner { grid-template-columns: 1fr; gap: 38px; }
-}
-@media (max-width: 640px) {
-  .nv-breadcrumb { display: none; }
-}
-
-/* ==========================================================================
-   DETAILSEITE — Inhalt (Hero, Schwerpunkte, Kernnutzen, Einordnung)
-   ========================================================================== */
-.gold { background: linear-gradient(180deg,#ffd7a3 0%,#f0a05a 22%,#c76b2b 58%,#7a3518 100%); -webkit-background-clip: text; background-clip: text; color: transparent; -webkit-text-fill-color: transparent; }
-.btn { display: inline-flex; align-items: center; justify-content: center; box-sizing: border-box; height: 40px; padding: 0 18px; border: 1px solid var(--nv-gold-border); border-radius: 0.3em; color: var(--nv-gold-text-dark); background-image: var(--nv-gold-gradient); background-position: center; background-size: 100% 100%; box-shadow: 0 3px 6px var(--shadow-soft), 0 3px 6px var(--shadow-soft-2), inset 0 -2px 5px 1px var(--nv-gold-inner-dark), inset 0 -1px 1px 3px var(--nv-gold-highlight); font-family: "Inter",Arial,sans-serif; font-size: var(--t-cta); font-weight: 700; line-height: 1; letter-spacing: 0.045em; text-shadow: 0 2px 2px var(--nv-gold-highlight); text-transform: uppercase; transition: all 0.2s ease-in-out; }
-.btn:hover, .btn:focus-visible { color: var(--nv-gold-text-hover); border-color: var(--nv-gold-border-hover); background-size: 150% 150%; transform: translateY(-2px); box-shadow: 0 10px 20px var(--shadow-hover-1), 0 6px 6px var(--shadow-hover-2), inset 0 -2px 5px 1px var(--nv-gold-inner-mid), inset 0 -1px 1px 3px var(--nv-gold-highlight); }
-.section { position: relative; padding: 88px var(--side); background: #000; }
-.section--landing { padding-block: max(24px, calc(20.83vh - 168px)); }
-
-main > section:nth-child(n+4):before { content: ""; position: absolute; left: 7%; right: 7%; top: 0; height: 2px; background: linear-gradient(90deg,transparent 0%,#E0AA3E 14%,#FAF398 50%,#E0AA3E 86%,transparent 100%); box-shadow: 0 0 8px rgba(250,227,133,.4); }
-.section-inner { max-width: var(--content-max); margin-left: auto; margin-right: auto; }
-.kicker { font: var(--w-kicker-sektion) var(--t-kicker-sektion)/1.15 "Inter",Arial,sans-serif; letter-spacing: .14em; text-transform: uppercase; color: #55863f; margin-bottom: 10px; }
-h1,h2,h3 { font-family: "Exo 2",Inter,Arial,sans-serif; }
-h1 { max-width: 100%; margin-bottom: 22px; font: var(--w-sektionstitel) var(--t-sektionstitel)/1.08 "Exo 2",Inter,Arial,sans-serif; background: var(--gold-1); background-clip: text; -webkit-background-clip: text; color: transparent; -webkit-text-fill-color: transparent; }
-main h2 { font: var(--w-kartentitel) var(--t-kartentitel)/1.15 "Exo 2",Inter,Arial,sans-serif; margin-bottom: 23px; background: var(--gold-1); background-clip: text; -webkit-background-clip: text; color: transparent; -webkit-text-fill-color: transparent; }
-main h3 { font: var(--w-zwischentitel) var(--t-zwischentitel)/1.2 "Exo 2",Inter,Arial,sans-serif; color: #f5f1e8; margin-bottom: 8px; }
-.lead { max-width: 875px; font: var(--w-fliesstext) var(--t-fliesstext)/1.75 "Inter",Arial,sans-serif; color: #b9c3bd; }
-.sub { max-width: 820px; font: var(--w-subtitle) var(--t-subtitle)/1.4 "Inter",Arial,sans-serif; color: #D7DDD9; margin-bottom: 27px; }
-.detail-hero { display: grid; grid-template-columns: minmax(0,1fr) minmax(280px,680px); gap: 56px; align-items: center; }
-.detail-hero .kicker { margin-bottom: 14px; }
-.detail-hero h1 { margin-bottom: 21px; }
-.detail-hero .sub { font-size: 20px; margin-bottom: 39px; }
-.detail-hero .actions { margin-top: 63px; }
-.visual-card { position: relative; overflow: hidden; border: 1.25px solid transparent; border-radius: 10px; background-image: linear-gradient(#080B09,#080B09), var(--gold-3); background-origin: border-box; background-clip: padding-box, border-box; filter: drop-shadow(0 16px 24px rgba(0,0,0,.34)); }
-.visual-card>img:first-child { width: 100%; height: auto; max-height: 230px; object-fit: contain; }
-.visual-card--empty { aspect-ratio: 16 / 9; }
-.content-grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 108px; margin-top: 0; }
-.panel { border: 1.25px solid transparent; border-radius: 10px; background-image: linear-gradient(#080B09,#080B09), var(--gold-3); background-origin: border-box; background-clip: padding-box, border-box; padding: 13px; }
+.footer { background-color: #080B09; margin-left: 0px; width: calc(100% - 0px); padding: 43px calc(var(--side) * 2); border-top: 0.8px solid var(--nv-gold-divider-strong); color: var(--color-text-light); background: #121212; }
+.section { position: relative; padding: 70.4px var(--side); background: #000; }
+.section--landing { padding-block: max(19px, calc(16.66vh - 134.4px)); }
+.sub { max-width: 656px; font: var(--w-subtitle) var(--t-subtitle)/1.4 "Inter",Arial,sans-serif; color: #D7DDD9; margin-bottom: 21.6px; }
 .panel p,.panel li:not(.pair-chip) { font: var(--w-fliesstext) var(--t-fliesstext)/1.7 "Inter",Arial,sans-serif; color: #b9c3bd; }
-.panel p { margin: 0 0 12px; }
-.panel p:last-child { margin-bottom: 0; }
-.panel .sub { font: 600 19px/1.45 "Inter",Arial,sans-serif; color: #F5F7F4; margin: 0 0 24px; }
-.text + .panel, .sub + .panel { margin-top: 26px; }
-.text + .content-grid, .label-list + .content-grid { margin-top: 88px; }
-.num-list + h3, .label-list + h3, .card-bullets + h3 { margin-top: 64px; }
-.text + h3 { margin-top: 48px; }
-h3 + h3 { margin-top: 30px; }
+.text + .panel, .sub + .panel { margin-top: 21px; }
+.text + .content-grid, .label-list + .content-grid { margin-top: 70.4px; }
+.num-list + h3, .label-list + h3, .card-bullets + h3 { margin-top: 51px; }
+.text + h3 { margin-top: 38.4px; }
+h3 + h3 { margin-top: 24px; }
 .panel h2 + .card-bullets { margin-top: 0; }
-.page-seo .panel h2 { margin-bottom: 14px; }
-.card-bullets { list-style: none; margin: 21px 0 0; padding: 0; display: grid; grid-template-columns: repeat(2,max-content); justify-content: start; gap: 10px 48px; }
-.card-bullets li { 
-  position: relative; 
-  padding-left: 20px; 
-  font: var(--w-kartenbullet) var(--t-kartenbullet)/1.4 "Inter",Arial,sans-serif; 
-  background: var(--gold-2); 
-  background-clip: text; 
-  -webkit-background-clip: text; 
-  color: transparent; 
-  -webkit-text-fill-color: transparent; 
-  }
-.card-bullets li::before { 
-  content: ""; 
-  position: absolute; 
-  left: 0; top: calc(50% - 3.5px); 
-  width: 7px; height: 7px; 
-  border-radius: 2px; 
-  background: #DFBD69; 
-  }
-.summary { border: 1px solid rgba(255,215,163,.78); background: linear-gradient(180deg,#ffd7a3 0%,#f0a05a 24%,#d89828 58%,#7a3518 100%); box-shadow: inset 0 0 0 1px rgba(255,244,199,.20),0 8px 16px rgba(0,0,0,.30); }
+.page-seo .panel h2 { margin-bottom: 11px; }
+.card-bullets { list-style: none; margin: 17px 0 0; padding: 0; display: grid; grid-template-columns: repeat(2,max-content); justify-content: start; gap: 8px 38.4px; }
 .summary h2,.summary p { color: #080B09; text-shadow: none; }
-.summary h2 { background: none; -webkit-background-clip: initial; background-clip: initial; color: #112A20; -webkit-text-fill-color: #112A20; }
 .summary .sub { color: #080B09; }
-.summary h3 { color: #0A1913; }
-.summary .dot-list li { color: #0A1913; font: 600 17px/1.55 "Inter",Arial,sans-serif; }
-.summary .dot-list li::before { background: #0A1913; top: 10px; }
-.actions { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 99px; }
-.text-cols { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 18px 48px; margin-top: 9px; }
-.text-cols p { font: var(--w-fliesstext) var(--t-fliesstext)/1.7 "Inter",Arial,sans-serif; color: #b9c3bd; }
-.text-cols--1 { grid-template-columns: minmax(0,1fr); max-width: 1060px; gap: 14px; }
-.label-list { column-count: 2; column-gap: 48px; list-style: none; margin: 97px 0 0; padding: 0; }
-.label-list li { position: relative; break-inside: avoid; margin-bottom: 26px; padding-left: 20px; font: var(--w-fliesstext) var(--t-fliesstext)/1.7 "Inter",Arial,sans-serif; color: #b9c3bd; }
-.label-list li::before { content: ""; position: absolute; left: 0; top: 8px; width: 7px; height: 7px; border-radius: 2px; background: #DFBD69; }
-.label-list strong { display: block; margin-bottom: 4px; font: var(--w-bulletlabel) var(--t-bulletlabel)/1.35 "Inter",Arial,sans-serif; background: var(--gold-2); background-clip: text; -webkit-background-clip: text; color: transparent; -webkit-text-fill-color: transparent; }
-.text { max-width: 88ch; font: var(--w-fliesstext) var(--t-fliesstext)/1.7 "Inter",Arial,sans-serif; color: #b9c3bd; }
-.text--after { margin-top: 26px; }
-.num-list { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 26px 48px; list-style: none; margin: 97px 0 0; padding: 0; }
-.num-list li { display: flex; align-items: flex-start; gap: 18px; font: var(--w-fliesstext) var(--t-fliesstext)/1.7 "Inter",Arial,sans-serif; color: #b9c3bd; }
-.module-img { flex: 0 0 auto; width: 72px; height: 72px; object-fit: contain; }
-.num-list b { display: block; margin-bottom: 4px; font: var(--w-bulletlabel) var(--t-bulletlabel)/1.35 "Inter",Arial,sans-serif; background: var(--gold-2); background-clip: text; -webkit-background-clip: text; color: transparent; -webkit-text-fill-color: transparent; }
-.num-list span { display: block; }
-.pair-chips-row { display: grid; grid-template-columns: repeat(4,minmax(0,1fr)); gap: 20px 56px; list-style: none; margin: 0 0 20px; padding: 0; }
-#einsatzbereiche .panel { margin-top: 41px; }
-#moeglichkeiten .panel { padding: 38px; background-image: linear-gradient(#112A20,#112A20), var(--gold-3); }
-.pair-grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); grid-auto-rows: 1fr; gap: 20px 56px; }
-.pair { display: grid; grid-template-columns: minmax(0,1fr) 30px minmax(0,1fr); align-items: stretch; gap: 12px; }
-#einsatzbereiche .panel { padding: 38px; background-image: linear-gradient(#112A20,#112A20), var(--gold-3); }
-#einsatzbereiche .text--after { margin-top: 34px; }
-#moeglich .text--after { margin-top: 34px; }
-.pair-chip { display: flex; align-items: center; min-height: 92px; padding: 6px 10px; border-radius: 10px; color: #e4e0d6; border: 1.25px solid transparent; background-image: linear-gradient(#080B09,#080B09), var(--gold-3); background-origin: border-box; background-clip: padding-box, border-box; font: var(--w-bildunterschrift) var(--t-bildunterschrift)/1.4 "Inter",Arial,sans-serif; hyphens: auto; overflow-wrap: break-word; min-width: 0; }
-.chip-icon { flex: 0 0 auto; box-sizing: border-box; width: 48px; height: 48px; margin-right: 14px; overflow: hidden; border-radius: 8px; border: 1.25px solid transparent; background-image: linear-gradient(#080B09,#080B09), var(--gold-3); background-origin: border-box; background-clip: padding-box, border-box; }
-.chip-icon img { display: block; width: 100%; height: 100%; object-fit: cover; scale: 1.12; }
-.pair-chip--gold { background-image: linear-gradient(180deg,#ffd7a3 0%,#f0a05a 24%,#d89828 58%,#7a3518 100%), var(--gold-3); border-color: rgba(255,215,163,.78); color: #112A20; box-shadow: inset 0 0 0 1px rgba(255,244,199,.20); }
-.pair-arrow { align-self: center; display: flex; align-items: center; justify-content: center; color: #d4af37; }
-.pair-arrow svg { width: 32px; height: 32px; }
-/* ---------- Punktlisten & Gruppen ---------- */
-.dot-list { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 10px 48px; list-style: none; margin: 14px 0 0; padding: 0; }
-.dot-list li { position: relative; padding-left: 20px; font: var(--w-fliesstext) var(--t-fliesstext)/1.65 "Inter",Arial,sans-serif; color: #b9c3bd; }
-.dot-list li::before { content: ""; position: absolute; left: 0; top: 9px; width: 7px; height: 7px; border-radius: 2px; background: #DFBD69; }
-.group-cards { margin-top: 16px; }
-.group-cards .dot-list { grid-template-columns: 1fr; margin-top: 12px; }
-.group-cards article:only-child { grid-column: 1 / -1; }
-.group-cards article:only-child .dot-list { grid-template-columns: repeat(2,minmax(0,1fr)); }
-.group-cards h3 { margin-bottom: 2px; }
-.split-grid { display: grid; grid-template-columns: minmax(0,5fr) minmax(0,7fr); gap: 28px 72px; align-items: start; }
-.split-side h3 { margin-bottom: 12px; }
-.split-side .dot-list, .split-side .chip-list { margin-top: 0; }
-.chips-panel { margin-top: 18px; padding: 32px; }
-.chips-panel .chip-list { margin-top: 0; }
-.chip-list { display: grid; grid-template-columns: repeat(4,minmax(0,1fr)); gap: 20px 56px; list-style: none; margin: 18px 0 0; padding: 0; }
-.chip-list--2 { grid-template-columns: repeat(2,minmax(0,1fr)); }
-.chip-list a { display: flex; align-items: center; width: 100%; color: inherit; }
-.chip-list a:hover { color: #fae385; }
-.dot-list--1 { grid-template-columns: 1fr; }
-.chip-list li { display: flex; align-items: center; min-height: 58px; padding: 12px 16px; border-radius: 10px; color: #e4e0d6; border: 1.25px solid transparent; background-image: linear-gradient(#080B09,#080B09), var(--gold-3); background-origin: border-box; background-clip: padding-box, border-box; font: var(--w-bildunterschrift) var(--t-bildunterschrift)/1.4 "Inter",Arial,sans-serif; hyphens: auto; overflow-wrap: break-word; }
-@media (max-width: 1200px) { .chip-list { grid-template-columns: repeat(3,minmax(0,1fr)); } }
-@media (max-width: 900px) { .dot-list, .split-grid { grid-template-columns: 1fr; } .chip-list { grid-template-columns: repeat(2,minmax(0,1fr)); } }
-@media (max-width: 640px) { .chip-list { grid-template-columns: 1fr; } }
-
-/* ---------- FAQ ---------- */
-.faq-grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 36px; align-items: start; margin-top: 16px; }
-.faq-item summary { list-style: none; cursor: pointer; }
-.faq-item summary::-webkit-details-marker { display: none; }
-.faq-item summary > span { display: flex; width: 100%; box-sizing: border-box; align-items: center; justify-content: space-between; gap: 14px; height: 50px; padding: 0 18px; border-radius: 0.3em; border: 1px solid var(--nv-gold-border); background-image: var(--nv-gold-gradient); background-position: center; background-size: 100% 100%; box-shadow: 0 3px 6px var(--shadow-soft), 0 3px 6px var(--shadow-soft-2), inset 0 -2px 5px 1px var(--nv-gold-inner-dark), inset 0 -1px 1px 3px var(--nv-gold-highlight); color: var(--nv-gold-text-dark); text-align: left; white-space: normal; font-family: "Inter",Arial,sans-serif; font-size: var(--t-cta); font-weight: 700; line-height: 1.2; letter-spacing: 0.045em; text-shadow: 0 2px 2px var(--nv-gold-highlight); text-transform: uppercase; transition: all 0.2s ease-in-out; }
-.faq-item summary:hover > span { color: var(--nv-gold-text-hover); border-color: var(--nv-gold-border-hover); background-size: 150% 150%; transform: translateY(-2px); }
-.faq-item summary > span::after { content: "+"; flex: 0 0 auto; font-size: 18px; }
-.faq-item[open] summary > span::after { content: "\2212"; }
-.faq-item p { margin: 16px 4px 0; font: var(--w-fliesstext) var(--t-fliesstext)/1.7 "Inter",Arial,sans-serif; color: #b9c3bd; }
-@media (max-width: 900px) { .faq-grid { grid-template-columns: 1fr; } }
-
-/* ---------- CTA-Formular (aus analyse.html übernommen) ---------- */
-.analysis-layout { display: grid; grid-template-columns: 500px minmax(0,1fr); align-items: center; gap: 90px; margin-top: 98px; width: 100%; }
-.form-panel { width: 100%; min-width: 0; border: 1.25px solid transparent; border-radius: 10px; background-image: linear-gradient(#080B09,#080B09), var(--gold-3); background-origin: border-box; background-clip: padding-box, border-box; padding: 13px; }
-.form-panel h3 { font-size: 24px; line-height: 1.05; margin-bottom: 16px; text-transform: uppercase; background: var(--gold-1); -webkit-background-clip: text; background-clip: text; color: transparent; -webkit-text-fill-color: transparent; }
-.form-grid { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 10px; width: 100%; }
-.form-grid > * { min-width: 0; width: 100%; }
-.form-grid input, .form-grid select, .form-grid textarea { height: 40px; border: 1px solid rgba(240,160,90,.82); border-radius: 5px; background: rgba(235,235,226,.96); color: #111; font-family: "Inter",Arial,sans-serif; font-size: 13px; font-weight: 500; padding: 0 10px; outline: none; }
-.form-grid input:focus, .form-grid select:focus, .form-grid textarea:focus { box-shadow: 0 0 0 2px rgba(212,175,55,.34); }
-.form-grid textarea { grid-column: 1/-1; height: 68px; padding-top: 9px; resize: none; }
-.form-grid .hero-cta { grid-column: 1/-1; margin-top: 4px; width: 100%; border: 0; background: none; padding: 0; cursor: pointer; }
-.form-grid .hero-cta .golden-button { display: flex; align-items: center; justify-content: center; gap: 8px; width: 100%; min-width: 0; height: 44px; font-size: 13px; line-height: 1.2; }
-.consent-row { grid-column: 1/-1; display: flex; align-items: flex-start; gap: 10px; border: 1px solid rgba(212,175,55,.36); border-radius: 5px; background: #000; padding: 11px 12px; font-size: 12px; line-height: 1.45; color: #aeb7b2; }
-.consent-row input { width: auto; height: auto; flex: 0 0 auto; margin-top: 2px; accent-color: #d4af37; }
-.consent-row span { display: block; }
-.consent-row strong { display: block; margin-bottom: 2px; color: #f7d77a; font-weight: 600; }
-.consent-row a { color: #e8b048; text-decoration: underline; }
-.hp-field { position: absolute; left: -10000px; top: auto; width: 1px; height: 1px; overflow: hidden; }
-.form-note { margin-top: 12px; font-family: "Inter",Arial,sans-serif; font-size: 11px; line-height: 1.5; color: #aeb7b2; }
-.form-note a { color: #e8b048; text-decoration: underline; }
-.result-strip { width: 100%; border: 1.25px solid transparent; border-radius: 10px; background-image: linear-gradient(135deg, rgba(212,175,55,.12), rgba(0,0,0,0) 55%), linear-gradient(#080B09,#080B09), var(--gold-3); background-origin: border-box; background-clip: padding-box, padding-box, border-box; padding: 17px; display: block; }
-.result-strip h3 { font-size: 26px; line-height: 1; margin-bottom: 10px; background: var(--gold-1); -webkit-background-clip: text; background-clip: text; color: transparent; -webkit-text-fill-color: transparent; }
-.result-strip p { font-size: 14px; line-height: 1.6; color: #b9c3bd; }
-.result-points { display: grid; gap: 8px; list-style: none; margin: 21px 0 0 20px; padding: 0; }
-.result-points li { position: relative; padding-left: 14px; font-family: "Inter",Arial,sans-serif; font-size: 12.5px; font-weight: 600; letter-spacing: .04em; text-transform: uppercase; color: #F5F7F4; }
-.result-points li::before { content: ""; position: absolute; left: 0; top: .4em; width: 5px; height: 5px; border-radius: 2px; background: #f7c64a; }
-.analysis-status { margin-top: 10px; min-height: 17px; font-family: "Inter",Arial,sans-serif; font-size: 11px; font-weight: 600; line-height: 1.45; letter-spacing: .045em; text-transform: uppercase; color: rgba(247,215,122,.9); }
-.result-strip.is-active { box-shadow: 0 0 16px rgba(212,175,55,.35); }
-.result-strip.is-error { background-image: linear-gradient(135deg, rgba(205,82,66,.16), rgba(0,0,0,0) 55%), linear-gradient(#080B09,#080B09), linear-gradient(135deg,#e0705f,#7a2f26); }
-.analysis-result-link { display: inline-flex; margin-top: 12px; color: var(--nv-gold-text-dark); background-image: var(--nv-gold-gradient); border: 1px solid var(--nv-gold-border); border-radius: 5px; padding: 9px 14px; font-family: "Inter",Arial,sans-serif; font-size: 12px; font-weight: 800; letter-spacing: .045em; text-transform: uppercase; text-shadow: 0 2px 2px var(--nv-gold-highlight); }
-.analysis-result-link[hidden] { display: none; }
-button[disabled] { opacity: .58; cursor: not-allowed; }
-@media (max-width: 1200px) { .pair-grid { grid-template-columns: 1fr; } }
-@media (max-width: 900px) { .analysis-layout, .result-strip { grid-template-columns: 1fr; } }
-@media (max-width: 900px) { .detail-hero,.content-grid,.text-cols,.label-list,.num-list { grid-template-columns: 1fr; } }
-
-/* warum-nurovelle: eigene Abstaende, die von analyse.html abweichen */
-.page-seo main h2 { margin-bottom: 40px; }
+.num-list { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 21px 38.4px; list-style: none; margin: 77.6px 0 0; padding: 0; }
+.num-list li { display: flex; align-items: flex-start; gap: 14.4px; font: var(--w-fliesstext) var(--t-fliesstext)/1.7 "Inter",Arial,sans-serif; color: #b9c3bd; }
+.module-img { flex: 0 0 auto; width: 57.6px; height: 57.6px; object-fit: contain; }
+.pair-chips-row { display: grid; grid-template-columns: repeat(4,minmax(0,1fr)); gap: 16px 45px; list-style: none; margin: 0 0 16px; padding: 0; }
+#moeglichkeiten .panel { padding: 30.4px; background-image: linear-gradient(#112A20,#112A20), var(--gold-3); }
+.pair-grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); grid-auto-rows: 1fr; gap: 16px 45px; }
+#moeglich .text--after { margin-top: 27px; }
+.chip-list { display: grid; grid-template-columns: repeat(4,minmax(0,1fr)); gap: 16px 45px; list-style: none; margin: 14.4px 0 0; padding: 0; }
+.page-seo main h2 { margin-bottom: 32px; }
 .page-seo .label-list,
-.page-seo .num-list { margin-top: 25px; }
-.page-seo .chip-list--stacked { margin-bottom: 40px; }
-.page-seo #kontakt .sub { margin-bottom: 40px; }
-.chip-list li.pair-chip { min-height: 92px; padding: 6px 10px; border-radius: 10px; }
+.page-seo .num-list { margin-top: 20px; }
+.page-seo .chip-list--stacked { margin-bottom: 32px; }
+.page-seo #kontakt .sub { margin-bottom: 32px; }
 @media (max-width: 900px) { .card-bullets { grid-template-columns: minmax(0,1fr); } }
-/* Glanzband nur auf den grossen Ueberschriften, nicht auf Kartentiteln,
-   Bullet-Labels oder Kleintext. */
-h1, main > section > .section-inner > h2 {
-  filter: var(--gold-glow);
-  -webkit-text-stroke: .6px rgba(255,248,207,.40);
-  background-size: 250% auto;
-  animation: nv-gold-shine 18s linear infinite;
-}
-@keyframes nv-gold-shine {
-  0%   { background-position: 0% center; }
-  33%  { background-position: 250% center; }   /* Durchlauf in 6s wie zuvor */
-  100% { background-position: 250% center; }   /* danach 12s Pause */
-}
-@media (prefers-reduced-motion: reduce) { h1, main > section > .section-inner > h2 { animation: none; } }
-/* Goldrahmen: metallischer Verlauf mit Lichtkante, dunkler Innenkante und wanderndem Glanzband */
-.visual-card, .panel, .form-panel, .result-strip, .pair-chip, .chip-list li, .chip-icon, .num-list li::before {
-  background-size: 250% auto;
-  animation: nv-frame-shine 18s linear infinite;
-}
-.visual-card, .panel, .form-panel, .result-strip, .pair-chip, .chip-list li { box-shadow: var(--frame-glow); }
-.chip-icon, .num-list li::before { box-shadow: 0 1px 0 rgba(255,255,220,.26) inset, 0 0 0 1px rgba(146,111,52,.55), 0 0 14px rgba(212,175,55,.14); }
-.pair-chip--gold {
-  border-color: transparent;
-  background-image: linear-gradient(105deg, transparent 41%, rgba(255,255,220,.10) 46%, rgba(255,255,225,.46) 50%, rgba(255,255,220,.12) 54%, transparent 59%),
-                    linear-gradient(180deg,#ffd7a3 0%,#f0a05a 24%,#d89828 58%,#7a3518 100%), var(--gold-3);
-  background-origin: border-box;
-  background-clip: padding-box, padding-box, border-box;
-  background-size: 250% auto, auto, 250% auto;
-  box-shadow: var(--frame-glow), inset 0 0 0 1px rgba(255,244,199,.20);
-}
-@keyframes nv-frame-shine {
-  0%   { background-position: 0% center; }
-  33%  { background-position: 250% center; }
-  100% { background-position: 250% center; }
-}
-@media (prefers-reduced-motion: reduce) { .visual-card, .panel, .form-panel, .result-strip, .pair-chip, .chip-list li, .chip-icon, .num-list li::before { animation: none; } }
-/* ==========================================================================
-   MOBIL — Desktop-Raster wird einspaltig
-   ========================================================================== */
-@media (max-width: 900px) {
-  /* Kopfzeile */
-  .logo-wordmark { height: calc(var(--logo-h) * 0.72); }
-  .nv-breadcrumb { overflow-x: auto; overflow-y: hidden; scrollbar-width: none; }
-  .nv-breadcrumb::-webkit-scrollbar { display: none; }
-  .header-cta .golden-button { min-width: 0; padding: 0 .6em; font-size: 11px; letter-spacing: .02em; }
-  .header-inner { padding-left: 12px; padding-right: 12px; column-gap: 8px; }
-  .logo-link { gap: 6px; }
-  .header-inner { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
-  .nv-breadcrumb { flex: 1 1 0; min-width: 0; }
-  .header-cta { flex: 0 0 auto; }
-
-  /* Hero und Raster */
-  .detail-hero { grid-template-columns: minmax(0,1fr); gap: 28px; }
-  .analysis-layout { grid-template-columns: minmax(0,1fr); gap: 32px; margin-top: 40px; }
-  .pair-grid, .faq-grid { grid-template-columns: minmax(0,1fr); }
-  .pair-grid { gap: 16px; }
-  .pair { grid-template-columns: minmax(0,1fr); gap: 6px; }
-  .pair-arrow { justify-self: center; transform: rotate(90deg); }
-  /* lange Komposita duerfen umbrechen, sonst sprengt die Mindestbreite die Karte */
-  .pair-chip, .chip-list li { overflow-wrap: anywhere; }
-  #einsatzbereiche .panel { padding: 18px; }
-  .panel .card-bullets, .card-bullets { padding-left: 0; gap: 10px 24px; }
-  .section { padding-left: 18px; padding-right: 18px; }
-
-  /* FAQ-Knoepfe wachsen mit der Frage */
-  .faq-item summary > span { height: auto; min-height: 50px; padding: 12px 16px; line-height: 1.3; }
-}
-@media (max-width: 560px) {
-  .header-cta .golden-button { padding: 0 .4em; font-size: 9.5px; gap: 5px; }
-  .header-cta .nv-calendly-icon { width: 14px; height: 14px; }
-}
 </style>
+<link rel="stylesheet" href="nurovelle-mobil.css" />
+
+<link rel="canonical" href="https://nurovelle.de/homepage/detail_seo.html" />
+<link rel="icon" type="image/svg+xml" href="favicon.svg" />
+<link rel="apple-touch-icon" href="assets/hero/round.png" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Nurovelle" />
+<meta property="og:locale" content="de_DE" />
+<meta property="og:url" content="https://nurovelle.de/homepage/detail_seo.html" />
+<meta property="og:title" content="Nurovelle | SEO &amp;amp; digitale Sichtbarkeit" />
+<meta property="og:description" content="SEO verbindet technische Optimierung, klare Seitenstrukturen und suchrelevante Inhalte für eine Website, die von Suchmaschinen verstanden wird." />
+<meta property="og:image" content="https://nurovelle.de/homepage/assets/hero/round.png" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="theme-color" content="#050505" />
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Wie schnell entstehen SEO-Ergebnisse?", "acceptedAnswer": {"@type": "Answer", "text": "Das hängt von Wettbewerb, Ausgangslage, Website-Qualität und Umfang der Maßnahmen ab. Eine feste Wirkungsdauer lässt sich nicht seriös garantieren."}}, {"@type": "Question", "name": "Müssen alle Texte neu geschrieben werden?", "acceptedAnswer": {"@type": "Answer", "text": "Nein. Bestehende Inhalte können geprüft, neu strukturiert und gezielt erweitert werden."}}, {"@type": "Question", "name": "Werden auch technische Fehler behoben?", "acceptedAnswer": {"@type": "Answer", "text": "Technische Probleme werden identifiziert und priorisiert. Die konkrete Umsetzung hängt vom vereinbarten Leistungsumfang und der vorhandenen Website-Technik ab."}}, {"@type": "Question", "name": "Ist SEO auch für lokale Unternehmen sinnvoll?", "acceptedAnswer": {"@type": "Answer", "text": "Ja. Lokale Suchanfragen, Standortbezüge und regionale Leistungsseiten können gezielt optimiert werden."}}, {"@type": "Question", "name": "Werden konkrete Keywords festgelegt?", "acceptedAnswer": {"@type": "Answer", "text": "Ja. Relevante Suchbegriffe werden recherchiert, bewertet und passenden Seiten zugeordnet."}}, {"@type": "Question", "name": "Können bestehende Rankings verbessert werden?", "acceptedAnswer": {"@type": "Answer", "text": "Bestehende Rankings werden geprüft. Daraus können Maßnahmen für Inhalte, Technik und interne Verlinkung abgeleitet werden."}}, {"@type": "Question", "name": "Ist eine laufende Betreuung notwendig?", "acceptedAnswer": {"@type": "Answer", "text": "Nicht zwingend für jede Website. Eine regelmäßige Auswertung ist jedoch sinnvoll, wenn Inhalte, Wettbewerb oder Suchverhalten sich verändern."}}, {"@type": "Question", "name": "Können SEO und KI-Content kombiniert werden?", "acceptedAnswer": {"@type": "Answer", "text": "Ja. KI kann bei Recherche und Vorbereitung unterstützen. Inhalte müssen trotzdem fachlich geprüft, klar strukturiert und auf den tatsächlichen Suchbedarf ausgerichtet werden."}}]}</script>
 </head>
 <body class="page-seo">
+<a class="skip-link" href="#inhalt">Zum Inhalt springen</a>
 <header class="site-header">
   <div class="header-inner">
     <a class="logo-link" href="index.html" aria-label="Nurovelle Startseite">
       <span class="logo-spin" aria-hidden="true"></span>
 
-            <img class="logo-wordmark" src="assets/hero/Nurovelle_schrift.png" alt="Nurovelle — Building Intelligent Systems" />
+            <img class="logo-wordmark" src="assets/hero/Nurovelle_schrift.png" alt="Nurovelle — Building Intelligent Systems" width="1098" height="250" />
           </a>
 
     <nav class="nv-breadcrumb" aria-label="Hauptnavigation">
       <details class="nv-breadcrumb__group">
         <summary class="nv-breadcrumb__trigger"><span>Leistungen</span></summary>
         <div class="nv-breadcrumb__menu">
-          <a href="index.html">Startseite</a>
-          <a href="index.html#warum-nurovelle">Warum Nurovelle</a>
-          <a href="index.html#leistungen">KI-Leistungen</a>
+          <a href="index.html#leistungen">Alle Leistungen</a>
+          <a href="analyse.html">Potenzialanalyse</a>
+          <a href="detail_roadmap.html">KI-Roadmap</a>
+          <a href="detail_ki-agenten.html">KI-Agenten</a>
+          <a href="detail_chatbots.html">Chatbots</a>
+          <a href="detail_sprachassistenten.html">Sprachassistenten</a>
+          <a href="detail_automationen.html">KI-Automationen</a>
+          <a href="detail_ki-sicherheit.html">KI-Governance</a>
+          <a href="detail_workflows.html">Prozessautomatisierung</a>
+          <a href="detail_datenabgleich.html">Daten-Abgleich</a>
+          <a href="detail_ki-software.html">KI-Software</a>
+          <a href="detail_seo.html">SEO-Systeme</a>
+          <a href="detail_prompt-engineering.html">Prompt Engineering</a>
         </div>
       </details>
       <details class="nv-breadcrumb__group">
@@ -512,12 +148,13 @@ h1, main > section > .section-inner > h2 {
           <a href="index.html#ki-projekt-start">Erster Schritt</a>
           <a href="index.html#projektidee">Projektidee</a>
           <a href="index.html#potenzialanalyse">Potenzialanalyse</a>
-          <a href="index.html#formular">Formular</a>
+          <a href="index.html#potenzialanalyse">Formular</a>
         </div>
       </details>
       <details class="nv-breadcrumb__group">
         <summary class="nv-breadcrumb__trigger"><span>Zusammenarbeit</span></summary>
         <div class="nv-breadcrumb__menu">
+          <a href="detail_warum-nurovelle.html">Warum Nurovelle</a>
           <a href="index.html#prozess-zur-loesung">Prozess</a>
           <a href="index.html#downloads">Downloads</a>
           <a href="index.html#kontakt">Kontakt</a>
@@ -534,7 +171,7 @@ h1, main > section > .section-inner > h2 {
     </a>
   </div>
 </header>
-<main>
+<main id="inhalt">
 <section class="section section--landing"><div class="section-inner detail-hero"><div><div class="kicker">SEO &amp; digitale Sichtbarkeit</div><h1>Sichtbarkeit aufbauen</h1><p class="sub">Suchmaschinenoptimierung für relevante Inhalte, technische Qualität und qualifizierte Anfragen.</p><p class="lead">SEO verbindet technische Optimierung, klare Seitenstrukturen und suchrelevante Inhalte. Ziel ist eine Website, die von Suchmaschinen verstanden wird und potenzielle Kunden genau bei den passenden Leistungen erreicht.</p><div class="actions"><a class="btn" href="analyse.html">SEO-Potenzial analysieren</a></div></div><div class="visual-card visual-card--empty" aria-hidden="true"></div></div></section>
 <section class="section section--landing"><div class="section-inner content-grid"><article class="panel"><h2>Was ist SEO?</h2><p>Suchmaschinenoptimierung verbessert die technische Erreichbarkeit, thematische Verständlichkeit und Relevanz einer Website für passende Suchanfragen. Dafür werden Seitenstruktur, Inhalte, Suchintention, interne Verlinkung und technische Grundlagen miteinander verbunden.</p></article><article class="panel summary"><h2>Klare Entscheidungsgrundlage</h2><p>Die SEO-Analyse zeigt, welche technischen, strukturellen und inhaltlichen Faktoren die Sichtbarkeit begrenzen. Daraus entsteht eine nachvollziehbare Priorisierung der Maßnahmen, die für bessere Rankings und qualifiziertere Anfragen erforderlich sind.</p></article></div></section>
 <section class="section section--landing" id="ausgangslage"><div class="section-inner">
@@ -555,16 +192,16 @@ h1, main > section > .section-inner > h2 {
 <p class="sub">Zehn Schritte von der Analyse bis zur laufenden Weiterentwicklung.</p>
 <p class="text">Der genaue Ablauf richtet sich nach Website-Umfang, technischer Ausgangslage und vorhandenen Inhalten. Die einzelnen Module verbinden strategische Planung, inhaltliche Optimierung und technische Prüfung.</p>
 <ol class="num-list">
-<li><img class="module-img" src="assets/Module/ziele.png" alt="" /><div><b>Zielsetzung</b><span>Leistungen, Zielgruppen, regionale Ausrichtung und gewünschte Anfragen werden festgelegt.</span></div></li>
-<li><img class="module-img" src="assets/Module/displsx_lupe_auge.png" alt="" /><div><b>Bestandsaufnahme</b><span>Seiten, Inhalte, Rankings, interne Verbindungen und technische Grundlagen werden erfasst.</span></div></li>
-<li><img class="module-img" src="assets/Module/lupe_keyword.png" alt="" /><div><b>Keyword-Recherche</b><span>Zentrale Leistungsbegriffe, problemorientierte Suchanfragen, Long-Tail-Keywords, regionale Begriffe und verwandte Themenfelder werden untersucht.</span></div></li>
-<li><img class="module-img" src="assets/Module/trichrter.png" alt="" /><div><b>Suchintention</b><span>Suchbegriffe werden nach Informations-, Problem-, Vergleichs-, Leistungs-, Lokal- und Aktionsabsicht eingeordnet.</span></div></li>
-<li><img class="module-img" src="assets/Module/ablauf.png" alt="" /><div><b>Seitenplanung</b><span>Suchbegriffe werden passenden Seiten, Seitentypen und Angeboten zugeordnet. Überschneidungen und konkurrierende Inhalte werden identifiziert.</span></div></li>
-<li><img class="module-img" src="assets/Module/valedierung.png" alt="" /><div><b>Content-Struktur</b><span>Hauptthemen, Unterthemen, Überschriften, Leistungsbeschreibungen, Nutzenargumente, Fragen und nächste Schritte werden entwickelt.</span></div></li>
-<li><img class="module-img" src="assets/Module/eingabe.png" alt="" /><div><b>OnPage-Optimierung</b><span>Seitentitel, Meta-Beschreibungen, Überschriften, Texte, URLs, Bildbeschreibungen, CTAs und interne Links werden angepasst.</span></div></li>
-<li><img class="module-img" src="assets/Module/klembrett.png" alt="" /><div><b>Technische Prüfung</b><span>Crawling, Indexierung, Weiterleitungen, Canonical-Tags, Sitemap, robots.txt, Performance, mobile Darstellung und strukturierte Daten werden kontrolliert.</span></div></li>
-<li><img class="module-img" src="assets/Module/weltkugel.png" alt="" /><div><b>Veröffentlichung</b><span>Optimierte Seiten werden geprüft, technisch bereitgestellt und für Suchmaschinen zugänglich gemacht.</span></div></li>
-<li><img class="module-img" src="assets/Module/hand_diagramm.png" alt="" /><div><b>Auswertung</b><span>Rankings, Impressionen, Klicks, Einstiegsseiten, Anfragen, Conversions und technische Fehler werden beobachtet und weiterentwickelt.</span></div></li>
+<li><picture><source srcset="assets/Module/ziele.webp" type="image/webp" /><img class="module-img" src="assets/Module/ziele.png" alt="" width="1067" height="759" /></picture><div><b>Zielsetzung</b><span>Leistungen, Zielgruppen, regionale Ausrichtung und gewünschte Anfragen werden festgelegt.</span></div></li>
+<li><picture><source srcset="assets/Module/displsx_lupe_auge.webp" type="image/webp" /><img class="module-img" src="assets/Module/displsx_lupe_auge.png" alt="" width="1067" height="759" loading="lazy" /></picture><div><b>Bestandsaufnahme</b><span>Seiten, Inhalte, Rankings, interne Verbindungen und technische Grundlagen werden erfasst.</span></div></li>
+<li><picture><source srcset="assets/Module/lupe_keyword.webp" type="image/webp" /><img class="module-img" src="assets/Module/lupe_keyword.png" alt="" width="1067" height="759" loading="lazy" /></picture><div><b>Keyword-Recherche</b><span>Zentrale Leistungsbegriffe, problemorientierte Suchanfragen, Long-Tail-Keywords, regionale Begriffe und verwandte Themenfelder werden untersucht.</span></div></li>
+<li><picture><source srcset="assets/Module/trichrter.webp" type="image/webp" /><img class="module-img" src="assets/Module/trichrter.png" alt="" width="1067" height="759" loading="lazy" /></picture><div><b>Suchintention</b><span>Suchbegriffe werden nach Informations-, Problem-, Vergleichs-, Leistungs-, Lokal- und Aktionsabsicht eingeordnet.</span></div></li>
+<li><picture><source srcset="assets/Module/ablauf.webp" type="image/webp" /><img class="module-img" src="assets/Module/ablauf.png" alt="" width="1067" height="759" loading="lazy" /></picture><div><b>Seitenplanung</b><span>Suchbegriffe werden passenden Seiten, Seitentypen und Angeboten zugeordnet. Überschneidungen und konkurrierende Inhalte werden identifiziert.</span></div></li>
+<li><picture><source srcset="assets/Module/valedierung.webp" type="image/webp" /><img class="module-img" src="assets/Module/valedierung.png" alt="" width="1067" height="759" loading="lazy" /></picture><div><b>Content-Struktur</b><span>Hauptthemen, Unterthemen, Überschriften, Leistungsbeschreibungen, Nutzenargumente, Fragen und nächste Schritte werden entwickelt.</span></div></li>
+<li><picture><source srcset="assets/Module/eingabe.webp" type="image/webp" /><img class="module-img" src="assets/Module/eingabe.png" alt="" width="1067" height="759" loading="lazy" /></picture><div><b>OnPage-Optimierung</b><span>Seitentitel, Meta-Beschreibungen, Überschriften, Texte, URLs, Bildbeschreibungen, CTAs und interne Links werden angepasst.</span></div></li>
+<li><picture><source srcset="assets/Module/klembrett.webp" type="image/webp" /><img class="module-img" src="assets/Module/klembrett.png" alt="" width="1067" height="759" loading="lazy" /></picture><div><b>Technische Prüfung</b><span>Crawling, Indexierung, Weiterleitungen, Canonical-Tags, Sitemap, robots.txt, Performance, mobile Darstellung und strukturierte Daten werden kontrolliert.</span></div></li>
+<li><picture><source srcset="assets/Module/weltkugel.webp" type="image/webp" /><img class="module-img" src="assets/Module/weltkugel.png" alt="" width="1067" height="759" loading="lazy" /></picture><div><b>Veröffentlichung</b><span>Optimierte Seiten werden geprüft, technisch bereitgestellt und für Suchmaschinen zugänglich gemacht.</span></div></li>
+<li><picture><source srcset="assets/Module/hand_diagramm.webp" type="image/webp" /><img class="module-img" src="assets/Module/hand_diagramm.png" alt="" width="1067" height="759" loading="lazy" /></picture><div><b>Auswertung</b><span>Rankings, Impressionen, Klicks, Einstiegsseiten, Anfragen, Conversions und technische Fehler werden beobachtet und weiterentwickelt.</span></div></li>
 </ol>
 <h3>Keyword-Strategie</h3>
 <p class="text">Keywords werden nicht isoliert gesammelt. Sie werden Themen, Seitentypen und konkreten Angeboten zugeordnet und nach Bedeutung, Wettbewerb und Nutzerabsicht priorisiert.</p>
@@ -616,12 +253,12 @@ h1, main > section > .section-inner > h2 {
 <p class="sub">Aus einzelnen Seiten entsteht eine strukturierte und sichtbare Themenlandschaft.</p>
 <article class="panel">
 <div class="pair-grid">
-<div class="pair"><span class="pair-chip"><span class="chip-icon"><img src="assets/cards/service/icons/11.png" alt="" /></span>geringe organische Sichtbarkeit</span><span class="pair-arrow"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-chev"/></svg></span><span class="pair-chip pair-chip--gold"><span class="chip-icon"><img src="assets/cards/service/icons/1.png" alt="" /></span>priorisierte Suchthemen</span></div>
-<div class="pair"><span class="pair-chip"><span class="chip-icon"><img src="assets/cards/service/icons/9.png" alt="" /></span>unklare Keyword-Zuordnung</span><span class="pair-arrow"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-chev"/></svg></span><span class="pair-chip pair-chip--gold"><span class="chip-icon"><img src="assets/cards/service/icons/2.png" alt="" /></span>klare Seitenarchitektur</span></div>
-<div class="pair"><span class="pair-chip"><span class="chip-icon"><img src="assets/cards/service/icons/3.png" alt="" /></span>schwache Leistungsseiten</span><span class="pair-arrow"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-chev"/></svg></span><span class="pair-chip pair-chip--gold"><span class="chip-icon"><img src="assets/cards/service/icons/6.png" alt="" /></span>optimierte Leistungsinhalte</span></div>
-<div class="pair"><span class="pair-chip"><span class="chip-icon"><img src="assets/cards/service/icons/10.png" alt="" /></span>verstreute Inhalte</span><span class="pair-arrow"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-chev"/></svg></span><span class="pair-chip pair-chip--gold"><span class="chip-icon"><img src="assets/cards/service/icons/5.png" alt="" /></span>gezielte interne Verlinkung</span></div>
-<div class="pair"><span class="pair-chip"><span class="chip-icon"><img src="assets/cards/service/icons/4.png" alt="" /></span>technische Fehler</span><span class="pair-arrow"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-chev"/></svg></span><span class="pair-chip pair-chip--gold"><span class="chip-icon"><img src="assets/cards/service/icons/8.png" alt="" /></span>technisch erreichbare Seiten</span></div>
-<div class="pair"><span class="pair-chip"><span class="chip-icon"><img src="assets/cards/service/icons/7.png" alt="" /></span>hohe Anzeigenabhängigkeit</span><span class="pair-arrow"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-chev"/></svg></span><span class="pair-chip pair-chip--gold"><span class="chip-icon"><img src="assets/cards/service/icons/1.png" alt="" /></span>messbare organische Entwicklung</span></div>
+<div class="pair"><span class="pair-chip"><span class="chip-icon"><img src="assets/cards/service/icons/11.png" alt="" width="100" height="100" loading="lazy" /></span>geringe organische Sichtbarkeit</span><span class="pair-arrow"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-chev"/></svg></span><span class="pair-chip pair-chip--gold"><span class="chip-icon"><img src="assets/cards/service/icons/1.png" alt="" width="100" height="100" loading="lazy" /></span>priorisierte Suchthemen</span></div>
+<div class="pair"><span class="pair-chip"><span class="chip-icon"><img src="assets/cards/service/icons/9.png" alt="" width="100" height="100" loading="lazy" /></span>unklare Keyword-Zuordnung</span><span class="pair-arrow"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-chev"/></svg></span><span class="pair-chip pair-chip--gold"><span class="chip-icon"><img src="assets/cards/service/icons/2.png" alt="" width="100" height="100" loading="lazy" /></span>klare Seitenarchitektur</span></div>
+<div class="pair"><span class="pair-chip"><span class="chip-icon"><img src="assets/cards/service/icons/3.png" alt="" width="100" height="100" loading="lazy" /></span>schwache Leistungsseiten</span><span class="pair-arrow"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-chev"/></svg></span><span class="pair-chip pair-chip--gold"><span class="chip-icon"><img src="assets/cards/service/icons/6.png" alt="" width="100" height="100" loading="lazy" /></span>optimierte Leistungsinhalte</span></div>
+<div class="pair"><span class="pair-chip"><span class="chip-icon"><img src="assets/cards/service/icons/10.png" alt="" width="100" height="100" loading="lazy" /></span>verstreute Inhalte</span><span class="pair-arrow"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-chev"/></svg></span><span class="pair-chip pair-chip--gold"><span class="chip-icon"><img src="assets/cards/service/icons/5.png" alt="" width="100" height="100" loading="lazy" /></span>gezielte interne Verlinkung</span></div>
+<div class="pair"><span class="pair-chip"><span class="chip-icon"><img src="assets/cards/service/icons/4.png" alt="" width="100" height="100" loading="lazy" /></span>technische Fehler</span><span class="pair-arrow"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-chev"/></svg></span><span class="pair-chip pair-chip--gold"><span class="chip-icon"><img src="assets/cards/service/icons/8.png" alt="" width="100" height="100" loading="lazy" /></span>technisch erreichbare Seiten</span></div>
+<div class="pair"><span class="pair-chip"><span class="chip-icon"><img src="assets/cards/service/icons/7.png" alt="" width="100" height="100" loading="lazy" /></span>hohe Anzeigenabhängigkeit</span><span class="pair-arrow"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-chev"/></svg></span><span class="pair-chip pair-chip--gold"><span class="chip-icon"><img src="assets/cards/service/icons/1.png" alt="" width="100" height="100" loading="lazy" /></span>messbare organische Entwicklung</span></div>
 </div>
 </article>
 </div></section>
@@ -666,7 +303,7 @@ h1, main > section > .section-inner > h2 {
 <footer class="footer" id="footer">
       <div class="footer-inner">
         <div class="footer-col footer-col--about">
-          <h4>Nurovelle</h4>
+          <h3 class="footer-col__title">Nurovelle</h3>
           <p>Individuelle KI-Systeme für reale Geschäftsprozesse.</p>
           <p>
             Nurovelle entwickelt KI-Agenten, Automatisierungssysteme und
@@ -675,7 +312,7 @@ h1, main > section > .section-inner > h2 {
           </p>
         </div>
         <div class="footer-col">
-          <h4>Nützliche Links</h4>
+          <h3 class="footer-col__title">Nützliche Links</h3>
           <a href="index.html#hero">Startseite</a>
           <a href="index.html#warum-nurovelle">Über Nurovelle</a>
           <a href="index.html#leistungen">Leistungen</a>
@@ -685,7 +322,7 @@ h1, main > section > .section-inner > h2 {
           <a href="index.html#kontakt">Kontakt</a>
         </div>
         <div class="footer-col">
-          <h4>Newsletter</h4>
+          <h3 class="footer-col__title">Newsletter</h3>
           <p>
             Erhalten Sie ausgewählte Informationen zu KI-Agenten,
             Automatisierung, Unternehmenssoftware und neuen Nurovelle-Lösungen
@@ -711,10 +348,10 @@ h1, main > section > .section-inner > h2 {
           </form>
         </div>
         <div class="footer-col">
-          <h4>Kontakt</h4>
+          <h3 class="footer-col__title">Kontakt</h3>
           <p>Marburg, Deutschland</p>
           <p><a href="tel:+4964218097347">06421 8097347</a></p>
-          <p><a href="mailto:demo@nurovelle.de">demo@nurovelle.de</a></p>
+          <p><a href="mailto:info@nurovelle.de">info@nurovelle.de</a></p>
           <div class="footer-social" aria-label="Social Media">
             <a href="index.html#" aria-label="LinkedIn">
               <svg viewBox="0 0 24 24" aria-hidden="true">
