@@ -486,7 +486,24 @@ h1, main > section > .section-inner > h2 {
   .header-cta .golden-button { padding: 0 .4em; font-size: 9.5px; gap: 5px; }
   .header-cta .nv-calendly-icon { width: 14px; height: 14px; }
 }
+
+/* Verweise im Fliesstext muessen als solche erkennbar sein — Farbe allein reicht nicht (WCAG 1.4.1). */
+p a:not([class]), li a:not([class]), td a:not([class]) { text-decoration: underline; text-underline-offset: 0.18em; text-decoration-thickness: 1px; text-decoration-color: #b98424; }
+p a:not([class]):hover, li a:not([class]):hover, td a:not([class]):hover, p a:not([class]):focus-visible, li a:not([class]):focus-visible, td a:not([class]):focus-visible { text-decoration-color: currentColor; }
 </style>
+
+<link rel="canonical" href="https://nurovelle.de/homepage/detail_datenabgleich.html" />
+<link rel="icon" type="image/svg+xml" href="favicon.svg" />
+<link rel="apple-touch-icon" href="assets/hero/round.png" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Nurovelle" />
+<meta property="og:locale" content="de_DE" />
+<meta property="og:url" content="https://nurovelle.de/homepage/detail_datenabgleich.html" />
+<meta property="og:title" content="Nurovelle | Dokumenten-, Daten- &amp;amp; Abgleichsysteme" />
+<meta property="og:description" content="Dokumenten-, Daten- und Abgleichsysteme erfassen Informationen aus unterschiedlichen Quellen, prüfen Inhalte und gleichen Datensätze automatisiert miteinander ab." />
+<meta property="og:image" content="https://nurovelle.de/homepage/assets/hero/round.png" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="theme-color" content="#050505" />
 </head>
 <body class="page-daten">
 <header class="site-header">
@@ -692,7 +709,7 @@ h1, main > section > .section-inner > h2 {
           <h4>Kontakt</h4>
           <p>Marburg, Deutschland</p>
           <p><a href="tel:+4964218097347">06421 8097347</a></p>
-          <p><a href="mailto:demo@nurovelle.de">demo@nurovelle.de</a></p>
+          <p><a href="mailto:info@nurovelle.de">info@nurovelle.de</a></p>
           <div class="footer-social" aria-label="Social Media">
             <a href="index.html#" aria-label="LinkedIn">
               <svg viewBox="0 0 24 24" aria-hidden="true">
