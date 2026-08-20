@@ -2,91 +2,354 @@
 <html lang="de">
 <head>
 <meta charset="utf-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>Nurovelle | Dienstleistungen &amp; KMU</title>
 <meta name="description" content="Entlastet Büroarbeit, Kundenkommunikation, Angebote und interne Abläufe."/>
-<link rel="preconnect" href="https://fonts.googleapis.com"/>
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Raleway:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<link rel="preload" href="../../assets/fonts/inter-var-latin.woff2" as="font" type="font/woff2" crossorigin />
+<link rel="stylesheet" href="../../assets/fonts/fonts.css" />
+<link rel="stylesheet" href="../../nurovelle.css" />
 <style>
 :root {
-  --bg: #020805;
+  --sidebar-gold: #d89828;
+  --sidebar-gold-light: #e8b048;
+  --nv-gold-border: #a55d07;
+  --nv-gold-inner-dark: #8b4208;
+  --nv-gold-inner-mid: #b17d10;
+  --nv-gold-highlight: #fae385;
+  --nv-gold-text-dark: rgb(120, 50, 5);
+  --nv-gold-gradient: linear-gradient(160deg, #a54e07, #b47e11, #fef1a2, #bc881b, #a54e07);
+  --nv-gold-text-hover: rgba(120, 50, 5, 0.8);
+  --nv-gold-border-hover: rgba(165, 93, 7, 0.6);
+  --shadow-soft: rgba(0, 0, 0, 0.16);
+  --shadow-soft-2: rgba(110, 80, 20, 0.4);
+  --shadow-hover-1: rgba(0, 0, 0, 0.19);
+  --shadow-hover-2: rgba(0, 0, 0, 0.23);
+
+  --color-bg-black: #080B09;
+  --header-height: 67px;
+  --page-gutter: clamp(14.4px, 2.4vw, 25.6px);
+  --side: clamp(24px, 3.36vw, 45px);
+
+  --color-text-light: #F5F7F4;
+  --color-text-muted: #B9C3BD;
+
+  --gold-1: linear-gradient(110deg, #8B641A 0%, #DFBD69 18%, #FFF6BD 34%, #B98424 48%, #F7DF82 66%, #926F34 82%, #E6C45F 100%);
+  --gold-glow: drop-shadow(0 0.8px 0 rgba(255,245,180,.18)) drop-shadow(0 0 8px rgba(247,239,138,.28)) drop-shadow(0 0 21px rgba(224,170,62,.16));
+  --gold-2: linear-gradient(135deg, #DFBD69, #926F34);
+  --gold-3: linear-gradient(135deg, #76551A 0%, #AE8625 13%, #F7EF8A 27%, #FFF9C9 33%, #D2AC47 43%, #926F34 57%, #EDC967 72%, #FFF3A1 80%, #9B7423 100%);
+  --frame-glow: 0 0.8px 0 rgba(255,255,220,.30) inset, 0 -1.6px 2.4px rgba(76,46,5,.60) inset, 0 0 0 0.8px rgba(146,111,52,.55), 0 4.8px 13px rgba(0,0,0,.42), 0 0 17.6px rgba(212,175,55,.16);
+
+  --t-sektionstitel: clamp(32px, 3.68vw, 57.6px); --w-sektionstitel: 800;
+  --t-kartentitel: clamp(17.6px, 1.44vw, 32px);   --w-kartentitel: 700;
+  --t-subtitle: 15px;         --w-subtitle: 600;
+  --t-zwischentitel: clamp(15px, 1.12vw, 19px); --w-zwischentitel: 700;
+  --t-bulletlabel: 13.6px;      --w-bulletlabel: 500;
+  --t-kartenbullet: 12px;     --w-kartenbullet: 500;
+  --t-fliesstext: 13px;       --w-fliesstext: 400;
+  --t-kicker-sektion: 9.6px;   --w-kicker-sektion: 600;
+  --t-bildunterschrift: 13.6px; --w-bildunterschrift: 550;
+  --t-cta: 13px;              --w-cta: 600;
+
+  --logo-box: 43px;
+  --logo-w: 46.4px;
+  --logo-h: 37px;
+
   --gold2: #f0a05a;
   --muted: rgba(255,255,255,.78);
-  --side: clamp(30px, 4.2vw, 56px);
-  --content-max: 1280px;
+  --content-max: 1248px;
 }
-* { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; background: var(--bg); scroll-padding-top: 56px; }
-body { font-family: "Raleway",Arial,sans-serif; color: #fff; background: #000; overflow-x: hidden; }
-a { text-decoration: none; color: inherit; }
-img { display: block; max-width: 100%; }
-.gold { background: linear-gradient(180deg,#ffd7a3 0%,#f0a05a 22%,#c76b2b 58%,#7a3518 100%); -webkit-background-clip: text; background-clip: text; color: transparent; -webkit-text-fill-color: transparent; }
-.site-header { height: 44px; min-height: 44px; border-bottom: 1px solid rgba(240,160,90,.72); background: #000; backdrop-filter: blur(6px); position: sticky; top: 0; z-index: 50; }
-.header-inner { height: 44px; padding: 0 var(--side); display: flex; align-items: center; justify-content: space-between; }
-.logo { height: 48px; width: auto; display: block; }
-.nav { display: flex; gap: 24px; align-items: center; }
-.nav a { font-family: "Anca Coder",monospace; font-size: 10px; letter-spacing: 1.05px; text-transform: uppercase; line-height: 1; color: rgba(255,255,255,.82); }
-.nav a:hover { color: var(--gold2); }
-.header-cta { height: 28px; padding: 0 12px; display: inline-flex; align-items: center; justify-content: center; border: 1px solid #d89828; border-radius: 4px; font-family: "Bebas Neue",sans-serif; font-size: 13px; line-height: 1; letter-spacing: .045em; color: #050505; text-transform: uppercase; background: linear-gradient(180deg,#ffd7a3 0%,#f0a05a 24%,#d89828 60%,#7a3518 100%); box-shadow: 0 0 12px rgba(199,107,43,.28); }
-.btn { height: 28px; padding: 0 12px; display: inline-flex; align-items: center; justify-content: center; border: 1px solid #d89828; border-radius: 4px; font-family: "Bebas Neue",sans-serif; font-size: 13px; line-height: 1; letter-spacing: .045em; color: #050505; text-transform: uppercase; background: linear-gradient(180deg,#ffd7a3 0%,#f0a05a 24%,#d89828 60%,#7a3518 100%); }
-.section { position: relative; padding: 42px var(--side); background: #000; }
-.section:before { content: ""; position: absolute; left: 0; right: 0; top: 0; height: 1px; background: linear-gradient(90deg,transparent 0%,rgba(240,160,90,.36) 4%,rgba(240,160,90,.72) 12%,rgba(240,160,90,.72) 88%,rgba(240,160,90,.36) 96%,transparent 100%); opacity: .75; }
-.section-inner { max-width: var(--content-max); margin-left: auto; margin-right: auto; }
-.kicker { font-family: "Anca Coder",monospace; font-size: 10.5px; letter-spacing: 1.8px; text-transform: uppercase; color: var(--gold2); margin-bottom: 8px; }
-h1,h2,h3 { font-family: "Bebas Neue",sans-serif; font-weight: 400; text-transform: uppercase; }
-h1 { max-width: 860px; margin-bottom: 12px; font-size: clamp(34px,3.2vw,52px); line-height: .96; letter-spacing: .035em; color: #f5f1e8; }
-h2 { font-size: clamp(20px,1.38vw,27px); line-height: 1.04; letter-spacing: .035em; color: #f5f1e8; margin-bottom: 10px; }
-h3 { font-size: clamp(18px,1.22vw,24px); line-height: 1.04; letter-spacing: .035em; color: #f5f1e8; margin-bottom: 8px; }
-.lead { max-width: 820px; font-family: "Anca Coder",monospace; font-size: 12px; line-height: 1.55; color: var(--muted); }
-.detail-hero { display: grid; grid-template-columns: minmax(0,1fr) minmax(320px,520px); gap: 34px; align-items: center; }
-.visual-card { position: relative; overflow: hidden; border: 1px solid rgba(240,160,90,.88); border-radius: 12px; background: rgba(0,0,0,.18); box-shadow: 0 0 10px rgba(240,160,90,.24),0 0 28px rgba(199,107,43,.18),inset 0 0 0 1px rgba(255,215,163,.18); filter: drop-shadow(0 16px 24px rgba(0,0,0,.34)); }
-.visual-card:before { content: ""; position: absolute; inset: 0; z-index: 1; pointer-events: none; background: linear-gradient(rgba(0,0,0,.82), rgba(0,0,0,.82)), linear-gradient(90deg, #000 0%, rgba(0,0,0,.96) 34%, rgba(0,0,0,.88) 66%, rgba(0,0,0,.92) 100%); }
-.visual-card>img:first-child { width: 100%; height: auto; object-fit: cover; filter: brightness(.16) saturate(.22) contrast(.88) grayscale(.28); }
-.visual-card .icon { position: absolute; left: 8%; top: 15%; width: 14%; min-width: 54px; z-index: 2; filter: none; }
-.content-grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 18px; margin-top: 0; }
-.panel { border: 1px solid rgba(240,160,90,.32); border-radius: 8px; background: rgba(0,0,0,.22); padding: 20px; }
-.panel p,.panel li { font-family: Raleway,Arial,sans-serif; font-size: 12px; line-height: 1.55; color: rgba(255,255,255,.76); }
-.panel ul { margin-left: 17px; }
-.summary { border: 1px solid rgba(255,215,163,.78); background: linear-gradient(180deg,#ffd7a3 0%,#f0a05a 24%,#d89828 58%,#7a3518 100%); box-shadow: inset 0 0 0 1px rgba(255,244,199,.20),0 8px 16px rgba(0,0,0,.30); }
-.summary h2,.summary p { color: #050505; text-shadow: none; }
-.actions { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 22px; }
-.footer { padding: 32px var(--side); background: #000; border-top: 1px solid rgba(216,152,40,.7); }
-.footer-inner { max-width: var(--content-max); margin-left: auto; margin-right: auto; display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 38px; }
-.footer h4 { margin-bottom: 12px; font-family: "Anca Coder",monospace; font-size: 11px; line-height: 1.2; font-weight: 400; letter-spacing: .08em; text-transform: uppercase; color: #e8b048; }
-.footer a,.footer p { display: block; font-family: Raleway,Arial,sans-serif; font-size: 11.5px; line-height: 1.65; font-weight: 400; color: rgba(255,255,255,.70); }
-@media (max-width: 900px) { .nav { display: none; } .detail-hero,.content-grid,.footer-inner { grid-template-columns: 1fr; } .logo { height: 46px; } .site-header,.header-inner { height: 42px; min-height: 42px; } }
-
+.site-header {
+  height: var(--header-height);
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  border-bottom: 0.8px solid #E0AA3E;
+  background: #080B09;
+  backdrop-filter: blur(6.4px);
+}
+.footer { background-color: #080B09; margin-left: 0px; width: calc(100% - 0px); padding: 43px calc(var(--side) * 2); border-top: 0.8px solid var(--nv-gold-divider-strong); color: var(--color-text-light); background: #121212; }
+.section { position: relative; padding: 70.4px var(--side); background: #000; }
+.section--landing { padding-block: max(19px, calc(16.66vh - 134.4px)); }
+.sub { max-width: 656px; font: var(--w-subtitle) var(--t-subtitle)/1.4 "Inter",Arial,sans-serif; color: #D7DDD9; margin-bottom: 21.6px; }
+.panel p,.panel li:not(.pair-chip) { font: var(--w-fliesstext) var(--t-fliesstext)/1.7 "Inter",Arial,sans-serif; color: #b9c3bd; }
+.text + .panel, .sub + .panel { margin-top: 21px; }
+.text + .content-grid { margin-top: 70.4px; }
+.panel h2 + .card-bullets { margin-top: 0; }
+.card-bullets { list-style: none; margin: 17px 0 0; padding: 0; display: grid; grid-template-columns: repeat(2,max-content); justify-content: start; gap: 8px 38.4px; }
+.summary h2,.summary p { color: #080B09; text-shadow: none; }
+.summary .sub { color: #080B09; }
+.num-list { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 21px 38.4px; list-style: none; margin: 77.6px 0 0; padding: 0; }
+.num-list li { display: flex; align-items: flex-start; gap: 14.4px; font: var(--w-fliesstext) var(--t-fliesstext)/1.7 "Inter",Arial,sans-serif; color: #b9c3bd; }
+.module-img { flex: 0 0 auto; width: 57.6px; height: 57.6px; object-fit: contain; }
+.pair-chips-row { display: grid; grid-template-columns: repeat(4,minmax(0,1fr)); gap: 16px 45px; list-style: none; margin: 0 0 16px; padding: 0; }
+#moeglichkeiten .panel { padding: 30.4px; background-image: linear-gradient(#112A20,#112A20), var(--gold-3); }
+.pair-grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); grid-auto-rows: 1fr; gap: 16px 45px; }
+#moeglich .text--after { margin-top: 27px; }
+.chip-list { display: grid; grid-template-columns: repeat(4,minmax(0,1fr)); gap: 16px 45px; list-style: none; margin: 14.4px 0 0; padding: 0; }
+@media (max-width: 900px) { .card-bullets { grid-template-columns: minmax(0,1fr); } }
 </style>
-<link rel="stylesheet" href="../../shared-header-footer.css"/>
+<link rel="stylesheet" href="../../nurovelle-mobil.css" />
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg" />
+<link rel="apple-touch-icon" href="../../assets/hero/round.png" />
+<meta name="theme-color" content="#050505" />
 </head>
-<body>
+<body class="page-branche">
+<a class="skip-link" href="#inhalt">Zum Inhalt springen</a>
 <header class="site-header">
-<div class="header-inner">
-<a href="../../index.html" aria-label="Zur Startseite"><img alt="Nurovelle Logo" class="logo" src="../../assets/hero/nurovelle_logo.png"/></a>
-<nav class="nav" aria-label="Hauptmenü">
-<a href="../../index.html#top">Home</a>
-<a href="../../index.html#problem-loesung">Lösungen</a>
-<a href="../../index.html#branchen">Branchen</a>
-<a href="../../index.html#leistungen">Services</a>
-<a href="../../index.html#prozess">Ablauf</a>
-<a href="../../analyse.html">Kontakt</a>
-</nav>
-<a class="header-cta" href="../../analyse.html">Potenzialanalyse starten</a>
-</div>
+  <div class="header-inner">
+    <a class="logo-link" href="../../index.html" aria-label="Nurovelle Startseite">
+      <span class="logo-spin" aria-hidden="true"></span>
+
+            <img class="logo-wordmark" src="../../assets/hero/Nurovelle_schrift.png" alt="Nurovelle — Building Intelligent Systems" width="1098" height="250" />
+          </a>
+
+    <nav class="nv-breadcrumb" aria-label="Hauptnavigation">
+      <details class="nv-breadcrumb__group">
+        <summary class="nv-breadcrumb__trigger"><span>Leistungen</span></summary>
+        <div class="nv-breadcrumb__menu">
+          <a href="../../index.html#leistungen">Alle Leistungen</a>
+          <a href="../../paket-betreuung.html">Betreuungspaket</a>
+          <a href="../../paket-handwerk.html">Handwerkspaket</a>
+          <a href="../../paket-buero.html">Büropaket</a>
+          <a href="../../analyse.html">Potenzialanalyse</a>
+          <a href="../../detail_roadmap.html">KI-Roadmap</a>
+          <a href="../../detail_ki-agenten.html">KI-Agenten</a>
+          <a href="../../detail_chatbots.html">Chatbots</a>
+          <a href="../../detail_sprachassistenten.html">Sprachassistenten</a>
+          <a href="../../detail_automationen.html">KI-Automationen</a>
+          <a href="../../detail_ki-sicherheit.html">KI-Governance</a>
+          <a href="../../detail_workflows.html">Prozessautomatisierung</a>
+          <a href="../../detail_datenabgleich.html">Daten-Abgleich</a>
+          <a href="../../detail_ki-software.html">KI-Software</a>
+          <a href="../../detail_seo.html">SEO-Systeme</a>
+          <a href="../../detail_prompt-engineering.html">Prompt Engineering</a>
+        </div>
+      </details>
+      <details class="nv-breadcrumb__group">
+        <summary class="nv-breadcrumb__trigger"><span>Potenzialanalyse</span></summary>
+        <div class="nv-breadcrumb__menu">
+          <a href="../../index.html#ki-projekt-start">Erster Schritt</a>
+          <a href="../../analyse.html">Kostenlose Potenzialanalyse</a>
+          <a href="../../potenzialanalyse-deep.html">Deep-Potenzialanalyse</a>
+          <a href="../../index.html#potenzialanalyse">Formular</a>
+        </div>
+      </details>
+      <details class="nv-breadcrumb__group">
+        <summary class="nv-breadcrumb__trigger"><span>Zusammenarbeit</span></summary>
+        <div class="nv-breadcrumb__menu">
+          <a href="../../detail_warum-nurovelle.html">Warum Nurovelle</a>
+          <a href="../../index.html#prozess-zur-loesung">Prozess</a>
+          <a href="../../index.html#downloads">Downloads</a>
+          <a href="../../index.html#kontakt">Kontakt</a>
+          <a href="../../index.html#faq">FAQ</a>
+        </div>
+      </details>
+    </nav>
+
+    <a class="header-cta" href="../../analyse.html" aria-label="Kostenlose KI-Potenzialanalyse öffnen">
+      <span class="golden-button">
+        <svg class="nv-calendly-icon" viewBox="0 0 64 64" aria-hidden="true"><use href="#nv-calendly-mark"></use></svg>
+        <span class="golden-text">Unverbindliches Erstgespräch</span>
+      </span>
+    </a>
+  </div>
 </header>
-<main>
-<section class="section"><div class="section-inner detail-hero"><div><div class="kicker">Branche</div><h1>Dienstleistungen &amp; <span class="gold">KMU</span></h1><p class="lead">Für Dienstleister und kleine bis mittlere Unternehmen, die wiederkehrende Abläufe, Kundenkommunikation und interne Organisation effizienter gestalten wollen.</p><div class="actions"><a class="btn" href="../../analyse.html">Potenzialanalyse starten</a><a class="btn" href="../../index.html#branchen">Zurück zur Übersicht</a></div></div><div class="visual-card"><img src="../../assets/cards/cards_branche/8.png" alt="Dienstleistungen &amp; KMU"/><img class="icon" src="../../assets/icons/branche/8.png" alt=""/></div></div></section>
+<main id="inhalt">
+<section class="section"><div class="section-inner detail-hero"><div><div class="kicker">Branche</div><h1>Dienstleistungen &amp; <span class="gold">KMU</span></h1><p class="lead">Für Dienstleister und kleine bis mittlere Unternehmen, die wiederkehrende Abläufe, Kundenkommunikation und interne Organisation effizienter gestalten wollen.</p><div class="actions"><a class="btn" href="../../analyse.html">Potenzialanalyse starten</a><a class="btn" href="../../index.html#branchen">Zurück zur Übersicht</a></div></div><div class="visual-card"><img src="../../assets/cards/cards_branche/8.png" alt="Dienstleistungen &amp; KMU"/></div></div></section>
 <section class="section"><div class="section-inner content-grid"><article class="panel"><h2>Typische Schwerpunkte</h2><ul><li>Büro</li><li>Kunden</li><li>Angebote</li><li>E-Mails</li><li>Abläufe</li></ul></article><article class="panel summary"><h2>Kernnutzen</h2><p>Entlastet Büroarbeit, Kundenkommunikation, Angebote und interne Abläufe.</p></article></div></section>
 <section class="section"><div class="section-inner"><article class="panel"><h2>Einordnung</h2><p>Für Dienstleister und kleine bis mittlere Unternehmen, die wiederkehrende Abläufe, Kundenkommunikation und interne Organisation effizienter gestalten wollen.</p><p style="margin-top:10px">Entlastet Büroarbeit, Kundenkommunikation, Angebote und interne Abläufe.</p><div class="actions"><a class="btn" href="../../analyse.html">Passenden Einstieg prüfen</a><a class="btn" href="../../index.html#branchen">Weitere Branchen ansehen</a></div></article></div></section>
 </main>
+</main>
 <footer class="footer" id="footer">
-<div class="footer-inner">
-<div><h4>Nurovelle</h4><p>KI-Automatisierung für Unternehmen. Fokus: reale Prozesse, saubere Umsetzung und messbare Entlastung.</p></div>
-<div><h4>Seiten</h4><a href="../../index.html#top">Startseite</a><a href="../../index.html#problem-loesung">Lösungen</a><a href="../../index.html#branchen">Branchen</a><a href="../../index.html#leistungen">Services</a></div>
-<div><h4>Ablauf</h4><a href="../../index.html#prozess">Zusammenarbeit</a><a href="../../praxisleitfaden.html">Praxisleitfaden</a><a href="../../analyse.html">Potenzialanalyse</a></div>
-<div><h4>Kontakt</h4><a href="../../analyse.html">Potenzialanalyse starten</a><a href="mailto:mail@nurovelle.de">mail@nurovelle.de</a><a href="../../impressum.html">Impressum</a><a href="../../datenschutz.html">Datenschutz</a><p>© 2026 Nurovelle</p></div>
-</div>
-</footer>
+      <div class="footer-inner">
+        <div class="footer-col footer-col--about">
+          <h3 class="footer-col__title">Nurovelle</h3>
+          <p>Individuelle KI-Systeme für reale Geschäftsprozesse.</p>
+          <p>
+            Nurovelle entwickelt KI-Agenten, Automatisierungssysteme und
+            datenbasierte Lösungen, die Unternehmen bei wiederkehrenden
+            Abläufen, Wissenszugriff und Datenverarbeitung unterstützen.
+          </p>
+        </div>
+        <div class="footer-col">
+          <h3 class="footer-col__title">Nützliche Links</h3>
+          <a href="../../index.html#hero">Startseite</a>
+          <a href="../../index.html#warum-nurovelle">Über Nurovelle</a>
+          <a href="../../index.html#leistungen">Leistungen</a>
+          <a href="../../index.html#potenzialanalyse">Potenzialanalyse</a>
+          <a href="../../index.html#downloads">Downloads</a>
+          <a href="../../index.html#faq">FAQ</a>
+          <a href="../../index.html#kontakt">Kontakt</a>
+        </div>
+        <div class="footer-col">
+          <h3 class="footer-col__title">Newsletter</h3>
+          <p>
+            Erhalten Sie ausgewählte Informationen zu KI-Agenten,
+            Automatisierung, Unternehmenssoftware und neuen Nurovelle-Lösungen
+            direkt per E-Mail.
+          </p>
+          <form
+            class="footer-newsletter"
+            action="#"
+            method="post"
+            aria-label="Newsletter abonnieren"
+          >
+            <input
+              class="footer-newsletter__input"
+              type="email"
+              name="email"
+              placeholder="Ihre E-Mail-Adresse"
+              autocomplete="email"
+              required
+            />
+            <button class="footer-newsletter__btn" type="submit">
+              Abonnieren
+            </button>
+          </form>
+        </div>
+        <div class="footer-col">
+          <h3 class="footer-col__title">Kontakt</h3>
+          <p>Marburg, Deutschland</p>
+          <p><a href="tel:+4964218097347">06421 8097347</a></p>
+          <p><a href="mailto:mail@nurovelle.de">mail@nurovelle.de</a></p>
+          <div class="footer-social" aria-label="Social Media">
+            <a href="../../index.html#" aria-label="LinkedIn">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path
+                  fill="currentColor"
+                  d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM9 9h3.8v1.7h.05c.53-1 1.83-2.05 3.77-2.05C20.4 8.65 22 10.9 22 14.2V21h-4v-6c0-1.43-.03-3.27-2-3.27-2 0-2.3 1.56-2.3 3.17V21H9z"
+                />
+              </svg>
+            </a>
+            <a href="../../index.html#" aria-label="YouTube">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path
+                  fill="currentColor"
+                  d="M23 12s0-3.2-.4-4.7a2.5 2.5 0 0 0-1.75-1.75C19.3 5.2 12 5.2 12 5.2s-7.3 0-8.85.35A2.5 2.5 0 0 0 1.4 7.3C1 8.8 1 12 1 12s0 3.2.4 4.7a2.5 2.5 0 0 0 1.75 1.75C4.7 18.8 12 18.8 12 18.8s7.3 0 8.85-.35A2.5 2.5 0 0 0 22.6 16.7C23 15.2 23 12 23 12zM9.75 15.02V8.98L15.5 12z"
+                />
+              </svg>
+            </a>
+            <a href="../../index.html#" aria-label="Instagram">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path
+                  fill="currentColor"
+                  d="M12 2.2c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.42.56.22.96.48 1.38.9.42.42.68.82.9 1.38.17.42.37 1.06.42 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.42 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.17-1.06.37-2.23.42-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.42a3.7 3.7 0 0 1-1.38-.9 3.7 3.7 0 0 1-.9-1.38c-.17-.42-.37-1.06-.42-2.23C2.21 15.58 2.2 15.2 2.2 12s.01-3.58.07-4.85c.05-1.17.25-1.8.42-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.17 1.06-.37 2.23-.42C8.42 2.21 8.8 2.2 12 2.2zm0 3.05A6.75 6.75 0 1 0 18.75 12 6.75 6.75 0 0 0 12 5.25zm0 11.13A4.38 4.38 0 1 1 16.38 12 4.38 4.38 0 0 1 12 16.38zm6.99-11.4a1.58 1.58 0 1 1-1.57-1.58 1.58 1.58 0 0 1 1.57 1.58z"
+                />
+              </svg>
+            </a>
+            <a href="../../index.html#" aria-label="GitHub">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path
+                  fill="currentColor"
+                  d="M12 1.5a10.5 10.5 0 0 0-3.32 20.47c.53.1.72-.23.72-.5v-1.9c-2.93.64-3.55-1.24-3.55-1.24-.48-1.22-1.17-1.55-1.17-1.55-.96-.65.07-.64.07-.64 1.06.08 1.62 1.09 1.62 1.09.94 1.6 2.46 1.14 3.06.87.1-.68.37-1.14.67-1.4-2.34-.27-4.8-1.17-4.8-5.2 0-1.15.4-2.09 1.08-2.83-.1-.27-.47-1.34.1-2.8 0 0 .88-.28 2.88 1.08a10 10 0 0 1 5.24 0c2-1.36 2.88-1.08 2.88-1.08.57 1.46.2 2.53.1 2.8.68.74 1.08 1.68 1.08 2.83 0 4.04-2.47 4.93-4.82 5.19.38.33.72.98.72 1.98v2.93c0 .28.19.61.73.5A10.5 10.5 0 0 0 12 1.5z"
+                />
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <nav class="footer-legal" aria-label="Rechtliches">
+          <a href="../../impressum.html">Impressum</a>
+          <a href="../../datenschutz.html">Datenschutz</a>
+          <a href="../../agb.html">AGB</a>
+        </nav>
+        <p class="footer-copy">
+          © Nurovelle. By d4sd1ng. All rights reserved.
+        </p>
+        <a class="footer-top" href="#" aria-label="Nach oben">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path
+              fill="none"
+              stroke="currentColor"
+              stroke-width="3"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M12 19V5M6 11l6-6 6 6"
+            />
+          </svg>
+        </a>
+      </div>
+    </footer>
+
+<svg style="display:none">
+  <symbol id="i-chev" viewBox="0 0 24 24"><path d="M8 4l9 8-9 8" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-doc" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3h7l4 4v14H7z"/><path d="M14 3v4h4"/><path d="M10 12h5M10 16h5"/></g></symbol>
+  <symbol id="i-book" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19V5a2 2 0 0 1 2-2h14v16H6a2 2 0 0 0-2 2 2 2 0 0 0 2 2h14"/></g></symbol>
+  <symbol id="i-db" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="7" ry="2.5"/><path d="M5 5v14c0 1.4 3.1 2.5 7 2.5s7-1.1 7-2.5V5"/><path d="M5 12c0 1.4 3.1 2.5 7 2.5s7-1.1 7-2.5"/></g></symbol>
+  <symbol id="i-gear" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3.2"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9l2.1 2.1M17 17l2.1 2.1M19.1 4.9L17 7M7 17l-2.1 2.1"/></g></symbol>
+  <symbol id="i-headset" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 14a8 8 0 0 1 16 0"/><rect x="3" y="14" width="4" height="6" rx="1.5"/><rect x="17" y="14" width="4" height="6" rx="1.5"/></g></symbol>
+  <symbol id="i-chat" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v11H9l-5 4z"/><path d="M8 9h8"/></g></symbol>
+  <symbol id="i-bot" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="8" width="14" height="10" rx="2"/><path d="M12 8V5"/><circle cx="12" cy="4" r="1"/><path d="M9.5 12.5v1M14.5 12.5v1"/></g></symbol>
+  <symbol id="i-plus" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M12 9v6M9 12h6"/></g></symbol>
+  <symbol id="i-seo" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="10.5" cy="10.5" r="5.5"/><path d="M15 15l6 6"/></g></symbol>
+  <symbol id="i-chart" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4v16h16"/><path d="M8 16v-5M12 16V8M16 16v-3"/></g></symbol>
+  <symbol id="i-sync" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M20 12a8 8 0 1 1-2.3-5.7"/><path d="M20 3v4h-4"/><path d="M9 12l2 2 4-4"/></g></symbol>
+  <symbol id="i-bulb" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a6 6 0 0 1 4 10.4c-.8.7-1 1.6-1 2.6H9c0-1-.2-1.9-1-2.6A6 6 0 0 1 12 3z"/><path d="M9 19h6M10 22h4"/></g></symbol>
+  <symbol id="i-wrench" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 6.5a4 4 0 0 1 5.2-4.7l-2.9 2.9 2.5 2.5 2.9-2.9a4 4 0 0 1-4.7 5.2L8 19a2.1 2.1 0 1 1-3-3z"/></g></symbol>
+  <symbol id="i-loop" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12a8 8 0 0 1 14-5.3"/><path d="M18 3v4h-4"/><path d="M20 12a8 8 0 0 1-14 5.3"/><path d="M6 21v-4h4"/></g></symbol>
+  <symbol id="i-rocket" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3c3 2 5 6 5 10l-2 2H9l-2-2c0-4 2-8 5-10z"/><circle cx="12" cy="9" r="1.5"/><path d="M9 17l-1.5 4M15 17l1.5 4M12 17v4"/></g></symbol>
+  <symbol id="i-map" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6l5-2 6 2 5-2v14l-5 2-6-2-5 2z"/><path d="M9 4v14M15 6v14"/></g></symbol>
+  <symbol id="i-plug" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3v5M15 3v5"/><path d="M6 8h12v3a6 6 0 0 1-12 0z"/><path d="M12 17v4"/></g></symbol>
+  <symbol id="i-pen" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20l1-4L17 4l3 3L8 19l-4 1z"/><path d="M14 7l3 3"/></g></symbol>
+  <symbol id="i-trend" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h16"/><path d="M5 16l4-4 3 3 6-7"/><path d="M14 8h4v4"/></g></symbol>
+  <symbol id="nv-calendly-mark" viewBox="0 0 64 64">
+    <path d="M50 14C42 7 30 5 20 11C9 17 5 31 10 42C15 53 28 59 40 55C46 53 51 49 54 44" fill="none" stroke="#046bf7" stroke-width="7" stroke-linecap="round" />
+    <path d="M50 22C44 16 35 15 28 19C20 23 17 32 21 40C25 48 35 51 43 47C47 45 50 42 52 38" fill="none" stroke="#12e0f7" stroke-width="6" stroke-linecap="round" />
+    <path d="M47 28C43 24 37 24 34 28C30 32 32 38 36 40C40 42 45 40 48 36" fill="none" stroke="#046bf7" stroke-width="5" stroke-linecap="round" />
+  </symbol>
+</svg>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const breadcrumbGroups = [...document.querySelectorAll(".nv-breadcrumb__group")];
+  const hoverNavigation = window.matchMedia("(hover: hover) and (pointer: fine)");
+
+  breadcrumbGroups.forEach(group => {
+    let closeTimer = 0;
+    const cancelClose = () => { window.clearTimeout(closeTimer); closeTimer = 0; };
+
+    group.addEventListener("toggle", () => {
+      if (!group.open) return;
+      breadcrumbGroups.forEach(otherGroup => { if (otherGroup !== group) otherGroup.open = false; });
+    });
+
+    group.addEventListener("mouseenter", () => {
+      if (!hoverNavigation.matches) return;
+      cancelClose();
+      breadcrumbGroups.forEach(otherGroup => { if (otherGroup !== group) otherGroup.open = false; });
+      group.open = true;
+    });
+
+    group.addEventListener("mouseleave", () => {
+      if (!hoverNavigation.matches || group.matches(":focus-within")) return;
+      cancelClose();
+      closeTimer = window.setTimeout(() => {
+        if (!group.matches(":hover") && !group.matches(":focus-within")) group.open = false;
+      }, 160);
+    });
+
+    group.addEventListener("focusin", cancelClose);
+  });
+
+  document.addEventListener("click", event => {
+    if (event.target.closest(".nv-breadcrumb__group")) return;
+    breadcrumbGroups.forEach(group => { group.open = false; });
+  });
+
+  document.addEventListener("keydown", event => {
+    if (event.key !== "Escape") return;
+    breadcrumbGroups.forEach(group => { group.open = false; });
+  });
+
+  document.querySelectorAll(".faq-item").forEach(item => {
+    item.addEventListener("toggle", () => {
+      if (!item.open) return;
+      document.querySelectorAll(".faq-item").forEach(other => {
+        if (other !== item) other.open = false;
+      });
+    });
+  });
+});
+</script>
 </body>
 </html>
