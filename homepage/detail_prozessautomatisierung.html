@@ -265,7 +265,7 @@ main h3 { font: var(--w-zwischentitel) var(--t-zwischentitel)/1.2 "Exo 2",Inter,
 .detail-hero h1 { margin-bottom: 21px; }
 .detail-hero .sub { font-size: 20px; margin-bottom: 39px; }
 .detail-hero .actions { margin-top: 63px; }
-.visual-card { position: relative; overflow: hidden; border: 1.25px solid transparent; border-radius: 10px; background-image: linear-gradient(#080B09,#080B09), var(--gold-3); background-origin: border-box; background-clip: padding-box, border-box; filter: drop-shadow(0 16px 24px rgba(0,0,0,.34)); }
+.visual-card { position: relative; overflow: hidden; }
 .visual-card>img:first-child { width: 100%; height: auto; max-height: 230px; object-fit: contain; }
 .content-grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 108px; margin-top: 0; }
 .panel { border: 1.25px solid transparent; border-radius: 10px; background-image: linear-gradient(#080B09,#080B09), var(--gold-3); background-origin: border-box; background-clip: padding-box, border-box; padding: 13px; }
@@ -419,11 +419,11 @@ h1, main h2, .label-list strong, .num-list b, .result-strip h3, .form-panel h3, 
 @keyframes nv-gold-shine { to { background-position: 250% center; } }
 @media (prefers-reduced-motion: reduce) { h1, main h2, .label-list strong, .num-list b, .result-strip h3, .form-panel h3, .gold { animation: none; } }
 /* Goldrahmen: metallischer Verlauf mit Lichtkante, dunkler Innenkante und wanderndem Glanzband */
-.visual-card, .panel, .form-panel, .result-strip, .pair-chip, .chip-list li, .chip-icon, .num-list li::before {
+.panel, .form-panel, .result-strip, .pair-chip, .chip-list li, .chip-icon, .num-list li::before {
   background-size: 250% auto;
   animation: nv-frame-shine 7s linear infinite;
 }
-.visual-card, .panel, .form-panel, .result-strip, .pair-chip, .chip-list li { box-shadow: var(--frame-glow); }
+.panel, .form-panel, .result-strip, .pair-chip, .chip-list li { box-shadow: var(--frame-glow); }
 .chip-icon, .num-list li::before { box-shadow: 0 1px 0 rgba(255,255,220,.26) inset, 0 0 0 1px rgba(146,111,52,.55), 0 0 14px rgba(212,175,55,.14); }
 .pair-chip--gold {
   border-color: transparent;
@@ -435,7 +435,7 @@ h1, main h2, .label-list strong, .num-list b, .result-strip h3, .form-panel h3, 
   box-shadow: var(--frame-glow), inset 0 0 0 1px rgba(255,244,199,.20);
 }
 @keyframes nv-frame-shine { to { background-position: 250% center; } }
-@media (prefers-reduced-motion: reduce) { .visual-card, .panel, .form-panel, .result-strip, .pair-chip, .chip-list li, .chip-icon, .num-list li::before { animation: none; } }
+@media (prefers-reduced-motion: reduce) { .panel, .form-panel, .result-strip, .pair-chip, .chip-list li, .chip-icon, .num-list li::before { animation: none; } }
 
 .skip-link { position: absolute; left: 12px; top: -60px; z-index: 200; padding: 10px 16px; border-radius: 0 0 8px 8px; background: #0a0d0b; color: #fae385; font: 600 14px/1 Inter, Arial, sans-serif; text-decoration: none; border: 1px solid #8a6a24; transition: top 0.15s ease; }
 .skip-link:focus-visible { top: 0; outline: none; }

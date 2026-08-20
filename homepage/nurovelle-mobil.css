@@ -17,11 +17,11 @@ h1, main > section > .section-inner > h2 {
 }
 @media (prefers-reduced-motion: reduce) { h1, main > section > .section-inner > h2 { animation: none; } }
 /* Goldrahmen: metallischer Verlauf mit Lichtkante, dunkler Innenkante und wanderndem Glanzband */
-.visual-card, .panel, .form-panel, .result-strip, .pair-chip, .chip-list li, .chip-icon, .num-list li::before {
+.panel, .form-panel, .result-strip, .pair-chip, .chip-list li, .chip-icon, .num-list li::before {
   background-size: 250% auto;
   animation: nv-frame-shine 18s linear infinite;
 }
-.visual-card, .panel, .form-panel, .result-strip, .pair-chip, .chip-list li { box-shadow: var(--frame-glow); }
+.panel, .form-panel, .result-strip, .pair-chip, .chip-list li { box-shadow: var(--frame-glow); }
 .chip-icon, .num-list li::before { box-shadow: 0 0.8px 0 rgba(255,255,220,.26) inset, 0 0 0 0.8px rgba(146,111,52,.55), 0 0 11px rgba(212,175,55,.14); }
 .pair-chip--gold {
   border-color: transparent;
@@ -37,7 +37,7 @@ h1, main > section > .section-inner > h2 {
   33%  { background-position: 250% center; }
   100% { background-position: 250% center; }
 }
-@media (prefers-reduced-motion: reduce) { .visual-card, .panel, .form-panel, .result-strip, .pair-chip, .chip-list li, .chip-icon, .num-list li::before { animation: none; } }
+@media (prefers-reduced-motion: reduce) { .panel, .form-panel, .result-strip, .pair-chip, .chip-list li, .chip-icon, .num-list li::before { animation: none; } }
 /* ==========================================================================
    MOBIL — Desktop-Raster wird einspaltig
    ========================================================================== */
