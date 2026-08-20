@@ -830,6 +830,8 @@ canvas.nv-step-viz {
 .nv-analyse__title { margin: 0 0 49px; white-space: nowrap; width: max-content; color: transparent; background: var(--gold-1); background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent; font: var(--w-sektionstitel) var(--t-sektionstitel)/1.15 "Exo 2",Inter,Arial,sans-serif; }
 .nv-analyse__subtitle { max-width: 60ch; margin: 0 0 116px; color: var(--color-text-sub); font: var(--w-subtitle) var(--t-subtitle)/1.22 "Inter",Arial,sans-serif; }
 .nv-analyse__intro { max-width: 1068px; margin: 0 0 12px 0; color: #b9c3bd; font: var(--w-fliesstext) var(--t-fliesstext)/1.85 "Inter",Arial,sans-serif; }
+.nv-analyse__deep { display: flex; align-items: center; justify-content: space-between; gap: 32px; flex-wrap: wrap; margin-top: 64px; padding-top: 40px; border-top: 1px solid rgba(212,175,55,.35); }
+.nv-analyse__deep p { max-width: 72ch; margin: 0; color: #b9c3bd; font: var(--w-fliesstext) var(--t-fliesstext)/1.7 "Inter",Arial,sans-serif; }
 .nv-analyse__layout { display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1068px); gap: 48px; align-items: start; }@media(max-width:1200px){ .nv-analyse__layout{ grid-template-columns:1fr; } }
 .nv-analyse__grid { display: grid; grid-template-columns: minmax(0,1fr); gap: 12px; align-items: start; }@media(max-width:980px){ .nv-analyse__grid{ grid-template-columns:1fr; } }
 /* uniform card shell for all 4 cards */
@@ -1497,7 +1499,6 @@ canvas.nv-step-viz {
         <summary class="nv-breadcrumb__trigger"><span>Potenzialanalyse</span></summary>
         <div class="nv-breadcrumb__menu">
           <a href="#ki-projekt-start">Erster Schritt</a>
-          <a href="#projektidee">Projektidee</a>
           <a href="#pakete">Pakete</a>
           <a href="analyse.html">Kostenlose Potenzialanalyse</a>
           <a href="potenzialanalyse-deep.html">Deep-Potenzialanalyse</a>
@@ -1546,10 +1547,10 @@ canvas.nv-step-viz {
     </p>
 
     <div class="hero-actions">
-      <a class="hero-cta" href="analyse.html" aria-label="Potenzialanalyse starten">
+      <a class="hero-cta" href="analyse.html" aria-label="Kostenlose Potenzialanalyse starten">
         <span class="golden-button">
           <svg class="nv-calendly-icon" viewBox="0 0 64 64" aria-hidden="true"><use href="#nv-calendly-mark"></use></svg>
-          <span class="golden-text">Potenzialanalyse starten</span>
+          <span class="golden-text">Kostenlose Potenzialanalyse</span>
         </span>
       </a>
       <a class="hero-cta hero-cta--outline" href="https://calendly.com/d4sd1ng/30min" target="_blank" rel="noopener" aria-label="Erstgespräch vereinbaren">
@@ -1652,10 +1653,10 @@ canvas.nv-step-viz {
     </div>
 
     <div class="nv-section-step__actions">
-      <a class="hero-cta" href="analyse.html" aria-label="Potenzialanalyse starten">
+      <a class="hero-cta" href="analyse.html" aria-label="Kostenlose Potenzialanalyse starten">
         <span class="golden-button">
           <svg class="nv-calendly-icon" aria-hidden="true"><use href="#nv-calendly-mark"></use></svg>
-          <span class="golden-text">Potenzialanalyse starten</span>
+          <span class="golden-text">Kostenlose Potenzialanalyse</span>
         </span>
       </a>
       <a class="hero-cta hero-cta--outline" href="https://calendly.com/d4sd1ng/30min" target="_blank" rel="noopener" aria-label="Erstgespräch vereinbaren">
@@ -1734,9 +1735,9 @@ canvas.nv-step-viz {
     </div>
 
     <div class="nvp4-projectidea__actions">
-      <a class="hero-cta" href="analyse.html" aria-label="Potenzialanalyse starten">
+      <a class="hero-cta" href="analyse.html" aria-label="Kostenlose Potenzialanalyse starten">
         <span class="golden-button">
-          <span class="golden-text">Potenzialanalyse starten</span>
+          <span class="golden-text">Kostenlose Potenzialanalyse</span>
         </span>
       </a>
     </div>
@@ -1761,8 +1762,8 @@ canvas.nv-step-viz {
           <li>Leistungsnachweis prüfen</li>
         </ul>
         <div class="nv-pack__prices">
-          <p class="nv-pack__price"><b>890 €</b><span>Einrichtung, einmalig</span></p>
-          <p class="nv-pack__price"><b>79 €</b><span>Servicevertrag je Monat</span></p>
+          <p class="nv-pack__price"><b>799 €</b><span>Einrichtung, einmalig</span></p>
+          <p class="nv-pack__price"><b>69 €</b><span>Servicevertrag je Monat</span></p>
         </div>
         <a class="hero-cta" href="#kontakt" aria-label="Betreuungspaket anfragen">
           <span class="golden-button">
@@ -1781,8 +1782,8 @@ canvas.nv-step-viz {
           <li>Prüffristen überwachen</li>
         </ul>
         <div class="nv-pack__prices">
-          <p class="nv-pack__price"><b>890 €</b><span>Einrichtung, einmalig</span></p>
-          <p class="nv-pack__price"><b>79 €</b><span>Servicevertrag je Monat</span></p>
+          <p class="nv-pack__price"><b>799 €</b><span>Einrichtung, einmalig</span></p>
+          <p class="nv-pack__price"><b>69 €</b><span>Servicevertrag je Monat</span></p>
         </div>
         <a class="hero-cta" href="#kontakt" aria-label="Handwerkspaket anfragen">
           <span class="golden-button">
@@ -1801,8 +1802,8 @@ canvas.nv-step-viz {
           <li>Onboarding-Unterlagen erstellen</li>
         </ul>
         <div class="nv-pack__prices">
-          <p class="nv-pack__price"><b>490 €</b><span>Einrichtung, einmalig</span></p>
-          <p class="nv-pack__price"><b>49 €</b><span>Servicevertrag je Monat</span></p>
+          <p class="nv-pack__price"><b>399 €</b><span>Einrichtung, einmalig</span></p>
+          <p class="nv-pack__price"><b>69 €</b><span>Servicevertrag je Monat</span></p>
         </div>
         <a class="hero-cta" href="#kontakt" aria-label="Büropaket anfragen">
           <span class="golden-button">
@@ -2287,10 +2288,17 @@ canvas.nv-step-viz {
           <div class="nv-aform__row nv-aform__row--news">
             <label class="nv-aform__consent"><input name="newsletter" type="checkbox" value="yes"><span><strong>Newsletter erhalten.</strong> Passende Hinweise zur Potenzialanalyse per E-Mail.</span></label>
           </div>
-          <button class="hero-cta nv-aform__submit" type="submit"><span class="golden-button"><span class="golden-text">Potenzialanalyse starten</span></span></button>
+          <button class="hero-cta nv-aform__submit" type="submit"><span class="golden-button"><span class="golden-text">Kostenlose Potenzialanalyse</span></span></button>
         </div>
       </form>
     </div>
+    </div>
+
+    <div class="nv-analyse__deep">
+      <p>Wenn mehrere Prozesse, Investitionsentscheidungen oder technische Abhängigkeiten genauer untersucht werden müssen, reicht die kostenlose Ersteinschätzung nicht aus. Dafür gibt es die kostenpflichtige Deep-Potenzialanalyse.</p>
+      <a class="hero-cta hero-cta--outline" href="potenzialanalyse-deep.html" aria-label="Deep-Potenzialanalyse ansehen">
+        <span class="golden-button"><span class="golden-text">Deep-Potenzialanalyse ansehen</span></span>
+      </a>
     </div>
   </div>
 </section>
@@ -2414,10 +2422,10 @@ canvas.nv-step-viz {
           </li>
         </ol>
         <div class="nv-process__actions">
-          <a class="hero-cta" href="analyse.html" aria-label="Potenzialanalyse starten">
+          <a class="hero-cta" href="analyse.html" aria-label="Kostenlose Potenzialanalyse starten">
             <span class="golden-button">
               <svg class="nv-calendly-icon" aria-hidden="true"><use href="#nv-calendly-mark"></use></svg>
-              <span class="golden-text">Potenzialanalyse starten</span>
+              <span class="golden-text">Kostenlose Potenzialanalyse</span>
             </span>
           </a>
           <a class="hero-cta hero-cta--outline" href="https://calendly.com/d4sd1ng/30min" target="_blank" rel="noopener" aria-label="Erstgespräch vereinbaren">
@@ -3161,7 +3169,7 @@ void main(){
   size(); window.addEventListener("resize",size,{passive:true});
   var rings=[{r:.40,n:3,s:.6},{r:.68,n:5,s:-.4},{r:.95,n:8,s:.26}];
   function frame(){
-    ctx.clearRect(0,0,W,H); var cx=W/2,cy=H/2,base=Math.min(W,H)/2-26;
+    ctx.clearRect(0,0,W,H); var cx=W/2,cy=H/2,base=Math.max(0,Math.min(W,H)/2-26);
     rings.forEach(function(rg){ var R=base*rg.r;
       ctx.beginPath(); ctx.arc(cx,cy,R,0,7); ctx.strokeStyle="rgba(250,227,133,.10)"; ctx.lineWidth=1; ctx.stroke();
       for(var i=0;i<rg.n;i++){ var a=t*rg.s+i*2*Math.PI/rg.n,x=cx+Math.cos(a)*R,y=cy+Math.sin(a)*R;
@@ -3199,7 +3207,7 @@ void main(){
             ctx.beginPath(); ctx.arc(p, y, 3.5, 0, 7); ctx.fillStyle = "rgba(244,220,144,.85)"; ctx.fill(); }
         }
       } else { // Orbit-Diagramm (vormals Sektion 2)
-        var cx = W/2, cy = H/2, base = Math.min(W,H)/2 - 10;
+        var cx = W/2, cy = H/2, base = Math.max(0, Math.min(W,H)/2 - 10);
         var rings = [{r:0.40,n:3,s:0.6},{r:0.68,n:5,s:-0.4},{r:0.95,n:8,s:0.26}];
         for(var ri=0; ri<rings.length; ri++){ var rg = rings[ri], R = base*rg.r;
           ctx.beginPath(); ctx.arc(cx,cy,R,0,7); ctx.strokeStyle = "rgba(250,227,133,.10)"; ctx.lineWidth = 1; ctx.stroke();
