@@ -791,8 +791,6 @@ canvas.nv-step-viz {
 /* PORT: section-5 title on one row */
 
 
-/* PORT: Kompetenzen section */
-.nv-comp { display: flex; flex-direction: column; justify-content: center;  min-height: calc(125vh - var(--header-height)); position: relative; padding: 104px var(--side) 88px; background: #050505; overflow: hidden; }
 .nv-diagram-label { display: block; margin: 2px 2px 20px; /* larger gap below title, before the diagram */
   font: var(--w-kartentitel) var(--t-kartentitel)/1.05 "Exo 2", Inter, Arial, sans-serif; letter-spacing: 0.01em; color: var(--color-text-muted); }
 .nv-step-item:nth-child(2) canvas.nv-step-viz { top: 17%; }
@@ -800,27 +798,32 @@ canvas.nv-step-viz {
 .nv-step-card__more::before { display: none; }
 .nv-step-card__more::after { content: ""; width: 0; height: 0; flex: 0 0 auto; border-style: solid; border-width: 4px 0 4px 6px; border-color: transparent transparent transparent #fae385; }
 .nv-step-card__more:hover { background: #262626; border-color: #fae385; transform: translateX(-50%) translateY(-1px) rotate(8deg); }
-.nv-comp::after { content: ""; position: absolute; left: 7%; right: 7%; bottom: 0; height: 2px; background: linear-gradient(90deg,transparent,#fae385 20%,#fae385 80%,transparent); box-shadow: 0 0 8px #fae38566; pointer-events: none; }
-.nv-comp__inner { position: relative; z-index: 1; margin: 0 auto 0 0;  width: 100%; }
-.nv-comp__kicker { margin: 0 0 10px; color: #55863f; font: var(--w-kicker-sektion) var(--t-kicker-sektion)/1.15 "Inter",Arial,sans-serif; letter-spacing: 0.14em; text-transform: uppercase; }
-.nv-comp__title { margin: 0 0 49px; color: transparent; background: var(--gold-1); background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent; font: var(--w-sektionstitel) var(--t-sektionstitel)/1.15 "Exo 2",Inter,Arial,sans-serif; }
-.nv-comp__subtitle { max-width: 60ch; margin: 0 0 116px; color: var(--color-text-sub); font: var(--w-subtitle) var(--t-subtitle)/1.22 "Inter",Arial,sans-serif; }
-.nv-comp__intro { max-width: 58ch; margin: 0 0 140px; color: #b9c3bd; font: var(--w-fliesstext) var(--t-fliesstext)/1.85 "Inter",Arial,sans-serif; }
-.nv-comp__grid { display: grid; grid-template-columns: 867px 867px; justify-content: center; gap: 144px; align-items: center; }@media(max-width:920px){ .nv-comp__grid{ grid-template-columns:1fr; } }
+
+/* PORT: Pakete — drei fertige Loesungen */
+.nv-pack { position: relative; padding: 104px var(--side) 88px; background: #010603; overflow: hidden; }
+.nv-pack::after { content: ""; position: absolute; left: 7%; right: 7%; bottom: 0; height: 2px; background: linear-gradient(90deg,transparent,#fae385 20%,#fae385 80%,transparent); box-shadow: 0 0 8px #fae38566; pointer-events: none; }
+.nv-pack__inner { position: relative; z-index: 1; margin: 0 auto 0 0; }
+.nv-pack__kicker { margin: 0 0 10px; color: #55863f; font: var(--w-kicker-sektion) var(--t-kicker-sektion)/1.15 "Inter",Arial,sans-serif; letter-spacing: .14em; text-transform: uppercase; }
+.nv-pack__title { margin: 0 0 49px; width: max-content; max-width: 100%; color: transparent; background: var(--gold-1); background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent; font: var(--w-sektionstitel) var(--t-sektionstitel)/1.15 "Exo 2",Inter,Arial,sans-serif; }
+.nv-pack__subtitle { max-width: 60ch; margin: 0 0 40px; color: var(--color-text-sub); font: var(--w-subtitle) var(--t-subtitle)/1.22 "Inter",Arial,sans-serif; }
+.nv-pack__intro { max-width: 68ch; margin: 0 0 72px; color: #b9c3bd; font: var(--w-fliesstext) var(--t-fliesstext)/1.85 "Inter",Arial,sans-serif; }
+.nv-pack__grid { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 32px; align-items: stretch; }
+.nv-pack__card { display: flex; flex-direction: column; }
+.nv-pack__lead { margin: 0 0 28px; color: #b9c3bd; font: var(--w-fliesstext) var(--t-fliesstext)/1.6 "Inter",Arial,sans-serif; }
+.nv-pack__features { list-style: none; margin: 0 0 32px; padding: 0; display: grid; gap: 12px; }
+.nv-pack__features li { position: relative; padding-left: 20px; color: var(--color-text-light); font: var(--w-kartenbullet) var(--t-kartenbullet)/1.4 "Inter",Arial,sans-serif; }
+.nv-pack__features li::before { content: ""; position: absolute; left: 0; top: .55em; width: 7px; height: 7px; border-radius: 2px; background: #DFBD69; }
+.nv-pack__prices { margin-top: auto; display: grid; gap: 10px; padding-top: 24px; border-top: 1px solid rgba(212,175,55,.35); }
+.nv-pack__price { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; }
+.nv-pack__price b { color: #f0d488; font: var(--w-wert) var(--t-wert)/1 "Inter",Arial,sans-serif; font-variant-numeric: tabular-nums; }
+.nv-pack__price span { color: #b9c3bd; font: 400 18px/1.3 "Inter",Arial,sans-serif; text-align: right; }
+.nv-pack__card .hero-cta { margin-top: 28px; }
+.nv-pack__note { max-width: 110ch; margin: 48px 0 0; color: #8f9a93; font: 400 16px/1.7 "Inter",Arial,sans-serif; }
+@media (max-width: 1200px) { .nv-pack__grid { grid-template-columns: repeat(2, minmax(0,1fr)); } }
+@media (max-width: 900px) { .nv-pack__grid { grid-template-columns: minmax(0,1fr); } .nv-pack__title { white-space: normal; width: auto; } }
 
 /* PORT: Potenzialanalyse — interactive cards + real form, 4 uniform cards */
 .nv-analyse {  position:relative; padding:104px var(--side) 88px; background:#010603; overflow:hidden; }
-.nv-comp-skill { margin-bottom: 52px; }
-.nv-comp-skill__top { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 9px; }
-.nv-comp-skill__top b { font: var(--w-bulletlabel) var(--t-bulletlabel)/1.85 "Inter",Arial,sans-serif; color: #e4e0d6; }
-.nv-comp-skill__top span { font: var(--w-wert) var(--t-wert)/1 "Inter",Arial,sans-serif; color: #f0d488; font-variant-numeric: tabular-nums; }
-.nv-comp-skill__bar { height: 9px; border-radius: 100px; background: rgba(255,255,255,.06); overflow: hidden; }
-.nv-comp-skill__fill { display: block; height: 100%; width: 0; border-radius: 100px; background: var(--gold-1); box-shadow: 0 0 12px rgba(250,227,133,.4); transition: width 1.1s cubic-bezier(.22,1,.36,1); }
-.nv-comp__radar { border: 1px solid transparent; background-image: linear-gradient(#17251d,#17251d), var(--gold-3); background-origin: border-box; background-clip: padding-box,border-box; border-radius: 10px; padding: 24px; text-align: center; position: relative; }
-.nv-comp__radar h3 { margin: 0 0 8px; color: transparent; background: var(--gold-1); background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent; font: var(--w-kartentitel) var(--t-kartentitel)/1.05 "Exo 2",Inter,Arial,sans-serif; letter-spacing: .12em; text-transform: uppercase; }
-#nvCompRadar { width: 100%; max-width: 576px; height: auto; margin: 0 auto; display: block; }
-.nv-comp__radar-stage { position: relative; width: 576px; max-width: 100%; margin: 0 auto; }
-.nv-comp__radar-label { position: absolute; transform: translate(-50%,-50%); white-space: nowrap; pointer-events: none; color: #b9c3bd; font: var(--w-feldlabel) var(--t-feldlabel)/1 "Inter",Arial,sans-serif; }
 .nv-analyse::after { content: ""; position: absolute; left: 7%; right: 7%; bottom: 0; height: 2px; background: linear-gradient(90deg,transparent,#fae385 20%,#fae385 80%,transparent); box-shadow: 0 0 8px #fae38566; pointer-events: none; }
 .nv-analyse__inner { position: relative; z-index: 1; margin: 0 auto 0 0; }
 .nv-analyse__kicker { margin: 0 0 10px; color: #55863f; font: var(--w-kicker-sektion) var(--t-kicker-sektion)/1.15 "Inter",Arial,sans-serif; letter-spacing: .14em; text-transform: uppercase; }
@@ -1069,7 +1072,7 @@ canvas.nv-step-viz {
 #formular .nv-resource-section__title { font-size: 120px; }
 .nv-resource-section__title { margin: 0 0 49px; color: transparent; background: var(--gold-1); background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent; font: 700 var(--nv-section-title-size) / 1.15 "Exo 2", Inter, Arial, sans-serif; letter-spacing: 0.01em; }
 .nv-resource-section__intro { max-width: 58ch; margin: 0; color: #b9c3bd; font: 500 var(--nv-section-body-size) / var(--nv-section-body-line) Inter, Arial, sans-serif; }
-.nv-faq-layout { display: grid; grid-template-columns: minmax(0, 1630px) 650px; gap: 80px; align-items: center; justify-content: center; max-width: 2360px; margin: 0 auto; transform: translateX(calc(0px / -2)); }
+.nv-faq-layout { display: grid; grid-template-columns: minmax(0, 1630px); gap: 80px; align-items: center; justify-content: center; max-width: 2360px; margin: 0 auto; transform: translateX(calc(0px / -2)); }
 .nv-faq-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 30px; align-items: start; }
 .nv-faq-item { align-self: start; }
 .nv-faq-item summary { --nv-golden-display: flex; --nv-golden-width: 100%; --nv-golden-min-width: 0; --nv-golden-height: auto; --nv-golden-justify: space-between; --nv-golden-text-align: left; --nv-golden-white-space: normal; gap: 12px; padding-block: 12px; padding-inline: 19px; font-size: 16px; line-height: 1.25; list-style: none; font: var(--w-bulletlabel) var(--t-bulletlabel)/1.35 "Exo 2",Inter,Arial,sans-serif;  display: flex; width: 100%; min-width: 0; justify-content: space-between; text-align: left; white-space: normal; }
@@ -1077,11 +1080,6 @@ canvas.nv-step-viz {
 .nv-faq-item summary::after { content: "+"; flex: 0 0 auto; color: var(--nv-gold-text-dark); font-size: 18px; }
 .nv-faq-item[open] summary::after { content: "−"; }
 .nv-faq-item p { margin: 0; padding: 14px 15px 18px; color: #b9c3bd; background: transparent; font: 500 12px/1.55 Inter, Arial, sans-serif; }
-.nv-faq-metrics { display: grid; gap: 39px; width: 100%; padding: 47px; border-left: 1px solid #d4af37; }
-.nv-faq-metric { display: grid; gap: 10px; }
-.nv-faq-metric__top { display: flex; justify-content: space-between; color: #b9c3bd; font: 600 var(--nv-section-body-size)/1.2 Inter, Arial, sans-serif; }
-.nv-faq-metric__bar { height: 18.4px; border-radius: 999px; background: var(--nv-matte-black); overflow: hidden; }
-.nv-faq-metric__fill { display: block; height: 100%; background: var(--gold-1); }
 .nv-resource-section::after { content: ""; position: absolute; left: 7%; right: 7%; bottom: 0; height: 2px; background: linear-gradient(90deg,transparent,#fae385 20%,#fae385 80%,transparent); box-shadow: 0 0 8px #fae38566; pointer-events: none; }
 .nv-resource-section__kicker, .nv-resource-section .kicker { margin: 0 0 10px; color: #55863f; font: var(--w-kicker-sektion) var(--t-kicker-sektion)/1.15 "Inter",Arial,sans-serif; letter-spacing: 0.14em; text-transform: uppercase; }
 .nv-resource-section__title, .nv-resource-section .section-title { margin: 0 0 49px; color: transparent; background: var(--gold-1); background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent; font: var(--w-sektionstitel) var(--t-sektionstitel)/1.15 "Exo 2",Inter,Arial,sans-serif; }
@@ -1227,7 +1225,6 @@ canvas.nv-step-viz {
 .nv-section-step__content h2,
 .nvp4-projectidea__title,
 .nv-s7__title,
-.nv-comp__title,
 .nv-analyse__title,
 .nv-process__title,
 .nv-contact__title,
@@ -1242,9 +1239,9 @@ canvas.nv-step-viz {
   33%  { background-position: 250% center; }   /* Durchlauf in 6s wie zuvor */
   100% { background-position: 250% center; }   /* danach 12s Pause */
 }
-@media (prefers-reduced-motion: reduce) { .hero h1, .nv-about__title, .nv-section-step__content h2, .nvp4-projectidea__title, .nv-s7__title, .nv-comp__title, .nv-analyse__title, .nv-process__title, .nv-contact__title, .downloads-section__title, .nv-resource-section__title { animation: none; } }
+@media (prefers-reduced-motion: reduce) { .hero h1, .nv-about__title, .nv-section-step__content h2, .nvp4-projectidea__title, .nv-s7__title, .nv-analyse__title, .nv-process__title, .nv-contact__title, .downloads-section__title, .nv-resource-section__title { animation: none; } }
 /* Goldrahmen: metallischer Verlauf mit Lichtkante, dunkler Innenkante und wanderndem Glanzband */
-.nv-s7-card__result, .nv-about__mini > div, .nv-comp__radar, .nv-ametrics > div, .nv-aform__row, .nv-about__play {
+.nv-s7-card__result, .nv-about__mini > div, .nv-ametrics > div, .nv-aform__row, .nv-about__play {
   background-size: 250% auto;
   animation: nv-frame-shine 18s linear infinite;
   box-shadow: var(--frame-glow);
@@ -1255,7 +1252,7 @@ canvas.nv-step-viz {
   33%  { background-position: 250% center; }
   100% { background-position: 250% center; }
 }
-@media (prefers-reduced-motion: reduce) { .nv-s7-card__result, .nv-about__mini > div, .nv-comp__radar, .nv-ametrics > div, .nv-aform__row, .nv-about__play { animation: none; } }
+@media (prefers-reduced-motion: reduce) { .nv-s7-card__result, .nv-about__mini > div, .nv-ametrics > div, .nv-aform__row, .nv-about__play { animation: none; } }
 /* ==========================================================================
    MOBIL — ab hier wird die Desktop-Rasterbreite aufgeloest
    ========================================================================== */
@@ -1282,12 +1279,9 @@ canvas.nv-step-viz {
   .nvp4-projectidea__image, .nvp4-projectidea__image--wide { width: 100%; }
   /* Radar: Achsenbeschriftungen sind absolut um die 576px-Buehne gesetzt.
      Buehne schmaler machen wuerde sie abschneiden, also verkleinern. */
-  .nv-comp__radar-stage { width: 576px; zoom: 0.66; }
-  .nv-comp__radar { padding: 16px 8px; }
   .nv-analyse__grid > :nth-child(2) { width: 100%; max-width: 100%; padding: 18px; }
   .nv-arange label, .nv-arange input[type=range] { width: 100%; }
   .nv-contact__grid { grid-template-columns: minmax(0,1fr); width: 100%; margin-top: 0; }
-  .nv-comp__grid { grid-template-columns: minmax(0,1fr); gap: 40px; }
   .nv-analyse__layout, .nv-analyse__grid { grid-template-columns: minmax(0,1fr); }
   .nv-about__body, .nv-about__mini { max-width: 100%; }
 
@@ -1312,7 +1306,6 @@ canvas.nv-step-viz {
   .nv-about__body { grid-template-columns: minmax(0,1fr); column-gap: 0; }
   .nv-about__mini { grid-auto-flow: row; grid-auto-columns: auto; grid-template-columns: repeat(2, minmax(0,1fr)); width: 100%; }
   .footer-inner { grid-template-columns: minmax(0,1fr); gap: 40px; }
-  .nv-faq-metrics { padding: 20px 0 0; border-left: 0; }
   .nv-acard__col { min-width: 0; }
   .nv-about__mediacol, .nv-about__bullets { max-width: 100%; }
 
@@ -1505,7 +1498,9 @@ canvas.nv-step-viz {
         <div class="nv-breadcrumb__menu">
           <a href="#ki-projekt-start">Erster Schritt</a>
           <a href="#projektidee">Projektidee</a>
-          <a href="#potenzialanalyse">Potenzialanalyse</a>
+          <a href="#pakete">Pakete</a>
+          <a href="analyse.html">Kostenlose Potenzialanalyse</a>
+          <a href="potenzialanalyse-deep.html">Deep-Potenzialanalyse</a>
           <a href="#potenzialanalyse">Formular</a>
         </div>
       </details>
@@ -1748,6 +1743,78 @@ canvas.nv-step-viz {
   </div>
 </section>
 
+<section class="nv-pack" id="pakete" aria-labelledby="nv-pack-title">
+  <div class="nv-pack__inner">
+    <p class="nv-pack__kicker">Pakete</p>
+    <h2 class="nv-pack__title" id="nv-pack-title">Fertige Lösungen.</h2>
+    <p class="nv-pack__subtitle">Für wiederkehrende Abläufe in Betreuung, Handwerk und Büro — drei Pakete mit je vier Funktionen.</p>
+    <p class="nv-pack__intro">Wo sich Abläufe in vielen Betrieben gleichen, muss nichts neu entwickelt werden. Diese drei Pakete bündeln je vier Handgriffe, die im jeweiligen Arbeitsalltag täglich anfallen — in einem Programm, das Ihnen gehört und auf Ihrem eigenen Server läuft. Keine Fremd-Cloud nötig.</p>
+    <div class="nv-pack__grid">
+      <article class="nv-acard nv-pack__card">
+        <p class="nv-acard__eyebrow">Betreuung</p>
+        <h3 class="nv-acard__title">Betreuungspaket</h3>
+        <p class="nv-pack__lead">Für nicht-medizinische Betreuungs- und Alltagsbegleitungsdienste: Dokumentation, Kommunikation und Leistungsnachweise.</p>
+        <ul class="nv-pack__features">
+          <li>Betreuungsbericht aus Sprachnachricht</li>
+          <li>Angehörige informieren</li>
+          <li>Verspätung melden</li>
+          <li>Leistungsnachweis prüfen</li>
+        </ul>
+        <div class="nv-pack__prices">
+          <p class="nv-pack__price"><b>890 €</b><span>Einrichtung, einmalig</span></p>
+          <p class="nv-pack__price"><b>79 €</b><span>Servicevertrag je Monat</span></p>
+        </div>
+        <a class="hero-cta" href="#kontakt" aria-label="Betreuungspaket anfragen">
+          <span class="golden-button">
+            <span class="golden-text">Betreuungspaket anfragen</span>
+          </span>
+        </a>
+      </article>
+      <article class="nv-acard nv-pack__card">
+        <p class="nv-acard__eyebrow">Handwerk</p>
+        <h3 class="nv-acard__title">Handwerkspaket</h3>
+        <p class="nv-pack__lead">Für Handwerksbetriebe auf der Baustelle: Regieberichte, Material, Abnahmen und Prüffristen.</p>
+        <ul class="nv-pack__features">
+          <li>Regiebericht aus Sprachnachricht</li>
+          <li>Material erfassen</li>
+          <li>Abnahme protokollieren</li>
+          <li>Prüffristen überwachen</li>
+        </ul>
+        <div class="nv-pack__prices">
+          <p class="nv-pack__price"><b>890 €</b><span>Einrichtung, einmalig</span></p>
+          <p class="nv-pack__price"><b>79 €</b><span>Servicevertrag je Monat</span></p>
+        </div>
+        <a class="hero-cta" href="#kontakt" aria-label="Handwerkspaket anfragen">
+          <span class="golden-button">
+            <span class="golden-text">Handwerkspaket anfragen</span>
+          </span>
+        </a>
+      </article>
+      <article class="nv-acard nv-pack__card">
+        <p class="nv-acard__eyebrow">Büro</p>
+        <h3 class="nv-acard__title">Büropaket</h3>
+        <p class="nv-pack__lead">Für kleine und mittlere Betriebe mit klassischem Büroalltag: Posteingang, Bewertungen, Wissen und Onboarding.</p>
+        <ul class="nv-pack__features">
+          <li>Posteingang sortieren</li>
+          <li>Bewertungen anfragen</li>
+          <li>Internes Wissen auffindbar machen</li>
+          <li>Onboarding-Unterlagen erstellen</li>
+        </ul>
+        <div class="nv-pack__prices">
+          <p class="nv-pack__price"><b>490 €</b><span>Einrichtung, einmalig</span></p>
+          <p class="nv-pack__price"><b>49 €</b><span>Servicevertrag je Monat</span></p>
+        </div>
+        <a class="hero-cta" href="#kontakt" aria-label="Büropaket anfragen">
+          <span class="golden-button">
+            <span class="golden-text">Büropaket anfragen</span>
+          </span>
+        </a>
+      </article>
+    </div>
+    <p class="nv-pack__note">Einführungspreis, gültig für Abschlüsse bis 31.12.2026. Alle Beträge netto zzgl. 19 % MwSt. Der Servicevertrag umfasst Sicherheits- und Funktionsaktualisierungen, Fehlerbehebung und Unterstützung per E-Mail; Mindestlaufzeit 12 Monate, danach monatlich kündbar. Die Software gehört Ihnen und läuft auch ohne Servicevertrag weiter. Nicht enthalten, weil es direkt auf Ihren Namen läuft: der Server (empfohlen 4 Kerne / 8 GB, Standort Deutschland) sowie Versandgebühren Ihres Nachrichtenanbieters. Ein weiteres Paket auf derselben Installation kostet 390 € einmalig und 39 € je Monat.</p>
+  </div>
+</section>
+
 <section class="nv-s7" id="leistungen" aria-labelledby="nv-s7-title">
   <div class="nv-s7__inner">
     <header class="nv-s7__head">
@@ -1787,7 +1854,6 @@ canvas.nv-step-viz {
             <span class="nv-s7-card__result-icon" aria-hidden="true"><span class="nv-s7-card__result-icon-inner"></span></span>
             <div>
               <h4>Klare Potenzialübersicht</h4>
-              <ul><li>Strukturierte Einschätzung</li><li>Priorisierte Einsatzmöglichkeiten</li><li>Konkrete nächste Schritte</li></ul>
             </div>
           </div>
         </div>
@@ -1816,7 +1882,6 @@ canvas.nv-step-viz {
             <span class="nv-s7-card__result-icon" aria-hidden="true"><span class="nv-s7-card__result-icon-inner"></span></span>
             <div>
               <h4>Realistische Roadmap</h4>
-              <ul><li>Nachvollziehbarer Plan</li><li>Prioritäten und Abhängigkeiten</li><li>Klare Entscheidungspunkte</li></ul>
             </div>
           </div>
         </div>
@@ -1845,7 +1910,6 @@ canvas.nv-step-viz {
             <span class="nv-s7-card__result-icon" aria-hidden="true"><span class="nv-s7-card__result-icon-inner"></span></span>
             <div>
               <h4>Kontrollierter KI-Agent</h4>
-              <ul><li>Auf den Prozess abgestimmtes System</li><li>Definierte Regeln und Schnittstellen</li><li>Definierte Ergebnisse</li></ul>
             </div>
           </div>
         </div>
@@ -1874,7 +1938,6 @@ canvas.nv-step-viz {
             <span class="nv-s7-card__result-icon" aria-hidden="true"><span class="nv-s7-card__result-icon-inner"></span></span>
             <div>
               <h4>Konsistente Dialogführung</h4>
-              <ul><li>Kontrolliertes Dialogsystem</li><li>Passende Wissensquellen</li><li>Klare Übergaben</li></ul>
             </div>
           </div>
         </div>
@@ -1903,7 +1966,6 @@ canvas.nv-step-viz {
             <span class="nv-s7-card__result-icon" aria-hidden="true"><span class="nv-s7-card__result-icon-inner"></span></span>
             <div>
               <h4>Automatisierte Gesprächsannahme</h4>
-              <ul><li>Anfragen erfassen und verarbeiten</li><li>Gezielte Weiterleitung</li></ul>
             </div>
           </div>
         </div>
@@ -1932,7 +1994,6 @@ canvas.nv-step-viz {
             <span class="nv-s7-card__result-icon" aria-hidden="true"><span class="nv-s7-card__result-icon-inner"></span></span>
             <div>
               <h4>Entlastung ohne langes Projekt</h4>
-              <ul><li>Weniger Handgriffe</li><li>Weniger Medienbrüche</li><li>Schneller Start</li></ul>
             </div>
           </div>
         </div>
@@ -1961,7 +2022,6 @@ canvas.nv-step-viz {
             <span class="nv-s7-card__result-icon" aria-hidden="true"><span class="nv-s7-card__result-icon-inner"></span></span>
             <div>
               <h4>Verbindlicher Governance-Rahmen</h4>
-              <ul><li>Klare Zuständigkeiten</li><li>Schutzmaßnahmen</li><li>Dokumentierte Freigabewege</li></ul>
             </div>
           </div>
         </div>
@@ -1990,7 +2050,6 @@ canvas.nv-step-viz {
             <span class="nv-s7-card__result-icon" aria-hidden="true"><span class="nv-s7-card__result-icon-inner"></span></span>
             <div>
               <h4>Stabiler automatisierter Workflow</h4>
-              <ul><li>Nachvollziehbarer Workflow</li><li>Weniger manuelle Übergaben</li><li>Klare Zustände</li></ul>
             </div>
           </div>
         </div>
@@ -2019,7 +2078,6 @@ canvas.nv-step-viz {
             <span class="nv-s7-card__result-icon" aria-hidden="true"><span class="nv-s7-card__result-icon-inner"></span></span>
             <div>
               <h4>Strukturierte und geprüfte Daten</h4>
-              <ul><li>Weniger manuelle Übertragung</li><li>Dokumentierte Abweichungen</li><li>Nutzbare Informationen</li></ul>
             </div>
           </div>
         </div>
@@ -2048,7 +2106,6 @@ canvas.nv-step-viz {
             <span class="nv-s7-card__result-icon" aria-hidden="true"><span class="nv-s7-card__result-icon-inner"></span></span>
             <div>
               <h4>Integrierte KI-Lösung</h4>
-              <ul><li>Passgenaues System</li><li>Ergänzt bestehende Abläufe</li><li>Technisch erweiterbar</li></ul>
             </div>
           </div>
         </div>
@@ -2077,7 +2134,6 @@ canvas.nv-step-viz {
             <span class="nv-s7-card__result-icon" aria-hidden="true"><span class="nv-s7-card__result-icon-inner"></span></span>
             <div>
               <h4>Priorisierte SEO-Grundlage</h4>
-              <ul><li>Bessere Auffindbarkeit</li><li>Relevante Inhalte</li><li>Nachhaltige Sichtbarkeit</li></ul>
             </div>
           </div>
         </div>
@@ -2086,21 +2142,6 @@ canvas.nv-step-viz {
   </div>
 </section>
 
-<section class="nv-comp" id="kompetenzen" aria-labelledby="nv-comp-title">
-  <div class="nv-comp__inner">
-    <p class="nv-comp__kicker">Kompetenzen</p>
-    <h2 class="nv-comp__title" id="nv-comp-title">Wo Nurovelle stark ist.</h2>
-    <p class="nv-comp__subtitle">Von der Idee bis zum produktiven KI-System — der gesamte Weg aus einer Hand.</p>
-    <p class="nv-comp__intro">Schwerpunkte, die in realen Projekten immer wieder gefragt sind — von Prompt Engineering und Agenten bis zu Datenanbindung und individueller Software.</p>
-    <div class="nv-comp__grid">
-      <div class="nv-comp__bars" id="nvCompBars"></div>
-      <div class="nv-comp__radar">
-        <h3>Kompetenzprofil</h3>
-        <canvas id="nvCompRadar" width="576" height="516" aria-label="Radardiagramm der Kompetenzen"></canvas>
-      </div>
-    </div>
-  </div>
-</section>
 
 <section class="nv-analyse" id="potenzialanalyse" aria-labelledby="nv-analyse-title">
   <div class="nv-analyse__inner">
@@ -2717,40 +2758,6 @@ canvas.nv-step-viz {
               </p>
             </details>
           </div>
-          <div class="nv-faq-metrics" aria-label="Ergänzende Kennzahlen">
-            <div class="nv-faq-metric">
-              <div class="nv-faq-metric__top">
-                <span>Qualifizierte Mitarbeitende</span><span>89,6 %</span>
-              </div>
-              <div class="nv-faq-metric__bar">
-                <span class="nv-faq-metric__fill" style="width: 89.6%"></span>
-              </div>
-            </div>
-            <div class="nv-faq-metric">
-              <div class="nv-faq-metric__top">
-                <span>Servicequalität</span><span>61,4 %</span>
-              </div>
-              <div class="nv-faq-metric__bar">
-                <span class="nv-faq-metric__fill" style="width: 61.4%"></span>
-              </div>
-            </div>
-            <div class="nv-faq-metric">
-              <div class="nv-faq-metric__top">
-                <span>Erfolgreich abgeschlossen</span><span>84,8 %</span>
-              </div>
-              <div class="nv-faq-metric__bar">
-                <span class="nv-faq-metric__fill" style="width: 84.8%"></span>
-              </div>
-            </div>
-            <div class="nv-faq-metric">
-              <div class="nv-faq-metric__top">
-                <span>Support abgeschlossen</span><span>91,2 %</span>
-              </div>
-              <div class="nv-faq-metric__bar">
-                <span class="nv-faq-metric__fill" style="width: 91.2%"></span>
-              </div>
-            </div>
-          </div>
         </div>
       </div>
     </section>
@@ -3210,79 +3217,7 @@ void main(){
 </script>
 <!-- PORT: Kompetenzen (skills bars + radar) -->
 <script>
-(function(){
-  var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  var skills=[
-    {n:"Prompt Engineering & MCP",v:94.3},
-    {n:"KI-Agenten & Workflows",v:91.7},
-    {n:"RAG & Wissenssysteme",v:88.1},
-    {n:"Prozessautomatisierung",v:92.6},
-    {n:"Datenverarbeitung & Integration",v:85.4},
-    {n:"KI-Software / Custom Dev",v:81.9}
-  ];
-  var host=document.getElementById("nvCompBars"); if(!host) return;
-  skills.forEach(function(s){ var d=document.createElement("div"); d.className="nv-comp-skill";
-    d.innerHTML='<div class="nv-comp-skill__top"><b>'+s.n+'</b><span class="nv-comp-skill__val" data-v="'+s.v+'">0,0%</span></div>'+
-      '<div class="nv-comp-skill__bar"><span class="nv-comp-skill__fill" data-v="'+s.v+'"></span></div>';
-    host.appendChild(d); });
-  var done=false;
-  function reveal(){ if(done) return; done=true;
-    var fills=host.querySelectorAll(".nv-comp-skill__fill");
-    var vals=host.querySelectorAll(".nv-comp-skill__val");
-    [].forEach.call(fills,function(f){ f.style.width=f.getAttribute("data-v")+"%"; });
-    if(reduce){ [].forEach.call(vals,function(v){ v.textContent=(+v.getAttribute("data-v")).toFixed(1).replace(".",",")+"%"; }); drawRadar(); return; }
-    var dur=1100, t0=null;
-    (function step(ts){ if(!t0) t0=ts; var k=Math.min((ts-t0)/dur,1), e=1-Math.pow(1-k,3);
-      [].forEach.call(vals,function(v){ v.textContent=((+v.getAttribute("data-v"))*e).toFixed(1).replace(".",",")+"%"; });
-      if(k<1) requestAnimationFrame(step);
-    })(performance.now());
-    drawRadar(); }
-  if("IntersectionObserver" in window){ var io=new IntersectionObserver(function(e){ if(e[0].isIntersecting){ reveal(); io.disconnect(); } },{threshold:.08, rootMargin:"0px 0px -8% 0px"}); io.observe(host); }
-  else reveal();
-  // fallback: if already in view on load, fill after a tick
-  var onScrollComp=function(){ var r=host.getBoundingClientRect();
-    if(r.top < window.innerHeight && r.bottom > 0){ reveal(); window.removeEventListener('scroll', onScrollComp); } };
-  window.addEventListener('scroll', onScrollComp, { passive:true });
-  requestAnimationFrame(onScrollComp);
-  function drawRadar(){
-    var cv=document.getElementById("nvCompRadar"); if(!cv) return; var ctx=cv.getContext("2d");
-    var W=cv.width,H=cv.height,cx=W/2,cy=H/2+6,R=Math.min(W,H)/2-84;
-    var ax=skills.map(function(s){return {n:s.n.split(" ")[0],v:s.v/100};}); var N=ax.length;
-    function pt(i,r){ var a=-Math.PI/2+i*2*Math.PI/N; return [cx+Math.cos(a)*R*r, cy+Math.sin(a)*R*r]; }
-    var box=cv.parentNode;
-    if(!box.classList.contains('nv-comp__radar-stage')){
-      var stage=document.createElement('div');
-      stage.className='nv-comp__radar-stage';
-      cv.parentNode.insertBefore(stage, cv);
-      stage.appendChild(cv);
-      box=stage;
-    }
-    if(!box.querySelector('.nv-comp__radar-label')){
-      for(var li=0; li<N; li++){
-        var lp=pt(li,1.12), el=document.createElement('span');
-        el.className='nv-comp__radar-label';
-        var nudge = 0, tf = 'translate(-50%,-50%)';
-        if(li===1 || li===2){ nudge = 8;  tf = 'translate(0,-50%)'; }        /* rechts: linksbuendig, gleiche Startkante */
-        if(li===5){ nudge = -20; tf = 'translate(-100%,-50%)'; }             /* KI-Software */
-        if(li===4){ nudge = -18; tf = 'translate(-100%,-50%)'; }             /* Datenverarbeitung */
-        el.style.transform = tf;
-        el.style.left='calc('+(lp[0]/W*100)+'% + '+nudge+'px)'; el.style.top=(lp[1]/H*100)+'%';
-        el.textContent=ax[li].n; box.appendChild(el);
-      }
-    }
-    var steps=reduce?1:26,cur=0;
-    (function anim(){ cur++; var k=Math.min(cur/steps,1),e=1-Math.pow(1-k,3),i,p;
-      ctx.clearRect(0,0,W,H);
-      for(var g=1;g<=4;g++){ ctx.beginPath(); for(i=0;i<N;i++){ p=pt(i,g/4); i?ctx.lineTo(p[0],p[1]):ctx.moveTo(p[0],p[1]); } ctx.closePath(); if(g===4){ ctx.strokeStyle="rgba(212,175,55,.55)"; ctx.lineWidth=2; } else { ctx.strokeStyle="rgba(255,255,255,.08)"; ctx.lineWidth=1; } ctx.stroke(); }
-      for(i=0;i<N;i++){ var ee=pt(i,1); ctx.beginPath(); ctx.moveTo(cx,cy); ctx.lineTo(ee[0],ee[1]); ctx.strokeStyle="rgba(255,255,255,.06)"; ctx.stroke();
-        }
-      var grad=ctx.createLinearGradient(cx-R,cy-R,cx+R,cy+R); grad.addColorStop(0,"rgba(184,137,47,.5)"); grad.addColorStop(.5,"rgba(244,220,144,.55)"); grad.addColorStop(1,"rgba(200,149,42,.5)");
-      ctx.beginPath(); for(i=0;i<N;i++){ p=pt(i,ax[i].v*e); i?ctx.lineTo(p[0],p[1]):ctx.moveTo(p[0],p[1]); } ctx.closePath(); ctx.fillStyle=grad; ctx.globalAlpha=.28; ctx.fill(); ctx.globalAlpha=1; ctx.strokeStyle="#f4dc90"; ctx.lineWidth=2; ctx.stroke();
-      for(i=0;i<N;i++){ p=pt(i,ax[i].v*e); ctx.beginPath(); ctx.arc(p[0],p[1],3,0,7); ctx.fillStyle="#f4dc90"; ctx.fill(); }
-      if(k<1) requestAnimationFrame(anim);
-    })();
-  }
-})();
+
 </script>
 <!-- PORT: Potenzialanalyse — gauge calc + slider sync into the real form -->
 <script>
