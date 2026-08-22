@@ -2,10 +2,14 @@ name: Deploy to VPS
 
 # Der Ablauf schreibt bei jedem Deploy den Commit-SHA nach
 # homepage/version.txt und prueft danach ueber HTTPS, ob die
-# ausgelieferte Seite genau diesen SHA zeigt. Stimmt er nicht, wird der
-# Lauf rot und eine Diagnose auf dem VPS sagt, woran es liegt.
-# Vorher meldete der Ablauf "success", sobald rsync durchlief - ob die
-# Dateien danach unter nurovelle.de/homepage/ ankamen, hat niemand geprueft.
+# ausgelieferte Seite genau diesen SHA zeigt.
+#
+# Stand der Fehlersuche: Das Ausrollen funktioniert. Die Datei liegt mit
+# dem richtigen SHA im Zielverzeichnis, und der Container nurovell_frontend
+# hat dieses Verzeichnis nach /app/public/homepage eingehaengt. Trotzdem
+# liefert https://nurovelle.de/homepage/version.txt nichts aus. Die Ursache
+# liegt also zwischen Container-Dateisystem und Auslieferung, nicht im
+# Deploy. Die Diagnose unten trennt genau diese Kette auf.
 
 on:
   push:
@@ -19,6 +23,7 @@ concurrency:
 env:
   QUELLE: /opt/homepage_repo_source
   ZIEL: /opt/nurovell-potential-analysis/frontend/public/homepage
+  CONTAINER: nurovell_frontend
   PRUEF_URL: https://nurovelle.de/homepage/version.txt
 
 jobs:
@@ -31,7 +36,6 @@ jobs:
           host: ${{ secrets.VPS_HOST }}
           username: ${{ secrets.VPS_USER }}
           key: ${{ secrets.VPS_SSH_KEY }}
-          # port: 22            # setzen, falls der SSH-Port nicht 22 ist
           script: |
             set -e
             export GIT_CONFIG_COUNT=1
@@ -59,23 +63,26 @@ jobs:
               --exclude='xcomponents/' \
               homepage/ ${{ env.ZIEL }}/
             echo "Auf den Server geschrieben: $(git rev-parse --short HEAD)"
-            echo "Ziel enthaelt: $(ls -1 ${{ env.ZIEL }} | wc -l) Eintraege"
 
       - name: Live pruefen
         id: pruefung
         run: |
           erwartet="${{ github.sha }}"
           echo "Erwartet wird: $erwartet"
-          for versuch in $(seq 1 12); do
-            gelesen="$(curl -fsS --max-time 15 "${{ env.PRUEF_URL }}" 2>/dev/null | head -n1 | tr -d '\r' || true)"
+          echo "--- Antwortkopf beim ersten Versuch ---"
+          curl -sS -D - -o /dev/null --max-time 20 "${{ env.PRUEF_URL }}" 2>&1 | head -n 25 || true
+          echo "---------------------------------------"
+          for versuch in $(seq 1 6); do
+            status="$(curl -sS -o /tmp/antwort.txt -w '%{http_code}' --max-time 20 "${{ env.PRUEF_URL }}" 2>/dev/null || echo 000)"
+            gelesen="$(head -n1 /tmp/antwort.txt 2>/dev/null | tr -d '\r')"
             if [ "$gelesen" = "$erwartet" ]; then
               echo "Die ausgelieferte Seite zeigt den neuen Stand (Versuch $versuch)."
               exit 0
             fi
-            echo "Versuch $versuch: gelesen='${gelesen:-nichts}'"
+            echo "Versuch $versuch: HTTP $status, erste Zeile='${gelesen:-leer}'"
             sleep 10
           done
-          echo "::error title=Deploy kommt nicht an::${{ env.PRUEF_URL }} zeigt nicht $erwartet. Die Dateien wurden auf den Server geschrieben, werden aber nicht ausgeliefert."
+          echo "::error title=Deploy kommt nicht an::${{ env.PRUEF_URL }} zeigt nicht $erwartet."
           exit 1
 
       - name: Diagnose auf dem VPS
@@ -87,40 +94,45 @@ jobs:
           key: ${{ secrets.VPS_SSH_KEY }}
           script: |
             set +e
-            echo "===== 1. Zielverzeichnis ====="
-            ls -la ${{ env.ZIEL }} 2>&1 | head -n 15
+            C=${{ env.CONTAINER }}
+
+            echo "===== A. Sieht der Container die Datei? ====="
+            docker exec "$C" sh -c 'ls -la /app/public/homepage/version.txt 2>&1; echo "Inhalt: $(cat /app/public/homepage/version.txt 2>&1)"'
+            echo "Erwartet: ${{ github.sha }}"
             echo
-            echo "version.txt im Ziel: $(cat ${{ env.ZIEL }}/version.txt 2>&1)"
-            echo "Erwartet:            ${{ github.sha }}"
+
+            echo "===== B. Liefert der Container die Datei selbst aus? ====="
+            docker exec "$C" sh -c '
+              for p in 3000 8080 80; do
+                for pfad in /homepage/version.txt /public/homepage/version.txt; do
+                  code=$(wget -S -qO- "http://127.0.0.1:$p$pfad" 2>&1 | grep -m1 "HTTP/" || echo "keine Antwort")
+                  echo "Port $p $pfad -> $code"
+                done
+              done' 2>&1 | head -n 20
             echo
-            echo "===== 2. Wo liegt eine der neuen Dateien sonst noch? ====="
-            find /opt /srv /var/www /home -name 'paket-betreuung.html' \
-              -not -path '*/node_modules/*' -not -path '*/.git/*' 2>/dev/null | head -n 20
-            echo
-            echo "===== 3. Wer beantwortet die Anfragen? ====="
-            (ss -lntp 2>/dev/null || netstat -lntp 2>/dev/null) | grep -E ':(80|443|3000|3001|8080)\b'
-            echo
-            echo "===== 4. Container ====="
-            docker ps --format '{{.Names}} | {{.Image}} | {{.Status}}' 2>/dev/null
-            echo
-            echo "----- Einhaengepunkte der Container -----"
-            for c in $(docker ps -q 2>/dev/null); do
-              echo "--- $(docker inspect -f '{{.Name}}' "$c" 2>/dev/null)"
-              docker inspect -f '{{range .Mounts}}{{.Source}} -> {{.Destination}}{{"\n"}}{{end}}' "$c" 2>/dev/null
+
+            echo "===== C. Antwortet der Host selbst? ====="
+            for ziel in "http://127.0.0.1/homepage/version.txt" "https://127.0.0.1/homepage/version.txt"; do
+              echo "$ziel -> $(curl -sk -o /dev/null -w '%{http_code}' -H 'Host: nurovelle.de' --max-time 10 "$ziel" 2>&1)"
             done
+            echo "oeffentlich  -> $(curl -s -o /dev/null -w '%{http_code}' --max-time 10 ${{ env.PRUEF_URL }} 2>&1)"
+            echo "Startseite   -> $(curl -s -o /dev/null -w '%{http_code}' --max-time 10 https://nurovelle.de/homepage/index.html 2>&1)"
             echo
-            echo "===== 5. Ausgelieferte Wurzelverzeichnisse laut nginx ====="
-            grep -rhE '^[[:space:]]*(root|alias)[[:space:]]' /etc/nginx/ 2>/dev/null | sort -u | head -n 20
+
+            echo "===== D. Wie ist der Frontend-Container bei Traefik angemeldet? ====="
+            docker inspect -f '{{range $k,$v := .Config.Labels}}{{$k}} = {{$v}}{{"\n"}}{{end}}' "$C" 2>/dev/null | grep -i traefik
+            echo "--- veroeffentlichte Ports ---"
+            docker port "$C" 2>&1
             echo
-            echo "===== 6. Repo-Quellen auf dem Server ====="
-            for d in /opt/homepage_repo /opt/homepage_repo_source; do
-              if [ -d "$d" ]; then
-                echo "$d -> $(git -C "$d" rev-parse --short HEAD 2>/dev/null || echo 'kein git')"
-              else
-                echo "$d -> nicht vorhanden"
-              fi
-            done
+
+            echo "===== E. Traefik: dynamische Konfiguration ====="
+            ls -la /opt/Avatar-Generator/proxy/dynamic 2>&1 | head -n 10
+            grep -rhE 'nurovelle|homepage' /opt/Avatar-Generator/proxy/dynamic 2>/dev/null | head -n 25
             echo
-            echo "===== 7. Alter der ausgelieferten index.html ====="
-            stat -c '%y  %n' ${{ env.ZIEL }}/index.html 2>&1
+
+            echo "===== F. Letzte Zeilen aus den Logs ====="
+            echo "--- $C ---"
+            docker logs --tail 25 "$C" 2>&1 | tail -n 25
+            echo "--- traefik (nur nurovelle/homepage) ---"
+            docker logs --tail 400 traefik 2>&1 | grep -iE 'nurovelle|homepage|error' | tail -n 15
             exit 0
