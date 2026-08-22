@@ -102,6 +102,32 @@ jobs:
           echo "::error title=Deploy kommt nicht an::${{ env.PRUEF_URL }} zeigt nicht $erwartet."
           exit 1
 
+      - name: Zertifikat pruefen
+        # Laeuft immer, auch wenn der Deploy scheitert: die Restlaufzeit des
+        # Zertifikats haengt nicht am Deploy. Traefik kann seit dem 20.08.2026
+        # nicht mehr erneuern, weil der Cloudflare-Zugang die Zone
+        # nurovelle.de nicht findet. Der Schritt sagt, wie viel Zeit bleibt,
+        # und warnt, sobald es knapp wird.
+        if: always()
+        run: |
+          ende="$(echo | openssl s_client -servername nurovelle.de -connect nurovelle.de:443 2>/dev/null \
+                  | openssl x509 -noout -enddate 2>/dev/null | cut -d= -f2)"
+          aussteller="$(echo | openssl s_client -servername nurovelle.de -connect nurovelle.de:443 2>/dev/null \
+                  | openssl x509 -noout -issuer 2>/dev/null | sed 's/^issuer=//')"
+          if [ -z "$ende" ]; then
+            echo "::warning title=Zertifikat nicht lesbar::Die TLS-Verbindung zu nurovelle.de kam nicht zustande."
+            exit 0
+          fi
+          echo "Aussteller:   $aussteller"
+          echo "Gueltig bis:  $ende"
+          rest=$(( ( $(date -d "$ende" +%s) - $(date +%s) ) / 86400 ))
+          echo "Restlaufzeit: $rest Tage"
+          if [ "$rest" -lt 0 ]; then
+            echo "::error title=Zertifikat abgelaufen::Seit $((-rest)) Tagen abgelaufen."
+          elif [ "$rest" -lt 21 ]; then
+            echo "::warning title=Zertifikat laeuft bald ab::Noch $rest Tage. Traefik kann nicht erneuern, solange der Cloudflare-Zugang die Zone nurovelle.de nicht findet."
+          fi
+
       - name: Diagnose auf dem VPS
         if: failure() && steps.pruefung.outcome == 'failure'
         uses: appleboy/ssh-action@v1
