@@ -4,12 +4,14 @@ name: Deploy to VPS
 # homepage/version.txt und prueft danach ueber HTTPS, ob die
 # ausgelieferte Seite genau diesen SHA zeigt.
 #
-# Stand der Fehlersuche: Das Ausrollen funktioniert. Die Datei liegt mit
-# dem richtigen SHA im Zielverzeichnis, und der Container nurovell_frontend
-# hat dieses Verzeichnis nach /app/public/homepage eingehaengt. Trotzdem
-# liefert https://nurovelle.de/homepage/version.txt nichts aus. Die Ursache
-# liegt also zwischen Container-Dateisystem und Auslieferung, nicht im
-# Deploy. Die Diagnose unten trennt genau diese Kette auf.
+# Ursache der frueheren Fehlschlaege, nachgewiesen am 22.08.2026:
+# Next.js liest das Verzeichnis public nur beim Start des Servers ein.
+# Die Dateien wurden korrekt ausgerollt und waren im Container sichtbar,
+# aber next start antwortete auf Port 3000 mit 404 fuer jede Datei, die
+# nach dem letzten Containerstart dazugekommen war. Die beim Start
+# vorhandene index.html antwortete mit 200. Der Container lief zu dem
+# Zeitpunkt seit zwei Wochen. Deshalb wird er jetzt nach jedem Ausrollen
+# neu gestartet.
 
 on:
   push:
@@ -63,6 +65,21 @@ jobs:
               --exclude='xcomponents/' \
               homepage/ ${{ env.ZIEL }}/
             echo "Auf den Server geschrieben: $(git rev-parse --short HEAD)"
+
+            # Next.js liest das Verzeichnis public nur beim Start ein. Ohne
+            # Neustart liefert es fuer jede spaeter hinzugekommene Datei 404 -
+            # genau daran sind die letzten Deploys gescheitert. Nachgewiesen am
+            # 22.08.2026: Datei im Container vorhanden, next start auf Port 3000
+            # antwortete trotzdem mit 404, waehrend die beim letzten Start
+            # vorhandene index.html mit 200 antwortete.
+            docker restart ${{ env.CONTAINER }}
+            for i in $(seq 1 20); do
+              if docker exec ${{ env.CONTAINER }} wget -q -O /dev/null http://127.0.0.1:3000/homepage/index.html 2>/dev/null; then
+                echo "Frontend ist nach $i Versuchen wieder bereit."
+                break
+              fi
+              sleep 2
+            done
 
       - name: Live pruefen
         id: pruefung
