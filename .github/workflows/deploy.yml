@@ -1,27 +1,50 @@
 name: Deploy to VPS
+
+# Der Ablauf schreibt bei jedem Deploy den Commit-SHA nach
+# homepage/version.txt und prueft danach ueber HTTPS, ob die
+# ausgelieferte Seite genau diesen SHA zeigt. Stimmt er nicht, wird der
+# Lauf rot und eine Diagnose auf dem VPS sagt, woran es liegt.
+# Vorher meldete der Ablauf "success", sobald rsync durchlief - ob die
+# Dateien danach unter nurovelle.de/homepage/ ankamen, hat niemand geprueft.
+
 on:
   push:
     branches: [main]
+  workflow_dispatch:
+
+concurrency:
+  group: deploy-vps
+  cancel-in-progress: false
+
+env:
+  QUELLE: /opt/homepage_repo_source
+  ZIEL: /opt/nurovell-potential-analysis/frontend/public/homepage
+  PRUEF_URL: https://nurovelle.de/homepage/version.txt
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: Deploy via SSH
+      - name: Ausrollen
         uses: appleboy/ssh-action@v1
         with:
           host: ${{ secrets.VPS_HOST }}
           username: ${{ secrets.VPS_USER }}
           key: ${{ secrets.VPS_SSH_KEY }}
-          # port: 22            # uncomment/set if your SSH port isn't 22
+          # port: 22            # setzen, falls der SSH-Port nicht 22 ist
           script: |
             set -e
             export GIT_CONFIG_COUNT=1
             export GIT_CONFIG_KEY_0=safe.directory
-            export GIT_CONFIG_VALUE_0=/opt/homepage_repo_source
-            cd /opt/homepage_repo_source
+            export GIT_CONFIG_VALUE_0=${{ env.QUELLE }}
+            cd ${{ env.QUELLE }}
             git fetch origin main
             git reset --hard origin/main
-            mkdir -p /opt/nurovell-potential-analysis/frontend/public/homepage
+
+            # Versionsmarke, an der die Live-Pruefung den Stand erkennt
+            printf '%s\n' "${{ github.sha }}" > homepage/version.txt
+
+            mkdir -p ${{ env.ZIEL }}
             rsync -a --delete \
               --exclude='.history/' \
               --exclude='*.py' \
@@ -34,5 +57,70 @@ jobs:
               --exclude='slack.md' \
               --exclude='detailseiten/' \
               --exclude='xcomponents/' \
-              homepage/ /opt/nurovell-potential-analysis/frontend/public/homepage/
-            echo "Deployed commit: $(git rev-parse --short HEAD)"
+              homepage/ ${{ env.ZIEL }}/
+            echo "Auf den Server geschrieben: $(git rev-parse --short HEAD)"
+            echo "Ziel enthaelt: $(ls -1 ${{ env.ZIEL }} | wc -l) Eintraege"
+
+      - name: Live pruefen
+        id: pruefung
+        run: |
+          erwartet="${{ github.sha }}"
+          echo "Erwartet wird: $erwartet"
+          for versuch in $(seq 1 12); do
+            gelesen="$(curl -fsS --max-time 15 "${{ env.PRUEF_URL }}" 2>/dev/null | head -n1 | tr -d '\r' || true)"
+            if [ "$gelesen" = "$erwartet" ]; then
+              echo "Die ausgelieferte Seite zeigt den neuen Stand (Versuch $versuch)."
+              exit 0
+            fi
+            echo "Versuch $versuch: gelesen='${gelesen:-nichts}'"
+            sleep 10
+          done
+          echo "::error title=Deploy kommt nicht an::${{ env.PRUEF_URL }} zeigt nicht $erwartet. Die Dateien wurden auf den Server geschrieben, werden aber nicht ausgeliefert."
+          exit 1
+
+      - name: Diagnose auf dem VPS
+        if: failure() && steps.pruefung.outcome == 'failure'
+        uses: appleboy/ssh-action@v1
+        with:
+          host: ${{ secrets.VPS_HOST }}
+          username: ${{ secrets.VPS_USER }}
+          key: ${{ secrets.VPS_SSH_KEY }}
+          script: |
+            set +e
+            echo "===== 1. Zielverzeichnis ====="
+            ls -la ${{ env.ZIEL }} 2>&1 | head -n 15
+            echo
+            echo "version.txt im Ziel: $(cat ${{ env.ZIEL }}/version.txt 2>&1)"
+            echo "Erwartet:            ${{ github.sha }}"
+            echo
+            echo "===== 2. Wo liegt eine der neuen Dateien sonst noch? ====="
+            find /opt /srv /var/www /home -name 'paket-betreuung.html' \
+              -not -path '*/node_modules/*' -not -path '*/.git/*' 2>/dev/null | head -n 20
+            echo
+            echo "===== 3. Wer beantwortet die Anfragen? ====="
+            (ss -lntp 2>/dev/null || netstat -lntp 2>/dev/null) | grep -E ':(80|443|3000|3001|8080)\b'
+            echo
+            echo "===== 4. Container ====="
+            docker ps --format '{{.Names}} | {{.Image}} | {{.Status}}' 2>/dev/null
+            echo
+            echo "----- Einhaengepunkte der Container -----"
+            for c in $(docker ps -q 2>/dev/null); do
+              echo "--- $(docker inspect -f '{{.Name}}' "$c" 2>/dev/null)"
+              docker inspect -f '{{range .Mounts}}{{.Source}} -> {{.Destination}}{{"\n"}}{{end}}' "$c" 2>/dev/null
+            done
+            echo
+            echo "===== 5. Ausgelieferte Wurzelverzeichnisse laut nginx ====="
+            grep -rhE '^[[:space:]]*(root|alias)[[:space:]]' /etc/nginx/ 2>/dev/null | sort -u | head -n 20
+            echo
+            echo "===== 6. Repo-Quellen auf dem Server ====="
+            for d in /opt/homepage_repo /opt/homepage_repo_source; do
+              if [ -d "$d" ]; then
+                echo "$d -> $(git -C "$d" rev-parse --short HEAD 2>/dev/null || echo 'kein git')"
+              else
+                echo "$d -> nicht vorhanden"
+              fi
+            done
+            echo
+            echo "===== 7. Alter der ausgelieferten index.html ====="
+            stat -c '%y  %n' ${{ env.ZIEL }}/index.html 2>&1
+            exit 0
