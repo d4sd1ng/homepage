@@ -4,10 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mini-Guide 1 - Titelseite</title>
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Raleway:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <!-- Courier Prime als Ersatz für Anca Coder -->
-    <link href="https://fonts.googleapis.com/css2?family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Lokal ausgelieferte Schriften, kein Abruf bei Google.
+         Es werden ausschliesslich die beiden Hausschriften verwendet:
+         Exo 2 fuer Display, Inter fuer Fliesstext - wie in
+         homepage/nurovelle-tokens.css festgelegt. -->
+    <link href="../homepage/assets/fonts/fonts.css" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -21,7 +22,7 @@
             justify-content: center;
             align-items: center;
             min-height: 100vh;
-            font-family: 'Raleway', sans-serif;
+            font-family: "Inter", Arial, sans-serif;
         }
 
         /* Seite im 1080x1350 Format */
@@ -55,7 +56,7 @@
             position: absolute;
             top: 40px;
             left: 40px;
-            font-family: 'Bebas Neue', sans-serif;
+            font-family: "Exo 2", "Inter", Arial, sans-serif;
             font-size: 24px;
             letter-spacing: 2px;
             color: #C6A86A;
@@ -68,7 +69,7 @@
             top: 280px;
             left: 80px;
             right: 80px;
-            font-family: 'Bebas Neue', sans-serif;
+            font-family: "Exo 2", "Inter", Arial, sans-serif;
             font-size: 64px;
             line-height: 1.1;
             color: #F5F7FA;
@@ -81,7 +82,7 @@
             top: 480px;
             left: 80px;
             right: 80px;
-            font-family: 'Courier Prime', monospace;
+            font-family: "Inter", Arial, sans-serif;
             font-size: 20px;
             color: #B8C7D9;
             line-height: 1.4;
@@ -108,7 +109,7 @@
         }
 
         .kpi-number {
-            font-family: 'Bebas Neue', sans-serif;
+            font-family: "Exo 2", "Inter", Arial, sans-serif;
             font-size: 56px;
             color: #C6A86A;
             line-height: 1;
@@ -116,7 +117,7 @@
         }
 
         .kpi-label {
-            font-family: 'Raleway', sans-serif;
+            font-family: "Inter", Arial, sans-serif;
             font-size: 14px;
             color: #B8C7D9;
             letter-spacing: 1px;
@@ -127,7 +128,7 @@
             position: absolute;
             bottom: 30px;
             right: 40px;
-            font-family: 'Raleway', sans-serif;
+            font-family: "Inter", Arial, sans-serif;
             font-size: 12px;
             color: #8A96A8;
         }
