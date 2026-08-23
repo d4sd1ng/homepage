@@ -1,0 +1,392 @@
+{
+  "LinkedIn Content-Plan_ Erste 4 Wochen.md": {
+    "mtime": 1786713542.8140898,
+    "seen": 1787429688.3694422,
+    "ast_hash": "92f6f752961c244aa766491b9dc4e633",
+    "semantic_hash": "92f6f752961c244aa766491b9dc4e633"
+  },
+  "Mini_guide2.md": {
+    "mtime": 1786713542.8580897,
+    "seen": 1787429688.3694475,
+    "ast_hash": "535e066dae0c6a9841c7e2aeceb5b2a4",
+    "semantic_hash": "535e066dae0c6a9841c7e2aeceb5b2a4"
+  },
+  "Prompts/Automation_prompt.md": {
+    "mtime": 1786713542.8620896,
+    "seen": 1787429688.3694503,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": "d41d8cd98f00b204e9800998ecf8427e"
+  },
+  "Prompts/prompt_trading_mcp.txt": {
+    "mtime": 1786713542.8980896,
+    "seen": 1787429688.3694518,
+    "ast_hash": "1405ea68ed64850c1730a5512c7ce832",
+    "semantic_hash": "1405ea68ed64850c1730a5512c7ce832"
+  },
+  "Zusatz_assets_und_fragen.md": {
+    "mtime": 1786713542.9020896,
+    "seen": 1787429688.3694534,
+    "ast_hash": "bd675643ce088c111e48688604312f14",
+    "semantic_hash": "bd675643ce088c111e48688604312f14"
+  },
+  "case_study.txt": {
+    "mtime": 1786713542.9020896,
+    "seen": 1787429688.3694549,
+    "ast_hash": "d31bcb7863f9aab001f7ba4cedd6b903",
+    "semantic_hash": "d31bcb7863f9aab001f7ba4cedd6b903"
+  },
+  "checklisten.txt": {
+    "mtime": 1786713542.9020896,
+    "seen": 1787429688.3694565,
+    "ast_hash": "d186855193f2a4a42ed02343e8353708",
+    "semantic_hash": "d186855193f2a4a42ed02343e8353708"
+  },
+  "graphify-out/converted/10-KI-Marketing-Tools-Vergleich_und_Checkliste_46482908.md": {
+    "mtime": 1787413360.2781205,
+    "seen": 1787429688.369458,
+    "ast_hash": "48497f76025b293b345abc0c1ade0282",
+    "semantic_hash": "48497f76025b293b345abc0c1ade0282"
+  },
+  "graphify-out/converted/CASE_STUDY_KI_AUTOMATISIERUNG_NUROVELLE_04e02a87.md": {
+    "mtime": 1787413360.3541205,
+    "seen": 1787429688.3694592,
+    "ast_hash": "73b621a8b04fce703da12a89e9c11245",
+    "semantic_hash": "73b621a8b04fce703da12a89e9c11245"
+  },
+  "graphify-out/converted/CASE_STUDY_KI_AUTOMATISIERUNG_NUROVELLE_FINAL_e12dfbdd.md": {
+    "mtime": 1787413367.1581204,
+    "seen": 1787429688.36946,
+    "ast_hash": "fba2f5bd1921ac340ff41adae914c20f",
+    "semantic_hash": "fba2f5bd1921ac340ff41adae914c20f"
+  },
+  "graphify-out/converted/CASE_STUDY_KI_AUTOMATISIERUNG_NUROVELLE_FINAL_p170fix_8943a6f7.md": {
+    "mtime": 1787413367.2221203,
+    "seen": 1787429688.3694615,
+    "ast_hash": "f443678e291d75b98d1cb1f5f4a75dcf",
+    "semantic_hash": "f443678e291d75b98d1cb1f5f4a75dcf"
+  },
+  "graphify-out/converted/CASE_STUDY_KI_AUTOMATISIERUNG_NUROVELLE_KORRIGIERT_FINAL_d32ca49c.md": {
+    "mtime": 1787413360.4781203,
+    "seen": 1787429688.3694632,
+    "ast_hash": "7cba84d4a44cc639e1301bf89da318c7",
+    "semantic_hash": "7cba84d4a44cc639e1301bf89da318c7"
+  },
+  "graphify-out/converted/CASE_STUDY_KI_AUTOMATISIERUNG_NUROVELLE_RICHTIG_bed46e1e.md": {
+    "mtime": 1787413367.2861204,
+    "seen": 1787429688.3694646,
+    "ast_hash": "c99cfdfb1b8cedba17b52d7f87634125",
+    "semantic_hash": "c99cfdfb1b8cedba17b52d7f87634125"
+  },
+  "graphify-out/converted/CHECKLISTE_KI_POTENZIAL_CHECK_NUROVELLE_88786c27.md": {
+    "mtime": 1787413367.3541203,
+    "seen": 1787429688.3694658,
+    "ast_hash": "2d9c0b0e569e44589e6910682a2c6f92",
+    "semantic_hash": "2d9c0b0e569e44589e6910682a2c6f92"
+  },
+  "graphify-out/converted/Der Praxisleitfaden f\u00fcr KI_gek\u00fcrtzt2_45d0878f.md": {
+    "mtime": 1787413360.6261203,
+    "seen": 1787429688.3694682,
+    "ast_hash": "6239d517708092673bbc02c51facb488",
+    "semantic_hash": "6239d517708092673bbc02c51facb488"
+  },
+  "graphify-out/converted/Der_Praxisleitfaden_f\u00fcr_KI-Automatisierung_im_Mittelstand_eb03344c.md": {
+    "mtime": 1787413360.7181203,
+    "seen": 1787429688.36947,
+    "ast_hash": "ac38c442e1b1e5e2164a1d0984cf9930",
+    "semantic_hash": "ac38c442e1b1e5e2164a1d0984cf9930"
+  },
+  "graphify-out/converted/Design_Layout_prompt_d556b3b3.md": {
+    "mtime": 1787413364.7941203,
+    "seen": 1787429688.3694715,
+    "ast_hash": "2f4cb5ecec6f577b9881c703404f8247",
+    "semantic_hash": "2f4cb5ecec6f577b9881c703404f8247"
+  },
+  "graphify-out/converted/Du agierst als erfahrener Chefredakteur und B2B_4521d088.md": {
+    "mtime": 1787413364.8061204,
+    "seen": 1787429688.3694727,
+    "ast_hash": "201454f291f1445aab231a4acc457373",
+    "semantic_hash": "201454f291f1445aab231a4acc457373"
+  },
+  "graphify-out/converted/EXECUTIVE_BRIEFING_5 Hebel_f\u00fcr_profitable_KI-Automatisierung_a1998fa3.md": {
+    "mtime": 1787413360.8781204,
+    "seen": 1787429688.3694746,
+    "ast_hash": "80b94355e046b862007e48022d3ab0a4",
+    "semantic_hash": "80b94355e046b862007e48022d3ab0a4"
+  },
+  "graphify-out/converted/EXECUTIVE_BRIEFING_NUROVELLE_BESTEHENDE_REPARIERT_ab511d1e.md": {
+    "mtime": 1787413361.2461205,
+    "seen": 1787429688.3694758,
+    "ast_hash": "4e46946b6d08a8b8dbc35fad234c3b34",
+    "semantic_hash": "4e46946b6d08a8b8dbc35fad234c3b34"
+  },
+  "graphify-out/converted/EXECUTIVE_BRIEFING_NUROVELLE_FINAL_a3c162b8.md": {
+    "mtime": 1787413367.0861204,
+    "seen": 1787429688.3694768,
+    "ast_hash": "79800101027b1f3f4f9ebe2f5db16c2e",
+    "semantic_hash": "79800101027b1f3f4f9ebe2f5db16c2e"
+  },
+  "graphify-out/converted/EXECUTIVE_BRIEFING_NUROVELLE_FORMATIERT_KORRIGIERT_9e537909.md": {
+    "mtime": 1787413361.6101203,
+    "seen": 1787429688.3694782,
+    "ast_hash": "d38a5e08ba529a7553c41fc28f114f07",
+    "semantic_hash": "d38a5e08ba529a7553c41fc28f114f07"
+  },
+  "graphify-out/converted/EXECUTIVE_BRIEFING_NUROVELLE_FORMATIERT_OHNE_ERFINDUNGEN_23fe12c1.md": {
+    "mtime": 1787413361.9981203,
+    "seen": 1787429688.36948,
+    "ast_hash": "0bd077846f8877166a7ec2e14bd7bc59",
+    "semantic_hash": "0bd077846f8877166a7ec2e14bd7bc59"
+  },
+  "graphify-out/converted/Executive_Briefing (Repariert)_45a3889d.md": {
+    "mtime": 1787413362.5341203,
+    "seen": 1787429688.3694813,
+    "ast_hash": "009748a804e7ad4e23dd293c44a8fd01",
+    "semantic_hash": "009748a804e7ad4e23dd293c44a8fd01"
+  },
+  "graphify-out/converted/Executive_Briefing_44ff9283.md": {
+    "mtime": 1787413363.0621204,
+    "seen": 1787429688.3694823,
+    "ast_hash": "33efd83edcd827cc4ec70fba5b19e523",
+    "semantic_hash": "33efd83edcd827cc4ec70fba5b19e523"
+  },
+  "graphify-out/converted/Extraktor_prompt_4a706551.md": {
+    "mtime": 1787413364.8421204,
+    "seen": 1787429688.3694837,
+    "ast_hash": "e2b7fd36b7fc3591ab24bfc0f1dfe01e",
+    "semantic_hash": "e2b7fd36b7fc3591ab24bfc0f1dfe01e"
+  },
+  "graphify-out/converted/Formatierungs_prompt_85d48fe9.md": {
+    "mtime": 1787413364.8701203,
+    "seen": 1787429688.3694851,
+    "ast_hash": "1ff2ec3d85176a216c7577786d1312e5",
+    "semantic_hash": "1ff2ec3d85176a216c7577786d1312e5"
+  },
+  "graphify-out/converted/Formatvorlageneinrichtung_a37ae2ea.md": {
+    "mtime": 1787413364.9021204,
+    "seen": 1787429688.3694863,
+    "ast_hash": "01a4448f47a8ee82b62ed819fdd2119e",
+    "semantic_hash": "01a4448f47a8ee82b62ed819fdd2119e"
+  },
+  "graphify-out/converted/KI-Automatisierung-Mittelstand_Whitepaper_KOMPAKT_erweitert_132f5184.md": {
+    "mtime": 1787413363.1621203,
+    "seen": 1787429688.3694878,
+    "ast_hash": "83807476355bacd9864ca8fb45d41f23",
+    "semantic_hash": "83807476355bacd9864ca8fb45d41f23"
+  },
+  "graphify-out/converted/KI-Automatisierung-Mittelstand_Whitepaper_formatiert_add7c8f5.md": {
+    "mtime": 1787413363.2741203,
+    "seen": 1787429688.3694894,
+    "ast_hash": "94ca07c43acd96ebb1c49cca44163686",
+    "semantic_hash": "94ca07c43acd96ebb1c49cca44163686"
+  },
+  "graphify-out/converted/KI-Automatisierung-Mittelstand_Whitepaper_unformatiert96s_9a7fb9ab.md": {
+    "mtime": 1787413363.6301205,
+    "seen": 1787429688.3694906,
+    "ast_hash": "34804c4590a27d3c56f86af871ddc93e",
+    "semantic_hash": "34804c4590a27d3c56f86af871ddc93e"
+  },
+  "graphify-out/converted/KI-Automatisierung-Whitepaper-gekuerzt3_b2435116.md": {
+    "mtime": 1787413363.8181205,
+    "seen": 1787429688.369492,
+    "ast_hash": "25b67b8940c30f9b2fcd3b3e37bffbbe",
+    "semantic_hash": "25b67b8940c30f9b2fcd3b3e37bffbbe"
+  },
+  "graphify-out/converted/Konkreter Posting_ff1cb62d.md": {
+    "mtime": 1787413363.8341205,
+    "seen": 1787429688.3694932,
+    "ast_hash": "6660e36c2f97af5746e1bc9234f4449e",
+    "semantic_hash": "6660e36c2f97af5746e1bc9234f4449e"
+  },
+  "graphify-out/converted/K\u00fcrzungs_redaktions_prompt_68684eb6.md": {
+    "mtime": 1787413364.9221203,
+    "seen": 1787429688.3694952,
+    "ast_hash": "20b6df248d5c5eafb7941026dc842803",
+    "semantic_hash": "20b6df248d5c5eafb7941026dc842803"
+  },
+  "graphify-out/converted/MINI_GUIDE_KI_POTENZIAL_MITTELSTAND_NUROVELLE_3a284957.md": {
+    "mtime": 1787413365.0781205,
+    "seen": 1787429688.3694963,
+    "ast_hash": "9a36f9a347a4b38bb4939ab44308adb0",
+    "semantic_hash": "9a36f9a347a4b38bb4939ab44308adb0"
+  },
+  "graphify-out/converted/Masterpromt_Whitepaper_7a0d7607.md": {
+    "mtime": 1787413364.9381204,
+    "seen": 1787429688.3694975,
+    "ast_hash": "bc6dad9d9b9d87db08f49d6b98eb4429",
+    "semantic_hash": "bc6dad9d9b9d87db08f49d6b98eb4429"
+  },
+  "graphify-out/converted/Modell-Register-Vorlage_4cae6b59.md": {
+    "mtime": 1787413364.0581205,
+    "seen": 1787429688.3694992,
+    "ast_hash": "bbe516c3535dae268a98d95a679f4f1c",
+    "semantic_hash": "bbe516c3535dae268a98d95a679f4f1c"
+  },
+  "graphify-out/converted/NUROVELLE_Formatvorlagen_FINAL_065fcbfb.md": {
+    "mtime": 1787413365.1101203,
+    "seen": 1787429688.3695004,
+    "ast_hash": "a243f841b137f91b12b89f2d2ea2f97f",
+    "semantic_hash": "a243f841b137f91b12b89f2d2ea2f97f"
+  },
+  "graphify-out/converted/PRAXISLEITFADEN_KI_AUTOMATISIERUNG_KAPITEL_1_7_NUROVELLE_ad1eeabf.md": {
+    "mtime": 1787413364.7621205,
+    "seen": 1787429688.3695014,
+    "ast_hash": "6337cb944fa619493f2f29928a07bfc4",
+    "semantic_hash": "6337cb944fa619493f2f29928a07bfc4"
+  },
+  "graphify-out/converted/RACI-Matrix-KI-Marketing_eb314421.md": {
+    "mtime": 1787413364.9781203,
+    "seen": 1787429688.3695028,
+    "ast_hash": "2ff93a738b43215c7701fb9ee016c698",
+    "semantic_hash": "2ff93a738b43215c7701fb9ee016c698"
+  },
+  "graphify-out/converted/ROI_GUIDE_KI_AUTOMATISIERUNG_NUROVELLE_DARK_WEBSITE_STYLE_cea97bd3.md": {
+    "mtime": 1787413365.5781205,
+    "seen": 1787429688.369504,
+    "ast_hash": "a6a7eede4a4e0219caf1626c4fb64b87",
+    "semantic_hash": "a6a7eede4a4e0219caf1626c4fb64b87"
+  },
+  "graphify-out/converted/ROI_GUIDE_KI_AUTOMATISIERUNG_NUROVELLE_Formatvorlagen_FINAL_fe2728a7.md": {
+    "mtime": 1787413366.6901202,
+    "seen": 1787429688.369505,
+    "ast_hash": "2f1fc74f6d3b67dba9f78bb533f9c64e",
+    "semantic_hash": "2f1fc74f6d3b67dba9f78bb533f9c64e"
+  },
+  "graphify-out/converted/ROI_Guid_prompt_631c101e.md": {
+    "mtime": 1787413364.9501204,
+    "seen": 1787429688.3695064,
+    "ast_hash": "2d488d3157ecfb3e3505dd31a837b09f",
+    "semantic_hash": "2d488d3157ecfb3e3505dd31a837b09f"
+  },
+  "graphify-out/converted/Redaktionsprompt_b5347a19.md": {
+    "mtime": 1787413364.9581203,
+    "seen": 1787429688.36951,
+    "ast_hash": "b13d469e59ad3f256480bbab7e2728c7",
+    "semantic_hash": "b13d469e59ad3f256480bbab7e2728c7"
+  },
+  "graphify-out/converted/gek\u00fcrtztx4_69a28dc3.md": {
+    "mtime": 1787413368.0541203,
+    "seen": 1787429688.3695111,
+    "ast_hash": "5e0b3b276cbda8aac6b49ab5dce9cad6",
+    "semantic_hash": "5e0b3b276cbda8aac6b49ab5dce9cad6"
+  },
+  "graphify-out/converted/prompt_biblothek_final_098205b4.md": {
+    "mtime": 1787413367.9501202,
+    "seen": 1787429688.3695126,
+    "ast_hash": "0a23d8c24322da896e2931946bd08808",
+    "semantic_hash": "0a23d8c24322da896e2931946bd08808"
+  },
+  "graphify-out/converted/prompt_generatorr_076a8083.md": {
+    "mtime": 1787413364.9661205,
+    "seen": 1787429688.3695135,
+    "ast_hash": "777c22484dccd6903c8804cb080254fe",
+    "semantic_hash": "777c22484dccd6903c8804cb080254fe"
+  },
+  "graphify-out/converted/promptbibliothek_intern_0ce6e068.md": {
+    "mtime": 1787413368.7501204,
+    "seen": 1787429688.3695147,
+    "ast_hash": "0ec8a2ef613a94c1b44846750b95d74a",
+    "semantic_hash": "0ec8a2ef613a94c1b44846750b95d74a"
+  },
+  "graphify-out/converted/tesvorlage_c1671d28.md": {
+    "mtime": 1787413368.7741203,
+    "seen": 1787429688.3695161,
+    "ast_hash": "9e2f4949f9108476cf1e8a986f284640",
+    "semantic_hash": "9e2f4949f9108476cf1e8a986f284640"
+  },
+  "guide1-seite1.html": {
+    "mtime": 1786713542.9660897,
+    "seen": 1787429688.3695173,
+    "ast_hash": "54b9c84621c3e3f7a712ec10a0e6616a",
+    "semantic_hash": "54b9c84621c3e3f7a712ec10a0e6616a"
+  },
+  "guide1_seite1.html": {
+    "mtime": 1786713542.9660897,
+    "seen": 1787429688.3695185,
+    "ast_hash": "54b9c84621c3e3f7a712ec10a0e6616a",
+    "semantic_hash": "54b9c84621c3e3f7a712ec10a0e6616a"
+  },
+  "karrussell zur study.txt": {
+    "mtime": 1786713542.9660897,
+    "seen": 1787429688.3695197,
+    "ast_hash": "27ccec9557ddbf151c22b6f6b8c416a8",
+    "semantic_hash": "27ccec9557ddbf151c22b6f6b8c416a8"
+  },
+  "lead_magnet_styleguide.md": {
+    "mtime": 1786713542.9660897,
+    "seen": 1787429688.369521,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": "d41d8cd98f00b204e9800998ecf8427e"
+  },
+  "mini_guide4.txt": {
+    "mtime": 1786713542.9660897,
+    "seen": 1787429688.3695223,
+    "ast_hash": "d6e4693d5c5c2fbd79613f677840e86e",
+    "semantic_hash": "d6e4693d5c5c2fbd79613f677840e86e"
+  },
+  "mini_guide_3.md": {
+    "mtime": 1786713542.9660897,
+    "seen": 1787429688.3695235,
+    "ast_hash": "d6e4693d5c5c2fbd79613f677840e86e",
+    "semantic_hash": "d6e4693d5c5c2fbd79613f677840e86e"
+  },
+  "mini_guide_4.txt": {
+    "mtime": 1786713542.9660897,
+    "seen": 1787429688.3695247,
+    "ast_hash": "4d194be806b0bd6b895616eceee4889e",
+    "semantic_hash": "4d194be806b0bd6b895616eceee4889e"
+  },
+  "whitepaper_1_ki_automatisierung_roi_guide.md": {
+    "mtime": 1786713542.9660897,
+    "seen": 1787429688.369526,
+    "ast_hash": "a5699be9b5304f49edc43e78d51b39e3",
+    "semantic_hash": "a5699be9b5304f49edc43e78d51b39e3"
+  },
+  "whitepaper_ki_mittelstand_gekuerzt1.md": {
+    "mtime": 1786713542.9660897,
+    "seen": 1787429688.3695273,
+    "ast_hash": "27cbb3b52b30d54171b2322c1613f166",
+    "semantic_hash": "27cbb3b52b30d54171b2322c1613f166"
+  },
+  "Linkedin Karussell 7 Prozesse.pdf": {
+    "mtime": 1786713542.8580897,
+    "seen": 1787429688.3695283,
+    "ast_hash": "662f9846b49cbcfc9a337067b0d149cd",
+    "semantic_hash": "662f9846b49cbcfc9a337067b0d149cd"
+  },
+  "final/Guides/MINI_GUIDE_KI_POTENZIAL_MITTELSTAND_NUROVELLE.pdf": {
+    "mtime": 1786713542.9100897,
+    "seen": 1787429688.3695295,
+    "ast_hash": "8c24cad25b9d8fa0f80df4e81d41d489",
+    "semantic_hash": "8c24cad25b9d8fa0f80df4e81d41d489"
+  },
+  "final/Guides/ROI_GUIDE_KI_AUTOMATISIERUNG_NUROVELLE_Formatvorlagen_FINAL.pdf": {
+    "mtime": 1786713542.9180896,
+    "seen": 1787429688.369531,
+    "ast_hash": "6e3734d067621735a464704cf7b45032",
+    "semantic_hash": "6e3734d067621735a464704cf7b45032"
+  },
+  "final/briefings/EXECUTIVE_BRIEFING_NUROVELLE_FINAL.pdf": {
+    "mtime": 1786713542.9420898,
+    "seen": 1787429688.3695323,
+    "ast_hash": "6560b1e5423677495d0df3292d4a49dc",
+    "semantic_hash": "6560b1e5423677495d0df3292d4a49dc"
+  },
+  "final/case_studies/CASE_STUDY_KI_AUTOMATISIERUNG_NUROVELLE_FINAL.pdf": {
+    "mtime": 1786713542.9460897,
+    "seen": 1787429688.3695335,
+    "ast_hash": "0e5796f78173de1f58f2b160951b87da",
+    "semantic_hash": "0e5796f78173de1f58f2b160951b87da"
+  },
+  "final/checklisten/CHECKLISTE_KI_POTENZIAL_CHECK_NUROVELLE.pdf": {
+    "mtime": 1786713542.9540896,
+    "seen": 1787429688.3695345,
+    "ast_hash": "f7c621a46c5f24c6139983ad8a75c7ff",
+    "semantic_hash": "f7c621a46c5f24c6139983ad8a75c7ff"
+  },
+  "final/prompt_biblothek_final.pdf": {
+    "mtime": 1786713542.9660897,
+    "seen": 1787429688.3695357,
+    "ast_hash": "b0d0714a61a4766d6417dd9e4364ca5d",
+    "semantic_hash": "b0d0714a61a4766d6417dd9e4364ca5d"
+  }
+}

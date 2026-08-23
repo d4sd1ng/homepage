@@ -1049,6 +1049,40 @@ canvas.nv-step-viz {
 .download-button.is-success .download-button__success { opacity: 1; transform: none; }
 .download-button.is-error .download-button__idle { opacity: 0; transform: translateY(-12.8px); }
 .download-button.is-error .download-button__error { opacity: 1; transform: none; }
+.nv-checklist-open { position: relative; grid-column: 1 / -1; grid-row: 3; justify-self: end; align-self: end; display: inline-grid; place-items: center end; padding: 1.6px 0 1.6px 17.6px; border: 0; background: none; color: #d4af37; font: var(--w-cta) var(--t-cta)/1 "Inter",Arial,sans-serif; text-decoration: none; text-transform: uppercase; letter-spacing: 0.06em; cursor: pointer; transition: color 0.2s ease; }
+.nv-checklist-open::before { content: "→"; position: absolute; top: 50%; left: 0; font-size: 16px; font-weight: 800; transform: translateY(-50%); transition: transform 0.28s ease; }
+.nv-checklist-open:hover, .nv-checklist-open:focus-visible { color: #f7ef8a; outline: none; }
+.nv-checklist-open:hover::before, .nv-checklist-open:focus-visible::before { transform: translateY(-50%) translateX(3.2px); }
+.nv-checklist-overlay { position: fixed; inset: 0; z-index: 200; display: flex; align-items: center; justify-content: center; padding: 32px 16px; }
+.nv-checklist-overlay[hidden] { display: none; }
+.nv-checklist-overlay__backdrop { position: absolute; inset: 0; background: rgba(3, 4, 3, 0.82); backdrop-filter: blur(3px); }
+.nv-checklist-modal { position: relative; z-index: 1; width: 100%; max-width: 780px; max-height: 88vh; overflow-y: auto; padding: 32px 28px 28px; border: 0.8px solid transparent; border-radius: 12px; background: linear-gradient(#111311, #111311) padding-box, var(--gold-3) border-box; color: var(--color-text-light); }
+.nv-checklist-modal__close { position: sticky; top: 0; float: right; margin: -12px -12px 0 0; width: 32px; height: 32px; display: inline-flex; align-items: center; justify-content: center; border: 0.8px solid var(--nv-gold-border); border-radius: 6.4px; background: #0c0c0c; color: #d4af37; font-size: 18px; line-height: 1; cursor: pointer; z-index: 2; transition: color 0.2s ease, border-color 0.2s ease; }
+.nv-checklist-modal__close:hover, .nv-checklist-modal__close:focus-visible { color: #f7ef8a; border-color: #f7ef8a; outline: none; }
+.nv-checklist-modal__kicker { margin: 0 0 6.4px; color: #55863f; font: 700 10.4px/1.15 "Inter",Arial,sans-serif; letter-spacing: 0.14em; text-transform: uppercase; }
+.nv-checklist-modal__head h3 { margin: 0 0 9.6px; color: transparent; background: var(--gold-1); background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent; font: 700 24px/1.15 "Exo 2",Inter,Arial,sans-serif; }
+.nv-checklist-modal__intro { max-width: 60ch; margin: 0 0 22.4px; color: #b9c3bd; font: 500 13.6px/1.6 "Inter",Arial,sans-serif; }
+.nv-check-area { margin: 0 0 20.8px; padding: 0; border: 0; }
+.nv-check-area legend { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; width: 100%; margin: 0 0 9.6px; padding: 0 0 6.4px; border-bottom: 0.8px solid rgba(212, 175, 55, 0.28); }
+.nv-check-area__title { color: #f7d77a; font: 700 13.6px/1.3 "Exo 2",Inter,Arial,sans-serif; text-transform: uppercase; letter-spacing: 0.03em; }
+.nv-check-area__count { flex: 0 0 auto; color: #8b938d; font: 700 11.2px/1 "Inter",Arial,sans-serif; }
+.nv-check-area--warn .nv-check-area__title { color: #e2a23b; }
+.nv-check-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4.8px 16px; }
+.nv-check-item { display: flex; align-items: flex-start; gap: 8px; padding: 3.2px 0; color: #d7ddd9; font: 500 12.8px/1.4 "Inter",Arial,sans-serif; cursor: pointer; }
+.nv-check-item input { flex: 0 0 auto; width: 15.2px; height: 15.2px; margin-top: 1.6px; accent-color: #d4af37; cursor: pointer; }
+.nv-check-item:has(input:checked) { color: #f5f7f4; }
+.nv-checklist-modal__result { position: sticky; bottom: -28px; margin: 22.4px -28px -28px; padding: 20.8px 28px 24px; border-top: 0.8px solid rgba(212, 175, 55, 0.4); background: linear-gradient(#161816, #111311); }
+.nv-checklist-result__score { display: flex; align-items: baseline; gap: 6.4px; }
+.nv-checklist-result__value { color: transparent; background: var(--gold-1); background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent; font: 700 40px/1 "Exo 2",Inter,Arial,sans-serif; }
+.nv-checklist-result__max { color: #8b938d; font: 700 13.6px/1 "Inter",Arial,sans-serif; }
+.nv-checklist-result__label { margin:6.4px 0 4.8px; color: #f7d77a; font: 700 14.4px/1.3 "Exo 2",Inter,Arial,sans-serif; text-transform: uppercase; }
+.nv-checklist-result__desc { margin: 0 0 12.8px; max-width: 62ch; color: #b9c3bd; font: 500 12.8px/1.55 "Inter",Arial,sans-serif; }
+.nv-checklist-result__insights { list-style: none; margin: 0 0 16px; padding: 0; display: grid; gap: 4.8px; }
+.nv-checklist-result__insights li { position: relative; padding-left: 15.2px; color: #d7ddd9; font: 500 12px/1.4 "Inter",Arial,sans-serif; }
+.nv-checklist-result__insights li::before { content: ""; position: absolute; left: 0; top: 0.5em; width: 5.6px; height: 5.6px; border-radius: 1.6px; background: #DFBD69; }
+.nv-checklist-result__cta { margin: 4px 0 12.8px; }
+.nv-checklist-result__note { margin: 0; color: #757c78; font: 500 10.4px/1.5 "Inter",Arial,sans-serif; }
+@media (max-width: 640px) { .nv-check-grid { grid-template-columns: 1fr; } .nv-checklist-modal { padding: 24px 18px 20px; } .nv-checklist-modal__result { margin: 19.2px -18px -20px; padding: 16px 18px 20px; } }
 .downloads-section { display: flex; flex-direction: column; justify-content: center;  min-height: calc(100vh - var(--header-height));  position: relative; padding: 83.2px var(--side) 105px; overflow: hidden; color: var(--color-text-light); background: #050505; }
 .downloads-section::after { content: ""; position: absolute; left: 7%; right: 7%; bottom: 0; height: 1.6px; background: linear-gradient(90deg,transparent,#fae385 20%,#fae385 80%,transparent); box-shadow: 0 0 6.4px #fae38566; pointer-events: none; }
 .downloads-section .section-inner { position: relative; z-index: 1; width: 100%; margin: 0 auto 0 0; }
@@ -1433,8 +1467,8 @@ canvas.nv-step-viz {
 
 <meta name="description" content="Nurovelle entwickelt KI-Agenten, Automatisierungen und individuelle Software für den Mittelstand — von der kostenlosen Potenzialanalyse bis zum laufenden System." />
 <link rel="canonical" href="https://nurovelle.de/homepage/index.html" />
-<link rel="icon" type="image/svg+xml" href="favicon.svg" />
-<link rel="apple-touch-icon" href="assets/hero/round.png" />
+<link rel="icon" type="image/png" href="favicon.png" />
+<link rel="apple-touch-icon" href="apple-touch-icon.png" />
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="Nurovelle" />
 <meta property="og:locale" content="de_DE" />
@@ -1514,10 +1548,10 @@ canvas.nv-step-viz {
       </details>
     </nav>
 
-    <a class="header-cta" href="https://calendly.com/d4sd1ng/30min" target="_blank" rel="noopener" aria-label="Erstgespräch vereinbaren">
+    <a class="header-cta" href="analyse.html" aria-label="Kostenlose KI-Potenzialanalyse öffnen">
       <span class="golden-button">
         <svg class="nv-calendly-icon" viewBox="0 0 64 64" aria-hidden="true"><use href="#nv-calendly-mark"></use></svg>
-        <span class="golden-text">Erstgespräch vereinbaren</span>
+        <span class="golden-text">Kostenlose Potenzialanalyse</span>
       </span>
     </a>
   </div>
@@ -1744,7 +1778,7 @@ canvas.nv-step-viz {
 <section class="nv-pack" id="pakete" aria-labelledby="nv-pack-title">
   <div class="nv-pack__inner">
     <p class="nv-pack__kicker">Pakete</p>
-    <h2 class="nv-pack__title" id="nv-pack-title">Fertige Lösungen.</h2>
+    <h2 class="nv-pack__title" id="nv-pack-title">Automationspakete.</h2>
     <p class="nv-pack__subtitle">Für wiederkehrende Abläufe in Betreuung, Handwerk und Büro — drei Pakete mit je vier Funktionen.</p>
     <p class="nv-pack__intro">Wo sich Abläufe in vielen Betrieben gleichen, muss nichts neu entwickelt werden. Diese drei Pakete bündeln je vier Handgriffe, die im jeweiligen Arbeitsalltag täglich anfallen — in einem Programm, das Ihnen gehört und auf Ihrem eigenen Server läuft. Keine Fremd-Cloud nötig.</p>
     <div class="nv-pack__grid">
@@ -1984,7 +2018,7 @@ canvas.nv-step-viz {
         <div class="nv-s7-card__main">
           <header class="nv-s7-card__heading">
             <span class="nv-s7-card__number">06</span>
-            <div><h3>KI-Automationen</h3><p>Fertige Helfer für den Arbeitsalltag</p></div>
+            <div><h3>KI-Automationen</h3><p>Helfer für den Arbeitsalltag</p></div>
           </header>
           <div class="nv-s7-card__short-rule"></div>
           <ul class="nv-s7-card__points"><li>25 einsatzbereite Bausteine</li><li>Fünf Einsatzbereiche</li><li>Ohne eigene Entwicklung</li></ul>
@@ -2528,7 +2562,7 @@ canvas.nv-step-viz {
             Downloads für Ihre <span class="gold">KI-Projekte</span>
           </h2>
           <p class="downloads-section__subtitle">
-            Vier Dokumente zum Mitnehmen.
+            Drei Dokumente zum Mitnehmen, ein Tool zum direkten Ausfüllen.
           </p>
           <p class="section-text">
             Praxisnahe Guides, Checklisten und Vorlagen unterstützen Sie bei der
@@ -2538,7 +2572,7 @@ canvas.nv-step-viz {
 
         <div class="download-display">
           <div class="download-display__header">
-            <span>NUROVELLE DOWNLOAD-BIBLIOTHEK</span><span>4 DOKUMENTE</span>
+            <span>NUROVELLE DOWNLOAD-BIBLIOTHEK</span><span>3 DOKUMENTE · 1 TOOL</span>
           </div>
           <div class="download-display__grid">
             <article class="download-item">
@@ -2570,15 +2604,15 @@ canvas.nv-step-viz {
 
             <article class="download-item">
               <div class="download-item__type">
-                <picture><source srcset="assets/dokument_icons/xls.webp" type="image/webp" /><img
-                  src="assets/dokument_icons/xls.png"
+                <picture><source srcset="assets/dokument_icons/pdf.webp" type="image/webp" /><img
+                  src="assets/dokument_icons/pdf.png"
                   alt=""
                   aria-hidden="true"
                 / loading="lazy" decoding="async" width="500" height="500" /></picture>
               </div>
               <div class="download-item__content">
-                <h3>ROI-Rechner für KI-Automatisierung</h3>
-                <p>Excel-Vorlage zur Bewertung von Aufwand, Nutzen und ROI.</p>
+                <h3>ROI-Guide für KI-Automatisierung</h3>
+                <p>Formel, Schnellrechner und Priorisierungsmatrix zur Bewertung von Aufwand, Nutzen und ROI.</p>
               </div>
               <a
                 class="download-button"
@@ -2624,34 +2658,64 @@ canvas.nv-step-viz {
 
             <article class="download-item">
               <div class="download-item__type">
-                <picture><source srcset="assets/dokument_icons/pdf.webp" type="image/webp" /><img
-                  src="assets/dokument_icons/pdf.png"
-                  alt=""
-                  aria-hidden="true"
-                / loading="lazy" decoding="async" width="500" height="500" /></picture>
+                <svg width="32" height="32" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+                  <rect x="6" y="3" width="20" height="26" rx="2.4" stroke="currentColor" stroke-width="1.6"/>
+                  <path d="M11 3.5h10v3a1.5 1.5 0 0 1-1.5 1.5h-7A1.5 1.5 0 0 1 11 6.5v-3Z" fill="currentColor" opacity="0.35"/>
+                  <path d="M10.5 14l2 2 3.5-4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M17.5 14.5h5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+                  <path d="M10.5 20.5l2 2 3.5-4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M17.5 21h5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+                </svg>
               </div>
               <div class="download-item__content">
                 <h3>Checkliste KI-Potenziale</h3>
-                <p>Prüfpunkte für geeignete Prozesse und Automatisierungen.</p>
+                <p>5 Bereiche, 50 Prüfpunkte – direkt online ausfüllen und sofort auswerten.</p>
               </div>
-              <a
-                class="download-button"
-                data-available="false"
-                href="assets/downloads/checkliste.pdf"
-                download
-                ><span class="download-button__idle"
-                  >Download</span
-                ><span class="download-button__success"
-                  >Danke – Download startet</span
-                ><span class="download-button__error"
-                  >Download fehlgeschlagen – erneut versuchen</span
-                ></a
+              <button
+                type="button"
+                class="nv-checklist-open"
+                id="nvChecklistOpen"
+                aria-haspopup="dialog"
+                aria-controls="nvChecklistOverlay"
+                >Jetzt ausfüllen</button
               >
             </article>
           </div>
         </div>
       </div>
     </section>
+
+<div class="nv-checklist-overlay" id="nvChecklistOverlay" hidden>
+  <div class="nv-checklist-overlay__backdrop" data-nv-checklist-close></div>
+  <div class="nv-checklist-modal" role="dialog" aria-modal="true" aria-labelledby="nvChecklistTitle">
+    <button type="button" class="nv-checklist-modal__close" data-nv-checklist-close aria-label="Schließen">&times;</button>
+    <div class="nv-checklist-modal__head">
+      <p class="nv-checklist-modal__kicker">KI-Potenzial-Check</p>
+      <h3 id="nvChecklistTitle">Checkliste KI-Potenziale</h3>
+      <p class="nv-checklist-modal__intro">
+        Kreuzen Sie jede Aussage an, die auf Ihr Unternehmen zutrifft. Die Auswertung
+        aktualisiert sich sofort. Ihre Angaben werden nur lokal in Ihrem Browser
+        gespeichert und nicht übertragen.
+      </p>
+    </div>
+    <div id="nvChecklistBody"></div>
+    <div class="nv-checklist-modal__result">
+      <div class="nv-checklist-result__score">
+        <span class="nv-checklist-result__value" id="nvChecklistScore">0</span>
+        <span class="nv-checklist-result__max">/ 50 Punkte</span>
+      </div>
+      <p class="nv-checklist-result__label" id="nvChecklistLabel">Digitale Grundlagen vorhanden</p>
+      <p class="nv-checklist-result__desc" id="nvChecklistDesc"></p>
+      <ul class="nv-checklist-result__insights" id="nvChecklistInsights"></ul>
+      <a class="nv-checklist-result__cta golden-button" href="analyse.html">
+        <span class="golden-text">Kostenlose KI-Potenzialanalyse starten</span>
+      </a>
+      <p class="nv-checklist-result__note">
+        Richtwert auf Basis Ihrer Angaben – kein verbindliches Ergebnis.
+      </p>
+    </div>
+  </div>
+</div>
 
 <section class="nv-resource-section" id="faq" aria-labelledby="faq-title">
       <div class="nv-resource-section__inner">
@@ -3309,6 +3373,227 @@ void main(){
         });
       });
     });
+
+    (function () {
+      var openBtn = document.getElementById("nvChecklistOpen");
+      if (!openBtn) return;
+      var overlay = document.getElementById("nvChecklistOverlay");
+      var body = document.getElementById("nvChecklistBody");
+      var scoreEl = document.getElementById("nvChecklistScore");
+      var labelEl = document.getElementById("nvChecklistLabel");
+      var descEl = document.getElementById("nvChecklistDesc");
+      var insightsEl = document.getElementById("nvChecklistInsights");
+      var closeEls = overlay.querySelectorAll("[data-nv-checklist-close]");
+      var STORAGE_KEY = "nv_checkliste_v1";
+
+      var AREAS = [
+        { key: "prozesse", title: "Bereich 1 · Prozesse & Effizienz", insight: "Hoher Zeitverlust durch manuelle Tätigkeiten", items: [
+          "Mitarbeiter erfassen dieselben Daten mehrfach.",
+          "Informationen müssen regelmäßig gesucht werden.",
+          "Freigaben erfolgen überwiegend per E-Mail.",
+          "Angebote werden manuell erstellt.",
+          "Berichte werden manuell erstellt.",
+          "Dokumente werden häufig kopiert und angepasst.",
+          "Prozesse unterscheiden sich je nach Mitarbeiter.",
+          "Wiederkehrende Aufgaben werden manuell erledigt.",
+          "Bearbeitungszeiten werden nicht gemessen.",
+          "Prozessbeschreibungen fehlen oder sind veraltet."
+        ]},
+        { key: "daten", title: "Bereich 2 · Daten & Informationen", insight: "Daten- und Wissensmanagement ist der Engpass", items: [
+          "Kundendaten liegen in mehreren Systemen.",
+          "Es existieren Datensilos.",
+          "Datenqualität wird nicht regelmäßig geprüft.",
+          "Dubletten kommen häufig vor.",
+          "Informationen sind schwer auffindbar.",
+          "Wissen befindet sich hauptsächlich in den Köpfen einzelner Mitarbeiter.",
+          "Dokumentationen sind unvollständig.",
+          "Daten können nur eingeschränkt ausgewertet werden.",
+          "Kennzahlen müssen manuell zusammengestellt werden.",
+          "Es fehlt eine zentrale Wissensbasis."
+        ]},
+        { key: "systeme", title: "Bereich 3 · Systeme & Infrastruktur", insight: "Fehlende Integration verhindert Automatisierung", items: [
+          "Systeme sind nur eingeschränkt miteinander verbunden.",
+          "Daten müssen zwischen Programmen übertragen werden.",
+          "Schnittstellen fehlen.",
+          "Excel wird als zentrale Prozesssteuerung genutzt.",
+          "Software wird nicht regelmäßig überprüft.",
+          "Es existieren mehrere Insellösungen.",
+          "Automatisierungen sind kaum vorhanden.",
+          "Systemlandschaften sind historisch gewachsen.",
+          "Es fehlen zentrale Dashboards.",
+          "Informationen werden mehrfach gespeichert."
+        ]},
+        { key: "ki", title: "Bereich 4 · KI & Automatisierung", insight: "Große Chancen durch strukturierte KI-Einführung", items: [
+          "Es gibt keine definierte KI-Strategie.",
+          "KI wird nur vereinzelt genutzt.",
+          "Mitarbeiter nutzen unterschiedliche KI-Tools ohne Standards.",
+          "Einsatzrichtlinien fehlen.",
+          "Potenzielle Anwendungsfälle wurden nicht bewertet.",
+          "Wirtschaftliche Effekte werden nicht gemessen.",
+          "Pilotprojekte existieren nicht.",
+          "Automatisierungspotenziale wurden nie analysiert.",
+          "Verantwortlichkeiten sind unklar.",
+          "Risiken wurden nicht bewertet."
+        ]},
+        { key: "wachstum", title: "Bereich 5 · Wachstum & Skalierung", insight: "Wachstum erzeugt überproportionalen Aufwand", items: [
+          "Wachstum führt direkt zu mehr Verwaltungsaufwand.",
+          "Neue Mitarbeiter benötigen lange Einarbeitungszeiten.",
+          "Prozesse hängen von einzelnen Personen ab.",
+          "Kritisches Wissen ist nicht dokumentiert.",
+          "Kennzahlen stehen nicht jederzeit zur Verfügung.",
+          "Entscheidungen basieren häufig auf Bauchgefühl.",
+          "Unternehmensziele werden nicht systematisch gemessen.",
+          "Prozesse sind schwer reproduzierbar.",
+          "Standards fehlen.",
+          "Verbesserungspotenziale werden nicht systematisch erfasst."
+        ]}
+      ];
+      var WARN = { key: "warnsignale", title: "Bonus · Die 10 Warnsignale für ungenutztes KI-Potenzial", items: [
+        "Mitarbeiter suchen täglich Informationen.",
+        "Angebote werden manuell erstellt.",
+        "Kundeninformationen liegen in mehreren Systemen.",
+        "Daten werden mehrfach erfasst.",
+        "Freigaben erfolgen per E-Mail.",
+        "Wissen steckt in einzelnen Köpfen.",
+        "Berichte werden manuell erstellt.",
+        "Dokumentationen sind unvollständig.",
+        "Kennzahlen stehen nicht in Echtzeit zur Verfügung.",
+        "Prozesse hängen von Einzelpersonen ab."
+      ]};
+      var BRACKETS = [
+        { max: 10, label: "Digitale Grundlagen vorhanden", desc: "Ihr Unternehmen verfügt bereits über eine vergleichsweise gute Ausgangssituation. Einzelne Optimierungspotenziale sind wahrscheinlich vorhanden." },
+        { max: 20, label: "Erste Optimierungspotenziale", desc: "Mehrere Prozesse können wahrscheinlich effizienter gestaltet oder automatisiert werden." },
+        { max: 35, label: "Hohes Automatisierungspotenzial", desc: "Es bestehen deutliche Effizienzverluste und strukturelle Schwachstellen. Eine gezielte Analyse kann erhebliche Verbesserungen aufzeigen." },
+        { max: 50, label: "Sehr hohes KI-Potenzial", desc: "Viele Prozesse, Datenflüsse und Arbeitsabläufe bieten erhebliches Potenzial für Automatisierung und KI-Unterstützung." }
+      ];
+
+      var state = {};
+      function loadState() {
+        try {
+          var raw = window.localStorage.getItem(STORAGE_KEY);
+          if (raw) state = JSON.parse(raw) || {};
+        } catch (e) { state = {}; }
+      }
+      function saveState() {
+        try { window.localStorage.setItem(STORAGE_KEY, JSON.stringify(state)); } catch (e) {}
+      }
+      function checkedArr(key, len) {
+        var arr = state[key];
+        if (!Array.isArray(arr) || arr.length !== len) arr = new Array(len).fill(false);
+        return arr;
+      }
+
+      function renderArea(area, extraClass) {
+        var fs = document.createElement("fieldset");
+        fs.className = "nv-check-area" + (extraClass ? " " + extraClass : "");
+        fs.setAttribute("data-area", area.key);
+        var legend = document.createElement("legend");
+        var title = document.createElement("span");
+        title.className = "nv-check-area__title";
+        title.textContent = area.title;
+        var count = document.createElement("span");
+        count.className = "nv-check-area__count";
+        count.setAttribute("data-count", area.key);
+        legend.appendChild(title);
+        legend.appendChild(count);
+        fs.appendChild(legend);
+        var grid = document.createElement("div");
+        grid.className = "nv-check-grid";
+        var arr = checkedArr(area.key, area.items.length);
+        area.items.forEach(function (text, i) {
+          var label = document.createElement("label");
+          label.className = "nv-check-item";
+          var input = document.createElement("input");
+          input.type = "checkbox";
+          input.setAttribute("data-area", area.key);
+          input.setAttribute("data-index", String(i));
+          input.checked = !!arr[i];
+          var span = document.createElement("span");
+          span.textContent = text;
+          label.appendChild(input);
+          label.appendChild(span);
+          grid.appendChild(label);
+        });
+        fs.appendChild(grid);
+        return fs;
+      }
+
+      function render() {
+        body.innerHTML = "";
+        AREAS.forEach(function (area) { body.appendChild(renderArea(area)); });
+        body.appendChild(renderArea(WARN, "nv-check-area--warn"));
+      }
+
+      function compute() {
+        var total = 0;
+        var highAreas = [];
+        AREAS.forEach(function (area) {
+          var arr = checkedArr(area.key, area.items.length);
+          var n = arr.filter(Boolean).length;
+          total += n;
+          var badge = body.querySelector('[data-count="' + area.key + '"]');
+          if (badge) badge.textContent = n + "/" + area.items.length;
+          if (n >= 6) highAreas.push(area.insight);
+        });
+        var warnArr = checkedArr(WARN.key, WARN.items.length);
+        var warnN = warnArr.filter(Boolean).length;
+        var warnBadge = body.querySelector('[data-count="' + WARN.key + '"]');
+        if (warnBadge) warnBadge.textContent = warnN + "/" + WARN.items.length;
+
+        scoreEl.textContent = String(total);
+        var bracket = BRACKETS[BRACKETS.length - 1];
+        for (var i = 0; i < BRACKETS.length; i++) {
+          if (total <= BRACKETS[i].max) { bracket = BRACKETS[i]; break; }
+        }
+        labelEl.textContent = bracket.label;
+        descEl.textContent = bracket.desc;
+
+        insightsEl.innerHTML = "";
+        highAreas.forEach(function (text) {
+          var li = document.createElement("li");
+          li.textContent = text;
+          insightsEl.appendChild(li);
+        });
+      }
+
+      body.addEventListener("change", function (event) {
+        var input = event.target;
+        if (!input || input.tagName !== "INPUT" || input.type !== "checkbox") return;
+        var key = input.getAttribute("data-area");
+        var idx = +input.getAttribute("data-index");
+        var len = key === WARN.key ? WARN.items.length : (AREAS.filter(function (a) { return a.key === key; })[0] || {}).items.length;
+        var arr = checkedArr(key, len);
+        arr[idx] = input.checked;
+        state[key] = arr;
+        saveState();
+        compute();
+      });
+
+      var lastFocused = null;
+      function openModal() {
+        lastFocused = document.activeElement;
+        loadState();
+        render();
+        compute();
+        overlay.hidden = false;
+        document.documentElement.style.overflow = "hidden";
+        var closeBtn = overlay.querySelector(".nv-checklist-modal__close");
+        if (closeBtn) closeBtn.focus();
+        document.addEventListener("keydown", onKeydown);
+      }
+      function closeModal() {
+        overlay.hidden = true;
+        document.documentElement.style.overflow = "";
+        document.removeEventListener("keydown", onKeydown);
+        if (lastFocused && typeof lastFocused.focus === "function") lastFocused.focus();
+      }
+      function onKeydown(event) {
+        if (event.key === "Escape") closeModal();
+      }
+
+      openBtn.addEventListener("click", openModal);
+      closeEls.forEach(function (el) { el.addEventListener("click", closeModal); });
+    })();
 </script>
 <script>
   (() => {

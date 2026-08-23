@@ -1,7 +1,25 @@
 {
   "permissions": {
     "allow": [
-      "Bash(grep -n \"margin: 0\\\\|margin:0\\\\|\\\\* {\\\\|\\\\*,\\\\|box-sizing\\\\|:root {\" /media/d4sd1ng/AI-Data/Projects/homepage_repo/homepage/index.html)"
+      "Bash(grep -n \"margin: 0\\\\|margin:0\\\\|\\\\* {\\\\|\\\\*,\\\\|box-sizing\\\\|:root {\" /media/d4sd1ng/AI-Data/Projects/homepage_repo/homepage/index.html)",
+      "Bash(rm -f graphify-out/.plan.json)",
+      "Bash(awk '/^## God Nodes/{f=1} f&&/^## Surprising/{f=0} f' graphify-out/GRAPH_REPORT.md)",
+      "Bash(awk '/^## Surprising Connections/{f=1} f&&/^## Import/{f=0} f' graphify-out/GRAPH_REPORT.md)",
+      "Bash(command -v pdftotext)",
+      "Bash(pdftotext homepage/assets/downloads/prompt_guide.pdf -)",
+      "Bash(pdftotext -layout homepage/assets/downloads/prompt_guide.pdf -)",
+      "Bash(python3 -c ' *)",
+      "Bash(pdfinfo homepage/assets/downloads/prompt_guide.pdf)",
+      "Bash(awk -F: '{print $1}')",
+      "Bash(awk 'NR==1{first=$1} {last=$1} END{print \"erste Zeile:\", first, \" letzte Zeile:\", last}')",
+      "Bash(pdftotext -layout \"Dokumente_lead/final/checklisten/CHECKLISTE_KI_POTENZIAL_CHECK_NUROVELLE.pdf\" -)",
+      "Skill(browser-automation)",
+      "Skill(browser-automation:*)",
+      "Bash(node /home/d4sd1ng/.claude/skills/browser-automation/browser.mjs file:///media/d4sd1ng/AI-Data/Projects/homepage_repo/homepage/index.html --script /tmp/claude-1000/-media-d4sd1ng-AI-Data-Projects-homepage-repo/670bb4f2-9e4e-4ac4-bbe8-345b79b2d4df/scratchpad/qa_checklist.mjs)",
+      "Bash(grep -rA4 'class=\"header-cta\"' --include='*.html' .)",
+      "Bash(python3 -c \"print\\(f'{96489-7589} Bytes gespart \\({\\(1-7589/96489\\)*100:.0f}%\\) pro Seitenaufruf'\\)\")",
+      "Bash(node /home/d4sd1ng/.claude/skills/browser-automation/browser.mjs file:///media/d4sd1ng/AI-Data/Projects/homepage_repo/homepage/index.html --script /tmp/claude-1000/-media-d4sd1ng-AI-Data-Projects-homepage-repo/670bb4f2-9e4e-4ac4-bbe8-345b79b2d4df/scratchpad/qa_favicon.mjs)",
+      "Bash(node /home/d4sd1ng/.claude/skills/browser-automation/browser.mjs file:///media/d4sd1ng/AI-Data/Projects/homepage_repo/homepage/index.html --script /tmp/claude-1000/-media-d4sd1ng-AI-Data-Projects-homepage-repo/670bb4f2-9e4e-4ac4-bbe8-345b79b2d4df/scratchpad/qa_favicon2.mjs)"
     ]
   }
 }
