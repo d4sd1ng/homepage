@@ -1103,7 +1103,8 @@ canvas.nv-step-viz {
 .nv-resource-section__title { margin: 0 0 39.2px; color: transparent; background: var(--gold-1); background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent; font: 700 var(--nv-section-title-size) / 1.15 "Exo 2", Inter, Arial, sans-serif; letter-spacing: 0.01em; }
 .nv-resource-section__intro { max-width: 58ch; margin: 0; color: #b9c3bd; font: 500 var(--nv-section-body-size) / var(--nv-section-body-line) Inter, Arial, sans-serif; }
 .nv-faq-layout { display: grid; grid-template-columns: minmax(0, 1304px); gap: 64px; align-items: center; justify-content: center; max-width: 1888px; margin: 0 auto; transform: translateX(calc(0px / -2)); }
-.nv-faq-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; align-items: start; }
+.nv-faq-grid { display: flex; align-items: flex-start; gap: 24px; }
+.nv-faq-col { display: flex; flex-direction: column; gap: 24px; flex: 1 1 0; min-width: 0; }
 .nv-faq-item { align-self: start; }
 .nv-faq-item summary { --nv-golden-display: flex; --nv-golden-width: 100%; --nv-golden-min-width: 0; --nv-golden-height: auto; --nv-golden-justify: space-between; --nv-golden-text-align: left; --nv-golden-white-space: normal; gap: 9.6px; padding-block: 9.6px; padding-inline: 15.2px; font-size: 12.8px; line-height: 1.25; list-style: none; font: var(--w-bulletlabel) var(--t-bulletlabel)/1.35 "Exo 2",Inter,Arial,sans-serif;  display: flex; width: 100%; min-width: 0; justify-content: space-between; text-align: left; white-space: normal; }
 .nv-faq-item summary::-webkit-details-marker { display: none; }
@@ -1450,7 +1451,8 @@ canvas.nv-step-viz {
   .nv-acard__split { grid-template-columns: minmax(0,1fr); gap: 16px; }
   .nv-faq-layout { grid-template-columns: minmax(0,1fr); gap: 25.6px; transform: none; }
   .download-button { justify-self: start; }
-  .nv-faq-grid { grid-template-columns: minmax(0,1fr); gap: 14.4px; }
+  .nv-faq-grid { flex-direction: column; gap: 14.4px; }
+  .nv-faq-col { gap: 14.4px; }
   .download-display__grid { grid-template-columns: minmax(0,1fr); }
   .download-display__header { flex-wrap: wrap; gap: 3.2px; }
   /* FAQ-Knoepfe: mehrzeilige Fragen brauchen eine mitwachsende Hoehe */
@@ -2734,99 +2736,103 @@ canvas.nv-step-viz {
         </header>
         <div class="nv-faq-layout">
           <div class="nv-faq-grid">
+          <div class="nv-faq-col">
             <details class="nv-faq-item">
-              <summary class="golden-button">
-                Muss ich bereits eine konkrete KI-Idee haben?
-              </summary>
-              <p>
-                Nein. Die Potenzialanalyse eignet sich auch dann, wenn zunächst
-                nur ein zeitaufwendiger oder fehleranfälliger Prozess bekannt
-                ist. Gemeinsam wird geprüft, ob KI, Automatisierung, Software
-                oder eine andere Prozessverbesserung sinnvoll ist.
-              </p>
-            </details>
+                          <summary class="golden-button">
+                            Muss ich bereits eine konkrete KI-Idee haben?
+                          </summary>
+                          <p>
+                            Nein. Die Potenzialanalyse eignet sich auch dann, wenn zunächst
+                            nur ein zeitaufwendiger oder fehleranfälliger Prozess bekannt
+                            ist. Gemeinsam wird geprüft, ob KI, Automatisierung, Software
+                            oder eine andere Prozessverbesserung sinnvoll ist.
+                          </p>
+                        </details>
             <details class="nv-faq-item">
-              <summary class="golden-button">
-                Was wird bei der KI-Potenzialanalyse geprüft?
-              </summary>
-              <p>
-                Geprüft werden der aktuelle Ablauf, beteiligte Systeme und
-                Datenquellen, manuelle Übergaben, wiederkehrende Aufgaben sowie
-                der mögliche Nutzen einer technischen Lösung. Daraus entsteht
-                eine erste Einordnung von Aufwand, Priorität und sinnvollem
-                nächsten Schritt.
-              </p>
-            </details>
+                          <summary class="golden-button">
+                            Für welche Unternehmen eignet sich das Angebot?
+                          </summary>
+                          <p>
+                            Das Angebot richtet sich an Unternehmen, die wiederkehrende
+                            Abläufe verbessern, Informationen schneller nutzbar machen oder
+                            bestehende Systeme sinnvoll verbinden möchten. Entscheidend ist
+                            nicht die Unternehmensgröße, sondern ein klar abgrenzbarer
+                            Prozess oder konkreter Verbesserungsbedarf.
+                          </p>
+                        </details>
             <details class="nv-faq-item">
-              <summary class="golden-button">
-                Für welche Unternehmen eignet sich das Angebot?
-              </summary>
-              <p>
-                Das Angebot richtet sich an Unternehmen, die wiederkehrende
-                Abläufe verbessern, Informationen schneller nutzbar machen oder
-                bestehende Systeme sinnvoll verbinden möchten. Entscheidend ist
-                nicht die Unternehmensgröße, sondern ein klar abgrenzbarer
-                Prozess oder konkreter Verbesserungsbedarf.
-              </p>
-            </details>
+                          <summary class="golden-button">
+                            Können bestehende Systeme angebunden werden?
+                          </summary>
+                          <p>
+                            Grundsätzlich ja, sofern geeignete Schnittstellen, Datenzugriffe
+                            oder technische Integrationsmöglichkeiten vorhanden sind. Vor
+                            der Umsetzung wird geprüft, welche Systeme beteiligt sind und
+                            welche Anbindung realistisch und sicher möglich ist.
+                          </p>
+                        </details>
             <details class="nv-faq-item">
-              <summary class="golden-button">
-                Entwickelt Nurovelle auch individuelle Lösungen?
-              </summary>
-              <p>
-                Ja. Lösungen werden an den jeweiligen Prozess, die vorhandenen
-                Systeme und die technischen Anforderungen angepasst. Dazu können
-                KI-Agenten, Automatisierungen, Wissenssysteme, Schnittstellen
-                oder individuelle Software gehören.
-              </p>
-            </details>
-            <details class="nv-faq-item">
-              <summary class="golden-button">
-                Können bestehende Systeme angebunden werden?
-              </summary>
-              <p>
-                Grundsätzlich ja, sofern geeignete Schnittstellen, Datenzugriffe
-                oder technische Integrationsmöglichkeiten vorhanden sind. Vor
-                der Umsetzung wird geprüft, welche Systeme beteiligt sind und
-                welche Anbindung realistisch und sicher möglich ist.
-              </p>
-            </details>
-            <details class="nv-faq-item">
-              <summary class="golden-button">
-                Wie läuft ein typisches Projekt ab?
-              </summary>
-              <p>
-                Zu Beginn werden Aufgabe, Ziel, Datenlage und bestehende Abläufe
-                geklärt. Danach folgen technische Prüfung, Auswahl des passenden
-                Lösungstyps, Umsetzungsplanung, Entwicklung, Tests und die
-                kontrollierte Einführung in den bestehenden Prozess.
-              </p>
-            </details>
-            <details class="nv-faq-item">
-              <summary class="golden-button">
-                Wie lange dauert die Umsetzung?
-              </summary>
-              <p>
-                Das hängt vom Umfang, der Datenlage, den beteiligten Systemen
-                und dem Integrationsaufwand ab. Eine klar abgegrenzte
-                Automatisierung kann deutlich schneller umgesetzt werden als ein
-                komplexes System mit mehreren Schnittstellen und
-                Freigabeprozessen.
-              </p>
-            </details>
-            <details class="nv-faq-item">
-              <summary class="golden-button">
-                Was passiert nach dem Absenden des Formulars?
-              </summary>
-              <p>
-                Die Angaben werden geprüft und strukturiert eingeordnet.
-                Anschließend erhalten Sie eine erste Rückmeldung zum möglichen
-                Einsatzbereich, zu offenen Voraussetzungen und zum sinnvollsten
-                nächsten Schritt. Falls weitere Informationen erforderlich sind,
-                werden diese gezielt abgefragt.
-              </p>
-            </details>
+                          <summary class="golden-button">
+                            Wie lange dauert die Umsetzung?
+                          </summary>
+                          <p>
+                            Das hängt vom Umfang, der Datenlage, den beteiligten Systemen
+                            und dem Integrationsaufwand ab. Eine klar abgegrenzte
+                            Automatisierung kann deutlich schneller umgesetzt werden als ein
+                            komplexes System mit mehreren Schnittstellen und
+                            Freigabeprozessen.
+                          </p>
+                        </details>
           </div>
+          <div class="nv-faq-col">
+            <details class="nv-faq-item">
+                          <summary class="golden-button">
+                            Was wird bei der KI-Potenzialanalyse geprüft?
+                          </summary>
+                          <p>
+                            Geprüft werden der aktuelle Ablauf, beteiligte Systeme und
+                            Datenquellen, manuelle Übergaben, wiederkehrende Aufgaben sowie
+                            der mögliche Nutzen einer technischen Lösung. Daraus entsteht
+                            eine erste Einordnung von Aufwand, Priorität und sinnvollem
+                            nächsten Schritt.
+                          </p>
+                        </details>
+            <details class="nv-faq-item">
+                          <summary class="golden-button">
+                            Entwickelt Nurovelle auch individuelle Lösungen?
+                          </summary>
+                          <p>
+                            Ja. Lösungen werden an den jeweiligen Prozess, die vorhandenen
+                            Systeme und die technischen Anforderungen angepasst. Dazu können
+                            KI-Agenten, Automatisierungen, Wissenssysteme, Schnittstellen
+                            oder individuelle Software gehören.
+                          </p>
+                        </details>
+            <details class="nv-faq-item">
+                          <summary class="golden-button">
+                            Wie läuft ein typisches Projekt ab?
+                          </summary>
+                          <p>
+                            Zu Beginn werden Aufgabe, Ziel, Datenlage und bestehende Abläufe
+                            geklärt. Danach folgen technische Prüfung, Auswahl des passenden
+                            Lösungstyps, Umsetzungsplanung, Entwicklung, Tests und die
+                            kontrollierte Einführung in den bestehenden Prozess.
+                          </p>
+                        </details>
+            <details class="nv-faq-item">
+                          <summary class="golden-button">
+                            Was passiert nach dem Absenden des Formulars?
+                          </summary>
+                          <p>
+                            Die Angaben werden geprüft und strukturiert eingeordnet.
+                            Anschließend erhalten Sie eine erste Rückmeldung zum möglichen
+                            Einsatzbereich, zu offenen Voraussetzungen und zum sinnvollsten
+                            nächsten Schritt. Falls weitere Informationen erforderlich sind,
+                            werden diese gezielt abgefragt.
+                          </p>
+                        </details>
+          </div>
+        </div>
         </div>
       </div>
     </section>
