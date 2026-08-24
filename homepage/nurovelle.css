@@ -22,6 +22,8 @@ img { display: block; max-width: 100%; }
 .header-inner { position: relative; z-index: 1; height: 100%; padding: 0 var(--page-gutter); display: grid; grid-template-columns: auto minmax(0, 1fr) auto; align-items: center; }
 .logo-wordmark { height: calc(var(--logo-h) * 1); width: auto; display: block; align-self: center; }
 .logo-link { display: inline-flex; align-items: center; gap: 19px; height: var(--logo-box); perspective: 480px; text-decoration: none; flex: 0 0 auto; }
+.logo-text { display: flex; flex-direction: column; align-items: flex-end; justify-content: center; gap: 2.4px; }
+.logo-tagline { display: block; color: #cdbb84; font: 700 7.2px/1.1 "Inter", Arial, sans-serif; letter-spacing: 0.16em; text-transform: uppercase; white-space: nowrap; }
 .logo-spin { 
   display: block;
   position: relative;
@@ -176,6 +178,7 @@ a:active .golden-button {
 }
 @media (max-width: 640px) {
   .nv-breadcrumb { display: none; }
+  .logo-tagline { display: none; }
 }
 /* ==========================================================================
    DETAILSEITE — Inhalt (Hero, Schwerpunkte, Kernnutzen, Einordnung)
