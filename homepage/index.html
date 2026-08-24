@@ -261,12 +261,12 @@ a:active .golden-button {
 .logo-link { display: inline-flex; align-items: center; gap: 9.6px; height: var(--logo-box); perspective: 480px; text-decoration: none; flex: 0 0 auto; }
 .logo-mark-wrap { position: relative; display: block; align-self: center; filter: drop-shadow(0 0 6.4px #fae3853d); }
 .logo-mark { display: block; height: var(--logo-h); width: auto; }
-.logo-mark--tag { position: absolute; inset: 0; clip-path: inset(67.5% 0 0 0); transform: translateX(4.3%); }
+.logo-mark--tag { position: absolute; inset: 0; clip-path: inset(67.5% 0 0 0); transform: translateX(4.3%); fill: var(--color-text-light); }
 .logo-mark--word { clip-path: inset(0 0 32.5% 0); }
 .nv-breadcrumb__group { position: relative; }
 .nv-breadcrumb__group + .nv-breadcrumb__group { margin-left: -6.4px; }
 .nv-breadcrumb__group:first-child .nv-breadcrumb__trigger { padding-left: 11.2px; }
-.nv-breadcrumb__trigger { --nv-crumb-point: 11.2px; --nv-crumb-bg: linear-gradient(180deg, #112a20eb, #080b09f5); position: relative; display: flex; align-items: center; min-height: 28.8px; padding: 0 17.6px; color: var(--color-text-muted); background: none; font-size: 10.4px; line-height: 1; cursor: pointer; list-style: none; user-select: none; transition: color 0.18s ease, transform 0.18s ease; z-index: 1; }
+.nv-breadcrumb__trigger { --nv-crumb-point: 11px; --nv-crumb-bg: linear-gradient(180deg, #112a20eb, #080b09f5); position: relative; display: flex; align-items: center; min-height: 37px; padding: 0 17.6px; color: var(--color-text-muted); background: none; font-size: 13px; line-height: 1; cursor: pointer; list-style: none; user-select: none; transition: color 0.18s ease, transform 0.18s ease; z-index: 1; }
 .nv-breadcrumb__trigger::-webkit-details-marker { display: none; }
 .nv-breadcrumb__trigger::marker { content: ""; }
 .nv-breadcrumb__trigger > span { position: relative; z-index: 1; }
@@ -280,7 +280,7 @@ a:active .golden-button {
 .nv-breadcrumb__group[open] .nv-breadcrumb__trigger::after, .nv-breadcrumb__group:hover .nv-breadcrumb__trigger::after { box-shadow: inset 0 0.8px 0 #fae38529, 0 4px 11.2px #00000052; }
 .nv-breadcrumb__menu { position: absolute; top: calc(100% + 4.8px); left: 9.6px; z-index: 50; display: none; min-width: 176px; padding: 6.4px; border: 0.8px solid transparent; border-radius: 8px; background-image: linear-gradient(#050706,#050706), var(--gold-3); background-origin: border-box; background-clip: padding-box, border-box; box-shadow: 0 14.4px 30.4px #000000b8; backdrop-filter: blur(9.6px); }
 .nv-breadcrumb__group[open] .nv-breadcrumb__menu, .nv-breadcrumb__group:hover .nv-breadcrumb__menu { display: grid; }
-.nv-breadcrumb__menu a { padding: 7.2px 9.6px; border-radius: 4.8px; color: var(--color-text-muted); font-size: 10.4px; line-height: 1.2; }
+.nv-breadcrumb__menu a { padding: 7.2px 9.6px; border-radius: 4.8px; color: var(--color-text-muted); font-size: 12px; line-height: 1.2; }
 .nv-breadcrumb__menu a:hover, .nv-breadcrumb__menu a:focus-visible { color: #fae385; background: #bc881b1a; outline: none; }
 .golden-button .nv-calendly-icon { width: 16px; height: 16px; flex: 0 0 auto; }
 .header-cta { justify-self: end; }
