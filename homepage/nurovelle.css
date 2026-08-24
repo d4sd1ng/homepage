@@ -202,7 +202,7 @@ main h3 { font: var(--w-zwischentitel) var(--t-zwischentitel)/1.2 "Exo 2",Inter,
 .visual-card { position: relative; overflow: hidden; }
 .visual-card>img:first-child { width: 100%; height: auto; max-height: 184px; object-fit: contain; }
 .visual-card--empty { aspect-ratio: 16 / 9; }
-.content-grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 86.4px; margin-top: 0; }
+.content-grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 86.4px; margin-top: 0; grid-auto-rows: 1fr; }
 .panel { border: 1px solid transparent; border-radius: 8px; background-image: linear-gradient(#080B09,#080B09), var(--gold-3); background-origin: border-box; background-clip: padding-box, border-box; padding: 10.4px; }
 .panel p { margin: 0 0 9.6px; }
 .panel p:last-child { margin-bottom: 0; }

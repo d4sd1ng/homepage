@@ -398,6 +398,19 @@ main h3 { font: var(--w-zwischentitel) var(--t-zwischentitel)/1.2 "Exo 2",Inter,
 .label-list li { position: relative; break-inside: avoid; margin-bottom: 21px; padding-left: 16px; font: var(--w-fliesstext) var(--t-fliesstext)/1.7 "Inter",Arial,sans-serif; color: #b9c3bd; }
 .label-list li::before { content: ""; position: absolute; left: 0; top: 6.4px; width: 5.6px; height: 5.6px; border-radius: 1.6px; background: #DFBD69; }
 .label-list strong { display: block; margin-bottom: 3.2px; font: var(--w-bulletlabel) var(--t-bulletlabel)/1.35 "Inter",Arial,sans-serif; background: var(--gold-2); background-clip: text; -webkit-background-clip: text; color: transparent; -webkit-text-fill-color: transparent; }
+.label-list--plus li::before { content: "+"; width: auto; height: auto; border-radius: 0; background: none; color: #DFBD69; font-size: 18px; font-weight: 300; line-height: 1; top: 4px; }
+.label-list--minus li::before { content: ""; width: 16px; height: 16px; border: 2px solid #e74c3c; border-radius: 50%; background: none; top: 4px; left: -2px; }
+.label-list--minus li::after { content: ""; position: absolute; left: 4px; top: 10px; width: 8px; height: 2px; background: #e74c3c; }
+.steps-diagram { position: relative; margin: 77.6px 0 0; padding: 48px 0; }
+.steps-track { position: absolute; top: 30px; left: 0; right: 0; height: 3px; background: linear-gradient(to right, #163a35 0%, #163a35 24%, #d4af37 24%, #d4af37 48%, #163a35 48%, #163a35 72%, #d4af37 72%, #d4af37 100%); }
+.steps-container { display: grid; grid-template-columns: repeat(4, 1fr); gap: 32px; position: relative; z-index: 1; }
+.step { display: flex; flex-direction: column; align-items: center; text-align: center; }
+.step-circle { width: 56px; height: 56px; border-radius: 50%; background: linear-gradient(135deg, #d4af37 0%, #b8860b 100%); border: 2px solid #163a35; display: grid; place-items: center; color: #1a1a1a; font: 600 18px/1 "Inter",Arial,sans-serif; margin-bottom: 21px; box-shadow: 0 4px 12px rgba(212, 175, 55, 0.3); }
+.step-content { max-width: 160px; }
+.step-content h4 { font: 600 14.4px/1.4 "Inter",Arial,sans-serif; color: #d4af37; margin: 0 0 8px; }
+.step-content p { font: var(--w-fliesstext) var(--t-fliesstext)/1.6 "Inter",Arial,sans-serif; color: #b9c3bd; margin: 0; font-size: 13px; }
+@media (max-width: 900px) { .steps-container { grid-template-columns: repeat(2, 1fr); gap: 24px; } .steps-track { display: none; } }
+@media (max-width: 640px) { .steps-container { grid-template-columns: 1fr; gap: 16px; } }
 .text { max-width: 88ch; font: var(--w-fliesstext) var(--t-fliesstext)/1.7 "Inter",Arial,sans-serif; color: #b9c3bd; }
 .text--after { margin-top: 21px; }
 .num-list { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 21px 38.4px; list-style: none; counter-reset: dpnum; margin: 77.6px 0 0; padding: 0; }
@@ -723,14 +736,7 @@ h1, main > section > .section-inner > h2 {
 <div class="kicker">Ergebnis</div>
 <h2>Was erhalten Sie?</h2>
 <p class="sub">Eine klare erste Orientierung.</p>
-<p class="text">Nach der Analyse erhalten Sie keine allgemeine KI-Ideenliste, sondern eine auf Ihre Angaben bezogene Ersteinschätzung. Dazu gehören:</p>
-<ul class="label-list">
-<li>Erste Bewertung des vorhandenen KI- und Automatisierungspotenzials.</li>
-<li>Relevante Ansatzpunkte in Ihren Abläufen.</li>
-<li>Erkennbare Voraussetzungen oder Hindernisse.</li>
-<li>Erste Priorisierung.</li>
-<li>Empfehlung für den sinnvollen nächsten Schritt.</li>
-</ul>
+<p class="text">Nach der Analyse erhalten Sie keine allgemeine KI-Ideenliste, sondern eine auf Ihre Angaben bezogene Ersteinschätzung: eine erste Bewertung des vorhandenen KI- und Automatisierungspotenzials in Ihren Abläufen, erkennbare Voraussetzungen oder Hindernisse, eine erste Priorisierung sowie eine Empfehlung für den sinnvollen nächsten Schritt.</p>
 </div></section>
 <!-- ===== labellist ===== -->
 <section class="section" id="gedacht"><div class="section-inner">
@@ -738,7 +744,7 @@ h1, main > section > .section-inner > h2 {
 <h2>Wofür ist die kostenlose Analyse gedacht?</h2>
 <p class="sub">Wenn noch nicht klar ist, wo Sie anfangen sollten.</p>
 <p class="text">Die kostenlose Potenzialanalyse eignet sich besonders, wenn Sie wissen, dass KI oder Automatisierung für Ihr Unternehmen interessant sein könnten, aber noch nicht sicher sind:</p>
-<ul class="label-list">
+<ul class="label-list label-list--plus">
 <li>Welcher Prozess sich zuerst eignet.</li>
 <li>Ob die vorhandenen Daten ausreichen.</li>
 <li>Ob KI überhaupt die richtige Lösung ist.</li>
@@ -753,7 +759,7 @@ h1, main > section > .section-inner > h2 {
 <h2>Was die kostenlose Analyse nicht ist</h2>
 <p class="sub">Ersteinschätzung statt vollständiger Projektanalyse.</p>
 <p class="text">Die kostenlose Analyse ersetzt keine detaillierte Untersuchung Ihres Unternehmens. Nicht Bestandteil sind beispielsweise:</p>
-<ul class="label-list">
+<ul class="label-list label-list--minus">
 <li>Vollständige Analyse mehrerer Geschäftsprozesse.</li>
 <li>Detaillierter ROI-Überschlag je Prozess.</li>
 <li>Vollständige technische Lösungsarchitektur.</li>
@@ -769,12 +775,15 @@ h1, main > section > .section-inner > h2 {
 <div class="kicker">Ablauf</div>
 <h2>So funktioniert es</h2>
 <p class="sub">Wenige Angaben reichen für die erste Einordnung.</p>
-<ol class="num-list">
-<li><b>Ausgangslage beschreiben</b><span>Sie geben die wichtigsten Informationen zu Unternehmen, Prozessen und Herausforderungen an.</span></li>
-<li><b>Potenzial einordnen</b><span>Die Angaben werden strukturiert nach relevanten Potenzial- und Voraussetzungsbereichen bewertet.</span></li>
-<li><b>Ergebnis erhalten</b><span>Sie erhalten eine erste Einschätzung mit relevanten Ansatzpunkten, Prioritäten und nächsten Schritten.</span></li>
-<li><b>Selbst entscheiden</b><span>Sie entscheiden anschließend, ob Sie das Thema weiterverfolgen möchten. Es entsteht keine automatische Verpflichtung.</span></li>
-</ol>
+<div class="steps-diagram">
+<div class="steps-track"></div>
+<div class="steps-container">
+<div class="step"><div class="step-circle">1</div><div class="step-content"><h4>Ausgangslage beschreiben</h4><p>Sie geben die wichtigsten Informationen zu Unternehmen, Prozessen und Herausforderungen an.</p></div></div>
+<div class="step"><div class="step-circle">2</div><div class="step-content"><h4>Potenzial einordnen</h4><p>Die Angaben werden strukturiert nach relevanten Potenzial- und Voraussetzungsbereichen bewertet.</p></div></div>
+<div class="step"><div class="step-circle">3</div><div class="step-content"><h4>Ergebnis erhalten</h4><p>Sie erhalten eine erste Einschätzung mit relevanten Ansatzpunkten, Prioritäten und nächsten Schritten.</p></div></div>
+<div class="step"><div class="step-circle">4</div><div class="step-content"><h4>Selbst entscheiden</h4><p>Sie entscheiden anschließend, ob Sie das Thema weiterverfolgen möchten. Es entsteht keine automatische Verpflichtung.</p></div></div>
+</div>
+</div>
 </div></section>
 <!-- ===== pairs ===== -->
 <section class="section" id="einsatzbereiche"><div class="section-inner">
