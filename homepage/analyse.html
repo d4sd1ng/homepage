@@ -405,7 +405,7 @@ main h3 { font: var(--w-zwischentitel) var(--t-zwischentitel)/1.2 "Exo 2",Inter,
    Feste Pixelmasse wie bei den uebrigen Modulen dieser Seite. Die
    Verbindungslinien sind auf genau diese Geometrie gerechnet
    (Spaltenbreite 168px, Versatz +-58px => Winkel 34.6deg), deshalb
-   skaliert die Reihe nicht mit, sondern wird unter 1000px auf eine
+   skaliert die Reihe nicht mit, sondern wird unter 1180px auf eine
    gestapelte Darstellung ohne Linien umgeschaltet.
    Die Spaltenbreite ist kleiner als die Raute breit ist - die Rauten
    ueberlappen sich waagerecht wie in der Vorlage und greifen dadurch
@@ -441,10 +441,13 @@ main h3 { font: var(--w-zwischentitel) var(--t-zwischentitel)/1.2 "Exo 2",Inter,
 .flow-step:nth-child(even):not(:last-child)::after { transform: rotate(34.6deg) translateX(72px); }
 /* Text unter der tiefen, ueber der hohen Raute - wie in der Vorlage. */
 .flow-label { grid-row: 3; align-self: start; width: 260px; padding-top: 24px; text-align: center; }
-.flow-step:nth-child(even) .flow-label { grid-row: 1; align-self: end; padding: 0 0 10px; transform: translateX(-118px); text-align: left; }
+.flow-step:nth-child(even) .flow-label { grid-row: 1; align-self: end; padding: 0 0 10px; }
+/* Obere Texte wechselnd nach links und rechts versetzt. */
+.flow-step:nth-child(4n+2) .flow-label { transform: translateX(-118px); text-align: left; }
+.flow-step:nth-child(4n) .flow-label { transform: translateX(118px); text-align: right; }
 .flow-label h4 { margin: 0 0 6px; font: 700 15px/1.3 "Exo 2","Inter",Arial,sans-serif; background: var(--gold-2); background-clip: text; -webkit-background-clip: text; color: transparent; -webkit-text-fill-color: transparent; }
 .flow-label p { margin: 0; font: var(--w-fliesstext) var(--t-fliesstext)/1.6 "Inter",Arial,sans-serif; color: #b9c3bd; }
-@media (max-width: 1000px) {
+@media (max-width: 1180px) {
   .flow-steps__track { grid-template-columns: 1fr; align-items: start; gap: 28px; min-height: 0; }
   .flow-step, .flow-step:nth-child(odd), .flow-step:nth-child(even) { transform: none; height: auto; grid-template-rows: auto; grid-template-columns: 132px minmax(0, 1fr); align-items: center; justify-items: start; gap: 24px; }
   .flow-step::after, .flow-step:nth-child(odd):not(:last-child)::after, .flow-step:nth-child(even):not(:last-child)::after { content: none; }
