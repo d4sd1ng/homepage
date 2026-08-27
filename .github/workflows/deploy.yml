@@ -25,7 +25,6 @@ concurrency:
 env:
   QUELLE: /opt/homepage_repo_source
   ZIEL: /opt/nurovell-potential-analysis/frontend/public/homepage
-  ROOT_ZIEL: /opt/nurovell-potential-analysis/frontend/public
   CONTAINER: nurovell_frontend
   PRUEF_URL: https://nurovelle.de/homepage/version.txt
 
@@ -65,10 +64,6 @@ jobs:
               --exclude='detailseiten/' \
               --exclude='xcomponents/' \
               homepage/ ${{ env.ZIEL }}/
-            mkdir -p ${{ env.ROOT_ZIEL }}
-            sed 's#https://nurovelle.de/homepage/sitemap.xml#https://nurovelle.de/sitemap.xml#' \
-              homepage/robots.txt > ${{ env.ROOT_ZIEL }}/robots.txt
-            cp homepage/sitemap.xml ${{ env.ROOT_ZIEL }}/sitemap.xml
             echo "Auf den Server geschrieben: $(git rev-parse --short HEAD)"
 
             # Next.js liest das Verzeichnis public nur beim Start ein. Ohne
@@ -106,14 +101,6 @@ jobs:
           done
           echo "::error title=Deploy kommt nicht an::${{ env.PRUEF_URL }} zeigt nicht $erwartet."
           exit 1
-
-      - name: Root-Indexierung pruefen
-        run: |
-          curl -fsSL --max-time 20 https://nurovelle.de/robots.txt \
-            | grep -Fx 'Sitemap: https://nurovelle.de/sitemap.xml'
-          curl -fsSL --max-time 20 https://nurovelle.de/sitemap.xml \
-            | grep -q '<urlset'
-          test "$(curl -fsSL --max-time 20 https://nurovelle.de/sitemap.xml | grep -c '<loc>')" -gt 0
 
       - name: Zertifikat pruefen
         # Laeuft immer, auch wenn der Deploy scheitert: die Restlaufzeit des

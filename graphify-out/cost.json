@@ -5,13 +5,6 @@
       "input_tokens": 167852,
       "output_tokens": 0,
       "files": 48
-    },
-    {
-      "date": "2026-08-23T12:33:15.508265+00:00",
-      "input_tokens": 0,
-      "output_tokens": 0,
-      "files": 45,
-      "note": "deep mode; subagent token counts unavailable (agents hit session limit before reporting usage)"
     }
   ],
   "total_input_tokens": 167852,
