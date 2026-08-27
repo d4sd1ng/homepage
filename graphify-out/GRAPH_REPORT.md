@@ -1,282 +1,364 @@
-# Graph Report - homepage  (2026-08-22)
+# Graph Report - homepage  (2026-08-23)
 
 ## Corpus Check
-- Large corpus: 213 files · ~2,015,992 words. Semantic extraction will be expensive (many Claude tokens). Consider running on a subfolder.
+- Large corpus: 227 files · ~2,409,131 words. Semantic extraction will be expensive (many Claude tokens). Consider running on a subfolder.
 
 ## Summary
-- 532 nodes · 818 edges · 36 communities (35 shown, 1 thin omitted)
-- Extraction: 83% EXTRACTED · 15% INFERRED · 2% AMBIGUOUS · INFERRED: 126 edges (avg confidence: 0.82)
-- Token cost: 167,852 input · 0 output
+- 803 nodes · 2071 edges · 38 communities (37 shown, 1 thin omitted)
+- Extraction: 47% EXTRACTED · 51% INFERRED · 2% AMBIGUOUS · INFERRED: 1061 edges (avg confidence: 0.84)
+- Token cost: 0 input · 0 output
 
 ## Community Hubs (Navigation)
-- ROI & Wirtschaftlichkeitsrechnung
-- Branchenseiten & Zielgruppen
-- Case-Study-Szenarien & Deep-Analyse
-- Sprachassistenten & Paketangebote
-- Paketmodule, Preise & Datenschutz
-- Workflows & Download-Ressourcen
-- Datenabgleich & KI-Agenten
-- Rechtliche Hinweise zur Analyse
-- Startseite & Analyse-Einstieg
-- KI-Governance & Sicherheit
-- Prompt-Systeme & Ausgabequalität
-- KI-Roadmap & Priorisierung
-- Datenschutz & DSGVO
-- Logo-Mark Gestaltung
-- Hero-Bildwelt Sphäre
-- Prozessautomatisierung-Module
-- Individuelle KI-Software & Integration
-- SEO & digitale Sichtbarkeit
-- Automationen Baustelle & Betreuung
-- AGB, Impressum & Hosting
-- Wordmark & Markentonalität
-- Interner Betriebsassistent
-- Favicon-Asset & Auslieferung
-- KI-Chatbots & Kundenservice
-- Warum Nurovelle / Positionierung
-- Call-to-Action-Elemente
-- Cookies & Website-Betrieb
-- Automationen Pflege & Marketing
-- KI-Automationen Überblick
-- Leistungsübersicht & Detailseiten
-- Prozessschritte Geschäftsprozess zu KI
-- Automationen Büro
+- Branchenseiten & Querschnitts-Use-Cases
+- Case Study, Checkliste & Einführung
+- AGB, Datenschutz & rechtliche Grenzen
+- ROI-Berechnung & Wirtschaftlichkeit
+- Positionierung & Leistungsüberblick
+- Einführungsprinzipien der Automatisierung
+- Workflow-Module & Aufgabensteuerung
+- Wissenszugriff & Systemintegration
+- KI-Agenten für Kundenservice & Assistenz
+- Datenquellen & CRM/ERP-Abgleich
+- Deep-Potenzialanalyse & Kontakt
+- Download-Bibliothek & Formulare
+- Dokumentenverarbeitung & Abgleich
+- KI-Governance & Roadmap-Handlungsfelder
+- Automationsgruppen Bau, Büro & Personal
+- Paket-Grundstruktur & Zielgruppen
+- Paket-Module & Eingabekanäle
+- Potenzialanalyse: Ablauf & Defizite
+- Belegerfassung & Berichtserstellung
+- Prüf- und Validierungsmodule
+- SEO, Prototyping & Ausgabequalität
+- Prozessschritte & Prüfdimensionen
+- Risikoeinordnung & Kontextstruktur
+- Analyseergebnis & Priorisierung
+- FAQ & Entscheidungsgrundlagen
+- Eskalation & Dokumentationspflichten
+- Leistungsnachweis, Abnahme & Slack-Setup
+- AVV & Datenschutzkonzepte der Pakete
+- Freigaben, Berechtigungen & Kontrolle
+- Datenschutz-Grundsätze & Betriebsmodell
+- Serverstandort & Einrichtungsleistungen
+- Preise & Servicevertrag
+- Frageerkennung & Gesprächskontext
+- Beratung, Dashboards & Seitenarchitektur
+- WhatsApp-Module & Prüffristen
 - Sockel-Rendering Code
-- Automationen Personal
-- Menschliche Prüfung & Eskalation
+- Rechtsstand & Schlussbestimmungen
 
 ## God Nodes (most connected - your core abstractions)
-1. `KI-Sicherheit & Governance` - 30 edges
-2. `KI-Agenten` - 29 edges
-3. `Dokumenten-, Daten- und Abgleichsysteme` - 28 edges
-4. `Individuelle KI-Software & Integration` - 28 edges
-5. `Prozessautomatisierung` - 28 edges
-6. `Prompt Engineering` - 27 edges
-7. `KI-Roadmap` - 27 edges
-8. `Leistungsuebersicht (index.html#leistungen)` - 24 edges
-9. `AGB - Allgemeine Geschaeftsbedingungen` - 16 edges
-10. `Nurovelle Startseite` - 16 edges
+1. `Workflow-Modultabelle (35 Module)` - 42 edges
+2. `Kostenlose KI-Potenzialanalyse` - 36 edges
+3. `Automatisierte Workflows` - 35 edges
+4. `Prozessautomatisierung` - 33 edges
+5. `Dokumenten-, Daten- und Abgleichsysteme` - 33 edges
+6. `KI-Agenten` - 30 edges
+7. `ROI-Guide für KI-Automatisierung` - 28 edges
+8. `Querschnitts-Use-Case: Dokumentenverarbeitung & Formularerfassung` - 23 edges
+9. `ROI-Formel für KI-Projekte` - 23 edges
+10. `Deep-Potenzialanalyse (kostenpflichtige Stufe)` - 22 edges
 
 ## Surprising Connections (you probably didn't know these)
-- `Modellhaftigkeitshinweis: keine echte Kundenreferenz` --semantically_similar_to--> `Ehrlicher Stand: noch kein Produktivkunde, Pilot-Deploy offen`  [INFERRED] [semantically similar]
-  assets/downloads/CASE_STUDY_KI_AUTOMATISIERUNG_NUROVELLE_FINAL.pdf → paket-buero.html
-- `Szenario B: Angebotserstellung im Handwerk (Elektroinstallation)` --semantically_similar_to--> `Handwerkspaket (Produktpaket)`  [INFERRED] [semantically similar]
-  assets/downloads/CASE_STUDY_KI_AUTOMATISIERUNG_NUROVELLE_FINAL.pdf → paket-handwerk.html
-- `Mensch bleibt im Prozess (Sonderfälle, Stichprobe, Freigabe)` --semantically_similar_to--> `Modul Regiebericht aus Sprachnachricht`  [INFERRED] [semantically similar]
-  assets/downloads/CASE_STUDY_KI_AUTOMATISIERUNG_NUROVELLE_FINAL.pdf → paket-handwerk.html
-- `ROI und Amortisation als Entscheidungskriterium` --semantically_similar_to--> `ROI-Überschlag je Prozess`  [INFERRED] [semantically similar]
-  assets/downloads/CASE_STUDY_KI_AUTOMATISIERUNG_NUROVELLE_FINAL.pdf → potenzialanalyse-deep.html
-- `ROI-Fragen und Priorisierung` --semantically_similar_to--> `ROI und Amortisation als Entscheidungskriterium`  [INFERRED] [semantically similar]
-  praxisleitfaden.html → assets/downloads/CASE_STUDY_KI_AUTOMATISIERUNG_NUROVELLE_FINAL.pdf
+- `Prinzip: Bestehende Systeme einbeziehen` --semantically_similar_to--> `Nutzen: Weniger Insellösungen`  [INFERRED] [semantically similar]
+  index.html → detail_warum-nurovelle.html
+- `Schritt: Daten prüfen` --semantically_similar_to--> `Modul 3: Datenprüfung`  [INFERRED] [semantically similar]
+  index.html → potenzialanalyse-deep.html
+- `Schritt: Umsetzung planen` --semantically_similar_to--> `Modul 5: Anwendungsfallentwicklung`  [INFERRED] [semantically similar]
+  index.html → potenzialanalyse-deep.html
+- `Prüffeld Automatisierungspotenzial` --semantically_similar_to--> `Prüfdimension Potenzial`  [INFERRED] [semantically similar]
+  index.html → analyse.html
+- `ROI-/Automatisierungspotenzial-Rechner` --semantically_similar_to--> `ROI-Überschlag je Prozess`  [INFERRED] [semantically similar]
+  index.html → potenzialanalyse-deep.html
 
 ## Import Cycles
 - None detected.
 
 ## Hyperedges (group relationships)
-- **Rechtliche Absicherung der kostenlosen Potenzialanalyse ueber AGB, Analyse-Hinweise und Datenschutz** — agb_unverbindlichkeit_der_analyse, analyse_rechtliche_hinweise_kostenlos_unverbindlich, datenschutz_ki_potenzialanalyse_datenverarbeitung, analyse_kostenlose_ki_potenzialanalyse, analyse_abgrenzung [INFERRED 0.85]
-- **Pruefdimensionen der Potenzialanalyse: Prozesse, Daten, Systeme, Potenzial** — analyse_prozesse, analyse_daten, analyse_systeme, analyse_potenzial, analyse_kostenlose_ki_potenzialanalyse [EXTRACTED 1.00]
-- **Dialogfluss des KI-Chatbots von Eingang bis Dokumentation** — detail_chatbots_modul_eingang, detail_chatbots_modul_erkennung, detail_chatbots_modul_kontext, detail_chatbots_modul_rueckfrage, detail_chatbots_modul_wissenszugriff, detail_chatbots_modul_antwort, detail_chatbots_modul_uebergabe, detail_chatbots_modul_dokumentation [EXTRACTED 1.00]
-- **Human-in-the-Loop: Kontrollpunkte fuer unklare und kritische Faelle** — detail_datenabgleich_menschliche_pruefung, detail_ki_agenten_uebergabe, detail_prozessautomatisierung_uebergabe, detail_ki_sicherheit_eskalation [INFERRED 0.85]
-- **Gemeinsames Acht-Modul-Muster der Leistungsdetailseiten** — detail_ki_agenten_agentenmodule, detail_ki_sicherheit_governance_module, detail_prompt_engineering_prompt_system, detail_prozessautomatisierung_workflow_module, detail_roadmap_roadmap_module [INFERRED 0.85]
-- **Gemeinsames Sektionsschema der Detailseiten (ausgangslage, leistungsumfang, module, anwendung, moeglich, nutzen, kontakt, faq)** — detail_datenabgleich_abgleichsysteme, detail_ki_agenten_ki_agenten, detail_ki_sicherheit_ki_governance, detail_ki_software_individuelle_ki_software, detail_prompt_engineering_prompt_engineering, detail_prozessautomatisierung_prozessautomatisierung, detail_roadmap_ki_roadmap [EXTRACTED 1.00]
-- **Elf KI-Leistungsbereiche als durchgehender Ablauf** — index_leistungen, index_leistung_potenzialanalyse, index_leistung_ki_roadmap, index_leistung_ki_agenten, index_leistung_chatbots, index_leistung_sprachassistenten, index_leistung_ki_automationen, index_leistung_ki_governance, index_leistung_ki_workflows, index_leistung_daten_abgleich, index_leistung_ki_software, index_leistung_seo_systeme [EXTRACTED 1.00]
-- **Sechs Schritte vom Geschäftsprozess zur KI-Lösung** — index_prozess_aufgabe_erfassen, index_prozess_ki_potenzial_bewerten, index_prozess_daten_pruefen, index_prozess_prozess_modellieren, index_prozess_loesung_auswaehlen, index_prozess_umsetzung_strukturieren [EXTRACTED 1.00]
-- **Vier Handgriffe des Betreuungspakets in einer Anwendung** — paket_betreuung_betreuungspaket, paket_betreuung_modul_betreuungsbericht, paket_betreuung_modul_angehoerige_informieren, paket_betreuung_modul_verspaetung_melden, paket_betreuung_modul_leistungsnachweis_pruefen, paket_betreuung_whatsapp_sprachnachricht [EXTRACTED 1.00]
-- **Gemeinsames Paket-Geschäftsmodell: eigener EU-Server, Servicevertrag, Bündelpreis** — paket_buero_bueropaket, paket_handwerk_handwerkspaket, paket_buero_eigene_instanz, paket_buero_buendelrabatt, paket_handwerk_buendelrabatt [INFERRED 0.85]
-- **ROI-Argumentation über drei modellhafte Szenarien** — assets_downloads_case_study_ki_automatisierung_nurovelle_final_szenario_a_steuerkanzlei, assets_downloads_case_study_ki_automatisierung_nurovelle_final_szenario_b_handwerk, assets_downloads_case_study_ki_automatisierung_nurovelle_final_szenario_c_ecommerce, assets_downloads_case_study_ki_automatisierung_nurovelle_final_szenarienvergleich, assets_downloads_case_study_ki_automatisierung_nurovelle_final_roi_amortisation [EXTRACTED 1.00]
-- **Kundenreise: Leitfaden, kostenlose Ersteinschätzung, Deep-Analyse, Produktpaket** — praxisleitfaden_praxisleitfaden, potenzialanalyse_deep_kostenlose_ersteinschaetzung, potenzialanalyse_deep_deep_potenzialanalyse, paket_buero_bueropaket, paket_handwerk_handwerkspaket [INFERRED 0.75]
-- **ROI-Berechnungsablauf fuer KI-Projekte** — assets_downloads_roi_guide_ki_automatisierung_nurovelle_formatvorlagen_final_kostenbasis, assets_downloads_roi_guide_ki_automatisierung_nurovelle_formatvorlagen_final_nutzenbasis, assets_downloads_roi_guide_ki_automatisierung_nurovelle_formatvorlagen_final_baseline_messung, assets_downloads_roi_guide_ki_automatisierung_nurovelle_formatvorlagen_final_zielwert_definition, assets_downloads_roi_guide_ki_automatisierung_nurovelle_formatvorlagen_final_amortisationsrechnung [EXTRACTED 1.00]
-- **Werkzeugkasten zur KI-Potenzialbewertung** — assets_downloads_roi_guide_ki_automatisierung_nurovelle_formatvorlagen_final_ki_potenzial_selbsttest, assets_downloads_roi_guide_ki_automatisierung_nurovelle_formatvorlagen_final_roi_schnellrechner, assets_downloads_roi_guide_ki_automatisierung_nurovelle_formatvorlagen_final_priorisierungsmatrix, assets_downloads_roi_guide_ki_automatisierung_nurovelle_formatvorlagen_final_zehn_prozesse_mit_hohem_roi_potenzial, assets_downloads_roi_guide_ki_automatisierung_nurovelle_formatvorlagen_final_neunzig_tage_plan [INFERRED 0.85]
-- **Nurovelle Download-Lead-Magnets** — assets_downloads_roi_guide_ki_automatisierung_nurovelle_formatvorlagen_final_guide, assets_downloads_checkliste_ki_potenziale, assets_downloads_prompt_guide [INFERRED 0.75]
-- **Branchenseiten fuehren einheitlich in die Potenzialanalyse** — detailseiten_branchen_gesundheitswesen_pflege_seite, detailseiten_branchen_immobilien_facility_management_seite, detailseiten_branchen_industrie_produktion_seite, detailseiten_branchen_sonstiges_seite, detailseiten_branchen_verwaltung_vertrieb_einkauf_marketing_seite, detailseiten_branchen_gesundheitswesen_pflege_potenzialanalyse_cta [EXTRACTED 1.00]
-- **Wartung und Anlagen-/Objektdaten als branchenuebergreifender Anwendungsfall** — detailseiten_branchen_immobilien_facility_management_wartung, detailseiten_branchen_immobilien_facility_management_objekte, detailseiten_branchen_industrie_produktion_wartung, detailseiten_branchen_industrie_produktion_maschinen [INFERRED 0.85]
-- **Strukturieren und Ordnen von Daten als gemeinsames Nutzenversprechen** — detailseiten_branchen_immobilien_facility_management_kernnutzen, detailseiten_branchen_industrie_produktion_kernnutzen, detailseiten_branchen_verwaltung_vertrieb_einkauf_marketing_kernnutzen, detailseiten_branchen_sonstiges_kernnutzen, detailseiten_branchen_gesundheitswesen_pflege_kernnutzen [INFERRED 0.75]
+- **Gestufter Analyse-Funnel: Rechner, Checkliste, kostenlose Ersteinschätzung, Deep-Potenzialanalyse** — index_roi_rechner, index_checkliste_ki_potenziale, analyse_ki_potenzialanalyse, potenzialanalyse_deep_deep_potenzialanalyse, analyse_abgrenzung, index_deep_verweis [EXTRACTED 1.00]
+- **Durchgängiges Prinzip: Prozess vor Technologie** — index_prozesse_zuerst, index_machbarkeit_vor_entwicklung, detail_warum_nurovelle_technologie_folgt_aufgabe, detail_warum_nurovelle_nicht_nur_ki, analyse_definition, index_prozess_zur_loesung, detail_warum_nurovelle_projektablauf [INFERRED 0.85]
+- **Standardisiertes Paketangebot mit eigener Serverhoheit** — index_automationspakete, index_betreuungspaket, index_handwerkspaket, index_bueropaket, index_eigener_server, index_servicevertrag, index_einfuehrungspreis [EXTRACTED 1.00]
+- **Einheitliches Paket-Geschaeftsmodell der drei Branchenpakete** — paket_betreuung_betreuungspaket, paket_buero_bueropaket, paket_handwerk_handwerkspaket, paket_betreuung_servicevertrag, paket_buero_folgepaket_rabatt, paket_handwerk_preis_799_einrichtung [INFERRED 0.85]
+- **Prinzip: Das System erfindet nichts, es belegt oder meldet Fehlen** — paket_buero_kein_erfinden_von_antworten, paket_buero_stichwort_klassifikation, paket_handwerk_keine_erfundenen_stunden, paket_handwerk_artikelstamm, paket_betreuung_menschliche_bestaetigung, paket_betreuung_warnbegriffe [INFERRED 0.85]
+- **Datensouveraenitaet: eigene EU-Instanz je Kunde statt Anbieter-Cloud** — paket_betreuung_eigene_instanz_eu_server, paket_buero_eigene_instanz_eu_server, paket_handwerk_eigene_instanz_eu_server, paket_betreuung_lokale_spracherkennung, paket_handwerk_lokale_spracherkennung, paket_betreuung_avv_vorlage [INFERRED 0.95]
+- **Gemeinsames Modulmuster: Auslöser → Erfassung → Prüfung → Entscheidung → Aktion → Übergabe → Dokumentation** — detail_prozessautomatisierung_modul_ausloeser, detail_prozessautomatisierung_modul_pruefung, detail_prozessautomatisierung_modul_entscheidung, detail_prozessautomatisierung_modul_systemaktion, detail_prozessautomatisierung_modul_uebergabe, detail_prozessautomatisierung_modul_dokumentation, detail_workflows_modul_ausloeser, detail_workflows_modul_validierung, detail_workflows_modul_entscheidung, detail_workflows_modul_systemaktion, detail_workflows_modul_freigabe, detail_workflows_modul_reporting, detail_ki_agenten_modul_eingang, detail_ki_agenten_modul_pruefung, detail_ki_agenten_modul_aktion, detail_ki_agenten_modul_uebergabe, detail_ki_agenten_modul_dokumentation, detail_datenabgleich_modul_eingang, detail_datenabgleich_modul_validierung, detail_datenabgleich_modul_abgleich, detail_datenabgleich_modul_uebergabe, detail_datenabgleich_modul_dokumentation, graphify_out_converted_workflow_module_table_18fd4ddf_modul_automatisierung, graphify_out_converted_workflow_module_table_18fd4ddf_modul_validierung, graphify_out_converted_workflow_module_table_18fd4ddf_modul_entscheidung, graphify_out_converted_workflow_module_table_18fd4ddf_modul_freigabe [INFERRED 0.85]
+- **Menschliche Kontrolle als fester Kontrollpunkt in allen Automationsformen** — detail_prozessautomatisierung_klare_entscheidungsgrundlage, detail_ki_agenten_kontrollpunkte, detail_workflows_freigaben_und_kontrolle, detail_datenabgleich_menschliche_pruefung, graphify_out_converted_workflow_module_table_18fd4ddf_modul_freigabe, detail_ki_agenten_berechtigungen, detail_automationen_dsgvo_konforme_verarbeitung [INFERRED 0.85]
+- **Beleg- und Rechnungsverarbeitung über alle Seiten hinweg** — detail_automationen_rechnungs_und_belegleser, detail_datenabgleich_dokumentenverarbeitung, detail_datenabgleich_rechnungspruefung, detail_datenabgleich_modul_extraktion, detail_workflows_rechnungsverarbeitung, detail_prozessautomatisierung_rechnungsverarbeitung, graphify_out_converted_workflow_module_table_18fd4ddf_modul_datenextraktion, graphify_out_converted_workflow_module_table_18fd4ddf_modul_erp [INFERRED 0.85]
+- **Konversationelle KI-Schicht (Dialog, Prompting, Governance)** — detail_chatbots_ki_chatbots, detail_sprachassistenten_ki_sprachassistenten, detail_prompt_engineering_prompt_system, detail_ki_sicherheit_ki_governance, detail_ki_software_ki_assistenten [INFERRED 0.85]
+- **Muster der kontrollierten Uebergabe an Menschen** — detail_chatbots_uebergabe, detail_sprachassistenten_uebergabe, detail_ki_sicherheit_eskalation, detail_prompt_engineering_fehlerfaelle, detail_ki_software_prozessmodule [INFERRED 0.85]
+- **Gemeinsame Freigabe- und Zugriffskontrollschicht** — detail_ki_sicherheit_datenfreigabe, detail_ki_sicherheit_zugriffssteuerung, detail_ki_software_sicherheit_und_rollen, detail_ki_software_mcp_integration, detail_sprachassistenten_sicherheits_und_zugriffskonzept, detail_chatbots_freigegebene_wissensquellen [INFERRED 0.85]
+- **Neun strukturparallele Branchenseiten aus einem Template** — detailseiten_branchen_bildung_forschung_branchenseite, detailseiten_branchen_dienstleistungen_kmu_branchenseite, detailseiten_branchen_energie_versorgung_branchenseite, detailseiten_branchen_finanzen_versicherung_branchenseite, detailseiten_branchen_gesundheitswesen_pflege_branchenseite, detailseiten_branchen_immobilien_facility_management_branchenseite, detailseiten_branchen_industrie_produktion_branchenseite, detailseiten_branchen_sonstiges_branchenseite, detailseiten_branchen_verwaltung_vertrieb_einkauf_marketing_branchenseite, detailseiten_branchen_sonstiges_branchenseiten_template [EXTRACTED 1.00]
+- **Branchenübergreifender Dokumenten-Use-Case** — detailseiten_branchen_gesundheitswesen_pflege_dokumentenverarbeitung, detailseiten_branchen_gesundheitswesen_pflege_schwerpunkt_dokumentation, detailseiten_branchen_finanzen_versicherung_schwerpunkt_antraege, detailseiten_branchen_finanzen_versicherung_schwerpunkt_belege, detailseiten_branchen_immobilien_facility_management_schwerpunkt_vertraege, detailseiten_branchen_verwaltung_vertrieb_einkauf_marketing_schwerpunkt_freigaben, detailseiten_branchen_dienstleistungen_kmu_schwerpunkt_e_mails, detailseiten_branchen_bildung_forschung_schwerpunkt_inhalte [INFERRED 0.85]
+- **Anlagen-, Wartungs- und Betriebsdaten-Querschnitt (Energie, Industrie, Immobilien)** — detailseiten_branchen_industrie_produktion_wartungsplanung, detailseiten_branchen_industrie_produktion_betriebsdatenauswertung, detailseiten_branchen_energie_versorgung_schwerpunkt_wartung, detailseiten_branchen_industrie_produktion_schwerpunkt_wartung, detailseiten_branchen_immobilien_facility_management_schwerpunkt_wartung, detailseiten_branchen_energie_versorgung_schwerpunkt_verbrauch, detailseiten_branchen_industrie_produktion_schwerpunkt_maschinen, detailseiten_branchen_immobilien_facility_management_schwerpunkt_objekte [INFERRED 0.85]
+- **Kanon der Unverbindlichkeit der kostenlosen KI-Potenzialanalyse** — agb_kostenlose_ki_potenzialanalyse, agb_keine_zahlungspflicht, agb_vertragsschluss, datenschutz_ki_potenzialanalyse, analyse_rechtliche_hinweise_kostenlos_unverbindlich, analyse_rechtliche_hinweise_keine_folgeverpflichtung, analyse_rechtliche_hinweise_gesondertes_angebot [INFERRED 0.95]
+- **Wiederholter Haftungs- und Beratungsausschluss über AGB, Datenschutz, Analyse-Hinweise und Impressum** — agb_keine_sonderberatung, datenschutz_keine_sonderberatung, analyse_rechtliche_hinweise_keine_sonderberatung, agb_keine_ergebnisgarantie, datenschutz_keine_ergebnisgarantie, analyse_rechtliche_hinweise_keine_ergebnisgarantie, agb_haftungsbeschraenkung, impressum_haftung_inhalte [INFERRED 0.85]
+- **Identischer Anbieter-/Verantwortlichenblock auf allen Rechtsseiten** — agb_anbieter_verantwortlicher, datenschutz_anbieter_verantwortlicher, impressum_anbieter_verantwortlicher, cookie_hinweis_anbieter_verantwortlicher, analyse_rechtliche_hinweise_anbieter_verantwortlicher, impressum_anbieterkennzeichnung_ddg, datenschutz_hetzner_online [EXTRACTED 1.00]
+- **ROI-Berechnungsmethode des Guides** — assets_downloads_roi_guide_ki_automatisierung_nurovelle_formatvorlagen_final_roi_formel, assets_downloads_roi_guide_ki_automatisierung_nurovelle_formatvorlagen_final_amortisationszeit, assets_downloads_roi_guide_ki_automatisierung_nurovelle_formatvorlagen_final_monatlicher_nettonutzen, assets_downloads_roi_guide_ki_automatisierung_nurovelle_formatvorlagen_final_einmalige_kosten, assets_downloads_roi_guide_ki_automatisierung_nurovelle_formatvorlagen_final_laufende_kosten, assets_downloads_roi_guide_ki_automatisierung_nurovelle_formatvorlagen_final_interner_stundensatz, assets_downloads_roi_guide_ki_automatisierung_nurovelle_formatvorlagen_final_baseline_messung, assets_downloads_roi_guide_ki_automatisierung_nurovelle_formatvorlagen_final_prozesskosten [EXTRACTED 1.00]
+- **Ablauf vom Selbsttest zur ROI-Messung** — assets_downloads_roi_guide_ki_automatisierung_nurovelle_formatvorlagen_final_plan_90_tage, assets_downloads_roi_guide_ki_automatisierung_nurovelle_formatvorlagen_final_ki_potenzial_selbsttest, assets_downloads_roi_guide_ki_automatisierung_nurovelle_formatvorlagen_final_baseline_messung, assets_downloads_roi_guide_ki_automatisierung_nurovelle_formatvorlagen_final_pilotprozess, assets_downloads_roi_guide_ki_automatisierung_nurovelle_formatvorlagen_final_quick_wins, assets_downloads_roi_guide_ki_automatisierung_nurovelle_formatvorlagen_final_parallelbetrieb, assets_downloads_roi_guide_ki_automatisierung_nurovelle_formatvorlagen_final_go_no_go_entscheidung, assets_downloads_roi_guide_ki_automatisierung_nurovelle_formatvorlagen_final_skalierung_nach_pilot [EXTRACTED 1.00]
+- **Nutzendimensionen jenseits reiner Kosteneinsparung** — assets_downloads_roi_guide_ki_automatisierung_nurovelle_formatvorlagen_final_produktivitaetsgewinn, assets_downloads_roi_guide_ki_automatisierung_nurovelle_formatvorlagen_final_opportunitaetskosten, assets_downloads_roi_guide_ki_automatisierung_nurovelle_formatvorlagen_final_skaleneffekte, assets_downloads_roi_guide_ki_automatisierung_nurovelle_formatvorlagen_final_fehlerkosten, assets_downloads_roi_guide_ki_automatisierung_nurovelle_formatvorlagen_final_risikoreduzierung, assets_downloads_roi_guide_ki_automatisierung_nurovelle_formatvorlagen_final_datenqualitaet, assets_downloads_roi_guide_ki_automatisierung_nurovelle_formatvorlagen_final_umsatzwirkung, assets_downloads_roi_guide_ki_automatisierung_nurovelle_formatvorlagen_final_indirekte_einsparungen [EXTRACTED 1.00]
+- **Downloadstrecke: Potenzial-Check, Case Study und Prompt-Guide** — assets_downloads_checkliste_ki_potenzial_check, assets_downloads_case_study_ki_automatisierung_nurovelle_final_case_study_ki_automatisierung, assets_downloads_prompt_guide_prompt_guide, assets_downloads_checkliste_ki_potenzialanalyse [INFERRED 0.85]
+- **ROI-Bewertungskette: messen, rechnen, pilotieren, entscheiden** — assets_downloads_checkliste_bearbeitungszeiten_nicht_gemessen, assets_downloads_checkliste_roi_potenziale, assets_downloads_case_study_ki_automatisierung_nurovelle_final_einsparpotenzial, assets_downloads_case_study_ki_automatisierung_nurovelle_final_roi_amortisation, assets_downloads_case_study_ki_automatisierung_nurovelle_final_einfuehrungsschritte [INFERRED 0.85]
+- **Qualitätssicherung KI-gestützter Ausgaben** — assets_downloads_case_study_ki_automatisierung_nurovelle_final_menschliche_pruefung, assets_downloads_case_study_ki_automatisierung_nurovelle_final_plausibilitaetsregeln, assets_downloads_case_study_ki_automatisierung_nurovelle_final_fallback_prozess, assets_downloads_case_study_ki_automatisierung_nurovelle_final_datencheck, assets_downloads_prompt_guide_prompt_qualitaet [INFERRED 0.75]
 
-## Communities (36 total, 1 thin omitted)
+## Communities (38 total, 1 thin omitted)
 
-### Community 0 - "ROI & Wirtschaftlichkeitsrechnung"
-Cohesion: 0.07
-Nodes (54): Checkliste KI-Potenziale (Platzhalter), Prompt Guide (Platzhalter), Amortisations- und ROI-Beispielrechnung, Prozess: Angebotsbearbeitung, Baseline-Messung vor dem KI-Pilot, Prozess: Datenpflege, Datenqualitaet als Wirtschaftlichkeitsfaktor, Prozess: Dokumentation (+46 more)
-
-### Community 1 - "Branchenseiten & Zielgruppen"
-Cohesion: 0.05
-Nodes (47): Schwerpunkt Berichte & Berichtspflichten, Branchenkarte cards_branche/5.png, Branchenuebersicht index.html#branchen, Schwerpunkt Dokumentation, Schwerpunkt Formulare, Kernnutzen: Entlastung von Dokumentation, Terminplanung, Ressourcen und Berichtspflichten, Potenzialanalyse als Einstieg (analyse.html), Schwerpunkt Ressourcen (+39 more)
-
-### Community 2 - "Case-Study-Szenarien & Deep-Analyse"
-Cohesion: 0.07
-Nodes (40): 30-Tage-Fahrplan für den Pilotstart, Case Study KI-Automatisierung: drei modellhafte Mittelstandsszenarien, Datencheck vor Projektstart, Gemeinsame Erfolgsfaktoren: häufiger, messbarer, regelbasierter Startprozess, Executive Briefing (Quelle der Szenarien), Fazit: Nutzen aus konkreter Prozessverbesserung, nicht aus KI-Strategie, Mensch bleibt im Prozess (Sonderfälle, Stichprobe, Freigabe), Modellhaftigkeitshinweis: keine echte Kundenreferenz (+32 more)
-
-### Community 3 - "Sprachassistenten & Paketangebote"
-Cohesion: 0.07
-Nodes (37): KI-Chatbots (Detailseite), Daten-Abgleich Detailseite, KI-Governance / KI-Sicherheit Detailseite, Anwendungsfelder Sprache (Telefonservice, Terminvereinbarung, Außendienst), Ausgangslage Telefonie (Anruflast, Wartezeiten, manuelle Notizen), KI-Sprachassistent, Konzeption Sprachassistent, Module des Dialogs (+29 more)
-
-### Community 4 - "Paketmodule, Preise & Datenschutz"
+### Community 0 - "Branchenseiten & Querschnitts-Use-Cases"
 Cohesion: 0.08
-Nodes (30): Bündelpreis bei weiterem Paket (349 € / 39 €), Büropaket (Produktpaket), CTA: Büropaket anfragen / Erstgespräch vereinbaren, Datenschutzkonzept Büropaket (DE/EU, TLS, Löschfristen, AVV), Ehrlicher Stand: noch kein Produktivkunde, Pilot-Deploy offen, Eigene getrennte Instanz auf eigenem EU-Server, FAQ Büropaket, Modul Bewertungsanfragen mit Sperrliste (+22 more)
+Nodes (88): Branchenseite: Bildung & Forschung, Kernnutzen Bildung & Forschung: Bereitet Lerninhalte, Projektdaten, Wissen und Verwaltung strukturiert auf., Schwerpunkt Daten (Bildung & Forschung), Schwerpunkt Inhalte (Bildung & Forschung), Schwerpunkt Projekte (Bildung & Forschung), Schwerpunkt Verwaltung (Bildung & Forschung), Schwerpunkt Wissen (Bildung & Forschung), Querschnitts-Use-Case: Wissens- & Inhaltsstrukturierung (+80 more)
 
-### Community 5 - "Workflows & Download-Ressourcen"
-Cohesion: 0.12
-Nodes (19): Prompt Engineering Detailseite, Prozessautomatisierung Detailseite, SEO-Monitoring, Anwendungsfelder Workflow (Rechnungen, Freigaben, CRM, Onboarding), Ausgangslage Abläufe (doppelte Eingaben, Medienbrüche, fehlende Statusübersicht), Automatisierte Workflows, Konzeption Workflow, Module des Workflows (+11 more)
+### Community 1 - "Case Study, Checkliste & Einführung"
+Cohesion: 0.06
+Nodes (74): Höhere Abschlussquote, Case Study KI-Automatisierung, Datencheck vor Projektstart, DATEV-API-Anbindung, DSGVO-Prüfung, AVV und Hosting, 30-Tage-Fahrplan (Einführungsschritte), Einsparpotenzial, Gemeinsame Erfolgsfaktoren der Automatisierung (+66 more)
 
-### Community 6 - "Datenabgleich & KI-Agenten"
+### Community 2 - "AGB, Datenschutz & rechtliche Grenzen"
+Cohesion: 0.05
+Nodes (73): Anbieter / Verantwortlicher (AGB-Kopfblock), Allgemeine Geschäftsbedingungen (Dokument), Verbot der Übermittlung von Geschäftsgeheimnissen und Drittdaten ohne Berechtigung, Newsletter-Anmeldeformular im Footer, Geltungsbereich der AGB, Haftungsbeschränkung für kostenlose Ersteinschätzungen, Keine Zusicherung technischer, wirtschaftlicher oder organisatorischer Umsetzbarkeit, Kein Rechts-, Steuer-, Finanz-, Anlage-, Versicherungs- oder Unternehmensberatungsverhältnis (+65 more)
+
+### Community 3 - "ROI-Berechnung & Wirtschaftlichkeit"
+Cohesion: 0.15
+Nodes (55): Amortisationszeit (Payback in Monaten), Angebotsbearbeitung, Assistenzmodell: KI bereitet vor, Mensch prüft, Automatisierungspotenzial eines Prozesses, Baseline-Messung vor Projektstart, Beispielrechnung: 192 % ROI im ersten Jahr, Beispielrechnung: technischer Dienstleister, Datenpflege und Dublettenbereinigung (+47 more)
+
+### Community 4 - "Positionierung & Leistungsüberblick"
+Cohesion: 0.13
+Nodes (32): Typische Einsatzbereiche und mögliche Folgeprojekte, Nutzen: Passende Technologie nach Aufgabe und Nutzen, Prinzip: Technologie folgt der Aufgabe, Verbindung von Prozessanalyse, Softwareentwicklung und KI-Technologie, Warum Nurovelle: Technik mit Systemverständnis, Nutzen: Weniger Insellösungen, Agents: autonome Workflows, API System-Integration (+24 more)
+
+### Community 5 - "Einführungsprinzipien der Automatisierung"
+Cohesion: 0.13
+Nodes (28): Entlastung von Fachkräften, KI-Automationen – 25 intelligente Helfer, Zeitintensive manuelle Erfassung, Medienbrüche zwischen Kanälen und Systemen, Schrittweise Einführung (2–3 Automationen zuerst), Nachträgliche Erweiterbarkeit des Prüfsystems, KI nur bei unstrukturierten Inhalten, Agent ersetzt keine Mitarbeitenden (+20 more)
+
+### Community 6 - "Workflow-Module & Aufgabensteuerung"
+Cohesion: 0.13
+Nodes (26): Bessere Transparenz durch Protokolle, Krankmelde-Assistent, §45b-Budgetmonitor, Datenqualität und wiederkehrende Prüfungen, Modul: Aktualisierung, Modul: Dokumentation, Modul: Übergabe, Anwendung: Aufgabensteuerung (+18 more)
+
+### Community 7 - "Wissenszugriff & Systemintegration"
 Cohesion: 0.14
-Nodes (18): Dokumenten-, Daten- und Abgleichsysteme, Anwendungsfelder Abgleichsysteme (Rechnungspruefung, Vertragspruefung, Stammdatenpflege, Dublettenpruefung, CRM-/ERP-Abgleich, Datenmigration), Datenabgleich (exakte Regeln und tolerante Aehnlichkeitspruefung), Dokumentenverarbeitung (Erkennung, Klassifikation, Feldextraktion), FAQ Dokumenten- und Abgleichsysteme, Klare Entscheidungsgrundlage (Datenquellen, Dokumenttypen und Pruefkriterien vorab festlegen), Leistungsumfang: Konzeption und Umsetzung, Nutzen Abgleichsysteme (weniger Pruefaufwand, weniger Doppelarbeit, bessere Datenqualitaet, Nachvollziehbarkeit) (+10 more)
+Nodes (26): Antworterstellung, Strukturierte Datenerfassung und Lead-Erfassung, Freigegebene Wissensquellen, Systemintegration des Chatbots, Definierte Themenbereiche und Grenzen, Wissenszugriff auf freigegebene Inhalte, Compliance-Anforderungen, Datenfreigabe und Schutzklassen (+18 more)
 
-### Community 7 - "Rechtliche Hinweise zur Analyse"
-Cohesion: 0.14
-Nodes (16): Unverbindlichkeit der kostenlosen Potenzialanalyse, Vertragsschluss bei spaeteren Leistungen, Abgrenzung: was die kostenlose Analyse nicht ist, Ausgangslage - unklare Anwendungsfaelle, Prozessabgrenzung, Datenbasis, Abhaengigkeiten, Risiken, Reihenfolge, Pruefdimension Daten, Ergebnis: Ersteinschaetzung mit Priorisierung und naechstem Schritt, Kostenlose KI-Potenzialanalyse, Pruefdimension Potenzial (+8 more)
+### Community 8 - "KI-Agenten für Kundenservice & Assistenz"
+Cohesion: 0.16
+Nodes (24): Angehörigen-Information bei Verspätung, Angehörigen-Informations-Agent, E-Mail- und Chat-Sortierung, Google-Bewertungssystem, Gruppe Marketing & Kommunikation, Interner Betriebsassistent, 24/7-Telefonassistent, Anwendung: Interne Assistenz (+16 more)
 
-### Community 8 - "Startseite & Analyse-Einstieg"
+### Community 9 - "Datenquellen & CRM/ERP-Abgleich"
+Cohesion: 0.15
+Nodes (24): Material- und Verbrauchsprotokoll, Standardisierte Schnittstellen (API, E-Mail, Messenger, CRM, ERP), Anwendung: CRM- und ERP-Abgleich, Anwendung: Datenmigration, Datenquellen: Dokumente, Tabellen, Formulare, E-Mails, Stammdaten, Systemdaten, Anwendung: Stammdatenpflege, Anwendung: CRM- und ERP-Prozesse, Einsatzrahmen: Aufgaben, Daten, Systeme, Regeln, Berechtigungen, Kontrolle (+16 more)
+
+### Community 10 - "Deep-Potenzialanalyse & Kontakt"
+Cohesion: 0.18
+Nodes (20): Abgrenzung: Was die kostenlose Analyse nicht ist, Prüfdimension Systeme, Prinzip: Bestehende Systeme einbeziehen, Verweis auf kostenpflichtige Deep-Potenzialanalyse, Unverbindliches Erstgespräch (Calendly), Leistung 02: KI-Roadmap, Kontaktabschnitt Nurovelle, Tino Schneider (Ansprechpartner, Marburg) (+12 more)
+
+### Community 11 - "Download-Bibliothek & Formulare"
+Cohesion: 0.16
+Nodes (20): Ablauf in vier Schritten, Analyse-Formular (Branche, Größe, Zeitaufwand, Datenlage), Keine automatische Verpflichtung, Case Study KI-Automatisierung, Checkliste KI-Potenziale (5 Bereiche, 50 Prüfpunkte), Download-Bibliothek (3 Dokumente, 1 Tool), Newsletter-Anmeldung, Potenzialanalyse-Formular (Startseite) (+12 more)
+
+### Community 12 - "Dokumentenverarbeitung & Abgleich"
+Cohesion: 0.18
+Nodes (20): Dokumenten-Onboarding, Medizinischer Dokumentations-Assistent, Rezept- und Medikamenten-Manager, Dokumenten-, Daten- und Abgleichsysteme, Datenabgleich mehrerer Quellen, Datenaufbereitung und Normalisierung, Anwendung: Dokumentenklassifikation, Dokumentenverarbeitung (+12 more)
+
+### Community 13 - "KI-Governance & Roadmap-Handlungsfelder"
+Cohesion: 0.22
+Nodes (19): KI-Chatbots, Module des Dialogs (Ablaufkette), KI-Governance, Kontrollierter Betriebsrahmen fuer KI, Individuelle KI-Software, Integrierte KI-Assistenten, KI-Integration (Modelle, Agenten, Prompt-Systeme), Anwendungsfall-Definition (+11 more)
+
+### Community 14 - "Automationsgruppen Bau, Büro & Personal"
+Cohesion: 0.20
+Nodes (18): Abnahme- und Übergabeprotokoll, Angebots-Generator, Gruppe Baustelle – Bauprozesse intelligent gesteuert, Gruppe Betreuung – Dokumentation und Planung, Gruppe Büro – Digitales Verwaltungsteam, Gruppe Personal – Mitarbeiterprozesse, Schlechtwetter- und Terminwarnung, Termin-Erinnerung und Ausfallschutz (+10 more)
+
+### Community 15 - "Paket-Grundstruktur & Zielgruppen"
+Cohesion: 0.22
+Nodes (18): Ausgangslage: Dokumentation kostet Betreuungszeit, Betreuungspaket, Eine Anmeldung, eine Oberflaeche, eine Datenbank, Keine erfundenen Zahlen, keine Erfolgsversprechen, Getrennte Zugaenge Chef, Leitung, Betreuungskraefte, Zielgruppe Alltagsbegleitung und Seniorenbetreuung, Ausgangslage: Sortieren, nachfassen, nachfragen kostet Zeit, Bueropaket (+10 more)
+
+### Community 16 - "Paket-Module & Eingabekanäle"
 Cohesion: 0.17
-Nodes (16): Ablauf der Analyse in vier Schritten, Deep-Potenzialanalyse (kostenpflichtig), FAQ zur kostenlosen Potenzialanalyse, Naechster Schritt nach der Analyse, Kostenlose KI-Potenzialanalyse (Seite), API System-Integration, Calendly Erstgespräch (30 min), Sektion FAQ — Fragen zu KI-Projekten (+8 more)
+Nodes (18): Loeschung der Sprachaufnahme nach Bestaetigung, Lokale Spracherkennung auf eigenem Server, Menschliche Bestaetigung jedes Berichts, Modul Betreuungsbericht, Warnbegriffe und Kategorien (selbstgepflegt), WhatsApp-Sprachnachricht als Eingabekanal, Bewertungsprofil-Einrichtung, Wissenstool erfindet keine Antworten (+10 more)
 
-### Community 9 - "KI-Governance & Sicherheit"
-Cohesion: 0.14
-Nodes (15): Anonymisierung (Maskierung/Pseudonymisierung personenbezogener Daten), Datenqualitaet (wiederkehrende Pruefungen, Fehlerquellen sichtbar machen), Anwendungsfelder Governance (interne KI-Nutzung, Agenten mit Systemzugriff, Chatbots, sensible Dokumentenverarbeitung, externe KI-Dienste), Datenfreigabe (zulaessige Quellen, vertrauliche Inhalte), FAQ KI-Governance, Module der Governance (Bestandsaufnahme bis Ueberwachung), KI-Sicherheit & Governance, Klare Entscheidungsgrundlage (Risiken, Zugriffe und Kontrollbedarf vor Einfuehrung einordnen) (+7 more)
+### Community 17 - "Potenzialanalyse: Ablauf & Defizite"
+Cohesion: 0.23
+Nodes (17): Definition: Was ist eine KI-Potenzialanalyse, Problem: Fehlende Prozessabgrenzung, Kostenlose KI-Potenzialanalyse, Prüfdimension Prozesse, Problem: Technische Abhängigkeiten, Problem: Unklare Anwendungsfälle, Problem: Unzureichende Datenbasis, Ausgangslagen: von der Prozessfrage zur Projektidee (+9 more)
 
-### Community 10 - "Prompt-Systeme & Ausgabequalität"
-Cohesion: 0.14
-Nodes (14): AGB, Datenaufbereitung (Normalisierung, Dubletten, Formatvereinheitlichung), Qualitaetspruefung von KI-Ergebnissen, Anwendungsfelder Prompt-Systeme (Textentwicklung, Berichterstellung, Dokumentenpruefung, Recherche, Wissensmanagement, Kundenservice), Ausgabeformat (Struktur, Umfang, Darstellungsform), FAQ Prompt Engineering, Klare Entscheidungsgrundlage (Einzelprompt, Prompt-System oder technische Integration abwaegen), Kontext (strukturierte Bereitstellung benoetigter Informationen) (+6 more)
+### Community 18 - "Belegerfassung & Berichtserstellung"
+Cohesion: 0.21
+Nodes (16): Diktier-Assistent für Betreuungsberichte, Leistungsnachweis- und Abtretungserfassung, Rechnungs- und Belegleser, Regiebericht und Nachtrag, Sprachnachricht-zu-Struktur-Verarbeitung, Anwendung: Formularverarbeitung, Modul: Extraktion, Anwendung: Rechnungsprüfung (+8 more)
 
-### Community 11 - "KI-Roadmap & Priorisierung"
-Cohesion: 0.14
-Nodes (14): Risikoeinordnung von KI-Anwendungen, Prototyp / MVP als erster Umsetzungsschritt, Anwendungsfelder KI-Roadmap (Unternehmensstrategie, Prozessautomatisierung, Datenverarbeitung, Wissensmanagement, Governance, Pilotprojekte), Bewertung von Nutzen, Aufwand, Risiken und Umsetzbarkeit, FAQ KI-Roadmap, KI-Roadmap, Klare Entscheidungsgrundlage (Reihenfolge und Voraussetzungen der Vorhaben sichtbar machen), Leistungsumfang: Strategie und Planung (+6 more)
-
-### Community 12 - "Datenschutz & DSGVO"
-Cohesion: 0.19
-Nodes (13): Nurovelle, Tino Schneider (Anbieter / Verantwortlicher), Branchenauswahl im Analyseformular, Potenzialanalyse-Formular, Betroffenenrechte nach DSGVO, DSGVO, Grundsatz der Datenverarbeitung (Art. 6 DSGVO), Keine automatisierte Entscheidung (Art. 22 DSGVO) (+5 more)
-
-### Community 13 - "Logo-Mark Gestaltung"
-Cohesion: 0.27
-Nodes (13): Alternate Reading as Abstract Head-and-Body Figure, Notched Counter Shape Inside the N, Energetic, Optimistic Brand Tone, Detached Spherical Dot Above the Mark, Glossy Highlight and Gradient Shading, Primary Brand Identity in the Hero Section, Isometric 3D Extrusion Treatment, Geometric Letter-N Monogram (+5 more)
-
-### Community 14 - "Hero-Bildwelt Sphäre"
-Cohesion: 0.26
-Nodes (13): Bildidee: KI, Datenvernetzung und Reichweite visualisieren, Hero-Asset: Vernetzte Sphaere (round.png), Nurovelle Hero-Bildwelt, Leiterbahn-/Platinen-Metapher, Freigestelltes Motiv auf transparentem Hintergrund, Glasfacetten und Panel-Segmente auf der Kugeloberflaeche, Goldene Leuchtpunkte als Akzent, Einsatz als dekoratives Hero-Visual hinter Headline und Logo (+5 more)
-
-### Community 15 - "Prozessautomatisierung-Module"
-Cohesion: 0.15
-Nodes (13): Datenschutz, Module des Agenten (Eingang, Kontext, Datenzugriff, Pruefung, Vorbereitung, Aktion, Uebergabe, Dokumentation), Dokumentation ausgefuehrter Agentenaktionen, Anwendungsfelder Prozessautomatisierung (Angebotsprozesse, Rechnungsverarbeitung, Freigabeworkflows, Lead-Verarbeitung, Kunden-Onboarding), Ausloeser (Ereignis, Eingabe oder Zeitpunkt startet den Prozess), Dokumentation von Bearbeitungsstaenden und Prozessschritten, Entscheidung nach festgelegten Regeln, FAQ Prozessautomatisierung (+5 more)
-
-### Community 16 - "Individuelle KI-Software & Integration"
-Cohesion: 0.15
-Nodes (13): Datenzugriff auf freigegebene Quellen, Anwendungsfelder KI-Software (interne Unternehmenssoftware, Portale, Prozesssteuerung, Dashboards, CRM-/ERP-Erweiterungen, API-/MCP-Integrationen), API-Integration (Datenaustausch, Webhooks, Zielsysteme), Benutzeroberflaechen (rollenbasierte Masken, Pruef- und Freigabeansichten), Betrieb und Erweiterung (spaetere Funktionen und Systemanbindungen), FAQ Individuelle KI-Software, Individuelle KI-Software & Integration, Klare Entscheidungsgrundlage (Integration, internes Tool, Prototyp oder Individualentwicklung abwaegen) (+5 more)
-
-### Community 17 - "SEO & digitale Sichtbarkeit"
-Cohesion: 0.19
-Nodes (13): SEO-Ausgangslage (unklare Keywords, technische Fehler, Anzeigenabhängigkeit), Content-Struktur, Interne Verlinkung, Keyword-Strategie, Lokale Sichtbarkeit, OnPage-Optimierung, SEO & digitale Sichtbarkeit (Detailseite), Seitenarchitektur (+5 more)
-
-### Community 18 - "Automationen Baustelle & Betreuung"
-Cohesion: 0.20
-Nodes (11): Paragraf 45b-Budgetmonitor (SGB XI Entlastungsbetrag), Abnahme- und Uebergabeprotokoll, Diktier-Assistent fuer Betreuungsberichte, Gruppe 2 - Baustelle (5 Automationen), Gruppe 4 - Betreuung (6 Automationen), Material- und Verbrauchsprotokoll, Regiebericht und Nachtrag, Schlechtwetter- und Terminwarnung (+3 more)
-
-### Community 19 - "AGB, Impressum & Hosting"
-Cohesion: 0.22
-Nodes (10): Geltungsbereich der AGB, Haftungsbeschraenkung fuer kostenlose Ersteinschaetzungen, Hetzner Online GmbH (Hosting-Anbieter), Mitwirkungspflicht des Anfragenden, AGB - Allgemeine Geschaeftsbedingungen, Schlussbestimmungen (Recht der Bundesrepublik Deutschland), Hosting und technische Protokolldaten, Haftung für Inhalte und Links (+2 more)
-
-### Community 20 - "Wordmark & Markentonalität"
-Cohesion: 0.22
-Nodes (10): Approachable, Warm, Non-Corporate Brand Tone, Brand Name "Nurovelle", Intended Placement on Dark Background, Hero Section Brand Identity Role, Wordmark/Logo Lockup Pairing, Possible "Nuro"/Neuro AI Naming Semantics, Rounded Hand-Drawn Sans Lettering, Transparent-Background PNG Overlay Asset (+2 more)
-
-### Community 21 - "Interner Betriebsassistent"
-Cohesion: 0.20
-Nodes (10): E-Mail- und Chat-Sortierung, Interner Betriebsassistent, Modul Antwort, Modul Dokumentation, Modul Eingang, Modul Erkennung (Thema und Absicht), Modul Kontext (Gespraechsverlauf und Vorgangsdaten), Modul Rueckfrage (+2 more)
-
-### Community 22 - "Favicon-Asset & Auslieferung"
-Cohesion: 0.33
-Nodes (10): Embedded 600x600 Base64 PNG Payload, Detached Circular Dot (Tittle Accent), Gold-Yellow Brand Color, Isometric 3D Extrusion Style, Extruded N Monogram Mark, Nurovelle Brand Identity, Mark Shared With Hero Logo Asset, Browser Tab Identity Role (+2 more)
-
-### Community 23 - "KI-Chatbots & Kundenservice"
-Cohesion: 0.22
-Nodes (9): KI-gestuetzte Inhalte als Arbeitshilfen, Typische Einsatzbereiche der Potenzialanalyse, Anwendungsbereiche (Kundenservice, Mitarbeiter-Support, Wissensmanagement), Ausgangslage: Standardanfragen verursachen hohen Aufwand, KI-Chatbots, Klare Entscheidungsgrundlage - freigegebene Themen und Inhalte, Lead-Erfassung ueber den Chatbot, Leistungsumfang von Konzeption bis Umsetzung (+1 more)
-
-### Community 24 - "Warum Nurovelle / Positionierung"
+### Community 19 - "Prüf- und Validierungsmodule"
 Cohesion: 0.28
-Nodes (9): Die passende Lösung, Warum Nurovelle (Detailseite), Strukturiertes Vorgehen, Technik mit Systemverständnis, Anbieterkennzeichnung / Verantwortlicher, Nurovelle, Prozess zuerst — dann Technologie, Tino Schneider (+1 more)
+Nodes (15): Dienstplan-Tausch-System, Geringere Fehlerquote, Modul: Aufbereitung, Modul: Validierung, Prüffelder und Prüfkriterien, Modul: Prüfung, Modul: Entscheidung, Modul: Prüfung (+7 more)
 
-### Community 25 - "Call-to-Action-Elemente"
-Cohesion: 0.25
-Nodes (8): Kostenlose Potenzialanalyse (analyse.html), CTA: Datenqualitaet erhoehen, CTA: Agentenpotenzial pruefen, CTA: KI-Nutzung absichern, CTA: Loesung entwickeln, CTA: Prompt-Potenzial pruefen, CTA: Prozesse pruefen / Kostenlose Potenzialanalyse starten, CTA: Roadmap entwickeln
+### Community 20 - "SEO, Prototyping & Ausgabequalität"
+Cohesion: 0.17
+Nodes (15): Technische Architektur, Betrieb und schrittweise Erweiterung, Prototyp und MVP, Verbindliches Ausgabeformat, Optimierung nach Fehleranalyse, Test mit realistischen und unvollstaendigen Eingaben, Zielgruppe (Ton und Detailtiefe), Pilotprojekte als erste Umsetzungsstufe (+7 more)
 
-### Community 26 - "Cookies & Website-Betrieb"
+### Community 21 - "Prozessschritte & Prüfdimensionen"
+Cohesion: 0.19
+Nodes (13): Prüfdimension Daten, Prüfdimension Potenzial, Projektablauf in acht Schritten, Ablauf: Vom Geschäftsprozess zur KI-Lösung (sechs Schritte), Prüffeld Datenlage, Schritt 1: Aufgabe erfassen, Schritt 3: Daten prüfen, Schritt 2: KI-Potenzial bewerten (+5 more)
+
+### Community 22 - "Risikoeinordnung & Kontextstruktur"
+Cohesion: 0.18
+Nodes (13): Dialoglogik, Bestandsaufnahme der KI-Anwendungen, Risikoeinordnung von KI-Anwendungen, Rollenmodell (Verantwortliche, Pruefer, Freigabestellen), Verbindliche Verantwortlichkeiten, Aufgabenstruktur, Strukturierte Kontextbereitstellung, Rolle (fachliche Perspektive der KI) (+5 more)
+
+### Community 23 - "Analyseergebnis & Priorisierung"
+Cohesion: 0.20
+Nodes (12): Ergebnis: Ersteinschätzung statt KI-Ideenliste, Erste Priorisierung der Ansatzpunkte, Problem: Fehlende Reihenfolge, Wie es danach weitergeht (vier Wege), Weg: Deep-Potenzialanalyse, Weg: Individuelles KI-Projekt, Prüffeld Nächster Schritt, Executive Summary (+4 more)
+
+### Community 24 - "FAQ & Entscheidungsgrundlagen"
+Cohesion: 0.20
+Nodes (12): FAQ zur kostenlosen Potenzialanalyse, Weg: Direkt umsetzbare Lösung, Weg: Noch keine Umsetzung, erst Vorarbeiten, FAQ zu Zusammenarbeit und Umsetzung, Nutzen: Klare Entscheidungen vor der Umsetzung, Nicht ausschließlich KI: klassische Automatisierung oder Individualsoftware, Prototyp: kritische Funktionen zuerst begrenzt prüfen, FAQ zu KI-Projekten und Zusammenarbeit (+4 more)
+
+### Community 25 - "Eskalation & Dokumentationspflichten"
+Cohesion: 0.21
+Nodes (12): Dokumentation von Anfrage und Antwort, Uebergabe an zustaendige Mitarbeitende, Dokumentation von Nutzung, Aenderungen und Vorfaellen, Eskalation kritischer Vorgaenge, Ueberwachung von Nutzung und Abweichungen, Dokumentation von Nutzung und Einsatzgrenzen, Monitoring von Rankings und Conversions, Strukturierte Datenerfassung im Gespraech (+4 more)
+
+### Community 26 - "Leistungsnachweis, Abnahme & Slack-Setup"
+Cohesion: 0.27
+Nodes (12): Uebergabe an Abrechnungssystem per Datei oder Schnittstelle, Lokale Texterkennung fuer Leistungsnachweise, Modul Leistungsnachweis pruefen, Modul Onboarding-Checkliste, Abnahme ohne Vorbehalt erst ohne offenen Mangel, Modul Abnahme protokollieren, Fertiges PDF-Abnahmeprotokoll, Signierter Webhook an Kunden- oder Abrechnungssystem (+4 more)
+
+### Community 27 - "AVV & Datenschutzkonzepte der Pakete"
+Cohesion: 0.30
+Nodes (12): AVV-Vorlage, Datenschutzkonzept Betreuungspaket, Nicht-medizinische Abgrenzung, AVV-Vorlage, Datenschutzkonzept Bueropaket, Speicherung fremder E-Mail-Inhalte als Datenschutzrisiko, Modul Posteingang, AVV-Vorlage (+4 more)
+
+### Community 28 - "Freigaben, Berechtigungen & Kontrolle"
 Cohesion: 0.29
-Nodes (8): Analyse- und Marketing-Cookies (aktuell nicht eingebunden), Cookie-Verwaltung ueber Browser-Einstellungen, Datensparsamer Website-Betrieb, Einwilligung und Widerruf (Cookie-Banner), Cookie-Hinweis, Technisch erforderliche Cookies, Cookies und aehnliche Technologien, Lokale Auslieferung von Schriften und Bibliotheken
+Nodes (11): DSGVO-konforme Verarbeitung und Verschlüsselung, Urlaubs-Manager, Anonymisierung und Maskierung, Menschliche Prüfung für unklare Fälle, Berechtigungen und begrenzte Datenzugriffe, Begrenzter Handlungsspielraum und Kontrollpunkte, Anwendung: Freigabeworkflows, Klare Entscheidungsgrundlage vor der Automatisierung (+3 more)
 
-### Community 27 - "Automationen Pflege & Marketing"
+### Community 29 - "Datenschutz-Grundsätze & Betriebsmodell"
 Cohesion: 0.29
-Nodes (7): Angehoerigen-Information bei Verspaetung, Angehoerigen-Informations-Agent, Google-Bewertungssystem, Gruppe 5 - Marketing und Kommunikation (5 Automationen), Medizinischer Dokumentations-Assistent, Rezept- und Medikamenten-Manager, 24/7-Telefonassistent
+Nodes (10): Datenschutz: Löschung personenbezogener Angaben, anonymisierte Auswertung, Problem: Ungeklärte Risiken (Datenschutz, Informationssicherheit), Grundsätze der Umsetzung (sechs Voraussetzungen), Nutzen: Kontrollierte Umsetzung (begrenzte Zugriffe und Freigaben), Automatisierung nur wo fachlich sinnvoll und kontrollierbar, Pflicht-Einwilligung Datenschutzerklärung, Betrieb auf eigenem Server, keine Fremd-Cloud, Leistung 07: KI-Governance (+2 more)
 
-### Community 28 - "KI-Automationen Überblick"
-Cohesion: 0.29
-Nodes (7): Ausgangslage: Fachkraeftemangel, Dokumentationspflichten, Zeitdruck, Datensicherheit der Automationen (eigene Infrastruktur oder DSGVO-konforme Cloud), 25 KI-Automationen, Nutzen der KI-Automationen (weniger manuelle Arbeit, geringere Fehlerquote), KI-Automationen (Detailseite), Schrittweise Einfuehrung (2-3 Automationen zuerst), Leistung 06 — KI-Automationen
+### Community 30 - "Serverstandort & Einrichtungsleistungen"
+Cohesion: 0.42
+Nodes (9): Eigene getrennte Instanz auf eigenem EU-Server, Einrichtungsleistungen Betreuungspaket, FAQ Serverstandort Deutschland, Eigene getrennte Instanz auf eigenem EU-Server, Einrichtungsleistungen Bueropaket, FAQ Serverstandort Deutschland, Eigene getrennte Instanz auf eigenem EU-Server, Einrichtungsleistungen Handwerkspaket (+1 more)
 
-### Community 29 - "Leistungsübersicht & Detailseiten"
-Cohesion: 0.29
-Nodes (7): KI-Agenten Detailseite, KI-Software Detailseite, KI-Roadmap Detailseite, Leistung 03 — KI-Agenten, Leistung 02 — KI-Roadmap, Leistung 10 — KI-Software, Leistungsuebersicht (index.html#leistungen)
+### Community 31 - "Preise & Servicevertrag"
+Cohesion: 0.42
+Nodes (9): Folgepaket-Rabatt 349 EUR und 39 EUR je Monat, Preis 799 EUR Einrichtung, Servicevertrag 69 EUR je Monat, Folgepaket-Rabatt 349 EUR und 39 EUR je Monat, Preis 399 EUR Einrichtung, Servicevertrag 69 EUR je Monat, Folgepaket-Rabatt 349 EUR und 39 EUR je Monat, Preis 799 EUR Einrichtung (+1 more)
 
-### Community 30 - "Prozessschritte Geschäftsprozess zu KI"
-Cohesion: 0.29
-Nodes (7): Prozessschritt 1 — Aufgabe erfassen, Prozessschritt 3 — Daten prüfen, Prozessschritt 2 — KI-Potenzial bewerten, Prozessschritt 5 — Lösung auswählen, Prozessschritt 4 — Prozess modellieren, Prozessschritt 6 — Umsetzung strukturieren, Sektion Vom Geschäftsprozess zur KI-Lösung
+### Community 32 - "Frageerkennung & Gesprächskontext"
+Cohesion: 0.48
+Nodes (7): Frageerkennung (Thema und Absicht), Gespraechskontext, Gezielte Rueckfrage bei fehlenden Angaben, Behandlung von Fehlerfaellen und Unsicherheiten, Suchintention (Information, Problem, Vergleich, Leistung, Lokal, Aktion), Erkennung von Thema, Absicht und Kontext, Gezielte Rueckfrage im Gespraech
 
-### Community 31 - "Automationen Büro"
-Cohesion: 0.40
-Nodes (6): Angebots-Generator, Dokumenten-Onboarding, Gruppe 1 - Buero (6 Automationen), Leistungsnachweis- und Abtretungserfassung, Rechnungs- und Belegleser, Termin-Erinnerung und Ausfallschutz
+### Community 33 - "Beratung, Dashboards & Seitenarchitektur"
+Cohesion: 0.33
+Nodes (7): Chatbot-Potenzialanalyse, Prozessorientierte Benutzeroberflaeche, Dashboards und Reporting, KI-Beratung, Interne Verlinkung, Seitenarchitektur, Sprachpotenzial-Analyse
 
-### Community 33 - "Automationen Personal"
-Cohesion: 0.50
-Nodes (4): Dienstplan-Tausch-System, Gruppe 3 - Personal (3 Automationen), Krankmelde-Assistent, Urlaubs-Manager
+### Community 34 - "WhatsApp-Module & Prüffristen"
+Cohesion: 0.38
+Nodes (7): Meta-Versandgebuehren je WhatsApp-Nachricht, Modul Angehoerige informieren, Modul Verspaetung melden, Meta-Versandgebuehren je WhatsApp-Nachricht, Modul Bewertungen, Sperrliste fuer Bewertungsanfragen, DGUV V3, HU/AU und Leiterpruefung als Prueffristen
 
-### Community 34 - "Menschliche Prüfung & Eskalation"
+### Community 36 - "Rechtsstand & Schlussbestimmungen"
 Cohesion: 0.67
-Nodes (4): Menschliche Pruefung (unklare und kritische Faelle an Mitarbeitende), Uebergabe unklarer oder sensibler Faelle an eine zustaendige Person, Eskalation kritischer Vorgaenge, Uebergabe von Freigaben, Ausnahmen und unklaren Faellen
+Nodes (4): Schlussbestimmungen und deutsches Recht, Stand der AGB: 2026-06-01, Stand des Cookie-Hinweises: 2026-06-01, Stand der Datenschutzerklärung: 16. August 2026
 
 ## Ambiguous Edges - Review These
-- `Prozessautomatisierung` → `Leistungsuebersicht (index.html#leistungen)`  [AMBIGUOUS]
-  detail_prozessautomatisierung.html · relation: conceptually_related_to
-- `CTA: Büropaket anfragen / Erstgespräch vereinbaren` → `Slack Incoming Webhook (Formular-/Benachrichtigungskanal)`  [AMBIGUOUS]
-  slack.md · relation: shares_data_with
-- `Kostenbasis: einmalige und laufende Kosten` → `Prompt Guide (Platzhalter)`  [AMBIGUOUS]
-  assets/downloads/prompt_guide.pdf · relation: conceptually_related_to
-- `Schwerpunkt Termine / Terminplanung` → `Schwerpunkt Tickets & Mieteranfragen`  [AMBIGUOUS]
+- `Tino Schneider (Ansprechpartner, Marburg)` → `Workshop mit Ihrem Team`  [AMBIGUOUS]
+  index.html · relation: conceptually_related_to
+- `Automationspakete (drei Pakete à vier Funktionen)` → `Prinzip: Technologie folgt der Aufgabe`  [AMBIGUOUS]
+  index.html · relation: conceptually_related_to
+- `Newsletter-Anmeldung` → `Praxisleitfaden KI-Automatisierung`  [AMBIGUOUS]
+  index.html · relation: conceptually_related_to
+- `Datenschutzkonzept Betreuungspaket` → `Klartext-Secrets im Repository als Sicherheitsrisiko`  [AMBIGUOUS]
+  slack.md · relation: conceptually_related_to
+- `Uebergabe an Abrechnungssystem per Datei oder Schnittstelle` → `Slack Incoming Webhook URL`  [AMBIGUOUS]
+  slack.md · relation: conceptually_related_to
+- `Meta-Versandgebuehren je WhatsApp-Nachricht` → `Preis 799 EUR Einrichtung`  [AMBIGUOUS]
+  paket-betreuung.html · relation: conceptually_related_to
+- `Bueropaket` → `Uebernahme aus bestehender Anwendungsfamilie`  [AMBIGUOUS]
+  paket-handwerk.html · relation: conceptually_related_to
+- `Datenschutzkonzept Bueropaket` → `Klartext-Secrets im Repository als Sicherheitsrisiko`  [AMBIGUOUS]
+  slack.md · relation: conceptually_related_to
+- `Speicherung fremder E-Mail-Inhalte als Datenschutzrisiko` → `Datenschutzkonzept Handwerkspaket`  [AMBIGUOUS]
+  paket-buero.html · relation: conceptually_related_to
+- `Signierter Webhook an Kunden- oder Abrechnungssystem` → `Slack Signing Secret und Verification Token`  [AMBIGUOUS]
+  slack.md · relation: conceptually_related_to
+- `Datenschutzkonzept Handwerkspaket` → `Klartext-Secrets im Repository als Sicherheitsrisiko`  [AMBIGUOUS]
+  slack.md · relation: conceptually_related_to
+- `KI-Automationen – 25 intelligente Helfer` → `Modul: Prozessoptimierung`  [AMBIGUOUS]
+  graphify-out/converted/workflow_module_table_18fd4ddf.md · relation: conceptually_related_to
+- `Gruppe Personal – Mitarbeiterprozesse` → `Modul: Management`  [AMBIGUOUS]
+  graphify-out/converted/workflow_module_table_18fd4ddf.md · relation: conceptually_related_to
+- `Dienstplan-Tausch-System` → `Prüffelder und Prüfkriterien`  [AMBIGUOUS]
+  detail_automationen.html · relation: conceptually_related_to
+- `§45b-Budgetmonitor` → `Prüffelder und Prüfkriterien`  [AMBIGUOUS]
+  detail_automationen.html · relation: conceptually_related_to
+- `Google-Bewertungssystem` → `Modul: Trendanalyse`  [AMBIGUOUS]
+  detail_automationen.html · relation: conceptually_related_to
+- `Google-Bewertungssystem` → `Modul: Bildgenerierung`  [AMBIGUOUS]
+  graphify-out/converted/workflow_module_table_18fd4ddf.md · relation: conceptually_related_to
+- `Rezept- und Medikamenten-Manager` → `Datenabgleich mehrerer Quellen`  [AMBIGUOUS]
+  detail_automationen.html · relation: conceptually_related_to
+- `Automatisierte Workflows` → `Grundsatz: Assets bleiben textfrei, Text via CSS/HTML`  [AMBIGUOUS]
+  graphify-out/converted/workflow_module_table_18fd4ddf.md · relation: conceptually_related_to
+- `KI-Sprachassistenten` → `Lokale Sichtbarkeit`  [AMBIGUOUS]
+  detail_seo.html · relation: conceptually_related_to
+- `Strukturierte Datenerfassung im Gespraech` → `Ueberwachung von Nutzung und Abweichungen`  [AMBIGUOUS]
+  detail_ki-sicherheit.html · relation: conceptually_related_to
+- `Rollenmodell (Verantwortliche, Pruefer, Freigabestellen)` → `Rolle (fachliche Perspektive der KI)`  [AMBIGUOUS]
+  detail_prompt-engineering.html · relation: semantically_similar_to
+- `Handlungsfelder fuer KI und Automatisierung` → `SEO und digitale Sichtbarkeit`  [AMBIGUOUS]
+  detail_roadmap.html · relation: conceptually_related_to
+- `Schwerpunkt Projekte (Bildung & Forschung)` → `Schwerpunkt Freigaben (Verwaltung, Vertrieb, Einkauf & Marketing)`  [AMBIGUOUS]
+  detailseiten/branchen/bildung-forschung.html · relation: semantically_similar_to
+- `Schwerpunkt Wissen (Bildung & Forschung)` → `Schwerpunkt Formulare (Gesundheitswesen & Pflege)`  [AMBIGUOUS]
+  detailseiten/branchen/bildung-forschung.html · relation: semantically_similar_to
+- `Schwerpunkt Büro (Dienstleistungen & KMU)` → `Schwerpunkt Abrechnung (Energie & Versorgung)`  [AMBIGUOUS]
+  detailseiten/branchen/energie-versorgung.html · relation: semantically_similar_to
+- `Schwerpunkt Termine (Gesundheitswesen & Pflege)` → `Schwerpunkt Tickets (Immobilien & Facility Management)`  [AMBIGUOUS]
   detailseiten/branchen/immobilien-facility-management.html · relation: semantically_similar_to
-- `Brand Name "Nurovelle"` → `Possible "Nuro"/Neuro AI Naming Semantics`  [AMBIGUOUS]
-  assets/hero/Nurovelle_schrift.png · relation: semantically_similar_to
-- `Nurovelle Logo Mark (3D Yellow N)` → `Alternate Reading as Abstract Head-and-Body Figure`  [AMBIGUOUS]
-  assets/hero/nurovelle_logo.png · relation: conceptually_related_to
-- `Nurovelle Logo Mark (3D Yellow N)` → `Neuro/AI Symbolism of Mark and Dot`  [AMBIGUOUS]
-  assets/hero/nurovelle_logo.png · relation: rationale_for
-- `Detached Spherical Dot Above the Mark` → `Neuro/AI Symbolism of Mark and Dot`  [AMBIGUOUS]
-  assets/hero/nurovelle_logo.png · relation: rationale_for
-- `Notched Counter Shape Inside the N` → `Alternate Reading as Abstract Head-and-Body Figure`  [AMBIGUOUS]
-  assets/hero/nurovelle_logo.png · relation: conceptually_related_to
-- `Hero-Asset: Vernetzte Sphaere (round.png)` → `Leiterbahn-/Platinen-Metapher`  [AMBIGUOUS]
-  assets/hero/round.png · relation: semantically_similar_to
-- `Glasfacetten und Panel-Segmente auf der Kugeloberflaeche` → `Leiterbahn-/Platinen-Metapher`  [AMBIGUOUS]
-  assets/hero/round.png · relation: conceptually_related_to
-- `favicon.svg (Site Favicon Asset)` → `Mark Shared With Hero Logo Asset`  [AMBIGUOUS]
-  favicon.svg · relation: semantically_similar_to
-- `Detached Circular Dot (Tittle Accent)` → `Nurovelle Brand Identity`  [AMBIGUOUS]
-  favicon.svg · relation: conceptually_related_to
+- `Schwerpunkt Ressourcen (Gesundheitswesen & Pflege)` → `Schwerpunkt Objekte (Immobilien & Facility Management)`  [AMBIGUOUS]
+  detailseiten/branchen/gesundheitswesen-pflege.html · relation: semantically_similar_to
+- `Schwerpunkt Auslastung (Industrie & Produktion)` → `Schwerpunkt Potenziale (Sonstiges)`  [AMBIGUOUS]
+  detailseiten/branchen/sonstiges.html · relation: semantically_similar_to
+- `Allgemeine Geschäftsbedingungen (Dokument)` → `Sitemap-Verweis auf https://nurovelle.de/homepage/sitemap.xml`  [AMBIGUOUS]
+  robots.txt · relation: conceptually_related_to
+- `Anbieter / Verantwortlicher (AGB-Kopfblock)` → `Unausgefüllter Platzhalter [Name / Firma] im Geltungsbereich`  [AMBIGUOUS]
+  agb.html · relation: conceptually_related_to
+- `Unausgefüllter Platzhalter [Name / Firma] im Geltungsbereich` → `Anbieterkennzeichnung nach § 5 DDG`  [AMBIGUOUS]
+  agb.html · relation: conceptually_related_to
+- `Stand der AGB: 2026-06-01` → `Stand der Datenschutzerklärung: 16. August 2026`  [AMBIGUOUS]
+  datenschutz.html · relation: conceptually_related_to
+- `Newsletter-Anmeldeformular im Footer` → `Grundsatz der Datenverarbeitung / Erforderlichkeit`  [AMBIGUOUS]
+  agb.html · relation: conceptually_related_to
+- `Grundsatz der Datenverarbeitung / Erforderlichkeit` → `Einwilligung und Widerruf für nicht erforderliche Cookies`  [AMBIGUOUS]
+  cookie-hinweis.html · relation: conceptually_related_to
+- `Erhobene Formulardaten (Name, E-Mail, Unternehmen, Branche, Größe, Website, Telefon, Herausforderung)` → `Einbeziehung öffentlich sichtbarer Informationen (z. B. Website des Anfragenden)`  [AMBIGUOUS]
+  analyse-rechtliche-hinweise.html · relation: conceptually_related_to
+- `Stand der Datenschutzerklärung: 16. August 2026` → `Stand des Cookie-Hinweises: 2026-06-01`  [AMBIGUOUS]
+  datenschutz.html · relation: conceptually_related_to
+- `Anbieterkennzeichnung nach § 5 DDG` → `Robots-Meta noindex,follow (Impressum)`  [AMBIGUOUS]
+  impressum.html · relation: conceptually_related_to
+- `Mittelstand als Zielgruppe` → `KI-Umsetzungsreife (Punkteauswertung)`  [AMBIGUOUS]
+  assets/downloads/ROI_GUIDE_KI_AUTOMATISIERUNG_NUROVELLE_Formatvorlagen_FINAL.pdf · relation: conceptually_related_to
+- `Amortisationszeit (Payback in Monaten)` → `ROI-Korridore nach Prozessart (Benchmark)`  [AMBIGUOUS]
+  assets/downloads/ROI_GUIDE_KI_AUTOMATISIERUNG_NUROVELLE_Formatvorlagen_FINAL.pdf · relation: conceptually_related_to
+- `Beispielrechnung: 192 % ROI im ersten Jahr` → `Modellfall 1: Ingenieurbüro für technische Planung`  [AMBIGUOUS]
+  assets/downloads/ROI_GUIDE_KI_AUTOMATISIERUNG_NUROVELLE_Formatvorlagen_FINAL.pdf · relation: references
+- `Nurovelle` → `Prompt-Guide (Download)`  [AMBIGUOUS]
+  assets/downloads/prompt_guide.pdf · relation: references
+- `Szenario A: Belegverarbeitung in einer Steuerkanzlei` → `Wissen in einzelnen Köpfen`  [AMBIGUOUS]
+  assets/downloads/checkliste.pdf · relation: conceptually_related_to
+- `KI-gestützte Mandantenzuordnung` → `Prompt-Qualität`  [AMBIGUOUS]
+  assets/downloads/prompt_guide.pdf · relation: conceptually_related_to
+- `Checkliste KI-Potenzial-Check` → `Prompt-Guide (Download)`  [AMBIGUOUS]
+  assets/downloads/prompt_guide.pdf · relation: conceptually_related_to
+- `Prompt-Guide (Download)` → `Prompt-Qualität`  [AMBIGUOUS]
+  assets/downloads/prompt_guide.pdf · relation: references
 
 ## Knowledge Gaps
-- **154 isolated node(s):** `Geltungsbereich der AGB`, `Mitwirkungspflicht des Anfragenden`, `Haftungsbeschraenkung fuer kostenlose Ersteinschaetzungen`, `Schlussbestimmungen (Recht der Bundesrepublik Deutschland)`, `Grenzen der Einschaetzung (keine Ergebnisgarantie)` (+149 more)
+- **11 isolated node(s):** `Prozessautomatisierung (Use-Case)`, `Einführungspreis bis 31.12.2026`, `Prompt Engineering (Navigationseintrag)`, `Kategorieanalyse je Bereich`, `Lokale Texterkennung fuer Leistungsnachweise` (+6 more)
   These have ≤1 connection - possible missing edges or undocumented components.
 - **1 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **What is the exact relationship between `Prozessautomatisierung` and `Leistungsuebersicht (index.html#leistungen)`?**
+- **What is the exact relationship between `Tino Schneider (Ansprechpartner, Marburg)` and `Workshop mit Ihrem Team`?**
   _Edge tagged AMBIGUOUS (relation: conceptually_related_to) - confidence is low._
-- **What is the exact relationship between `CTA: Büropaket anfragen / Erstgespräch vereinbaren` and `Slack Incoming Webhook (Formular-/Benachrichtigungskanal)`?**
-  _Edge tagged AMBIGUOUS (relation: shares_data_with) - confidence is low._
-- **What is the exact relationship between `Kostenbasis: einmalige und laufende Kosten` and `Prompt Guide (Platzhalter)`?**
+- **What is the exact relationship between `Automationspakete (drei Pakete à vier Funktionen)` and `Prinzip: Technologie folgt der Aufgabe`?**
   _Edge tagged AMBIGUOUS (relation: conceptually_related_to) - confidence is low._
-- **What is the exact relationship between `Schwerpunkt Termine / Terminplanung` and `Schwerpunkt Tickets & Mieteranfragen`?**
-  _Edge tagged AMBIGUOUS (relation: semantically_similar_to) - confidence is low._
-- **What is the exact relationship between `Brand Name "Nurovelle"` and `Possible "Nuro"/Neuro AI Naming Semantics`?**
-  _Edge tagged AMBIGUOUS (relation: semantically_similar_to) - confidence is low._
-- **What is the exact relationship between `Nurovelle Logo Mark (3D Yellow N)` and `Alternate Reading as Abstract Head-and-Body Figure`?**
+- **What is the exact relationship between `Newsletter-Anmeldung` and `Praxisleitfaden KI-Automatisierung`?**
   _Edge tagged AMBIGUOUS (relation: conceptually_related_to) - confidence is low._
-- **What is the exact relationship between `Nurovelle Logo Mark (3D Yellow N)` and `Neuro/AI Symbolism of Mark and Dot`?**
-  _Edge tagged AMBIGUOUS (relation: rationale_for) - confidence is low._
+- **What is the exact relationship between `Datenschutzkonzept Betreuungspaket` and `Klartext-Secrets im Repository als Sicherheitsrisiko`?**
+  _Edge tagged AMBIGUOUS (relation: conceptually_related_to) - confidence is low._
+- **What is the exact relationship between `Uebergabe an Abrechnungssystem per Datei oder Schnittstelle` and `Slack Incoming Webhook URL`?**
+  _Edge tagged AMBIGUOUS (relation: conceptually_related_to) - confidence is low._
+- **What is the exact relationship between `Meta-Versandgebuehren je WhatsApp-Nachricht` and `Preis 799 EUR Einrichtung`?**
+  _Edge tagged AMBIGUOUS (relation: conceptually_related_to) - confidence is low._
+- **What is the exact relationship between `Bueropaket` and `Uebernahme aus bestehender Anwendungsfamilie`?**
+  _Edge tagged AMBIGUOUS (relation: conceptually_related_to) - confidence is low._

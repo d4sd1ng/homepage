@@ -1,0 +1,290 @@
+{
+  ".claude/settings.local.json": {
+    "mtime": 1785543781.474619,
+    "seen": 1787406991.3692124,
+    "ast_hash": "e57af779fc9f02dda0099ba0860032a5",
+    "semantic_hash": "e57af779fc9f02dda0099ba0860032a5"
+  },
+  "Sockel_and_display.py": {
+    "mtime": 1785156003.1303976,
+    "seen": 1787406991.3692164,
+    "ast_hash": "0059bf7906fd4b919f419f20589223cf",
+    "semantic_hash": "0059bf7906fd4b919f419f20589223cf"
+  },
+  "_render.py": {
+    "mtime": 1785186570.540586,
+    "seen": 1787406991.369218,
+    "ast_hash": "db5e8429fe66240ad12eaf600a83a1d5",
+    "semantic_hash": "db5e8429fe66240ad12eaf600a83a1d5"
+  },
+  "overwrite-audit.json": {
+    "mtime": 1784147082.2227688,
+    "seen": 1787406991.369219,
+    "ast_hash": "5599a980cb23b145eaedf8173e70797d",
+    "semantic_hash": "5599a980cb23b145eaedf8173e70797d"
+  },
+  "agb.html": {
+    "mtime": 1787295246.7907903,
+    "seen": 1787406991.36922,
+    "ast_hash": "a7c4eb49bce9c76ba3546a054e448ad5",
+    "semantic_hash": "a7c4eb49bce9c76ba3546a054e448ad5"
+  },
+  "analyse-rechtliche-hinweise.html": {
+    "mtime": 1787295246.7907903,
+    "seen": 1787406991.3692212,
+    "ast_hash": "cf7a5e9849d5906115a2ca56cf810124",
+    "semantic_hash": "cf7a5e9849d5906115a2ca56cf810124"
+  },
+  "analyse.html": {
+    "mtime": 1787295246.7907903,
+    "seen": 1787406991.3692222,
+    "ast_hash": "cb211c99b3a09c3bcfc3f623a1abe00b",
+    "semantic_hash": "cb211c99b3a09c3bcfc3f623a1abe00b"
+  },
+  "cookie-hinweis.html": {
+    "mtime": 1787295246.7907903,
+    "seen": 1787406991.369223,
+    "ast_hash": "f0c8f69ed372c6781233f77df7e72205",
+    "semantic_hash": "f0c8f69ed372c6781233f77df7e72205"
+  },
+  "datenschutz.html": {
+    "mtime": 1787295246.7907903,
+    "seen": 1787406991.3692238,
+    "ast_hash": "17f6164110e1f524d3bb4d5f2916ec11",
+    "semantic_hash": "17f6164110e1f524d3bb4d5f2916ec11"
+  },
+  "detail_automationen.html": {
+    "mtime": 1787295246.7907903,
+    "seen": 1787406991.3692253,
+    "ast_hash": "80b8eaac299c425dc61fad394a3f397d",
+    "semantic_hash": "80b8eaac299c425dc61fad394a3f397d"
+  },
+  "detail_chatbots.html": {
+    "mtime": 1787295246.7907903,
+    "seen": 1787406991.369226,
+    "ast_hash": "8a8956e49cf3d0e03450109dfbe8fe94",
+    "semantic_hash": "8a8956e49cf3d0e03450109dfbe8fe94"
+  },
+  "detail_datenabgleich.html": {
+    "mtime": 1787295246.7947903,
+    "seen": 1787406991.3692272,
+    "ast_hash": "4475c72df259572ca966a7c98896d7d8",
+    "semantic_hash": "4475c72df259572ca966a7c98896d7d8"
+  },
+  "detail_ki-agenten.html": {
+    "mtime": 1787295246.7947903,
+    "seen": 1787406991.3692281,
+    "ast_hash": "2530b6101338de1e4ed044eef58d4e33",
+    "semantic_hash": "2530b6101338de1e4ed044eef58d4e33"
+  },
+  "detail_ki-sicherheit.html": {
+    "mtime": 1787295246.7947903,
+    "seen": 1787406991.369229,
+    "ast_hash": "8ba319f4910280e3d09bb679015ef928",
+    "semantic_hash": "8ba319f4910280e3d09bb679015ef928"
+  },
+  "detail_ki-software.html": {
+    "mtime": 1787295246.7947903,
+    "seen": 1787406991.3692298,
+    "ast_hash": "f95c8634c7e978445196e518690579b6",
+    "semantic_hash": "f95c8634c7e978445196e518690579b6"
+  },
+  "detail_prompt-engineering.html": {
+    "mtime": 1787295246.7947903,
+    "seen": 1787406991.3692305,
+    "ast_hash": "3dfd00487748bb1cc4b6a86429c8bf83",
+    "semantic_hash": "3dfd00487748bb1cc4b6a86429c8bf83"
+  },
+  "detail_prozessautomatisierung.html": {
+    "mtime": 1787295246.7947903,
+    "seen": 1787406991.3692315,
+    "ast_hash": "f41982faccdd47b1433717896d228013",
+    "semantic_hash": "f41982faccdd47b1433717896d228013"
+  },
+  "detail_roadmap.html": {
+    "mtime": 1787295246.7947903,
+    "seen": 1787406991.3692322,
+    "ast_hash": "0164660df716f7e0161cda5216f02bc8",
+    "semantic_hash": "0164660df716f7e0161cda5216f02bc8"
+  },
+  "detail_seo.html": {
+    "mtime": 1787295246.7947903,
+    "seen": 1787406991.3692331,
+    "ast_hash": "96a907304d634d1f76e9c221d3a9d576",
+    "semantic_hash": "96a907304d634d1f76e9c221d3a9d576"
+  },
+  "detail_sprachassistenten.html": {
+    "mtime": 1787295246.7947903,
+    "seen": 1787406991.3692338,
+    "ast_hash": "3b512112cb5738c19c3b6b55cf3deec4",
+    "semantic_hash": "3b512112cb5738c19c3b6b55cf3deec4"
+  },
+  "detail_warum-nurovelle.html": {
+    "mtime": 1787295246.7947903,
+    "seen": 1787406991.3692348,
+    "ast_hash": "d7c5531a8aa63b21bea810c4a4fafd5a",
+    "semantic_hash": "d7c5531a8aa63b21bea810c4a4fafd5a"
+  },
+  "detail_workflows.html": {
+    "mtime": 1787295246.7947903,
+    "seen": 1787406991.3692358,
+    "ast_hash": "b539516a1d9da6f76a5499bc6412ffb5",
+    "semantic_hash": "b539516a1d9da6f76a5499bc6412ffb5"
+  },
+  "detailseiten/branchen/bildung-forschung.html": {
+    "mtime": 1787295246.7947903,
+    "seen": 1787406991.3692367,
+    "ast_hash": "36a3a9ffe3504694e98bbafa5e16eda9",
+    "semantic_hash": "36a3a9ffe3504694e98bbafa5e16eda9"
+  },
+  "detailseiten/branchen/dienstleistungen-kmu.html": {
+    "mtime": 1787295246.7947903,
+    "seen": 1787406991.3692374,
+    "ast_hash": "d34e1a2341309206bd9035e2b59aa7f3",
+    "semantic_hash": "d34e1a2341309206bd9035e2b59aa7f3"
+  },
+  "detailseiten/branchen/energie-versorgung.html": {
+    "mtime": 1787295246.7947903,
+    "seen": 1787406991.3692384,
+    "ast_hash": "1b9738887061027a5a905b0dfae67e68",
+    "semantic_hash": "1b9738887061027a5a905b0dfae67e68"
+  },
+  "detailseiten/branchen/finanzen-versicherung.html": {
+    "mtime": 1787295246.7947903,
+    "seen": 1787406991.3692393,
+    "ast_hash": "c32ef59f21111c8d99e9b3c758df0ba7",
+    "semantic_hash": "c32ef59f21111c8d99e9b3c758df0ba7"
+  },
+  "detailseiten/branchen/gesundheitswesen-pflege.html": {
+    "mtime": 1787295246.7947903,
+    "seen": 1787406991.36924,
+    "ast_hash": "b9c7f00678676e07b9f5bf1de57ec7d7",
+    "semantic_hash": "b9c7f00678676e07b9f5bf1de57ec7d7"
+  },
+  "detailseiten/branchen/immobilien-facility-management.html": {
+    "mtime": 1787295246.7947903,
+    "seen": 1787406991.3692408,
+    "ast_hash": "f7d1b070808ae899e77648e0001580d3",
+    "semantic_hash": "f7d1b070808ae899e77648e0001580d3"
+  },
+  "detailseiten/branchen/industrie-produktion.html": {
+    "mtime": 1787295246.7947903,
+    "seen": 1787406991.3692417,
+    "ast_hash": "9b2befc56096c99bd2360f946f26677d",
+    "semantic_hash": "9b2befc56096c99bd2360f946f26677d"
+  },
+  "detailseiten/branchen/sonstiges.html": {
+    "mtime": 1787295246.7947903,
+    "seen": 1787406991.3692424,
+    "ast_hash": "6e5bd3aa0be8dec4cb1a6d1222c87aae",
+    "semantic_hash": "6e5bd3aa0be8dec4cb1a6d1222c87aae"
+  },
+  "detailseiten/branchen/verwaltung-vertrieb-einkauf-marketing.html": {
+    "mtime": 1787295246.7947903,
+    "seen": 1787406991.3692434,
+    "ast_hash": "80b1c6aa0fc1a44d20a2c390851abe59",
+    "semantic_hash": "80b1c6aa0fc1a44d20a2c390851abe59"
+  },
+  "impressum.html": {
+    "mtime": 1787295246.7947903,
+    "seen": 1787406991.369244,
+    "ast_hash": "ca7058e1ad2f99d826fa706e07d2e67f",
+    "semantic_hash": "ca7058e1ad2f99d826fa706e07d2e67f"
+  },
+  "index.html": {
+    "mtime": 1787295246.7947903,
+    "seen": 1787406991.3692453,
+    "ast_hash": "8fd5cd5212fd375687b76189561d2e7e",
+    "semantic_hash": "8fd5cd5212fd375687b76189561d2e7e"
+  },
+  "paket-betreuung.html": {
+    "mtime": 1787295246.7987902,
+    "seen": 1787406991.369246,
+    "ast_hash": "dc750df05356a393ed266502fa1a7ef5",
+    "semantic_hash": "dc750df05356a393ed266502fa1a7ef5"
+  },
+  "paket-buero.html": {
+    "mtime": 1787295246.7987902,
+    "seen": 1787406991.369247,
+    "ast_hash": "4472b190784ac5e4ffbfdb7ace564ce6",
+    "semantic_hash": "4472b190784ac5e4ffbfdb7ace564ce6"
+  },
+  "paket-handwerk.html": {
+    "mtime": 1787295246.7987902,
+    "seen": 1787406991.3692477,
+    "ast_hash": "9dfe540b381d2a0a8b62ec7ed309cfc7",
+    "semantic_hash": "9dfe540b381d2a0a8b62ec7ed309cfc7"
+  },
+  "potenzialanalyse-deep.html": {
+    "mtime": 1787295246.7987902,
+    "seen": 1787406991.3692489,
+    "ast_hash": "e57281f29c50053f359c6ef0f1c37bc5",
+    "semantic_hash": "e57281f29c50053f359c6ef0f1c37bc5"
+  },
+  "praxisleitfaden.html": {
+    "mtime": 1787295246.7987902,
+    "seen": 1787406991.3692496,
+    "ast_hash": "26380e81287d38461c1a1078ae6d467b",
+    "semantic_hash": "26380e81287d38461c1a1078ae6d467b"
+  },
+  "robots.txt": {
+    "mtime": 1787207959.2072854,
+    "seen": 1787406991.3692503,
+    "ast_hash": "685871ffb2eeee41f9773754ec0a8f29",
+    "semantic_hash": "685871ffb2eeee41f9773754ec0a8f29"
+  },
+  "slack.md": {
+    "mtime": 1786713542.5100896,
+    "seen": 1787406991.369251,
+    "ast_hash": "abab4774fbf25a12155438b864c2d950",
+    "semantic_hash": "abab4774fbf25a12155438b864c2d950"
+  },
+  "assets/downloads/CASE_STUDY_KI_AUTOMATISIERUNG_NUROVELLE_FINAL.pdf": {
+    "mtime": 1783584056.8921914,
+    "seen": 1787406991.3692517,
+    "ast_hash": "0e5796f78173de1f58f2b160951b87da",
+    "semantic_hash": "0e5796f78173de1f58f2b160951b87da"
+  },
+  "assets/downloads/ROI_GUIDE_KI_AUTOMATISIERUNG_NUROVELLE_Formatvorlagen_FINAL.pdf": {
+    "mtime": 1783584056.8961916,
+    "seen": 1787406991.369253,
+    "ast_hash": "6e3734d067621735a464704cf7b45032",
+    "semantic_hash": "6e3734d067621735a464704cf7b45032"
+  },
+  "assets/downloads/checkliste.pdf": {
+    "mtime": 1784125069.8947735,
+    "seen": 1787406991.3692536,
+    "ast_hash": "0c0a399d171900b4e936ff1f61037e1c",
+    "semantic_hash": "0c0a399d171900b4e936ff1f61037e1c"
+  },
+  "assets/downloads/prompt_guide.pdf": {
+    "mtime": 1784125069.8947735,
+    "seen": 1787406991.3692558,
+    "ast_hash": "3c5333f24cb8a643a2e1d8c85ba84c37",
+    "semantic_hash": "3c5333f24cb8a643a2e1d8c85ba84c37"
+  },
+  "assets/hero/Nurovelle_schrift.png": {
+    "mtime": 1787210875.007269,
+    "seen": 1787406991.3692565,
+    "ast_hash": "d43b449f7668078e5388b3df61d1126a",
+    "semantic_hash": "d43b449f7668078e5388b3df61d1126a"
+  },
+  "assets/hero/nurovelle_logo.png": {
+    "mtime": 1787210731.1232698,
+    "seen": 1787406991.3692572,
+    "ast_hash": "92496c309be5469c2e5ceadac92affaf",
+    "semantic_hash": "92496c309be5469c2e5ceadac92affaf"
+  },
+  "assets/hero/round.png": {
+    "mtime": 1786713542.5060897,
+    "seen": 1787406991.369258,
+    "ast_hash": "a77453f676c0ac5d9282b432056f271a",
+    "semantic_hash": "a77453f676c0ac5d9282b432056f271a"
+  },
+  "favicon.svg": {
+    "mtime": 1787294058.7947972,
+    "seen": 1787406991.369259,
+    "ast_hash": "d50582bf4112c522cfcf6732304b5487",
+    "semantic_hash": "d50582bf4112c522cfcf6732304b5487"
+  }
+}
