@@ -47,6 +47,12 @@ Nicht verwenden:
 - Deep Green: `#0A1913`
 - Emerald: `#112B21`
 - Emerald Highlight: `#163A26`
+- Gold deep: `#a28557`
+- Gold damped: `#C5B358` 
+- Gold warm: `#ad8047`
+- Gold glow: `#a4803f`
+- Gold bright: `#C9B25F`
+
 
 ### Text
 

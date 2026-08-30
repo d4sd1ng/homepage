@@ -300,17 +300,17 @@ a:active .golden-button {
 .hero-cube { position: absolute; right: 54px; top: 50%; transform: translateY(-50%); width: clamp(816px, 81.6vw, 1360px); z-index: 1; pointer-events: none; filter: brightness(1) contrast(0.98) saturate(1.4); opacity: 1; }
 .hero-content { position: relative; z-index: 4; width: 100%; max-width: 960px; margin: 0 auto 0 0; /* left-aligned to the shared --side gutter (~96px), like all sections */
   padding: 32px 0; }
-.hero-kicker { margin: 0 0 var(--nv-kicker-title-gap); color: var(--nv-kicker-color); font-family: "Inter", Arial, sans-serif; font-size: var(--t-kicker-sektion); font-weight: var(--w-kicker-sektion); line-height: var(--nv-kicker-line-height); letter-spacing: var(--nv-kicker-letter-spacing); text-transform: uppercase; }
+.hero-kicker { margin: 0 0 var(--nv-kicker-title-gap); color: var(--color-text-light); font-family: "Inter", Arial, sans-serif; font-size: var(--t-kicker-sektion); font-weight: var(--w-kicker-sektion); line-height: var(--nv-kicker-line-height); letter-spacing: var(--nv-kicker-letter-spacing); text-transform: uppercase; }
 .hero h1 { margin-top: 0; margin-bottom: 32px; /* was 19.2px, loosened per explicit instruction */
   max-width: none; font-family: "Exo 2", "Inter", Arial, sans-serif; font-size: var(--t-sektionstitel); font-weight: var(--w-sektionstitel); line-height: var(--nv-line-height-heading); background: var(--nv-gold-title-gradient); background-clip: text; -webkit-background-clip: text; color: transparent; -webkit-text-fill-color: transparent; }
 .hero-title-l1 { white-space: nowrap; }@media (max-width: 768px) {
   .hero-title-l1 { white-space: normal; }
 }
-.hero h2 { font-family: "Inter", Arial, sans-serif; font-size: var(--t-subtitle); line-height: 1.22; font-weight: var(--w-subtitle); color: var(--color-text-sub); max-width: 720px; margin-bottom: 32px; }
+.hero h2 { font-family: "Inter", Arial, sans-serif; font-size: var(--t-subtitle); line-height: 1.22; font-weight: var(--w-subtitle); color: var(--color-text-sub); max-width: 720px; margin-bottom: var(--space-7); }
 .hero-subtitle-l1 { white-space: nowrap; }@media (max-width: 768px) {
   .hero-subtitle-l1 { white-space: normal; }
 }
-.hero-text { font-family: "Inter", Arial, sans-serif; font-size: var(--t-fliesstext); font-weight: var(--w-fliesstext); line-height: var(--nv-section-body-line); color: var(--color-text-muted); max-width: 528px; margin-top: 0; margin-bottom: 225px; }
+.hero-text { font-family: "Inter", Arial, sans-serif; font-size: var(--t-fliesstext); font-weight: var(--w-fliesstext); line-height: var(--nv-section-body-line); color: var(--color-text-muted); max-width: 528px; margin-top: 0; margin-bottom: var(--space-6); }
 .hero-actions { display: flex; gap: 14.4px; flex-wrap: wrap; align-items: center; }
 .hero-cta .golden-button { min-width: 256px; font-size: 12.8px; }@media (max-width: 640px) {
   .hero-cta .golden-button {
@@ -634,8 +634,8 @@ a:active .golden-button {
 .nv-s7__cards { display: grid; grid-template-columns: repeat(3, 720px); gap: 240px; width: max-content; margin: 0 auto; zoom: 0.75; }
 .nv-s7-card[data-href] { cursor: pointer; }
 .nv-s7-card { --card-index: 0; position: relative; width: 720px; height: 409.6px; min-width: 0; overflow: hidden; isolation: isolate; border: 0.8px solid transparent; border-radius: 5.6px; background: transparent; box-shadow: none; opacity: 0; transform: translateY(17.6px); transition: opacity 0.55s ease, transform 0.55s ease, border-color 0.28s ease, box-shadow 0.28s ease; }
-.nv-s7-card::before { content: ""; position: absolute; inset: 0; z-index: 0; border-radius: inherit; background: linear-gradient(135deg, #050706 0%, #080b09 58%, #030504 100%); opacity: 0; transition: opacity 0.38s ease; pointer-events: none; }
-.nv-s7-card:hover::before, .nv-s7-card:focus-visible::before, .nv-s7-card.is-active::before { opacity: 1; }
+.nv-s7-card::before { content: ""; position: absolute; inset: 0; z-index: 0; border-radius: inherit; background: var(--color-emerald); opacity: 0; transition: opacity 0.38s ease; pointer-events: none; }
+.nv-s7-card:hover::before, .nv-s7-card:focus-visible::before, .nv-s7-card.is-active::before, .nv-s7-card.is-visible::before { opacity: 1; }
 .nv-s7-card:nth-child(1) { --card-index: 0; }
 .nv-s7-card:nth-child(2) { --card-index: 1; }
 .nv-s7-card:nth-child(3) { --card-index: 2; }
@@ -648,7 +648,7 @@ a:active .golden-button {
 .nv-s7-card:nth-child(10) { --card-index: 9; }
 .nv-s7-card:nth-child(11) { --card-index: 10; }
 .nv-s7-card:nth-child(10), .nv-s7-card:nth-child(11) { margin-left: 480px; }
-.nv-s7-card.is-visible { opacity: 1; transform: none; transition-delay: calc(var(--card-index) * 45ms); }
+.nv-s7-card.is-visible { opacity: 1; transform: none; border-color: #f7ef8a; transition-delay: calc(var(--card-index) * 45ms); }
 .nv-s7-card:hover, .nv-s7-card:focus-visible, .nv-s7-card.is-active { z-index: 3; border-color: #f7ef8a; outline: none; }
 .nv-s7-card__visual { position: absolute; inset: 0 0 0 auto; z-index: 0; width: 73%; height: 100%; object-fit: cover; object-position: center; opacity: 0; filter: brightness(0.62) contrast(1.08) saturate(0.72); transform: none; transition: opacity 0.38s ease 0.08s, filter 0.38s ease; }
 .nv-s7-card::after { content: ""; position: absolute; inset: 0; z-index: 1; background: linear-gradient(90deg, #050706e6 0%, #050706cc 30%, #05070666 55%, #05070626 100%); opacity: 0; pointer-events: none; transition: opacity 0.35s ease; }
@@ -679,7 +679,7 @@ a:active .golden-button {
 .nv-s7-card__points { position: absolute; top: 145.6px; left: 31.2px; right: 28px; display: grid; gap: 8.4px; margin: 0; padding: 0; list-style: none; opacity: 0; transform: translateY(4.8px); transition: opacity 0.42s ease, transform 0.42s ease; }
 .nv-s7-card__points li { position: relative; padding-left: 16.8px; color: #d4af37; overflow-wrap: anywhere; font: var(--w-bulletlabel) var(--t-bulletlabel)/1.35 "Inter",Arial,sans-serif; }
 .nv-s7-card__points li::before { content: ""; position: absolute; left: 0; top: 0.5em; width: 5.6px; height: 5.6px; border-radius: 1.6px; background: #f7c64a; }
-.nv-s7-card__result { position: absolute; left: 50%; right: auto; top: 318.4px; bottom: auto; width: 297.6px; height: auto; min-height: 0; box-sizing: border-box; overflow: hidden; display: grid; grid-template-columns: 22.4px minmax(0, 1fr); gap: 19.2px; align-items: center; padding: 8px 11.2px; border: 0.8px solid transparent; border-radius: 5.6px; background-image: linear-gradient(#17251d,#17251d), var(--gold-3); background-origin: border-box; background-clip: padding-box, border-box; opacity: 0; transform: translate(-50%, calc(-50% + 4.8px)); transition: opacity 0.42s ease, transform 0.42s ease; }
+.nv-s7-card__result { position: absolute; left: 50%; right: auto; top: 318.4px; bottom: auto; width: 297.6px; height: auto; min-height: 0; box-sizing: border-box; overflow: hidden; display: grid; grid-template-columns: 22.4px minmax(0, 1fr); gap: 19.2px; align-items: center; padding: 8px 11.2px; border: 0.8px solid transparent; border-radius: 5.6px; background-image: linear-gradient(var(--color-emerald),var(--color-emerald)), var(--gold-3); background-origin: border-box; background-clip: padding-box, border-box; opacity: 0; transform: translate(-50%, calc(-50% + 4.8px)); transition: opacity 0.42s ease, transform 0.42s ease; }
 .nv-s7-card__result-icon { grid-column: 1; grid-row: 1; align-self: center; position: relative; width: 22.4px; height: 22.4px; margin-top: 0; background: #d4af37; border-radius: 50% 50% 50% 50% / 18% 18% 62% 62%; }
 .nv-s7-card__result-icon-inner { position: absolute; inset: 1.2px; background: #000; border-radius: 50% 50% 50% 50% / 18% 18% 62% 62%; }
 .nv-s7-card__result-icon-inner::before, .nv-s7-card__result-icon-inner::after { content: ""; position: absolute; left: 50%; top: 44%; background: #d4af37; transform: translate(-50%, -50%); border-radius: 0.8px; }
@@ -827,7 +827,7 @@ canvas.nv-step-viz {
 .nv-analyse__title { margin: 0 0 39.2px; white-space: nowrap; width: max-content; color: transparent; background: var(--gold-1); background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent; font: var(--w-sektionstitel) var(--t-sektionstitel)/1.15 "Exo 2",Inter,Arial,sans-serif; }
 .nv-analyse__subtitle { max-width: 60ch; margin: 0 0 92.8px; color: var(--color-text-sub); font: var(--w-subtitle) var(--t-subtitle)/1.22 "Inter",Arial,sans-serif; }
 .nv-analyse__intro { max-width: 854.4px; margin: 0 0 9.6px 0; color: #b9c3bd; font: var(--w-fliesstext) var(--t-fliesstext)/1.85 "Inter",Arial,sans-serif; }
-.nv-analyse__deep { display: flex; align-items: center; justify-content: space-between; gap: 25.6px; flex-wrap: wrap; margin-top: 51.2px; padding-top: 32px; border-top: 0.8px solid rgba(212,175,55,.35); }
+.nv-analyse__deep { display: flex; align-items: center; justify-content: flex-start; gap: var(--space-7); flex-wrap: wrap; margin-top: 51.2px; padding-top: 32px; border-top: 0.8px solid rgba(212,175,55,.35); }
 .nv-analyse__deep p { max-width: 72ch; margin: 0; color: #b9c3bd; font: var(--w-fliesstext) var(--t-fliesstext)/1.7 "Inter",Arial,sans-serif; }
 .nv-analyse__layout { display: grid; grid-template-columns: minmax(0,1fr) minmax(0,854.4px); gap: 38.4px; align-items: start; }@media(max-width:1200px){ .nv-analyse__layout{ grid-template-columns:1fr; } }
 .nv-analyse__grid { display: grid; grid-template-columns: minmax(0,1fr); gap: 9.6px; align-items: start; }@media(max-width:980px){ .nv-analyse__grid{ grid-template-columns:1fr; } }
@@ -1108,7 +1108,7 @@ canvas.nv-step-viz {
 .nv-faq-layout { display: grid; grid-template-columns: minmax(0, 1304px); gap: 64px; align-items: center; justify-content: center; max-width: 1888px; margin: 0 auto; transform: translateX(calc(0px / -2)); }
 .nv-faq-grid { display: flex; align-items: flex-start; gap: 24px; }
 .nv-faq-col { display: flex; flex-direction: column; gap: 24px; flex: 1 1 0; min-width: 0; }
-.nv-faq-item { align-self: start; }
+.nv-faq-item { align-self: stretch; width: 100%; }
 .nv-faq-item summary { --nv-golden-display: flex; --nv-golden-width: 100%; --nv-golden-min-width: 0; --nv-golden-height: auto; --nv-golden-justify: space-between; --nv-golden-text-align: left; --nv-golden-white-space: normal; gap: 9.6px; padding-block: 9.6px; padding-inline: 15.2px; font-size: 12.8px; line-height: 1.25; list-style: none; font: var(--w-bulletlabel) var(--t-bulletlabel)/1.35 "Exo 2",Inter,Arial,sans-serif;  display: flex; width: 100%; min-width: 0; justify-content: space-between; text-align: left; white-space: normal; }
 .nv-faq-item summary::-webkit-details-marker { display: none; }
 .nv-faq-item summary::after { content: "+"; flex: 0 0 auto; color: var(--nv-gold-text-dark); font-size: 14.4px; }
@@ -1484,7 +1484,7 @@ canvas.nv-step-viz {
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="theme-color" content="#050505" />
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Muss ich bereits eine konkrete KI-Idee haben?", "acceptedAnswer": {"@type": "Answer", "text": "Nein. Die Potenzialanalyse eignet sich auch dann, wenn zunächst nur ein zeitaufwendiger oder fehleranfälliger Prozess bekannt ist. Gemeinsam wird geprüft, ob KI, Automatisierung, Software oder eine andere Prozessverbesserung sinnvoll ist."}}, {"@type": "Question", "name": "Was wird bei der KI-Potenzialanalyse geprüft?", "acceptedAnswer": {"@type": "Answer", "text": "Geprüft werden der aktuelle Ablauf, beteiligte Systeme und Datenquellen, manuelle Übergaben, wiederkehrende Aufgaben sowie der mögliche Nutzen einer technischen Lösung. Daraus entsteht eine erste Einordnung von Aufwand, Priorität und sinnvollem nächsten Schritt."}}, {"@type": "Question", "name": "Für welche Unternehmen eignet sich das Angebot?", "acceptedAnswer": {"@type": "Answer", "text": "Das Angebot richtet sich an Unternehmen, die wiederkehrende Abläufe verbessern, Informationen schneller nutzbar machen oder bestehende Systeme sinnvoll verbinden möchten. Entscheidend ist nicht die Unternehmensgröße, sondern ein klar abgrenzbarer Prozess oder konkreter Verbesserungsbedarf."}}, {"@type": "Question", "name": "Entwickelt Nurovelle auch individuelle Lösungen?", "acceptedAnswer": {"@type": "Answer", "text": "Ja. Lösungen werden an den jeweiligen Prozess, die vorhandenen Systeme und die technischen Anforderungen angepasst. Dazu können KI-Agenten, Automatisierungen, Wissenssysteme, Schnittstellen oder individuelle Software gehören."}}, {"@type": "Question", "name": "Können bestehende Systeme angebunden werden?", "acceptedAnswer": {"@type": "Answer", "text": "Grundsätzlich ja, sofern geeignete Schnittstellen, Datenzugriffe oder technische Integrationsmöglichkeiten vorhanden sind. Vor der Umsetzung wird geprüft, welche Systeme beteiligt sind und welche Anbindung realistisch und sicher möglich ist."}}, {"@type": "Question", "name": "Wie läuft ein typisches Projekt ab?", "acceptedAnswer": {"@type": "Answer", "text": "Zu Beginn werden Aufgabe, Ziel, Datenlage und bestehende Abläufe geklärt. Danach folgen technische Prüfung, Auswahl des passenden Lösungstyps, Umsetzungsplanung, Entwicklung, Tests und die kontrollierte Einführung in den bestehenden Prozess."}}, {"@type": "Question", "name": "Wie lange dauert die Umsetzung?", "acceptedAnswer": {"@type": "Answer", "text": "Das hängt vom Umfang, der Datenlage, den beteiligten Systemen und dem Integrationsaufwand ab. Eine klar abgegrenzte Automatisierung kann deutlich schneller umgesetzt werden als ein komplexes System mit mehreren Schnittstellen und Freigabeprozessen."}}, {"@type": "Question", "name": "Was passiert nach dem Absenden des Formulars?", "acceptedAnswer": {"@type": "Answer", "text": "Die Angaben werden geprüft und strukturiert eingeordnet. Anschließend erhalten Sie eine erste Rückmeldung zum möglichen Einsatzbereich, zu offenen Voraussetzungen und zum sinnvollsten nächsten Schritt. Falls weitere Informationen erforderlich sind, werden diese gezielt abgefragt."}}]}</script>
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "ProfessionalService", "name": "Nurovelle", "url": "https://nurovelle.de/homepage/", "description": "KI-Agenten, Automatisierungen und individuelle Software für den Mittelstand.", "email": "mail@nurovelle.de", "telephone": "+49 6421 8097347", "address": {"@type": "PostalAddress", "streetAddress": "Berliner Straße 12", "postalCode": "35039", "addressLocality": "Marburg", "addressCountry": "DE"}, "founder": {"@type": "Person", "name": "Tino Schneider"}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "ProfessionalService", "name": "Nurovelle", "url": "https://nurovelle.de/homepage/index.html", "description": "KI-Agenten, Automatisierungen und individuelle Software für den Mittelstand.", "email": "mail@nurovelle.de", "telephone": "+49 6421 8097347", "address": {"@type": "PostalAddress", "streetAddress": "Berliner Straße 12", "postalCode": "35039", "addressLocality": "Marburg", "addressCountry": "DE"}, "founder": {"@type": "Person", "name": "Tino Schneider"}}</script>
 </head>
 <body>
 <a class="skip-link" href="#hero">Zum Inhalt springen</a>
@@ -2335,7 +2335,7 @@ canvas.nv-step-viz {
     </div>
 
     <div class="nv-analyse__deep">
-      <p>Wenn mehrere Prozesse, Investitionsentscheidungen oder technische Abhängigkeiten genauer untersucht werden müssen, reicht die kostenlose Ersteinschätzung nicht aus. Dafür gibt es die kostenpflichtige Deep-Potenzialanalyse.</p>
+      <p>Wenn mehrere Prozesse, Investitionsentscheidungen oder technische Abhängigkeiten genauer untersucht werden müssen, reicht die kostenlose Ersteinschätzung nicht aus. Die Deep-Potenzialanalyse geht darüber hinaus: Prozesse, Daten und Systeme werden vollständig erfasst. Daraus entstehen konkrete Anwendungsfälle, eine Bewertung nach Nutzen, Aufwand, Risiko und Umsetzungsreife sowie eine ausgearbeitete Roadmap als belastbare Grundlage für die nächsten Schritte.</p>
       <a class="hero-cta hero-cta--outline" href="potenzialanalyse-deep.html" aria-label="Deep-Potenzialanalyse ansehen">
         <span class="golden-button"><span class="golden-text">Deep-Potenzialanalyse ansehen</span></span>
       </a>

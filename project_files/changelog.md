@@ -1,5 +1,21 @@
 # Changelog
 
+## 2026-08-29 – Homepage-Abstände, Kartenflächen, FAQ und Analyse-Header
+
+Status: fertig
+
+Geändert:
+
+- `homepage/index.html`: Hero-Kicker auf Weiß gesetzt, Subtitle-/Body-Abstand und CTA-/Statistikabstand korrigiert.
+- `homepage/index.html`: Kartenflächen und Ergebnisrahmen auf `--color-emerald` vereinheitlicht; Kartenrahmen erscheint beim gemeinsamen `is-visible`-Reveal.
+- `homepage/index.html`: Deep-Potenzialanalyse-Text erweitert, CTA näher an den Text gesetzt und FAQ-Elemente auf gleiche Spaltenbreite gestreckt.
+- `homepage/analyse.html`: Header-CTA durch `Erstgespräch vereinbaren` mit Calendly-Link ersetzt.
+
+Nicht geändert:
+
+- Bestehende Formular-, API-, Lead-, Newsletter- und Notion-Integrationen.
+- Bestehende IDs, Assetpfade, Kartenlinks und JavaScript-Logik.
+
 ## 2026-08-14 – Goldwort-Regel nach Medium getrennt, ein Goldverlauf für Dokumente
 
 Status: fertig

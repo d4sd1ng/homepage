@@ -37,72 +37,199 @@ def brushed():
     mr=nt.nodes.new("ShaderNodeMapRange"); mr.inputs["To Min"].default_value=0.24; mr.inputs["To Max"].default_value=0.4
     nt.links.new(wave.outputs["Fac"],mr.inputs["Value"]); nt.links.new(mr.outputs["Result"],b.inputs["Roughness"])
     return m
+
 def gold(strength=5.0):
     m=bpy.data.materials.new("gold"); m.use_nodes=True; b=m.node_tree.nodes["Principled BSDF"]
     b.inputs["Base Color"].default_value=(1.0,0.7,0.16,1); b.inputs["Metallic"].default_value=1.0; b.inputs["Roughness"].default_value=0.25
     b.inputs["Emission Color"].default_value=(1.0,0.66,0.15,1); b.inputs["Emission Strength"].default_value=strength
     return m
-METAL=brushed(); GOLD=gold(1.6); GOLDBRIGHT=gold(2.4); GOLDPLATE=gold(0.35)
+
+METAL=brushed()
+GOLD=gold(1.6)
+GOLDBRIGHT=gold(2.4)
+GOLDPLATE=gold(0.35)
+
 AMBER=bpy.data.materials.new("amber"); AMBER.use_nodes=True
-_b=AMBER.node_tree.nodes["Principled BSDF"]; _b.inputs["Base Color"].default_value=(1,0.6,0.1,1)
-_b.inputs["Emission Color"].default_value=(1,0.5,0.06,1); _b.inputs["Emission Strength"].default_value=6
+_b=AMBER.node_tree.nodes["Principled BSDF"]
+_b.inputs["Base Color"].default_value=(1,0.6,0.1,1)
+_b.inputs["Emission Color"].default_value=(1,0.5,0.06,1)
+_b.inputs["Emission Strength"].default_value=6
 
 def box(name,loc,dims,bevel=0.1,seg=5,mat=None):
     bpy.ops.mesh.primitive_cube_add(size=1,location=loc)
-    o=bpy.context.object;o.name=name;o.scale=dims; bpy.ops.object.transform_apply(scale=True)
+    o=bpy.context.object
+    o.name=name
+    o.scale=dims
+    bpy.ops.object.transform_apply(scale=True)
+
     if bevel>0:
-        bv=o.modifiers.new("b","BEVEL");bv.width=bevel;bv.segments=seg;bv.limit_method='ANGLE'
+        bv=o.modifiers.new("b","BEVEL")
+        bv.width=bevel
+        bv.segments=seg
+        bv.limit_method='ANGLE'
+
     bpy.ops.object.shade_smooth()
-    if mat:o.data.materials.append(mat)
+
+    if mat:
+        o.data.materials.append(mat)
+
     return o
+
 def seam(name,z,w,d,th=0.03,mat=None):
-    return box(name,(0,0,z),(w,d,th),bevel=0.02,seg=3,mat=mat or GOLD)
+    return box(
+        name,
+        (0,0,z),
+        (w,d,th),
+        bevel=0.02,
+        seg=3,
+        mat=mat or GOLD
+    )
 
 def rope(name,center,su,sv,axis='Z',r_corner=0.25,r_rope=0.04,mat=None,n=96):
-    # gold "rope": rounded-rectangle tube. axis = plane normal:
-    #   'Z' -> frame lies in XY (horizontal surface); 'Y' -> frame lies in XZ (vertical surface)
+    # gold "rope": rounded-rectangle tube
+    # axis='Z' -> frame lies in XY
+    # axis='Y' -> frame lies in XZ
+
     cx,cy,cz=center
-    hw=su/2-r_corner; hd=sv/2-r_corner
-    corners=[(hw,hd,0.0),(-hw,hd,math.pi/2),(-hw,-hd,math.pi),(hw,-hd,1.5*math.pi)]
-    pts=[]; per=max(4,n//4)
+
+    hw=su/2-r_corner
+    hd=sv/2-r_corner
+
+    corners=[
+        (hw,hd,0.0),
+        (-hw,hd,math.pi/2),
+        (-hw,-hd,math.pi),
+        (hw,-hd,1.5*math.pi)
+    ]
+
+    pts=[]
+    per=max(4,n//4)
+
     for ux,uy,a0 in corners:
         for i in range(per):
             a=a0+(math.pi/2)*(i/per)
-            u=ux+r_corner*math.cos(a); v=uy+r_corner*math.sin(a)
-            if axis=='Z': pts.append((cx+u, cy+v, cz))
-            elif axis=='Y': pts.append((cx+u, cy, cz+v))
-            else: pts.append((cx, cy+u, cz+v))
-    cur=bpy.data.curves.new(name,'CURVE'); cur.dimensions='3D'
-    sp=cur.splines.new('POLY'); sp.points.add(len(pts)-1)
-    for i,p in enumerate(pts): sp.points[i].co=(p[0],p[1],p[2],1.0)
+
+            u=ux+r_corner*math.cos(a)
+            v=uy+r_corner*math.sin(a)
+
+            if axis=='Z':
+                pts.append((cx+u,cy+v,cz))
+            elif axis=='Y':
+                pts.append((cx+u,cy,cz+v))
+            else:
+                pts.append((cx,cy+u,cz+v))
+
+    cur=bpy.data.curves.new(name,'CURVE')
+    cur.dimensions='3D'
+
+    sp=cur.splines.new('POLY')
+    sp.points.add(len(pts)-1)
+
+    for i,p in enumerate(pts):
+        sp.points[i].co=(p[0],p[1],p[2],1.0)
+
     sp.use_cyclic_u=True
-    cur.bevel_depth=r_rope; cur.bevel_resolution=4
-    ob=bpy.data.objects.new(name,cur); bpy.context.scene.collection.objects.link(ob)
-    if mat: ob.data.materials.append(mat)
+
+    cur.bevel_depth=r_rope
+    cur.bevel_resolution=4
+
+    ob=bpy.data.objects.new(name,cur)
+    bpy.context.scene.collection.objects.link(ob)
+
+    if mat:
+        ob.data.materials.append(mat)
+
     return ob
 
-# ---- L-shaped sockel: wide base plate + back wall bent up 90 deg ----
-# base plate: 3x wider, extended to the RIGHT (left edge stays at x=-3.2), ~1/4 flatter
-box("base",(6.4,0,0.435),(19.2,3.8,0.87),bevel=0.12,seg=6,mat=METAL)
-# (bent-up back wall removed — only the sockel base and the floating rectangle remain)
-# thin (1-2px) gold highlight rope along the base bottom edge
-rope("bottom_glow",(6.4,0,0.09),19.35,3.95,'Z',0.28,0.02,GOLD)
-# golden inset plate on the base TOP surface (unchanged, gunmetal frame around it)
-box("goldplate",(6.4,-0.15,0.845),(18.2,2.8,0.05),bevel=0.03,seg=3,mat=GOLDPLATE)
 
-# ---- floating rectangle: top edge unchanged, extended DOWN by ~1/4 of the gap to the base ----
+# ============================================================
+# SOCKEL
+# ============================================================
+
+base = box(
+    "base",
+    (6.4,0,0.435),
+    (19.2,3.8,0.87),
+    bevel=0.12,
+    seg=6,
+    mat=METAL
+)
+
+# Rope folgt automatisch der Grundplatte
+rope(
+    "bottom_glow",
+    (
+        base.location.x,
+        base.location.y,
+        base.location.z - base.dimensions.z/2 + 0.02
+    ),
+    base.dimensions.x + 0.15,
+    base.dimensions.y + 0.15,
+    'Z',
+    0.28,
+    0.02,
+    GOLD
+)
+
+
+# ============================================================
+# GOLDENE PLATTE AUF DEM SOCKEL
+# unabhängig von base
+# ============================================================
+
+goldplate = box(
+    "goldplate",
+    (6.4,-0.15,0.845),
+    (18.2,2.8,0.05),
+    bevel=0.03,
+    seg=3,
+    mat=GOLDPLATE
+)
+
+
+# ============================================================
+# FLOATING DISPLAY
+# ============================================================
+
 WALL_H=5.0
 BASE_TOP=0.87
-board_top   = WALL_H+0.2 + WALL_H*1.3          # unchanged top edge (11.7)
-old_bottom  = WALL_H+0.2                        # previous bottom edge (5.2)
-gap         = old_bottom - BASE_TOP            # gap board-bottom -> base-top
-board_bottom= old_bottom - gap/4               # extend downwards ~1/4 of the gap
-BOARD_H     = board_top - board_bottom
-BOARD_Z     = (board_top + board_bottom)/2
-box("board",(6.4,2.4,BOARD_Z),(19.2,0.16,BOARD_H),bevel=0.06,seg=4,mat=METAL)
-# golden highlight = just the thin edge of the rectangle (1-2px), like the lower one
-rope("board_frame",(6.4,2.31,BOARD_Z),19.0,BOARD_H-0.2,'Y',0.28,0.02,GOLD)
 
+board_top = WALL_H+0.2+WALL_H*1.3
+old_bottom = WALL_H+0.2
+
+gap = old_bottom-BASE_TOP
+
+board_bottom = old_bottom-gap/4
+
+BOARD_H = board_top-board_bottom
+BOARD_Z = (board_top+board_bottom)/2
+
+
+board = box(
+    "board",
+    (6.4,2.4,BOARD_Z),
+    (19.2,0.16,BOARD_H),
+    bevel=0.06,
+    seg=4,
+    mat=METAL
+)
+
+
+# Rope folgt automatisch dem Display
+rope(
+    "board_frame",
+    (
+        board.location.x,
+        board.location.y-board.dimensions.y/2-0.01,
+        board.location.z
+    ),
+    board.dimensions.x-0.2,
+    board.dimensions.z-0.2,
+    'Y',
+    0.28,
+    0.02,
+    GOLD
+)
 # ---- amber LEDs on front face of base ----
 for x in (-1.15,-0.9,-0.65,-0.4):
     bpy.ops.mesh.primitive_cylinder_add(radius=0.05,depth=0.03,location=(x,-1.91,0.40),rotation=(math.pi/2,0,0))
