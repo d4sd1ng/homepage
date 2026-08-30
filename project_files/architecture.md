@@ -1,6 +1,6 @@
 # Nurovelle Homepage – Architecture
 
-Stand: 2026-08-14  
+Stand: 2026-08-30  
 Status: in Arbeit
 
 ## Zweck dieser Datei
@@ -101,6 +101,19 @@ Zum Gesamtprojekt gehören bereits verbundene Systeme für:
 Ziel der Homepage-Integration ist, Website-Leads und Analyse-Ergebnisse sauber in die vorhandenen Systeme zu übergeben.
 
 Konkrete Endpunkte, Datenmodelle und Feldzuordnungen sind vor Implementierung im realen System zu prüfen. Diese Datei enthält keine erfundenen API-Schemas.
+
+## Stripe-Konfiguration
+
+`homepage/stripe-config.js` hält die Stripe-Konfiguration der statischen Website. Die Datei setzt zwei Globals nach der im Projekt bestehenden Konvention (`window.NUROVELLE_*`, siehe `analyse.html`):
+
+- `window.NUROVELLE_STRIPE_PUBLISHABLE_KEY`
+- `window.NUROVELLE_STRIPE_MODE`
+
+Die Datei enthält ausschließlich Konfigurationswerte: keine Bezahllogik, keinen Checkout, keinen Aufruf der Stripe-API. Sie ist derzeit in keiner Seite per `<script src="stripe-config.js"></script>` eingebunden; die Einbindung ist in `todo.md` als offen geführt.
+
+Der Publishable Key ist für den Einsatz im Browser bestimmt und steht deshalb im Klartext in der Datei. Der Secret Key (`sk_...`) gehört nicht in dieses Repository, sondern ausschließlich auf den Server.
+
+Der Deploy rollt `homepage/` unverändert per rsync aus. Es gibt für diesen Ordner keinen Build-Schritt und keine Ersetzung von Umgebungsvariablen; ein Wechsel zwischen Test- und Live-Betrieb ist deshalb eine Änderung an dieser Datei.
 
 ## Download-Flow
 

@@ -1,6 +1,6 @@
 # Nurovelle Homepage – Todo
 
-Stand: 2026-08-14  
+Stand: 2026-08-30  
 Status: in Arbeit
 
 ## Zweck dieser Datei
@@ -23,6 +23,12 @@ Keine abgeschlossenen historischen Entscheidungen, Designregeln oder Projektbesc
 - [ ] `changelog.md` bei jeder tatsächlichen Änderung unmittelbar aktualisieren — offen
 - [ ] `nurovelle-tokens.css` liegt doppelt (`project_files/` und `homepage/`) und lief inhaltlich auseinander; eine der beiden zur alleinigen Quelle machen und die andere daraus erzeugen — offen
 - [ ] sieben Gold-SVG-Wortmarken unter `homepage/assets/hero/` sind in keinem Commit und deshalb live nicht abrufbar; einchecken oder verwerfen — offen
+
+## Zahlung / Stripe
+
+- [ ] `homepage/stripe-config.js` in den Seiten einbinden, in denen bezahlt werden soll; welche Seiten das sind, ist nicht entschieden — offen
+- [ ] Bezahlflow (Produkte, Preise, Checkout, Server-Endpunkt) festlegen und freigeben — offen
+- [ ] Live-Betrieb: Publishable Key des Livemodus liegt nicht vor; `homepage/stripe-config.js` steht auf `test` — offen
 
 ## Homepage – Inhalte
 
