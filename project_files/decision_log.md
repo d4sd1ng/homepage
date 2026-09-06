@@ -190,3 +190,17 @@ hinzugedichtet wurde und teils den tatsächlich freigegebenen Assets
 widersprach (z.B. `Banner_all_passt.png` mit Platinen-Makrofoto).
 
 Aktuelle Bildregeln: siehe `styleguide.md`, Abschnitt 17a.
+
+## 2026-09-06 – Richtungsreferenzen für Post-Bilder ergänzt
+
+Entscheidung: Neue Bilder unter `austausch/an-team/vorlagen/nurovelle/`
+(`1.png`–`16.png`, `reference_posting_*.png`) sind Stimmungs-/Richtungs-
+referenzen für Post-Motive, keine fertigen Assets – teils mit fremden
+Markennamen, englischem Text oder Bildfehlern, die nicht übernommen werden.
+Zwei Richtungen zeichnen sich ab: Server-/Rechenzentrums-Fotografie mit
+eingeblendeten Workflow-Panels und Dashboard-Requisiten; sowie dunkle
+Würfel-/Modul-Cluster mit goldener Kantenbeleuchtung und Zahnrädern als
+konkrete Ausführung der Modulwelt aus Abschnitt 14. Ein verbindliches
+Einzelmotiv daraus steht noch aus.
+
+Aktuelle Bildregeln: siehe `styleguide.md`, Abschnitt 17a.

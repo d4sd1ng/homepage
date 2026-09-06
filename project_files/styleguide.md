@@ -395,6 +395,20 @@ Fähigkeit zeigen sollen, gilt zusätzlich:
   Prompt sie ausdrücklich verbietet. Ein Verbot im Prompt reicht dort
   nachweislich nicht; das Motiv sollte stattdessen konkret aus der
   Modulwelt aus Abschnitt 14 heraus beschrieben werden, nicht abstrakt.
+- **Richtungsreferenzen:** `austausch/an-team/vorlagen/nurovelle/` enthält
+  seit 2026-09-06 zusätzliche Bilder (`1.png`–`16.png`,
+  `reference_posting_*.png`). Das sind Stimmungs-/Richtungsreferenzen,
+  keine fertigen Assets zum Nachbauen – einige zeigen fremde Markennamen,
+  englischen Text oder Bildfehler (Wasserzeichen-Artefakte) und dürfen so
+  nicht übernommen werden (vgl. Entscheidung „Referenzdateien sind keine
+  eigenständigen Designquellen", 2026-07-02). Zwei Richtungen zeichnen sich
+  ab: dunkle Server-/Rechenzentrums-Fotografie mit eingeblendeten
+  Workflow-Panels (Data Ingestion → Model/Automation → Output) und
+  Dashboard-Screens als Requisite im Bild – sowie Cluster aus dunklen
+  Würfeln/Modulen mit goldener Kantenbeleuchtung und Zahnrädern, eine
+  konkrete Ausführung der Modulwelt aus Abschnitt 14. Beide sind mit der
+  bestehenden Farb-/Materialsprache vereinbar; ein verbindliches Einzelmotiv
+  daraus steht noch aus.
 
 ## 18. Accessibility
 

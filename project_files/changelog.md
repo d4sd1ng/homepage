@@ -12,6 +12,13 @@ Geändert:
   Modulwelt aus Abschnitt 14 als Standardmotiv für Abläufe/Fähigkeiten,
   Warnhinweis zur bekannten Hologramm-Falle bei abstrakt beschriebenen
   Datenverbindungs-Motiven.
+- `styleguide.md`, Abschnitt 17a: Absatz „Richtungsreferenzen" ergänzt –
+  verweist auf die neuen Bilder in `austausch/an-team/vorlagen/nurovelle/`
+  (`1.png`–`16.png`, `reference_posting_*.png`) als Stimmungsreferenz,
+  nicht als fertige Assets; haelt zwei erkennbare Richtungen fest
+  (Server-/Rechenzentrums-Fotografie mit Workflow-Panels und
+  Dashboard-Requisiten; dunkle Wuerfel-/Modul-Cluster mit goldener
+  Kantenbeleuchtung und Zahnraedern als Ausfuehrung von Abschnitt 14).
 - `decision_log.md`: passender Eintrag ergänzt.
 
 Nicht geändert:
