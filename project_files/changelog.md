@@ -1,5 +1,28 @@
 # Changelog
 
+## 2026-09-06 – Bildregeln für Social-/Content-Posts
+
+Status: fertig
+
+Geändert:
+
+- `styleguide.md`: neuer Abschnitt 17a „Bildstil für Social-Media- und
+  Content-Posts" – keine Personen-/Hände-/Schreibtischfotografie in
+  generierten Post-Bildern, Verweis auf die bereits freigegebene
+  Modulwelt aus Abschnitt 14 als Standardmotiv für Abläufe/Fähigkeiten,
+  Warnhinweis zur bekannten Hologramm-Falle bei abstrakt beschriebenen
+  Datenverbindungs-Motiven.
+- `decision_log.md`: passender Eintrag ergänzt.
+
+Nicht geändert:
+
+- Abschnitt 17 (Website-Assets) und alle übrigen Abschnitte bleiben
+  unverändert.
+- Die bestehende VERBOTEN-Liste in Judes eigenem Rollentext (u.a.
+  „Platinen") ist NICHT Teil dieser Änderung und wurde hier bewusst
+  nicht in den Styleguide übernommen, da sie nie freigegeben war und
+  echten Assets widerspricht (siehe `decision_log.md`).
+
 ## 2026-08-29 – Homepage-Abstände, Kartenflächen, FAQ und Analyse-Header
 
 Status: fertig

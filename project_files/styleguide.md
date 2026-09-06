@@ -1,6 +1,6 @@
 # Nurovelle Styleguide
 
-Stand: 2026-08-14  
+Stand: 2026-09-06  
 Status: freigegeben
 
 ## Zweck dieser Datei
@@ -370,6 +370,31 @@ Alle neu erstellten Nurovelle-Bilder:
 - keine Texte, Labels oder Logos, sofern nicht ausdrücklich beauftragt
 
 Bestehende Formen nicht neu interpretieren.
+
+### 17a. Bildstil für Social-Media- und Content-Posts
+
+Ergänzt am 2026-09-06 (siehe `decision_log.md`), weil dieser Abschnitt bisher
+nur Website-Assets abdeckte. Für Beiträge, die einen Ablauf oder eine
+Fähigkeit zeigen sollen, gilt zusätzlich:
+
+- **Keine Menschen, Hände oder Schreibtisch-/Büro-Fotografie.** Realistische
+  Personenaufnahmen sind für generierte Post-Bilder ausdrücklich nicht
+  freigegeben – unabhängig von Blickrichtung oder Bildausschnitt.
+- Für einen Ablauf/eine Fähigkeit ist die in Abschnitt 14 bereits
+  freigegebene technisch-mechanische Bildsprache (Mechanik, Schalter,
+  Relais, Displays, Container, Terminals, Scanner, Speicher, Ventile,
+  Verteiler, Kontrollmodule) die richtige Wahl – nicht nur für
+  Stepdiagramme auf der Website, sondern ebenso für Einzelmotive in Posts.
+- Die in Abschnitt 1 bereits ausgeschlossenen Motive (generische
+  KI-Roboter, Sci-Fi-Konsolen, Gaming-/Comic-Wirkung) gelten hier ebenso.
+- **Bekannte Generator-Falle:** ein Prompt, der eine *abstrakte
+  Datenverbindung zwischen Systemen* als eigenständiges Motiv beschreibt
+  („schwebende Symbole", „Verbindungslinien im Raum", „Datencontainer"),
+  liefert bei den aktuell eingesetzten Bildgeneratoren zuverlässig
+  genau die ausgeschlossene Sci-Fi-/Hologramm-Optik – auch wenn der
+  Prompt sie ausdrücklich verbietet. Ein Verbot im Prompt reicht dort
+  nachweislich nicht; das Motiv sollte stattdessen konkret aus der
+  Modulwelt aus Abschnitt 14 heraus beschrieben werden, nicht abstrakt.
 
 ## 18. Accessibility
 

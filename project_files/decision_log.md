@@ -169,3 +169,24 @@ Zuständigkeiten:
 - Technik → `architecture.md`
 - Assets → `assets.md`
 - Änderungen → `changelog.md`
+
+## 2026-09-06 – Bildregeln für Social-/Content-Posts ergänzt, keine Personen/Hände
+
+Entscheidung: Für generierte Post-Bilder sind realistische Personen-, Hände-
+oder Schreibtischaufnahmen nicht freigegeben. Für Abläufe/Fähigkeiten gilt
+die technisch-mechanische Modulwelt aus Abschnitt 14 (Mechanik, Schalter,
+Relais, Displays, Container, Terminals, Scanner, Speicher, Ventile,
+Verteiler, Kontrollmodule) als Standardmotiv, nicht nur für
+Website-Stepdiagramme.
+
+Hintergrund: mehrere Erzeugungsversuche am 05./06.09.2026 zeigten wiederholt
+verformte Hände bei Nahaufnahmen sowie eine zuverlässig auftretende
+Sci-Fi-/Hologramm-Optik, sobald ein Prompt eine abstrakte Datenverbindung
+zwischen Systemen als Motiv beschrieb – auch bei ausdrücklichem Verbot im
+Prompt selbst. Ausserdem wurde festgestellt, dass die bis dahin in Judes
+Rollentexten verwendete VERBOTEN-Liste (u.a. „Platinen", „Stockfoto-
+Büroklischee") nie Teil dieses Styleguides war, sondern eigenständig
+hinzugedichtet wurde und teils den tatsächlich freigegebenen Assets
+widersprach (z.B. `Banner_all_passt.png` mit Platinen-Makrofoto).
+
+Aktuelle Bildregeln: siehe `styleguide.md`, Abschnitt 17a.
