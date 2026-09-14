@@ -25,8 +25,12 @@
   --color-gold-deep: #926f34;
   --color-gold: #d2ac47;
   --color-gold-light: #f7ef8a;
-  --gradient-gold-border: linear-gradient(135deg, #ae8625, #f7ef8a, #d2ac47, #edc967);
-  --gradient-gold-title: linear-gradient(135deg, #dfbd69, #926f34);
+  /* 03.09.: Namen waren vertauscht - live auf der Homepage traegt der
+     Rahmen den 2-Farben-Verlauf, das goldene Wort in Ueberschriften den
+     4-Farben-Verlauf. Werte hier korrigiert, damit Name = tatsaechliche
+     Verwendung. */
+  --gradient-gold-border: linear-gradient(135deg, #dfbd69, #926f34);
+  --gradient-gold-title: linear-gradient(135deg, #ae8625, #f7ef8a, #d2ac47, #edc967);
   --gradient-gold-cta: linear-gradient(135deg, #f9f295, #e0aa3e, #faf398, #b88a44);
   --gradient-gold-metallic-text: linear-gradient(135deg, #c5a059 0%, #fdf0cd 50%, #d4af37 100%);
 

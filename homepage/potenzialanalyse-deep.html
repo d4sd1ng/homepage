@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Deep-Potenzialanalyse | Nurovelle</title>
-<meta name="description" content="Die kostenpflichtige Deep-Potenzialanalyse untersucht mehrere Geschäftsprozesse vollständig: Prozesserfassung, Datenprüfung, Systemanalyse, Nutzen- und Risikobewertung, Priorisierung, Lösungsarchitektur und Implementierungs-Roadmap."/>
+<title>Deep-Potenzialanalyse – 555 € Einführungspreis | Nurovelle</title>
+<meta name="description" content="Deep-Potenzialanalyse von Nurovelle: Einführungspreis 555 € statt 699 € netto, gültig für Anfragen bis 31.12.2026, zzgl. 19 % MwSt. Vollständige Prozess-, Daten- und Systemanalyse mit Roadmap."/>
 <link rel="preload" href="assets/fonts/inter-var-latin.woff2" as="font" type="font/woff2" crossorigin />
 <link rel="stylesheet" href="assets/fonts/fonts.css" />
 
@@ -131,21 +131,76 @@ img { display: block; max-width: 100%; }
   backdrop-filter: blur(6.4px);
 }
 .header-inner { position: relative; z-index: 1; height: 100%; padding: 0 var(--page-gutter); display: grid; grid-template-columns: auto minmax(0, 1fr) auto; align-items: center; }
-.logo-wordmark { height: calc(var(--logo-h) * 1); width: auto; display: block; align-self: center; }
+.logo-wordmark {
+  display: block;
+  position: relative;
+  align-self: center;
+  height: var(--logo-h);
+  width: auto;
+}
+.logo-wordmark img {
+  display: block;
+  height: 100%;
+  width: auto;
+  filter: var(--gold-glow);
+}
+.logo-wordmark::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: var(--gold-text-alt, var(--gold-1));
+  background-size: 100% 100%;
+  mix-blend-mode: overlay;
+  -webkit-mask-image: url("assets/hero/Nurovelle_schrift_gold.png");
+  mask-image: url("assets/hero/Nurovelle_schrift_gold.png");
+  -webkit-mask-size: contain;
+  mask-size: contain;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  mask-position: center;
+  -webkit-mask-mode: alpha;
+  mask-mode: alpha;
+  pointer-events: none;
+}
 .logo-link { display: inline-flex; align-items: center; gap: 19px; height: var(--logo-box); perspective: 480px; text-decoration: none; flex: 0 0 auto; }
 .logo-spin { 
   display: block;
   position: relative;
   top: -4px; 
   width: var(--logo-w); 
-  height: var(--logo-h); 
-  animation: none; 
-  background: url("assets/hero/nurovelle_logo_gold.png") center / contain no-repeat;
-  filter: drop-shadow(0 0 6.4px #fae3853d); 
-  transform-style: preserve-3d; 
-  transform-origin: center; 
-  will-change: transform; 
+  height: var(--logo-h);
+  flex: 0 0 auto;
   }
+.logo-spin img,
+.logo-spin::after {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+.logo-spin img {
+  object-fit: contain;
+  display: block;
+  filter: var(--gold-glow);
+}
+.logo-spin::after {
+  content: "";
+  background-image: var(--gold-text-alt, var(--gold-1));
+  background-size: 100% 100%;
+  mix-blend-mode: overlay;
+  -webkit-mask-image: url("assets/hero/nurovelle_logo_gold.png");
+  mask-image: url("assets/hero/nurovelle_logo_gold.png");
+  -webkit-mask-size: contain;
+  mask-size: contain;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  mask-position: center;
+  -webkit-mask-mode: alpha;
+  mask-mode: alpha;
+  pointer-events: none;
+}
 @keyframes nv-logo-y-spin {
   from { transform: rotateY(0deg); } 
   to { transform: rotateY(360deg); } }
@@ -342,7 +397,7 @@ a:active .golden-button {
 .btn:hover, .btn:focus-visible { color: var(--nv-gold-text-hover); border-color: var(--nv-gold-border-hover); background-size: 150% 150%; transform: translateY(-1.6px); box-shadow: 0 8px 16px var(--shadow-hover-1), 0 4.8px 4.8px var(--shadow-hover-2), inset 0 -1.6px 4px 0.8px var(--nv-gold-inner-mid), inset 0 -0.8px 0.8px 2.4px var(--nv-gold-highlight); }
 .section { position: relative; padding: 33.6px var(--side); background: #000; }
 .section--landing { padding-block: max(19px, calc(16.66vh - 133.6px)); }
-main > section:nth-child(n+4):before { content: ""; position: absolute; left: 7%; right: 7%; top: 0; height: 1.6px; background: linear-gradient(90deg,transparent 0%,#E0AA3E 14%,#FAF398 50%,#E0AA3E 86%,transparent 100%); box-shadow: 0 0 6.4px rgba(250,227,133,.4); }
+main > section + section:before { content: ""; position: absolute; left: 7%; right: 7%; top: 0; height: 1.6px; background: linear-gradient(90deg,transparent 0%,#E0AA3E 14%,#FAF398 50%,#E0AA3E 86%,transparent 100%); box-shadow: 0 0 6.4px rgba(250,227,133,.4); pointer-events: none; }
 .section-inner { max-width: var(--content-max); margin-left: auto; margin-right: auto; }
 .kicker { font: var(--w-kicker-sektion) var(--t-kicker-sektion)/1.15 "Inter",Arial,sans-serif; letter-spacing: .14em; text-transform: uppercase; color: #55863f; margin-bottom: 8px; }
 h1,h2,h3 { font-family: "Exo 2",Inter,Arial,sans-serif; }
@@ -358,13 +413,13 @@ main h3 { font: var(--w-zwischentitel) var(--t-zwischentitel)/1.2 "Exo 2",Inter,
 .detail-hero .actions { margin-top: 50.4px; }
 .visual-card { position: relative; overflow: hidden; }
 .visual-card>img:first-child { width: 100%; height: auto; max-height: 184px; object-fit: contain; }
-.content-grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 86.4px; margin-top: 0; }
+.content-grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 24px; margin-top: 0; }
 .panel { border: 1px solid transparent; border-radius: 8px; background-image: linear-gradient(#080B09,#080B09), var(--gold-3); background-origin: border-box; background-clip: padding-box, border-box; padding: 10.4px; }
 .panel p,.panel li { font: var(--w-fliesstext) var(--t-fliesstext)/1.7 "Inter",Arial,sans-serif; color: #b9c3bd; }
 .panel p { margin: 0 0 9.6px; }
 .panel p:last-child { margin-bottom: 0; }
 .panel .sub { font: 600 15px/1.45 "Inter",Arial,sans-serif; color: #F5F7F4; margin: 0 0 19px; }
-.card-bullets { list-style: none; margin: 17px 0 0; padding: 0 0 0 80px; display: grid; grid-template-columns: repeat(2,max-content); justify-content: start; gap: 8px 96px; }
+.card-bullets { list-style: none; margin: 17px 0 0; padding: 0; display: grid; grid-template-columns: repeat(2,max-content); justify-content: start; gap: 8px 96px; }
 .card-bullets li { 
   position: relative; 
   padding-left: 16px; 
@@ -378,7 +433,7 @@ main h3 { font: var(--w-zwischentitel) var(--t-zwischentitel)/1.2 "Exo 2",Inter,
 .card-bullets li::before { 
   content: ""; 
   position: absolute; 
-  left: 0; top: calc(50% - 2.8px); 
+  left: 0; top: 0.55em; 
   width: 5.6px; height: 5.6px; 
   border-radius: 1.6px; 
   background: #DFBD69; 
@@ -395,13 +450,13 @@ main h3 { font: var(--w-zwischentitel) var(--t-zwischentitel)/1.2 "Exo 2",Inter,
 .text-cols { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 14.4px 38.4px; margin-top: 7.2px; }
 .text-cols p { font: var(--w-fliesstext) var(--t-fliesstext)/1.7 "Inter",Arial,sans-serif; color: #b9c3bd; }
 .text-cols--1 { grid-template-columns: minmax(0,1fr); max-width: 848px; gap: 11px; }
-.label-list { column-count: 2; column-gap: 38.4px; list-style: none; margin: 77.6px 0 0; padding: 0; }
+.label-list { column-count: 2; column-gap: 38.4px; list-style: none; margin: 24px 0 0; padding: 0; }
 .label-list li { position: relative; break-inside: avoid; margin-bottom: 21px; padding-left: 16px; font: var(--w-fliesstext) var(--t-fliesstext)/1.7 "Inter",Arial,sans-serif; color: #b9c3bd; }
 .label-list li::before { content: ""; position: absolute; left: 0; top: 6.4px; width: 5.6px; height: 5.6px; border-radius: 1.6px; background: #DFBD69; }
 .label-list strong { display: block; margin-bottom: 3.2px; font: var(--w-bulletlabel) var(--t-bulletlabel)/1.35 "Inter",Arial,sans-serif; background: var(--gold-2); background-clip: text; -webkit-background-clip: text; color: transparent; -webkit-text-fill-color: transparent; }
 .text { max-width: 88ch; font: var(--w-fliesstext) var(--t-fliesstext)/1.7 "Inter",Arial,sans-serif; color: #b9c3bd; }
 .text--after { margin-top: 21px; }
-.num-list { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 21px 38.4px; list-style: none; counter-reset: dpnum; margin: 77.6px 0 0; padding: 0; }
+.num-list { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 16px 38.4px; list-style: none; counter-reset: dpnum; margin: 24px 0 0; padding: 0; }
 .num-list li { counter-increment: dpnum; position: relative; padding-left: 49.6px; font: var(--w-fliesstext) var(--t-fliesstext)/1.7 "Inter",Arial,sans-serif; color: #b9c3bd; }
 .num-list li::before { content: counter(dpnum,decimal-leading-zero); position: absolute; left: 0; top: 1.6px; display: grid; place-items: center; width: 24px; height: 24px; border-radius: 6.4px; border: 1px solid transparent; background-image: linear-gradient(#080B09,#080B09), var(--gold-3); background-origin: border-box; background-clip: padding-box, border-box; color: #d4af37; font: 600 9.6px/1 "Exo 2",Inter,Arial,sans-serif; }
 .num-list b { display: block; margin-bottom: 3.2px; font: var(--w-bulletlabel) var(--t-bulletlabel)/1.35 "Inter",Arial,sans-serif; background: var(--gold-2); background-clip: text; -webkit-background-clip: text; color: transparent; -webkit-text-fill-color: transparent; }
@@ -412,7 +467,7 @@ main h3 { font: var(--w-zwischentitel) var(--t-zwischentitel)/1.2 "Exo 2",Inter,
 .module-img { flex: 0 0 auto; width: 72px; height: 72px; object-fit: contain; }
 .pair-chips-row { margin: 0 0 25.6px; }
 #moeglich .panel { margin-top: 33px; }
-.pair-grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); grid-auto-rows: 1fr; gap: calc(25vh - 171px) 45px; }
+.pair-grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); grid-auto-rows: 1fr; gap: 16px 45px; }
 .pair { display: grid; grid-template-columns: minmax(0,1fr) 24px minmax(0,1fr); align-items: stretch; gap: 9.6px; }
 #moeglich .panel { padding: 30.4px; background-image: linear-gradient(#112A20,#112A20), var(--gold-3); }
 #moeglich .text--after { margin-top: 27px; }
@@ -420,7 +475,7 @@ main h3 { font: var(--w-zwischentitel) var(--t-zwischentitel)/1.2 "Exo 2",Inter,
 .chip-icon { flex: 0 0 auto; box-sizing: border-box; width: 38.4px; height: 38.4px; margin-right: 11px; overflow: hidden; border-radius: 6.4px; border: 1px solid transparent; background-image: linear-gradient(#080B09,#080B09), var(--gold-3); background-origin: border-box; background-clip: padding-box, border-box; }
 .chip-icon img { display: block; width: 100%; height: 100%; object-fit: cover; scale: 1.12; }
 .pair-chip--gold { background-image: linear-gradient(180deg,#ffd7a3 0%,#f0a05a 24%,#d89828 58%,#7a3518 100%), var(--gold-3); border-color: rgba(255,215,163,.78); color: #112A20; box-shadow: inset 0 0 0 0.8px rgba(255,244,199,.20); }
-.pair-arrow { align-self: center; display: flex; align-items: center; justify-content: center; color: #d4af37; }
+.pair-arrow { align-self: center; justify-self: center; display: flex; align-items: center; justify-content: center; color: #d4af37; z-index: 1; pointer-events: none; }
 .pair-arrow svg { width: 25.6px; height: 25.6px; }
 /* ---------- Punktlisten & Gruppen ---------- */
 .dot-list { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 8px 38.4px; list-style: none; margin: 11px 0 0; padding: 0; }
@@ -452,7 +507,7 @@ main h3 { font: var(--w-zwischentitel) var(--t-zwischentitel)/1.2 "Exo 2",Inter,
 .faq-item summary::-webkit-details-marker { display: none; }
 .faq-item summary > span { display: flex; width: 100%; box-sizing: border-box; align-items: center; justify-content: space-between; gap: 11px; height: 40px; padding: 0 14.4px; border-radius: 0.3em; border: 0.8px solid var(--nv-gold-border); background-image: var(--nv-gold-gradient); background-position: center; background-size: 100% 100%; box-shadow: 0 2.4px 4.8px var(--shadow-soft), 0 2.4px 4.8px var(--shadow-soft-2), inset 0 -1.6px 4px 0.8px var(--nv-gold-inner-dark), inset 0 -0.8px 0.8px 2.4px var(--nv-gold-highlight); color: var(--nv-gold-text-dark); text-align: left; white-space: normal; font-family: "Inter",Arial,sans-serif; font-size: var(--t-cta); font-weight: 700; line-height: 1.2; letter-spacing: 0.045em; text-shadow: 0 1.6px 1.6px var(--nv-gold-highlight); text-transform: uppercase; transition: all 0.2s ease-in-out; }
 .faq-item summary:hover > span { color: var(--nv-gold-text-hover); border-color: var(--nv-gold-border-hover); background-size: 150% 150%; transform: translateY(-1.6px); }
-.faq-item summary > span::after { content: "+"; flex: 0 0 auto; font-size: 14.4px; }
+.faq-item summary > span::after { content: "+"; flex: 0 0 auto; align-self: center; font-size: 14.4px; line-height: 1; }
 .faq-item[open] summary > span::after { content: "\2212"; }
 .faq-item p { margin: 13px 3.2px 0; font: var(--w-fliesstext) var(--t-fliesstext)/1.7 "Inter",Arial,sans-serif; color: #b9c3bd; }
 @media (max-width: 900px) { .faq-grid { grid-template-columns: 1fr; } }
@@ -611,22 +666,77 @@ h1, main > section > .section-inner > h2 {
 <meta property="og:site_name" content="Nurovelle" />
 <meta property="og:locale" content="de_DE" />
 <meta property="og:url" content="https://nurovelle.de/homepage/potenzialanalyse-deep.html" />
-<meta property="og:title" content="Deep-Potenzialanalyse | Nurovelle" />
-<meta property="og:description" content="Die kostenpflichtige Deep-Potenzialanalyse untersucht mehrere Geschäftsprozesse vollständig: Prozesserfassung, Datenprüfung, Systemanalyse, Nutzen- und Risikobewertung, Priorisierung, Lösungsarchitektur und Implementierungs-Roadmap." />
+<meta property="og:title" content="Deep-Potenzialanalyse – 555 € Einführungspreis | Nurovelle" />
+<meta property="og:description" content="Einführungspreis 555 € statt 699 € netto bis 31.12.2026, zzgl. 19 % MwSt. Vollständige Untersuchung mehrerer Geschäftsprozesse mit Roadmap." />
 <meta property="og:image" content="https://nurovelle.de/homepage/assets/hero/round.png" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="theme-color" content="#050505" />
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Worin unterscheidet sich die Deep-Potenzialanalyse von der kostenlosen Analyse?", "acceptedAnswer": {"@type": "Answer", "text": "Die kostenlose Analyse ist eine Ersteinschätzung auf Basis Ihrer Angaben. Die Deep-Potenzialanalyse untersucht mehrere Geschäftsprozesse vollständig und liefert zusätzlich einen detaillierten ROI-Überschlag je Prozess, eine technische Lösungsarchitektur, die Schnittstellenplanung, eine ausgearbeitete Implementierungs-Roadmap, einen Workshop mit Ihrem Team und einen ausführlichen Implementierungsleitfaden."}}, {"@type": "Question", "name": "Was kostet die Deep-Potenzialanalyse?", "acceptedAnswer": {"@type": "Answer", "text": "Der Aufwand hängt davon ab, wie viele Prozesse und Systeme untersucht werden. Umfang und Preis werden vorab abgestimmt und schriftlich festgehalten, bevor die Analyse beginnt."}}, {"@type": "Question", "name": "Muss ich vorher die kostenlose Analyse durchführen?", "acceptedAnswer": {"@type": "Answer", "text": "Nein, aber es ist der übliche Weg. Die kostenlose Ersteinschätzung zeigt, ob eine vertiefte Untersuchung überhaupt sinnvoll ist und welche Bereiche sie umfassen sollte."}}, {"@type": "Question", "name": "Welche Bereiche werden untersucht?", "acceptedAnswer": {"@type": "Answer", "text": "Prozesse, Aufgaben, Dokumente, Datenquellen und bestehende Systeme. Bewertet werden KI-Reife, Prozesse, Datenreife, Infrastruktur, Dokumentation, Zusammenarbeit, Skalierung und Risiko."}}, {"@type": "Question", "name": "Wie werden Anwendungsfälle priorisiert?", "acceptedAnswer": {"@type": "Answer", "text": "Die identifizierten Anwendungsfälle werden nach Nutzen, Aufwand, Risiko und Umsetzungsreife geordnet. Grundlage sind die erfassten Prozesse, die geprüfte Datenlage und die technischen Abhängigkeiten."}}, {"@type": "Question", "name": "Ist ein Workshop mit unserem Team Bestandteil?", "acceptedAnswer": {"@type": "Answer", "text": "Ja. Die erfassten Ergebnisse werden gemeinsam mit den beteiligten Personen geprüft und ergänzt, bevor sie in den Report einfließen."}}, {"@type": "Question", "name": "Was erhalte ich als Ergebnis?", "acceptedAnswer": {"@type": "Answer", "text": "Einen ausgearbeiteten Report als HTML und PDF mit Executive Summary, Score-Übersicht, Kategorieanalyse, Risikobewertung, Handlungsempfehlungen und Priorisierung sowie einen ausführlichen Implementierungsleitfaden."}}, {"@type": "Question", "name": "Führt die Analyse automatisch zu einem Projekt?", "acceptedAnswer": {"@type": "Answer", "text": "Nein. Das Ergebnis kann auch sein, dass zunächst Prozesse, Daten oder organisatorische Voraussetzungen verbessert werden sollten. Die Analyse ist eine Entscheidungsgrundlage, keine Vorstufe zu einem festen Auftrag."}}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Worin unterscheidet sich die Deep-Potenzialanalyse von der kostenlosen Analyse?", "acceptedAnswer": {"@type": "Answer", "text": "Die kostenlose Analyse ist eine Ersteinschätzung auf Basis Ihrer Angaben. Die Deep-Potenzialanalyse untersucht mehrere Geschäftsprozesse vollständig und liefert zusätzlich einen detaillierten ROI-Überschlag je Prozess, eine technische Lösungsarchitektur, die Schnittstellenplanung, eine ausgearbeitete Implementierungs-Roadmap, einen Workshop mit Ihrem Team und einen ausführlichen Implementierungsleitfaden."}}, {"@type": "Question", "name": "Was kostet die Deep-Potenzialanalyse?", "acceptedAnswer": {"@type": "Answer", "text": "Listenpreis 699 €, Einführungspreis 555 €. Der Einführungspreis gilt für Anfragen bis 31.12.2026. Alle Beträge netto zzgl. 19 % MwSt. Welche Prozesse, Standorte und Systeme die Analyse umfasst, wird vorab schriftlich festgehalten."}}, {"@type": "Question", "name": "Muss ich vorher die kostenlose Analyse durchführen?", "acceptedAnswer": {"@type": "Answer", "text": "Nein, aber es ist der übliche Weg. Die kostenlose Ersteinschätzung zeigt, ob eine vertiefte Untersuchung überhaupt sinnvoll ist und welche Bereiche sie umfassen sollte."}}, {"@type": "Question", "name": "Welche Bereiche werden untersucht?", "acceptedAnswer": {"@type": "Answer", "text": "Prozesse, Aufgaben, Dokumente, Datenquellen und bestehende Systeme. Bewertet werden KI-Reife, Prozesse, Datenreife, Infrastruktur, Dokumentation, Zusammenarbeit, Skalierung und Risiko."}}, {"@type": "Question", "name": "Wie werden Anwendungsfälle priorisiert?", "acceptedAnswer": {"@type": "Answer", "text": "Die identifizierten Anwendungsfälle werden nach Nutzen, Aufwand, Risiko und Umsetzungsreife geordnet. Grundlage sind die erfassten Prozesse, die geprüfte Datenlage und die technischen Abhängigkeiten."}}, {"@type": "Question", "name": "Ist ein Workshop mit unserem Team Bestandteil?", "acceptedAnswer": {"@type": "Answer", "text": "Ja. Die erfassten Ergebnisse werden gemeinsam mit den beteiligten Personen geprüft und ergänzt, bevor sie in den Report einfließen."}}, {"@type": "Question", "name": "Was erhalte ich als Ergebnis?", "acceptedAnswer": {"@type": "Answer", "text": "Einen ausgearbeiteten Report als HTML und PDF mit Executive Summary, Score-Übersicht, Kategorieanalyse, Risikobewertung, Handlungsempfehlungen und Priorisierung sowie einen ausführlichen Implementierungsleitfaden."}}, {"@type": "Question", "name": "Führt die Analyse automatisch zu einem Projekt?", "acceptedAnswer": {"@type": "Answer", "text": "Nein. Das Ergebnis kann auch sein, dass zunächst Prozesse, Daten oder organisatorische Voraussetzungen verbessert werden sollten. Die Analyse ist eine Entscheidungsgrundlage, keine Vorstufe zu einem festen Auftrag."}}]}</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Deep-Potenzialanalyse",
+  "serviceType": "KI-Potenzialanalyse",
+  "description": "Kostenpflichtige Untersuchung mehrerer Geschäftsprozesse: Erfassung, ROI je Prozess, Lösungsarchitektur, Schnittstellenplanung, Implementierungs-Roadmap und Workshop.",
+  "url": "https://nurovelle.de/homepage/potenzialanalyse-deep.html",
+  "provider": {
+    "@type": "Organization",
+    "name": "Nurovelle",
+    "url": "https://nurovelle.de"
+  },
+  "areaServed": "DE",
+  "offers": {
+    "@type": "AggregateOffer",
+    "priceCurrency": "EUR",
+    "lowPrice": "555",
+    "highPrice": "699",
+    "offerCount": 2,
+    "url": "https://nurovelle.de/homepage/potenzialanalyse-deep.html#preis",
+    "offers": [
+      {
+        "@type": "Offer",
+        "name": "Einführungspreis Deep-Potenzialanalyse",
+        "price": "555.00",
+        "priceCurrency": "EUR",
+        "priceValidUntil": "2026-12-31",
+        "availability": "https://schema.org/InStock",
+        "url": "https://nurovelle.de/homepage/potenzialanalyse-deep.html#preis",
+        "priceSpecification": {
+          "@type": "UnitPriceSpecification",
+          "price": "555.00",
+          "priceCurrency": "EUR",
+          "valueAddedTaxIncluded": false
+        }
+      },
+      {
+        "@type": "Offer",
+        "name": "Listenpreis Deep-Potenzialanalyse",
+        "price": "699.00",
+        "priceCurrency": "EUR",
+        "availability": "https://schema.org/InStock",
+        "url": "https://nurovelle.de/homepage/potenzialanalyse-deep.html#preis",
+        "priceSpecification": {
+          "@type": "UnitPriceSpecification",
+          "price": "699.00",
+          "priceCurrency": "EUR",
+          "valueAddedTaxIncluded": false
+        }
+      }
+    ]
+  }
+}
+</script>
 </head>
 <body>
 <a class="skip-link" href="#inhalt">Zum Inhalt springen</a>
 <header class="site-header">
   <div class="header-inner">
     <a class="logo-link" href="index.html" aria-label="Nurovelle Startseite">
-      <span class="logo-spin" aria-hidden="true"></span>
+      <span class="logo-spin" aria-hidden="true"><img src="assets/hero/nurovelle_logo_gold.png" alt="" width="58" height="46"></span>
 
             <span class="logo-text">
-              <img class="logo-wordmark" src="assets/hero/Nurovelle_schrift_gold.png" alt="Nurovelle — Building Intelligent Systems" width="1098" height="250" />
+              <span class="logo-wordmark"><img src="assets/hero/Nurovelle_schrift_gold.png" alt="Nurovelle" width="1098" height="250"></span>
               <span class="logo-tagline">Building Intelligent Systems</span>
             </span>
           </a>
@@ -760,9 +870,9 @@ h1, main > section > .section-inner > h2 {
 <!-- ===== preis ===== -->
 <section class="section" id="preis"><div class="section-inner">
 <div class="kicker">Preis</div>
-<h2>Preis</h2>
-<p class="sub">699 € · Einführungspreis 555 €</p>
-<p class="text">Einführungspreis, gültig für Anfragen bis 31.12.2026. Netto zzgl. 19 % MwSt. Welche Prozesse, Standorte und Systeme die Analyse umfasst, wird vorab gemeinsam festgelegt und schriftlich festgehalten, bevor die Analyse beginnt. Wenn noch nicht feststeht, ob eine vertiefte Untersuchung sinnvoll ist, beginnen Sie mit der kostenlosen Ersteinschätzung.</p>
+<h2>Was kostet die Deep-Potenzialanalyse?</h2>
+<p class="sub">Einführungspreis 555&nbsp;€ netto · Listenpreis 699&nbsp;€ netto</p>
+<p class="text">Der Einführungspreis von 555&nbsp;€ gilt für Anfragen bis zum 31. Dezember 2026. Danach gilt der Listenpreis von 699&nbsp;€. Beide Beträge sind netto zuzüglich 19&nbsp;% MwSt. Welche Prozesse, Standorte und Systeme die Analyse umfasst, wird vorab gemeinsam festgelegt und schriftlich festgehalten, bevor die Analyse beginnt. Wenn noch nicht feststeht, ob eine vertiefte Untersuchung sinnvoll ist, beginnen Sie mit der kostenlosen Ersteinschätzung.</p>
 <div class="actions"><a class="btn" href="https://calendly.com/d4sd1ng/30min" target="_blank" rel="noopener">Erstgespräch vereinbaren</a><a class="btn" href="analyse.html#analyse-formular">Kostenlose Ersteinschätzung starten</a></div>
 </div></section>
 <!-- ===== abschluss ===== -->
@@ -778,7 +888,7 @@ h1, main > section > .section-inner > h2 {
 <h2>Häufige Fragen</h2>
 <div class="faq-grid">
 <details class="faq-item"><summary><span>Worin unterscheidet sich die Deep-Potenzialanalyse von der kostenlosen Analyse?</span></summary><p>Die kostenlose Analyse ist eine Ersteinschätzung auf Basis Ihrer Angaben. Die Deep-Potenzialanalyse untersucht mehrere Geschäftsprozesse vollständig und liefert zusätzlich einen detaillierten ROI-Überschlag je Prozess, eine technische Lösungsarchitektur, die Schnittstellenplanung, eine ausgearbeitete Implementierungs-Roadmap, einen Workshop mit Ihrem Team und einen ausführlichen Implementierungsleitfaden.</p></details>
-<details class="faq-item"><summary><span>Was kostet die Deep-Potenzialanalyse?</span></summary><p>Der Aufwand hängt davon ab, wie viele Prozesse und Systeme untersucht werden. Umfang und Preis werden vorab abgestimmt und schriftlich festgehalten, bevor die Analyse beginnt.</p></details>
+<details class="faq-item"><summary><span>Was kostet die Deep-Potenzialanalyse?</span></summary><p>Listenpreis 699 €, Einführungspreis 555 €. Der Einführungspreis gilt für Anfragen bis 31.12.2026. Alle Beträge netto zzgl. 19 % MwSt. Welche Prozesse, Standorte und Systeme die Analyse umfasst, wird vorab schriftlich festgehalten.</p></details>
 <details class="faq-item"><summary><span>Muss ich vorher die kostenlose Analyse durchführen?</span></summary><p>Nein, aber es ist der übliche Weg. Die kostenlose Ersteinschätzung zeigt, ob eine vertiefte Untersuchung überhaupt sinnvoll ist und welche Bereiche sie umfassen sollte.</p></details>
 <details class="faq-item"><summary><span>Welche Bereiche werden untersucht?</span></summary><p>Prozesse, Aufgaben, Dokumente, Datenquellen und bestehende Systeme. Bewertet werden KI-Reife, Prozesse, Datenreife, Infrastruktur, Dokumentation, Zusammenarbeit, Skalierung und Risiko.</p></details>
 <details class="faq-item"><summary><span>Wie werden Anwendungsfälle priorisiert?</span></summary><p>Die identifizierten Anwendungsfälle werden nach Nutzen, Aufwand, Risiko und Umsetzungsreife geordnet. Grundlage sind die erfassten Prozesse, die geprüfte Datenlage und die technischen Abhängigkeiten.</p></details>
@@ -840,7 +950,7 @@ h1, main > section > .section-inner > h2 {
           <h3 class="footer-col__title">Kontakt</h3>
           <p>Marburg, Deutschland</p>
           <p><a href="tel:+4964218097347">06421 8097347</a></p>
-          <p><a href="mailto:mail@nurovelle.de">mail@nurovelle.de</a></p>
+          <p><a class="nv-mail" href="#" data-nv-mail="bWFpbEBudXJvdmVsbGUuZGU=">E-Mail schreiben</a></p>
           <div class="footer-social" aria-label="Social Media">
             <a href="index.html#" aria-label="LinkedIn">
               <svg viewBox="0 0 24 24" aria-hidden="true">
@@ -979,6 +1089,21 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 });
+</script>
+
+<script>
+(function(){
+  document.querySelectorAll("a.nv-mail[data-nv-mail]").forEach(function(a){
+    try {
+      var addr = atob(a.getAttribute("data-nv-mail"));
+      a.addEventListener("click", function(e){
+        e.preventDefault();
+        window.location.href = "mailto:" + addr;
+      });
+      a.setAttribute("aria-label", addr);
+    } catch (err) {}
+  });
+})();
 </script>
 </body>
 </html>

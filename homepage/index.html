@@ -3,9 +3,10 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Nurovelle | KI-Systeme für den Mittelstand</title>
+<title>KI-Systeme für den Mittelstand – Nurovelle</title>
 <link rel="preload" href="assets/fonts/inter-var-latin.woff2" as="font" type="font/woff2" crossorigin />
 <link rel="stylesheet" href="assets/fonts/fonts.css" />
+<link rel="stylesheet" href="nurovelle-tokens.css" />
 <style>
 
 /* ==========================================================================
@@ -60,7 +61,10 @@
 
   --nv-section-body-size: 14.4px;
   --nv-section-body-line: 1.85;
-  --nv-hero-subtitle-body-gap: 80px; /* real value 32px -> 48px per explicit instruction, then 80px per explicit instruction */
+  --nv-hero-kicker-title-gap: 24px;
+  --nv-hero-title-subtitle-gap: 72px;
+  --nv-hero-subtitle-body-gap: 64px;
+  --nv-hero-body-cta-gap: 64px;
 
   /* Hero title — real file has NO font-size/gradient rule at all for
      .hero h1 (a real gap). Custom values below, set directly per your
@@ -259,10 +263,77 @@ a:active .golden-button {
 .site-header::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 0.8px; z-index: 0; background: linear-gradient(90deg, #00000000, #fae385d1, #00000000); }
 .header-inner { position: relative; z-index: 1; height: 100%; padding: 0 var(--page-gutter); display: grid; grid-template-columns: auto minmax(0, 1fr) auto; align-items: center; }
 .logo-link { display: inline-flex; align-items: center; gap: 9.6px; height: var(--logo-box); perspective: 480px; text-decoration: none; flex: 0 0 auto; }
-.logo-mark-wrap { position: relative; display: block; align-self: center; filter: drop-shadow(0 0 6.4px #fae3853d); }
-.logo-mark { display: block; height: var(--logo-h); width: auto; }
-.logo-mark--tag { position: absolute; inset: 0; clip-path: inset(67.5% 0 0 0); transform: translateX(4.3%); fill: var(--color-text-light); }
-.logo-mark--word { clip-path: inset(0 0 32.5% 0); }
+.logo-wordmark {
+  display: block;
+  position: relative;
+  align-self: center;
+  height: var(--logo-h);
+  width: auto;
+}
+.logo-wordmark img {
+  display: block;
+  height: 100%;
+  width: auto;
+  filter: var(--gold-glow);
+}
+.logo-wordmark::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: var(--gold-text-alt, var(--gold-1));
+  background-size: 100% 100%;
+  mix-blend-mode: overlay;
+  -webkit-mask-image: url("assets/hero/Nurovelle_schrift_gold.png");
+  mask-image: url("assets/hero/Nurovelle_schrift_gold.png");
+  -webkit-mask-size: contain;
+  mask-size: contain;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  mask-position: center;
+  -webkit-mask-mode: alpha;
+  mask-mode: alpha;
+  pointer-events: none;
+}
+.logo-text { display: flex; flex-direction: column; align-items: flex-end; justify-content: center; gap: 2.4px; }
+.logo-tagline { display: block; color: var(--color-text-light); font: 700 7.2px/1.1 "Inter", Arial, sans-serif; letter-spacing: 0.16em; text-transform: uppercase; white-space: nowrap; }
+.logo-spin {
+  display: block;
+  position: relative;
+  top: -4px;
+  width: var(--logo-w);
+  height: var(--logo-h);
+  flex: 0 0 auto;
+}
+.logo-spin img,
+.logo-spin::after {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+.logo-spin img {
+  object-fit: contain;
+  display: block;
+  filter: var(--gold-glow);
+}
+.logo-spin::after {
+  content: "";
+  background-image: var(--gold-text-alt, var(--gold-1));
+  background-size: 100% 100%;
+  mix-blend-mode: overlay;
+  -webkit-mask-image: url("assets/hero/nurovelle_logo_gold.png");
+  mask-image: url("assets/hero/nurovelle_logo_gold.png");
+  -webkit-mask-size: contain;
+  mask-size: contain;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  mask-position: center;
+  -webkit-mask-mode: alpha;
+  mask-mode: alpha;
+  pointer-events: none;
+}
 .nv-breadcrumb__group { position: relative; }
 .nv-breadcrumb__group + .nv-breadcrumb__group { margin-left: -6.4px; }
 .nv-breadcrumb__group:first-child .nv-breadcrumb__trigger { padding-left: 11.2px; }
@@ -299,18 +370,18 @@ a:active .golden-button {
 .hero-cube { height: 1280px; }
 .hero-cube { position: absolute; right: 54px; top: 50%; transform: translateY(-50%); width: clamp(816px, 81.6vw, 1360px); z-index: 1; pointer-events: none; filter: brightness(1) contrast(0.98) saturate(1.4); opacity: 1; }
 .hero-content { position: relative; z-index: 4; width: 100%; max-width: 960px; margin: 0 auto 0 0; /* left-aligned to the shared --side gutter (~96px), like all sections */
-  padding: 32px 0; }
-.hero-kicker { margin: 0 0 var(--nv-kicker-title-gap); color: var(--color-text-light); font-family: "Inter", Arial, sans-serif; font-size: var(--t-kicker-sektion); font-weight: var(--w-kicker-sektion); line-height: var(--nv-kicker-line-height); letter-spacing: var(--nv-kicker-letter-spacing); text-transform: uppercase; }
-.hero h1 { margin-top: 0; margin-bottom: 32px; /* was 19.2px, loosened per explicit instruction */
+  padding: 32px 0; display: flex; flex-direction: column; align-items: flex-start; }
+.hero-kicker { margin: 0; padding: 0 0 24px; color: var(--nv-kicker-color); font-family: "Inter", Arial, sans-serif; font-size: var(--t-kicker-sektion); font-weight: var(--w-kicker-sektion); line-height: var(--nv-kicker-line-height); letter-spacing: var(--nv-kicker-letter-spacing); text-transform: uppercase; }
+.hero h1 { margin: 0; padding: 0 0 72px;
   max-width: none; font-family: "Exo 2", "Inter", Arial, sans-serif; font-size: var(--t-sektionstitel); font-weight: var(--w-sektionstitel); line-height: var(--nv-line-height-heading); background: var(--nv-gold-title-gradient); background-clip: text; -webkit-background-clip: text; color: transparent; -webkit-text-fill-color: transparent; }
 .hero-title-l1 { white-space: nowrap; }@media (max-width: 768px) {
   .hero-title-l1 { white-space: normal; }
 }
-.hero h2 { font-family: "Inter", Arial, sans-serif; font-size: var(--t-subtitle); line-height: 1.22; font-weight: var(--w-subtitle); color: var(--color-text-sub); max-width: 720px; margin-bottom: var(--space-7); }
+.hero h2 { font-family: "Inter", Arial, sans-serif; font-size: var(--t-subtitle); line-height: 1.22; font-weight: var(--w-subtitle); color: var(--color-text-sub); max-width: 720px; margin: 0; padding: 0 0 64px; }
 .hero-subtitle-l1 { white-space: nowrap; }@media (max-width: 768px) {
   .hero-subtitle-l1 { white-space: normal; }
 }
-.hero-text { font-family: "Inter", Arial, sans-serif; font-size: var(--t-fliesstext); font-weight: var(--w-fliesstext); line-height: var(--nv-section-body-line); color: var(--color-text-muted); max-width: 528px; margin-top: 0; margin-bottom: var(--space-6); }
+.hero-text { font-family: "Inter", Arial, sans-serif; font-size: var(--t-fliesstext); font-weight: var(--w-fliesstext); line-height: var(--nv-section-body-line); color: var(--color-text-muted); max-width: 528px; margin: 0; padding: 0 0 64px; }
 .hero-actions { display: flex; gap: 14.4px; flex-wrap: wrap; align-items: center; }
 .hero-cta .golden-button { min-width: 256px; font-size: 12.8px; }@media (max-width: 640px) {
   .hero-cta .golden-button {
@@ -631,11 +702,10 @@ a:active .golden-button {
   letter-spacing: 0.01em;  white-space: nowrap; width: max-content; }
 .nv-s7__subtitle { max-width: 60ch; margin: 0 0 92.8px; color: var(--color-text-sub); font: var(--w-subtitle) var(--t-subtitle)/1.22 "Inter",Arial,sans-serif; }
 .nv-s7__intro { max-width: 608px; margin: 0; color: var(--color-text-muted); font-family: "Inter", Arial, sans-serif; font-size: var(--t-fliesstext); line-height: 1.85; font-weight: var(--w-fliesstext); }
-.nv-s7__cards { display: grid; grid-template-columns: repeat(3, 720px); gap: 240px; width: max-content; margin: 0 auto; zoom: 0.75; }
+.nv-s7__cards { display: grid; grid-template-columns: repeat(3, 720px); column-gap: 240px; row-gap: 40px; width: max-content; margin: 0 auto; zoom: 0.75; overflow: visible; }
 .nv-s7-card[data-href] { cursor: pointer; }
-.nv-s7-card { --card-index: 0; position: relative; width: 720px; height: 409.6px; min-width: 0; overflow: hidden; isolation: isolate; border: 0.8px solid transparent; border-radius: 5.6px; background: transparent; box-shadow: none; opacity: 0; transform: translateY(17.6px); transition: opacity 0.55s ease, transform 0.55s ease, border-color 0.28s ease, box-shadow 0.28s ease; }
-.nv-s7-card::before { content: ""; position: absolute; inset: 0; z-index: 0; border-radius: inherit; background: var(--color-emerald); opacity: 0; transition: opacity 0.38s ease; pointer-events: none; }
-.nv-s7-card:hover::before, .nv-s7-card:focus-visible::before, .nv-s7-card.is-active::before, .nv-s7-card.is-visible::before { opacity: 1; }
+.nv-s7-card { --card-index: 0; position: relative; width: 720px; height: 136px; min-width: 0; overflow: hidden; isolation: isolate; border: 0.8px solid rgba(247, 239, 138, 0.55); border-radius: 5.6px; background: #080b09; box-shadow: none; opacity: 0; transform: none; transition: opacity 0.55s ease, height 0.42s ease, border-color 0.28s ease, box-shadow 0.28s ease; }
+.nv-s7-card::before { content: none; }
 .nv-s7-card:nth-child(1) { --card-index: 0; }
 .nv-s7-card:nth-child(2) { --card-index: 1; }
 .nv-s7-card:nth-child(3) { --card-index: 2; }
@@ -648,14 +718,14 @@ a:active .golden-button {
 .nv-s7-card:nth-child(10) { --card-index: 9; }
 .nv-s7-card:nth-child(11) { --card-index: 10; }
 .nv-s7-card:nth-child(10), .nv-s7-card:nth-child(11) { margin-left: 480px; }
-.nv-s7-card.is-visible { opacity: 1; transform: none; border-color: #f7ef8a; transition-delay: calc(var(--card-index) * 45ms); }
-.nv-s7-card:hover, .nv-s7-card:focus-visible, .nv-s7-card.is-active { z-index: 3; border-color: #f7ef8a; outline: none; }
+.nv-s7-card.is-visible { opacity: 1; transition-delay: calc(var(--card-index) * 45ms); }
+.nv-s7-card:hover, .nv-s7-card:focus-visible, .nv-s7-card.is-active { z-index: 3; height: 409.6px; border-color: #f7ef8a; outline: none; }
 .nv-s7-card__visual { position: absolute; inset: 0 0 0 auto; z-index: 0; width: 73%; height: 100%; object-fit: cover; object-position: center; opacity: 0; filter: brightness(0.62) contrast(1.08) saturate(0.72); transform: none; transition: opacity 0.38s ease 0.08s, filter 0.38s ease; }
 .nv-s7-card::after { content: ""; position: absolute; inset: 0; z-index: 1; background: linear-gradient(90deg, #050706e6 0%, #050706cc 30%, #05070666 55%, #05070626 100%); opacity: 0; pointer-events: none; transition: opacity 0.35s ease; }
 .nv-s7-card:hover .nv-s7-card__visual, .nv-s7-card:focus-visible .nv-s7-card__visual, .nv-s7-card.is-active .nv-s7-card__visual { opacity: 1; }
 .nv-s7-card:hover::after, .nv-s7-card:focus-visible::after, .nv-s7-card.is-active::after { opacity: 1; }
-.nv-s7-card__left { position: absolute; z-index: 3; left: 0; top: 0; bottom: 0; width: 32%; display: flex; flex-direction: column; justify-content: center; min-width: 0; padding: 31.2px 12.8px; opacity: 0; transform: translateX(-6.4px); transition: opacity 0.42s ease, transform 0.42s ease; }
-.nv-s7-card:hover .nv-s7-card__left, .nv-s7-card:focus-visible .nv-s7-card__left, .nv-s7-card.is-active .nv-s7-card__left { opacity: 1; transform: none; }
+.nv-s7-card__left { position: absolute; z-index: 3; left: 0; top: 0; bottom: 0; width: 32%; display: flex; flex-direction: column; justify-content: center; min-width: 0; padding: 31.2px 12.8px; opacity: 0; transform: none; transition: opacity 0.42s ease; }
+.nv-s7-card:hover .nv-s7-card__left, .nv-s7-card:focus-visible .nv-s7-card__left, .nv-s7-card.is-active .nv-s7-card__left { opacity: 1; }
 .nv-s7-card__iconbox { display: grid; place-items: center; align-self: center; width: 98.4px; height: 98.4px; margin: 0 auto 22.4px; }
 .nv-s7-card__iconbox img { width: 98.4px; height: 98.4px; object-fit: contain; }
 .nv-s7-card__left-rule { height: 0.8px; margin: 16.8px 0 11.2px; background: linear-gradient(90deg, transparent, #d4af37 18%, #d4af37 82%, transparent); }
@@ -676,10 +746,10 @@ a:active .golden-button {
 .nv-s7-card__heading h3 { margin: 0; color: transparent; background: var(--gold-2); background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent; font: 700 29.6px / 1.06 "Exo 2", Inter, Arial, sans-serif; letter-spacing: 0.01em; }
 .nv-s7-card__heading p { margin: 12.8px 0 0; color: #e4e0d6; font: 600 15.6px / 1.25 Inter, Arial, sans-serif; letter-spacing: 0.06em; text-transform: uppercase; }
 .nv-s7-card__short-rule { position: absolute; top: 125.6px; left: 31.2px; right: 25.6px; height: 0.8px; margin: 0; background: linear-gradient(90deg, #d4af37, rgba(212, 175, 55, 0.35) 88%, transparent); opacity: 0; transition: opacity 0.42s ease; }
-.nv-s7-card__points { position: absolute; top: 145.6px; left: 31.2px; right: 28px; display: grid; gap: 8.4px; margin: 0; padding: 0; list-style: none; opacity: 0; transform: translateY(4.8px); transition: opacity 0.42s ease, transform 0.42s ease; }
+.nv-s7-card__points { position: absolute; top: 145.6px; left: 31.2px; right: 28px; display: grid; gap: 8.4px; margin: 0; padding: 0; list-style: none; opacity: 0; transform: none; transition: opacity 0.42s ease; }
 .nv-s7-card__points li { position: relative; padding-left: 16.8px; color: #d4af37; overflow-wrap: anywhere; font: var(--w-bulletlabel) var(--t-bulletlabel)/1.35 "Inter",Arial,sans-serif; }
 .nv-s7-card__points li::before { content: ""; position: absolute; left: 0; top: 0.5em; width: 5.6px; height: 5.6px; border-radius: 1.6px; background: #f7c64a; }
-.nv-s7-card__result { position: absolute; left: 50%; right: auto; top: 318.4px; bottom: auto; width: 297.6px; height: auto; min-height: 0; box-sizing: border-box; overflow: hidden; display: grid; grid-template-columns: 22.4px minmax(0, 1fr); gap: 19.2px; align-items: center; padding: 8px 11.2px; border: 0.8px solid transparent; border-radius: 5.6px; background-image: linear-gradient(var(--color-emerald),var(--color-emerald)), var(--gold-3); background-origin: border-box; background-clip: padding-box, border-box; opacity: 0; transform: translate(-50%, calc(-50% + 4.8px)); transition: opacity 0.42s ease, transform 0.42s ease; }
+.nv-s7-card__result { position: absolute; left: 50%; right: auto; top: 318.4px; bottom: auto; width: 297.6px; height: auto; min-height: 0; box-sizing: border-box; overflow: hidden; display: grid; grid-template-columns: 22.4px minmax(0, 1fr); gap: 19.2px; align-items: center; padding: 8px 11.2px; border: 0.8px solid transparent; border-radius: 5.6px; background-image: linear-gradient(var(--color-emerald),var(--color-emerald)), var(--gold-3); background-origin: border-box; background-clip: padding-box, border-box; opacity: 0; transform: translate(-50%, -50%); transition: opacity 0.42s ease; }
 .nv-s7-card__result-icon { grid-column: 1; grid-row: 1; align-self: center; position: relative; width: 22.4px; height: 22.4px; margin-top: 0; background: #d4af37; border-radius: 50% 50% 50% 50% / 18% 18% 62% 62%; }
 .nv-s7-card__result-icon-inner { position: absolute; inset: 1.2px; background: #000; border-radius: 50% 50% 50% 50% / 18% 18% 62% 62%; }
 .nv-s7-card__result-icon-inner::before, .nv-s7-card__result-icon-inner::after { content: ""; position: absolute; left: 50%; top: 44%; background: #d4af37; transform: translate(-50%, -50%); border-radius: 0.8px; }
@@ -687,8 +757,8 @@ a:active .golden-button {
 .nv-s7-card__result-icon-inner::after { width: 10.4px; height: 2.8px; }
 .nv-s7-card__result > div { grid-column: 2; grid-row: 1; min-width: 0; }
 .nv-s7-card__result h4 { margin: 0; color: transparent; background: var(--gold-1); background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent; font: 600 var(--t-bildunterschrift) / 1.3 Inter, Arial, sans-serif; letter-spacing: 0.05em; text-transform: uppercase; }
-.nv-s7-card:hover .nv-s7-card__short-rule, .nv-s7-card:focus-visible .nv-s7-card__short-rule, .nv-s7-card.is-active .nv-s7-card__short-rule, .nv-s7-card:hover .nv-s7-card__points, .nv-s7-card:focus-visible .nv-s7-card__points, .nv-s7-card.is-active .nv-s7-card__points { opacity: 1; transform: none; }
-.nv-s7-card:hover .nv-s7-card__result, .nv-s7-card:focus-visible .nv-s7-card__result, .nv-s7-card.is-active .nv-s7-card__result { opacity: 1; transform: translate(-50%, -50%); }@media (max-width: 1499px) {
+.nv-s7-card:hover .nv-s7-card__short-rule, .nv-s7-card:focus-visible .nv-s7-card__short-rule, .nv-s7-card.is-active .nv-s7-card__short-rule, .nv-s7-card:hover .nv-s7-card__points, .nv-s7-card:focus-visible .nv-s7-card__points, .nv-s7-card.is-active .nv-s7-card__points { opacity: 1; }
+.nv-s7-card:hover .nv-s7-card__result, .nv-s7-card:focus-visible .nv-s7-card__result, .nv-s7-card.is-active .nv-s7-card__result { opacity: 1; }@media (max-width: 1499px) {
   .nv-s7__cards { grid-template-columns: repeat(2, 720px); }
   .nv-s7-card { left: auto; }
   .nv-s7-card:not(:nth-child(11)) { grid-column: auto; }
@@ -824,13 +894,30 @@ canvas.nv-step-viz {
 .nv-analyse::after { content: ""; position: absolute; left: 7%; right: 7%; bottom: 0; height: 1.6px; background: linear-gradient(90deg,transparent,#fae385 20%,#fae385 80%,transparent); box-shadow: 0 0 6.4px #fae38566; pointer-events: none; }
 .nv-analyse__inner { position: relative; z-index: 1; margin: 0 auto 0 0; }
 .nv-analyse__kicker { margin: 0 0 8px; color: #55863f; font: var(--w-kicker-sektion) var(--t-kicker-sektion)/1.15 "Inter",Arial,sans-serif; letter-spacing: .14em; text-transform: uppercase; }
-.nv-analyse__title { margin: 0 0 39.2px; white-space: nowrap; width: max-content; color: transparent; background: var(--gold-1); background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent; font: var(--w-sektionstitel) var(--t-sektionstitel)/1.15 "Exo 2",Inter,Arial,sans-serif; }
+.nv-analyse__title { margin: 0 0 39.2px; white-space: nowrap; width: max-content; max-width: 100%; color: transparent; background: var(--gold-1); background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent; font: var(--w-sektionstitel) var(--t-sektionstitel)/1.15 "Exo 2",Inter,Arial,sans-serif; }
+.nv-analyse--deep { padding-bottom: 48px; }
+.nv-analyse--deep .nv-analyse__offer { max-width: 860px; }
 .nv-analyse__subtitle { max-width: 60ch; margin: 0 0 92.8px; color: var(--color-text-sub); font: var(--w-subtitle) var(--t-subtitle)/1.22 "Inter",Arial,sans-serif; }
 .nv-analyse__intro { max-width: 854.4px; margin: 0 0 9.6px 0; color: #b9c3bd; font: var(--w-fliesstext) var(--t-fliesstext)/1.85 "Inter",Arial,sans-serif; }
-.nv-analyse__deep { display: flex; align-items: center; justify-content: flex-start; gap: var(--space-7); flex-wrap: wrap; margin-top: 51.2px; padding-top: 32px; border-top: 0.8px solid rgba(212,175,55,.35); }
-.nv-analyse__deep p { max-width: 72ch; margin: 0; color: #b9c3bd; font: var(--w-fliesstext) var(--t-fliesstext)/1.7 "Inter",Arial,sans-serif; }
-.nv-analyse__layout { display: grid; grid-template-columns: minmax(0,1fr) minmax(0,854.4px); gap: 38.4px; align-items: start; }@media(max-width:1200px){ .nv-analyse__layout{ grid-template-columns:1fr; } }
-.nv-analyse__grid { display: grid; grid-template-columns: minmax(0,1fr); gap: 9.6px; align-items: start; }@media(max-width:980px){ .nv-analyse__grid{ grid-template-columns:1fr; } }
+.nv-analyse__offers { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin: 40px 0 48px; align-items: stretch; width: 100%; }
+.nv-analyse__offer { position: relative; overflow: hidden; display: flex; flex-direction: column; gap: 16px; min-height: 420px; padding: 40px 44px; border: 0.8px solid transparent; border-radius: 8px; background: linear-gradient(#000000, #000000) padding-box, var(--gold-3) border-box; }
+.nv-analyse__offer > * { position: relative; z-index: 2; }
+.nv-analyse__offer::before { content: ""; position: absolute; inset: 0; z-index: 0; background: var(--asset-logo-mark) center / 46% auto no-repeat; opacity: 0.07; pointer-events: none; }
+.nv-analyse__offer--deep { background: linear-gradient(#120e08, #120e08) padding-box, var(--gold-3) border-box; box-shadow: 0 0 24px rgba(212,175,55,.12); }
+.nv-analyse__offer-kicker { margin: 0; color: #55863f; font: var(--w-kicker-karte) var(--t-kicker-karte)/1.15 Inter,Arial,sans-serif; letter-spacing: 0.12em; text-transform: uppercase; }
+.nv-analyse__offer h3 { margin: 0; color: transparent; background: var(--gold-1); background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent; font: var(--w-sektionstitel) clamp(28px, 3vw, 42px)/1.1 "Exo 2",Inter,Arial,sans-serif; }
+.nv-analyse__offer p { margin: 0; max-width: none; color: #b9c3bd; font: var(--w-fliesstext) var(--t-fliesstext)/1.65 Inter,Arial,sans-serif; }
+.nv-analyse__offer-label { margin: 8px 0 0 !important; color: #e4e0d6 !important; font: 600 13px/1.3 Inter,Arial,sans-serif !important; letter-spacing: 0.08em; text-transform: uppercase; }
+.nv-analyse__offer-list { margin: 0; padding: 0; list-style: none; display: grid; gap: 8px; }
+.nv-analyse__offer-list li { position: relative; padding-left: 16px; color: #b9c3bd; font: var(--w-fliesstext) var(--t-fliesstext)/1.5 Inter,Arial,sans-serif; }
+.nv-analyse__offer-list li::before { content: ""; position: absolute; left: 0; top: 0.55em; width: 5.6px; height: 5.6px; border-radius: 1.6px; background: #dfbd69; }
+.nv-analyse__offer-list strong { color: #e4e0d6; }
+.nv-analyse__offer-price { color: #fae385 !important; font: 600 22px/1.3 Inter,Arial,sans-serif !important; }
+.nv-analyse__offer-note { color: #8b938d !important; font-size: 14px !important; }
+.nv-analyse__offer .hero-cta { margin-top: auto; align-self: flex-start; padding-top: 8px; }
+@media (max-width: 900px) { .nv-analyse__offers { grid-template-columns: 1fr; } }
+.nv-analyse__layout { display: grid; grid-template-columns: minmax(0,1fr); gap: 24px; align-items: start; }
+.nv-analyse__grid { display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1fr); gap: 24px; align-items: stretch; width: 100%; }@media(max-width:980px){ .nv-analyse__grid{ grid-template-columns:1fr; } }
 /* uniform card shell for all 4 cards */
 .nv-acard { border:0.8px solid transparent; background-image:linear-gradient(#1a1a1a,#1a1a1a), var(--gold-3); background-origin:border-box; background-clip:padding-box,border-box; border-radius:8px; padding:25.6px; }
 
@@ -845,7 +932,9 @@ canvas.nv-step-viz {
 .nv-analyse__grid > :nth-child(1) .nv-acard__split { grid-template-columns: max-content auto; justify-content: start; align-items: stretch; }
 .nv-analyse__grid > :nth-child(1) .nv-acard__col:last-child { display: flex; flex-direction: column; justify-content: space-between; position: relative; }
 .nv-analyse__grid > :nth-child(1) .nv-acard__col:last-child::before { content: ""; position: absolute; left: -32.8px; top: 0; bottom: 0; width: 0.8px; background: linear-gradient(180deg, transparent, #d4af37 12%, #d4af37 88%, transparent); }
-.nv-analyse__grid > :nth-child(2) { width: 854.4px; max-width: 854.4px; justify-self: start; padding: 25.6px; }@media(max-width:760px){ .nv-acard__split{ grid-template-columns:1fr; } }
+.nv-analyse__grid > :nth-child(1),
+.nv-analyse__grid > :nth-child(2) { width: auto; max-width: none; justify-self: stretch; }
+@media(max-width:760px){ .nv-acard__split{ grid-template-columns:1fr; } }
 /* interactive: sliders + segments */
 .nv-arange { margin-bottom:9.6px; }
  /* tightened: crops ~24px off the upper card row */
@@ -993,20 +1082,21 @@ canvas.nv-step-viz {
 .nv-contact__intro { max-width: 58ch; margin: 0; color: #b9c3bd; font: var(--w-fliesstext) var(--t-fliesstext)/1.85 "Inter",Arial,sans-serif; }
 .nv-contact__grid { position: relative; display: grid; grid-template-columns: 407.2px 456px; gap: 8px; align-items: stretch; width: 871.2px; max-width: 100%; margin: -135px auto 0; flex: 1; perspective: 880px; }
 .nv-contact__portrait { position: relative; overflow: hidden; border: 0.8px solid transparent; border-radius: 8px; background: linear-gradient(#000000, #000000) padding-box, var(--gold-3) border-box; transform-style: preserve-3d; transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1); display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 0; margin-bottom: 235.2px; padding: 30.4px 24.8px; text-align: center; }
-.nv-contact__portrait::before { content: ""; position: absolute; inset: 0; z-index: 0; border-radius: inherit; background: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20794%201123%22%3E%3Cpath%20d%3D%22m%20385.61042%2C257.66989%20-80.24023%2C47.73633%204.70898%2C3.00391%20c%2010.98855%2C7.01049%2023.88039%2C13.87497%2026.02149%2C13.85547%201.22556%2C-0.0112%2012.105%2C-5.9174%2024.17578%2C-13.125%2012.07078%2C-7.2076%2022.65564%2C-13.10547%2023.52344%2C-13.10547%201.95044%2C0%2018.74386%2C9.64567%2076.52929%2C43.96094%2024.75%2C14.69752%2049.05%2C29.09904%2054%2C32.00195%2011.22327%2C6.58186%2010.46625%2C5.07713%2010.48438%2C20.85351%20l%200.0156%2C13.31446%200.98828%2C1.8457%20c%200.78459%2C1.46602%2022.1753%2C14.9305%2031.45117%2C19.79688%201.06678%2C0.55962%202.52928%2C0.79219%203.25%2C0.51562%20l%201.31055%2C-0.5039%20V%20392.08396%20362.582%20Z%20m%20-99.04297%2C58.92188%20-72.73828%2C43.27539%20v%20105.20703%20108.68945%20l%203.75%2C2.57032%20c%202.0625%2C1.4142%208.7%2C5.51308%2014.75%2C9.10742%2011.24171%2C6.67877%2014.82004%2C7.80672%2015.89258%2C5.01172%200.33385%2C-0.86998%200.6151%2C-48.68248%200.62305%2C-106.25%200.008%2C-57.56751%200.37844%2C-105.24017%200.82226%2C-105.93946%200.44383%2C-0.69929%207.29912%2C-5.11049%2015.23438%2C-9.80273%20l%2014.42773%2C-8.53125%202.51367%2C0.34375%20c%201.38215%2C0.18966%2029.73215%2C16.48877%2063%2C36.21875%2033.26784%2C19.72998%2066.33633%2C39.31978%2073.48633%2C43.5332%20l%2013%2C7.66016%200.58203%2C34.92578%20c%200.32026%2C19.20849%200.6578%2C35.01956%200.75%2C35.13672%200.43344%2C0.55055%2027.18775%2C16.25787%2031.03907%2C18.22266%20l%204.36718%2C2.22656%200.91211%2C-0.91406%200.91406%2C-0.91211%200.62696%2C-52.96289%20c%200.34519%2C-29.12926%200.32621%2C-54.16592%20-0.043%2C-55.63672%20l%20-0.67188%2C-2.67383%20-39.23828%2C-23.39258%20c%20-63.75696%2C-38.00993%20-135.96271%2C-80.67947%20-144%2C-85.11328%20z%20m%20-86.42383%2C51.41797%20-22.90039%2C13.62305%20-0.24804%2C151.77539%20-0.23047%2C141.52343%2023.98242%2C14.2793%20-0.0117%2C-153.12891%20c%20-0.007%2C-89.81247%20-0.27322%2C-162.27569%20-0.5918%2C-168.07226%20z%20m%20375.8086%2C2.98047%20-0.38086%2C67.37304%20c%20-0.43067%2C76.04826%20-0.18779%2C201.2085%200.33984%2C254.64844%20l%2023.89453%2C-14.21484%20-0.22265%2C-151.05274%20-0.21094%2C-142.81054%20z%20m%20-413.12305%2C19.21875%20-16.51562%2C9.82422%20-0.25977%2C126.0332%20c%20-0.14061%2C68.33737%20-0.0226%2C121.74823%200.23828%2C130.72461%20l%2016.00196%2C9.52539%20c%200.29529%2C-10.6327%200.53515%2C-66.28466%200.53515%2C-139.00195%20z%20m%20449.96875%2C2.71679%20-0.24414%2C33.79297%20c%20-0.32664%2C44.96349%20-0.32707%2C122.30472%200%2C171.86914%20l%200.47852%2C72.33985%2016.16015%2C-9.61328%20c%200.30346%2C-16.73835%200.48748%2C-71.37743%200.375%2C-145.95704%20l%20-0.16992%2C-112.54882%20z%20m%20-478.23047%2C14.09571%20-10.21484%2C6.07812%20-0.13281%2C143.37695%20c%20-0.0311%2C33.77626%200.0334%2C60.80287%200.0957%2C87.23047%20l%2010.25195%2C6.10352%20v%20-93.6543%20z%20m%20506.93555%2C2.99414%20-0.10352%2C114.23242%20c%20-0.0525%2C56.89109%200.0741%2C99.50377%200.26368%2C129.64648%20l%2010.08398%2C-5.99804%20V%20523.92771%20416.11325%20Z%20m%20-116.63086%2C41.49219%20-1.04297%2C0.64453%20v%2087.75%2087.75%20l%20-1.25%2C1.56836%20c%20-0.6875%2C0.8618%20-12.95%2C8.52503%20-27.25%2C17.02929%20-14.3%2C8.50426%20-43.65127%2C26.12661%20-65.22461%2C39.16211%20l%20-39.22461%2C23.70117%20-3.17578%2C-1.64257%20c%20-1.74653%2C-0.90316%20-19.42026%2C-12.00632%20-39.27539%2C-24.67383%20-19.85513%2C-12.6675%20-57.39192%2C-35.82297%20-83.41601%2C-51.45703%20l%20-47.31641%2C-28.42579%20-1.68359%2C0.32422%20-1.6836%2C0.32618%20v%2053.82421%2039.90821%20L%20391.45808%2C802.74997%20562.18855%2C701.17575%20c%200.3382%2C-11.1453%200.61794%2C-53.1837%200.625%2C-109.95703%20l%200.0156%2C-117.31445%20-0.99805%2C-1.86524%20c%20-1.26018%2C-2.35466%20-35.54903%2C-21.40264%20-36.95898%2C-20.53124%20z%20m%20-221.88281%2C28.0332%20-0.83008%2C0.83008%20-0.83008%2C0.83007%20-0.27539%2C71.71875%20-0.27539%2C71.71875%202.27539%2C2.07227%20c%201.25142%2C1.13939%207.85855%2C5.96666%2014.68164%2C10.72852%206.8231%2C4.76187%2012.8981%2C8.49499%2013.5%2C8.29492%20l%201.09375%2C-0.36328%200.61133%2C-49.41797%20c%200.71125%2C-57.52336%200.50994%2C-52.91797%202.3125%2C-52.91797%200.78297%2C0%2030.59547%2C17.50827%2066.25%2C38.9082%20l%2064.82617%2C38.91016%201.26953%2C-1.04883%201.26953%2C-1.04687%20-0.26953%2C-20.55079%20-0.26953%2C-20.55078%20-44%2C-26.35156%20C%20371.34418%2C519.57322%20315.25948%2C486.30335%20308.15925%2C482.3906%20Z%20m%20-47.96289%2C176.33984%20c%200.5332%2C-0.3465%2015.62037%2C8.78972%2033.52539%2C20.30274%2017.90503%2C11.51301%2047.10428%2C30.30181%2064.88867%2C41.75195%2017.78438%2C11.45013%2033.23093%2C20.99946%2034.32422%2C21.22266%20l%201.98633%2C0.40625%2036.05468%2C-22.92579%20c%2019.8295%2C-12.60912%2049.19783%2C-31.35831%2065.26368%2C-41.66601%2016.06585%2C-10.30771%2029.65368%2C-18.45353%2030.19531%2C-18.10156%20l%200.98437%2C0.64062%20-0.0137%2C13.18945%20c%20-0.0162%2C14.68383%200.077%2C14.36647%20-5.2168%2C17.67383%20-2.09228%2C1.30719%20-21.13598%2C13.85306%20-42.32031%2C27.87891%20-21.18433%2C14.02585%20-48.74601%2C32.16988%20-61.24804%2C40.32031%20-12.50203%2C8.15043%20-23.64167%2C14.81836%20-24.75391%2C14.81836%20-1.11222%2C0%20-25.54834%2C-15.11113%20-54.30274%2C-33.58008%20-73.49013%2C-47.20269%20-78.37073%2C-50.42658%20-79.41015%2C-52.46875%20l%20-0.92578%2C-1.82031%20v%20-13.50586%20-13.50586%20z%22%20fill%3D%22%2355863f%22%2F%3E%3C%2Fsvg%3E") center / 74% auto no-repeat; opacity: 0.07; pointer-events: none; transition: opacity 0.35s ease; }
+.nv-contact__portrait::before { content: ""; position: absolute; inset: 0; z-index: 0; border-radius: inherit; background: var(--asset-logo-mark) center / 58% auto no-repeat; opacity: 0.07; pointer-events: none; transition: opacity 0.35s ease; }
 .nv-contact__portrait:hover::before, .nv-contact__portrait:focus-within::before { opacity: 0.2; }
 .nv-contact__portrait > * { position: relative; z-index: 2; }
 .nv-contact__portrait::after { content: none; }
 .nv-contact__portrait:hover, .nv-contact__portrait:focus-within { transform: rotateX(5deg) rotateY(-5deg) translateZ(4.8px); }
 .nv-contact__portrait:hover::after, .nv-contact__portrait:focus-within::after { opacity: 1; }
 .nv-contact__card { position: relative; overflow: hidden; border: 0.8px solid transparent; border-radius: 8px; background: linear-gradient(#000000, #000000) padding-box, var(--gold-3) border-box; transform-style: preserve-3d; transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1); display: flex; flex-direction: column; justify-content: center; min-height: 0; margin-top: 316.8px; padding: 40px 46.4px; }
-.nv-contact__card::before { content: ""; position: absolute; inset: 0; z-index: 0; border-radius: inherit; background: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20794%201123%22%3E%3Cpath%20d%3D%22m%20385.61042%2C257.66989%20-80.24023%2C47.73633%204.70898%2C3.00391%20c%2010.98855%2C7.01049%2023.88039%2C13.87497%2026.02149%2C13.85547%201.22556%2C-0.0112%2012.105%2C-5.9174%2024.17578%2C-13.125%2012.07078%2C-7.2076%2022.65564%2C-13.10547%2023.52344%2C-13.10547%201.95044%2C0%2018.74386%2C9.64567%2076.52929%2C43.96094%2024.75%2C14.69752%2049.05%2C29.09904%2054%2C32.00195%2011.22327%2C6.58186%2010.46625%2C5.07713%2010.48438%2C20.85351%20l%200.0156%2C13.31446%200.98828%2C1.8457%20c%200.78459%2C1.46602%2022.1753%2C14.9305%2031.45117%2C19.79688%201.06678%2C0.55962%202.52928%2C0.79219%203.25%2C0.51562%20l%201.31055%2C-0.5039%20V%20392.08396%20362.582%20Z%20m%20-99.04297%2C58.92188%20-72.73828%2C43.27539%20v%20105.20703%20108.68945%20l%203.75%2C2.57032%20c%202.0625%2C1.4142%208.7%2C5.51308%2014.75%2C9.10742%2011.24171%2C6.67877%2014.82004%2C7.80672%2015.89258%2C5.01172%200.33385%2C-0.86998%200.6151%2C-48.68248%200.62305%2C-106.25%200.008%2C-57.56751%200.37844%2C-105.24017%200.82226%2C-105.93946%200.44383%2C-0.69929%207.29912%2C-5.11049%2015.23438%2C-9.80273%20l%2014.42773%2C-8.53125%202.51367%2C0.34375%20c%201.38215%2C0.18966%2029.73215%2C16.48877%2063%2C36.21875%2033.26784%2C19.72998%2066.33633%2C39.31978%2073.48633%2C43.5332%20l%2013%2C7.66016%200.58203%2C34.92578%20c%200.32026%2C19.20849%200.6578%2C35.01956%200.75%2C35.13672%200.43344%2C0.55055%2027.18775%2C16.25787%2031.03907%2C18.22266%20l%204.36718%2C2.22656%200.91211%2C-0.91406%200.91406%2C-0.91211%200.62696%2C-52.96289%20c%200.34519%2C-29.12926%200.32621%2C-54.16592%20-0.043%2C-55.63672%20l%20-0.67188%2C-2.67383%20-39.23828%2C-23.39258%20c%20-63.75696%2C-38.00993%20-135.96271%2C-80.67947%20-144%2C-85.11328%20z%20m%20-86.42383%2C51.41797%20-22.90039%2C13.62305%20-0.24804%2C151.77539%20-0.23047%2C141.52343%2023.98242%2C14.2793%20-0.0117%2C-153.12891%20c%20-0.007%2C-89.81247%20-0.27322%2C-162.27569%20-0.5918%2C-168.07226%20z%20m%20375.8086%2C2.98047%20-0.38086%2C67.37304%20c%20-0.43067%2C76.04826%20-0.18779%2C201.2085%200.33984%2C254.64844%20l%2023.89453%2C-14.21484%20-0.22265%2C-151.05274%20-0.21094%2C-142.81054%20z%20m%20-413.12305%2C19.21875%20-16.51562%2C9.82422%20-0.25977%2C126.0332%20c%20-0.14061%2C68.33737%20-0.0226%2C121.74823%200.23828%2C130.72461%20l%2016.00196%2C9.52539%20c%200.29529%2C-10.6327%200.53515%2C-66.28466%200.53515%2C-139.00195%20z%20m%20449.96875%2C2.71679%20-0.24414%2C33.79297%20c%20-0.32664%2C44.96349%20-0.32707%2C122.30472%200%2C171.86914%20l%200.47852%2C72.33985%2016.16015%2C-9.61328%20c%200.30346%2C-16.73835%200.48748%2C-71.37743%200.375%2C-145.95704%20l%20-0.16992%2C-112.54882%20z%20m%20-478.23047%2C14.09571%20-10.21484%2C6.07812%20-0.13281%2C143.37695%20c%20-0.0311%2C33.77626%200.0334%2C60.80287%200.0957%2C87.23047%20l%2010.25195%2C6.10352%20v%20-93.6543%20z%20m%20506.93555%2C2.99414%20-0.10352%2C114.23242%20c%20-0.0525%2C56.89109%200.0741%2C99.50377%200.26368%2C129.64648%20l%2010.08398%2C-5.99804%20V%20523.92771%20416.11325%20Z%20m%20-116.63086%2C41.49219%20-1.04297%2C0.64453%20v%2087.75%2087.75%20l%20-1.25%2C1.56836%20c%20-0.6875%2C0.8618%20-12.95%2C8.52503%20-27.25%2C17.02929%20-14.3%2C8.50426%20-43.65127%2C26.12661%20-65.22461%2C39.16211%20l%20-39.22461%2C23.70117%20-3.17578%2C-1.64257%20c%20-1.74653%2C-0.90316%20-19.42026%2C-12.00632%20-39.27539%2C-24.67383%20-19.85513%2C-12.6675%20-57.39192%2C-35.82297%20-83.41601%2C-51.45703%20l%20-47.31641%2C-28.42579%20-1.68359%2C0.32422%20-1.6836%2C0.32618%20v%2053.82421%2039.90821%20L%20391.45808%2C802.74997%20562.18855%2C701.17575%20c%200.3382%2C-11.1453%200.61794%2C-53.1837%200.625%2C-109.95703%20l%200.0156%2C-117.31445%20-0.99805%2C-1.86524%20c%20-1.26018%2C-2.35466%20-35.54903%2C-21.40264%20-36.95898%2C-20.53124%20z%20m%20-221.88281%2C28.0332%20-0.83008%2C0.83008%20-0.83008%2C0.83007%20-0.27539%2C71.71875%20-0.27539%2C71.71875%202.27539%2C2.07227%20c%201.25142%2C1.13939%207.85855%2C5.96666%2014.68164%2C10.72852%206.8231%2C4.76187%2012.8981%2C8.49499%2013.5%2C8.29492%20l%201.09375%2C-0.36328%200.61133%2C-49.41797%20c%200.71125%2C-57.52336%200.50994%2C-52.91797%202.3125%2C-52.91797%200.78297%2C0%2030.59547%2C17.50827%2066.25%2C38.9082%20l%2064.82617%2C38.91016%201.26953%2C-1.04883%201.26953%2C-1.04687%20-0.26953%2C-20.55079%20-0.26953%2C-20.55078%20-44%2C-26.35156%20C%20371.34418%2C519.57322%20315.25948%2C486.30335%20308.15925%2C482.3906%20Z%20m%20-47.96289%2C176.33984%20c%200.5332%2C-0.3465%2015.62037%2C8.78972%2033.52539%2C20.30274%2017.90503%2C11.51301%2047.10428%2C30.30181%2064.88867%2C41.75195%2017.78438%2C11.45013%2033.23093%2C20.99946%2034.32422%2C21.22266%20l%201.98633%2C0.40625%2036.05468%2C-22.92579%20c%2019.8295%2C-12.60912%2049.19783%2C-31.35831%2065.26368%2C-41.66601%2016.06585%2C-10.30771%2029.65368%2C-18.45353%2030.19531%2C-18.10156%20l%200.98437%2C0.64062%20-0.0137%2C13.18945%20c%20-0.0162%2C14.68383%200.077%2C14.36647%20-5.2168%2C17.67383%20-2.09228%2C1.30719%20-21.13598%2C13.85306%20-42.32031%2C27.87891%20-21.18433%2C14.02585%20-48.74601%2C32.16988%20-61.24804%2C40.32031%20-12.50203%2C8.15043%20-23.64167%2C14.81836%20-24.75391%2C14.81836%20-1.11222%2C0%20-25.54834%2C-15.11113%20-54.30274%2C-33.58008%20-73.49013%2C-47.20269%20-78.37073%2C-50.42658%20-79.41015%2C-52.46875%20l%20-0.92578%2C-1.82031%20v%20-13.50586%20-13.50586%20z%22%20fill%3D%22%2355863f%22%2F%3E%3C%2Fsvg%3E") center / 74% auto no-repeat; opacity: 0.07; pointer-events: none; transition: opacity 0.35s ease; }
-.nv-contact__card:hover::before, .nv-contact__card:focus-within::before { opacity: 0.2; }
+.nv-contact__card::before, .download-item::before { content: ""; position: absolute; inset: 0; z-index: 0; border-radius: inherit; background: var(--asset-logo-mark) center / 58% auto no-repeat; opacity: 0.07; pointer-events: none; transition: opacity 0.35s ease; }
+.nv-contact__card:hover::before, .nv-contact__card:focus-within::before, .download-item:hover::before, .download-item:focus-within::before { opacity: 0.2; }
 .nv-contact__card > * { position: relative; z-index: 2; }
 .nv-contact__card::after { content: none; }
 .nv-contact__card:hover, .nv-contact__card:focus-within { transform: rotateX(5deg) rotateY(-5deg) translateZ(4.8px); }
 .nv-contact__card:hover::after, .nv-contact__card:focus-within::after { opacity: 1; }
-.nv-contact__portrait-frame { width: 184px; height: 244.8px; margin: 0 0 19.2px; overflow: hidden; border: 1.6px solid transparent; border-radius: 50%; background: linear-gradient(var(--nv-black), var(--nv-black)) padding-box, var(--gold-3) border-box; box-shadow: 0 17.6px 36.8px var(--nv-black); }
+.nv-contact__portrait-frame { width: 184px; height: 244.8px; margin: 0 0 19.2px; overflow: hidden; flex: 0 0 244.8px; border: 1.6px solid transparent; border-radius: 50%; background: linear-gradient(var(--nv-black), var(--nv-black)) padding-box, var(--gold-3) border-box; box-shadow: 0 17.6px 36.8px var(--nv-black); }
+.nv-contact__portrait-frame picture { display: block; width: 100%; height: 100%; }
 .nv-contact__portrait-image { display: block; width: 100%; height: 100%; object-fit: cover; object-position: center 22%; }
 .nv-contact__portrait h3 { margin: 0 0 4.8px; color: #fae385; background: var(--gold-1); background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent; font: var(--w-zwischentitel) var(--t-zwischentitel)/1.2 "Exo 2",Inter,Arial,sans-serif; }
 .nv-contact__portrait > p { margin: 0; color: #fae385; font: 600 12.8px/1.4 Inter, Arial, sans-serif; letter-spacing: 0.08em; text-transform: uppercase; }
@@ -1029,13 +1119,10 @@ canvas.nv-step-viz {
 .nv-contact::after { content: ""; position: absolute; left: 7%; right: 7%; bottom: 0; height: 1.6px; background: linear-gradient(90deg,transparent,#fae385 20%,#fae385 80%,transparent); box-shadow: 0 0 6.4px #fae38566; pointer-events: none; }
 .download-display__header { display: flex; align-items: center; justify-content: space-between; gap: var(--nv-space-2xl); min-height: 30.4px; padding: 0 var(--nv-space-xs) var(--nv-space-sm); border-bottom: 0.8px solid rgba(212, 175, 55, 0.26); color: #d4af37; font: 700 8px/1 Inter, Arial, sans-serif; letter-spacing: 0.12em; }
 .download-display__grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 11.2px; padding-top: var(--nv-space-md); perspective: 880px; }
-.download-item { position: relative; display: grid; grid-template-columns: 49.6px minmax(0, 1fr); grid-template-rows: auto 1fr auto; column-gap: 11.2px; row-gap: 6.4px; min-width: 0; min-height: 196px; padding: 11.2px; overflow: hidden; border: 0.8px solid transparent; border-radius: 9.6px; background: linear-gradient(#000000, #000000) padding-box, var(--gold-3) border-box; transform-style: preserve-3d; transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1); }
-.download-item::before { content: ""; position: absolute; inset: 0; z-index: 0; background: linear-gradient(135deg, rgba(0, 0, 0, 0.78), rgba(0, 0, 0, 0.92)), url("assets/cards/cards_service/1_neu.png") center / cover no-repeat; opacity: 0.5; pointer-events: none; transition: opacity 0.35s ease; }
-.download-item::after { content: ""; position: absolute; inset: 0; z-index: 1; background: radial-gradient( circle at 30% 0%, rgba(250, 227, 133, 0.16), transparent 55% ); opacity: 0; pointer-events: none; transition: opacity 0.35s ease; }
+.download-item { position: relative; display: grid; grid-template-columns: 49.6px minmax(0, 1fr); grid-template-rows: auto 1fr auto; column-gap: 11.2px; row-gap: 6.4px; min-width: 0; min-height: 196px; padding: 11.2px; overflow: hidden; border: 0.8px solid transparent; border-radius: 8px; background: linear-gradient(#000000, #000000) padding-box, var(--gold-3) border-box; transform-style: preserve-3d; transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1); }
+.download-item::after { content: none; }
 .download-item > * { position: relative; z-index: 2; }
 .download-item:hover, .download-item:focus-within { transform: rotateX(5deg) rotateY(-5deg) translateZ(4.8px); }
-.download-item:hover::after, .download-item:focus-within::after { opacity: 1; }
-.download-item:hover::before { opacity: 0.7; }
 .download-item__type { grid-column: 1; grid-row: 1; align-self: start; display: flex; justify-content: center; align-items: center; gap: 6.4px; width: 38.4px; height: 38.4px; padding: 2.4px; border: 0.8px solid transparent; border-radius: 8px; background: linear-gradient(#000000, #000000) padding-box, var(--gold-3) border-box; color: #d4af37; font: 700 7.2px/1 Inter, Arial, sans-serif; letter-spacing: 0.1em; }
 .download-item__type img { width: 32px; height: 32px; object-fit: contain; }
 .download-item__content { grid-column: 2; grid-row: 1 / span 2; min-width: 0; align-self: start; }
@@ -1113,7 +1200,7 @@ canvas.nv-step-viz {
 .nv-faq-item summary::-webkit-details-marker { display: none; }
 .nv-faq-item summary::after { content: "+"; flex: 0 0 auto; color: var(--nv-gold-text-dark); font-size: 14.4px; }
 .nv-faq-item[open] summary::after { content: "−"; }
-.nv-faq-item p { margin: 0; padding: 11.2px 12px 14.4px; color: #b9c3bd; background: transparent; font: 500 9.6px/1.55 Inter, Arial, sans-serif; }
+.nv-faq-item p { margin: 0; padding: 11.2px 12px 14.4px; color: #b9c3bd; background: transparent; font: var(--w-fliesstext) var(--t-fliesstext)/1.7 Inter, Arial, sans-serif; }
 .nv-resource-section::after { content: ""; position: absolute; left: 7%; right: 7%; bottom: 0; height: 1.6px; background: linear-gradient(90deg,transparent,#fae385 20%,#fae385 80%,transparent); box-shadow: 0 0 6.4px #fae38566; pointer-events: none; }
 .nv-resource-section__kicker, .nv-resource-section .kicker { margin: 0 0 8px; color: #55863f; font: var(--w-kicker-sektion) var(--t-kicker-sektion)/1.15 "Inter",Arial,sans-serif; letter-spacing: 0.14em; text-transform: uppercase; }
 .nv-resource-section__title, .nv-resource-section .section-title { margin: 0 0 39.2px; color: transparent; background: var(--gold-1); background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent; font: var(--w-sektionstitel) var(--t-sektionstitel)/1.15 "Exo 2",Inter,Arial,sans-serif; }
@@ -1144,52 +1231,6 @@ canvas.nv-step-viz {
 .footer-top svg { width: 20.8px; height: 20.8px; }
 .footer-top:hover, .footer-top:focus-visible { color: rgba(120, 50, 5, 0.8); background-size: 150% 150%; transform: translateY(-1.6px); outline: none; }
 .footer-col--about p, .footer-col > a, .footer-legal > a, .footer-copy { color: #b9c3bd; font: var(--w-fliesstext) var(--t-fliesstext)/1.6 "Inter",Arial,sans-serif; }
-/* @keyframes aus index1 wiederhergestellt */
-@keyframes nv-logo-y-spin {
-        0% {
-          transform: rotateY(0deg);
-        }
-
-        8% {
-          transform: rotateY(900deg);
-        }
-
-        18% {
-          transform: rotateY(1800deg);
-        }
-
-        32% {
-          transform: rotateY(2700deg);
-        }
-
-        48% {
-          transform: rotateY(3420deg);
-        }
-
-        64% {
-          transform: rotateY(3960deg);
-        }
-
-        76% {
-          transform: rotateY(4230deg);
-        }
-
-        84% {
-          transform: rotateY(4500deg);
-        }
-
-        91% {
-          transform: rotateY(4860deg);
-        }
-
-        97% {
-          transform: rotateY(5040deg);
-        }
-
-        100% {
-          transform: rotateY(5100deg);
-        }
-      }
 @keyframes nv-step-enter {
         from {
           opacity: 0;
@@ -1292,7 +1333,8 @@ canvas.nv-step-viz {
    ========================================================================== */
 @media (max-width: 900px) {
   /* Kopfzeile: Wortmarke weicht, Breadcrumb scrollt, CTA wird kompakt */
-  .logo-mark { height: calc(var(--logo-h) * 0.72); }
+  .logo-wordmark { height: calc(var(--logo-h) * 0.72); }
+  .logo-spin { width: calc(var(--logo-w) * 0.72); height: calc(var(--logo-h) * 0.72); }
   .nv-breadcrumb { overflow-x: auto; overflow-y: hidden; scrollbar-width: none; }
   .nv-breadcrumb::-webkit-scrollbar { display: none; }
   .header-cta .golden-button { min-width: 0; padding: 0 .6em; font-size: 8.8px; letter-spacing: .02em; }
@@ -1302,8 +1344,9 @@ canvas.nv-step-viz {
   /* Hero: Inhalt ist hoeher als der Bildschirm, deshalb oben ausrichten statt zentrieren */
   .hero { height: auto; min-height: 0; align-items: flex-start; padding-top: 19.2px; padding-bottom: 32px; }
   .hero-content { padding: 0; }
-  .hero h1 { font-size: clamp(27.2px, 7.2vw, 44.8px); margin-bottom: 19.2px; }
-  .hero h2 { margin-bottom: 19.2px; }
+  .hero h1 { font-size: clamp(27.2px, 7.2vw, 44.8px); padding-bottom: 40px; }
+  .hero h2 { padding-bottom: 36px; }
+  .hero-text { padding-bottom: 36px; }
   .header-inner { display: flex; align-items: center; justify-content: space-between; gap: 6.4px; }
   .nv-breadcrumb { flex: 1 1 0; min-width: 0; }
   .header-cta { flex: 0 0 auto; }
@@ -1352,7 +1395,7 @@ canvas.nv-step-viz {
     justify-self: stretch; opacity: 1; transform: none;
     display: flex; flex-direction: column; border-color: #f7ef8a;
   }
-  .nv-s7-card::before { opacity: 1; }
+  .nv-s7-card::before { content: none; }
   .nv-s7-card::after { display: none; }
   .nv-s7-card__visual { position: static; order: 1; opacity: 1; z-index: 0;
     width: 100%; height: 140.8px; object-fit: cover; }
@@ -1464,13 +1507,14 @@ canvas.nv-step-viz {
 @media (max-width: 560px) {
   .header-cta .golden-button { padding: 0 .4em; font-size: 7.6px; gap: 4px; }
   .header-cta .nv-calendly-icon { width: 11.2px; height: 11.2px; }
+  .logo-tagline { display: none; }
 }
 
 .skip-link { position: absolute; left: 9.6px; top: -48px; z-index: 200; padding: 8px 12.8px; border-radius: 0 0 6.4px 6.4px; background: #0a0d0b; color: #fae385; font: 600 11.2px/1 Inter, Arial, sans-serif; text-decoration: none; border: 0.8px solid #8a6a24; transition: top 0.15s ease; }
 .skip-link:focus-visible { top: 0; outline: none; }
 </style>
 
-<meta name="description" content="Nurovelle entwickelt KI-Agenten, Automatisierungen und individuelle Software für den Mittelstand — von der kostenlosen Potenzialanalyse bis zum laufenden System." />
+<meta name="description" content="Nurovelle entwickelt KI-Agenten, Automatisierung und Software für den Mittelstand. Start mit kostenloser Potenzialanalyse." />
 <link rel="canonical" href="https://nurovelle.de/homepage/index.html" />
 <link rel="icon" type="image/png" href="favicon.png" />
 <link rel="apple-touch-icon" href="apple-touch-icon.png" />
@@ -1478,8 +1522,8 @@ canvas.nv-step-viz {
 <meta property="og:site_name" content="Nurovelle" />
 <meta property="og:locale" content="de_DE" />
 <meta property="og:url" content="https://nurovelle.de/homepage/index.html" />
-<meta property="og:title" content="Nurovelle | KI-Systeme für den Mittelstand" />
-<meta property="og:description" content="Nurovelle entwickelt KI-Agenten, Automatisierungen und individuelle Software für den Mittelstand — von der kostenlosen Potenzialanalyse bis zum laufenden System." />
+<meta property="og:title" content="KI-Systeme für den Mittelstand – Nurovelle" />
+<meta property="og:description" content="Nurovelle entwickelt KI-Agenten, Automatisierung und Software für den Mittelstand. Start mit kostenloser Potenzialanalyse." />
 <meta property="og:image" content="https://nurovelle.de/homepage/assets/hero/round.png" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="theme-color" content="#050505" />
@@ -1492,26 +1536,12 @@ canvas.nv-step-viz {
 <header class="site-header">
   <div class="header-inner">
     <a class="logo-link" href="#hero" aria-label="Nurovelle Startseite">
-      <span class="logo-mark-wrap">
-      <svg class="logo-mark logo-mark--word" viewBox="0 0 1611 311" role="img"
-           aria-label="Nurovelle — Building Intelligent Systems">
-        <defs>
-          <linearGradient id="nvLogoGold" x1="0.329" y1="0.030" x2="0.671" y2="0.970">
-            <stop offset="0%" stop-color="#a54e07"/><stop offset="25%" stop-color="#b47e11"/>
-            <stop offset="50%" stop-color="#fef1a2"/><stop offset="75%" stop-color="#bc881b"/>
-            <stop offset="100%" stop-color="#a54e07"/>
-          </linearGradient>
-        </defs>
-        <g id="nvLogoPaths" fill="url(#nvLogoGold)">
-          <path transform="translate(-70.8,-147.2) scale(0.5706)" d="m 385.61042,257.66989 -80.24023,47.73633 4.70898,3.00391 c 10.98855,7.01049 23.88039,13.87497 26.02149,13.85547 1.22556,-0.0112 12.105,-5.9174 24.17578,-13.125 12.07078,-7.2076 22.65564,-13.10547 23.52344,-13.10547 1.95044,0 18.74386,9.64567 76.52929,43.96094 24.75,14.69752 49.05,29.09904 54,32.00195 11.22327,6.58186 10.46625,5.07713 10.48438,20.85351 l 0.0156,13.31446 0.98828,1.8457 c 0.78459,1.46602 22.1753,14.9305 31.45117,19.79688 1.06678,0.55962 2.52928,0.79219 3.25,0.51562 l 1.31055,-0.5039 V 392.08396 362.582 Z m -99.04297,58.92188 -72.73828,43.27539 v 105.20703 108.68945 l 3.75,2.57032 c 2.0625,1.4142 8.7,5.51308 14.75,9.10742 11.24171,6.67877 14.82004,7.80672 15.89258,5.01172 0.33385,-0.86998 0.6151,-48.68248 0.62305,-106.25 0.008,-57.56751 0.37844,-105.24017 0.82226,-105.93946 0.44383,-0.69929 7.29912,-5.11049 15.23438,-9.80273 l 14.42773,-8.53125 2.51367,0.34375 c 1.38215,0.18966 29.73215,16.48877 63,36.21875 33.26784,19.72998 66.33633,39.31978 73.48633,43.5332 l 13,7.66016 0.58203,34.92578 c 0.32026,19.20849 0.6578,35.01956 0.75,35.13672 0.43344,0.55055 27.18775,16.25787 31.03907,18.22266 l 4.36718,2.22656 0.91211,-0.91406 0.91406,-0.91211 0.62696,-52.96289 c 0.34519,-29.12926 0.32621,-54.16592 -0.043,-55.63672 l -0.67188,-2.67383 -39.23828,-23.39258 c -63.75696,-38.00993 -135.96271,-80.67947 -144,-85.11328 z m -86.42383,51.41797 -22.90039,13.62305 -0.24804,151.77539 -0.23047,141.52343 23.98242,14.2793 -0.0117,-153.12891 c -0.007,-89.81247 -0.27322,-162.27569 -0.5918,-168.07226 z m 375.8086,2.98047 -0.38086,67.37304 c -0.43067,76.04826 -0.18779,201.2085 0.33984,254.64844 l 23.89453,-14.21484 -0.22265,-151.05274 -0.21094,-142.81054 z m -413.12305,19.21875 -16.51562,9.82422 -0.25977,126.0332 c -0.14061,68.33737 -0.0226,121.74823 0.23828,130.72461 l 16.00196,9.52539 c 0.29529,-10.6327 0.53515,-66.28466 0.53515,-139.00195 z m 449.96875,2.71679 -0.24414,33.79297 c -0.32664,44.96349 -0.32707,122.30472 0,171.86914 l 0.47852,72.33985 16.16015,-9.61328 c 0.30346,-16.73835 0.48748,-71.37743 0.375,-145.95704 l -0.16992,-112.54882 z m -478.23047,14.09571 -10.21484,6.07812 -0.13281,143.37695 c -0.0311,33.77626 0.0334,60.80287 0.0957,87.23047 l 10.25195,6.10352 v -93.6543 z m 506.93555,2.99414 -0.10352,114.23242 c -0.0525,56.89109 0.0741,99.50377 0.26368,129.64648 l 10.08398,-5.99804 V 523.92771 416.11325 Z m -116.63086,41.49219 -1.04297,0.64453 v 87.75 87.75 l -1.25,1.56836 c -0.6875,0.8618 -12.95,8.52503 -27.25,17.02929 -14.3,8.50426 -43.65127,26.12661 -65.22461,39.16211 l -39.22461,23.70117 -3.17578,-1.64257 c -1.74653,-0.90316 -19.42026,-12.00632 -39.27539,-24.67383 -19.85513,-12.6675 -57.39192,-35.82297 -83.41601,-51.45703 l -47.31641,-28.42579 -1.68359,0.32422 -1.6836,0.32618 v 53.82421 39.90821 L 391.45808,802.74997 562.18855,701.17575 c 0.3382,-11.1453 0.61794,-53.1837 0.625,-109.95703 l 0.0156,-117.31445 -0.99805,-1.86524 c -1.26018,-2.35466 -35.54903,-21.40264 -36.95898,-20.53124 z m -221.88281,28.0332 -0.83008,0.83008 -0.83008,0.83007 -0.27539,71.71875 -0.27539,71.71875 2.27539,2.07227 c 1.25142,1.13939 7.85855,5.96666 14.68164,10.72852 6.8231,4.76187 12.8981,8.49499 13.5,8.29492 l 1.09375,-0.36328 0.61133,-49.41797 c 0.71125,-57.52336 0.50994,-52.91797 2.3125,-52.91797 0.78297,0 30.59547,17.50827 66.25,38.9082 l 64.82617,38.91016 1.26953,-1.04883 1.26953,-1.04687 -0.26953,-20.55079 -0.26953,-20.55078 -44,-26.35156 C 371.34418,519.57322 315.25948,486.30335 308.15925,482.3906 Z m -47.96289,176.33984 c 0.5332,-0.3465 15.62037,8.78972 33.52539,20.30274 17.90503,11.51301 47.10428,30.30181 64.88867,41.75195 17.78438,11.45013 33.23093,20.99946 34.32422,21.22266 l 1.98633,0.40625 36.05468,-22.92579 c 19.8295,-12.60912 49.19783,-31.35831 65.26368,-41.66601 16.06585,-10.30771 29.65368,-18.45353 30.19531,-18.10156 l 0.98437,0.64062 -0.0137,13.18945 c -0.0162,14.68383 0.077,14.36647 -5.2168,17.67383 -2.09228,1.30719 -21.13598,13.85306 -42.32031,27.87891 -21.18433,14.02585 -48.74601,32.16988 -61.24804,40.32031 -12.50203,8.15043 -23.64167,14.81836 -24.75391,14.81836 -1.11222,0 -25.54834,-15.11113 -54.30274,-33.58008 -73.49013,-47.20269 -78.37073,-50.42658 -79.41015,-52.46875 l -0.92578,-1.82031 v -13.50586 -13.50586 z"/>
-          <path transform="translate(366.50,-52.66) scale(1.13390)" d="m 26.682447,206.69632 v -47 -29 c 0,-7.35102 -4.03613,-34.645835 4.45976,-37.833485 9.24189,-3.46756 26.56976,21.863515 31.87106,27.833485 20.02857,22.55486 38.628603,46.19669 58.382803,68.9874 10.12708,11.68374 23.90363,22.55764 40.25972,15.05124 11.85118,-5.43894 13.01566,-17.58448 13.02608,-29.03864 l 5.8e-4,-73 c 0,-8.798335 2.60744,-22.842075 -1.8887,-30.723805 -4.0067,-7.02375 -13.17504,-6.26529 -20.1113,-6.27619 v 46.999995 30 c 0,6.88732 3.87953,34.72746 -3.67392,37.83349 -8.2498,3.39236 -25.6281,-23.38221 -30.39284,-28.83349 C 97.988187,128.09667 77.609577,104.26741 56.943397,80.703405 47.199067,69.592725 33.604287,60.972865 18.690497,68.318655 5.9454867,74.596215 4.6879567,87.083005 4.6826667,99.696325 l -2.2e-4,70.999995 c 0,8.61755 -2.91612,23.99377 1.79891,31.54025 3.8674403,6.18988 14.0065003,4.45946 20.2010903,4.45975 M 874.93528,67.403145 c -5.4996,4.68041 -2.2528,23.62833 -2.2528,30.29318 0,28.885405 -5.8264,64.917615 0.9183,92.999755 2.3991,9.98852 18.3537,23.21814 28.7382,14.29351 7.8854,-6.77691 -9.4435,-20.83119 -9.6283,-29.29351 -0.6691,-30.63646 -0.013,-61.35538 -0.028,-91.999755 0,-8.34811 -5.1826,-26.98599 -17.7469,-16.29318 m 55.0898,0 c -5.5822,4.78372 -2.3426,23.53412 -2.3426,30.29318 0,28.973665 -5.7074,64.832225 1.1743,92.999355 2.4052,9.84463 18.227,23.12701 28.5714,14.29394 7.9705,-6.80596 -8.8606,-20.07641 -8.8111,-28.29397 0.1887,-31.3132 0.3939,-62.66408 0.045,-93.976405 -0.096,-8.6159 -7.0126,-25.27817 -18.6376,-15.3161 M 209.57112,108.04041 c -3.83797,2.37407 -2.88177,8.84795 -2.88778,12.65658 l -8.9e-4,35.99933 c 0,13.69031 -1.69554,28.96288 8.36917,39.84305 16.14108,17.44887 53.08298,10.16577 74.63083,10.15674 9.70401,-0.004 18.71616,-0.39038 26.8212,-6.45369 19.17917,-14.34776 12.17938,-50.63654 12.1788,-71.5461 -2.7e-4,-10.17991 -0.25693,-26.16336 -15.60089,-21.31234 -7.44367,2.35333 -4.39911,19.30259 -4.39911,25.31234 0,24.87558 7.45078,55.93841 -26,55.99862 -13.46542,0.0242 -41.31789,5.25527 -51.38422,-5.43546 -11.99791,-12.74212 -3.70305,-49.0423 -4.70251,-65.55277 -0.48763,-8.05523 -9.17699,-14.52063 -17.0246,-9.6663 m 218.11133,-0.34409 c -16.05447,-2.48913 -46.26498,-5.65298 -59.63702,5.19263 -16.44754,13.34006 -10.36298,45.08273 -10.36298,63.80737 0,7.33257 -1.08755,15.70126 0.53253,22.88823 1.47681,6.55141 12.98627,10.4659 17.76071,4.85892 3.48712,-4.09517 1.70676,-13.74886 1.70676,-18.74715 0,-14.10571 -5.94232,-46.40023 3.87161,-57.47386 13.4603,-15.18802 49.82056,8.1976 46.12839,-20.52614 m 48,-0.34228 c -28.19373,5.03045 -27.00388,32.95604 -26.99994,55.34228 0.002,11.80937 -0.0499,24.53056 8.45404,33.79538 14.95429,16.29239 45.60465,10.20462 65.5459,10.20462 8.15192,0 16.9798,0.91742 25,-0.75842 30.93005,-6.46288 34.78888,-68.63007 16.29962,-88.9373 -15.75159,-17.300395 -66.83963,-13.47556 -88.29962,-9.64656 m 111,0.34228 c 5.05682,18.0714 19.12781,35.24932 27.7251,52 6.66205,12.98012 11.54529,30.57019 21.25329,41.53201 6.69104,7.55521 22.29407,7.60341 29.5846,0.88774 17.36102,-15.99205 28.04461,-50.41357 38.70361,-71.41975 2.211,-4.35734 13.5221,-20.57776 5.30322,-23.31904 -22.91626,-7.643385 -36.85638,41.22375 -44.94073,56.31904 -2.02875,3.78818 -9.28369,23.0632 -15.05664,20.22262 -5.51599,-2.71414 -8.6781,-14.06855 -11.40985,-19.22262 -11.44794,-21.5989 -21.57862,-62.18032 -51.1626,-57 m 174,-0.49864 c -30.02448,3.53293 -32,27.85584 -32,52.49864 0,10.49237 -0.98639,21.63183 4.69916,30.99292 14.68152,24.1727 54.38107,16.00708 78.30087,16.00708 7.1709,0 21.7929,2.78293 27.9637,-1.25282 7.5388,-4.93044 -0.6173,-15.18514 -6.988,-15.63541 -18.2222,-1.28789 -36.7041,-1.10445 -54.97573,-1.11198 -8.43591,-0.003 -18.24072,0.73299 -24.33215,-6.29247 -6.25153,-7.21008 -4.66944,-18.86847 -4.66779,-27.70732 10e-4,-7.75894 -0.71429,-16.35963 4.7843,-22.61734 9.99195,-11.37141 41.36617,-7.54051 55.21537,-6.17103 5.338,0.52784 10.556,2.89229 13.0873,7.89343 4.1336,8.16695 -3.3816,14.32861 -11.0879,14.29678 -13.7468,-0.0568 -28.34386,-1.41368 -41.99828,0.33519 -5.70849,0.73116 -12.75787,3.16689 -12.35022,10.22036 0.67408,11.66409 21.72504,8.04261 29.3494,8.04261 14.3612,0 35.5685,3.75496 47.9038,-5.16047 19.4154,-14.03258 9.2617,-45.16014 -10.904,-52.22809 -8.3759,-2.93567 -17.2591,-2.61121 -25.9998,-2.61144 -11.88443,-3e-4 -24.18246,-0.88919 -36.00003,0.50136 m 253.00005,0.0313 c -29.78802,3.90193 -30.50452,27.3198 -31.03932,51.46736 -0.2506,11.31407 -1.5268,22.85603 4.8153,32.97336 14.50962,23.14631 55.06622,15.02664 78.22402,15.02664 7.171,0 20.8368,2.61096 27.1112,-1.25282 7.6314,-4.69944 0.3848,-14.87746 -6.1354,-15.56032 -17.9122,-1.87598 -36.952,-1.18369 -54.9758,-1.18694 -8.6012,-0.002 -18.9576,0.88799 -25.1348,-6.38868 -5.9862,-7.05158 -4.8662,-18.00843 -4.8652,-26.61124 10e-4,-8.32492 -0.6179,-17.15513 5.4845,-23.71342 10.5103,-11.29547 40.2942,-7.15035 54.5153,-6.15178 5.6915,0.39964 11.223,2.57336 13.904,7.96988 4.8633,9.78932 -5.1747,13.5661 -12.904,14.21869 -13.8964,1.17325 -28.0668,-0.29483 -41.995,0.82394 -5.5346,0.44457 -11.4783,3.32877 -11.1126,9.79968 0.6565,11.61563 21.5233,8.05301 29.1078,8.05301 14.1781,0 35.4802,3.79663 47.8685,-4.50435 20.5524,-13.77143 9.599,-46.07774 -10.8685,-52.96311 -8.3984,-2.82529 -17.2642,-2.53231 -26,-2.53254 -11.8495,-3e-4 -24.2335,-1.00866 -36,0.53264 m -532.97319,18.16616 c 14.59344,-3.57033 32.97732,-0.70196 47.97314,-0.69872 6.18414,10e-4 13.53094,-0.89644 18.43225,3.68027 11.24249,10.49795 10.1543,55.48605 -6.44079,60.22403 -14.63428,4.17815 -34.7331,0.12885 -49.99146,0.094 -6.09134,-0.0139 -12.73895,0.22745 -17.27161,-4.57863 -9.91638,-10.51454 -9.10699,-54.70731 7.29847,-58.72095 m -310.31553,130.56498 1.1852,2.46675 -1.1852,-2.46675 m 21.28867,35.73622 h 5 v -38 c -9.19643,3.56836 -5,29.54399 -5,38 m 44,-38 v 15 c -29.02676,-14.86211 -25.17154,36.84564 0,19 v 4 h 5 c 0,-8.97198 4.42047,-33.7009 -5,-38 m 27,7 c 2.96573,-9.02199 -8.06819,-3.69562 0,0 m 263,-7 v 38 h 5 v -38 h -5 m 23,0 v 38 h 5 v -38 h -5 m 23,6 c 7.18213,-1.53625 2.07587,-7.10335 0,0 m 200,22 c 4.16418,10.90604 25.62873,16.58078 27.72673,0.97516 1.5977,-11.88516 -13.5555,-9.55104 -18.58659,-15.84427 -5.27283,-6.59558 6.70829,-7.78711 10.54489,-6.16913 2.4722,1.04254 4.7529,2.20751 7.315,3.03824 -3.2645,-10.58342 -22.84842,-14.36263 -25.13278,-0.94566 -2.20453,12.94798 15.35048,9.45713 19.42008,17.37651 3.6704,7.14247 -8.19816,7.4339 -11.97459,5.7333 -3.24493,-1.46125 -5.80529,-3.29881 -9.31274,-4.16415 m -691.000003,-27 v 37 c 9.5962,0 43.974703,-3.05516 24.000003,-19 v -2 c 15.02416,-15.17117 -16.129333,-16 -24.000003,-16 m 310.000003,0 v 37 h 5 v -37 h -5 m -305.000003,16 v -12 c 19.811783,0.0166 19.811783,11.9834 0,12 m 372.000003,-12 v 7 l -5,4 h 5 c 1.2e-4,10.85274 -1.60977,21.48518 12,22 v -4 c -8.51215,-2.29901 -6.99878,-10.72369 -7,-18 h 7 v -4 h -7 v -7 h -5 m 263,0 1,7 h -5 v 4 c 10.82068,5.19098 -2.0788,21.68689 16,22 v -4 c -8.51208,-2.29901 -6.99884,-10.72371 -7,-18 h 7 v -4 h -7 v -7 h -5 m 173.00003,0 v 7 h -5 v 4 c 10.0406,6.29874 -0.2011,23.88754 17,21 v -2 c -8.5193,-3.96931 -7.9962,-10.5574 -8,-19 h 7 v -4 h -7 v -7 h -4 m -550.00003,29 c -2.33536,12.5045 -10.51334,8.87393 -20,8 5.01172,8.42966 17.97043,9.36125 22.80496,-0.1284 4.02551,-7.90158 2.03198,-21.27191 1.19504,-29.8716 l -4,3 c -27.66592,-15.12755 -25.86365,35.23343 0,19 m 165,-3 c -8.78598,1.63219 -14.01544,4.41988 -20,-4 3.33408,0 6.6701,0.0305 10.004,-0.0118 22.33169,-0.28312 -2.86142,-26.62789 -12.68747,-8.73154 -8.66348,15.77902 12.52386,26.60043 22.68347,12.74334 m 106,3 c -1.1059,8.91626 -7.45239,12.81331 -15,7 l -5,1 c 5.74084,7.43365 18.67963,10.16638 23.48218,-0.16394 3.8139,-8.20375 1.51782,-20.96149 1.51782,-29.83606 l -5,3 c -26.29321,-15.59802 -25.1709,35.41489 0,19 m 68,-19 c -0.71118,-3.31889 -4.06696,-3.74342 -4.88892,0.0278 -1.52484,6.99596 -0.11108,15.80225 -0.11108,22.9722 h 5 c 0.003,-23.94957 13.99982,-24.13559 14,0 h 5 c 0,-13.16522 -0.23053,-33.33545 -19,-23 m 171.00003,17 c 4.3074,5.6539 20.2356,11.0831 20.4958,-1.00058 0.094,-4.34753 -23.0764,-20.46637 -1.4958,-11.99942 -1.3261,-7.71509 -14.6554,-10.5468 -16.7769,-1.73575 -1.1748,4.87898 22.9019,20.36022 3.867,15.75069 -2.064,-0.4998 -3.9752,-0.82234 -6.0901,-1.01494 m 90,-1 c -7.9912,1.84077 -14.4176,4.72925 -19,-4 h 20 c -1.2104,-14.11829 -21.2499,-22.53366 -24.5224,-4.98224 -2.7979,15.006 16.0396,22.24001 23.5224,8.98224 m -817.00003,-19 c 5e-5,12.80304 0.53281,34.09137 19,23 0.65442,3.05391 2.00658,2.93576 5,3 0,-7.50485 3.1241,-22.29251 -5,-26 -10e-4,24.32501 -13.9996,24.35506 -14,0 h -5 m 42,0 v 26 h 5 v -26 h -5 m 90,0 v 26 h 5 v -26 h -5 m 23,0 v 26 h 5 c 10e-4,-24.3028 13.9996,-24.34474 14,0 h 5 c 0,-13.11183 -0.46579,-32.22778 -19,-23 -0.65442,-3.05392 -2.00656,-2.93576 -5,-3 m 133,0 v 26 h 5 c 10e-4,-24.31079 13.99893,-24.33615 14,0 h 4 c 0,-12.57915 0.49988,-32.68115 -18,-23 -0.65442,-3.05394 -2.00656,-2.93576 -5,-3 m 158,0 -1,26 h 5 v -26 h -4 m 88,19 c -8.81738,1.59389 -13.9939,4.42949 -20,-4 3.33411,0 6.67023,0.0305 10.00403,-0.0118 23.94061,-0.30349 -6.44574,-28.71447 -13.61456,-5.95359 -4.93903,15.68144 15.10266,22.18029 23.61053,9.96539 m 153.00003,-19 c 3.1866,9.30339 16.7898,28.75528 2,33 v 4 c 14.9826,-1.44191 21.5951,-24.05731 24,-37 -7.567,3.13 -9.4377,12.88632 -12,20 -3.9282,-7.11975 -5.2713,-17.63014 -14,-20 m 147,0 v 26 h 5 c 10e-4,-23.92809 12.999,-23.92813 13,0 h 4 c 0,-23.75189 12.9998,-24.08563 13,0 h 5.00002 c 0,-10.98145 -0.79482,-35.40129 -18.00002,-22 h -1 c -5.3506,-4.33594 -10.0317,-4.11552 -16,-1 l -5,-3 m 56.00002,19 c 3.0887,7.34401 17.5679,11.62706 19.6331,0.92181 0.9862,-5.1121 -20.9184,-17.91995 -4.7765,-14.84266 1.7212,0.32811 3.4096,0.65693 5.1434,0.92085 -3.5979,-5.86082 -18.2015,-9.4192 -18.2016,1.00645 0,3.66649 21.9863,18.95304 3.3576,13.43642 -1.7202,-0.50941 -3.4162,-1.00055 -5.156,-1.44287 m -77.00002,-8 h -15 c 3.1965,-8.3381 11.8034,-8.3381 15,0 m -715.75664,-5.68335 c 9.62036,-4.12993 15.49083,11.21661 6.42862,15.39584 -10.05321,4.63625 -15.84663,-11.35276 -6.42862,-15.39584 m 108.93315,-0.23318 c 10.3237,-3.12011 13.77311,13.16568 3.72309,15.59549 -9.60883,2.32315 -12.82923,-12.84337 -3.72309,-15.59549 m 171.82346,5.91653 h -16 c 3.75,-8.31111 12.13635,-8.04637 16,0 m 99.25482,-5.86876 c 10.01306,-3.30969 14.3905,12.8725 4.56873,15.49996 -9.51837,2.54627 -13.90912,-12.41263 -4.56873,-15.49996 m 52.74518,5.86876 -16,-1 c 5.04224,-6.4836 12.51007,-7.24489 16,1 m -571.000003,11 v -13 c 21.942383,0.008 22.068093,12.99269 0,13 z"/>
-        </g>
-      </svg>
-      <svg class="logo-mark logo-mark--tag" viewBox="0 0 1611 311" aria-hidden="true">
-        <use href="#nvLogoPaths"></use>
-      </svg>
+      <span class="logo-spin" aria-hidden="true"><img src="assets/hero/nurovelle_logo_gold.png" alt="" width="58" height="46"></span>
+      <span class="logo-text">
+        <span class="logo-wordmark"><img src="assets/hero/Nurovelle_schrift_gold.png" alt="Nurovelle" width="1098" height="250"></span>
+        <span class="logo-tagline">Building Intelligent Systems</span>
       </span>
-          </a>
+    </a>
 
     <nav class="nv-breadcrumb" aria-label="Hauptnavigation">
       <details class="nv-breadcrumb__group">
@@ -1631,8 +1661,8 @@ canvas.nv-step-viz {
         </ul>
       </div>
       <div class="nv-about__mediacol">
-        <figure class="nv-about__media" aria-hidden="true">
-          <picture><source srcset="assets/Fotos/12.webp" type="image/webp" /><img src="assets/Fotos/12.png" alt="" loading="lazy" decoding="async" width="1600" height="1600" /></picture>
+        <figure class="nv-about__media">
+          <picture><source srcset="assets/Fotos/12.webp" type="image/webp" /><img src="assets/Fotos/12.png" alt="Technische Arbeitsumgebung bei der Planung von KI-Systemen" loading="lazy" decoding="async" width="1600" height="1600" /></picture>
           <span class="nv-about__play"></span>
         </figure>
       </div>
@@ -2191,20 +2221,7 @@ canvas.nv-step-viz {
     <p class="nv-analyse__subtitle">Ein strukturierter Einstieg statt Verkaufsformular.</p>
     <div class="nv-analyse__layout">
     <div class="nv-analyse__text">
-    <p class="nv-analyse__intro">Die Potenzialanalyse ist kein Verkaufsformular, sondern ein strukturierter Einstieg. Sie zeigt, welche Abläufe aktuell Zeit binden, wo Medienbrüche entstehen und welche Datenquellen bereits vorhanden sind.</p>
-<div class="nv-ainfo">
-        <p class="nv-ainfo__eyebrow">Was geprüft wird</p>
-        <h3>Kurzer Check. Klare Einordnung.</h3>
-                <ul>
-          <li><strong>Prozesslage</strong>Welche wiederkehrenden Aufgaben aktuell Zeit binden, wo Rückfragen entstehen und welche Übergaben manuell laufen.</li>
-          <li><strong>Datenlage</strong>Welche Systeme, Tabellen, E-Mails oder Dokumente beteiligt sind und ob die Informationen nutzbar zusammengeführt werden können.</li>
-          <li><strong>Automatisierungspotenzial</strong>Ob KI, Automatisierung, SaaS-Tool oder ein normaler Prozessumbau für den konkreten Ablauf sinnvoller ist.</li>
-          <li><strong>Nächster Schritt</strong>Welche Umsetzung zuerst den größten Nutzen bringt und welcher Einstieg realistisch vorbereitet werden sollte.</li>
-        </ul>
-        <h4>Was Sie danach erhalten</h4>
-        <p>Eine klare erste Einschätzung, ob und wo sich KI-Automatisierung lohnt — mit einer Einordnung von Einsparpotenzial, Aufwand, Nutzen und Priorität sowie einer Empfehlung für den sinnvollsten nächsten Schritt.</p>
-        <p class="nv-ainfo__note">199 € · für Sie kostenlos. Kein Abo. Keine versteckten Kosten.</p>
-      </div>
+    <p class="nv-analyse__intro">Zuerst der Richtwert aus Ihren Angaben. Darunter die passende Stufe: kostenlose Potenzialanalyse oder Deep-Potenzialanalyse als wesentliche Erweiterung.</p>
     </div>
 
     <div class="nv-analyse__grid">
@@ -2273,13 +2290,52 @@ canvas.nv-step-viz {
           </div>
         </div>
       </div>
+    </div>
+    </div>
 
-      <!-- Card 3: Info -->
-      
+      <div class="nv-analyse__offers">
+        <article class="nv-analyse__offer">
+          <p class="nv-analyse__offer-kicker">Kostenlos</p>
+          <h3>Kostenlose Potenzialanalyse</h3>
+          <p>Die Potenzialanalyse ist kein Verkaufsformular, sondern ein strukturierter Einstieg. Sie zeigt, welche Abläufe aktuell Zeit binden, wo Medienbrüche entstehen und welche Datenquellen bereits vorhanden sind.</p>
+          <p class="nv-analyse__offer-label">Was geprüft wird</p>
+          <ul class="nv-analyse__offer-list">
+            <li><strong>Prozesslage</strong> Welche wiederkehrenden Aufgaben aktuell Zeit binden, wo Rückfragen entstehen und welche Übergaben manuell laufen.</li>
+            <li><strong>Datenlage</strong> Welche Systeme, Tabellen, E-Mails oder Dokumente beteiligt sind und ob die Informationen nutzbar zusammengeführt werden können.</li>
+            <li><strong>Automatisierungspotenzial</strong> Ob KI, Automatisierung, SaaS-Tool oder ein normaler Prozessumbau für den konkreten Ablauf sinnvoller ist.</li>
+            <li><strong>Nächster Schritt</strong> Welche Umsetzung zuerst den größten Nutzen bringt und welcher Einstieg realistisch vorbereitet werden sollte.</li>
+          </ul>
+          <p>Eine klare erste Einschätzung, ob und wo sich KI-Automatisierung lohnt — mit einer Einordnung von Einsparpotenzial, Aufwand, Nutzen und Priorität sowie einer Empfehlung für den sinnvollsten nächsten Schritt.</p>
+          <p class="nv-analyse__offer-price">199&nbsp;€ · für Sie kostenlos</p>
+          <p class="nv-analyse__offer-note">Kein Abo. Keine versteckten Kosten. Formular direkt darunter.</p>
+          <a class="hero-cta hero-cta--outline" href="#analyse-formular">
+            <span class="golden-button"><span class="golden-text">Zum Formular</span></span>
+          </a>
+        </article>
+        <article class="nv-analyse__offer nv-analyse__offer--deep">
+          <p class="nv-analyse__offer-kicker">Wesentliche Erweiterung</p>
+          <h3>Deep-Potenzialanalyse</h3>
+          <p>Die Deep-Potenzialanalyse geht über die kostenlose Potenzialanalyse hinaus. Sobald mehrere Prozesse, eine Investitionsentscheidung oder technische Abhängigkeiten betroffen sind, reicht die erste Einordnung nicht aus. Die kostenlose Analyse ist der übliche Einstieg, aber keine Voraussetzung.</p>
+          <p>Prozesse, Daten und Systeme werden vollständig erfasst. Daraus entsteht nicht nur eine Einschätzung, sondern ausgearbeiteter Output für die Umsetzung.</p>
+          <p class="nv-analyse__offer-label">Zusätzlicher Output gegenüber der kostenlosen Analyse</p>
+          <ul class="nv-analyse__offer-list">
+            <li>ROI-Überschlag je Prozess</li>
+            <li>technische Lösungsarchitektur</li>
+            <li>detaillierte Schnittstellenplanung</li>
+            <li>ausgearbeitete Implementierungs-Roadmap</li>
+            <li>Workshop mit Ihrem Team</li>
+            <li>Report als HTML und PDF sowie Implementierungsleitfaden</li>
+          </ul>
+          <p class="nv-analyse__offer-price">Einführungspreis 555&nbsp;€ netto · Listenpreis 699&nbsp;€ netto</p>
+          <p class="nv-analyse__offer-note">Einführungspreis für Anfragen bis 31.12.2026, zzgl. 19&nbsp;% MwSt. Scope wird vor Start schriftlich festgehalten.</p>
+          <a class="hero-cta" href="potenzialanalyse-deep.html">
+            <span class="golden-button"><span class="golden-text">Deep-Potenzialanalyse ansehen</span></span>
+          </a>
+        </article>
+      </div>
 
-      <!-- Card 4: Formular -->
       <form class="nv-acard nv-aform" id="nvAnaForm" action="analyse.html#analyse-formular" method="get">
-        <h3>Potenzialanalyse starten</h3>
+        <h3 id="analyse-formular">Kostenlose Potenzialanalyse</h3>
         <p class="nv-aform__intro">Senden Sie uns die wichtigsten Angaben zu Ihrem Prozess. Wir melden uns mit einer ersten strukturierten Einordnung.</p>
         <div class="nv-aform__grid">
           <input autocomplete="given-name" name="vorname" placeholder="Vorname" required type="text">
@@ -2323,7 +2379,7 @@ canvas.nv-step-viz {
           <div class="nv-aform__hp" aria-hidden="true"><label>Bitte leer lassen<input autocomplete="off" name="website_confirmation" tabindex="-1" type="text"></label></div>
 
           <div class="nv-aform__row nv-aform__row--privacy">
-            <label class="nv-aform__consent"><input name="privacy_consent" type="checkbox" value="yes" required><span><strong>Datenschutzerklärung akzeptieren (Pflichtfeld).</strong> Ich habe die <a href="datenschutz.html">Datenschutzerklärung</a> gelesen und bin einverstanden.</span></label>
+            <label class="nv-aform__consent"><input name="privacy_consent" type="checkbox" value="yes" required><span><strong>Datenschutzerklärung akzeptieren (Pflichtfeld).</strong> Ich habe die <a href="datenschutz.html">Datenschutzerklärung</a> und die <a href="analyse-rechtliche-hinweise.html">rechtlichen Hinweise zur Analyse</a> gelesen und bin einverstanden.</span></label>
           </div>
           <div class="nv-aform__row nv-aform__row--news">
             <label class="nv-aform__consent"><input name="newsletter" type="checkbox" value="yes"><span><strong>Newsletter erhalten.</strong> Passende Hinweise zur Potenzialanalyse per E-Mail.</span></label>
@@ -2331,15 +2387,7 @@ canvas.nv-step-viz {
           <button class="hero-cta nv-aform__submit" type="submit"><span class="golden-button"><span class="golden-text">Kostenlose Potenzialanalyse</span></span></button>
         </div>
       </form>
-    </div>
-    </div>
 
-    <div class="nv-analyse__deep">
-      <p>Wenn mehrere Prozesse, Investitionsentscheidungen oder technische Abhängigkeiten genauer untersucht werden müssen, reicht die kostenlose Ersteinschätzung nicht aus. Die Deep-Potenzialanalyse geht darüber hinaus: Prozesse, Daten und Systeme werden vollständig erfasst. Daraus entstehen konkrete Anwendungsfälle, eine Bewertung nach Nutzen, Aufwand, Risiko und Umsetzungsreife sowie eine ausgearbeitete Roadmap als belastbare Grundlage für die nächsten Schritte.</p>
-      <a class="hero-cta hero-cta--outline" href="potenzialanalyse-deep.html" aria-label="Deep-Potenzialanalyse ansehen">
-        <span class="golden-button"><span class="golden-text">Deep-Potenzialanalyse ansehen</span></span>
-      </a>
-    </div>
   </div>
 </section>
 
@@ -2369,7 +2417,7 @@ canvas.nv-step-viz {
               <picture><source srcset="assets/Module/Ablauf/aufgabe_erfassen.webp" type="image/webp" /><img
                 class="nv-process__module"
                 src="assets/Module/Ablauf/aufgabe_erfassen.png"
-                alt=""
+                alt="Aufgabe erfassen"
                 aria-hidden="true"
               loading="eager" decoding="async" width="524" height="578" /></picture><img
                 class="nv-process__base"
@@ -2385,7 +2433,7 @@ canvas.nv-step-viz {
               <img
                 class="nv-process__module"
                 src="assets/Module/Ablauf/ki_potential.png"
-                alt=""
+                alt="KI-Potenzial bewerten"
                 aria-hidden="true"
               loading="eager" decoding="async" width="730" height="697" /><img
                 class="nv-process__base"
@@ -2401,7 +2449,7 @@ canvas.nv-step-viz {
               <picture><source srcset="assets/Module/Ablauf/daten_prüfen1.webp" type="image/webp" /><img
                 class="nv-process__module"
                 src="assets/Module/Ablauf/daten_prüfen1.png"
-                alt=""
+                alt="Daten prüfen"
                 aria-hidden="true"
               loading="eager" decoding="async" width="658" height="595" /></picture><img
                 class="nv-process__base"
@@ -2417,7 +2465,7 @@ canvas.nv-step-viz {
               <picture><source srcset="assets/Module/Ablauf/Prozesse_planen.webp" type="image/webp" /><img
                 class="nv-process__module"
                 src="assets/Module/Ablauf/Prozesse_planen.png"
-                alt=""
+                alt="Prozess modellieren"
                 aria-hidden="true"
               loading="eager" decoding="async" width="506" height="673" /></picture><img
                 class="nv-process__base"
@@ -2433,7 +2481,7 @@ canvas.nv-step-viz {
               <picture><source srcset="assets/Module/Ablauf/lösung_wählen.webp" type="image/webp" /><img
                 class="nv-process__module"
                 src="assets/Module/Ablauf/lösung_wählen.png"
-                alt=""
+                alt="Lösung auswählen"
                 aria-hidden="true"
               loading="eager" decoding="async" width="620" height="507" /></picture><img
                 class="nv-process__base"
@@ -2449,7 +2497,7 @@ canvas.nv-step-viz {
               <img
                 class="nv-process__module"
                 src="assets/Module/Ablauf/umsetzung_struturieren.png"
-                alt=""
+                alt="Umsetzung strukturieren"
                 aria-hidden="true"
               loading="eager" decoding="async" width="594" height="635" /><img
                 class="nv-process__base"
@@ -2499,11 +2547,16 @@ canvas.nv-step-viz {
         <div class="nv-contact__grid">
           <article class="nv-contact__portrait">
             <figure class="nv-contact__portrait-frame">
-              <picture><source srcset="assets/Whisk_ac35ee0e10.webp" type="image/webp" /><img
+              <picture>
+                <source srcset="assets/images/contact.webp" type="image/webp" />
+                <source srcset="assets/images/contact.png" type="image/png" />
+                <source srcset="assets/Whisk_ac35ee0e10.webp" type="image/webp" />
+                <img
                 class="nv-contact__portrait-image"
                 src="assets/Whisk_ac35ee0e10.jpg"
                 alt="Portrait von Tino Schneider"
-              loading="eager" decoding="async" width="1408" height="768" /></picture>
+                loading="eager" decoding="async" width="342" height="456" />
+              </picture>
             </figure>
             <h3>Tino Schneider</h3>
             <p>Nurovelle</p>
@@ -2524,7 +2577,7 @@ canvas.nv-step-viz {
             <ul>
               <li>
                 <strong>E-Mail</strong
-                ><a href="mailto:mail@nurovelle.de">mail@nurovelle.de</a>
+                ><a class="nv-mail" href="#" data-nv-mail="bWFpbEBudXJvdmVsbGUuZGU=">E-Mail schreiben</a>
               </li>
               <li>
                 <strong>Telefon</strong
@@ -2588,7 +2641,7 @@ canvas.nv-step-viz {
               <div class="download-item__type">
                 <picture><source srcset="assets/dokument_icons/pdf.webp" type="image/webp" /><img
                   src="assets/dokument_icons/pdf.png"
-                  alt=""
+                  alt="PDF-Dokument"
                   aria-hidden="true"
                 loading="lazy" decoding="async" width="500" height="500" /></picture>
               </div>
@@ -2615,7 +2668,7 @@ canvas.nv-step-viz {
               <div class="download-item__type">
                 <picture><source srcset="assets/dokument_icons/pdf.webp" type="image/webp" /><img
                   src="assets/dokument_icons/pdf.png"
-                  alt=""
+                  alt="PDF-Dokument"
                   aria-hidden="true"
                 loading="lazy" decoding="async" width="500" height="500" /></picture>
               </div>
@@ -2642,7 +2695,7 @@ canvas.nv-step-viz {
               <div class="download-item__type">
                 <picture><source srcset="assets/dokument_icons/pdf.webp" type="image/webp" /><img
                   src="assets/dokument_icons/pdf.png"
-                  alt=""
+                  alt="PDF-Dokument"
                   aria-hidden="true"
                 loading="lazy" decoding="async" width="500" height="500" /></picture>
               </div>
@@ -2894,7 +2947,7 @@ canvas.nv-step-viz {
           <h3 class="footer-col__title">Kontakt</h3>
           <p>Marburg, Deutschland</p>
           <p><a href="tel:+4964218097347">06421 8097347</a></p>
-          <p><a href="mailto:mail@nurovelle.de">mail@nurovelle.de</a></p>
+          <p><a class="nv-mail" href="#" data-nv-mail="bWFpbEBudXJvdmVsbGUuZGU=">E-Mail schreiben</a></p>
           <div class="footer-social" aria-label="Social Media">
             <a href="#" aria-label="LinkedIn">
               <svg viewBox="0 0 24 24" aria-hidden="true">
@@ -2936,6 +2989,8 @@ canvas.nv-step-viz {
           <a href="impressum.html">Impressum</a>
           <a href="datenschutz.html">Datenschutz</a>
           <a href="agb.html">AGB</a>
+          <a href="cookie-hinweis.html">Cookie-Hinweis</a>
+          <a href="praxisleitfaden.html">Praxisleitfaden</a>
         </nav>
         <p class="footer-copy">
           © Nurovelle. By d4sd1ng. All rights reserved.
@@ -3639,6 +3694,21 @@ void main(){
       window.location.href = "analyse.html#analyse-formular";
     });
   })();
+</script>
+
+<script>
+(function(){
+  document.querySelectorAll("a.nv-mail[data-nv-mail]").forEach(function(a){
+    try {
+      var addr = atob(a.getAttribute("data-nv-mail"));
+      a.addEventListener("click", function(e){
+        e.preventDefault();
+        window.location.href = "mailto:" + addr;
+      });
+      a.setAttribute("aria-label", addr);
+    } catch (err) {}
+  });
+})();
 </script>
 </body>
 </html>

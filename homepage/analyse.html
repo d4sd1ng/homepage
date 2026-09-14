@@ -342,7 +342,7 @@ a:active .golden-button {
 .btn:hover, .btn:focus-visible { color: var(--nv-gold-text-hover); border-color: var(--nv-gold-border-hover); background-size: 150% 150%; transform: translateY(-1.6px); box-shadow: 0 8px 16px var(--shadow-hover-1), 0 4.8px 4.8px var(--shadow-hover-2), inset 0 -1.6px 4px 0.8px var(--nv-gold-inner-mid), inset 0 -0.8px 0.8px 2.4px var(--nv-gold-highlight); }
 .section { position: relative; padding: 33.6px var(--side); background: #000; }
 .section--landing { padding-block: max(19px, calc(16.66vh - 133.6px)); }
-main > section:nth-child(n+4):before { content: ""; position: absolute; left: 7%; right: 7%; top: 0; height: 1.6px; background: linear-gradient(90deg,transparent 0%,#E0AA3E 14%,#FAF398 50%,#E0AA3E 86%,transparent 100%); box-shadow: 0 0 6.4px rgba(250,227,133,.4); }
+main > section + section:before { content: ""; position: absolute; left: 7%; right: 7%; top: 0; height: 1.6px; background: linear-gradient(90deg,transparent 0%,#E0AA3E 14%,#FAF398 50%,#E0AA3E 86%,transparent 100%); box-shadow: 0 0 6.4px rgba(250,227,133,.4); pointer-events: none; }
 .section-inner { max-width: var(--content-max); margin-left: auto; margin-right: auto; }
 .kicker { font: var(--w-kicker-sektion) var(--t-kicker-sektion)/1.15 "Inter",Arial,sans-serif; letter-spacing: .14em; text-transform: uppercase; color: #55863f; margin-bottom: 8px; }
 h1,h2,h3 { font-family: "Exo 2",Inter,Arial,sans-serif; }
@@ -358,13 +358,13 @@ main h3 { font: var(--w-zwischentitel) var(--t-zwischentitel)/1.2 "Exo 2",Inter,
 .detail-hero .actions { margin-top: 50.4px; }
 .visual-card { position: relative; overflow: hidden; }
 .visual-card>img:first-child { width: 100%; height: auto; max-height: 184px; object-fit: contain; }
-.content-grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 86.4px; margin-top: 0; }
+.content-grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 24px; margin-top: 0; }
 .panel { border: 1px solid transparent; border-radius: 8px; background-image: linear-gradient(#080B09,#080B09), var(--gold-3); background-origin: border-box; background-clip: padding-box, border-box; padding: 10.4px; }
 .panel p,.panel li { font: var(--w-fliesstext) var(--t-fliesstext)/1.7 "Inter",Arial,sans-serif; color: #b9c3bd; }
 .panel p { margin: 0 0 9.6px; }
 .panel p:last-child { margin-bottom: 0; }
 .panel .sub { font: 600 15px/1.45 "Inter",Arial,sans-serif; color: #F5F7F4; margin: 0 0 19px; }
-.card-bullets { list-style: none; margin: 17px 0 0; padding: 0 0 0 80px; display: grid; grid-template-columns: repeat(2,max-content); justify-content: start; gap: 8px 96px; }
+.card-bullets { list-style: none; margin: 17px 0 0; padding: 0; display: grid; grid-template-columns: repeat(2,max-content); justify-content: start; gap: 8px 96px; }
 .card-bullets li { 
   position: relative; 
   padding-left: 16px; 
@@ -378,7 +378,7 @@ main h3 { font: var(--w-zwischentitel) var(--t-zwischentitel)/1.2 "Exo 2",Inter,
 .card-bullets li::before { 
   content: ""; 
   position: absolute; 
-  left: 0; top: calc(50% - 2.8px); 
+  left: 0; top: 0.55em; 
   width: 5.6px; height: 5.6px; 
   border-radius: 1.6px; 
   background: #DFBD69; 
@@ -394,13 +394,15 @@ main h3 { font: var(--w-zwischentitel) var(--t-zwischentitel)/1.2 "Exo 2",Inter,
 .text-cols { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 14.4px 38.4px; margin-top: 7.2px; }
 .text-cols p { font: var(--w-fliesstext) var(--t-fliesstext)/1.7 "Inter",Arial,sans-serif; color: #b9c3bd; }
 .text-cols--1 { grid-template-columns: minmax(0,1fr); max-width: 848px; gap: 11px; }
-.label-list { column-count: 2; column-gap: 38.4px; list-style: none; margin: 77.6px 0 0; padding: 0; }
+.label-list { column-count: 2; column-gap: 38.4px; list-style: none; margin: 24px 0 0; padding: 0; }
 .label-list li { position: relative; break-inside: avoid; margin-bottom: 21px; padding-left: 16px; font: var(--w-fliesstext) var(--t-fliesstext)/1.7 "Inter",Arial,sans-serif; color: #b9c3bd; }
 .label-list li::before { content: ""; position: absolute; left: 0; top: 6.4px; width: 5.6px; height: 5.6px; border-radius: 1.6px; background: #DFBD69; }
 .label-list strong { display: block; margin-bottom: 3.2px; font: var(--w-bulletlabel) var(--t-bulletlabel)/1.35 "Inter",Arial,sans-serif; background: var(--gold-2); background-clip: text; -webkit-background-clip: text; color: transparent; -webkit-text-fill-color: transparent; }
-.label-list--plus li::before { content: "+"; width: auto; height: auto; border-radius: 0; background: none; color: #DFBD69; font-size: 18px; font-weight: 300; line-height: 1; top: 4px; }
-.label-list--minus li::before { content: ""; width: 16px; height: 16px; border: 2px solid #e74c3c; border-radius: 50%; background: none; top: 4px; left: -2px; }
-.label-list--minus li::after { content: ""; position: absolute; left: 4px; top: 10px; width: 8px; height: 2px; background: #e74c3c; }
+.label-list--plus li { padding-left: 22px; }
+.label-list--plus li::before { content: "+"; width: auto; height: auto; border-radius: 0; background: none; color: #DFBD69; font-size: 18px; font-weight: 300; line-height: 1; top: 0.1em; left: 0; }
+.label-list--minus li { padding-left: 28px; }
+.label-list--minus li::before { content: ""; box-sizing: border-box; width: 14px; height: 14px; border: 2px solid #e74c3c; border-radius: 50%; background: none; top: 0.35em; left: 0; }
+.label-list--minus li::after { content: ""; position: absolute; left: 3px; top: calc(0.35em + 6px); width: 8px; height: 2px; background: #e74c3c; }
 /* ---------- Ablaufdiagramm: isometrische Rauten im Zickzack ----------
    Feste Pixelmasse wie bei den uebrigen Modulen dieser Seite. Die
    Verbindungslinien sind auf genau diese Geometrie gerechnet
@@ -412,7 +414,7 @@ main h3 { font: var(--w-zwischentitel) var(--t-zwischentitel)/1.2 "Exo 2",Inter,
    ineinander. Die Beschriftungen sind breiter als die Spalte; das
    kollidiert nicht, weil benachbarte Texte auf gegenueberliegenden
    Seiten stehen und gleichseitige zwei Spalten auseinander liegen. */
-.flow-steps { margin: 77.6px 0 0; }
+.flow-steps { margin: 24px 0 0; }
 .flow-steps__track { display: grid; grid-template-columns: repeat(4, 168px); justify-content: center; align-items: center; min-height: 546px; margin: 0; padding: 0; list-style: none; }
 .flow-step { --st: #926F34; --st-lite: #EDC967;
   position: relative; height: 100%; display: grid; grid-template-rows: 1fr auto 1fr; justify-items: center; }
@@ -456,14 +458,14 @@ main h3 { font: var(--w-zwischentitel) var(--t-zwischentitel)/1.2 "Exo 2",Inter,
 }
 .text { max-width: 88ch; font: var(--w-fliesstext) var(--t-fliesstext)/1.7 "Inter",Arial,sans-serif; color: #b9c3bd; }
 .text--after { margin-top: 21px; }
-.num-list { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 21px 38.4px; list-style: none; counter-reset: dpnum; margin: 77.6px 0 0; padding: 0; }
+.num-list { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 16px 38.4px; list-style: none; counter-reset: dpnum; margin: 24px 0 0; padding: 0; }
 .num-list li { counter-increment: dpnum; position: relative; padding-left: 49.6px; font: var(--w-fliesstext) var(--t-fliesstext)/1.7 "Inter",Arial,sans-serif; color: #b9c3bd; }
 .num-list li::before { content: counter(dpnum,decimal-leading-zero); position: absolute; left: 0; top: 1.6px; display: grid; place-items: center; width: 24px; height: 24px; border-radius: 6.4px; border: 1px solid transparent; background-image: linear-gradient(#080B09,#080B09), var(--gold-3); background-origin: border-box; background-clip: padding-box, border-box; color: #d4af37; font: 600 9.6px/1 "Exo 2",Inter,Arial,sans-serif; }
 .num-list b { display: block; margin-bottom: 3.2px; font: var(--w-bulletlabel) var(--t-bulletlabel)/1.35 "Inter",Arial,sans-serif; background: var(--gold-2); background-clip: text; -webkit-background-clip: text; color: transparent; -webkit-text-fill-color: transparent; }
 .num-list span { display: block; }
 .pair-chips-row { margin: 0 0 25.6px; }
 #einsatzbereiche .panel { margin-top: 33px; }
-.pair-grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); grid-auto-rows: 1fr; gap: calc(25vh - 171px) 45px; }
+.pair-grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); grid-auto-rows: auto; gap: 16px 45px; }
 .pair { display: grid; grid-template-columns: minmax(0,1fr) 24px minmax(0,1fr); align-items: stretch; gap: 9.6px; }
 #einsatzbereiche .panel { padding: 30.4px; background-image: linear-gradient(#112A20,#112A20), var(--gold-3); }
 #einsatzbereiche .text--after { margin-top: 27px; }
@@ -471,7 +473,7 @@ main h3 { font: var(--w-zwischentitel) var(--t-zwischentitel)/1.2 "Exo 2",Inter,
 .chip-icon { flex: 0 0 auto; box-sizing: border-box; width: 38.4px; height: 38.4px; margin-right: 11px; overflow: hidden; border-radius: 6.4px; border: 1px solid transparent; background-image: linear-gradient(#080B09,#080B09), var(--gold-3); background-origin: border-box; background-clip: padding-box, border-box; }
 .chip-icon img { display: block; width: 100%; height: 100%; object-fit: cover; scale: 1.12; }
 .pair-chip--gold { background-image: linear-gradient(180deg,#ffd7a3 0%,#f0a05a 24%,#d89828 58%,#7a3518 100%), var(--gold-3); border-color: rgba(255,215,163,.78); color: #112A20; box-shadow: inset 0 0 0 0.8px rgba(255,244,199,.20); }
-.pair-arrow { align-self: center; display: flex; align-items: center; justify-content: center; color: #d4af37; }
+.pair-arrow { align-self: center; justify-self: center; display: flex; align-items: center; justify-content: center; color: #d4af37; z-index: 1; pointer-events: none; }
 .pair-arrow svg { width: 25.6px; height: 25.6px; }
 /* ---------- Punktlisten & Gruppen ---------- */
 .dot-list { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 8px 38.4px; list-style: none; margin: 11px 0 0; padding: 0; }
@@ -809,9 +811,9 @@ h1, main > section > .section-inner > h2 {
 <li>Detaillierte Schnittstellenplanung.</li>
 <li>Ausgearbeitete Implementierungs-Roadmap.</li>
 <li>Workshop mit Ihrem Team.</li>
-<li>Ausführlicher Implementierungsleitfaden.</li>
+<li>Report als HTML und PDF sowie Implementierungsleitfaden.</li>
 </ul>
-<p class="text text--after">Genau dort beginnt die kostenpflichtige Deep-Potenzialanalyse.</p>
+<p class="text text--after">Genau dort beginnt die kostenpflichtige Deep-Potenzialanalyse. Sie geht über die kostenlose Potenzialanalyse hinaus: Report als HTML und PDF, ROI je Prozess, Lösungsarchitektur, Schnittstellenplanung, Roadmap, Workshop und Implementierungsleitfaden. Einführungspreis 555&nbsp;€ netto, Listenpreis 699&nbsp;€ netto, für Anfragen bis 31.12.2026 zzgl. 19&nbsp;% MwSt. Die kostenlose Analyse ist der übliche Einstieg, aber keine Voraussetzung.</p>
 </div></section>
 <!-- ===== numlist ===== -->
 <section class="section" id="ablauf"><div class="section-inner">
@@ -857,7 +859,7 @@ h1, main > section > .section-inner > h2 {
 <ul class="label-list">
 <li><strong>Direkt umsetzbare Lösung</strong>Wenn ein klar begrenzter Anwendungsfall bereits ausreichend definiert ist.</li>
 <li><strong>Individuelles KI-Projekt</strong>Wenn eine individuelle Software-, Agenten-, Workflow- oder Integrationslösung benötigt wird.</li>
-<li><strong>Deep-Potenzialanalyse</strong>Wenn mehrere Prozesse, Investitionsentscheidungen oder technische Abhängigkeiten genauer untersucht werden müssen.</li>
+<li><strong>Deep-Potenzialanalyse</strong>Wenn mehrere Prozesse, Investitionsentscheidungen oder technische Abhängigkeiten genauer untersucht werden müssen. Einführungspreis 555&nbsp;€ netto, Listenpreis 699&nbsp;€ netto.</li>
 <li><strong>Noch keine Umsetzung</strong>Wenn zunächst Prozesse, Daten oder organisatorische Voraussetzungen verbessert werden sollten.</li>
 </ul>
 <div class="actions"><a class="btn" href="potenzialanalyse-deep.html">Deep-Potenzialanalyse ansehen</a></div>

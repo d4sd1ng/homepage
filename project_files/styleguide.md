@@ -48,8 +48,8 @@ Nicht verwenden:
 - Emerald: `#112B21`
 - Emerald Highlight: `#163A26`
 - Gold deep: `#a28557`
-- Gold damped: `#C5B358` 
-- Gold warm: `#ad8047`
+- Gold damped: `#ffbb54` 
+- Gold warm: `#ff8f00`
 - Gold glow: `#a4803f`
 - Gold bright: `#C9B25F`
 
@@ -76,7 +76,7 @@ Gold wird für Premium-Akzente verwendet:
 ### Goldrahmen
 
 ```css
-linear-gradient(135deg, #AE8625, #F7EF8A, #D2AC47, #EDC967)
+linear-gradient(135deg, #AE8625, #F7EF8A, #gD2AC47, #EDC967)
 ```
 
 ### Goldtitel
