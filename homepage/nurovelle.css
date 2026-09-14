@@ -317,6 +317,6 @@ main h3 { font: var(--w-zwischentitel) var(--t-zwischentitel)/1.2 "Exo 2",Inter,
 button[disabled] { opacity: .58; cursor: not-allowed; }
 @media (max-width: 1200px) { .pair-grid { grid-template-columns: 1fr; } }
 @media (max-width: 900px) { .analysis-layout, .result-strip { grid-template-columns: 1fr; } }
-@media (max-width: 900px) { .detail-hero,.content-grid,.text-cols,.label-list,.num-list { grid-template-columns: 1fr; } }
+@media (max-width: 900px) { .detail-hero,.content-grid,.text-cols,.label-list,.num-list { grid-template-columns: 1fr; } .label-list { column-count: 1; } }
 /* warum-nurovelle: eigene Abstaende, die von analyse.html abweichen */
 .chip-list li.pair-chip { min-height: 73.6px; padding: 4.8px 8px; border-radius: 8px; }
