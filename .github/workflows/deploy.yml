@@ -78,7 +78,6 @@ jobs:
               --exclude='*backup*' \
               --exclude='overwrite-audit.json' \
               --exclude='slack.md' \
-              --exclude='detailseiten/' \
               --exclude='xcomponents/' \
               homepage/ ${{ env.ZIEL }}/
             mkdir -p ${{ env.ROOT_ZIEL }}
