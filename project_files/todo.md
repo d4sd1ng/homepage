@@ -1,6 +1,6 @@
 # Nurovelle Homepage – Todo
 
-Stand: 2026-08-14  
+Stand: 2026-08-30  
 Status: in Arbeit
 
 ## Zweck dieser Datei
@@ -23,6 +23,15 @@ Keine abgeschlossenen historischen Entscheidungen, Designregeln oder Projektbesc
 - [ ] `changelog.md` bei jeder tatsächlichen Änderung unmittelbar aktualisieren — offen
 - [ ] `nurovelle-tokens.css` liegt doppelt (`project_files/` und `homepage/`) und lief inhaltlich auseinander; eine der beiden zur alleinigen Quelle machen und die andere daraus erzeugen — offen
 - [ ] sieben Gold-SVG-Wortmarken unter `homepage/assets/hero/` sind in keinem Commit und deshalb live nicht abrufbar; einchecken oder verwerfen — offen
+
+## Zahlung / Stripe
+
+- [ ] **Preis-IDs fehlen.** Für alle acht Produkte in `NUROVELLE_STRIPE_PRODUKTE` steht `preis: null`. Vorliegend sind nur die `prod_`-IDs; ein Checkout braucht die `price_`-ID. Zu holen im Stripe-Dashboard unter Produktkatalog → Produkt → Abschnitt Preise (kein API-Schlüssel nötig) — offen
+- [ ] **Test oder Live klären.** Test- und Livemodus führen getrennte Produkte und Preise. Eine `price_`-ID aus dem Livemodus funktioniert mit dem hinterlegten `pk_test`-Schlüssel nicht — offen
+- [ ] **Bezeichnungen bestätigen**, besonders bei den beiden Deep-Einträgen: welcher ist der Aktionspreis bis 31.12.2026, welcher der reguläre ab 01.01.2027 — offen
+- [ ] `homepage/stripe-config.js` in den Seiten einbinden, in denen bezahlt werden soll; welche Seiten das sind, ist nicht entschieden — offen
+- [ ] Bezahlflow (Produkte, Preise, Checkout, Server-Endpunkt) festlegen und freigeben — offen
+- [ ] Live-Betrieb: Publishable Key des Livemodus liegt nicht vor; `homepage/stripe-config.js` steht auf `test` — offen
 
 ## Homepage – Inhalte
 

@@ -46,6 +46,24 @@ Nicht geändert:
 - Bestehende Formular-, API-, Lead-, Newsletter- und Notion-Integrationen.
 - Bestehende IDs, Assetpfade, Kartenlinks und JavaScript-Logik.
 
+## 2026-08-30 – Stripe-Testkonfiguration angelegt
+
+Status: fertig
+
+Geändert:
+
+- `homepage/stripe-config.js`: neu angelegt. Setzt `window.NUROVELLE_STRIPE_PUBLISHABLE_KEY` (Publishable Key des Testmodus) und `window.NUROVELLE_STRIPE_MODE` (`test`) nach der bestehenden `window.NUROVELLE_*`-Konvention aus `analyse.html`. Reine Konfiguration, keine Bezahllogik.
+- `architecture.md`: Abschnitt „Stripe-Konfiguration" ergänzt.
+- `todo.md`: Abschnitt „Zahlung / Stripe" mit drei offenen Punkten ergänzt.
+
+Nicht geändert:
+
+- HTML-Seiten unter `homepage/`: die Datei ist in keiner Seite eingebunden.
+- Layout, Texte, Farben, Fonts, Assets, Formular- und Analyse-Logik.
+- `.github/workflows/deploy.yml`: der rsync-Ausschluss betrifft keine `.js`-Dateien, die Datei wird ohne Anpassung mit ausgerollt.
+
+Anmerkung: Der Publishable Key ist für den Browser bestimmt und deshalb öffentlich; der Secret Key (`sk_...`) gehört nicht in dieses Repository.
+
 ## 2026-08-14 – Goldwort-Regel nach Medium getrennt, ein Goldverlauf für Dokumente
 
 Status: fertig
