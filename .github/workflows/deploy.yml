@@ -28,6 +28,7 @@ env:
   ROOT_ZIEL: /opt/nurovell-potential-analysis/frontend/public
   CONTAINER: nurovell_frontend
   PRUEF_URL: https://nurovelle.de/homepage/version.txt
+  SEITE_URL: https://nurovelle.de/homepage/index.html
 
 jobs:
   deploy:
@@ -50,6 +51,21 @@ jobs:
 
             # Versionsmarke, an der die Live-Pruefung den Stand erkennt
             printf '%s\n' "${{ github.sha }}" > homepage/version.txt
+
+            # Dieselbe Marke zusaetzlich in jede ausgelieferte HTML-Seite.
+            # version.txt allein beweist nur, dass irgendein Deploy gelaufen
+            # ist - nicht, dass die Seite selbst neu ist. Beide Dateien
+            # koennen unabhaengig voneinander aus einem Cache stammen oder
+            # von einem rsync-Ausschluss betroffen sein; version.txt kaeme
+            # dann frisch, index.html alt, und der Deploy meldete trotzdem
+            # gruen. Erst die Marke in der Seite selbst schliesst das.
+            # Die Zeile steht hinter <!DOCTYPE html>, wo ein Kommentar
+            # zulaessig ist, und wird bei jedem Lauf neu gesetzt, weil der
+            # Checkout oben hart auf origin/main zurueckgesetzt wird.
+            for f in homepage/*.html; do
+              sed -i '1a <!-- nurovelle-build: ${{ github.sha }} -->' "$f"
+            done
+            echo "Baumarke in $(ls homepage/*.html | wc -l) HTML-Dateien gesetzt."
 
             mkdir -p ${{ env.ZIEL }}
             rsync -a --delete \
@@ -90,6 +106,8 @@ jobs:
         id: pruefung
         run: |
           erwartet="${{ github.sha }}"
+          marke="<!-- nurovelle-build: $erwartet -->"
+          seite="${{ env.SEITE_URL }}"
           echo "Erwartet wird: $erwartet"
           echo "--- Antwortkopf beim ersten Versuch ---"
           curl -sS -D - -o /dev/null --max-time 20 "${{ env.PRUEF_URL }}" 2>&1 | head -n 25 || true
@@ -97,14 +115,25 @@ jobs:
           for versuch in $(seq 1 6); do
             status="$(curl -sS -o /tmp/antwort.txt -w '%{http_code}' --max-time 20 "${{ env.PRUEF_URL }}" 2>/dev/null || echo 000)"
             gelesen="$(head -n1 /tmp/antwort.txt 2>/dev/null | tr -d '\r')"
-            if [ "$gelesen" = "$erwartet" ]; then
-              echo "Die ausgelieferte Seite zeigt den neuen Stand (Versuch $versuch)."
+            # Zweite und eigentlich entscheidende Pruefung: traegt die
+            # ausgelieferte Seite selbst die Marke dieses Commits?
+            seiten_status="$(curl -sS -o /tmp/seite.html -w '%{http_code}' --max-time 20 "$seite" 2>/dev/null || echo 000)"
+            if [ "$gelesen" = "$erwartet" ] && grep -qF "$marke" /tmp/seite.html 2>/dev/null; then
+              echo "version.txt und index.html zeigen beide $erwartet (Versuch $versuch)."
               exit 0
             fi
-            echo "Versuch $versuch: HTTP $status, erste Zeile='${gelesen:-leer}'"
+            echo "Versuch $versuch:"
+            echo "  version.txt  HTTP $status, erste Zeile='${gelesen:-leer}'"
+            if [ "$seiten_status" = 200 ]; then
+              gefunden="$(grep -o 'nurovelle-build: [0-9a-f]\{40\}' /tmp/seite.html 2>/dev/null | head -n1)"
+              echo "  index.html   HTTP 200, Marke='${gefunden:-keine gefunden}'"
+              echo "  Cache        $(curl -sSI --max-time 20 "$seite" 2>/dev/null | grep -iE '^(cf-cache-status|age):' | tr -d '\r' | paste -sd' ' -)"
+            else
+              echo "  index.html   HTTP $seiten_status"
+            fi
             sleep 10
           done
-          echo "::error title=Deploy kommt nicht an::${{ env.PRUEF_URL }} zeigt nicht $erwartet."
+          echo "::error title=Deploy kommt nicht an::version.txt oder $seite zeigt nicht $erwartet. Bei 'Marke=keine gefunden' trotz HTTP 200 liefert etwas eine alte Fassung aus - dann sagt die Cache-Zeile, ob Cloudflare dazwischenliegt."
           exit 1
 
       - name: Root-Indexierung pruefen
