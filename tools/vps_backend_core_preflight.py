@@ -16,12 +16,14 @@ import sys
 import urllib.error
 import urllib.request
 from dataclasses import dataclass
+from datetime import datetime, timezone
 from typing import Any
 
 
 DEFAULT_SSH_TARGET = "d4sd1ng@77.42.74.250"
 OLD_DB = "nurovell_potential_analysis"
 NEW_DB = "nurovelle_core"
+POSTGRES_CONTAINER = "postgres"
 
 LIVE_GET_URLS = [
     "https://nurovelle.de/",
@@ -85,10 +87,10 @@ def check_live_gets() -> CheckResult:
 
 
 def check_runtime_summary(target: str, expected_db: str) -> CheckResult:
-    remote = r"""
+    remote = rf"""
 set -euo pipefail
 docker inspect nurovell_backend --format '{{.State.Running}}' >/tmp/nurovelle_backend_running.txt
-docker inspect postgres --format '{{.State.Running}}' >/tmp/nurovelle_postgres_running.txt
+docker inspect {POSTGRES_CONTAINER} --format '{{.State.Running}}' >/tmp/nurovelle_postgres_running.txt
 database_url="$(docker exec nurovell_backend printenv DATABASE_URL || true)"
 current_db="$(DATABASE_URL="$database_url" python3 - <<'PY'
 import os
@@ -116,17 +118,17 @@ printf '{"backend_running":"%s","postgres_running":"%s","current_db":"%s"}\n' \
 def check_databases_and_tables(target: str) -> CheckResult:
     old_count_sql = " union all ".join([f"select '{table}', count(*) from public.{table}" for table in COUNT_TABLES])
     new_count_sql = " union all ".join([f"select '{table}', count(*) from public.{table}" for table in COUNT_TABLES])
-    remote = f"""
+    remote = rf"""
 set -euo pipefail
-docker exec postgres psql -U avataruser -d postgres -v ON_ERROR_STOP=1 -t -A -F $'\\t' -c "
+docker exec {POSTGRES_CONTAINER} psql -U avataruser -d postgres -v ON_ERROR_STOP=1 -t -A -F $'\\t' -c "
 select 'db_exists', datname from pg_database where datname in ('{OLD_DB}', '{NEW_DB}') order by datname;
 "
-docker exec postgres psql -U avataruser -d {NEW_DB} -v ON_ERROR_STOP=1 -t -A -F $'\\t' -c "
+docker exec {POSTGRES_CONTAINER} psql -U avataruser -d {NEW_DB} -v ON_ERROR_STOP=1 -t -A -F $'\\t' -c "
 select 'schema_exists', schema_name from information_schema.schemata where schema_name in ('analysis', 'homepage', 'content_system', 'ops', 'public') order by schema_name;
 select 'alembic', version_num from public.alembic_version;
 "
-docker exec postgres psql -U avataruser -d {OLD_DB} -v ON_ERROR_STOP=1 -t -A -F $'\\t' -c "{old_count_sql};" | sed 's/^/old_count\\t/'
-docker exec postgres psql -U avataruser -d {NEW_DB} -v ON_ERROR_STOP=1 -t -A -F $'\\t' -c "{new_count_sql};" | sed 's/^/new_count\\t/'
+docker exec {POSTGRES_CONTAINER} psql -U avataruser -d {OLD_DB} -v ON_ERROR_STOP=1 -t -A -F $'\\t' -c "{old_count_sql};" | sed 's/^/old_count\\t/'
+docker exec {POSTGRES_CONTAINER} psql -U avataruser -d {NEW_DB} -v ON_ERROR_STOP=1 -t -A -F $'\\t' -c "{new_count_sql};" | sed 's/^/new_count\\t/'
 """
     lines = [line for line in run_ssh(target, remote).splitlines() if line.strip()]
     dbs = sorted(line.split("\t", 1)[1] for line in lines if line.startswith("db_exists\t"))
@@ -167,22 +169,82 @@ docker exec postgres psql -U avataruser -d {NEW_DB} -v ON_ERROR_STOP=1 -t -A -F 
 
 
 def check_backups(target: str) -> CheckResult:
-    remote = r"""
+    remote = rf"""
 set -euo pipefail
 backup_dir=/opt/nurovell-potential-analysis/backups/postgres
-if [ ! -d "$backup_dir" ]; then
-  printf '[]\n'
-  exit 0
+env_dir=/opt/nurovell-potential-analysis/compose
+if [ -d "$backup_dir" ]; then
+  find "$backup_dir" -maxdepth 1 -type f \( -name '*.dump' -o -name '*.sql' \) -printf 'postgres\t%f\t%s\t%T@\n' | sort
 fi
-find "$backup_dir" -maxdepth 1 -type f \( -name '*.dump' -o -name '*.sql' \) -printf '%f\t%s\n' | sort
+if [ -d "$env_dir" ]; then
+  find "$env_dir" -maxdepth 1 -type f -name '.env.vps.pre_nurovelle_core_*' -printf 'env\t%f\t%s\t%T@\n' | sort
+fi
+latest_dump=""
+if [ -d "$backup_dir" ]; then
+  latest_dump="$(find "$backup_dir" -maxdepth 1 -type f -name '*.dump' -printf '%T@\t%p\n' | sort -nr | head -n 1 | cut -f2- || true)"
+fi
+if [ -n "$latest_dump" ]; then
+  if docker exec -i {POSTGRES_CONTAINER} pg_restore --list < "$latest_dump" >/dev/null 2>&1; then
+    printf 'restore_check\tok\t%s\n' "$(basename "$latest_dump")"
+  else
+    printf 'restore_check\tfailed\t%s\n' "$(basename "$latest_dump")"
+  fi
+else
+  printf 'restore_check\tskipped\tno_dump\n'
+fi
 """
     lines = [line for line in run_ssh(target, remote).splitlines() if line.strip()]
+    now = datetime.now(timezone.utc)
     backups = []
+    env_backups = []
+    restore_check = {"status": "skipped", "file": "no_dump"}
     for line in lines:
-        name, size = line.split("\t", 1)
-        backups.append({"name": name, "bytes": int(size)})
+        parts = line.split("\t")
+        if len(parts) == 4 and parts[0] in {"postgres", "env"}:
+            section, name, size, mtime_epoch = parts
+            record = {
+                "name": name,
+                "bytes": int(size),
+                "mtime_epoch": float(mtime_epoch),
+                "age_days": int((now - datetime.fromtimestamp(float(mtime_epoch), tz=timezone.utc)).total_seconds() // 86400),
+                "protected": any(marker in name.lower() for marker in ("precutover", "legacy_data", "manual", "schema")),
+            }
+            if section == "postgres":
+                backups.append(record)
+            else:
+                env_backups.append(record)
+        elif len(parts) == 3 and parts[0] == "restore_check":
+            restore_check = {"status": parts[1], "file": parts[2]}
     has_dump = any(item["name"].endswith(".dump") and item["bytes"] > 0 for item in backups)
-    return CheckResult("backup_files_present", has_dump, backups)
+    restore_ok = restore_check["status"] in {"ok", "skipped"}
+    postgres_total_bytes = sum(item["bytes"] for item in backups)
+    env_total_bytes = sum(item["bytes"] for item in env_backups)
+    newest_postgres_age = min((item["age_days"] for item in backups), default=None)
+    oldest_postgres_age = max((item["age_days"] for item in backups), default=None)
+    newest_env_age = min((item["age_days"] for item in env_backups), default=None)
+    oldest_env_age = max((item["age_days"] for item in env_backups), default=None)
+    detail = {
+        "postgres": {
+            "path": "/opt/nurovell-potential-analysis/backups/postgres",
+            "count": len(backups),
+            "total_bytes": postgres_total_bytes,
+            "protected_count": sum(1 for item in backups if item["protected"]),
+            "newest_age_days": newest_postgres_age,
+            "oldest_age_days": oldest_postgres_age,
+            "files": backups,
+            "latest_dump_restore_check": restore_check,
+        },
+        "env_backups": {
+            "path": "/opt/nurovell-potential-analysis/compose",
+            "count": len(env_backups),
+            "total_bytes": env_total_bytes,
+            "newest_age_days": newest_env_age,
+            "oldest_age_days": oldest_env_age,
+            "files": env_backups,
+        },
+        "restore_test_requirement": "Run a non-production restore test at least monthly; pg_restore --list on the latest dump only verifies dump readability.",
+    }
+    return CheckResult("backup_files_present", has_dump and restore_ok, detail)
 
 
 def run_checks(target: str, expected_db: str = OLD_DB) -> list[CheckResult]:

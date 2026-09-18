@@ -71,6 +71,41 @@ Kritisch:
 - Migration errors
 - 5xx-Hinweise im API-Pfad
 
+## VPS-Retention auditieren oder installieren
+
+Lokal aus dem Homepage-Repo:
+
+```powershell
+python tools\vps_retention_ops.py
+python tools\vps_retention_ops.py --install --execute --confirm install-vps-retention
+```
+
+Verweis:
+
+- Retention-Policy: `project_files/vps_retention_policy.md`
+
+Erwartung nach der Installation:
+
+- Journald-Limits aktiv
+- Logrotate-Datei vorhanden
+- Timer `nurovelle-docker-prune.timer` und `nurovelle-retention-maintenance.timer` aktiv
+- Rotation fuer Postgres-Backups und `.env.vps.pre_nurovelle_core_*` eingerichtet
+
+## Backup-Status detailliert pruefen
+
+```powershell
+python tools\vps_backend_core_preflight.py --expected-db nurovelle_core
+```
+
+Relevant im Ergebnis:
+
+- Postgres-Backup-Anzahl
+- Postgres-Backup-Gesamtgroesse
+- Alter juengster/aeltester Dumps
+- Anzahl/Groesse der Env-Backups
+- `latest_dump_restore_check`
+- Hinweis auf den monatlichen Restore-Test
+
 ## Rollback
 
 Rollback nur ausloesen, wenn der Live-Betrieb mit `nurovelle_core` fehlschlaegt.
