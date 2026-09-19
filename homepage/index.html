@@ -263,7 +263,15 @@ a:active .golden-button {
 .site-header::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 0.8px; z-index: 0; background: linear-gradient(90deg, #00000000, #fae385d1, #00000000); }
 .header-inner { position: relative; z-index: 1; height: 100%; padding: 0 var(--page-gutter); display: grid; grid-template-columns: auto minmax(0, 1fr) auto; align-items: center; }
 .logo-link { display: inline-flex; align-items: center; gap: 9.6px; height: var(--logo-box); perspective: 480px; text-decoration: none; flex: 0 0 auto; }
-.logo-wordmark { height: var(--logo-h); width: auto; display: block; align-self: center; }
+.logo-wordmark {
+  height: var(--logo-h); width: auto; aspect-ratio: 1098 / 250; display: block; align-self: center;
+  background: var(--gold-3);
+  -webkit-mask-image: url("assets/hero/Nurovelle_schrift_gold.png");
+  mask-image: url("assets/hero/Nurovelle_schrift_gold.png");
+  -webkit-mask-size: contain; mask-size: contain;
+  -webkit-mask-repeat: no-repeat; mask-repeat: no-repeat;
+  -webkit-mask-position: left center; mask-position: left center;
+}
 .logo-text { display: flex; flex-direction: column; align-items: flex-end; justify-content: center; gap: 2.4px; }
 .logo-tagline { display: block; color: var(--color-text-light); font: 700 7.2px/1.1 "Inter", Arial, sans-serif; letter-spacing: 0.04em; white-space: nowrap; }
 .logo-spin {
@@ -1496,7 +1504,7 @@ canvas.nv-step-viz {
     <a class="logo-link" href="#hero" aria-label="Nurovelle Startseite">
       <span class="logo-spin" aria-hidden="true"></span>
       <span class="logo-text">
-        <img class="logo-wordmark" src="assets/hero/Nurovelle_schrift_gold.png" alt="Nurovelle — Building Intelligent Systems" width="1098" height="250" />
+        <span class="logo-wordmark" role="img" aria-label="Nurovelle — Building Intelligent Systems"></span>
         <span class="logo-tagline">Building intelligent systems</span>
       </span>
     </a>
