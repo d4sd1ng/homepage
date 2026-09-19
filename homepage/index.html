@@ -842,8 +842,8 @@ canvas.nv-step-viz {
 .nv-analyse__offer > * { position: relative; z-index: 2; }
 .nv-analyse__offer::before { content: ""; position: absolute; inset: 0; z-index: 0; background: var(--asset-logo-mark) center / 46% auto no-repeat; opacity: 0.07; pointer-events: none; }
 .nv-analyse__offer--deep { background: linear-gradient(#120e08, #120e08) padding-box, var(--gold-3) border-box; box-shadow: 0 0 24px rgba(212,175,55,.12); }
-.nv-analyse__offer-kicker { margin: 0; color: #55863f; font: var(--w-kicker-karte) var(--t-kicker-karte)/1.15 Inter,Arial,sans-serif; letter-spacing: 0.12em; text-transform: uppercase; }
-.nv-analyse__offer h3 { margin: 0; color: transparent; background: var(--gold-1); background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent; font: var(--w-sektionstitel) clamp(28px, 3vw, 42px)/1.1 "Exo 2",Inter,Arial,sans-serif; }
+.nv-analyse__offer .nv-analyse__offer-kicker { margin: 0; color: #55863f; font: var(--w-kicker-karte) var(--t-kicker-karte)/1.15 Inter,Arial,sans-serif; letter-spacing: 0.12em; text-transform: uppercase; }
+.nv-analyse__offer h3 { margin: 0; color: transparent; background: var(--gold-1); background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent; font: var(--w-sektionstitel) clamp(28px, 3vw, 42px)/1.1 "Exo 2",Inter,Arial,sans-serif; hyphens: none; }
 .nv-analyse__offer p { margin: 0; max-width: none; color: #b9c3bd; font: var(--w-fliesstext) var(--t-fliesstext)/1.65 Inter,Arial,sans-serif; }
 .nv-analyse__offer-label { margin: 8px 0 0 !important; color: #e4e0d6 !important; font: 600 13px/1.3 Inter,Arial,sans-serif !important; letter-spacing: 0.08em; text-transform: uppercase; }
 .nv-analyse__offer-list { margin: 0; padding: 0; list-style: none; display: grid; gap: 8px; }
@@ -929,6 +929,7 @@ canvas.nv-step-viz {
 .nv-ainfo li strong { display: block; margin-bottom: 1.6px; color: #d4af37; font: var(--w-bulletlabel) var(--t-bulletlabel)/1.85 "Inter",Arial,sans-serif; }
 .nv-ainfo h4 { margin: 52.8px 0 3.2px; color: #d4af37; font: var(--w-bulletlabel) var(--t-bulletlabel)/1.85 "Inter",Arial,sans-serif; letter-spacing: .06em; text-transform: uppercase; }
 .nv-ainfo__note { color: #e8b048 !important; }
+#analyse-formular { hyphens: none; }
 .nv-aform__intro { margin: 0 0 14.4px; color: #b9c3bd; font: 400 12.8px/1.55 "Inter",Arial,sans-serif; }
 .nv-aform__grid { display: grid; grid-template-columns: repeat(6,minmax(0,1fr)); gap: 8px; align-items: start; }
 .nv-aform__grid > input[type=hidden] { display: none; }
@@ -994,7 +995,7 @@ canvas.nv-step-viz {
   .nv-process__steps { flex-wrap: wrap; row-gap: 32px; column-gap: clamp(16px, 3.2vw, 38.4px); }
   .nv-process__step { flex: 0 0 auto; width: 120px; }
   .nv-process__step:nth-child(even) { margin-top: 0; }
-  .nv-process__step::after { content: none; }
+  .nv-process__step:not(:last-child)::after { content: none; }
 }
 @media (max-width: 760px) {
   .nv-process { margin-left: 0; width: 100%; }
@@ -1398,6 +1399,7 @@ canvas.nv-step-viz {
     display: flex; flex-direction: column; align-items: center; }
   /* transform: translateX(-50%) stammt aus der absoluten Desktop-Variante und
      wuerde die jetzt statischen Bilder halb aus dem Bild schieben. */
+  .nv-process__visual picture { display: contents; }
   .nv-process__module { position: static; transform: none; width: 72%; height: auto; }
   /* sockel.png ist 1067x759, die Platte liegt darin nur bei y 300..578 --
      oben stehen 40% leerer Rand. Der negative Rand gleicht genau das aus. */
@@ -2900,7 +2902,7 @@ canvas.nv-step-viz {
           <p><a href="tel:+4964218097347">06421 8097347</a></p>
           <p><a class="nv-mail" href="#" data-nv-mail="bWFpbEBudXJvdmVsbGUuZGU=">E-Mail schreiben</a></p>
           <div class="footer-social" aria-label="Social Media">
-            <a href="#" aria-label="LinkedIn">
+            <a href="https://www.linkedin.com/in/tino-schneider-nurovelle" target="_blank" rel="noopener" aria-label="LinkedIn">
               <svg viewBox="0 0 24 24" aria-hidden="true">
                 <path
                   fill="currentColor"
@@ -2908,15 +2910,15 @@ canvas.nv-step-viz {
                 />
               </svg>
             </a>
-            <a href="#" aria-label="YouTube">
+            <a href="https://www.facebook.com/nurovelle" target="_blank" rel="noopener" aria-label="Facebook">
               <svg viewBox="0 0 24 24" aria-hidden="true">
                 <path
                   fill="currentColor"
-                  d="M23 12s0-3.2-.4-4.7a2.5 2.5 0 0 0-1.75-1.75C19.3 5.2 12 5.2 12 5.2s-7.3 0-8.85.35A2.5 2.5 0 0 0 1.4 7.3C1 8.8 1 12 1 12s0 3.2.4 4.7a2.5 2.5 0 0 0 1.75 1.75C4.7 18.8 12 18.8 12 18.8s7.3 0 8.85-.35A2.5 2.5 0 0 0 22.6 16.7C23 15.2 23 12 23 12zM9.75 15.02V8.98L15.5 12z"
+                  d="M22 12.06C22 6.5 17.52 2 12 2S2 6.5 2 12.06c0 5 3.66 9.16 8.44 9.94v-7.03H7.9v-2.91h2.54V9.85c0-2.5 1.49-3.89 3.77-3.89 1.09 0 2.23.2 2.23.2v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56v1.88h2.78l-.44 2.91h-2.34V22c4.78-.78 8.44-4.94 8.44-9.94z"
                 />
               </svg>
             </a>
-            <a href="#" aria-label="Instagram">
+            <a href="https://www.instagram.com/nurovelle.de/" target="_blank" rel="noopener" aria-label="Instagram">
               <svg viewBox="0 0 24 24" aria-hidden="true">
                 <path
                   fill="currentColor"
@@ -2924,7 +2926,7 @@ canvas.nv-step-viz {
                 />
               </svg>
             </a>
-            <a href="#" aria-label="GitHub">
+            <a href="https://github.com/d4sd1ng" target="_blank" rel="noopener" aria-label="GitHub">
               <svg viewBox="0 0 24 24" aria-hidden="true">
                 <path
                   fill="currentColor"
