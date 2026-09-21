@@ -1,5 +1,22 @@
 # Changelog
 
+## 2026-09-21 – Analyse-Datei: Hero-Viewport und Sektionsabstände
+
+Status: geprüft
+
+Geändert:
+
+- `homepage/analyse_bereinigt_hero_viewport_typo_fix (1).html`: Hero-Mindesthöhe an vorhandenen Body-Zoom angepasst; Einstiegskarten schließen den ersten Desktop-Viewport ab.
+- Hero-Mindesthöhe zusätzlich um die Divider-Höhe (2 CSS-Pixel) reduziert, damit die Linie innerhalb des ersten Desktop-Viewports sichtbar ist.
+- `.section-divider`: vorhandenen Goldverlauf der Sektionslinien übernommen; doppelte Pseudo-Divider ersetzt, vorhandene FAQ-Trennung als Divider-Element erhalten.
+- Sektionsabstände sowie Kicker-/Titel-/Untertitel-/Inhaltsabstände vereinheitlicht; konkurrierende Höhenregeln entfernt, Inhaltssektionen dürfen bei Platzbedarf wachsen.
+- `main h2`: Schriftgröße um 2 CSS-Pixel erhöht.
+
+Nicht geändert:
+
+- Texte, IDs, Assetpfade, Schriftfamilien, Header, Footer und JavaScript einschließlich Formular-/API-Logik.
+
+
 ## 2026-09-06 – Bildregeln für Social-/Content-Posts
 
 Status: fertig

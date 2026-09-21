@@ -949,22 +949,22 @@ canvas.nv-step-viz {
 #analyse-formular { hyphens: none; }
 .nv-aform { height: 100%; align-self: stretch; }
 .nv-aform__intro { margin: 0 0 14.4px; color: #b9c3bd; font: 400 12.8px/1.55 "Inter",Arial,sans-serif; }
-.nv-aform__grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 8px; align-items: start; }
+.nv-aform__grid { display: grid; grid-template-columns: repeat(6,minmax(0,1fr)); gap: 8px; align-items: start; }
 .nv-aform__grid > input[type=hidden] { display: none; }
-.nv-aform__grid > [name=vorname] { grid-area: 1 / 1 / 2 / 2; }
-.nv-aform__grid > [name=nachname] { grid-area: 1 / 2 / 2 / 3; }
-.nv-aform__grid > [name=telefon] { grid-area: 2 / 1 / 3 / 2; }
-.nv-aform__grid > [name=email] { grid-area: 2 / 2 / 3 / 3; }
-.nv-aform__grid > [name=unternehmen] { grid-area: 3 / 1 / 4 / 2; }
-.nv-aform__grid > [name=website] { grid-area: 3 / 2 / 4 / 3; }
-.nv-aform__grid > [name=branche] { grid-area: 4 / 1 / 5 / 2; }
-.nv-aform__grid > [name=mitarbeiteranzahl] { grid-area: 4 / 2 / 5 / 3; }
-.nv-aform__grid > [name=zeitaufwand] { grid-area: 5 / 1 / 6 / 2; }
-.nv-aform__grid > [name=datenlage] { grid-area: 5 / 2 / 6 / 3; }
-.nv-aform__grid > [name=herausforderung] { grid-area: 6 / 1 / 7 / 3; height: 72px; }
-.nv-aform__grid > .nv-aform__row--privacy { grid-area: 7 / 1 / 8 / 2; }
-.nv-aform__grid > .nv-aform__row--news { grid-area: 7 / 2 / 8 / 3; }
-.nv-aform__grid > .nv-aform__submit { grid-area: 8 / 1 / 9 / 3; justify-self: stretch; margin-top: 19.2px; }
+.nv-aform__grid > [name=vorname] { grid-area: 1 / 1 / 2 / 3; }
+.nv-aform__grid > [name=nachname] { grid-area: 1 / 3 / 2 / 5; }
+.nv-aform__grid > [name=telefon] { grid-area: 1 / 5 / 2 / 7; }
+.nv-aform__grid > [name=email] { grid-area: 2 / 1 / 3 / 3; }
+.nv-aform__grid > [name=unternehmen] { grid-area: 2 / 3 / 3 / 5; }
+.nv-aform__grid > [name=website] { grid-area: 2 / 5 / 3 / 7; }
+.nv-aform__grid > [name=branche] { grid-area: 3 / 1 / 4 / 3; }
+.nv-aform__grid > [name=mitarbeiteranzahl] { grid-area: 3 / 3 / 4 / 5; }
+.nv-aform__grid > [name=herausforderung] { grid-area: 3 / 5 / 5 / 7; height: 100%; }
+.nv-aform__grid > [name=zeitaufwand] { grid-area: 4 / 1 / 5 / 3; }
+.nv-aform__grid > [name=datenlage] { grid-area: 4 / 3 / 5 / 5; }
+.nv-aform__grid > .nv-aform__row--privacy { grid-area: 5 / 1 / 6 / 4; }
+.nv-aform__grid > .nv-aform__row--news { grid-area: 5 / 4 / 6 / 7; }
+.nv-aform__grid > .nv-aform__submit { grid-area: 6 / 1 / 7 / 7; justify-self: stretch;  margin-top: 19.2px; }
 .nv-aform__submit { padding: 0; border: 0; background: none; cursor: pointer; }
 .nv-aform__submit .golden-button { display: flex; width: 100%; min-width: 0; }
 .nv-aform input, .nv-aform select, .nv-aform textarea { width: 100%; padding: 0 8px; border: 0.8px solid rgba(240,160,90,.82); border-radius: 4px; color: #111; background: rgba(235,235,226,.96); font: var(--w-formularfeld) var(--t-formularfeld)/1.3 "Inter",Arial,sans-serif; outline: none; }
@@ -1027,7 +1027,7 @@ canvas.nv-step-viz {
 
 /* ===== PORT 3/5 aus index1: Downloads ===== */
 .downloads-section > .section-inner { width: 100%; max-width: 1560px; margin: 0 auto; }
-.download-display { width: 100%; max-width: 1560px; margin: 0; padding: var(--nv-space-md); overflow: hidden; box-sizing: border-box; }
+.download-display { max-width: 1560px; margin: 0 auto; padding: var(--nv-space-md); overflow: hidden; }
 
 /* ===== PORT 4/5 aus index1: FAQ ===== */
 .nv-resource-section__kicker { margin: 0 0 var(--nv-kicker-title-gap); color: var(--nv-kicker-color); font-family: "Inter", Arial, sans-serif; font-size: var(--nv-section-kicker-size); font-weight: 700; line-height: var(--nv-kicker-line-height); letter-spacing: var(--nv-kicker-letter-spacing); text-transform: uppercase; }
@@ -1134,7 +1134,7 @@ canvas.nv-step-viz {
 @media (max-width: 640px) { .nv-check-grid { grid-template-columns: 1fr; } .nv-checklist-modal { padding: 24px 18px 20px; } .nv-checklist-modal__result { margin: 19.2px -18px -20px; padding: 16px 18px 20px; } }
 .downloads-section { display: flex; flex-direction: column; justify-content: center;  min-height: calc(100vh - var(--header-height));  position: relative; padding: 83.2px var(--side) 105px; overflow: hidden; color: var(--color-text-light); background: #050505; }
 .downloads-section::after { content: ""; position: absolute; left: 7%; right: 7%; bottom: 0; height: 1.6px; background: linear-gradient(90deg,transparent,#fae385 20%,#fae385 80%,transparent); box-shadow: 0 0 6.4px #fae38566; pointer-events: none; }
-.downloads-section .section-inner { position: relative; z-index: 1; width: 100%; margin: 0 auto; }
+.downloads-section .section-inner { position: relative; z-index: 1; width: 100%; margin: 0 auto 0 0; }
 .downloads-section .section-head { max-width: none; margin: 0 0 92.8px; }
 .downloads-section__kicker, .downloads-section .kicker { margin: 0 0 8px; color: #55863f; font: var(--w-kicker-sektion) var(--t-kicker-sektion)/1.15 "Inter",Arial,sans-serif; letter-spacing: 0.14em; text-transform: uppercase; }
 .downloads-section__title, .downloads-section .section-title { margin: 0 0 20px; color: transparent; background: var(--gold-1); background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent; font: var(--w-sektionstitel) var(--t-sektionstitel)/1.15 "Exo 2",Inter,Arial,sans-serif; }
