@@ -2,190 +2,463 @@
 <html lang="de">
 <head>
 <meta charset="utf-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>Dokumenten- und Datenabgleich automatisieren | Nurovelle</title>
-<meta name="description" content="Dokumenten- und Datensysteme erfassen Informationen aus verschiedenen Quellen, prüfen Inhalte und gleichen Datensätze automatisiert miteinander ab."/>
-<link rel="preload" href="assets/fonts/inter-var-latin.woff2" as="font" type="font/woff2" crossorigin />
-<link rel="stylesheet" href="assets/fonts/fonts.css" />
-<link rel="stylesheet" href="nurovelle.css" />
+<meta content="Dokumenten- und Datensysteme erfassen Informationen aus verschiedenen Quellen, prüfen Inhalte und gleichen Datensätze automatisiert miteinander ab." name="description"/>
+<link as="font" crossorigin="" href="assets/fonts/inter-var-latin.woff2" rel="preload" type="font/woff2"/>
+<link href="assets/fonts/fonts.css" rel="stylesheet"/>
 <style>
-:root {
-  --sidebar-gold: #d89828;
-  --sidebar-gold-light: #e8b048;
-  --nv-gold-border: #a55d07;
-  --nv-gold-inner-dark: #8b4208;
-  --nv-gold-inner-mid: #b17d10;
-  --nv-gold-highlight: #fae385;
-  --nv-gold-text-dark: rgb(120, 50, 5);
-  --nv-gold-gradient: linear-gradient(160deg, #a54e07, #b47e11, #fef1a2, #bc881b, #a54e07);
-  --nv-gold-text-hover: rgba(120, 50, 5, 0.8);
-  --nv-gold-border-hover: rgba(165, 93, 7, 0.6);
-  --shadow-soft: rgba(0, 0, 0, 0.16);
-  --shadow-soft-2: rgba(110, 80, 20, 0.4);
-  --shadow-hover-1: rgba(0, 0, 0, 0.19);
-  --shadow-hover-2: rgba(0, 0, 0, 0.23);
-
-  --color-bg-black: #080B09;
-  --header-height: 67px;
-  --page-gutter: clamp(14.4px, 2.4vw, 25.6px);
-  --side: clamp(24px, 3.36vw, 45px);
-
-  --color-text-light: #F5F7F4;
-  --color-text-muted: #B9C3BD;
-
-  --gold-1: linear-gradient(110deg, #8B641A 0%, #DFBD69 18%, #FFF6BD 34%, #B98424 48%, #F7DF82 66%, #926F34 82%, #E6C45F 100%);
-  --gold-glow: drop-shadow(0 0.8px 0 rgba(255,245,180,.18)) drop-shadow(0 0 8px rgba(247,239,138,.28)) drop-shadow(0 0 21px rgba(224,170,62,.16));
-  --gold-2: linear-gradient(135deg, #DFBD69, #926F34);
-  --gold-3: linear-gradient(135deg, #76551A 0%, #AE8625 13%, #F7EF8A 27%, #FFF9C9 33%, #D2AC47 43%, #926F34 57%, #EDC967 72%, #FFF3A1 80%, #9B7423 100%);
-  --frame-glow: 0 0.8px 0 rgba(255,255,220,.30) inset, 0 -1.6px 2.4px rgba(76,46,5,.60) inset, 0 0 0 0.8px rgba(146,111,52,.55), 0 4.8px 13px rgba(0,0,0,.42), 0 0 17.6px rgba(212,175,55,.16);
-
-  --t-sektionstitel: clamp(32px, 3.68vw, 57.6px); --w-sektionstitel: 800;
-  --t-kartentitel: clamp(17.6px, 1.44vw, 32px);   --w-kartentitel: 700;
-  --t-subtitle: 15px;         --w-subtitle: 600;
-  --t-zwischentitel: clamp(15px, 1.12vw, 19px); --w-zwischentitel: 700;
-  --t-bulletlabel: 13.6px;      --w-bulletlabel: 500;
-  --t-kartenbullet: 12px;     --w-kartenbullet: 500;
-  --t-fliesstext: 13px;       --w-fliesstext: 400;
-  --t-kicker-sektion: 9.6px;   --w-kicker-sektion: 600;
-  --t-bildunterschrift: 13.6px; --w-bildunterschrift: 550;
-  --t-cta: 13px;              --w-cta: 600;
-
-  --logo-box: 43px;
-  --logo-w: 46.4px;
-  --logo-h: 37px;
-
-  --gold2: #f0a05a;
-  --muted: rgba(255,255,255,.78);
-  --content-max: 1248px;
+:root{
+  --nv-gold-border:#a55d07;--nv-gold-inner-dark:#8b4208;--nv-gold-inner-mid:#b17d10;--nv-gold-highlight:#fae385;
+  --nv-gold-text-dark:rgb(120,50,5);--nv-gold-gradient:linear-gradient(160deg,#a54e07,#b47e11,#fef1a2,#bc881b,#a54e07);
+  --nv-gold-text-hover:rgba(120,50,5,.8);--nv-gold-border-hover:rgba(165,93,7,.6);
+  --shadow-soft:rgba(0,0,0,.16);--shadow-soft-2:rgba(110,80,20,.4);--shadow-hover-1:rgba(0,0,0,.19);--shadow-hover-2:rgba(0,0,0,.23);
+  --color-bg-black:#010101;--header-height:67px;--page-gutter:clamp(20px,3vw,80px);--side:clamp(28px,4vw,140px);
+  --color-text-light:#F5F7F4;--color-text-muted:#B9C3BD;
+  --gold-1:linear-gradient(110deg,#8B641A 0%,#DFBD69 18%,#FFF6BD 34%,#B98424 48%,#F7DF82 66%,#926F34 82%,#E6C45F 100%);
+  --gold-2:linear-gradient(135deg,#DFBD69,#926F34);
+  --gold-3:linear-gradient(135deg,#76551A 0%,#AE8625 13%,#F7EF8A 27%,#FFF9C9 33%,#D2AC47 43%,#926F34 57%,#EDC967 72%,#FFF3A1 80%,#9B7423 100%);
+  --t-sektionstitel:clamp(32px,3.68vw,57.6px);--w-sektionstitel:800;
+  --t-kartentitel:clamp(20.8px,1.68vw,35.2px);--w-kartentitel:700;
+  --t-subtitle:15.2px;--w-subtitle:600;--t-zwischentitel:clamp(15.2px,1.12vw,19.2px);--w-zwischentitel:700;
+  --t-bulletlabel:13.6px;--w-bulletlabel:500;--t-kartenbullet:12px;--w-kartenbullet:500;--t-fliesstext:12.8px;--w-fliesstext:400;
+  --t-kicker-sektion:9.6px;--w-kicker-sektion:600;--t-bildunterschrift:13.6px;--w-bildunterschrift:550;--t-cta:12.8px;--w-cta:600;
+  --logo-box:43px;--logo-w:46.4px;--logo-h:37px;--content-max:min(88vw, 2880px);
+  --section-gap:46.4px;--kicker-title-gap:6.4px;--title-sub-gap:12.8px;--sub-body-gap:16px;
 }
-.site-header {
-  height: var(--header-height);
-  position: fixed;
-  top: 0; left: 0; right: 0;
-  z-index: 100;
-  border-bottom: 0.8px solid #E0AA3E;
-  background: #080B09;
-  backdrop-filter: blur(6.4px);
+*{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth;background:#050505;scroll-padding-top:var(--header-height)}
+body{margin:0;background:var(--color-bg-black);color:#fff;font-family:"Inter",Arial,sans-serif;padding-top:var(--header-height);overflow-x:hidden}
+a{text-decoration:none;color:inherit}img{display:block;max-width:100%}
+h1,h2,h3{font-family:"Exo 2",Inter,Arial,sans-serif}
+.skip-link{position:absolute;left:-9999px}.skip-link:focus{left:12px;top:12px;z-index:999;background:#000;color:#fff;padding:8px 12px}
+.site-header{height:var(--header-height);position:fixed;inset:0 0 auto 0;z-index:100;border-bottom:.8px solid #E0AA3E;background:#050505}
+.header-inner{height:100%;padding:0 var(--page-gutter);display:grid;grid-template-columns:auto minmax(0,1fr) auto;align-items:center;column-gap:18px}
+.logo-link{display:inline-flex;align-items:center;gap:19px;height:var(--logo-box);justify-self:start}.logo-spin{display:block;position:relative;top:-4px;width:var(--logo-w);height:var(--logo-h);background:url("assets/hero/nurovelle_logo_gold.png") center/contain no-repeat;filter:drop-shadow(0 0 5px rgba(250,227,133,.18));animation:none;transform:none}
+.logo-text{display:flex;flex-direction:column;align-items:flex-end;justify-content:center;gap:2.4px}.logo-wordmark{height:var(--logo-h);width:auto;max-width:none}.logo-tagline{font:700 7.2px/1.1 "Inter",Arial,sans-serif;letter-spacing:.16em;text-transform:uppercase;white-space:nowrap;color:var(--color-text-light)}
+.nv-breadcrumb{display:inline-flex;justify-self:center;white-space:nowrap;filter:drop-shadow(0 9.6px 14.4px #00000047)}.nv-breadcrumb__group{position:relative}.nv-breadcrumb__group+.nv-breadcrumb__group{margin-left:-6.4px}.nv-breadcrumb__group:first-child .nv-breadcrumb__trigger{padding-left:11px}
+.nv-breadcrumb__trigger{--p:11px;--bg:linear-gradient(180deg,#112a20eb,#080b09f5);position:relative;display:flex;align-items:center;min-height:37px;padding:0 17.6px;color:var(--color-text-light);background:none;font-size:13px;line-height:1;cursor:pointer;list-style:none;z-index:1}.nv-breadcrumb__trigger::-webkit-details-marker{display:none}.nv-breadcrumb__trigger::before,.nv-breadcrumb__trigger::after{content:"";position:absolute;pointer-events:none;clip-path:polygon(0 0,calc(100% - var(--p)) 0,100% 50%,calc(100% - var(--p)) 100%,0 100%,var(--p) 50%)}.nv-breadcrumb__trigger::before{inset:0;background:linear-gradient(135deg,#fae3855c,#0000007a 58%,#fae38524);z-index:-2}.nv-breadcrumb__trigger::after{inset:.8px;background:var(--bg);z-index:-1}.nv-breadcrumb__group:first-child .nv-breadcrumb__trigger::before,.nv-breadcrumb__group:first-child .nv-breadcrumb__trigger::after{clip-path:polygon(0 0,calc(100% - var(--p)) 0,100% 50%,calc(100% - var(--p)) 100%,0 100%)}.nv-breadcrumb__group[open] .nv-breadcrumb__trigger,.nv-breadcrumb__group:hover .nv-breadcrumb__trigger{--bg:linear-gradient(180deg,#163a35f2,#0a1913fa);color:#fae385}.nv-breadcrumb__menu{position:absolute;top:calc(100% + 4.8px);left:9.6px;z-index:50;display:none;min-width:176px;padding:6.4px;border:.8px solid transparent;border-radius:8px;background-image:linear-gradient(#050706,#050706),var(--gold-3);background-origin:border-box;background-clip:padding-box,border-box;box-shadow:0 14.4px 30.4px #000000b8}.nv-breadcrumb__group[open] .nv-breadcrumb__menu,.nv-breadcrumb__group:hover .nv-breadcrumb__menu{display:grid}.nv-breadcrumb__menu a{padding:7.2px 9.6px;border-radius:4.8px;color:var(--color-text-light);font-size:12px}.nv-breadcrumb__menu a:hover{color:#fae385;background:#bc881b1a}
+.golden-button,.btn{display:inline-flex;align-items:center;justify-content:center;box-sizing:border-box;border:.8px solid var(--nv-gold-border);border-radius:.3em;color:var(--nv-gold-text-dark);background-image:var(--nv-gold-gradient);background-size:100% 100%;box-shadow:0 2.4px 4.8px var(--shadow-soft),0 2.4px 4.8px var(--shadow-soft-2),inset 0 -1.6px 4px .8px var(--nv-gold-inner-dark),inset 0 -.8px .8px 2.4px var(--nv-gold-highlight);font-family:"Inter",Arial,sans-serif;font-weight:800;text-transform:uppercase;white-space:nowrap}.golden-button{height:31.68px;padding:0 8.8px;font-size:9.68px;line-height:30px;gap:6.4px}.btn{height:32px;padding:0 14.4px;font-size:var(--t-cta);letter-spacing:.045em}.nv-calendly-icon{width:16px;height:16px}.header-cta{justify-self:end}
+.section{position:relative;padding:var(--section-gap) var(--side);background:var(--color-bg-black)}.section-inner{max-width:var(--content-max);margin:0 auto;width:100%}
+.section-divider{
+  width:min(calc(100% - var(--side)*2), var(--content-max));
+  height:1px;
+  margin:clamp(24px, 3vh, 48px) auto;
+  background:linear-gradient(90deg,
+    transparent 0%,
+    rgba(223,189,105,.6) 15%,
+    #DFBD69 35%,
+    #FFF6BD 50%,
+    #DFBD69 65%,
+    rgba(223,189,105,.6) 85%,
+    transparent 100%);
+  border:0;
 }
-.footer { background-color: #080B09; margin-left: 0px; width: calc(100% - 0px); padding: 43px calc(var(--side) * 2); border-top: 0.8px solid var(--nv-gold-divider-strong); color: var(--color-text-light); background: #121212; }
-.section { position: relative; padding: 70.4px var(--side); background: #000; }
-.section--landing { padding-block: max(19px, calc(16.66vh - 134.4px)); }
-.sub { max-width: 656px; font: var(--w-subtitle) var(--t-subtitle)/1.4 "Inter",Arial,sans-serif; color: #D7DDD9; margin-bottom: 21.6px; }
-.panel p,.panel li:not(.pair-chip) { font: var(--w-fliesstext) var(--t-fliesstext)/1.7 "Inter",Arial,sans-serif; color: #b9c3bd; }
-.text + .panel, .sub + .panel { margin-top: 21px; }
-.text + .content-grid, .label-list + .content-grid { margin-top: 70.4px; }
-.num-list + h3, .label-list + h3, .card-bullets + h3 { margin-top: 51px; }
-.text + h3 { margin-top: 38.4px; }
-h3 + h3 { margin-top: 24px; }
-.panel h2 + .card-bullets { margin-top: 0; }
-.page-daten .panel h2 { margin-bottom: 11px; }
-.card-bullets { list-style: none; margin: 17px 0 0; padding: 0; display: grid; grid-template-columns: repeat(2,max-content); justify-content: start; gap: 8px 38.4px; }
-.summary h2,.summary p { color: #080B09; text-shadow: none; }
-.summary .sub { color: #080B09; }
-.num-list { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 21px 38.4px; list-style: none; margin: 77.6px 0 0; padding: 0; }
-.num-list li { display: flex; align-items: flex-start; gap: 14.4px; font: var(--w-fliesstext) var(--t-fliesstext)/1.7 "Inter",Arial,sans-serif; color: #b9c3bd; }
-.module-img { flex: 0 0 auto; width: 57.6px; height: 57.6px; object-fit: contain; }
-.pair-chips-row { display: grid; grid-template-columns: repeat(4,minmax(0,1fr)); gap: 16px 45px; list-style: none; margin: 0 0 16px; padding: 0; }
-#moeglichkeiten .panel { padding: 30.4px; background-image: linear-gradient(#112A20,#112A20), var(--gold-3); }
-.pair-grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); grid-auto-rows: 1fr; gap: 16px 45px; }
-#moeglich .text--after { margin-top: 27px; }
-.chip-list { display: grid; grid-template-columns: repeat(4,minmax(0,1fr)); gap: 16px 45px; list-style: none; margin: 14.4px 0 0; padding: 0; }
-.page-daten main h2 { margin-bottom: 32px; }
-.page-daten .label-list,
-.page-daten .num-list { margin-top: 20px; }
-.page-daten .chip-list--stacked { margin-bottom: 32px; }
-.page-daten #kontakt .sub { margin-bottom: 32px; }
-@media (max-width: 900px) { .card-bullets { grid-template-columns: minmax(0,1fr); } }
+.kicker{font:var(--w-kicker-sektion) var(--t-kicker-sektion)/1.15 "Inter",Arial,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#55863f;margin:0 0 var(--kicker-title-gap)}
+h1{font:var(--w-sektionstitel) var(--t-sektionstitel)/1.08 "Exo 2",Inter,Arial,sans-serif;background:var(--gold-1);background-clip:text;-webkit-background-clip:text;color:transparent;-webkit-text-fill-color:transparent;margin:0 0 17px}
+main h2{font:var(--w-kartentitel) var(--t-kartentitel)/1.15 "Exo 2",Inter,Arial,sans-serif;background:var(--gold-1);background-clip:text;-webkit-background-clip:text;color:transparent;-webkit-text-fill-color:transparent;margin:0 0 var(--title-sub-gap)}
+main h3{font:var(--w-zwischentitel) var(--t-zwischentitel)/1.2 "Exo 2",Inter,Arial,sans-serif;color:#f5f1e8;margin:0 0 6.4px}
+.sub{max-width:656px;font:var(--w-subtitle) var(--t-subtitle)/1.4 "Inter",Arial,sans-serif;color:#D7DDD9;margin:0 0 var(--sub-body-gap)}.lead,.text,.panel p,.panel li{font:var(--w-fliesstext) var(--t-fliesstext)/1.7 "Inter",Arial,sans-serif;color:#b9c3bd}.lead{max-width:900px}.text{max-width:88ch}
+.actions{display:flex;gap:9.6px;flex-wrap:wrap;margin-top:26.4px}
+.panel{border:1px solid transparent;border-radius:8px;background-image:linear-gradient(#080B09,#080B09),var(--gold-3);background-origin:border-box;background-clip:padding-box,border-box;padding:12.8px 16px;box-shadow:0 .8px 0 rgba(255,255,220,.3) inset,0 0 0 .8px rgba(146,111,52,.55),0 4.8px 13px rgba(0,0,0,.42)}.panel p{margin:0}.panel p+p{margin-top:8px}.summary{border:.8px solid rgba(255,215,163,.78);background:linear-gradient(180deg,#ffd7a3 0%,#f0a05a 24%,#d89828 58%,#7a3518 100%)}.summary h3{color:#0A1913}.summary p{color:#050505}
+.content-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:25.6px}
+.label-list{column-count:2;column-gap:38.4px;list-style:none;margin:0;padding:0}
+.label-list li{position:relative;break-inside:avoid;margin-bottom:28px;padding-left:16px;font:var(--w-fliesstext) var(--t-fliesstext)/1.65 "Inter",Arial,sans-serif;color:#b9c3bd}
+.label-list li::before,.card-bullets li::before{content:"";position:absolute;left:0;width:5.6px;height:5.6px;border-radius:1.6px;background:#DFBD69}
+.label-list li::before{top:6.4px}
+.label-list strong{display:block;margin-bottom:3.2px;font:var(--w-bulletlabel) var(--t-bulletlabel)/1.35 "Inter",Arial,sans-serif;background:var(--gold-2);background-clip:text;-webkit-background-clip:text;color:transparent;-webkit-text-fill-color:transparent}
+.card-bullets{list-style:none;margin:14px 0 0;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:6px 24px}
+.card-bullets li{position:relative;padding-left:16px;font:var(--w-kartenbullet) var(--t-kartenbullet)/1.4 "Inter",Arial,sans-serif;background:var(--gold-2);background-clip:text;-webkit-background-clip:text;color:transparent;-webkit-text-fill-color:transparent}
+.card-bullets li::before{top:calc(50% - 2.8px)}
+.num-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px 44px;list-style:none;margin:0;padding:0}
+.num-list li{display:flex;align-items:flex-start;gap:14.4px;font:var(--w-fliesstext) var(--t-fliesstext)/1.7 "Inter",Arial,sans-serif;color:#b9c3bd}
+.num-list b{display:block;margin-bottom:3.2px;font:var(--w-bulletlabel) var(--t-bulletlabel)/1.35 "Inter",Arial,sans-serif;background:var(--gold-2);background-clip:text;-webkit-background-clip:text;color:transparent;-webkit-text-fill-color:transparent}
+.module-img{flex:0 0 auto;width:57.6px;height:57.6px;object-fit:contain}
+.pair-grid{
+  display:grid;
+  grid-template-columns:repeat(2, minmax(0, 480px));
+  gap:16px 32px;
+  justify-content:center;
+  max-width:1020px;
+  margin-inline:auto;
+}
+.pair{display:grid;grid-template-columns:minmax(0,1fr) 24px minmax(0,1fr);align-items:stretch;gap:9.6px}
+.pair-chip{display:flex;align-items:center;min-height:54.4px;padding:7.2px 9.6px;border-radius:6.4px;color:#e4e0d6;border:1px solid transparent;background-image:linear-gradient(#080B09,#080B09),var(--gold-3);background-origin:border-box;background-clip:padding-box,border-box;font:var(--w-bildunterschrift) var(--t-bildunterschrift)/1.4 "Inter",Arial,sans-serif}
+.pair-chip--gold{background-image:linear-gradient(180deg,#ffd7a3 0%,#f0a05a 24%,#d89828 58%,#7a3518 100%),var(--gold-3);color:#112A20}
+.chip-icon{flex:0 0 auto;width:40px;height:40px;margin-right:12px;overflow:hidden;border-radius:6px;border:1px solid transparent;background-image:linear-gradient(#080B09,#080B09),var(--gold-3);background-origin:border-box;background-clip:padding-box,border-box}
+.chip-icon img{width:100%;height:100%;object-fit:cover}
+.pair-arrow{align-self:center;display:flex;align-items:center;justify-content:center;color:#d4af37}
+.pair-arrow svg{width:20px;height:20px}
+.hero-viewport{min-height:calc(100svh - var(--header-height));display:grid;grid-template-rows:auto auto auto;align-content:start;row-gap:clamp(32px, 4vh, 64px);background:var(--color-bg-black)}
+#hero{padding-top:32px;padding-bottom:0}
+#hero h1{max-width:none;white-space:normal}
+#hero .sub{font-size:16px;margin-bottom:18px}
+#hero .actions{margin-top:70px}
+.visual-card--hero{border:0;background:none;box-shadow:none;filter:none;overflow:visible}
+
+/* Hero: 2-Spalten-Grid erzwingen (Text links, Bild rechts) */
+#hero .detail-hero{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) minmax(0,1fr);
+  gap:40px;
+  align-items:center;
+}
+.visual-card--hero img{
+  width:100%;
+  max-width:520px;
+  height:auto;
+  margin-inline:auto;
+  object-fit:contain;
+  display:block;
+}
+@media(max-width:900px){
+  #hero .detail-hero{grid-template-columns:1fr;gap:30px}
+  .visual-card--hero img{max-width:420px}
+}
+
+#was-ist-das{padding-top:30px;padding-bottom:0}
+#was-ist-das .content-grid{gap:25.6px}
+#was-ist-das .panel{padding:12px 16px}
+#was-ist-das h3{margin-bottom:7px}
+#was-ist-das .panel:not(.summary) h3{background:var(--gold-1);background-clip:text;-webkit-background-clip:text;color:transparent;-webkit-text-fill-color:transparent}
+
+#ausgangslage{padding-top:30px;padding-bottom:32px}
+#ausgangslage h2{margin-bottom:10px}
+#ausgangslage .sub{max-width:900px}
+#ausgangslage .text{max-width:1100px}
+
+main>.section:not(#hero):not(#was-ist-das):not(#ausgangslage){padding-top:var(--section-gap);padding-bottom:var(--section-gap)}
+main>.section:not(#hero):not(#was-ist-das):not(#ausgangslage) h2+.sub{margin-bottom:var(--sub-body-gap)}
+main>.section:not(#hero):not(#was-ist-das):not(#ausgangslage) .text+.label-list,
+main>.section:not(#hero):not(#was-ist-das):not(#ausgangslage) .text+.content-grid,
+main>.section:not(#hero):not(#was-ist-das):not(#ausgangslage) .text+.card-bullets{margin-top:20px}
+
+#anwendung{padding-bottom:clamp(16px, 2vh, 32px)}
+#moeglich{padding-top:clamp(16px, 2vh, 32px)}
+
+#leistungsumfang .section-inner{
+  display:grid;
+  grid-template-columns:minmax(0, max-content) minmax(0, 420px);
+  grid-template-areas:
+    "heading  heading"
+    "sub      sub"
+    "text     text"
+    "labels   cards";
+  column-gap:clamp(40px, 12vw, 950px);
+  row-gap:0;
+  align-items:center;
+  justify-content:start;
+}
+#leistungsumfang .section-inner > h2{grid-area:heading;margin:0 0 20px 0}
+#leistungsumfang .section-inner > .sub{grid-area:sub;margin:0 0 20px 0}
+#leistungsumfang .section-inner > .text{grid-area:text;margin:0 0 40px 0}
+#leistungsumfang .label-list{grid-area:labels;margin-top:0;margin-left:80px;column-count:1}
+#leistungsumfang .content-grid{grid-area:cards;display:flex;flex-direction:column;gap:20px;margin-top:0}
+#leistungsumfang .content-grid .panel{padding:14px 18px}
+#leistungsumfang .content-grid .panel:first-child{background-image:linear-gradient(#080B09,#080B09),var(--gold-3)}
+#leistungsumfang .content-grid .panel:first-child h3{background:var(--gold-2);background-clip:text;-webkit-background-clip:text;color:transparent;-webkit-text-fill-color:transparent}
+#leistungsumfang .content-grid .panel:first-child .card-bullets li{background:none;-webkit-text-fill-color:#b9c3bd;color:#b9c3bd}
+#leistungsumfang .content-grid .panel:last-child{
+  border:.8px solid rgba(255,215,163,.78);
+  background:linear-gradient(180deg,#ffd7a3 0%,#f0a05a 24%,#d89828 58%,#7a3518 100%);
+}
+#leistungsumfang .content-grid .panel:last-child h3{color:#0A1913;background:none;-webkit-text-fill-color:#0A1913}
+#leistungsumfang .content-grid .panel:last-child .card-bullets li{background:none;-webkit-text-fill-color:#3d1a05;color:#3d1a05}
+#leistungsumfang .content-grid .panel:last-child .card-bullets li::before{background:#3d1a05}
+#leistungsumfang .card-bullets{grid-template-columns:1fr;gap:4px 0;margin-top:8px}
+
+#module .num-list{margin-top:28px}
+
+#anwendung .card-bullets{grid-template-columns:repeat(2, minmax(0, 360px));gap:12px 32px;justify-content:start}
+#anwendung .card-bullets li{background:none;-webkit-text-fill-color:#b9c3bd;color:#b9c3bd}
+#anwendung .card-bullets li strong{display:block;margin-bottom:4px;background:var(--gold-2);background-clip:text;-webkit-background-clip:text;color:transparent;-webkit-text-fill-color:transparent}
+#anwendung .card-bullets li::before{top:6.4px}
+
+#moeglich .panel{
+  margin-top:24px;
+  padding:19px;
+  max-width:1020px;
+  margin-inline:auto;
+  box-shadow:0 .8px 0 rgba(255,255,220,.3) inset,
+             0 4.8px 13px rgba(0,0,0,.42);
+}
+#nutzen .nutzen-cards{
+  display:grid;
+  grid-template-columns:repeat(3, minmax(340px, 390px));
+  gap:24px;
+  justify-content:center;
+  max-width:1200px;
+  margin:32px auto 0;
+}
+#nutzen .nutzen-card{
+  aspect-ratio:470/360;
+  background-image:url("assets/cards/cards_problem_loesung/best_card_single 470x360.webp");
+  background-size:100% 100%;
+  background-repeat:no-repeat;
+  background-position:center;
+  display:flex;
+  flex-direction:column;
+  align-items:flex-start;
+  justify-content:flex-start;
+  padding:8% 22% 42% 22%;
+  text-align:left;
+  overflow:hidden;
+}
+#nutzen .nutzen-card h3{
+  font:var(--w-zwischentitel) var(--t-zwischentitel)/1.2 "Exo 2",Inter,Arial,sans-serif;
+  background:var(--gold-2);
+  background-clip:text;
+  -webkit-background-clip:text;
+  color:transparent;
+  -webkit-text-fill-color:transparent;
+  margin:0 0 10px;
+  white-space:normal;
+  word-break:break-word;
+}
+#nutzen .nutzen-card p{
+  font:var(--w-fliesstext) var(--t-fliesstext)/1.5 "Inter",Arial,sans-serif;
+  color:#e4e0d6;
+  margin:0;
+  white-space:normal;
+  word-break:break-word;
+}
+
+.faq-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:28.8px;align-items:start;margin-top:12.8px;margin-bottom:clamp(24px,3vh,48px)}
+.faq-item summary{list-style:none;cursor:pointer}
+.faq-item summary::-webkit-details-marker{display:none}
+.faq-item summary>span{
+  display:flex;width:100%;align-items:center;justify-content:space-between;gap:11px;
+  min-height:40px;padding:8px 14.4px;border-radius:.3em;
+  border:.8px solid var(--nv-gold-border);color:var(--nv-gold-text-dark);
+  background-image:var(--nv-gold-gradient);background-size:100% 100%;
+  box-shadow:0 2.4px 4.8px var(--shadow-soft),0 2.4px 4.8px var(--shadow-soft-2),
+             inset 0 -1.6px 4px .8px var(--nv-gold-inner-dark),
+             inset 0 -.8px .8px 2.4px var(--nv-gold-highlight);
+  font:800 var(--t-cta)/1.2 "Inter",Arial,sans-serif;letter-spacing:.045em;text-transform:uppercase;
+}
+.faq-item summary>span::after{content:"+"}
+.faq-item[open] summary>span::after{content:"−"}
+.faq-item p{margin:12.8px 3.2px 0;font:var(--w-fliesstext) var(--t-fliesstext)/1.7 "Inter",Arial,sans-serif;color:#b9c3bd}
+
+.footer{background:#121212;padding:43px var(--side);border-top:.8px solid #D4AF37;color:var(--color-text-light)}
+.footer-inner{max-width:var(--content-max);margin:0 auto;width:100%;display:grid;grid-template-columns:minmax(0,320px) auto minmax(0,304px) auto;justify-content:space-between;gap:77px}
+.footer .footer-col__title{margin:0 0 12px;color:#fae385;font:var(--w-zwischentitel) var(--t-zwischentitel)/1.2 "Exo 2",Inter,Arial,sans-serif;letter-spacing:.06em;text-transform:uppercase}
+.footer a:not(.footer-top):not(.footer-social a),.footer p{display:block;margin:0 0 5.6px;color:#c4ccc6;font:400 12px/1.7 Inter,Arial,sans-serif}
+.footer-newsletter{display:flex;gap:6.4px;margin-top:9.6px}
+.footer-newsletter__input{flex:1;height:33.6px;padding:0 9.6px;border:.8px solid rgba(212,175,55,.5);border-radius:4.8px;color:#f0efe6;background:#0c0c0c}
+.footer-newsletter__btn{height:33.6px;padding:0 14.4px;border:0;border-radius:4.8px;background-image:var(--nv-gold-gradient);font:700 10.4px/1 Inter}
+.footer-social{display:flex;gap:9.6px;margin-top:11px}
+.footer-social a{display:inline-flex;align-items:center;justify-content:center;width:30.4px;height:30.4px;border:.8px solid var(--nv-gold-border);border-radius:6.4px;color:#783205;background-image:var(--nv-gold-gradient)}.footer-social a svg{width:15px;height:15px}
+.footer-bottom{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:9.6px 22.4px;margin-top:27px;padding-top:17.6px;border-top:.8px solid rgba(212,175,55,.28)}
+.footer-legal{display:flex;gap:17.6px}.footer-copy{color:#8b938d;font:400 10.4px/1.4 Inter}
+.footer-top{display:inline-flex;align-items:center;justify-content:center;width:43px;height:43px;border:.8px solid var(--nv-gold-border);border-radius:6.4px;color:#783205;background-image:var(--nv-gold-gradient)}.footer-top svg{width:21px;height:21px}
+
+@media(max-width:900px){:root{--section-gap:33.6px;--sub-body-gap:16px}
+.hero-viewport{min-height:0;display:block}.detail-hero,.content-grid,.num-list,.pair-grid,
+.faq-grid{grid-template-columns:1fr!important}#nutzen 
+.nutzen-cards{grid-template-columns:1fr;max-width:400px}#leistungsumfang 
+.section-inner{grid-template-columns:1fr;grid-template-areas:"heading" "sub" "text" "labels" "cards"}#hero{padding-top:28.8px;padding-bottom:32px}#hero 
+.detail-hero{gap:30px}#hero .visual-card--hero img{max-width:620px}#hero h1{white-space:normal}#was-ist-das{padding:0 var(--side) 28px}#ausgangslage{padding-top:32px;padding-bottom:32px}
+.label-list{column-count:1}.footer-inner{grid-template-columns:1fr;gap:30px}
+.pair{grid-template-columns:1fr}.pair-arrow{transform:rotate(90deg)}
+.logo-tagline{display:none}}
+@media(max-width:640px){.nv-breadcrumb{display:none}.card-bullets,
+#anwendung 
+.card-bullets{grid-template-columns:1fr}}
+/* ===== Globale Hover-Effekte ===== */
+
+/* Golden Buttons (Header-CTA, Hero-Button, Kontakt-Buttons) */
+.golden-button,
+.btn{
+  transition:filter 160ms ease, transform 160ms ease, box-shadow 200ms ease;
+}
+.golden-button:hover,
+.btn:hover{
+  filter:brightness(1.1);
+  transform:translateY(-1px);
+  box-shadow:
+    0 4px 8px var(--shadow-soft),
+    0 4px 8px var(--shadow-soft-2),
+    inset 0 -1.6px 4px .8px var(--nv-gold-inner-dark),
+    inset 0 -.8px .8px 2.4px var(--nv-gold-highlight),
+    0 0 14px rgba(223,189,105,.5);
+}
+.golden-button:active,
+.btn:active{
+  transform:translateY(0);
+  filter:brightness(.97);
+}
+
+/* FAQ-Buttons */
+.faq-item summary>span{
+  transition:filter 160ms ease, transform 160ms ease, box-shadow 200ms ease;
+}
+.faq-item summary:hover>span{
+  filter:brightness(1.1);
+  box-shadow:
+    0 3px 6px var(--shadow-soft),
+    0 3px 6px var(--shadow-soft-2),
+    inset 0 -1.6px 4px .8px var(--nv-gold-inner-dark),
+    inset 0 -.8px .8px 2.4px var(--nv-gold-highlight),
+    0 0 12px rgba(223,189,105,.45);
+}
+.faq-item summary:active>span{
+  filter:brightness(.97);
+}
+
+/* Footer-Links (Textlinks) */
+.footer a:not(.footer-top):not(.footer-social a){
+  transition:color 160ms ease;
+}
+.footer a:not(.footer-top):not(.footer-social a):hover{
+  color:#fae385;
+}
+
+/* Footer-Newsletter-Button */
+.footer-newsletter__btn{
+  transition:filter 160ms ease, transform 160ms ease, box-shadow 200ms ease;
+}
+.footer-newsletter__btn:hover{
+  filter:brightness(1.12);
+  transform:translateY(-1px);
+  box-shadow:0 4px 12px rgba(223,189,105,.35);
+}
+.footer-newsletter__btn:active{
+  transform:translateY(0);
+  filter:brightness(.97);
+}
+
+/* Footer-Social-Icons + Nach-oben-Pfeil */
+.footer-social a,
+.footer-top{
+  transition:filter 160ms ease, transform 160ms ease, box-shadow 200ms ease;
+}
+.footer-social a:hover,
+.footer-top:hover{
+  filter:brightness(1.15);
+  transform:translateY(-1px);
+  box-shadow:0 4px 12px rgba(223,189,105,.4);
+}
+.footer-social a:active,
+.footer-top:active{
+  transform:translateY(0);
+  filter:brightness(.97);
+}
+
+/* Pair-Chips (Ergebnis-Sektion) – dezenter Hover */
+.pair-chip{
+  transition:filter 160ms ease, border-color 160ms ease;
+}
+.pair-chip:hover{
+  filter:brightness(1.08);
+}
 </style>
-<link rel="stylesheet" href="nurovelle-mobil.css" />
-
-<link rel="canonical" href="https://nurovelle.de/homepage/detail_datenabgleich.html" />
-<link rel="icon" type="image/png" href="assets/favicon.png" />
-<link rel="apple-touch-icon" href="assets/apple-touch-icon.png" />
-<meta property="og:type" content="website" />
-<meta property="og:site_name" content="Nurovelle" />
-<meta property="og:locale" content="de_DE" />
-<meta property="og:url" content="https://nurovelle.de/homepage/detail_datenabgleich.html" />
-<meta property="og:title" content="Dokumenten- und Datenabgleich automatisieren | Nurovelle" />
-<meta property="og:description" content="Dokumenten- und Datensysteme erfassen Informationen aus verschiedenen Quellen, prüfen Inhalte und gleichen Datensätze automatisiert miteinander ab." />
-<meta property="og:image" content="https://nurovelle.de/homepage/assets/hero/round.png" />
-<meta name="twitter:card" content="summary_large_image" />
-<meta name="theme-color" content="#050505" />
+<link href="https://nurovelle.de/homepage/detail_datenabgleich.html" rel="canonical"/>
+<link href="assets/favicon.png" rel="icon" type="image/png"/>
+<link href="assets/apple-touch-icon.png" rel="apple-touch-icon"/>
+<meta content="website" property="og:type"/>
+<meta content="Nurovelle" property="og:site_name"/>
+<meta content="de_DE" property="og:locale"/>
+<meta content="https://nurovelle.de/homepage/detail_datenabgleich.html" property="og:url"/>
+<meta content="Dokumenten- und Datenabgleich automatisieren | Nurovelle" property="og:title"/>
+<meta content="Dokumenten- und Datensysteme erfassen Informationen aus verschiedenen Quellen, prüfen Inhalte und gleichen Datensätze automatisiert miteinander ab." property="og:description"/>
+<meta content="https://nurovelle.de/homepage/assets/detail_pages_grafics/daten_dokumente_detail_grafic.webp" property="og:image"/>
+<meta content="1581" property="og:image:width"/>
+<meta content="920" property="og:image:height"/>
+<meta content="summary_large_image" name="twitter:card"/>
+<meta content="#050505" name="theme-color"/>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Welche Dokumente können verarbeitet werden?", "acceptedAnswer": {"@type": "Answer", "text": "Grundsätzlich können unterschiedliche digitale Dokumente verarbeitet werden. Die konkrete Eignung hängt von Format, Qualität und benötigten Inhalten ab."}}, {"@type": "Question", "name": "Können gescannte Dokumente ausgelesen werden?", "acceptedAnswer": {"@type": "Answer", "text": "Ja, sofern die Bildqualität für eine zuverlässige Erkennung ausreicht."}}, {"@type": "Question", "name": "Müssen alle Daten gleich aufgebaut sein?", "acceptedAnswer": {"@type": "Answer", "text": "Nein. Unterschiedliche Formate können zunächst aufbereitet und vereinheitlicht werden."}}, {"@type": "Question", "name": "Können mehrere Systeme miteinander abgeglichen werden?", "acceptedAnswer": {"@type": "Answer", "text": "Ja. Voraussetzung sind geeignete Exporte, Schnittstellen oder kontrollierte Datenzugriffe."}}, {"@type": "Question", "name": "Werden Abweichungen automatisch korrigiert?", "acceptedAnswer": {"@type": "Answer", "text": "Nur wenn eine eindeutige Regel und eine entsprechende Freigabe bestehen. Unklare Änderungen werden zur Prüfung vorgelegt."}}, {"@type": "Question", "name": "Können personenbezogene Daten anonymisiert werden?", "acceptedAnswer": {"@type": "Answer", "text": "Ja. Sensible Inhalte können erkannt, entfernt, maskiert oder pseudonymisiert werden."}}, {"@type": "Question", "name": "Ist für den Datenabgleich immer KI erforderlich?", "acceptedAnswer": {"@type": "Answer", "text": "Nein. Exakte Vergleiche werden meist regelbasiert umgesetzt. KI wird vor allem bei unstrukturierten Inhalten oder variierenden Formulierungen eingesetzt."}}, {"@type": "Question", "name": "Kann das System später erweitert werden?", "acceptedAnswer": {"@type": "Answer", "text": "Ja. Weitere Dokumenttypen, Datenquellen, Prüfregeln und Zielsysteme können ergänzt werden."}}]}</script>
 </head>
 <body class="page-daten">
 <a class="skip-link" href="#inhalt">Zum Inhalt springen</a>
 <header class="site-header">
-  <div class="header-inner">
-    <a class="logo-link" href="index.html" aria-label="Nurovelle Startseite">
-      <span class="logo-spin" aria-hidden="true"></span>
-
-            <span class="logo-text">
-              <img class="logo-wordmark" src="assets/hero/Nurovelle_schrift_gold.png" alt="Nurovelle — Building Intelligent Systems" width="1098" height="250" />
-              <span class="logo-tagline">Building Intelligent Systems</span>
-            </span>
-          </a>
-
-    <nav class="nv-breadcrumb" aria-label="Hauptnavigation">
-      <details class="nv-breadcrumb__group">
-        <summary class="nv-breadcrumb__trigger"><span>Leistungen</span></summary>
-        <div class="nv-breadcrumb__menu">
-          <a href="index.html#leistungen">Alle Leistungen</a>
-          <a href="paket-betreuung.html">Betreuungspaket</a>
-          <a href="paket-handwerk.html">Handwerkspaket</a>
-          <a href="paket-buero.html">Büropaket</a>
-          <a href="analyse.html">Potenzialanalyse</a>
-          <a href="detail_roadmap.html">KI-Roadmap</a>
-          <a href="detail_ki-agenten.html">KI-Agenten</a>
-          <a href="detail_chatbots.html">Chatbots</a>
-          <a href="detail_sprachassistenten.html">Sprachassistenten</a>
-          <a href="detail_automationen.html">KI-Automationen</a>
-          <a href="detail_ki-sicherheit.html">KI-Governance</a>
-          <a href="detail_workflows.html">Prozessautomatisierung</a>
-          <a href="detail_datenabgleich.html">Daten-Abgleich</a>
-          <a href="detail_ki-software.html">KI-Software</a>
-          <a href="detail_seo.html">SEO-Systeme</a>
-          <a href="detail_prompt-engineering.html">Prompt Engineering</a>
-        </div>
-      </details>
-      <details class="nv-breadcrumb__group">
-        <summary class="nv-breadcrumb__trigger"><span>Potenzialanalyse</span></summary>
-        <div class="nv-breadcrumb__menu">
-          <a href="index.html#ki-projekt-start">Erster Schritt</a>
-          <a href="analyse.html">Kostenlose Potenzialanalyse</a>
-          <a href="potenzialanalyse-deep.html">Tiefgehende Potenzialanalyse</a>
-          <a href="index.html#potenzialanalyse">Formular</a>
-        </div>
-      </details>
-      <details class="nv-breadcrumb__group">
-        <summary class="nv-breadcrumb__trigger"><span>Zusammenarbeit</span></summary>
-        <div class="nv-breadcrumb__menu">
-          <a href="detail_warum-nurovelle.html">Warum Nurovelle</a>
-          <a href="index.html#prozess-zur-loesung">Prozess</a>
-          <a href="index.html#downloads">Downloads</a>
-          <a href="index.html#kontakt">Kontakt</a>
-          <a href="index.html#faq">FAQ</a>
-        </div>
-      </details>
-    </nav>
-
-    <a class="header-cta" href="analyse.html" aria-label="Kostenlose KI-Potenzialanalyse öffnen">
-      <span class="golden-button">
-        <svg class="nv-calendly-icon" viewBox="0 0 64 64" aria-hidden="true"><use href="#nv-calendly-mark"></use></svg>
-        <span class="golden-text">Kostenlose Potenzialanalyse</span>
-      </span>
-    </a>
-  </div>
+<div class="header-inner">
+<a aria-label="Nurovelle Startseite" class="logo-link" href="index.html">
+<span aria-hidden="true" class="logo-spin"></span>
+<span class="logo-text">
+<img alt="Nurovelle — Building Intelligent Systems" class="logo-wordmark" height="250" src="assets/hero/Nurovelle_schrift_gold.png" width="1098"/>
+<span class="logo-tagline">Building Intelligent Systems</span>
+</span>
+</a>
+<nav aria-label="Hauptnavigation" class="nv-breadcrumb">
+<details class="nv-breadcrumb__group">
+<summary class="nv-breadcrumb__trigger"><span>Leistungen</span></summary>
+<div class="nv-breadcrumb__menu">
+<a href="index.html#leistungen">Alle Leistungen</a>
+<a href="paket-betreuung.html">Betreuungspaket</a>
+<a href="paket-handwerk.html">Handwerkspaket</a>
+<a href="paket-buero.html">Büropaket</a>
+<a href="analyse.html">Potenzialanalyse</a>
+<a href="detail_roadmap.html">KI-Roadmap</a>
+<a href="detail_ki-agenten.html">KI-Agenten</a>
+<a href="detail_chatbots.html">Chatbots</a>
+<a href="detail_sprachassistenten.html">Sprachassistenten</a>
+<a href="detail_automationen.html">KI-Automationen</a>
+<a href="detail_ki-sicherheit.html">KI-Governance</a>
+<a href="detail_workflows.html">Prozessautomatisierung</a>
+<a href="detail_datenabgleich.html">Daten-Abgleich</a>
+<a href="detail_ki-software.html">KI-Software</a>
+<a href="detail_seo.html">SEO-Systeme</a>
+<a href="detail_prompt-engineering.html">Prompt Engineering</a>
+</div>
+</details>
+<details class="nv-breadcrumb__group">
+<summary class="nv-breadcrumb__trigger"><span>Potenzialanalyse</span></summary>
+<div class="nv-breadcrumb__menu">
+<a href="index.html#ki-projekt-start">Erster Schritt</a>
+<a href="analyse.html">Kostenlose Potenzialanalyse</a>
+<a href="potenzialanalyse-deep.html">Tiefgehende Potenzialanalyse</a>
+<a href="index.html#potenzialanalyse">Formular</a>
+</div>
+</details>
+<details class="nv-breadcrumb__group">
+<summary class="nv-breadcrumb__trigger"><span>Zusammenarbeit</span></summary>
+<div class="nv-breadcrumb__menu">
+<a href="detail_warum-nurovelle.html">Warum Nurovelle</a>
+<a href="index.html#prozess-zur-loesung">Prozess</a>
+<a href="index.html#downloads">Downloads</a>
+<a href="index.html#kontakt">Kontakt</a>
+<a href="index.html#faq">FAQ</a>
+</div>
+</details>
+</nav>
+<a aria-label="Kostenlose KI-Potenzialanalyse öffnen" class="header-cta" href="analyse.html">
+<span class="golden-button">
+<svg aria-hidden="true" class="nv-calendly-icon" viewbox="0 0 64 64"><use href="#nv-calendly-mark"></use></svg>
+<span class="golden-text">Kostenlose Potenzialanalyse</span>
+</span>
+</a>
+</div>
 </header>
 <main id="inhalt">
-<section class="section section--landing"><div class="section-inner detail-hero"><div><div class="kicker">Daten &amp; Dokumente</div><h1>Daten zuverlässig verarbeiten</h1><p class="sub">Dokumente prüfen, Informationen abgleichen und Datenqualität verbessern.</p><p class="lead">Dokumenten-, Daten- und Abgleichsysteme erfassen Informationen aus unterschiedlichen Quellen, prüfen Inhalte und gleichen Datensätze automatisiert miteinander ab. Dadurch werden manuelle Prüfungen reduziert, Abweichungen schneller erkannt und Informationen einheitlich weiterverarbeitet.</p><div class="actions"><a class="btn" href="analyse.html">Datenpotenziale analysieren</a></div></div><div class="visual-card visual-card--empty" aria-hidden="true"><!-- Platzhalter fuer die Workflow-Grafik dieser Seite. Zum Einsetzen den Kommentar durch die Grafik ersetzen: <picture><source srcset="assets/Module/Ablauf/DATEI.webp" type="image/webp" /><img src="assets/Module/Ablauf/DATEI.png" alt="Ablauf" width="620" height="507" /></picture> --></div></div></section>
-<section class="section section--landing"><div class="section-inner content-grid"><article class="panel"><h2>Was sind Abgleichsysteme?</h2><p>Dokumenten-, Daten- und Abgleichsysteme lesen Informationen aus unterschiedlichen Quellen aus, bringen sie in ein einheitliches Format und vergleichen sie mit bestehenden Datensätzen oder festgelegten Regeln. Strukturierte und unstrukturierte Inhalte können dabei gemeinsam verarbeitet werden.</p></article><article class="panel summary"><h2>Klare Entscheidungsgrundlage</h2><p>Vor der Umsetzung wird festgelegt, welche Datenquellen, Dokumenttypen und Prüfkriterien berücksichtigt werden müssen. So wird sichtbar, welche Fälle automatisch verarbeitet werden können und wo eine menschliche Prüfung erforderlich bleibt.</p></article></div></section>
-<section class="section section--landing" id="ausgangslage"><div class="section-inner">
+<div class="hero-viewport">
+<section class="section section--landing" id="hero">
+<div class="section-inner detail-hero">
+<div>
+<div class="kicker">Daten &amp; Dokumente</div>
+<h1>Daten zuverlässig verarbeiten</h1>
+<p class="sub">Dokumente prüfen, Informationen abgleichen und Datenqualität verbessern.</p>
+<p class="lead">Dokumenten-, Daten- und Abgleichsysteme erfassen Informationen aus unterschiedlichen Quellen, prüfen Inhalte und gleichen Datensätze automatisiert miteinander ab. Dadurch werden manuelle Prüfungen reduziert, Abweichungen schneller erkannt und Informationen einheitlich weiterverarbeitet.</p>
+<div class="actions"><a class="btn" href="analyse.html">Datenpotenziale analysieren</a></div>
+</div>
+<div aria-hidden="true" class="visual-card visual-card--hero"><img alt="Ablauf des Daten- und Dokumentenabgleichs von der Erfassung bis zur dokumentierten Aktualisierung" height="920" src="assets/detail_pages_grafics/daten_dokumente_detail_grafic.webp" width="1581"/></div>
+</div>
+</section>
+<section class="section section--landing" id="was-ist-das">
+<div class="section-inner content-grid">
+<article class="panel"><h3>Was sind Abgleichsysteme?</h3><p>Dokumenten-, Daten- und Abgleichsysteme lesen Informationen aus unterschiedlichen Quellen aus, bringen sie in ein einheitliches Format und vergleichen sie mit bestehenden Datensätzen oder festgelegten Regeln. Strukturierte und unstrukturierte Inhalte können dabei gemeinsam verarbeitet werden.</p></article>
+<article class="panel summary"><h3>Klare Entscheidungsgrundlage</h3><p>Vor der Umsetzung wird festgelegt, welche Datenquellen, Dokumenttypen und Prüfkriterien berücksichtigt werden müssen. So wird sichtbar, welche Fälle automatisch verarbeitet werden können und wo eine menschliche Prüfung erforderlich bleibt.</p></article>
+</div>
+</section>
+<section class="section section--landing" id="ausgangslage">
+<div class="section-inner">
 <h2>Ausgangslage</h2>
 <p class="sub">Manuelle Prüfungen sind zeitaufwendig und anfällig für übersehene Abweichungen.</p>
 <p class="text">Informationen liegen häufig in Dokumenten, Tabellen, E-Mails und verschiedenen Geschäftssystemen verteilt. Daten werden mehrfach erfasst, Formate unterscheiden sich und Änderungen werden nicht zuverlässig zwischen allen Quellen übernommen. Dadurch entstehen Dubletten, widersprüchliche Angaben, wiederholte Nachfragen und ein hoher manueller Prüfaufwand.</p>
-<ul class="card-bullets"><li>manuelle Dokumentenprüfung</li><li>doppelte Dateneingaben</li><li>unterschiedliche Datenformate</li><li>veraltete Datensätze</li><li>übersehene Abweichungen</li><li>fehlende Nachvollziehbarkeit</li></ul>
-</div></section>
+</div>
+</section>
+</div>
+<div aria-hidden="true" class="section-divider"></div>
+
 <section class="section" id="leistungsumfang"><div class="section-inner">
 <h2>Leistungsumfang</h2>
 <p class="sub">Von der Quellenanalyse bis zum produktiven Prüfsystem.</p>
@@ -200,35 +473,51 @@ h3 + h3 { margin-top: 24px; }
 <li><strong>Richtlinien</strong>Vorgaben und Verfahrensanweisungen</li>
 <li><strong>Freitext</strong>Beschreibungen, Notizen und technische Inhalte</li>
 </ul>
-<h3>Prüffelder</h3>
-<ul class="card-bullets"><li>Pflichtangaben und fehlende Werte</li><li>Format und Datentyp</li><li>Übereinstimmung mehrerer Quellen</li><li>Dubletten und Mehrfacheinträge</li><li>Aktualität und Versionsstand</li><li>Wertebereiche und Plausibilität</li><li>fachliche Widersprüche</li><li>Abweichungen von Vorgaben</li><li>Berechtigungen und Datenschutz</li><li>notwendige manuelle Freigaben</li></ul>
-<div class="content-grid"><article class="panel"><h2>Konzeption</h2><ul class="card-bullets"><li>Dokumente und Datenquellen erfassen</li><li>Zielformate definieren</li><li>Prüfkriterien festlegen</li><li>Abgleichregeln entwickeln</li><li>Ausnahmefälle bestimmen</li><li>Datenschutzanforderungen einordnen</li></ul></article><article class="panel"><h2>Umsetzung</h2><ul class="card-bullets"><li>Erfassungslogik entwickeln</li><li>Daten aufbereiten</li><li>Quellen und Systeme anbinden</li><li>Prüf- und Abgleichlogik integrieren</li><li>Übergaben und Freigaben einrichten</li><li>Protokollierung und Export umsetzen</li></ul></article></div>
+<div class="content-grid">
+<article class="panel"><h3>Konzeption</h3><ul class="card-bullets"><li>Dokumente und Datenquellen erfassen</li><li>Zielformate definieren</li><li>Prüfkriterien festlegen</li><li>Abgleichregeln entwickeln</li><li>Ausnahmefälle bestimmen</li><li>Datenschutzanforderungen einordnen</li></ul></article>
+<article class="panel"><h3>Umsetzung</h3><ul class="card-bullets"><li>Erfassungslogik entwickeln</li><li>Daten aufbereiten</li><li>Quellen und Systeme anbinden</li><li>Prüf- und Abgleichlogik integrieren</li><li>Übergaben und Freigaben einrichten</li><li>Protokollierung und Export umsetzen</li></ul></article>
+</div>
 </div></section>
+<div aria-hidden="true" class="section-divider"></div>
+
 <section class="section" id="module"><div class="section-inner">
 <div class="kicker">Module</div>
 <h2>Module des Systems</h2>
 <p class="sub">Zehn Schritte von der Datenquelle bis zum geprüften Ergebnis.</p>
 <p class="text">Die tatsächliche Zusammensetzung richtet sich nach Informationsart, Systemlandschaft und gewünschter Verarbeitungstiefe.</p>
 <ol class="num-list">
-<li><picture><source srcset="assets/Module/eingabe.webp" type="image/webp" /><img class="module-img" src="assets/Module/eingabe.png" alt="" width="1067" height="759" /></picture><div><b>Eingang</b><span>Dokumente, Dateien oder Datensätze werden übernommen.</span></div></li>
-<li><picture><source srcset="assets/Module/displsx_lupe_auge.webp" type="image/webp" /><img class="module-img" src="assets/Module/displsx_lupe_auge.png" alt="" width="1067" height="759" loading="lazy" /></picture><div><b>Erkennung</b><span>Dateityp, Dokumentenart und vorhandene Struktur werden bestimmt.</span></div></li>
-<li><picture><source srcset="assets/Module/papierstapel.webp" type="image/webp" /><img class="module-img" src="assets/Module/papierstapel.png" alt="" width="1067" height="759" loading="lazy" /></picture><div><b>Extraktion</b><span>Relevante Inhalte und Datenfelder werden ausgelesen.</span></div></li>
-<li><picture><source srcset="assets/Module/speicher_sortierung.webp" type="image/webp" /><img class="module-img" src="assets/Module/speicher_sortierung.png" alt="" width="1067" height="759" loading="lazy" /></picture><div><b>Aufbereitung</b><span>Formate, Schreibweisen und Datenstrukturen werden vereinheitlicht.</span></div></li>
-<li><picture><source srcset="assets/Module/valedierung.webp" type="image/webp" /><img class="module-img" src="assets/Module/valedierung.png" alt="" width="1067" height="759" loading="lazy" /></picture><div><b>Validierung</b><span>Pflichtangaben, Formate und grundlegende Werte werden geprüft.</span></div></li>
-<li><picture><source srcset="assets/Module/datenabgleich.webp" type="image/webp" /><img class="module-img" src="assets/Module/datenabgleich.png" alt="" width="1067" height="759" loading="lazy" /></picture><div><b>Abgleich</b><span>Informationen werden mit Referenzdaten oder weiteren Quellen verglichen.</span></div></li>
-<li><picture><source srcset="assets/Module/display_data_ai.webp" type="image/webp" /><img class="module-img" src="assets/Module/display_data_ai.png" alt="" width="1067" height="759" loading="lazy" /></picture><div><b>Bewertung</b><span>Abweichungen werden nach Art, Ursache und Relevanz eingeordnet.</span></div></li>
-<li><picture><source srcset="assets/Module/team.webp" type="image/webp" /><img class="module-img" src="assets/Module/team.png" alt="" width="1067" height="759" loading="lazy" /></picture><div><b>Übergabe</b><span>Unklare oder kritische Fälle werden mit dem vollständigen Vergleichskontext zur Prüfung weitergeleitet.</span></div></li>
-<li><picture><source srcset="assets/Module/speicher_vernetzt.webp" type="image/webp" /><img class="module-img" src="assets/Module/speicher_vernetzt.png" alt="" width="1067" height="759" loading="lazy" /></picture><div><b>Aktualisierung</b><span>Freigegebene Daten werden in Zielsysteme übertragen oder bestehende Datensätze aktualisiert.</span></div></li>
-<li><picture><source srcset="assets/Module/dokumente.webp" type="image/webp" /><img class="module-img" src="assets/Module/dokumente.png" alt="" width="1067" height="759" loading="lazy" /></picture><div><b>Dokumentation</b><span>Ergebnisse, Abweichungen, Prüfungen und Änderungen werden protokolliert.</span></div></li>
+<li><picture><source srcset="assets/Module/eingabe.webp" type="image/webp"/><img alt="" class="module-img" height="759" src="assets/Module/eingabe.png" width="1067"/></picture><div><b>Eingang</b><span>Dokumente, Dateien oder Datensätze werden übernommen.</span></div></li>
+<li><picture><source srcset="assets/Module/displsx_lupe_auge.webp" type="image/webp"/><img alt="" class="module-img" height="759" loading="lazy" src="assets/Module/displsx_lupe_auge.png" width="1067"/></picture><div><b>Erkennung</b><span>Dateityp, Dokumentenart und vorhandene Struktur werden bestimmt.</span></div></li>
+<li><picture><source srcset="assets/Module/papierstapel.webp" type="image/webp"/><img alt="" class="module-img" height="759" loading="lazy" src="assets/Module/papierstapel.png" width="1067"/></picture><div><b>Extraktion</b><span>Relevante Inhalte und Datenfelder werden ausgelesen.</span></div></li>
+<li><picture><source srcset="assets/Module/speicher_sortierung.webp" type="image/webp"/><img alt="" class="module-img" height="759" loading="lazy" src="assets/Module/speicher_sortierung.png" width="1067"/></picture><div><b>Aufbereitung</b><span>Formate, Schreibweisen und Datenstrukturen werden vereinheitlicht.</span></div></li>
+<li><picture><source srcset="assets/Module/valedierung.webp" type="image/webp"/><img alt="" class="module-img" height="759" loading="lazy" src="assets/Module/valedierung.png" width="1067"/></picture><div><b>Validierung</b><span>Pflichtangaben, Formate und grundlegende Werte werden geprüft.</span></div></li>
+<li><picture><source srcset="assets/Module/datenabgleich.webp" type="image/webp"/><img alt="" class="module-img" height="759" loading="lazy" src="assets/Module/datenabgleich.png" width="1067"/></picture><div><b>Abgleich</b><span>Informationen werden mit Referenzdaten oder weiteren Quellen verglichen.</span></div></li>
+<li><picture><source srcset="assets/Module/display_data_ai.webp" type="image/webp"/><img alt="" class="module-img" height="759" loading="lazy" src="assets/Module/display_data_ai.png" width="1067"/></picture><div><b>Bewertung</b><span>Abweichungen werden nach Art, Ursache und Relevanz eingeordnet.</span></div></li>
+<li><picture><source srcset="assets/Module/team.webp" type="image/webp"/><img alt="" class="module-img" height="759" loading="lazy" src="assets/Module/team.png" width="1067"/></picture><div><b>Übergabe</b><span>Unklare oder kritische Fälle werden mit dem vollständigen Vergleichskontext zur Prüfung weitergeleitet.</span></div></li>
+<li><picture><source srcset="assets/Module/speicher_vernetzt.webp" type="image/webp"/><img alt="" class="module-img" height="759" loading="lazy" src="assets/Module/speicher_vernetzt.png" width="1067"/></picture><div><b>Aktualisierung</b><span>Freigegebene Daten werden in Zielsysteme übertragen oder bestehende Datensätze aktualisiert.</span></div></li>
+<li><picture><source srcset="assets/Module/dokumente.webp" type="image/webp"/><img alt="" class="module-img" height="759" loading="lazy" src="assets/Module/dokumente.png" width="1067"/></picture><div><b>Dokumentation</b><span>Ergebnisse, Abweichungen, Prüfungen und Änderungen werden protokolliert.</span></div></li>
 </ol>
-<h3>Weitere Bestandteile</h3>
-<h3>Dokumentenverarbeitung</h3><p class="text">Dokumente können automatisiert erkannt, klassifiziert und in definierte Datenfelder überführt werden. Die Verarbeitung wird auf konkrete Dokumenttypen und benötigte Informationen begrenzt.</p><ul class="card-bullets"><li>Rechnungen</li><li>Angebote</li><li>Verträge</li><li>Bestellungen</li><li>Lieferscheine</li><li>Berichte</li><li>technische Unterlagen</li><li>Formulare</li><li>Richtlinien</li><li>E-Mail-Anhänge</li></ul><h3>Datenaufbereitung</h3><p class="text">Unterschiedliche Schreibweisen, Felder und Formate werden in eine konsistente Struktur überführt.</p><ul class="card-bullets"><li>Spalten und Felder zuordnen</li><li>Datums- und Zahlenformate vereinheitlichen</li><li>Schreibweisen normalisieren</li><li>fehlende Werte kennzeichnen</li><li>Dubletten erkennen</li><li>Datensätze zusammenführen</li><li>Kategorien und Wertebereiche standardisieren</li><li>fehlerhafte Eingaben markieren</li></ul><h3>Datenabgleich</h3><p class="text">Datensätze aus mehreren Quellen werden anhand definierter Merkmale miteinander verglichen. Exakte Regeln und tolerante Ähnlichkeitsprüfungen können abhängig vom Anwendungsfall kombiniert werden.</p><ul class="card-bullets"><li>Bestellung gegen Rechnung</li><li>Vertrag gegen Stammdaten</li><li>Formular gegen CRM-Eintrag</li><li>Produktliste gegen Warenwirtschaft</li><li>Lieferantendaten gegen Referenzdaten</li><li>Dokumentversion gegen aktuelle Vorlage</li><li>Systemexport gegen Datenbankbestand</li><li>neue Datensätze gegen vorhandene Dubletten</li></ul><ul class="label-list"><li><strong>Anonymisierung</strong>Personenbezogene oder vertrauliche Informationen können erkannt, maskiert oder durch neutrale Platzhalter ersetzt werden. Regeln und Umfang richten sich nach Datenart und vorgesehener Weiterverarbeitung.</li><li><strong>Menschliche Prüfung</strong>Eindeutige Standardfälle werden automatisch verarbeitet. Unklare, kritische oder unsichere Fälle werden gezielt an Mitarbeitende übergeben, statt den gesamten Prozess manuell durchführen zu müssen.</li><li><strong>Datenqualität</strong>Wiederkehrende Prüfungen zeigen, wo Fehler entstehen, welche Quellen regelmäßig unvollständige Angaben liefern und wo systematische Abweichungen zwischen Datensätzen bestehen.</li></ul>
 </div></section>
+<div aria-hidden="true" class="section-divider"></div>
+
 <section class="section" id="anwendung"><div class="section-inner">
 <h2>Anwendung</h2>
 <p class="sub">Abgleichsysteme unterstützen Prozesse, in denen Informationen erfasst, geprüft oder zwischen mehreren Quellen verglichen werden.</p>
 <p class="text">Die Systeme eignen sich für wiederkehrende Daten- und Dokumentenprozesse in unterschiedlichen Unternehmensbereichen. Dokumente, Tabellen und Systemdaten werden automatisch erfasst, geprüft und für nachfolgende Anwendungen bereitgestellt.</p>
-<ul class="card-bullets"><li>Rechnungsprüfung</li><li>Vertragsprüfung</li><li>Stammdatenpflege</li><li>Datenbereinigung</li><li>Dublettenprüfung</li><li>Formularverarbeitung</li><li>Angebots- und Bestellabgleich</li><li>Dokumentenklassifikation</li><li>Richtlinienprüfung</li><li>CRM- und ERP-Abgleich</li><li>technische Dokumentation</li><li>Datenmigration</li></ul>
+<ul class="card-bullets">
+<li><strong>Rechnungsprüfung</strong>Abgleich mit Bestellung und Stammdaten</li>
+<li><strong>Vertragsprüfung</strong>Abgleich mit Vorgaben und Referenzen</li>
+<li><strong>Stammdatenpflege</strong>Dubletten und veraltete Werte erkennen</li>
+<li><strong>Datenbereinigung</strong>Formate und Schreibweisen vereinheitlichen</li>
+<li><strong>Dublettenprüfung</strong>Mehrfacheinträge zusammenführen</li>
+<li><strong>Formularverarbeitung</strong>Eingaben strukturiert übernehmen</li>
+<li><strong>Angebotsabgleich</strong>Angebot gegen Anfrage und Bestellung</li>
+<li><strong>Dokumentenklassifikation</strong>Dokumente automatisch einordnen</li>
+<li><strong>Richtlinienprüfung</strong>Abweichungen von Vorgaben erkennen</li>
+<li><strong>CRM- und ERP-Abgleich</strong>Systeme konsistent halten</li>
+<li><strong>technische Dokumentation</strong>Inhalte und Versionen prüfen</li>
+<li><strong>Datenmigration</strong>Altdaten übernehmen und abgleichen</li>
+</ul>
 </div></section>
 <section class="section" id="moeglich"><div class="section-inner">
 <div class="kicker">Ergebnis</div>
@@ -237,29 +526,39 @@ h3 + h3 { margin-top: 24px; }
 <p class="text">Informationen aus mehreren Quellen werden vereinheitlicht und nach festgelegten Regeln geprüft. Eindeutige Fälle werden direkt weiterverarbeitet, während relevante Abweichungen gezielt zur Kontrolle vorgelegt werden.</p>
 <article class="panel">
 <div class="pair-grid">
-<div class="pair"><span class="pair-chip"><span class="chip-icon"><img src="assets/cards/service/icons/9.png" alt="" width="100" height="100" loading="lazy" /></span>manuelle Dokumentenprüfung</span><span class="pair-arrow"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-chev"/></svg></span><span class="pair-chip pair-chip--gold"><span class="chip-icon"><img src="assets/cards/service/icons/10.png" alt="" width="100" height="100" loading="lazy" /></span>automatische Datenerfassung</span></div>
-<div class="pair"><span class="pair-chip"><span class="chip-icon"><img src="assets/cards/service/icons/6.png" alt="" width="100" height="100" loading="lazy" /></span>verteilte Datenquellen</span><span class="pair-arrow"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-chev"/></svg></span><span class="pair-chip pair-chip--gold"><span class="chip-icon"><img src="assets/cards/service/icons/8.png" alt="" width="100" height="100" loading="lazy" /></span>einheitliche Datenstruktur</span></div>
-<div class="pair"><span class="pair-chip"><span class="chip-icon"><img src="assets/cards/service/icons/3.png" alt="" width="100" height="100" loading="lazy" /></span>doppelte Erfassung</span><span class="pair-arrow"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-chev"/></svg></span><span class="pair-chip pair-chip--gold"><span class="chip-icon"><img src="assets/cards/service/icons/1.png" alt="" width="100" height="100" loading="lazy" /></span>regelbasierte Prüfungen</span></div>
-<div class="pair"><span class="pair-chip"><span class="chip-icon"><img src="assets/cards/service/icons/2.png" alt="" width="100" height="100" loading="lazy" /></span>unterschiedliche Formate</span><span class="pair-arrow"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-chev"/></svg></span><span class="pair-chip pair-chip--gold"><span class="chip-icon"><img src="assets/cards/service/icons/7.png" alt="" width="100" height="100" loading="lazy" /></span>gezielter Quellenvergleich</span></div>
-<div class="pair"><span class="pair-chip"><span class="chip-icon"><img src="assets/cards/service/icons/5.png" alt="" width="100" height="100" loading="lazy" /></span>übersehene Abweichungen</span><span class="pair-arrow"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-chev"/></svg></span><span class="pair-chip pair-chip--gold"><span class="chip-icon"><img src="assets/cards/service/icons/4.png" alt="" width="100" height="100" loading="lazy" /></span>kontrollierte Ausnahmeübergabe</span></div>
-<div class="pair"><span class="pair-chip"><span class="chip-icon"><img src="assets/cards/service/icons/11.png" alt="" width="100" height="100" loading="lazy" /></span>unklare Datenqualität</span><span class="pair-arrow"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-chev"/></svg></span><span class="pair-chip pair-chip--gold"><span class="chip-icon"><img src="assets/cards/service/icons/9.png" alt="" width="100" height="100" loading="lazy" /></span>dokumentierte Aktualisierung</span></div>
+<div class="pair"><span class="pair-chip"><span class="chip-icon"><img alt="" height="100" loading="lazy" src="assets/cards/service/icons/9.png" width="100"/></span>manuelle Dokumentenprüfung</span><span class="pair-arrow"><svg aria-hidden="true" viewbox="0 0 24 24"><use href="#i-chev"></use></svg></span><span class="pair-chip pair-chip--gold"><span class="chip-icon"><img alt="" height="100" loading="lazy" src="assets/cards/service/icons/10.png" width="100"/></span>automatische Datenerfassung</span></div>
+<div class="pair"><span class="pair-chip"><span class="chip-icon"><img alt="" height="100" loading="lazy" src="assets/cards/service/icons/6.png" width="100"/></span>verteilte Datenquellen</span><span class="pair-arrow"><svg aria-hidden="true" viewbox="0 0 24 24"><use href="#i-chev"></use></svg></span><span class="pair-chip pair-chip--gold"><span class="chip-icon"><img alt="" height="100" loading="lazy" src="assets/cards/service/icons/8.png" width="100"/></span>einheitliche Datenstruktur</span></div>
+<div class="pair"><span class="pair-chip"><span class="chip-icon"><img alt="" height="100" loading="lazy" src="assets/cards/service/icons/3.png" width="100"/></span>doppelte Erfassung</span><span class="pair-arrow"><svg aria-hidden="true" viewbox="0 0 24 24"><use href="#i-chev"></use></svg></span><span class="pair-chip pair-chip--gold"><span class="chip-icon"><img alt="" height="100" loading="lazy" src="assets/cards/service/icons/1.png" width="100"/></span>regelbasierte Prüfungen</span></div>
+<div class="pair"><span class="pair-chip"><span class="chip-icon"><img alt="" height="100" loading="lazy" src="assets/cards/service/icons/2.png" width="100"/></span>unterschiedliche Formate</span><span class="pair-arrow"><svg aria-hidden="true" viewbox="0 0 24 24"><use href="#i-chev"></use></svg></span><span class="pair-chip pair-chip--gold"><span class="chip-icon"><img alt="" height="100" loading="lazy" src="assets/cards/service/icons/7.png" width="100"/></span>gezielter Quellenvergleich</span></div>
+<div class="pair"><span class="pair-chip"><span class="chip-icon"><img alt="" height="100" loading="lazy" src="assets/cards/service/icons/5.png" width="100"/></span>übersehene Abweichungen</span><span class="pair-arrow"><svg aria-hidden="true" viewbox="0 0 24 24"><use href="#i-chev"></use></svg></span><span class="pair-chip pair-chip--gold"><span class="chip-icon"><img alt="" height="100" loading="lazy" src="assets/cards/service/icons/4.png" width="100"/></span>kontrollierte Ausnahmeübergabe</span></div>
+<div class="pair"><span class="pair-chip"><span class="chip-icon"><img alt="" height="100" loading="lazy" src="assets/cards/service/icons/11.png" width="100"/></span>unklare Datenqualität</span><span class="pair-arrow"><svg aria-hidden="true" viewbox="0 0 24 24"><use href="#i-chev"></use></svg></span><span class="pair-chip pair-chip--gold"><span class="chip-icon"><img alt="" height="100" loading="lazy" src="assets/cards/service/icons/9.png" width="100"/></span>dokumentierte Aktualisierung</span></div>
 </div>
 </article>
 </div></section>
+<div aria-hidden="true" class="section-divider"></div>
+
 <section class="section" id="nutzen"><div class="section-inner">
 <div class="kicker">Nutzen</div>
 <h2>Ihr konkreter Nutzen</h2>
 <p class="sub">Weniger manuelle Prüfung und verlässlichere Informationsgrundlagen.</p>
 <p class="text">Dokumenten- und Abgleichsysteme reduzieren wiederkehrende Kontrollarbeit und verbessern die Qualität nachgelagerter Prozesse. Mitarbeitende bearbeiten gezielt nur noch unvollständige, widersprüchliche oder besonders prüfungsrelevante Fälle.</p>
-<ul class="label-list">
-<li><strong>Weniger Prüfaufwand</strong>Eindeutige Standardfälle werden automatisch verarbeitet.</li>
-<li><strong>Weniger Doppelarbeit</strong>Informationen müssen nicht mehrfach erfasst und manuell verglichen werden.</li>
-<li><strong>Bessere Datenqualität</strong>Fehler, Dubletten und veraltete Angaben werden schneller erkannt.</li>
-<li><strong>Schnellere Verarbeitung</strong>Dokumente und Datensätze stehen früher für Folgeprozesse bereit.</li>
-<li><strong>Klare Abweichungen</strong>Mitarbeitende sehen direkt, welche Angaben geprüft werden müssen.</li>
-<li><strong>Mehr Nachvollziehbarkeit</strong>Prüfungen, Änderungen und Übertragungen werden dokumentiert.</li>
-</ul>
+<div class="nutzen-cards">
+<article class="nutzen-card">
+<h3>Weniger Aufwand</h3>
+<p>Standardfälle laufen automatisch. Doppelte Erfassung entfällt. Mitarbeitende prüfen nur noch Abweichungen.</p>
+</article>
+<article class="nutzen-card">
+<h3>Bessere Datenqualität</h3>
+<p>Fehler, Dubletten und veraltete Angaben werden schneller erkannt. Informationen stehen früher bereit.</p>
+</article>
+<article class="nutzen-card">
+<h3>Mehr Nachvollziehbarkeit</h3>
+<p>Prüfungen, Änderungen und Übertragungen werden dokumentiert. Abweichungen sind direkt sichtbar.</p>
+</article>
+</div>
 </div></section>
+<div aria-hidden="true" class="section-divider"></div>
+
 <section class="section" id="kontakt"><div class="section-inner">
 <div class="kicker">Abschluss</div>
 <h2>Datenqualität erhöhen</h2>
@@ -267,6 +566,8 @@ h3 + h3 { margin-top: 24px; }
 <p class="text">Die Potenzialanalyse zeigt, welche Dokumente und Datenquellen automatisiert verarbeitet werden können, welche Prüfregeln erforderlich sind und wie sich bestehende Systeme sinnvoll verbinden lassen.</p>
 <div class="actions"><a class="btn" href="analyse.html">Datenpotenziale analysieren</a><a class="btn" href="index.html#leistungen">Leistungen ansehen</a></div>
 </div></section>
+<div aria-hidden="true" class="section-divider"></div>
+
 <section class="section" id="faq"><div class="section-inner">
 <div class="kicker">FAQ</div>
 <h2>Häufige Fragen</h2>
@@ -285,165 +586,78 @@ h3 + h3 { margin-top: 24px; }
 </div></section>
 </main>
 <footer class="footer" id="footer">
-      <div class="footer-inner">
-        <div class="footer-col footer-col--about">
-          <h3 class="footer-col__title">Nurovelle</h3>
-          <p>Individuelle KI-Systeme für reale Geschäftsprozesse.</p>
-          <p>
-            Nurovelle entwickelt KI-Agenten, Automatisierungssysteme und
-            datenbasierte Lösungen, die Unternehmen bei wiederkehrenden
-            Abläufen, Wissenszugriff und Datenverarbeitung unterstützen.
-          </p>
-        </div>
-        <div class="footer-col">
-          <h3 class="footer-col__title">Nützliche Links</h3>
-          <a href="index.html#hero">Startseite</a>
-          <a href="index.html#warum-nurovelle">Über Nurovelle</a>
-          <a href="index.html#leistungen">Leistungen</a>
-          <a href="index.html#potenzialanalyse">Potenzialanalyse</a>
-          <a href="index.html#downloads">Downloads</a>
-          <a href="index.html#faq">FAQ</a>
-          <a href="index.html#kontakt">Kontakt</a>
-        </div>
-        <div class="footer-col">
-          <h3 class="footer-col__title">Newsletter</h3>
-          <p>
-            Erhalten Sie ausgewählte Informationen zu KI-Agenten,
-            Automatisierung, Unternehmenssoftware und neuen Nurovelle-Lösungen
-            direkt per E-Mail.
-          </p>
-          <form
-            class="footer-newsletter"
-            action="#"
-            method="post"
-            aria-label="Newsletter abonnieren"
-          >
-            <input
-              class="footer-newsletter__input"
-              type="email"
-              name="email"
-              placeholder="Ihre E-Mail-Adresse"
-              autocomplete="email"
-              required
-            />
-            <button class="footer-newsletter__btn" type="submit">
-              Abonnieren
-            </button>
-          </form>
-        </div>
-        <div class="footer-col">
-          <h3 class="footer-col__title">Kontakt</h3>
-          <p>Marburg, Deutschland</p>
-          <p><a href="tel:+4964218097347">06421 8097347</a></p>
-          <p><a href="mailto:mail@nurovelle.de">mail@nurovelle.de</a></p>
-          <div class="footer-social" aria-label="Social Media">
-            <a href="index.html#" aria-label="LinkedIn">
-              <svg viewBox="0 0 24 24" aria-hidden="true">
-                <path
-                  fill="currentColor"
-                  d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM9 9h3.8v1.7h.05c.53-1 1.83-2.05 3.77-2.05C20.4 8.65 22 10.9 22 14.2V21h-4v-6c0-1.43-.03-3.27-2-3.27-2 0-2.3 1.56-2.3 3.17V21H9z"
-                />
-              </svg>
-            </a>
-            <a href="index.html#" aria-label="YouTube">
-              <svg viewBox="0 0 24 24" aria-hidden="true">
-                <path
-                  fill="currentColor"
-                  d="M23 12s0-3.2-.4-4.7a2.5 2.5 0 0 0-1.75-1.75C19.3 5.2 12 5.2 12 5.2s-7.3 0-8.85.35A2.5 2.5 0 0 0 1.4 7.3C1 8.8 1 12 1 12s0 3.2.4 4.7a2.5 2.5 0 0 0 1.75 1.75C4.7 18.8 12 18.8 12 18.8s7.3 0 8.85-.35A2.5 2.5 0 0 0 22.6 16.7C23 15.2 23 12 23 12zM9.75 15.02V8.98L15.5 12z"
-                />
-              </svg>
-            </a>
-            <a href="index.html#" aria-label="Instagram">
-              <svg viewBox="0 0 24 24" aria-hidden="true">
-                <path
-                  fill="currentColor"
-                  d="M12 2.2c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.42.56.22.96.48 1.38.9.42.42.68.82.9 1.38.17.42.37 1.06.42 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.42 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.17-1.06.37-2.23.42-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.42a3.7 3.7 0 0 1-1.38-.9 3.7 3.7 0 0 1-.9-1.38c-.17-.42-.37-1.06-.42-2.23C2.21 15.58 2.2 15.2 2.2 12s.01-3.58.07-4.85c.05-1.17.25-1.8.42-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.17 1.06-.37 2.23-.42C8.42 2.21 8.8 2.2 12 2.2zm0 3.05A6.75 6.75 0 1 0 18.75 12 6.75 6.75 0 0 0 12 5.25zm0 11.13A4.38 4.38 0 1 1 16.38 12 4.38 4.38 0 0 1 12 16.38zm6.99-11.4a1.58 1.58 0 1 1-1.57-1.58 1.58 1.58 0 0 1 1.57 1.58z"
-                />
-              </svg>
-            </a>
-            <a href="index.html#" aria-label="GitHub">
-              <svg viewBox="0 0 24 24" aria-hidden="true">
-                <path
-                  fill="currentColor"
-                  d="M12 1.5a10.5 10.5 0 0 0-3.32 20.47c.53.1.72-.23.72-.5v-1.9c-2.93.64-3.55-1.24-3.55-1.24-.48-1.22-1.17-1.55-1.17-1.55-.96-.65.07-.64.07-.64 1.06.08 1.62 1.09 1.62 1.09.94 1.6 2.46 1.14 3.06.87.1-.68.37-1.14.67-1.4-2.34-.27-4.8-1.17-4.8-5.2 0-1.15.4-2.09 1.08-2.83-.1-.27-.47-1.34.1-2.8 0 0 .88-.28 2.88 1.08a10 10 0 0 1 5.24 0c2-1.36 2.88-1.08 2.88-1.08.57 1.46.2 2.53.1 2.8.68.74 1.08 1.68 1.08 2.83 0 4.04-2.47 4.93-4.82 5.19.38.33.72.98.72 1.98v2.93c0 .28.19.61.73.5A10.5 10.5 0 0 0 12 1.5z"
-                />
-              </svg>
-            </a>
-          </div>
-        </div>
-      </div>
-      <div class="footer-bottom">
-        <nav class="footer-legal" aria-label="Rechtliches">
-          <a href="impressum.html">Impressum</a>
-          <a href="datenschutz.html">Datenschutz</a>
-          <a href="agb.html">AGB</a>
-        </nav>
-        <p class="footer-copy">
-          © Nurovelle. By d4sd1ng. All rights reserved.
-        </p>
-        <a class="footer-top" href="#" aria-label="Nach oben">
-          <svg viewBox="0 0 24 24" aria-hidden="true">
-            <path
-              fill="none"
-              stroke="currentColor"
-              stroke-width="3"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              d="M12 19V5M6 11l6-6 6 6"
-            />
-          </svg>
-        </a>
-      </div>
-    </footer>
-
+<div class="footer-inner">
+<div class="footer-col footer-col--about">
+<h3 class="footer-col__title">Nurovelle</h3>
+<p>Individuelle KI-Systeme für reale Geschäftsprozesse.</p>
+<p>Nurovelle entwickelt KI-Agenten, Automatisierungssysteme und datenbasierte Lösungen, die Unternehmen bei wiederkehrenden Abläufen, Wissenszugriff und Datenverarbeitung unterstützen.</p>
+</div>
+<div class="footer-col">
+<h3 class="footer-col__title">Nützliche Links</h3>
+<a href="index.html#hero">Startseite</a>
+<a href="index.html#warum-nurovelle">Über Nurovelle</a>
+<a href="index.html#leistungen">Leistungen</a>
+<a href="index.html#potenzialanalyse">Potenzialanalyse</a>
+<a href="index.html#downloads">Downloads</a>
+<a href="index.html#faq">FAQ</a>
+<a href="index.html#kontakt">Kontakt</a>
+</div>
+<div class="footer-col">
+<h3 class="footer-col__title">Newsletter</h3>
+<p>Erhalten Sie ausgewählte Informationen zu KI-Agenten, Automatisierung, Unternehmenssoftware und neuen Nurovelle-Lösungen direkt per E-Mail.</p>
+<form action="#" aria-label="Newsletter abonnieren" class="footer-newsletter" method="post">
+<input autocomplete="email" class="footer-newsletter__input" name="email" placeholder="Ihre E-Mail-Adresse" required="" type="email"/>
+<button class="footer-newsletter__btn" type="submit">Abonnieren</button>
+</form>
+</div>
+<div class="footer-col">
+<h3 class="footer-col__title">Kontakt</h3>
+<p>Marburg, Deutschland</p>
+<p><a href="tel:+4964218097347">06421 8097347</a></p>
+<p><a href="mailto:mail@nurovelle.de">mail@nurovelle.de</a></p>
+<div aria-label="Social Media" class="footer-social">
+<a aria-label="LinkedIn" href="index.html#"><svg aria-hidden="true" viewbox="0 0 24 24"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM9 9h3.8v1.7h.05c.53-1 1.83-2.05 3.77-2.05C20.4 8.65 22 10.9 22 14.2V21h-4v-6c0-1.43-.03-3.27-2-3.27-2 0-2.3 1.56-2.3 3.17V21H9z" fill="currentColor"></path></svg></a>
+<a aria-label="YouTube" href="index.html#"><svg aria-hidden="true" viewbox="0 0 24 24"><path d="M23 12s0-3.2-.4-4.7a2.5 2.5 0 0 0-1.75-1.75C19.3 5.2 12 5.2 12 5.2s-7.3 0-8.85.35A2.5 2.5 0 0 0 1.4 7.3C1 8.8 1 12 1 12s0 3.2.4 4.7a2.5 2.5 0 0 0 1.75 1.75C4.7 18.8 12 18.8 12 18.8s7.3 0 8.85-.35A2.5 2.5 0 0 0 22.6 16.7C23 15.2 23 12 23 12zM9.75 15.02V8.98L15.5 12z" fill="currentColor"></path></svg></a>
+<a aria-label="Instagram" href="index.html#"><svg aria-hidden="true" viewbox="0 0 24 24"><path d="M12 2.2c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.42.56.22.96.48 1.38.9.42.42.68.82.9 1.38.17.42.37 1.06.42 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.42 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.17-1.06.37-2.23.42-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.42a3.7 3.7 0 0 1-1.38-.9 3.7 3.7 0 0 1-.9-1.38c-.17-.42-.37-1.06-.42-2.23C2.21 15.58 2.2 15.2 2.2 12s.01-3.58.07-4.85c.05-1.17.25-1.8.42-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.17 1.06-.37 2.23-.42C8.42 2.21 8.8 2.2 12 2.2zm0 3.05A6.75 6.75 0 1 0 18.75 12 6.75 6.75 0 0 0 12 5.25zm0 11.13A4.38 4.38 0 1 1 16.38 12 4.38 4.38 0 0 1 12 16.38zm6.99-11.4a1.58 1.58 0 1 1-1.57-1.58 1.58 1.58 0 0 1 1.57 1.58z" fill="currentColor"></path></svg></a>
+<a aria-label="GitHub" href="index.html#"><svg aria-hidden="true" viewbox="0 0 24 24"><path d="M12 1.5a10.5 10.5 0 0 0-3.32 20.47c.53.1.72-.23.72-.5v-1.9c-2.93.64-3.55-1.24-3.55-1.24-.48-1.22-1.17-1.55-1.17-1.55-.96-.65.07-.64.07-.64 1.06.08 1.62 1.09 1.62 1.09.94 1.6 2.46 1.14 3.06.87.1-.68.37-1.14.67-1.4-2.34-.27-4.8-1.17-4.8-5.2 0-1.15.4-2.09 1.08-2.83-.1-.27-.47-1.34.1-2.8 0 0 .88-.28 2.88 1.08a10 10 0 0 1 5.24 0c2-1.36 2.88-1.08 2.88-1.08.57 1.46.2 2.53.1 2.8.68.74 1.08 1.68 1.08 2.83 0 4.04-2.47 4.93-4.82 5.19.38.33.72.98.72 1.98v2.93c0 .28.19.61.73.5A10.5 10.5 0 0 0 12 1.5z" fill="currentColor"></path></svg></a>
+</div>
+</div>
+</div>
+<div class="footer-bottom">
+<nav aria-label="Rechtliches" class="footer-legal">
+<a href="impressum.html">Impressum</a>
+<a href="datenschutz.html">Datenschutz</a>
+<a href="agb.html">AGB</a>
+</nav>
+<p class="footer-copy">© Nurovelle. By d4sd1ng. All rights reserved.</p>
+<a aria-label="Nach oben" class="footer-top" href="#"><svg aria-hidden="true" viewbox="0 0 24 24"><path d="M12 19V5M6 11l6-6 6 6" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"></path></svg></a>
+</div>
+</footer>
 <svg style="display:none">
-  <symbol id="i-chev" viewBox="0 0 24 24"><path d="M8 4l9 8-9 8" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/></symbol>
-  <symbol id="i-doc" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3h7l4 4v14H7z"/><path d="M14 3v4h4"/><path d="M10 12h5M10 16h5"/></g></symbol>
-  <symbol id="i-book" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19V5a2 2 0 0 1 2-2h14v16H6a2 2 0 0 0-2 2 2 2 0 0 0 2 2h14"/></g></symbol>
-  <symbol id="i-db" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="7" ry="2.5"/><path d="M5 5v14c0 1.4 3.1 2.5 7 2.5s7-1.1 7-2.5V5"/><path d="M5 12c0 1.4 3.1 2.5 7 2.5s7-1.1 7-2.5"/></g></symbol>
-  <symbol id="i-gear" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3.2"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9l2.1 2.1M17 17l2.1 2.1M19.1 4.9L17 7M7 17l-2.1 2.1"/></g></symbol>
-  <symbol id="i-headset" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 14a8 8 0 0 1 16 0"/><rect x="3" y="14" width="4" height="6" rx="1.5"/><rect x="17" y="14" width="4" height="6" rx="1.5"/></g></symbol>
-  <symbol id="i-chat" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v11H9l-5 4z"/><path d="M8 9h8"/></g></symbol>
-  <symbol id="i-bot" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="8" width="14" height="10" rx="2"/><path d="M12 8V5"/><circle cx="12" cy="4" r="1"/><path d="M9.5 12.5v1M14.5 12.5v1"/></g></symbol>
-  <symbol id="i-plus" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M12 9v6M9 12h6"/></g></symbol>
-  <symbol id="i-seo" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="10.5" cy="10.5" r="5.5"/><path d="M15 15l6 6"/></g></symbol>
-  <symbol id="i-chart" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4v16h16"/><path d="M8 16v-5M12 16V8M16 16v-3"/></g></symbol>
-  <symbol id="i-sync" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M20 12a8 8 0 1 1-2.3-5.7"/><path d="M20 3v4h-4"/><path d="M9 12l2 2 4-4"/></g></symbol>
-  <symbol id="i-bulb" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a6 6 0 0 1 4 10.4c-.8.7-1 1.6-1 2.6H9c0-1-.2-1.9-1-2.6A6 6 0 0 1 12 3z"/><path d="M9 19h6M10 22h4"/></g></symbol>
-  <symbol id="i-wrench" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 6.5a4 4 0 0 1 5.2-4.7l-2.9 2.9 2.5 2.5 2.9-2.9a4 4 0 0 1-4.7 5.2L8 19a2.1 2.1 0 1 1-3-3z"/></g></symbol>
-  <symbol id="i-loop" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12a8 8 0 0 1 14-5.3"/><path d="M18 3v4h-4"/><path d="M20 12a8 8 0 0 1-14 5.3"/><path d="M6 21v-4h4"/></g></symbol>
-  <symbol id="i-rocket" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3c3 2 5 6 5 10l-2 2H9l-2-2c0-4 2-8 5-10z"/><circle cx="12" cy="9" r="1.5"/><path d="M9 17l-1.5 4M15 17l1.5 4M12 17v4"/></g></symbol>
-  <symbol id="i-map" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6l5-2 6 2 5-2v14l-5 2-6-2-5 2z"/><path d="M9 4v14M15 6v14"/></g></symbol>
-  <symbol id="i-plug" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3v5M15 3v5"/><path d="M6 8h12v3a6 6 0 0 1-12 0z"/><path d="M12 17v4"/></g></symbol>
-  <symbol id="i-pen" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20l1-4L17 4l3 3L8 19l-4 1z"/><path d="M14 7l3 3"/></g></symbol>
-  <symbol id="i-trend" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h16"/><path d="M5 16l4-4 3 3 6-7"/><path d="M14 8h4v4"/></g></symbol>
-  <symbol id="nv-calendly-mark" viewBox="0 0 64 64">
-    <path d="M50 14C42 7 30 5 20 11C9 17 5 31 10 42C15 53 28 59 40 55C46 53 51 49 54 44" fill="none" stroke="#046bf7" stroke-width="7" stroke-linecap="round" />
-    <path d="M50 22C44 16 35 15 28 19C20 23 17 32 21 40C25 48 35 51 43 47C47 45 50 42 52 38" fill="none" stroke="#12e0f7" stroke-width="6" stroke-linecap="round" />
-    <path d="M47 28C43 24 37 24 34 28C30 32 32 38 36 40C40 42 45 40 48 36" fill="none" stroke="#046bf7" stroke-width="5" stroke-linecap="round" />
-  </symbol>
+<symbol id="i-chev" viewbox="0 0 24 24"><path d="M8 4l9 8-9 8" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3.4"></path></symbol>
+<symbol id="nv-calendly-mark" viewbox="0 0 64 64">
+<path d="M50 14C42 7 30 5 20 11C9 17 5 31 10 42C15 53 28 59 40 55C46 53 51 49 54 44" fill="none" stroke="#046bf7" stroke-linecap="round" stroke-width="7"></path>
+<path d="M50 22C44 16 35 15 28 19C20 23 17 32 21 40C25 48 35 51 43 47C47 45 50 42 52 38" fill="none" stroke="#12e0f7" stroke-linecap="round" stroke-width="6"></path>
+<path d="M47 28C43 24 37 24 34 28C30 32 32 38 36 40C40 42 45 40 48 36" fill="none" stroke="#046bf7" stroke-linecap="round" stroke-width="5"></path>
+</symbol>
 </svg>
 <script>
 document.addEventListener("DOMContentLoaded", function () {
   const breadcrumbGroups = [...document.querySelectorAll(".nv-breadcrumb__group")];
   const hoverNavigation = window.matchMedia("(hover: hover) and (pointer: fine)");
-
   breadcrumbGroups.forEach(group => {
     let closeTimer = 0;
     const cancelClose = () => { window.clearTimeout(closeTimer); closeTimer = 0; };
-
     group.addEventListener("toggle", () => {
       if (!group.open) return;
       breadcrumbGroups.forEach(otherGroup => { if (otherGroup !== group) otherGroup.open = false; });
     });
-
     group.addEventListener("mouseenter", () => {
       if (!hoverNavigation.matches) return;
       cancelClose();
       breadcrumbGroups.forEach(otherGroup => { if (otherGroup !== group) otherGroup.open = false; });
       group.open = true;
     });
-
     group.addEventListener("mouseleave", () => {
       if (!hoverNavigation.matches || group.matches(":focus-within")) return;
       cancelClose();
@@ -451,20 +665,16 @@ document.addEventListener("DOMContentLoaded", function () {
         if (!group.matches(":hover") && !group.matches(":focus-within")) group.open = false;
       }, 160);
     });
-
     group.addEventListener("focusin", cancelClose);
   });
-
   document.addEventListener("click", event => {
     if (event.target.closest(".nv-breadcrumb__group")) return;
     breadcrumbGroups.forEach(group => { group.open = false; });
   });
-
   document.addEventListener("keydown", event => {
     if (event.key !== "Escape") return;
     breadcrumbGroups.forEach(group => { group.open = false; });
   });
-
   document.querySelectorAll(".faq-item").forEach(item => {
     item.addEventListener("toggle", () => {
       if (!item.open) return;
