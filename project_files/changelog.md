@@ -1,5 +1,17 @@
 # Changelog
 
+## 2026-09-25 – Paket-Hinweis an Card-Grid ausgerichtet
+
+Status: fertig
+
+Geändert:
+
+- `homepage/index.html`: Hinweistext unter den drei Automationspaketen auf dieselbe maximale Breite und horizontale Zentrierung wie das bestehende Paket-Card-Grid gesetzt.
+
+Nicht geändert:
+
+- Paket-Cards, Texte, Section-Layout, Header, Footer, übrige Homepage-Bereiche und JavaScript.
+
 ## 2026-09-21 – Analyse-Datei: Hero-Viewport und Sektionsabstände
 
 Status: geprüft
