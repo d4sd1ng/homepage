@@ -1,5 +1,30 @@
 # Changelog
 
+## 2026-09-25 – Tiefenstaffelung der Ablaufmodule korrigiert
+
+Status: fertig
+
+Geändert:
+
+- `homepage/index.html`: perspektivische Odd/Even-Tiefenstaffelung (`0.86` / `1.16`) der sechs Ablaufmodule wiederhergestellt.
+- Nur die vertikale Modulposition zum Sockel wurde auf den Wert des ersten Moduls (`--nv-module-top: 13.6px`) vereinheitlicht; die individuellen Perspektivwinkel bleiben erhalten.
+
+## 2026-09-25 – Paket-Hinweis an Card-Grid ausgerichtet
+
+Status: fertig
+
+Geändert:
+
+- `homepage/index.html`: Hinweistext unter den drei Automationspaketen auf dieselbe maximale Breite und horizontale Zentrierung wie das bestehende Paket-Card-Grid gesetzt.
+- `homepage/index.html`: Beträge in den Paket-Cards rechtsbündig angeordnet; die zugehörigen Preisbeschreibungen stehen links.
+- `homepage/index.html`: die drei Range-Balken in „Richtwert berechnen“ um 24px gekürzt; Card-Breite, Spalten, Texte, Werte und Auswahlfelder unverändert.
+- `homepage/index.html`: Datenschutz- und Newsletter-Card im Analyseformular untereinander über die volle Formularbreite angeordnet.
+- `homepage/index.html`: alle sechs Ablaufmodule erhalten dieselbe Skalierung und vertikale Position zum Sockel wie das erste Modul „Aufgabe erfassen“.
+
+Nicht geändert:
+
+- Paket-Cards, Texte, Section-Layout, Header, Footer, übrige Homepage-Bereiche und JavaScript.
+
 ## 2026-09-21 – Analyse-Datei: Hero-Viewport und Sektionsabstände
 
 Status: geprüft
