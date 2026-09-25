@@ -1,5 +1,14 @@
 # Changelog
 
+## 2026-09-25 – Schieberegler im Richtwert-Rechner gekürzt
+
+Status: fertig
+
+Geändert:
+
+- `homepage/index.html`: ausschließlich die drei Desktop-Schieberegler in „Richtwert berechnen“ deutlich gekürzt (`calc(100% - 72px)` statt `calc(100% - 24px)`).
+- Mobile Regel bleibt unverändert bei `width: 100%`.
+
 ## 2026-09-25 – Tiefenstaffelung der Ablaufmodule korrigiert
 
 Status: fertig
