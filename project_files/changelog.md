@@ -1,5 +1,14 @@
 # Changelog
 
+## 2026-09-25 – Tiefenstaffelung der Ablaufmodule korrigiert
+
+Status: fertig
+
+Geändert:
+
+- `homepage/index.html`: perspektivische Odd/Even-Tiefenstaffelung (`0.86` / `1.16`) der sechs Ablaufmodule wiederhergestellt.
+- Nur die vertikale Modulposition zum Sockel wurde auf den Wert des ersten Moduls (`--nv-module-top: 13.6px`) vereinheitlicht; die individuellen Perspektivwinkel bleiben erhalten.
+
 ## 2026-09-25 – Paket-Hinweis an Card-Grid ausgerichtet
 
 Status: fertig
