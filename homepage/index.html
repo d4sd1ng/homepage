@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-<!-- deploy-refresh: 2026-09-25 slider-layout -->
 <html lang="de">
 <head>
 <meta charset="UTF-8" />
@@ -920,7 +919,7 @@ canvas.nv-step-viz {
 .nv-acard__col > .nv-arange:last-child { margin-bottom: 0; }
 .nv-acard__lead { margin: 0 0 17.6px; color: #b9c3bd; font: var(--w-fliesstext) var(--t-fliesstext)/1.5 "Inter",Arial,sans-serif; }
 .nv-arange label .val { flex: 0 0 auto; white-space: nowrap; color: #f0d488; font: var(--w-wert) var(--t-wert)/1 "Inter",Arial,sans-serif; font-variant-numeric: tabular-nums; }
-.nv-arange input[type=range] { width: calc(100% - 72px); max-width: calc(100% - 72px); -webkit-appearance: none; appearance: none; height: 4.8px; border-radius: 80px; background: rgba(255,255,255,.09); outline: none; }
+.nv-arange input[type=range] { width: calc(100% - 80px); max-width: calc(100% - 80px); -webkit-appearance: none; appearance: none; height: 4.8px; border-radius: 80px; background: rgba(255,255,255,.09); outline: none; }
 .nv-arange input[type=range]::-webkit-slider-thumb { -webkit-appearance: none; width: 9.6px; height: 9.6px; border-radius: 50%; background: var(--gold-1); border: 1.6px solid #a55d07; cursor: pointer; box-shadow: 0 0 8px rgba(250,227,133,.5); }
 .nv-arange input[type=range]::-moz-range-thumb { width: 9.6px; height: 9.6px; border: 1.6px solid #a55d07; border-radius: 50%; background: #f0d488; cursor: pointer; }
 .nv-aseg { display: flex; flex-wrap: nowrap; gap: 6.4px; width: 100%; }
@@ -963,8 +962,8 @@ canvas.nv-step-viz {
 .nv-aform__grid > [name=zeitaufwand] { grid-area: 5 / 1 / 6 / 2; }
 .nv-aform__grid > [name=datenlage] { grid-area: 5 / 2 / 6 / 3; }
 .nv-aform__grid > [name=herausforderung] { grid-area: 6 / 1 / 7 / 3; height: 72px; }
-.nv-aform__grid > .nv-aform__row--privacy { grid-area: 7 / 1 / 8 / 3; }
-.nv-aform__grid > .nv-aform__row--news { grid-area: 8 / 1 / 9 / 3; }
+.nv-aform__grid > .nv-aform__row--privacy { grid-row: 7; grid-column: 1 / -1; width: 100%; box-sizing: border-box; }
+.nv-aform__grid > .nv-aform__row--news { grid-row: 8; grid-column: 1 / -1; width: 100%; box-sizing: border-box; }
 .nv-aform__grid > .nv-aform__submit { grid-area: 9 / 1 / 10 / 3; justify-self: stretch; margin-top: 19.2px; }
 .nv-aform__submit { padding: 0; border: 0; background: none; cursor: pointer; }
 .nv-aform__submit .golden-button { display: flex; width: 100%; min-width: 0; }
