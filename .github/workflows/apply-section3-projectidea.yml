@@ -1,4 +1,5 @@
 name: Sektion 3 Projektidee implementieren
+# workflow registry diagnostic refresh: 2026-09-25
 
 on:
   push:
