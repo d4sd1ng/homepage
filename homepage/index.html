@@ -887,7 +887,7 @@ canvas.nv-step-viz {
 .nv-acard__col { min-width: 0; }
 .nv-analyse__grid > :nth-child(1) .nv-acard__split { grid-template-columns: minmax(0,.88fr) minmax(0,1.12fr); justify-content: stretch; align-items: stretch; }
 .nv-analyse__grid > :nth-child(1) .nv-acard__col:last-child { display: flex; flex-direction: column; justify-content: space-between; position: relative; }
-.nv-analyse__grid > :nth-child(1) .nv-acard__col:last-child::before { content: ""; position: absolute; left: -16px; top: 0; bottom: 0; width: 0.8px; background: linear-gradient(180deg, transparent, #d4af37 12%, #d4af37 88%, transparent); }
+.nv-analyse__grid > :nth-child(1) .nv-acard__col:last-child::before { content: ""; position: absolute; left: -16px; transform: translateX(-50%); top: 0; bottom: 0; width: 0.8px; background: linear-gradient(180deg, transparent, #d4af37 12%, #d4af37 88%, transparent); }
 .nv-analyse__grid > :nth-child(1),
 .nv-analyse__grid > :nth-child(2) { width: auto; max-width: none; justify-self: stretch; }
 @media(max-width:760px){ .nv-acard__split{ grid-template-columns:1fr; } }
