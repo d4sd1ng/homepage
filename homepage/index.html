@@ -923,7 +923,7 @@ canvas.nv-step-viz {
 .nv-arange input[type=range]::-webkit-slider-thumb { -webkit-appearance: none; width: 9.6px; height: 9.6px; border-radius: 50%; background: var(--gold-1); border: 1.6px solid #a55d07; cursor: pointer; box-shadow: 0 0 8px rgba(250,227,133,.5); }
 .nv-arange input[type=range]::-moz-range-thumb { width: 9.6px; height: 9.6px; border: 1.6px solid #a55d07; border-radius: 50%; background: #f0d488; cursor: pointer; }
 .nv-aseg { display: flex; flex-wrap: nowrap; gap: 6.4px; width: 100%; }
-.nv-aseg button { flex: 1 1 0; min-width: 0; padding: 8px 4px; border: 0.8px solid transparent; background-image: linear-gradient(#17251d,#17251d), var(--gold-3); background-origin: border-box; background-clip: padding-box,border-box; border-radius: 5.6px; color: #b9c3bd; font: var(--w-kartenbullet) var(--t-kartenbullet)/1 "Inter",Arial,sans-serif; cursor: pointer; transition: all .18s; }
+.nv-aseg button { flex: 1 1 auto; min-width: max-content; padding: 8px 8px; white-space: nowrap; border: 0.8px solid transparent; background-image: linear-gradient(#17251d,#17251d), var(--gold-3); background-origin: border-box; background-clip: padding-box,border-box; border-radius: 5.6px; color: #b9c3bd; font: var(--w-kartenbullet) var(--t-kartenbullet)/1 "Inter",Arial,sans-serif; cursor: pointer; transition: all .18s; }
 .nv-aseg button.active { border-color: #fae385; color: #e4e0d6; }
 .nv-agauge { position: relative; width: 144px; height: 144px; margin-bottom: 8px; }
 #nvAnaGauge { width: 144px; height: 144px; }
