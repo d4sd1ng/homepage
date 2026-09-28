@@ -670,7 +670,7 @@ a:active .golden-button {
 .nv-s7-card__iconbox { display: grid; place-items: center; align-self: center; width: 98.4px; height: 98.4px; margin: 0 auto 22.4px; position: relative; border: 0.8px solid #d4af37; border-radius: 5.6px; }
 .nv-s7-card__iconbox::before { content: ""; position: absolute; inset: 0; z-index: -1; border-radius: inherit; background: #080b09d9; }
 .nv-s7-card__iconbox img { width: 98.4px; height: 98.4px; object-fit: contain; }
-.nv-s7-card__left-rule { height: 0.8px; margin: 16.8px 0 11.2px; background: linear-gradient(90deg, transparent, #d4af37 18%, #d4af37 82%, transparent); }
+.nv-s7-card__left-rule { height: 1.6px; margin: 16.8px 0 11.2px; background: linear-gradient(90deg, transparent, #d4af37 18%, #d4af37 82%, transparent); opacity: 0; transition: opacity 0.42s ease; }
 .nv-s7-card__uses h4, .nv-s7-card__uses .nv-s7-card__uses-title { display: flex; align-items: center; gap: 5.6px; margin: 0 0 14.4px; color: transparent; background: var(--gold-1); background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent; font: 700 14.4px / 1.2 Inter, Arial, sans-serif; letter-spacing: 0.045em; text-align: left; text-transform: uppercase; }
 .nv-s7-card__target { color: #fef1a2; -webkit-text-fill-color: #fef1a2; font-size: 16.8px; line-height: 1; transform: translateY(-1.2px); }
 .nv-s7-card__uses ul { display: grid; gap: 7.2px; margin: 0; padding: 0; list-style: none; }
@@ -679,7 +679,7 @@ a:active .golden-button {
 .nv-s7-card__more { align-self: center; margin-top: 20.8px; display: inline-flex; align-items: center; gap: 7.2px; padding: 8px 16px; border: 0.8px solid transparent; border-radius: 6.4px; background-image: linear-gradient(#1a1a1a,#1a1a1a), var(--gold-3); background-origin: border-box; background-clip: padding-box, border-box; box-shadow: 0 2.4px 6.4px #0000008c, inset 0 0.8px 0 #fae38524; color: #fae385; font: 700 12.8px / 1 Inter, Arial, sans-serif; letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none; white-space: nowrap; transition: background 0.2s ease, transform 0.15s ease; }
 .nv-s7-card__more::after { content: ""; width: 0; height: 0; flex: 0 0 auto; border-style: solid; border-width: 3.2px 0 3.2px 4.8px; border-color: transparent transparent transparent #fae385; }
 .nv-s7-card__more:hover, .nv-s7-card__more:focus-visible { background-image: linear-gradient(#262626,#262626), var(--gold-3); transform: translateY(-0.8px); }
-.nv-s7-card__divider { position: absolute; z-index: 3; left: 32%; top: 0; bottom: 0; width: 0.8px; background: linear-gradient( 180deg, transparent, #d4af375e 8%, #d4af375e 92%, transparent ); opacity: 1; transform: none; transition: opacity 0.42s ease; }
+.nv-s7-card__divider { position: absolute; z-index: 3; left: 32%; top: 0; bottom: 0; width: 1.6px; background: linear-gradient( 180deg, transparent, #d4af375e 8%, #d4af375e 92%, transparent ); opacity: 0; transform: none; transition: opacity 0.42s ease; }
 .nv-s7-card:hover .nv-s7-card__divider, .nv-s7-card:focus-visible .nv-s7-card__divider, .nv-s7-card.is-active .nv-s7-card__divider { opacity: 1; transform: none; }
 .nv-s7-card__main { position: absolute; z-index: 3; left: 0; top: 0; right: 0; bottom: 0; min-width: 0; transition: left 0.42s ease; }
 .nv-s7-card:hover .nv-s7-card__main, .nv-s7-card:focus-visible .nv-s7-card__main, .nv-s7-card.is-active .nv-s7-card__main { left: 32%; }
@@ -688,7 +688,7 @@ a:active .golden-button {
 .nv-s7-card__number::before { content: ""; position: absolute; inset: 0; z-index: -1; border-radius: inherit; background: #080b09d9; }
 .nv-s7-card__heading h3 { margin: 0; color: transparent; background: var(--gold-2); background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent; font: 700 29.6px / 1.06 "Exo 2", Inter, Arial, sans-serif; letter-spacing: 0.01em; }
 .nv-s7-card__heading p { margin: 12.8px 0 0; color: #e4e0d6; font: 600 15.6px / 1.25 Inter, Arial, sans-serif; letter-spacing: 0.06em; text-transform: uppercase; }
-.nv-s7-card__short-rule { position: absolute; top: 125.6px; left: 31.2px; right: 25.6px; height: 0.8px; margin: 0; background: linear-gradient(90deg, #d4af37, rgba(212, 175, 55, 0.35) 88%, transparent); opacity: 1; transition: opacity 0.42s ease; }
+.nv-s7-card__short-rule { position: absolute; top: 125.6px; left: 31.2px; right: 25.6px; height: 1.6px; margin: 0; background: linear-gradient(90deg, #d4af37, rgba(212, 175, 55, 0.35) 88%, transparent); opacity: 0; transition: opacity 0.42s ease; }
 .nv-s7-card__points { position: absolute; top: 145.6px; left: 31.2px; right: 28px; display: grid; gap: 8.4px; margin: 0; padding: 0; list-style: none; opacity: 0; transform: none; transition: opacity 0.42s ease; }
 .nv-s7-card__points li { position: relative; padding-left: 16.8px; color: #d4af37; overflow-wrap: anywhere; font: var(--w-bulletlabel) var(--t-bulletlabel)/1.35 "Inter",Arial,sans-serif; }
 .nv-s7-card__points li::before { content: ""; position: absolute; left: 0; top: 0.5em; width: 5.6px; height: 5.6px; border-radius: 1.6px; background: #f7c64a; }
@@ -700,7 +700,7 @@ a:active .golden-button {
 .nv-s7-card__result-icon-inner::after { width: 10.4px; height: 2.8px; }
 .nv-s7-card__result > div { grid-column: 2; grid-row: 1; min-width: 0; }
 .nv-s7-card__result h4 { margin: 0; color: transparent; background: var(--gold-1); background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent; font: 600 var(--t-bildunterschrift) / 1.3 Inter, Arial, sans-serif; letter-spacing: 0.05em; text-transform: uppercase; }
-.nv-s7-card:hover .nv-s7-card__short-rule, .nv-s7-card:focus-visible .nv-s7-card__short-rule, .nv-s7-card.is-active .nv-s7-card__short-rule, .nv-s7-card:hover .nv-s7-card__points, .nv-s7-card:focus-visible .nv-s7-card__points, .nv-s7-card.is-active .nv-s7-card__points { opacity: 1; }
+.nv-s7-card:hover .nv-s7-card__left-rule, .nv-s7-card:focus-visible .nv-s7-card__left-rule, .nv-s7-card.is-active .nv-s7-card__left-rule, .nv-s7-card:hover .nv-s7-card__short-rule, .nv-s7-card:focus-visible .nv-s7-card__short-rule, .nv-s7-card.is-active .nv-s7-card__short-rule, .nv-s7-card:hover .nv-s7-card__points, .nv-s7-card:focus-visible .nv-s7-card__points, .nv-s7-card.is-active .nv-s7-card__points { opacity: 1; }
 .nv-s7-card:hover .nv-s7-card__result, .nv-s7-card:focus-visible .nv-s7-card__result, .nv-s7-card.is-active .nv-s7-card__result { opacity: 1; }@media (max-width: 1499px) {
   .nv-s7__cards { grid-template-columns: repeat(2, 720px); column-gap: 48px; }
   .nv-s7-card { left: auto; }
