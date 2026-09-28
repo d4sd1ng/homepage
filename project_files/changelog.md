@@ -1,5 +1,15 @@
 # Changelog
 
+## 2026-09-28 – Sichtbarkeit der Divider in den Leistungskarten korrigiert
+
+Status: fertig
+
+Geändert:
+
+- `homepage/index.html`: die drei Divider der Leistungskarten sind im geschlossenen Zustand unsichtbar und werden ausschließlich bei Hover, Focus oder `.is-active` eingeblendet.
+- `homepage/index.html`: linker kurzer Divider, vertikaler Divider und rechter horizontaler Divider auf 1.6px gesetzt, damit sie trotz `zoom: 0.65` zuverlässig sichtbar bleiben.
+- Keine Card-Positionen, Inhalte, Grid-Struktur oder sonstigen Bereiche geändert.
+
 ## 2026-09-25 – Analyse-Regler und Consent-Cards korrigiert
 
 Status: fertig
