@@ -1,5 +1,15 @@
 # Changelog
 
+## 2026-09-28 – Shared Header/Footer Stylesheet in index.html eingebunden
+
+Status: fertig
+
+Geändert:
+
+- `homepage/index.html`: `shared-header-footer.css` direkt nach `nurovelle-tokens.css` eingebunden.
+- Noch keine Header- oder Footer-Regeln aus dem Inline-CSS entfernt.
+- `homepage/shared-header-footer.css` nicht verändert; der vollständige Header-Regelsatz wurde zuvor gegen `index.html` abgeglichen und stimmt regelweise inklusive doppelter Responsive-Selektoren überein.
+
 ## 2026-09-28 – Header-Abhängigkeiten in Produktions-Tokens ergänzt
 
 Status: fertig
