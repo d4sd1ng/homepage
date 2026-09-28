@@ -1,5 +1,17 @@
 # Changelog
 
+## 2026-09-28 – Service-Card-Divider-Fix in aktuellen Refactor-Branch übernommen
+
+Status: fertig
+
+Geändert:
+
+- `homepage/index.html`: die bereits auf `fix/service-card-dividers` vorhandene Divider-Logik in den aktuellen Branch `refactor/shared-header-footer-tokens` übernommen.
+- Geschlossene Leistungskarten: linker kurzer Divider, vertikaler Divider und rechter horizontaler Divider sind jetzt `opacity: 0`.
+- Geöffnete Leistungskarten: alle drei Divider werden bei Hover, Focus oder `.is-active` mit `opacity: 1` eingeblendet.
+- Die drei Divider verwenden 1.6px in der Karten-CSS, damit sie unter dem vorhandenen `zoom: 0.65` sichtbar bleiben.
+- Keine Card-Positionen, Texte oder sonstigen Bereiche verändert.
+
 ## 2026-09-28 – Erste Header-Basisregeln aus index.html entfernt
 
 Status: fertig
