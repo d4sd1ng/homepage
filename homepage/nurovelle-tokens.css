@@ -59,7 +59,7 @@
 
   /* Layout and spacing */
   --container-max: 75rem;
-  --page-gutter: clamp(1.125rem, 3vw, 1.5rem);
+  --page-gutter: clamp(14.4px, 2.4vw, 25.6px);
   --section-space: 7.5rem;
   --space-1: 0.25rem;
   --space-2: 0.5rem;
@@ -86,8 +86,28 @@
   --transition-base: 240ms ease;
 
   /* Structural values retained from the current homepage */
-  --header-height: 2.75rem;
+  --header-height: 67.2px;
   --sidebar-width: 14.6875rem;
+
+  /* Current header/shared-component values mirrored from index.html.
+     These preserve the existing rendered header while its rules are
+     moved step by step into shared-header-footer.css. */
+  --logo-box: 54px;
+  --logo-w: 58px;
+  --logo-h: 46px;
+  --gold-3: linear-gradient(135deg, #76551A 0%, #AE8625 13%, #F7EF8A 27%, #FFF9C9 33%, #D2AC47 43%, #926F34 57%, #EDC967 72%, #FFF3A1 80%, #9B7423 100%);
+  --nv-gold-border: #a55d07;
+  --nv-gold-inner-dark: #8b4208;
+  --nv-gold-inner-mid: #b17d10;
+  --nv-gold-highlight: #fae385;
+  --nv-gold-text-dark: rgb(120, 50, 5);
+  --nv-gold-gradient: linear-gradient(160deg, #a54e07, #b47e11, #fef1a2, #bc881b, #a54e07);
+  --nv-gold-text-hover: rgba(120, 50, 5, 0.8);
+  --nv-gold-border-hover: rgba(165, 93, 7, 0.6);
+  --shadow-soft: rgba(0, 0, 0, 0.16);
+  --shadow-soft-2: rgba(110, 80, 20, 0.4);
+  --shadow-hover-1: rgba(0, 0, 0, 0.19);
+  --shadow-hover-2: rgba(0, 0, 0, 0.23);
 }
 
 @media (max-width: 1199px) {
