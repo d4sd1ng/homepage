@@ -1,5 +1,16 @@
 # Changelog
 
+## 2026-09-28 – Service-Card-Divider ausgerichtet und Ablaufgrafiken vereinheitlicht
+
+Status: fertig
+
+Geändert:
+
+- `homepage/index.html`: horizontalen Divider unter dem Service-Card-Iconrahmen mittig zwischen Iconrahmen und „Einsatzbereiche“ gesetzt (`margin: 14px 0`).
+- `homepage/index.html`: alle sechs Ablaufgrafiken auf denselben bereits vorhandenen Skalierungswert `0.58` gesetzt.
+- Unterschiedliche Odd-/Even-Skalierung der Ablaufgrafiken entfernt.
+- Keine Texte, Pfeile, Grafikquellen, Card-Größen oder übrigen Abstände verändert.
+
 ## 2026-09-28 – Abschnitts- und Footer-Divider vereinheitlicht
 
 Status: fertig
