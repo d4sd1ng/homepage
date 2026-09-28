@@ -1,5 +1,15 @@
 # Changelog
 
+## 2026-09-28 – Ablaufpfeile horizontal ausgerichtet
+
+Status: fertig
+
+Geändert:
+
+- `homepage/index.html`: die wechselnden `rotate(36deg)`-/`rotate(-36deg)`-Regeln der Ablaufpfeile entfernt.
+- Alle fünf Pfeile verwenden jetzt dieselbe bereits vorhandene Position `top: 42px; left: 88%` ohne Rotation.
+- Keine Grafikgrößen, Texte oder sonstigen Abstände geändert.
+
 ## 2026-09-28 – Service-Card-Divider ausgerichtet und Ablaufgrafiken vereinheitlicht
 
 Status: fertig
