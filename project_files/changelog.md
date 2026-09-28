@@ -1,5 +1,15 @@
 # Changelog
 
+## 2026-09-28 – Service-Card-Divider im geschlossenen Zustand vollständig verborgen
+
+Status: fertig
+
+Geändert:
+
+- `homepage/index.html`: linker kurzer Divider, vertikaler Divider und rechter horizontaler Divider erhalten im geschlossenen Zustand zusätzlich `visibility: hidden`.
+- Hover, Focus und `.is-active` setzen die drei Divider explizit auf `visibility: visible` und `opacity: 1`.
+- Keine Card-Positionen, Texte, Größen oder Grid-Werte geändert.
+
 ## 2026-09-28 – Service-Card-Divider-Fix in aktuellen Refactor-Branch übernommen
 
 Status: fertig
