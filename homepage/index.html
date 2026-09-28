@@ -987,8 +987,6 @@ canvas.nv-step-viz {
 .nv-process__step:nth-child(5) { --nv-process-turn: -16deg; --nv-module-top: 13.6px; }
 .nv-process__step:nth-child(6) { --nv-process-turn: -26deg; --nv-module-top: 13.6px; }
 .nv-process__step:not(:last-child)::after { content: "\2192"; position: absolute; top: 42px; left: 88%; z-index: 0; color: #d4af37; font-size: clamp(34px, 3.5vw, 60px); line-height: 1; opacity: 0.85; transform-origin: left center; pointer-events: none; }
-.nv-process__step:nth-child(odd):not(:last-child)::after { transform: rotate(36deg); }
-.nv-process__step:nth-child(even):not(:last-child)::after { transform: rotate(-36deg); }
 .nv-process__visual { position: relative; z-index: 1; height: 219px; margin-bottom: 28px; transform: scale(var(--nv-process-depth)); transform-origin: 50% 80%; transform-style: preserve-3d; }
 .nv-process__module { position: absolute; top: var(--nv-module-top, 0px); left: 50%; z-index: 2; width: 156px; height: 156px; object-fit: contain; transform: translateX(-50%); filter: drop-shadow(0 11.2px 12.8px rgba(0, 0, 0, 0.55)); }
 .nv-process__base { position: absolute; bottom: 0; left: 50%; z-index: 1; width: 198px; height: auto; object-fit: contain; transform: translateX(-50%); }
