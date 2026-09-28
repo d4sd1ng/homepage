@@ -767,7 +767,6 @@ a:active .golden-button {
     grid-template-columns: 1fr;
     min-height: 0;
   }
-  .nv-s7-card__divider { display: none; }
   .nv-s7-card__left { padding: 12.8px; }
 }
 
@@ -885,16 +884,16 @@ canvas.nv-step-viz {
 .nv-acard__title, .nv-aform > h3 { margin: 0 0 19.2px; color: transparent; background: var(--gold-1); background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent; font: var(--w-kartentitel) var(--t-kartentitel)/1.05 "Exo 2",Inter,Arial,sans-serif; text-transform: none; }
 .nv-acard__split { display: grid; grid-template-columns: 1fr 1fr; gap: 25.6px; align-items: start; }
 .nv-acard__col { min-width: 0; }
-.nv-analyse__grid > :nth-child(1) .nv-acard__split { grid-template-columns: minmax(0,1fr) minmax(0,1fr); justify-content: stretch; align-items: stretch; }
+.nv-analyse__grid > :nth-child(1) .nv-acard__split { grid-template-columns: minmax(0,.88fr) minmax(0,1.12fr); justify-content: stretch; align-items: stretch; }
 .nv-analyse__grid > :nth-child(1) .nv-acard__col:last-child { display: flex; flex-direction: column; justify-content: space-between; position: relative; }
-.nv-analyse__grid > :nth-child(1) .nv-acard__col:last-child::before { content: ""; position: absolute; left: -16px; top: 0; bottom: 0; width: 0.8px; background: linear-gradient(180deg, transparent, #d4af37 12%, #d4af37 88%, transparent); }
+.nv-analyse__grid > :nth-child(1) .nv-acard__col:last-child::before { content: ""; position: absolute; left: -16px; transform: translateX(-50%); top: 0; bottom: 0; width: 0.8px; background: linear-gradient(180deg, transparent, #d4af37 12%, #d4af37 88%, transparent); }
 .nv-analyse__grid > :nth-child(1),
 .nv-analyse__grid > :nth-child(2) { width: auto; max-width: none; justify-self: stretch; }
 @media(max-width:760px){ .nv-acard__split{ grid-template-columns:1fr; } }
 /* interactive: sliders + segments */
 .nv-arange { margin-bottom:9.6px; }
  /* tightened: crops ~24px off the upper card row */
-.nv-arange label { display:flex; justify-content:space-between; align-items:baseline; gap:8px; width:100%; max-width:100%; margin-bottom:7.2px; color:#e4e0d6; font:var(--w-feldlabel) var(--t-feldlabel)/1.25 "Inter",Arial,sans-serif; }
+.nv-arange label { display:flex; justify-content:flex-start; align-items:baseline; gap:8px; width:calc(100% - 80px); max-width:calc(100% - 80px); margin-bottom:7.2px; color:#e4e0d6; font:var(--w-feldlabel) var(--t-feldlabel)/1.25 "Inter",Arial,sans-serif; }
 
 /* gauge result card */
 .nv-agauge-wrap { display:flex; flex-direction:column; align-items:flex-start; justify-content:flex-start; text-align:left; }
@@ -918,12 +917,12 @@ canvas.nv-step-viz {
 .nv-process__kicker { margin: 0 0 8px; color: #55863f; font: var(--w-kicker-sektion) var(--t-kicker-sektion)/1.15 "Inter", Arial, sans-serif; letter-spacing: 0.14em; text-transform: uppercase; }
 .nv-acard__col > .nv-arange:last-child { margin-bottom: 0; }
 .nv-acard__lead { margin: 0 0 17.6px; color: #b9c3bd; font: var(--w-fliesstext) var(--t-fliesstext)/1.5 "Inter",Arial,sans-serif; }
-.nv-arange label .val { flex: 0 0 auto; white-space: nowrap; color: #f0d488; font: var(--w-wert) var(--t-wert)/1 "Inter",Arial,sans-serif; font-variant-numeric: tabular-nums; }
+.nv-arange label .val { margin-left:auto; flex: 0 0 auto; white-space: nowrap; color: #f0d488; font: var(--w-wert) var(--t-wert)/1 "Inter",Arial,sans-serif; font-variant-numeric: tabular-nums; }
 .nv-arange input[type=range] { width: calc(100% - 80px); max-width: calc(100% - 80px); -webkit-appearance: none; appearance: none; height: 4.8px; border-radius: 80px; background: rgba(255,255,255,.09); outline: none; }
 .nv-arange input[type=range]::-webkit-slider-thumb { -webkit-appearance: none; width: 9.6px; height: 9.6px; border-radius: 50%; background: var(--gold-1); border: 1.6px solid #a55d07; cursor: pointer; box-shadow: 0 0 8px rgba(250,227,133,.5); }
 .nv-arange input[type=range]::-moz-range-thumb { width: 9.6px; height: 9.6px; border: 1.6px solid #a55d07; border-radius: 50%; background: #f0d488; cursor: pointer; }
 .nv-aseg { display: flex; flex-wrap: nowrap; gap: 6.4px; width: 100%; }
-.nv-aseg button { flex: 1 1 0; min-width: 0; padding: 8px 4px; border: 0.8px solid transparent; background-image: linear-gradient(#17251d,#17251d), var(--gold-3); background-origin: border-box; background-clip: padding-box,border-box; border-radius: 5.6px; color: #b9c3bd; font: var(--w-kartenbullet) var(--t-kartenbullet)/1 "Inter",Arial,sans-serif; cursor: pointer; transition: all .18s; }
+.nv-aseg button { flex: 1 1 0; min-width: 0; padding: 8px 4px; white-space: nowrap; border: 0.8px solid transparent; background-image: linear-gradient(#17251d,#17251d), var(--gold-3); background-origin: border-box; background-clip: padding-box,border-box; border-radius: 5.6px; color: #b9c3bd; font: var(--w-kartenbullet) var(--t-kartenbullet)/1 "Inter",Arial,sans-serif; cursor: pointer; transition: all .18s; }
 .nv-aseg button.active { border-color: #fae385; color: #e4e0d6; }
 .nv-agauge { position: relative; width: 144px; height: 144px; margin-bottom: 8px; }
 #nvAnaGauge { width: 144px; height: 144px; }
@@ -962,8 +961,8 @@ canvas.nv-step-viz {
 .nv-aform__grid > [name=zeitaufwand] { grid-area: 5 / 1 / 6 / 2; }
 .nv-aform__grid > [name=datenlage] { grid-area: 5 / 2 / 6 / 3; }
 .nv-aform__grid > [name=herausforderung] { grid-area: 6 / 1 / 7 / 3; height: 72px; }
-.nv-aform__grid > .nv-aform__row--privacy { grid-row: 7; grid-column: 1 / -1; width: 100%; box-sizing: border-box; }
-.nv-aform__grid > .nv-aform__row--news { grid-row: 8; grid-column: 1 / -1; width: 100%; box-sizing: border-box; }
+.nv-aform__grid > .nv-aform__row--privacy { grid-area: 7 / 1 / 8 / 3; width: 100%; box-sizing: border-box; }
+.nv-aform__grid > .nv-aform__row--news { grid-area: 8 / 1 / 9 / 3; width: 100%; box-sizing: border-box; }
 .nv-aform__grid > .nv-aform__submit { grid-area: 9 / 1 / 10 / 3; justify-self: stretch; margin-top: 19.2px; }
 .nv-aform__submit { padding: 0; border: 0; background: none; cursor: pointer; }
 .nv-aform__submit .golden-button { display: flex; width: 100%; min-width: 0; }
@@ -1364,7 +1363,6 @@ canvas.nv-step-viz {
   .nv-s7-card__number { width: 41.6px; height: 43.2px; flex: 0 0 41.6px; font-size: 20px; }
   .nv-s7-card__heading h3 { font-size: 20px; }
   .nv-s7-card__heading p { margin-top: 5.6px; font-size: 11.2px; }
-  .nv-s7-card__short-rule { display: none; }
   .nv-s7-card__points { position: static; opacity: 1; transform: none;
     margin: 12.8px 0 0; gap: 7.2px; }
   .nv-s7-card__points li { font-size: 13.2px; }
