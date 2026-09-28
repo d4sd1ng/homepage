@@ -1033,7 +1033,8 @@ canvas.nv-step-viz {
 .nv-resource-section__kicker { margin: 0 0 var(--nv-kicker-title-gap); color: var(--nv-kicker-color); font-family: "Inter", Arial, sans-serif; font-size: var(--nv-section-kicker-size); font-weight: 700; line-height: var(--nv-kicker-line-height); letter-spacing: var(--nv-kicker-letter-spacing); text-transform: uppercase; }
 
 /* ===== PORT 5/5 aus index1: Footer ===== */
-.footer { background-color: #050505; margin-left: 0px; width: calc(100% - 0px); padding: 43.2px calc(var(--side) * 2); border-top: 0.8px solid var(--nv-gold-divider-strong); color: var(--color-text-light); background: #121212; }
+.footer { position: relative; background-color: #050505; margin-left: 0px; width: calc(100% - 0px); padding: 43.2px calc(var(--side) * 2); color: var(--color-text-light); background: #121212; }
+.footer::before { content: ""; position: absolute; left: 7%; right: 7%; top: 0; height: 1.6px; background: linear-gradient(90deg, transparent, #fae385 20%, #fae385 80%, transparent); box-shadow: 0 0 6.4px #fae38566; pointer-events: none; }
 .nv-contact__title { margin: 0 0 20px; color: transparent; background: var(--gold-1); background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent; font: var(--w-sektionstitel) var(--t-sektionstitel)/1.15 "Exo 2",Inter,Arial,sans-serif; }
 .nv-contact { min-height: calc(100vh - var(--header-height)); display: flex; flex-direction: column; position: relative; padding: 32px var(--side) 32px; background: #010603; color: var(--color-text-light); overflow: hidden; }
 .nv-contact__inner { position: relative; z-index: 1; width: 100%; max-width: 1560px; margin: 0 auto; display: flex; flex-direction: column; flex: 1; }
