@@ -1,5 +1,16 @@
 # Changelog
 
+## 2026-09-28 – Service-Card-Wappen mit echter Goldumrandung
+
+Status: fertig
+
+Geändert:
+
+- `homepage/index.html`: das Wappen/Result-Icon in den Service-Cards verwendet jetzt eine echte durchgehende `1.6px` Gold-Border.
+- Die bisherige Konstruktion aus goldener Außenform und schwarzer Innenform wurde entfernt.
+- `box-sizing: border-box` hält die vorhandene Icon-Gesamtgröße unverändert.
+- Keine Card-Größen, Texte, Abstände oder Positionen verändert.
+
 ## 2026-09-28 – Ablaufpfeile horizontal ausgerichtet
 
 Status: fertig
