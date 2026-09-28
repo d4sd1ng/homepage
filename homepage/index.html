@@ -693,8 +693,8 @@ a:active .golden-button {
 .nv-s7-card__points li { position: relative; padding-left: 16.8px; color: #d4af37; overflow-wrap: anywhere; font: var(--w-bulletlabel) var(--t-bulletlabel)/1.35 "Inter",Arial,sans-serif; }
 .nv-s7-card__points li::before { content: ""; position: absolute; left: 0; top: 0.5em; width: 5.6px; height: 5.6px; border-radius: 1.6px; background: #f7c64a; }
 .nv-s7-card__result { position: absolute; left: 50%; right: auto; top: 318.4px; bottom: auto; width: 297.6px; height: auto; min-height: 0; box-sizing: border-box; overflow: hidden; display: grid; grid-template-columns: 22.4px minmax(0, 1fr); gap: 19.2px; align-items: center; padding: 8px 11.2px; border: 0.8px solid transparent; border-radius: 5.6px; background-image: linear-gradient(var(--color-emerald),var(--color-emerald)), var(--gold-3); background-origin: border-box; background-clip: padding-box, border-box; opacity: 0; transform: translate(-50%, -50%); transition: opacity 0.42s ease; }
-.nv-s7-card__result-icon { grid-column: 1; grid-row: 1; align-self: center; position: relative; width: 22.4px; height: 22.4px; margin-top: 0; background: #d4af37; border-radius: 50% 50% 50% 50% / 18% 18% 62% 62%; }
-.nv-s7-card__result-icon-inner { position: absolute; inset: 1.2px; background: #000; border-radius: 50% 50% 50% 50% / 18% 18% 62% 62%; }
+.nv-s7-card__result-icon { grid-column: 1; grid-row: 1; align-self: center; position: relative; width: 22.4px; height: 22.4px; margin-top: 0; box-sizing: border-box; border: 1.6px solid #d4af37; background: #000; border-radius: 50% 50% 50% 50% / 18% 18% 62% 62%; }
+.nv-s7-card__result-icon-inner { position: absolute; inset: 0; background: transparent; border-radius: 50% 50% 50% 50% / 18% 18% 62% 62%; }
 .nv-s7-card__result-icon-inner::before, .nv-s7-card__result-icon-inner::after { content: ""; position: absolute; left: 50%; top: 44%; background: #d4af37; transform: translate(-50%, -50%); border-radius: 0.8px; }
 .nv-s7-card__result-icon-inner::before { width: 2.8px; height: 10.4px; }
 .nv-s7-card__result-icon-inner::after { width: 10.4px; height: 2.8px; }
