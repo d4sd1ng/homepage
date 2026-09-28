@@ -1,5 +1,15 @@
 # Changelog
 
+## 2026-09-28 – Ablauf-Titel getrennt und Prozessgrafiken halbiert
+
+Status: fertig
+
+Geändert:
+
+- `homepage/index.html`: Ablauf-Headline nach „Vom Geschäftsprozess“ getrennt; „zur KI-Lösung“ steht vollständig in der zweiten Zeile.
+- `homepage/index.html`: bestehende Skalierung der sechs Ablaufgrafiken inklusive Sockel exakt halbiert (`1 → 0.5`, `0.86 → 0.43`, `1.16 → 0.58`).
+- Grafik-Containerhöhen, Beschriftungen, Pfeile, CTA-Abstände und übrige Sektionseinstellungen nicht verändert.
+
 ## 2026-09-28 – Service-Card-Divider im geschlossenen Zustand vollständig verborgen
 
 Status: fertig
