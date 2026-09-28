@@ -1,5 +1,15 @@
 # Changelog
 
+## 2026-09-28 – Hover-State am Analyseformular-CTA ergänzt
+
+Status: fertig
+
+Geändert:
+
+- `homepage/index.html`: der Submit-Button `.nv-aform__submit` übernimmt jetzt denselben Hover- und Focus-State wie die bestehenden Golden-CTAs.
+- `homepage/index.html`: Active-State für `.nv-aform__submit` ergänzt.
+- Keine Formularinhalte, Größen oder Abstände verändert.
+
 ## 2026-09-28 – Service-Card-Wappen mit echter Goldumrandung
 
 Status: fertig
