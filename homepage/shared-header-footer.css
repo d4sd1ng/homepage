@@ -70,7 +70,8 @@
   line-height: 29.92px; /* was 27.2px, +10% per explicit instruction */
   letter-spacing: 0.02em; }
 @media (max-width: 640px) {.nv-breadcrumb { display: none; }}
-.footer { background-color: #050505; margin-left: 0px; width: calc(100% - 0px); padding: 43.2px calc(var(--side) * 2); border-top: 0.8px solid var(--nv-gold-divider-strong); color: var(--color-text-light); background: #121212; }
+.footer { position: relative; background-color: #050505; margin-left: 0px; width: calc(100% - 0px); padding: 43.2px calc(var(--side) * 2); color: var(--color-text-light); background: #121212; }
+.footer::before { content: ""; position: absolute; left: 7%; right: 7%; top: 0; height: 1.6px; background: linear-gradient(90deg, transparent, #fae385 20%, #fae385 80%, transparent); box-shadow: 0 0 6.4px #fae38566; pointer-events: none; }
 .footer-inner { display: grid;
         grid-template-columns: minmax(0, 320px) auto minmax(0, 304px) auto; justify-content: space-between; gap: 76.8px; width: 100%; max-width: none; margin: 0; }
 .footer h4, .footer .footer-col__title { margin: 0 0 6.4px; color: #fae385; font: var(--w-zwischentitel) var(--t-zwischentitel)/1.2 "Exo 2",Inter,Arial,sans-serif; letter-spacing: 0.06em; text-transform: uppercase; }
