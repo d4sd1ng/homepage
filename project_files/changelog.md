@@ -1,5 +1,16 @@
 # Changelog
 
+## 2026-09-28 – Footer-Divider an Abschnittssystem angepasst
+
+Status: fertig
+
+Geändert:
+
+- `homepage/index.html`: den vollbreiten `border-top` des Footers entfernt.
+- `homepage/index.html`: Footer-Divider als eingerückten 1.6px-Verlauf mit `left: 7%` / `right: 7%` und Glow umgesetzt, analog zu den übrigen Abschnitts-Dividern.
+- `homepage/shared-header-footer.css`: dieselbe Footer-Divider-Regel synchron übernommen.
+- Keine Footer-Inhalte, Abstände oder Spalten verändert.
+
 ## 2026-09-28 – Shared Header/Footer Stylesheet in index.html eingebunden
 
 Status: fertig
