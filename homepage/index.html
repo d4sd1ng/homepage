@@ -222,7 +222,8 @@ img { display: block; max-width: 100%; }
   position: relative;
 }
 
-a:hover .golden-button, a:focus-visible .golden-button {
+a:hover .golden-button, a:focus-visible .golden-button,
+.nv-aform__submit:hover .golden-button, .nv-aform__submit:focus-visible .golden-button {
   color: var(--nv-gold-text-hover);
   border-color: var(--nv-gold-border-hover);
   background-size: 150% 150%;
@@ -231,7 +232,8 @@ a:hover .golden-button, a:focus-visible .golden-button {
     inset 0 -1.6px 4px 0.8px var(--nv-gold-inner-mid), inset 0 -0.8px 0.8px 2.4px var(--nv-gold-highlight);
 }
 
-a:active .golden-button {
+a:active .golden-button,
+.nv-aform__submit:active .golden-button {
   box-shadow: 0 2.4px 4.8px var(--shadow-soft), 0 2.4px 4.8px var(--shadow-soft-2),
     inset 0 -1.6px 4px 0.8px var(--nv-gold-inner-mid), inset 0 -0.8px 0.8px 2.4px var(--nv-gold-highlight);
 }
