@@ -1,5 +1,15 @@
 # Changelog
 
+## 2026-09-28 – Erste Header-Basisregeln aus index.html entfernt
+
+Status: fertig
+
+Geändert:
+
+- `homepage/index.html`: ausschließlich die bereits 1:1 in `shared-header-footer.css` vorhandenen Basisregeln für `.site-header`, `.site-header::after` und die Desktop-Basisregel von `.header-inner` entfernt.
+- Responsive `.header-inner`-Regeln, Logo-, Breadcrumb-, CTA-, Footer-, globale CTA- und Token-Regeln unverändert gelassen.
+- `homepage/shared-header-footer.css` in diesem Schritt nicht verändert.
+
 ## 2026-09-28 – Footer-Divider an Abschnittssystem angepasst
 
 Status: fertig
