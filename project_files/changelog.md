@@ -1,5 +1,16 @@
 # Changelog
 
+## 2026-09-28 – Header-Abhängigkeiten in Produktions-Tokens ergänzt
+
+Status: fertig
+
+Geändert:
+
+- `homepage/nurovelle-tokens.css`: die aktuell in `index.html` verwendeten Header-/CTA-Abhängigkeitswerte ergänzt, damit die spätere schrittweise Auslagerung in `shared-header-footer.css` ohne Wertverlust möglich ist.
+- `--header-height` und `--page-gutter` auf die aktuell tatsächlich in `index.html` verwendeten Werte gesetzt.
+- Logo-Größen, Gold-/CTA-Materialwerte und die vom Header-CTA benötigten Shadow-Werte aus `index.html` übernommen.
+- `homepage/index.html` und `homepage/shared-header-footer.css` nicht verändert.
+
 ## 2026-09-25 – Analyse-Regler und Consent-Cards korrigiert
 
 Status: fertig
