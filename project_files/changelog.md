@@ -1,5 +1,18 @@
 # Changelog
 
+## 2026-09-28 – Abschnitts- und Footer-Divider vereinheitlicht
+
+Status: fertig
+
+Geändert:
+
+- `homepage/index.html`: Abschnitts-Divider von 1.6px auf 0.8px reduziert.
+- `homepage/index.html`: FAQ-Divider direkt vor dem Footer entfernt, damit dort nicht zwei Divider übereinander liegen.
+- `homepage/index.html`: oberer Footer-Divider auf volle Breite gesetzt (`left: 0; right: 0`) und auf 0.8px reduziert.
+- `homepage/index.html`: internen Divider von `.footer-bottom` entfernt.
+- `homepage/shared-header-footer.css`: Footer-Divider und `.footer-bottom` synchron angepasst.
+- Keine Inhalte, Abstände oder Spalten des Footers verändert.
+
 ## 2026-09-28 – Ablauf-Titel getrennt und Prozessgrafiken halbiert
 
 Status: fertig
