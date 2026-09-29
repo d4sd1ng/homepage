@@ -1,5 +1,19 @@
 # Changelog
 
+## 2026-09-29 – Shared Header/Footer in analyse.html korrekt angewandt
+
+Status: fertig
+
+Geändert:
+
+- `homepage/analyse.html`: Header-Markup auf die aktuelle Struktur aus `index.html` umgestellt.
+- `homepage/analyse.html`: Footer-Markup auf die aktuelle Struktur aus `index.html` umgestellt.
+- Homepage-Anker im Shared Header/Footer für die Detailseite auf `index.html#...` angepasst.
+- Footer-"Nach oben"-Link bleibt lokal auf `#hero`.
+- `shared-header-footer.css` wird nun nach allen seitenlokalen Styles geladen und ist damit die maßgebliche Header-/Footer-CSS.
+- Lokale `!important`-Overrides für Footer-Divider und Footer-Titelabstand entfernt.
+- Keine Inhaltssektion außerhalb Header/Footer verändert.
+
 ## 2026-09-29 – Analyse-Sektionsbreite und Bullet-Einzug korrigiert
 
 Status: fertig
