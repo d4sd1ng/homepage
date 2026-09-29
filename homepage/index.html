@@ -696,7 +696,7 @@ a:active .golden-button {
 .nv-s7-card__uses ul { display: grid; gap: 7.2px; margin: 0; padding: 0; list-style: none; }
 .nv-s7-card__uses li { position: relative; padding-left: 16.8px; margin: 0 0 5.6px; color: #e4e0d6; overflow-wrap: anywhere; word-break: break-word; font: 500 15.6px / 1.3 Inter, Arial, sans-serif; }
 .nv-s7-card__uses li::before { content: ""; position: absolute; left: 0; top: 0.5em; width: 5.6px; height: 5.6px; border-radius: 1.6px; background: #f7c64a; }
-.nv-s7-card__more { align-self: center; margin-top: 20.8px; display: inline-flex; align-items: center; gap: 7.2px; padding: 8px 16px; border: 0.8px solid transparent; border-radius: 6.4px; background-image: linear-gradient(#1a1a1a,#1a1a1a), var(--gold-3); background-origin: border-box; background-clip: padding-box, border-box; box-shadow: 0 2.4px 6.4px #0000008c, inset 0 0.8px 0 #fae38524; color: #fae385; font: 700 12.8px / 1 Inter, Arial, sans-serif; letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none; white-space: nowrap; transition: background 0.2s ease, transform 0.15s ease; }
+.nv-s7-card__more { align-self: center; margin-top: 20.8px; display: inline-flex; align-items: center; gap: 7.2px; padding: 8px 16px; border: 0.8px solid transparent; border-radius: 6.4px; background-image: linear-gradient(var(--color-gunmetal-dark),var(--color-gunmetal-dark)), var(--gold-3); background-origin: border-box; background-clip: padding-box, border-box; box-shadow: 0 2.4px 6.4px #0000008c, inset 0 0.8px 0 #fae38524; color: #fae385; font: 700 12.8px / 1 Inter, Arial, sans-serif; letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none; white-space: nowrap; transition: background 0.2s ease, transform 0.15s ease; }
 .nv-s7-card__more::after { content: ""; width: 0; height: 0; flex: 0 0 auto; border-style: solid; border-width: 3.2px 0 3.2px 4.8px; border-color: transparent transparent transparent #fae385; }
 .nv-s7-card__more:hover, .nv-s7-card__more:focus-visible { background-image: linear-gradient(#262626,#262626), var(--gold-3); transform: translateY(-0.8px); }
 .nv-s7-card__divider { position: absolute; z-index: 3; left: 32%; top: 0; bottom: 0; width: 1.6px; background: linear-gradient( 180deg, transparent, #d4af375e 8%, #d4af375e 92%, transparent ); opacity: 0; transform: none; transition: opacity 0.42s ease; }
@@ -809,7 +809,7 @@ canvas.nv-step-viz {
   position: absolute; left: 44%; bottom: 15.5%; transform: translateX(-50%) rotate(8deg);
   z-index: 3; margin: 0; padding: 4px 8px; display: inline-flex; align-items: center; gap: 6.4px;
   border: 0.8px solid transparent; border-radius: 6.4px;
-  background-image: linear-gradient(#1a1a1a,#1a1a1a), var(--gold-3); /* button infill */
+  background-image: linear-gradient(var(--color-gunmetal-dark),var(--color-gunmetal-dark)), var(--gold-3); /* button infill */
   background-origin: border-box; background-clip: padding-box, border-box;
   box-shadow: 0 2.4px 6.4px rgba(0, 0, 0, 0.55), inset 0 0.8px 0 rgba(250, 227, 133, 0.14);
   color: #fae385; font: 700 8.8px/1 "Inter", Arial, sans-serif;
@@ -826,7 +826,7 @@ canvas.nv-step-viz {
 .nv-step-item:nth-child(3) canvas.nv-step-viz { top: 16%; }
 .nv-step-card__more::before { display: none; }
 .nv-step-card__more::after { content: ""; width: 0; height: 0; flex: 0 0 auto; border-style: solid; border-width: 3.2px 0 3.2px 4.8px; border-color: transparent transparent transparent #fae385; }
-.nv-step-card__more:hover { background: #262626; border-color: #fae385; transform: translateX(-50%) translateY(-0.8px) rotate(8deg); }
+.nv-step-card__more:hover { background: var(--color-gunmetal-dark); border-color: #fae385; transform: translateX(-50%) translateY(-0.8px) rotate(8deg); }
 
 /* PORT: Pakete — drei fertige Loesungen */
 .nv-pack { position: relative; padding: 32px var(--side) 32px; background: #010603; overflow: hidden; }
@@ -881,7 +881,7 @@ canvas.nv-step-viz {
 .nv-analyse__layout { display: grid; grid-template-columns: minmax(0,1fr); gap: 24px; align-items: start; }
 .nv-analyse__grid { display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1fr); gap: 24px; align-items: stretch; width: 100%; }@media(max-width:980px){ .nv-analyse__grid{ grid-template-columns:1fr; } }
 /* uniform card shell for all 4 cards */
-.nv-acard { border:0.8px solid transparent; background-image:linear-gradient(#1a1a1a,#1a1a1a), var(--gold-3); background-origin:border-box; background-clip:padding-box,border-box; border-radius:8px; padding:16px; }
+.nv-acard { border:0.8px solid transparent; background-image:linear-gradient(var(--color-gunmetal-dark),var(--color-gunmetal-dark)), var(--gold-3); background-origin:border-box; background-clip:padding-box,border-box; border-radius:8px; padding:16px; }
 
 /* gauge column hugs the gauge; metrics take the rest */
 .nv-analyse__grid > :nth-child(2) .nv-acard__split { grid-template-columns:auto auto; justify-content:center; }
