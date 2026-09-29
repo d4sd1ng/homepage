@@ -1100,7 +1100,7 @@ h1, main h2 {
 
 <style id="analyse-layout-normalization">
 :root{
-  --content-max:1300px;
+  --content-max:1560px;
   --side:clamp(19.2px,4.8vw,96px);
   --detail-section-space:64px;
   --detail-title-gap:20px;
@@ -1182,6 +1182,17 @@ main > .section:not(#hero),
   margin-right:auto!important;
   margin-bottom:0!important;
   margin-left:auto!important;
+}
+
+/* Breite nur für Inhaltsblöcke; Titel, Untertitel und Fließtext behalten ihre Position. */
+#leistungen .num-list,
+#einsatzbereiche .panel,
+#analyse-formular .analysis-layout,
+#faq .faq-grid{
+  width:100%;
+  max-width:1300px;
+  margin-left:auto!important;
+  margin-right:auto!important;
 }
 #warum{
   padding-top:var(--detail-section-space)!important;
