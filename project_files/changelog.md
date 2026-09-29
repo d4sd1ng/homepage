@@ -1,5 +1,18 @@
 # Changelog
 
+## 2026-09-29 – analyse.html auf Homepage-Breite und Shared Header/Footer umgestellt
+
+Status: fertig
+
+Geändert:
+
+- `homepage/analyse.html`: globalen `body { zoom: 0.8; }`-Hack entfernt.
+- `homepage/analyse.html`: Contentbreite auf `1560px` und Seiten-Gutter auf das aktuelle `index.html`-System `clamp(19.2px, 4.8vw, 96px)` angeglichen.
+- `homepage/analyse.html`: `nurovelle-tokens.css` und `shared-header-footer.css` eingebunden.
+- `homepage/analyse.html`: drei nachträgliche lokale Header-Override-Blöcke entfernt, damit der Shared Header die maßgebliche CSS-Quelle ist.
+- `homepage/analyse.html`: Section-Abstände vereinheitlicht und alte Verschiebungs-Hacks (`translateY`, große künstliche Bottom-Margins) neutralisiert.
+- Formularstruktur, Pflichtfelder, Honeypot sowie API-/Success-/Error-Logik nicht verändert.
+
 ## 2026-09-29 – Zwei CTAs in Leistungssektion ergänzt
 
 Status: fertig
