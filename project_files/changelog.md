@@ -1,5 +1,177 @@
 # Changelog
 
+## 2026-09-29 – Definition-Cards in analyse.html auf 1300px verbreitert
+
+Status: fertig
+
+Geändert:
+
+- `homepage/analyse.html`: `.analysis-intro-cards` von `max-width: 1200px` auf `max-width: 1300px` gesetzt.
+- Zentrierung bleibt unverändert.
+- Keine weiteren Layout- oder Inhaltsänderungen.
+
+## 2026-09-29 – Hero-Text in analyse.html gekürzt
+
+Status: fertig
+
+Geändert:
+
+- `homepage/analyse.html`: Satz „Grundlage ist Ihr tatsächlicher Betrieb: bestehende Abläufe, Datenquellen und Systeme statt allgemeiner Annahmen.“ aus dem Hero entfernt.
+- Card-Breite nicht verändert; aktuell weiterhin `1200px`, da für die gewünschte Verbreiterung noch kein Zielwert festgelegt wurde.
+
+## 2026-09-29 – Footer-Divider in analyse.html auf volle Viewportbreite gesetzt
+
+Status: fertig
+
+Geändert:
+
+- `homepage/analyse.html`: `.footer::before` auf `width: 100vw` gesetzt.
+- Der Divider wird über `left: 50%` und `translateX(-50%)` viewportzentriert.
+- Damit läuft der Footer-Divider unabhängig von Contentbreite und Footer-Padding über die komplette Seitenbreite.
+- Keine weiteren Layoutbereiche verändert.
+
+## 2026-09-29 – Divider und Footer-Abstand in analyse.html korrigiert
+
+Status: fertig
+
+Geändert:
+
+- `homepage/analyse.html`: normale Section-Divider auf `0.8px` und den Homepage-Goldverlauf gesetzt.
+- `homepage/analyse.html`: Footer-Abschlussdivider explizit über `.footer::before` sichtbar abgesichert.
+- `homepage/analyse.html`: Abstand zwischen Footer-Titel und folgendem Inhalt auf `var(--nv-space-md)` gesetzt.
+- Keine weiteren Inhalte oder Layoutbereiche verändert.
+
+## 2026-09-29 – Hero-Titel und Definition-Cards in analyse.html korrigiert
+
+Status: fertig
+
+Geändert:
+
+- `homepage/analyse.html`: Hero-Titel in zwei feste Zeilen aufgeteilt.
+- `homepage/analyse.html`: Desktop-Hero-Spalten so angepasst, dass die erste Titelzeile nicht intern umbrechen kann.
+- `homepage/analyse.html`: die beiden Definition-Cards auf `max-width: 1200px` gesetzt und horizontal zentriert.
+- Keine weiteren Inhalte oder Sektionen verändert.
+
+## 2026-09-29 – Grüne 3D-Bullets aus index.html in analyse.html übernommen
+
+Status: fertig
+
+Geändert:
+
+- `homepage/analyse.html`: normale Bulletpoints verwenden jetzt exakt `assets/bulletpoint.png` wie auf `index.html`.
+- Betroffen: `.label-list`, `.dot-list` und `.card-bullets`.
+- Der bestehende grüne Rand `#55863f` und die runde Darstellung wurden übernommen.
+- Nummerierte Punkte `01–08` im Leistungsumfang bleiben unverändert.
+
+## 2026-09-29 – Hero-Bildpfad in analyse.html korrigiert
+
+Status: fertig
+
+Geändert:
+
+- `homepage/analyse.html`: Hero-Bildpfad von `assets/Module/detail_pages_grafics/Analyse_detail _final.png` auf den tatsächlich vorhandenen Pfad `assets/detail_pages_grafics/Analyse_detail _final.png` korrigiert.
+- Keine weiteren Inhalte oder Layoutregeln verändert.
+
+## 2026-09-29 – Doppelten Footer-Divider in analyse.html entfernt
+
+Status: fertig
+
+Geändert:
+
+- `homepage/analyse.html`: lokale `.footer { border-top: ... }`-Regeln entfernt.
+- `homepage/analyse.html`: lokale `.footer-bottom { border-top: ... }`-Regeln entfernt.
+- Der Footer verwendet damit nur noch den gemeinsamen Divider aus `shared-header-footer.css` über `.footer::before`.
+- Keine Footer-Inhalte oder Abstände verändert.
+
+## 2026-09-29 – Hero-Titel analyse.html zweizeilig festgelegt
+
+Status: fertig
+
+Geändert:
+
+- `homepage/analyse.html`: Hero-Titel mit festem Zeilenumbruch nach „Ihrem“.
+- Darstellung: „Wo lohnt sich KI in Ihrem“ / „Unternehmen wirklich?“.
+- Keine weiteren Inhalte oder Layoutregeln verändert.
+
+## 2026-09-29 – analyse.html auf Homepage-Breite und Shared Header/Footer umgestellt
+
+Status: fertig
+
+Geändert:
+
+- `homepage/analyse.html`: globalen `body { zoom: 0.8; }`-Hack entfernt.
+- `homepage/analyse.html`: Contentbreite auf `1560px` und Seiten-Gutter auf das aktuelle `index.html`-System `clamp(19.2px, 4.8vw, 96px)` angeglichen.
+- `homepage/analyse.html`: `nurovelle-tokens.css` und `shared-header-footer.css` eingebunden.
+- `homepage/analyse.html`: drei nachträgliche lokale Header-Override-Blöcke entfernt, damit der Shared Header die maßgebliche CSS-Quelle ist.
+- `homepage/analyse.html`: Section-Abstände vereinheitlicht und alte Verschiebungs-Hacks (`translateY`, große künstliche Bottom-Margins) neutralisiert.
+- Formularstruktur, Pflichtfelder, Honeypot sowie API-/Success-/Error-Logik nicht verändert.
+
+## 2026-09-29 – Zwei CTAs in Leistungssektion ergänzt
+
+Status: fertig
+
+Geändert:
+
+- `homepage/index.html`: unter den 11 Leistungs-Cards in Sektion 5 zwei Golden-CTAs ergänzt.
+- CTA 1: `Potenzialanalyse starten` → `#potenzialanalyse`.
+- CTA 2: `Erstgespräch vereinbaren` → `#kontakt`.
+- Bestehenden Golden-CTA-Stil verwendet; keine Card-Struktur oder übrigen Sektionen verändert.
+
+## 2026-09-28 – Hover-State am Analyseformular-CTA ergänzt
+
+Status: fertig
+
+Geändert:
+
+- `homepage/index.html`: der Submit-Button `.nv-aform__submit` übernimmt jetzt denselben Hover- und Focus-State wie die bestehenden Golden-CTAs.
+- `homepage/index.html`: Active-State für `.nv-aform__submit` ergänzt.
+- Keine Formularinhalte, Größen oder Abstände verändert.
+
+## 2026-09-28 – Service-Card-Wappen mit echter Goldumrandung
+
+Status: fertig
+
+Geändert:
+
+- `homepage/index.html`: das Wappen/Result-Icon in den Service-Cards verwendet jetzt eine echte durchgehende `1.6px` Gold-Border.
+- Die bisherige Konstruktion aus goldener Außenform und schwarzer Innenform wurde entfernt.
+- `box-sizing: border-box` hält die vorhandene Icon-Gesamtgröße unverändert.
+- Keine Card-Größen, Texte, Abstände oder Positionen verändert.
+
+## 2026-09-28 – Ablaufpfeile horizontal ausgerichtet
+
+Status: fertig
+
+Geändert:
+
+- `homepage/index.html`: die wechselnden `rotate(36deg)`-/`rotate(-36deg)`-Regeln der Ablaufpfeile entfernt.
+- Alle fünf Pfeile verwenden jetzt dieselbe bereits vorhandene Position `top: 42px; left: 88%` ohne Rotation.
+- Keine Grafikgrößen, Texte oder sonstigen Abstände geändert.
+
+## 2026-09-28 – Service-Card-Divider ausgerichtet und Ablaufgrafiken vereinheitlicht
+
+Status: fertig
+
+Geändert:
+
+- `homepage/index.html`: horizontalen Divider unter dem Service-Card-Iconrahmen mittig zwischen Iconrahmen und „Einsatzbereiche“ gesetzt (`margin: 14px 0`).
+- `homepage/index.html`: alle sechs Ablaufgrafiken auf denselben bereits vorhandenen Skalierungswert `0.58` gesetzt.
+- Unterschiedliche Odd-/Even-Skalierung der Ablaufgrafiken entfernt.
+- Keine Texte, Pfeile, Grafikquellen, Card-Größen oder übrigen Abstände verändert.
+
+## 2026-09-28 – Abschnitts- und Footer-Divider vereinheitlicht
+
+Status: fertig
+
+Geändert:
+
+- `homepage/index.html`: Abschnitts-Divider von 1.6px auf 0.8px reduziert.
+- `homepage/index.html`: FAQ-Divider direkt vor dem Footer entfernt, damit dort nicht zwei Divider übereinander liegen.
+- `homepage/index.html`: oberer Footer-Divider auf volle Breite gesetzt (`left: 0; right: 0`) und auf 0.8px reduziert.
+- `homepage/index.html`: internen Divider von `.footer-bottom` entfernt.
+- `homepage/shared-header-footer.css`: Footer-Divider und `.footer-bottom` synchron angepasst.
+- Keine Inhalte, Abstände oder Spalten des Footers verändert.
+
 ## 2026-09-28 – Ablauf-Titel getrennt und Prozessgrafiken halbiert
 
 Status: fertig
