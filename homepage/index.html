@@ -483,14 +483,15 @@ a:active .golden-button {
 .nv-step-card h3 { margin: 0 0 7.2px; font-size: var(--t-kartentitel); font-weight: var(--w-kartentitel); font-family: "Exo 2", "Inter", Arial, sans-serif; line-height: 1.05; letter-spacing: 0.025em; color: transparent; background: var(--gold-1); background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
 .nv-step-card p { margin: 0; font-size: var(--t-kartenbullet); font-weight: var(--w-kartenbullet); font-family: "Inter", Arial, sans-serif; line-height: 1.5; color: var(--color-text-light); }
 .nv-step-card__more { display: block; margin-top: 11.2px; /* was 11.2px real / 7.2px / 8.8px / 9.6px last passes */
-  color: #fae385; font-family: "Inter", Arial, sans-serif; font-size: 8.8px; font-weight: 700; line-height: 1; letter-spacing: 0.08em; text-transform: uppercase; }
+  color: #fae385; font-family: "Inter", Arial, sans-serif; font-size: 10.56px; font-weight: 700; line-height: 1; letter-spacing: 0.08em; text-transform: uppercase; }
 .nv-step-card__more::before { content: ""; display: block; width: 16.8px; /* was 17.6px real / 12px / 13.6px / 15.2px last passes */
   height: 0.8px; margin-bottom: 6.4px; /* was 6.4px real / 4px / 4.8px / 5.6px last passes */
   background: #fae385a8; }
 .nv-step-card__asset { position: absolute; inset: 0; z-index: 0; width: 100%; height: 100%; object-fit: contain; object-position: center; pointer-events: none; }
-.nv-step-card__content { position: absolute; z-index: 2; left: 124px; /* was 127.2px real / 84.8px / 98.4px / 110.4px last passes */
-  right: 96px; /* was 98.4px real / 65.6px / 76px / 85.6px last passes */
+.nv-step-card__content { position: absolute; z-index: 2; left: 96px;
+  right: 96px;
   bottom: 170.4px; /* was 174.4px real / 116px / 135.2px / 151.2px last passes */
+  text-align: center;
   opacity: 0; }
 .nv-step-ladder.is-visible .nv-step-item:nth-child(1) .nv-step-card__content { animation: nv-step-content-reveal 320ms linear 700ms forwards; }
 .nv-step-ladder.is-visible .nv-step-item:nth-child(2) .nv-step-card__content { animation: nv-step-content-reveal 320ms linear 1050ms forwards; }
