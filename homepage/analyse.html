@@ -1210,9 +1210,33 @@ main > .section:not(#hero),
   top:10px!important;
 }
 
-/* Divider folgt derselben Inhaltsbreite wie die Homepage. */
+/* Divider exakt auf Homepage-Stärke und -Verlauf. */
 .section-divider{
   width:min(calc(100% - (var(--side) * 2)),var(--content-max))!important;
+  height:.8px!important;
+  background:linear-gradient(90deg,transparent,#fae385 20%,#fae385 80%,transparent)!important;
+  box-shadow:0 0 6.4px #fae38566!important;
+  border:0!important;
+}
+
+/* Abschlusskante über dem Footer sicher sichtbar halten. */
+.footer::before{
+  content:""!important;
+  position:absolute!important;
+  left:0!important;
+  right:0!important;
+  top:0!important;
+  height:.8px!important;
+  background:linear-gradient(90deg,transparent,#fae385 20%,#fae385 80%,transparent)!important;
+  box-shadow:0 0 6.4px #fae38566!important;
+  z-index:2!important;
+  pointer-events:none!important;
+}
+
+/* Abstand zwischen Footer-Titel und folgendem Inhalt. */
+.footer h4,
+.footer .footer-col__title{
+  margin-bottom:var(--nv-space-md)!important;
 }
 
 @media(max-width:900px){
