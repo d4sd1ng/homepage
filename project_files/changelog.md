@@ -1,5 +1,14 @@
 # Changelog
 
+## 2026-09-29 – Hero-Bildpfad in analyse.html korrigiert
+
+Status: fertig
+
+Geändert:
+
+- `homepage/analyse.html`: Hero-Bildpfad von `assets/Module/detail_pages_grafics/Analyse_detail _final.png` auf den tatsächlich vorhandenen Pfad `assets/detail_pages_grafics/Analyse_detail _final.png` korrigiert.
+- Keine weiteren Inhalte oder Layoutregeln verändert.
+
 ## 2026-09-29 – Doppelten Footer-Divider in analyse.html entfernt
 
 Status: fertig
