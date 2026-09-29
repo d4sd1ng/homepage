@@ -1,5 +1,17 @@
 # Changelog
 
+## 2026-09-29 – Analyse-Breitenkorrektur: Textpositionen beibehalten
+
+Status: fertig
+
+Geändert:
+
+- `homepage/analyse.html`: globale `--content-max` wieder auf `1560px` gesetzt, damit Titel, Untertitel und Fließtexte an ihrer bisherigen Position bleiben.
+- 1300px-Breite nur auf die breiten Inhaltsblöcke angewandt: Intro-Cards, Leistungsumfang, Anwendung, Analyse-Layout und FAQ.
+- Diese Inhaltsblöcke bleiben mittig.
+- Bullet-Listen bleiben 30px eingerückt.
+- Keine Header-/Footer- oder Textinhalte verändert.
+
 ## 2026-09-29 – Shared Header/Footer in analyse.html korrekt angewandt
 
 Status: fertig
