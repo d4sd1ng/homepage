@@ -1096,7 +1096,7 @@ h1, main h2 {
 
 
 <link rel="stylesheet" href="nurovelle-tokens.css" />
-<link rel="stylesheet" href="shared-header-footer.css" />
+
 
 <style id="analyse-layout-normalization">
 :root{
@@ -1225,28 +1225,6 @@ main > .section:not(#hero),
   border:0!important;
 }
 
-/* Abschlusskante über dem Footer sicher sichtbar halten. */
-.footer::before{
-  content:""!important;
-  position:absolute!important;
-  left:50%!important;
-  right:auto!important;
-  top:0!important;
-  width:100vw!important;
-  height:.8px!important;
-  transform:translateX(-50%)!important;
-  background:linear-gradient(90deg,transparent,#fae385 20%,#fae385 80%,transparent)!important;
-  box-shadow:0 0 6.4px #fae38566!important;
-  z-index:2!important;
-  pointer-events:none!important;
-}
-
-/* Abstand zwischen Footer-Titel und folgendem Inhalt. */
-.footer h4,
-.footer .footer-col__title{
-  margin-bottom:var(--nv-space-md)!important;
-}
-
 @media(max-width:900px){
   :root{--detail-section-space:40px;}
   .section{
@@ -1256,15 +1234,16 @@ main > .section:not(#hero),
 }
 </style>
 
+<link rel="stylesheet" href="shared-header-footer.css" />
 </head>
 <body>
 <header class="site-header">
   <div class="header-inner">
-    <a class="logo-link" href="index.html" aria-label="Nurovelle Startseite">
+    <a class="logo-link" href="index.html#hero" aria-label="Nurovelle Startseite">
       <span class="logo-spin" aria-hidden="true"></span>
       <span class="logo-text">
-        <img class="logo-wordmark" src="assets/hero/Nurovelle_schrift_gold.png" alt="Nurovelle — Building Intelligent Systems" width="1098" height="250" />
-        <span class="logo-tagline">Building Intelligent Systems</span>
+        <span class="logo-wordmark" role="img" aria-label="Nurovelle — Building Intelligent Systems"></span>
+        <span class="logo-tagline">Building intelligent systems</span>
       </span>
     </a>
 
@@ -1272,23 +1251,50 @@ main > .section:not(#hero),
       <details class="nv-breadcrumb__group">
         <summary class="nv-breadcrumb__trigger"><span>Leistungen</span></summary>
         <div class="nv-breadcrumb__menu">
-          <a href="index.html#leistungen">Alle Leistungen</a><a href="paket-betreuung.html">Betreuungspaket</a><a href="paket-handwerk.html">Handwerkspaket</a><a href="paket-buero.html">Büropaket</a><a href="analyse.html">Potenzialanalyse</a><a href="detail_roadmap.html">KI-Roadmap</a><a href="detail_ki-agenten.html">KI-Agenten</a><a href="detail_chatbots.html">Chatbots</a><a href="detail_sprachassistenten.html">Sprachassistenten</a><a href="detail_automationen.html">KI-Automationen</a><a href="detail_ki-sicherheit.html">KI-Governance</a><a href="detail_workflows.html">Prozessautomatisierung</a><a href="detail_datenabgleich.html">Daten-Abgleich</a><a href="detail_ki-software.html">KI-Software</a><a href="detail_seo.html">SEO-Systeme</a><a href="detail_prompt-engineering.html">Prompt Engineering</a>
+          <a href="index.html#leistungen">Alle Leistungen</a>
+          <a href="paket-betreuung.html">Betreuungspaket</a>
+          <a href="paket-handwerk.html">Handwerkspaket</a>
+          <a href="paket-buero.html">Büropaket</a>
+          <a href="analyse.html">Potenzialanalyse</a>
+          <a href="detail_roadmap.html">KI-Roadmap</a>
+          <a href="detail_ki-agenten.html">KI-Agenten</a>
+          <a href="detail_chatbots.html">Chatbots</a>
+          <a href="detail_sprachassistenten.html">Sprachassistenten</a>
+          <a href="detail_automationen.html">KI-Automationen</a>
+          <a href="detail_ki-sicherheit.html">KI-Governance</a>
+          <a href="detail_workflows.html">Prozessautomatisierung</a>
+          <a href="detail_datenabgleich.html">Daten-Abgleich</a>
+          <a href="detail_ki-software.html">KI-Software</a>
+          <a href="detail_seo.html">SEO-Systeme</a>
+          <a href="detail_prompt-engineering.html">Prompt Engineering</a>
         </div>
       </details>
       <details class="nv-breadcrumb__group">
         <summary class="nv-breadcrumb__trigger"><span>Potenzialanalyse</span></summary>
-        <div class="nv-breadcrumb__menu"><a href="index.html#ki-projekt-start">Erster Schritt</a><a href="analyse.html">Kostenlose Potenzialanalyse</a><a href="potenzialanalyse-deep.html">Tiefgehende Potenzialanalyse</a><a href="index.html#potenzialanalyse">Formular</a></div>
+        <div class="nv-breadcrumb__menu">
+          <a href="index.html#ki-projekt-start">Erster Schritt</a>
+          <a href="index.html#pakete">Pakete</a>
+          <a href="analyse.html">Kostenlose Potenzialanalyse</a>
+          <a href="potenzialanalyse-deep.html">Tiefgehende Potenzialanalyse</a>
+          <a href="index.html#potenzialanalyse">Formular</a>
+        </div>
       </details>
       <details class="nv-breadcrumb__group">
         <summary class="nv-breadcrumb__trigger"><span>Zusammenarbeit</span></summary>
-        <div class="nv-breadcrumb__menu"><a href="detail_warum-nurovelle.html">Warum Nurovelle</a><a href="index.html#prozess-zur-loesung">Prozess</a><a href="index.html#downloads">Downloads</a><a href="index.html#kontakt">Kontakt</a><a href="index.html#faq">FAQ</a></div>
+        <div class="nv-breadcrumb__menu">
+          <a href="detail_warum-nurovelle.html">Warum Nurovelle</a>
+          <a href="index.html#prozess-zur-loesung">Prozess</a>
+          <a href="index.html#downloads">Downloads</a>
+          <a href="index.html#kontakt">Kontakt</a>
+          <a href="index.html#faq">FAQ</a>
+        </div>
       </details>
     </nav>
 
-    <a class="header-cta" href="https://calendly.com/d4sd1ng/30min" target="_blank" rel="noopener" aria-label="Erstgespräch vereinbaren">
+    <a class="header-cta" href="analyse.html" aria-label="Kostenlose KI-Potenzialanalyse öffnen">
       <span class="golden-button">
-        <svg class="nv-calendly-icon" viewBox="0 0 64 64" aria-hidden="true"><use href="#nv-calendly-mark"></use></svg>
-        <span class="golden-text">Erstgespräch vereinbaren</span>
+        <svg class="nv-calendly-icon" viewBox="0 0 64 64" aria-hidden="true"><use href="index.html#nv-calendly-mark"></use></svg>
+        <span class="golden-text">Kostenlose Potenzialanalyse</span>
       </span>
     </a>
   </div>
@@ -1409,16 +1415,16 @@ main > .section:not(#hero),
 <footer class="footer" id="footer">
       <div class="footer-inner">
         <div class="footer-col footer-col--about">
-          <h4>Nurovelle</h4>
+          <h3 class="footer-col__title">Nurovelle</h3>
           <p>Individuelle KI-Systeme für reale Geschäftsprozesse.</p>
           <p>
-            Nurovelle entwickelt KI-Agenten, Automatisierungssysteme und
-            datenbasierte Lösungen, die Unternehmen bei wiederkehrenden
-            Abläufen, Wissenszugriff und Datenverarbeitung unterstützen.
+            Nurovelle automatisiert wiederkehrende Aufgaben, macht Wissen
+            nutzbar und verbindet bestehende Systeme mit individueller
+            KI-Software.
           </p>
         </div>
         <div class="footer-col">
-          <h4>Nützliche Links</h4>
+          <h3 class="footer-col__title">Nützliche Links</h3>
           <a href="index.html#hero">Startseite</a>
           <a href="index.html#warum-nurovelle">Über Nurovelle</a>
           <a href="index.html#leistungen">Leistungen</a>
@@ -1428,11 +1434,10 @@ main > .section:not(#hero),
           <a href="index.html#kontakt">Kontakt</a>
         </div>
         <div class="footer-col">
-          <h4>Newsletter</h4>
+          <h3 class="footer-col__title">Newsletter</h3>
           <p>
-            Erhalten Sie ausgewählte Informationen zu KI-Agenten,
-            Automatisierung, Unternehmenssoftware und neuen Nurovelle-Lösungen
-            direkt per E-Mail.
+            Erhalten Sie praxisnahe Impulse, wie Sie wiederkehrende Aufgaben
+            automatisieren und Zeit im Tagesgeschäft sparen.
           </p>
           <form
             class="footer-newsletter"
@@ -1454,11 +1459,12 @@ main > .section:not(#hero),
           </form>
         </div>
         <div class="footer-col">
-          <h4>Kontakt</h4>
+          <h3 class="footer-col__title">Kontakt</h3>
           <p>Marburg, Deutschland</p>
-          <p><a href="mailto:info@nurovelle.de">info@nurovelle.de</a></p>
+          <p><a href="tel:+4964218097347">06421 8097347</a></p>
+          <p><a class="nv-mail" href="#" data-nv-mail="bWFpbEBudXJvdmVsbGUuZGU=">E-Mail schreiben</a></p>
           <div class="footer-social" aria-label="Social Media">
-            <a href="index.html#" aria-label="LinkedIn">
+            <a href="https://www.linkedin.com/in/tino-schneider-nurovelle" target="_blank" rel="noopener" aria-label="LinkedIn">
               <svg viewBox="0 0 24 24" aria-hidden="true">
                 <path
                   fill="currentColor"
@@ -1466,15 +1472,15 @@ main > .section:not(#hero),
                 />
               </svg>
             </a>
-            <a href="index.html#" aria-label="YouTube">
+            <a href="https://www.facebook.com/nurovelle" target="_blank" rel="noopener" aria-label="Facebook">
               <svg viewBox="0 0 24 24" aria-hidden="true">
                 <path
                   fill="currentColor"
-                  d="M23 12s0-3.2-.4-4.7a2.5 2.5 0 0 0-1.75-1.75C19.3 5.2 12 5.2 12 5.2s-7.3 0-8.85.35A2.5 2.5 0 0 0 1.4 7.3C1 8.8 1 12 1 12s0 3.2.4 4.7a2.5 2.5 0 0 0 1.75 1.75C4.7 18.8 12 18.8 12 18.8s7.3 0 8.85-.35A2.5 2.5 0 0 0 22.6 16.7C23 15.2 23 12 23 12zM9.75 15.02V8.98L15.5 12z"
+                  d="M22 12.06C22 6.5 17.52 2 12 2S2 6.5 2 12.06c0 5 3.66 9.16 8.44 9.94v-7.03H7.9v-2.91h2.54V9.85c0-2.5 1.49-3.89 3.77-3.89 1.09 0 2.23.2 2.23.2v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56v1.88h2.78l-.44 2.91h-2.34V22c4.78-.78 8.44-4.94 8.44-9.94z"
                 />
               </svg>
             </a>
-            <a href="index.html#" aria-label="Instagram">
+            <a href="https://www.instagram.com/nurovelle.de/" target="_blank" rel="noopener" aria-label="Instagram">
               <svg viewBox="0 0 24 24" aria-hidden="true">
                 <path
                   fill="currentColor"
@@ -1482,7 +1488,7 @@ main > .section:not(#hero),
                 />
               </svg>
             </a>
-            <a href="index.html#" aria-label="GitHub">
+            <a href="https://github.com/d4sd1ng" target="_blank" rel="noopener" aria-label="GitHub">
               <svg viewBox="0 0 24 24" aria-hidden="true">
                 <path
                   fill="currentColor"
@@ -1498,11 +1504,13 @@ main > .section:not(#hero),
           <a href="impressum.html">Impressum</a>
           <a href="datenschutz.html">Datenschutz</a>
           <a href="agb.html">AGB</a>
+          <a href="cookie-hinweis.html">Cookie-Hinweis</a>
+          <a href="praxisleitfaden.html">Praxisleitfaden</a>
         </nav>
         <p class="footer-copy">
           © Nurovelle. By d4sd1ng. All rights reserved.
         </p>
-        <a class="footer-top" href="#" aria-label="Nach oben">
+        <a class="footer-top" href="#hero" aria-label="Nach oben">
           <svg viewBox="0 0 24 24" aria-hidden="true">
             <path
               fill="none"
