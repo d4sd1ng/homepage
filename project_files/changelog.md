@@ -1,5 +1,16 @@
 # Changelog
 
+## 2026-09-29 – Grüne 3D-Bullets aus index.html in analyse.html übernommen
+
+Status: fertig
+
+Geändert:
+
+- `homepage/analyse.html`: normale Bulletpoints verwenden jetzt exakt `assets/bulletpoint.png` wie auf `index.html`.
+- Betroffen: `.label-list`, `.dot-list` und `.card-bullets`.
+- Der bestehende grüne Rand `#55863f` und die runde Darstellung wurden übernommen.
+- Nummerierte Punkte `01–08` im Leistungsumfang bleiben unverändert.
+
 ## 2026-09-29 – Hero-Bildpfad in analyse.html korrigiert
 
 Status: fertig
