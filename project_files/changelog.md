@@ -1,5 +1,26 @@
 # Changelog
 
+## 2026-09-29 – Analyse-Breitenkorrektur und Footer-Abstände auf Prüf-Branch
+
+Status: fertig
+
+Geändert:
+
+- `homepage/analyse.html`: globale `.section-inner`-Breite wieder auf `1560px` gesetzt, damit Kicker, Titel, Subtitle und Bodytext ihre bisherige Position behalten.
+- Nur die Inhaltsmodule `.analysis-intro-cards`, `#leistungen .num-list`, `#einsatzbereiche > .section-inner > .panel`, `#analyse-formular .analysis-layout` und `#faq .faq-grid` auf `1300px` begrenzt und zentriert.
+- `homepage/shared-header-footer.css`: oberen Footer-Abstand von `43.2px` auf `21.6px` halbiert.
+- Abstand zwischen Footer-Titel und folgendem Inhalt von `6.4px` auf `12.8px` verdoppelt.
+- Footer-Legal-/Copyright-Bereich weiter nach unten gesetzt; `.footer-bottom`-Abstand oben von `27.2px` auf `54.4px` erhöht.
+- Footer-Abstand unten auf `25px` gesetzt.
+
+Nicht geändert:
+
+- Hero-Inhalte
+- Formularlogik
+- API-Endpunkte
+- Texte
+- `main`
+
 ## 2026-09-29 – Shared Header/Footer in analyse.html korrekt angewandt
 
 Status: fertig
