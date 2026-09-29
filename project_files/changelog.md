@@ -1,5 +1,16 @@
 # Changelog
 
+## 2026-09-29 – Analyse-Sektionsbreite und Bullet-Einzug korrigiert
+
+Status: fertig
+
+Geändert:
+
+- `homepage/analyse.html`: globale Inhaltsbreite der Analyse-Sektionen von `1560px` auf `1300px` gesetzt.
+- `homepage/analyse.html`: `.label-list` und `.dot-list` um `30px` nach rechts eingerückt.
+- Anwendung, Leistungsumfang und weitere Sektionen folgen damit derselben 1300px-Inhaltsbreite.
+- Footer-Abstände noch nicht verändert; Ursache des fehlenden Titelabstands identifiziert: `--nv-space-md` ist nicht definiert.
+
 ## 2026-09-29 – Definition-Cards in analyse.html auf 1300px verbreitert
 
 Status: fertig
