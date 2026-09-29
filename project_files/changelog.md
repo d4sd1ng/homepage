@@ -1,5 +1,16 @@
 # Changelog
 
+## 2026-09-29 – Divider und Footer-Abstand in analyse.html korrigiert
+
+Status: fertig
+
+Geändert:
+
+- `homepage/analyse.html`: normale Section-Divider auf `0.8px` und den Homepage-Goldverlauf gesetzt.
+- `homepage/analyse.html`: Footer-Abschlussdivider explizit über `.footer::before` sichtbar abgesichert.
+- `homepage/analyse.html`: Abstand zwischen Footer-Titel und folgendem Inhalt auf `var(--nv-space-md)` gesetzt.
+- Keine weiteren Inhalte oder Layoutbereiche verändert.
+
 ## 2026-09-29 – Hero-Titel und Definition-Cards in analyse.html korrigiert
 
 Status: fertig
