@@ -1,5 +1,16 @@
 # Changelog
 
+## 2026-09-29 – Doppelten Footer-Divider in analyse.html entfernt
+
+Status: fertig
+
+Geändert:
+
+- `homepage/analyse.html`: lokale `.footer { border-top: ... }`-Regeln entfernt.
+- `homepage/analyse.html`: lokale `.footer-bottom { border-top: ... }`-Regeln entfernt.
+- Der Footer verwendet damit nur noch den gemeinsamen Divider aus `shared-header-footer.css` über `.footer::before`.
+- Keine Footer-Inhalte oder Abstände verändert.
+
 ## 2026-09-29 – Hero-Titel analyse.html zweizeilig festgelegt
 
 Status: fertig
