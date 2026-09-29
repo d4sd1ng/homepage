@@ -1,5 +1,16 @@
 # Changelog
 
+## 2026-09-29 – Zwei CTAs in Leistungssektion ergänzt
+
+Status: fertig
+
+Geändert:
+
+- `homepage/index.html`: unter den 11 Leistungs-Cards in Sektion 5 zwei Golden-CTAs ergänzt.
+- CTA 1: `Potenzialanalyse starten` → `#potenzialanalyse`.
+- CTA 2: `Erstgespräch vereinbaren` → `#kontakt`.
+- Bestehenden Golden-CTA-Stil verwendet; keine Card-Struktur oder übrigen Sektionen verändert.
+
 ## 2026-09-28 – Hover-State am Analyseformular-CTA ergänzt
 
 Status: fertig
