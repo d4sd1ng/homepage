@@ -1223,10 +1223,12 @@ main > .section:not(#hero),
 .footer::before{
   content:""!important;
   position:absolute!important;
-  left:0!important;
-  right:0!important;
+  left:50%!important;
+  right:auto!important;
   top:0!important;
+  width:100vw!important;
   height:.8px!important;
+  transform:translateX(-50%)!important;
   background:linear-gradient(90deg,transparent,#fae385 20%,#fae385 80%,transparent)!important;
   box-shadow:0 0 6.4px #fae38566!important;
   z-index:2!important;
