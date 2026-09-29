@@ -1,5 +1,16 @@
 # Changelog
 
+## 2026-09-29 – Footer-Divider in analyse.html auf volle Viewportbreite gesetzt
+
+Status: fertig
+
+Geändert:
+
+- `homepage/analyse.html`: `.footer::before` auf `width: 100vw` gesetzt.
+- Der Divider wird über `left: 50%` und `translateX(-50%)` viewportzentriert.
+- Damit läuft der Footer-Divider unabhängig von Contentbreite und Footer-Padding über die komplette Seitenbreite.
+- Keine weiteren Layoutbereiche verändert.
+
 ## 2026-09-29 – Divider und Footer-Abstand in analyse.html korrigiert
 
 Status: fertig
