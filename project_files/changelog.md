@@ -1,5 +1,16 @@
 # Changelog
 
+## 2026-09-29 – Hero-Titel und Definition-Cards in analyse.html korrigiert
+
+Status: fertig
+
+Geändert:
+
+- `homepage/analyse.html`: Hero-Titel in zwei feste Zeilen aufgeteilt.
+- `homepage/analyse.html`: Desktop-Hero-Spalten so angepasst, dass die erste Titelzeile nicht intern umbrechen kann.
+- `homepage/analyse.html`: die beiden Definition-Cards auf `max-width: 1200px` gesetzt und horizontal zentriert.
+- Keine weiteren Inhalte oder Sektionen verändert.
+
 ## 2026-09-29 – Grüne 3D-Bullets aus index.html in analyse.html übernommen
 
 Status: fertig
