@@ -1141,6 +1141,29 @@ main > .section:not(#hero),
   margin-bottom:var(--detail-subtitle-gap)!important;
 }
 
+/* Hero: exakt zwei Zeilen; Textspalte auf Desktop breit genug halten. */
+#hero h1{
+  max-width:none!important;
+}
+#hero .hero-title-line{
+  display:block;
+  white-space:nowrap;
+}
+@media(min-width:1101px){
+  #hero .detail-hero{
+    grid-template-columns:minmax(780px,1.35fr) minmax(460px,.85fr)!important;
+    gap:clamp(28px,3vw,48px)!important;
+  }
+  #hero .visual-card--hero img{
+    max-width:650px!important;
+  }
+}
+@media(max-width:1100px){
+  #hero .hero-title-line{
+    white-space:normal;
+  }
+}
+
 /* Alte Verschiebungs-Hacks neutralisieren. */
 #was-ist-das{
   margin-top:0!important;
@@ -1153,10 +1176,12 @@ main > .section:not(#hero),
 }
 .analysis-intro-cards{
   width:100%;
-  max-width:1000px;
+  max-width:1200px;
   transform:none!important;
   margin-top:0!important;
+  margin-right:auto!important;
   margin-bottom:0!important;
+  margin-left:auto!important;
 }
 #warum{
   padding-top:var(--detail-section-space)!important;
@@ -1239,7 +1264,7 @@ main > .section:not(#hero),
 <main>
 <!-- ============================ 1. HERO ============================ -->
 <div class="hero-viewport">
-<section class="section section--landing" id="hero"><div class="section-inner detail-hero"><div><div class="kicker">KI-Potenzialanalyse</div><h1>Wo lohnt sich KI in Ihrem<br>Unternehmen wirklich?</h1><p class="sub">Bevor Zeit und Budget in eine KI-Lösung fließen.</p><p class="lead">Die KI-Potenzialanalyse zeigt, welche Prozesse für KI oder Automatisierung geeignet sind, welche Voraussetzungen fehlen und welche nächsten Schritte sinnvoll sind. Grundlage ist Ihr tatsächlicher Betrieb: bestehende Abläufe, Datenquellen und Systeme statt allgemeiner Annahmen.</p><div class="actions"><a class="btn" href="#analyse-formular">KI-Potenzialanalyse starten</a></div></div><div class="visual-card visual-card--hero"><img src="assets/detail_pages_grafics/Analyse_detail _final.png" alt="Ablauf der KI-Potenzialanalyse"/></div></div></section>
+<section class="section section--landing" id="hero"><div class="section-inner detail-hero"><div><div class="kicker">KI-Potenzialanalyse</div><h1><span class="hero-title-line">Wo lohnt sich KI in Ihrem</span><span class="hero-title-line">Unternehmen wirklich?</span></h1><p class="sub">Bevor Zeit und Budget in eine KI-Lösung fließen.</p><p class="lead">Die KI-Potenzialanalyse zeigt, welche Prozesse für KI oder Automatisierung geeignet sind, welche Voraussetzungen fehlen und welche nächsten Schritte sinnvoll sind. Grundlage ist Ihr tatsächlicher Betrieb: bestehende Abläufe, Datenquellen und Systeme statt allgemeiner Annahmen.</p><div class="actions"><a class="btn" href="#analyse-formular">KI-Potenzialanalyse starten</a></div></div><div class="visual-card visual-card--hero"><img src="assets/detail_pages_grafics/Analyse_detail _final.png" alt="Ablauf der KI-Potenzialanalyse"/></div></div></section>
 
 <!-- ============================ 2. EINSTIEGSKARTEN ============================ -->
 <section class="section section--landing" id="was-ist-das">
