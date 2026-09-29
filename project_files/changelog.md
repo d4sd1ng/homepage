@@ -1,5 +1,20 @@
 # Changelog
 
+## 2026-09-29 – analyse.html vollständig auf Shared Header/Footer umgestellt
+
+Status: fertig
+
+Geändert:
+
+- `homepage/analyse.html`: sämtliche lokalen Header-CSS-Regeln entfernt.
+- `homepage/analyse.html`: sämtliche lokalen Footer-CSS-Regeln entfernt.
+- Lokale Breadcrumb-, Logo-, Header-CTA-, Footer- und Mobile-Overrides entfernt.
+- Lokale Deklarationen für `--header-height`, `--page-gutter`, `--logo-box`, `--logo-w` und `--logo-h` entfernt.
+- Lokales `body padding-top` und `html scroll-padding-top` für den Header entfernt.
+- `shared-header-footer.css` bleibt die einzige CSS-Quelle für Header und Footer.
+- Seiten-CSS für Hero, Cards, Leistungsumfang, Anwendung, Formular und FAQ erhalten.
+- Kein Merge nach `main`.
+
 ## 2026-09-29 – Analyse-Breitenkorrektur und Footer-Abstände auf Prüf-Branch
 
 Status: fertig
