@@ -113,8 +113,8 @@
 html { scroll-behavior: smooth; background: #000; scroll-padding-top: var(--header-height); }
 html { scroll-behavior: smooth; background: #000; scroll-padding-top: var(--header-height); }
 body {
-  zoom: 0.8;
-  zoom: 0.8;
+
+
   margin: 0;
   background: var(--color-bg-black);
   color: #fff;
@@ -889,17 +889,6 @@ h1, main h2 {
   border:0;
 }
 
-/* Header final: logo/wordmark/tagline left, breadcrumbs centered, CTA right */
-.site-header .header-inner{display:grid!important;grid-template-columns:auto minmax(0,1fr) auto!important;align-items:center!important;column-gap:18px!important;}
-.site-header .logo-link{display:inline-flex!important;justify-self:start!important;align-items:center!important;}
-.site-header .logo-text{display:flex!important;}
-.site-header .logo-wordmark{display:block!important;}
-.site-header .logo-tagline{display:block!important;}
-.site-header .nv-breadcrumb{justify-self:center!important;}
-.site-header .header-cta{display:inline-flex!important;justify-self:end!important;align-items:center!important;text-decoration:none!important;}
-.site-header .header-cta .golden-button{display:inline-flex!important;align-items:center!important;justify-content:center!important;visibility:visible!important;opacity:1!important;}
-@media(max-width:760px){.site-header .logo-tagline{display:none!important;}}
-
 /* Gold card title: dark green for readable contrast on gold */
 .analysis-intro-cards .summary h3 {
   color: #0A1913 !important;
@@ -1064,34 +1053,9 @@ h1, main h2 {
 }
 
 
-/* Header identity fix: static logo, visible wordmark/tagline, complete gold CTA */
-.site-header .logo-link{display:inline-flex!important;align-items:center!important;gap:10px!important;height:100%!important;perspective:none!important;}
-.site-header .logo-mark{display:block!important;width:42px!important;height:42px!important;object-fit:contain!important;transform:none!important;animation:none!important;filter:drop-shadow(0 0 5px rgba(250,227,133,.18))!important;}
-.site-header .logo-text{display:flex!important;flex-direction:column!important;align-items:flex-start!important;justify-content:center!important;gap:2px!important;}
-.site-header .logo-wordmark-img{display:block!important;width:132px!important;height:auto!important;max-width:none!important;object-fit:contain!important;}
-.site-header .logo-tagline{display:block!important;color:#f0efe6!important;font:700 7.5px/1.15 "Inter",Arial,sans-serif!important;letter-spacing:.055em!important;white-space:nowrap!important;}
-.site-header .header-cta{display:inline-flex!important;align-items:center!important;justify-self:end!important;text-decoration:none!important;}
-.site-header .header-cta .golden-button{display:inline-flex!important;align-items:center!important;justify-content:center!important;gap:8px!important;min-width:220px!important;height:40px!important;padding:0 14px!important;box-sizing:border-box!important;border:1px solid #d4af37!important;border-radius:5px!important;color:#161006!important;background:linear-gradient(135deg,#8b5b12 0%,#d4af37 24%,#fae385 48%,#bc881b 72%,#f5d76e 100%)!important;box-shadow:0 3px 8px rgba(0,0,0,.38),inset 0 1px 1px rgba(255,255,255,.45),inset 0 -2px 4px rgba(93,57,5,.45)!important;font:800 12px/1 "Inter",Arial,sans-serif!important;letter-spacing:.02em!important;text-transform:uppercase!important;white-space:nowrap!important;visibility:visible!important;opacity:1!important;}
-.site-header .header-cta .golden-text{color:#161006!important;text-shadow:0 1px 1px rgba(255,255,255,.28)!important;}
-.site-header .header-cta .nv-calendly-icon{display:block!important;width:20px!important;height:20px!important;flex:0 0 20px!important;color:#161006!important;fill:currentColor!important;}
-@media(max-width:760px){.site-header .logo-tagline{display:none!important;}.site-header .logo-wordmark-img{width:108px!important;}}
-
 </style>
 <style>
-/* FINAL VERIFIED HEADER + LEISTUNGSUMFANG PROPORTIONS */
-.site-header .header-inner{display:grid!important;grid-template-columns:auto minmax(0,1fr) auto!important;align-items:center!important;padding:0 var(--page-gutter)!important;column-gap:18px!important;}
-.site-header .logo-link{display:inline-flex!important;align-items:center!important;justify-self:start!important;gap:19px!important;height:var(--logo-box)!important;perspective:none!important;text-decoration:none!important;}
-.site-header .logo-spin{display:block!important;position:relative!important;top:-4px!important;width:var(--logo-w)!important;height:var(--logo-h)!important;animation:none!important;transform:none!important;will-change:auto!important;background:url("assets/hero/nurovelle_logo_gold.png") center/contain no-repeat!important;filter:drop-shadow(0 0 6.4px #fae3853d)!important;}
-.site-header .logo-text{display:flex!important;flex-direction:column!important;align-items:flex-end!important;justify-content:center!important;gap:2.4px!important;}
-.site-header .logo-wordmark{display:block!important;height:var(--logo-h)!important;width:auto!important;max-width:none!important;align-self:center!important;object-fit:contain!important;background:none!important;mask:none!important;-webkit-mask:none!important;}
-.site-header .logo-tagline{display:block!important;color:var(--color-text-light)!important;font:700 7.2px/1.1 "Inter",Arial,sans-serif!important;letter-spacing:.16em!important;text-transform:uppercase!important;white-space:nowrap!important;}
-.site-header .nv-breadcrumb{display:inline-flex!important;justify-self:center!important;max-width:100%!important;overflow:visible!important;white-space:nowrap!important;}
-.site-header .header-cta{display:inline-flex!important;justify-self:end!important;align-items:center!important;text-decoration:none!important;}
-.site-header .header-cta .golden-button{display:inline-flex!important;align-items:center!important;justify-content:center!important;min-width:0!important;height:31.68px!important;padding:0 8.8px!important;border:.8px solid var(--nv-gold-border)!important;border-radius:.3em!important;background-image:var(--nv-gold-gradient)!important;background-size:100% 100%!important;color:var(--nv-gold-text-dark)!important;box-shadow:0 2.4px 4.8px var(--shadow-soft),0 2.4px 4.8px var(--shadow-soft-2),inset 0 -1.6px 4px .8px var(--nv-gold-inner-dark),inset 0 -.8px .8px 2.4px var(--nv-gold-highlight)!important;font:800 9.68px/30px "Inter",Arial,sans-serif!important;letter-spacing:.02em!important;text-transform:uppercase!important;white-space:nowrap!important;gap:6.4px!important;visibility:visible!important;opacity:1!important;}
-.site-header .header-cta .golden-text{color:var(--nv-gold-text-dark)!important;-webkit-text-fill-color:currentColor!important;}
-.site-header .header-cta .nv-calendly-icon{display:block!important;width:16px!important;height:16px!important;flex:0 0 16px!important;color:var(--nv-gold-text-dark)!important;fill:currentColor!important;}
-@media(max-width:760px){.site-header .logo-tagline{display:none!important;}}
-
+/* DETAILSEITE — finale Proportionen und Abstände */
 /* Requested spacing corrections */
 @media(min-width:901px){
   .hero-viewport{
@@ -1128,6 +1092,86 @@ h1, main h2 {
   #leistungen .num-list{row-gap:36px!important;}
 }
 
+</style>
+
+
+<link rel="stylesheet" href="nurovelle-tokens.css" />
+<link rel="stylesheet" href="shared-header-footer.css" />
+
+<style id="analyse-layout-normalization">
+:root{
+  --content-max:1560px;
+  --side:clamp(19.2px,4.8vw,96px);
+  --detail-section-space:64px;
+  --detail-title-gap:20px;
+  --detail-subtitle-gap:32px;
+}
+
+/* Gleiche Inhaltsbreite wie index.html */
+.section{
+  padding-left:var(--side)!important;
+  padding-right:var(--side)!important;
+}
+.section-inner{
+  width:100%;
+  max-width:var(--content-max);
+  margin-left:auto;
+  margin-right:auto;
+}
+
+/* Einheitlicher vertikaler Rhythmus; Hero bleibt eigenständig. */
+main > .section:not(#hero),
+.hero-viewport > .section:not(#hero){
+  padding-top:var(--detail-section-space)!important;
+  padding-bottom:var(--detail-section-space)!important;
+  min-height:0!important;
+  height:auto!important;
+  align-items:initial!important;
+}
+.section:not(#hero) .section-inner > .kicker,
+.section:not(#hero) .media-copy > .kicker{
+  margin-bottom:10px!important;
+}
+.section:not(#hero) .section-inner > h2,
+.section:not(#hero) .media-copy > h2{
+  margin-bottom:var(--detail-title-gap)!important;
+}
+.section:not(#hero) .section-inner > h2 + .sub,
+.section:not(#hero) .media-copy > h2 + .sub{
+  margin-bottom:var(--detail-subtitle-gap)!important;
+}
+
+/* Alte Verschiebungs-Hacks neutralisieren. */
+#was-ist-das{
+  margin-top:0!important;
+  padding-top:var(--detail-section-space)!important;
+  padding-bottom:var(--detail-section-space)!important;
+}
+.definition-intro{
+  transform:none!important;
+  margin-bottom:var(--detail-subtitle-gap)!important;
+}
+.analysis-intro-cards{
+  transform:none!important;
+  margin-top:0!important;
+  margin-bottom:0!important;
+}
+#warum{
+  padding-top:var(--detail-section-space)!important;
+}
+
+/* Divider folgt derselben Inhaltsbreite wie die Homepage. */
+.section-divider{
+  width:min(calc(100% - (var(--side) * 2)),var(--content-max))!important;
+}
+
+@media(max-width:900px){
+  :root{--detail-section-space:40px;}
+  .section{
+    padding-left:18px!important;
+    padding-right:18px!important;
+  }
+}
 </style>
 
 </head>
