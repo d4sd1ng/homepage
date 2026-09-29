@@ -1,5 +1,15 @@
 # Changelog
 
+## 2026-09-29 – Definition-Cards in analyse.html auf 1300px verbreitert
+
+Status: fertig
+
+Geändert:
+
+- `homepage/analyse.html`: `.analysis-intro-cards` von `max-width: 1200px` auf `max-width: 1300px` gesetzt.
+- Zentrierung bleibt unverändert.
+- Keine weiteren Layout- oder Inhaltsänderungen.
+
 ## 2026-09-29 – Hero-Text in analyse.html gekürzt
 
 Status: fertig
