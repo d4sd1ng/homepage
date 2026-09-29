@@ -656,6 +656,13 @@ a:active .golden-button {
   letter-spacing: 0.01em;  white-space: nowrap; width: max-content; }
 .nv-s7__subtitle { max-width: 60ch; margin: 0 0 32px; color: var(--color-text-sub); font: var(--w-subtitle) var(--t-subtitle)/1.22 "Inter",Arial,sans-serif; }
 .nv-s7__intro { max-width: 608px; margin: 0; color: var(--color-text-muted); font-family: "Inter", Arial, sans-serif; font-size: var(--t-fliesstext); line-height: 1.85; font-weight: var(--w-fliesstext); }
+.nv-interaction-hint { margin: 0 0 14px; text-align: center; color: var(--color-text-muted); font: 500 11.2px/1.3 "Inter", Arial, sans-serif; letter-spacing: 0.04em; }
+.nv-interaction-hint__mark { color: #fae385; margin-right: 5px; }
+.nv-interaction-hint__touch { display: none; }
+@media (hover: none), (pointer: coarse) {
+  .nv-interaction-hint__hover { display: none; }
+  .nv-interaction-hint__touch { display: inline; }
+}
 .nv-s7__cards { display: grid; grid-template-columns: repeat(3, 720px); column-gap: 48px; row-gap: 16px; width: max-content; margin: 0 auto; zoom: 0.65; overflow: visible; }
 .nv-s7-card[data-href] { cursor: pointer; }
 .nv-s7-card { --card-index: 0; position: relative; width: 720px; height: 136px; min-width: 0; overflow: hidden; isolation: isolate; border: 0.8px solid transparent; border-radius: 5.6px; background: transparent; box-shadow: none; opacity: 0; transform: none; transition: opacity 0.55s ease, height 0.42s ease, border-color 0.28s ease, background 0.28s ease, box-shadow 0.28s ease; }
@@ -1645,7 +1652,7 @@ canvas.nv-step-viz {
       <p>Wir prüfen Prozesse, Daten und technische Voraussetzungen und zeigen den passenden nächsten Schritt.</p>
     </div>
 
-    <div class="nv-step-ladder" aria-label="Bausteine des ersten KI-Projektschritts">
+    <p class="nv-interaction-hint"><span class="nv-interaction-hint__mark" aria-hidden="true">↗</span>Klicken für mehr Informationen</p>\n\n    <div class="nv-step-ladder" aria-label="Bausteine des ersten KI-Projektschritts">
       <div class="nv-step-item">
         <article class="nv-step-card">
           <picture><source srcset="assets/cards/cards_problem_loesung/best_card_single%20470x360.webp" type="image/webp" /><img class="nv-step-card__asset" src="assets/cards/cards_problem_loesung/best_card_single 470x360.png" alt="" loading="eager" decoding="async" aria-hidden="true" width="460" height="300" /></picture>
@@ -1861,7 +1868,7 @@ canvas.nv-step-viz {
       </p>
     </header>
 
-    <div class="nv-s7__cards">
+    <p class="nv-interaction-hint"><span class="nv-interaction-hint__mark" aria-hidden="true">↗</span><span class="nv-interaction-hint__hover">Hover für mehr Informationen</span><span class="nv-interaction-hint__touch">Tippen für mehr Informationen</span></p>\n\n    <div class="nv-s7__cards">
       <article class="nv-s7-card" data-card tabindex="0" data-href="analyse.html" role="link">
         <picture><source srcset="assets/cards/cards_service/1_neu.webp" type="image/webp" /><img class="nv-s7-card__visual" src="assets/cards/cards_service/1_neu.png" alt="" aria-hidden="true" loading="eager" decoding="async" width="1600" height="900" /></picture>
         <div class="nv-s7-card__left">
