@@ -1,5 +1,14 @@
 # Changelog
 
+## 2026-09-29 – Hero-Text in analyse.html gekürzt
+
+Status: fertig
+
+Geändert:
+
+- `homepage/analyse.html`: Satz „Grundlage ist Ihr tatsächlicher Betrieb: bestehende Abläufe, Datenquellen und Systeme statt allgemeiner Annahmen.“ aus dem Hero entfernt.
+- Card-Breite nicht verändert; aktuell weiterhin `1200px`, da für die gewünschte Verbreiterung noch kein Zielwert festgelegt wurde.
+
 ## 2026-09-29 – Footer-Divider in analyse.html auf volle Viewportbreite gesetzt
 
 Status: fertig
