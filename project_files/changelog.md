@@ -1,5 +1,15 @@
 # Changelog
 
+## 2026-09-29 – Hero-Titel analyse.html zweizeilig festgelegt
+
+Status: fertig
+
+Geändert:
+
+- `homepage/analyse.html`: Hero-Titel mit festem Zeilenumbruch nach „Ihrem“.
+- Darstellung: „Wo lohnt sich KI in Ihrem“ / „Unternehmen wirklich?“.
+- Keine weiteren Inhalte oder Layoutregeln verändert.
+
 ## 2026-09-29 – analyse.html auf Homepage-Breite und Shared Header/Footer umgestellt
 
 Status: fertig
