@@ -1162,6 +1162,29 @@ main > .section:not(#hero),
   padding-top:var(--detail-section-space)!important;
 }
 
+/* Bulletpoints exakt wie auf index.html: grüner 3D-Bullet. */
+.label-list li::before,
+.dot-list li::before,
+.card-bullets li::before{
+  content:""!important;
+  width:5.6px!important;
+  height:5.6px!important;
+  border:.8px solid #55863f!important;
+  border-radius:50%!important;
+  background:url("assets/bulletpoint.png") center / cover no-repeat!important;
+}
+.label-list li::before{top:8px!important;}
+.dot-list li::before{top:9px!important;}
+.card-bullets li::before{top:calc(50% - 2.8px)!important;}
+.summary .dot-list li::before{
+  width:5.6px!important;
+  height:5.6px!important;
+  border:.8px solid #55863f!important;
+  border-radius:50%!important;
+  background:url("assets/bulletpoint.png") center / cover no-repeat!important;
+  top:10px!important;
+}
+
 /* Divider folgt derselben Inhaltsbreite wie die Homepage. */
 .section-divider{
   width:min(calc(100% - (var(--side) * 2)),var(--content-max))!important;
