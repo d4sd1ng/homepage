@@ -1100,7 +1100,7 @@ h1, main h2 {
 
 <style id="analyse-layout-normalization">
 :root{
-  --content-max:1560px;
+  --content-max:1300px;
   --side:clamp(19.2px,4.8vw,96px);
   --detail-section-space:64px;
   --detail-title-gap:20px;
@@ -1185,6 +1185,12 @@ main > .section:not(#hero),
 }
 #warum{
   padding-top:var(--detail-section-space)!important;
+}
+
+/* Bullet-Listen wie auf index.html um 30px einrücken. */
+.label-list,
+.dot-list{
+  margin-left:30px!important;
 }
 
 /* Bulletpoints exakt wie auf index.html: grüner 3D-Bullet. */
