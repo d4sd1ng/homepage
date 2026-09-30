@@ -1,3 +1,18 @@
+## 2026-09-30 – Analyse Shared-CSS-Ladereihenfolge korrigiert
+
+Status: fertig
+
+Geändert:
+
+- `homepage/analyse.html`: `nurovelle-tokens.css` und `shared-header-footer.css` werden jetzt wie auf `index.html` vor dem lokalen Seiten-CSS geladen.
+- Späte doppelte Einbindungen der beiden Shared-Dateien entfernt.
+- Dadurch stehen Header-Höhe, Logo-Größen, Page-Gutter und weitere Shared-Tokens bereits beim Aufbau der Seite zur Verfügung.
+
+Nicht geändert:
+
+- `homepage/shared-header-footer.css` und `homepage/nurovelle-tokens.css`.
+- Texte, Definition-Cards und übrige Inhaltsmodule.
+
 ## 2026-09-30 – Analyse-Hero korrekt unter Fixed Header positioniert
 
 Status: fertig
