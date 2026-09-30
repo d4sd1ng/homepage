@@ -402,7 +402,7 @@ h1, main h2 {
 /* Analyse-Seite – gezielte Korrekturen */
 #hero{padding-top:14px;padding-bottom:8px;margin-bottom:-50px;}
 @media(min-width:901px){
-   .hero-viewport{height:calc(100dvh - var(--header-height));min-height:0;box-sizing:border-box;display:flex;flex-direction:column;justify-content:space-between;}
+   .hero-viewport{height:auto;min-height:0;box-sizing:border-box;display:flex;flex-direction:column;justify-content:space-between;}
   .hero-viewport #hero,.hero-viewport #was-ist-das{min-height:0;height:auto;box-sizing:border-box;flex:0 0 auto;}
   #hero>.section-inner,#was-ist-das>.section-inner{width:100%;}
 }
@@ -616,7 +616,7 @@ h1, main h2 {
 @media(min-width:901px){
   .hero-viewport{
     height:auto!important;
-    min-height:calc(100dvh - var(--header-height))!important;
+    min-height:100dvh!important;
     justify-content:flex-start!important;
     background:#000!important;
   }
