@@ -1,3 +1,17 @@
+## 2026-09-30 – Analyse sichtbare Hero-/Definition-Fehler korrigiert
+
+Status: fertig
+
+Geändert:
+
+- `homepage/analyse.html`: negativen Hero-Versatz entfernt und regulären oberen/unteren Hero-Abstand gesetzt.
+- Lang laufende H1/H2-Goldanimation entfernt; Überschriften verwenden den Goldverlauf statisch und bleiben dauerhaft lesbar.
+- Rechte Definition-Card von Orange auf dunkles Smaragd/Gunmetal mit bestehendem Goldrahmen umgestellt; Textfarben an das dunkle Material angepasst.
+
+Nicht geändert:
+
+- `homepage/shared-header-footer.css`, `homepage/nurovelle-tokens.css`, Inhalte, Formularlogik und übrige Sektionen.
+
 ## 2026-09-30 – Verlinkung zur KI-Automationen-Detailseite entfernt
 
 Status: fertig

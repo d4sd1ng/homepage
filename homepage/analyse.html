@@ -175,12 +175,12 @@ main h3 { font: var(--w-zwischentitel) var(--t-zwischentitel)/1.2 "Exo 2",Inter,
   border-radius: 2px; 
   background: #DFBD69; 
   }
-.summary { border: 1px solid rgba(255,215,163,.78); background: linear-gradient(180deg,#ffd7a3 0%,#f0a05a 24%,#d89828 58%,#7a3518 100%); box-shadow: inset 0 0 0 1px rgba(255,244,199,.20),0 8px 16px rgba(0,0,0,.30); }
-.summary h2,.summary p { color: #050505; text-shadow: none; }
-.summary h2 { background: none; -webkit-background-clip: initial; background-clip: initial; color: #112A20; -webkit-text-fill-color: #112A20; }
-.summary .sub { color: #050505; }
-.summary h3 { color: #0A1913; }
-.summary .dot-list li { color: #0A1913; font: 600 17px/1.55 "Inter",Arial,sans-serif; }
+.summary { border: 1.25px solid transparent; background-image: linear-gradient(#0A1913,#080B09), var(--gold-3); background-origin: border-box; background-clip: padding-box, border-box; box-shadow: var(--frame-glow); }
+.summary h2,.summary p { color: #b9c3bd; text-shadow: none; }
+.summary h2 { background: var(--gold-1); background-clip: text; -webkit-background-clip: text; color: transparent; -webkit-text-fill-color: transparent; }
+.summary .sub { color: #D7DDD9; }
+.summary h3 { color: var(--nv-gold-highlight); }
+.summary .dot-list li { color: #b9c3bd; font: 600 17px/1.55 "Inter",Arial,sans-serif; }
 .summary .dot-list li::before { background: #0A1913; top: 10px; }
 .actions { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 33px; }
 .text-cols { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 18px 48px; margin-top: 9px; }
@@ -336,17 +336,7 @@ button[disabled] { opacity: .58; cursor: not-allowed; }
 .chip-list li.pair-chip { min-height: 92px; padding: 6px 10px; border-radius: 10px; }
 /* Glanzband nur auf den grossen Ueberschriften, nicht auf Kartentiteln,
    Bullet-Labels oder Kleintext. */
-h1, main h2 {
-  -webkit-text-stroke: .6px rgba(255,248,207,.40);
-  background-size: 250% auto;
-  animation: nv-gold-shine 42s linear infinite;
-}
-@keyframes nv-gold-shine {
-  0%   { background-position: 0% center; }
-  40%  { background-position: 250% center; }
-  100% { background-position: 250% center; }
-}
-@media (prefers-reduced-motion: reduce) { h1, main h2 { animation: none; } }
+h1, main h2 {\n  -webkit-text-stroke: .6px rgba(255,248,207,.40);\n  background-size: 100% 100%;\n  background-position: center;\n}
 /* Goldrahmen: Glanzband wandert durch den Rahmenverlauf, dazu ein weicher Schein */
 .visual-card, .panel, .form-panel, .result-strip, .pair-chip, .chip-list li, .chip-icon, .num-list li::before {
   background-size: 250% auto;
@@ -403,7 +393,7 @@ h1, main h2 {
 @media(max-width:640px){.analysis-flow{grid-template-columns:1fr}.section-photo img{aspect-ratio:16/10}}
 
 /* Analyse-Seite – gezielte Korrekturen */
-#hero{padding-top:14px;padding-bottom:8px;margin-bottom:-50px;}
+#hero{padding-top:36px;padding-bottom:40px;margin-bottom:0;}
 @media(min-width:901px){
    .hero-viewport{height:auto;min-height:0;box-sizing:border-box;display:flex;flex-direction:column;justify-content:space-between;}
   .hero-viewport #hero,.hero-viewport #was-ist-das{min-height:0;height:auto;box-sizing:border-box;flex:0 0 auto;}
@@ -448,15 +438,7 @@ h1, main h2 {
   border:0;
 }
 
-/* Gold card title: dark green for readable contrast on gold */
-.analysis-intro-cards .summary h3 {
-  color: #0A1913 !important;
-  background: none !important;
-  -webkit-background-clip: initial !important;
-  background-clip: initial !important;
-  -webkit-text-fill-color: #0A1913 !important;
-  text-shadow: none !important;
-}
+/* Definition card title follows the shared gold-highlight system. */\n.analysis-intro-cards .summary h3 {\n  color: var(--nv-gold-highlight) !important;\n  background: none !important;\n  -webkit-text-fill-color: currentColor !important;\n  text-shadow: none !important;\n}
 
 /* Section rhythm correction: breathing room around dividers without oversized sections */
 .section{padding-top:34px;padding-bottom:34px;}
