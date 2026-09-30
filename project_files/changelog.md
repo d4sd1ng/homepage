@@ -1,3 +1,17 @@
+## 2026-09-30 – Analyse-Hero von Shared-Header-Höhe entkoppelt
+
+Status: fertig
+
+Geändert:
+
+- `homepage/analyse.html`: verbliebene Hero-Viewport-Berechnungen mit `var(--header-height)` entfernt.
+- Der Hero definiert keinen lokalen Header-Offset mehr; Header und Footer bleiben ausschließlich über `shared-header-footer.css` gesteuert.
+
+Nicht geändert:
+
+- `homepage/shared-header-footer.css`.
+- Header-/Footer-Markup, Texte, Cards und übrige Inhaltssektionen.
+
 # Changelog
 
 ## 2026-09-30 – Homepage-Deploy auf VPS-Runner umgestellt
