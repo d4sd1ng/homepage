@@ -1,3 +1,20 @@
+## 2026-09-30 – Shared Header/Footer vollständig aus index.html bereinigt
+
+Status: fertig
+
+Geändert:
+
+- `homepage/shared-header-footer.css`: Footer-Werte auf den aktuellen freigegebenen `index.html`-Stand synchronisiert (`.footer` Padding, Footer-Titelabstand, `.footer-bottom` Abstand).
+- `homepage/index.html`: 67 lokale, bereits in Shared vorhandene Header-/Footer-CSS-Regeln entfernt.
+- `homepage/index.html` und `homepage/analyse.html` beziehen Header/Footer jetzt ausschließlich aus `shared-header-footer.css`; gemeinsame Layout-Tokens kommen aus `nurovelle-tokens.css`.
+
+Geprüft:
+
+- Keine lokalen Header-/Footer-Komponentenregeln mehr in `index.html`.
+- Keine lokalen Header-/Footer-Komponentenregeln mehr in `analyse.html`.
+- Beide Seiten laden `nurovelle-tokens.css` und `shared-header-footer.css` jeweils genau einmal.
+- Keine Hero-, Inhalts- oder Sektionskomponente wurde in diesem Bereinigungsschritt geändert.
+
 ## 2026-09-30 – Analyse Shared-CSS-Ladereihenfolge korrigiert
 
 Status: fertig
