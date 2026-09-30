@@ -1,3 +1,14 @@
+## 2026-09-30 – Verlinkung zur KI-Automationen-Detailseite entfernt
+
+Status: fertig
+
+Geändert:
+
+- KI-Automationen aus den Breadcrumb-Menüs der aktiven HTML-Seiten entfernt.
+- `homepage/index.html`: Zielverlinkung der KI-Automationen-Servicekarte entfernt; `Mehr erfahren` bleibt optisch bestehen, ist aber kein Link mehr.
+- `homepage/sitemap.xml`: Eintrag für `detail_automationen.html` entfernt.
+- `homepage/detail_automationen.html` bleibt als Datei bestehen; Seiteninhalt, Canonical- und Open-Graph-URL wurden nicht verändert.
+
 ## 2026-09-30 – Shared Header/Footer vollständig aus index.html bereinigt
 
 Status: fertig
