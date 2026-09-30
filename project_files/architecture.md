@@ -115,6 +115,26 @@ Der Publishable Key ist für den Einsatz im Browser bestimmt und steht deshalb i
 
 Der Deploy rollt `homepage/` unverändert per rsync aus. Es gibt für diesen Ordner keinen Build-Schritt und keine Ersetzung von Umgebungsvariablen; ein Wechsel zwischen Test- und Live-Betrieb ist deshalb eine Änderung an dieser Datei.
 
+## GitHub-Deployment
+
+`.github/workflows/deploy.yml` führt den Homepage-Deploy-Job auf einem
+self-hosted Linux-Runner mit dem zusätzlichen Label `vps` aus. Der Runner muss
+auf dem VPS registriert sein und Zugriff auf Git, rsync, Docker sowie die
+Produktionspfade haben. Der Repository-Runner `nurovelle-vps` ist seit dem
+2026-09-30 als systemd-Dienst unter `d4sd1ng` installiert und wurde mit den
+Labels `self-hosted`, `linux`, `x64` und `vps` online verifiziert. Der Job
+aktualisiert `/opt/homepage_repo_source` auf
+den exakten auslösenden Commit von `main`, spiegelt `homepage/` in den Runtime-
+Pfad, startet `nurovell_frontend` neu und prüft anschließend die Live-
+Auslieferung, Sitemap, Robots-Regel und das TLS-Zertifikat. Die Fehlerdiagnose
+läuft ebenfalls lokal auf dem VPS; für diesen Workflow wird kein SSH-Deploy-
+Schlüssel mehr benötigt.
+
+Der Deploy-Job ist auf `refs/heads/main` beschränkt. Pull Requests und manuelle
+Dispatches von Feature-Branches deployen nicht. Der Runner ist nicht für nicht
+vertrauenswürdige Pull-Request-Workflows vorgesehen. Er hat Docker-Zugriff und
+ist daher auf vertrauenswürdige Workflows dieses Repositorys zu beschränken.
+
 ## Download-Flow
 
 Download-Buttons verwenden reale Downloadziele.

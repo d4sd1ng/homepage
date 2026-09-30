@@ -1,5 +1,23 @@
 # Changelog
 
+## 2026-09-30 – Homepage-Deploy auf VPS-Runner umgestellt
+
+Status: in Arbeit
+
+Geändert:
+
+- `.github/workflows/deploy.yml`: Deploy-Job und Fehlerdiagnose laufen direkt auf einem self-hosted Linux-Runner mit Label `vps`; SSH-Aktionen wurden aus diesem Workflow entfernt.
+- `.github/workflows/deploy.yml`: Deployment auf `main` beschränkt und den Checkout auf den exakten auslösenden Commit gesetzt.
+- `.github/workflows/deploy.yml`: bestehende Versionsmarken, rsync-Ziele, Container-Neustart, Live-Prüfungen, Sitemap-/Robots-Prüfungen und Zertifikatsprüfung erhalten.
+- VPS: offiziellen GitHub Actions Runner `2.337.0` mit geprüftem SHA-256 für `d4sd1ng/homepage` installiert, mit Label `vps` registriert und als systemd-Dienst aktiviert; GitHub meldet ihn online.
+- `project_files/architecture.md`: Runner-Ausführung, Sicherheitsgrenze und verifizierten VPS-Status dokumentiert.
+- `graphify-out/cross-project-relationships.json` und `graphify-out/cross-project-graph.json`: geplanten CTA, dokumentierte Projektbeziehungen und Runner-Zuordnung mit Evidenz festgehalten.
+
+Nicht geändert:
+
+- `.github/workflows/notify-nurovelle-system.yml` und der SEO-Toolbox-Deploy-Workflow.
+- Homepage-HTML, sichtbare Texte, Layout, Assets und Formularlogik.
+
 ## 2026-09-29 – analyse.html vollständig auf Shared Header/Footer umgestellt
 
 Status: fertig
