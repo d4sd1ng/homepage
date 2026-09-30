@@ -1,3 +1,17 @@
+## 2026-09-30 – Analyse-Hero korrekt unter Fixed Header positioniert
+
+Status: fertig
+
+Geändert:
+
+- `homepage/analyse.html`: bestehende Homepage-Basisregel `body { padding-top: var(--header-height); }` übernommen.
+- Der Fixed Shared Header wird damit wieder im normalen Seitenfluss kompensiert; der Hero beginnt unterhalb des Headers.
+
+Nicht geändert:
+
+- `homepage/shared-header-footer.css`.
+- Hero-Inhalte, Definition-Cards, Texte und übrige Sektionen.
+
 ## 2026-09-30 – Anwendungs-Cards kompakter gesetzt
 
 Status: fertig
