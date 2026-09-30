@@ -1,3 +1,14 @@
+## 2026-09-30 – Shared Header-Offset zentralisiert und Gold-Card wiederhergestellt
+
+Status: fertig
+
+Geändert:
+
+- Fixed-Header-Seitenoffset nach `shared-header-footer.css` verschoben.
+- Lokalen Body-Headeroffset aus `index.html` und `analyse.html` entfernt.
+- Negativen Hero-Versatz der Analyse entfernt; Hero verwendet regulären Abstand.
+- Nicht autorisierte Änderung der goldenen Definition-Card vollständig auf den vorherigen Goldzustand zurückgesetzt.
+
 ## 2026-09-30 – Analyse sichtbare Hero-/Definition-Fehler korrigiert
 
 Status: fertig
