@@ -1,3 +1,4 @@
+body { padding-top: var(--header-height); }
 /* Nurovelle – Header/Footer – exakt aus index.html extrahierte komponenteneigene Regeln. */
 .site-header {
   height: var(--header-height);
