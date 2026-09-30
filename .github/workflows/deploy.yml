@@ -33,87 +33,83 @@ env:
 
 jobs:
   deploy:
-    runs-on: ubuntu-latest
+    runs-on: [self-hosted, linux, vps]
+    if: github.ref == 'refs/heads/main'
     steps:
       - name: Ausrollen
-        uses: appleboy/ssh-action@v1
-        with:
-          host: ${{ secrets.VPS_HOST }}
-          username: ${{ secrets.VPS_USER }}
-          key: ${{ secrets.VPS_SSH_KEY }}
-          script: |
-            set -e
-            export GIT_CONFIG_COUNT=1
-            export GIT_CONFIG_KEY_0=safe.directory
-            export GIT_CONFIG_VALUE_0=${{ env.QUELLE }}
-            cd ${{ env.QUELLE }}
-            git fetch origin main
-            git reset --hard origin/main
+        run: |
+          set -euo pipefail
+          export GIT_CONFIG_COUNT=1
+          export GIT_CONFIG_KEY_0=safe.directory
+          export GIT_CONFIG_VALUE_0="$QUELLE"
+          cd "$QUELLE"
+          git fetch origin main
+          git reset --hard "$GITHUB_SHA"
 
-            # Versionsmarke, an der die Live-Pruefung den Stand erkennt
-            printf '%s\n' "${{ github.sha }}" > homepage/version.txt
+          # Versionsmarke, an der die Live-Pruefung den Stand erkennt
+          printf '%s\n' "$GITHUB_SHA" > homepage/version.txt
 
-            # Dieselbe Marke zusaetzlich in jede ausgelieferte HTML-Seite.
-            # version.txt allein beweist nur, dass irgendein Deploy gelaufen
-            # ist - nicht, dass die Seite selbst neu ist. Beide Dateien
-            # koennen unabhaengig voneinander aus einem Cache stammen oder
-            # von einem rsync-Ausschluss betroffen sein; version.txt kaeme
-            # dann frisch, index.html alt, und der Deploy meldete trotzdem
-            # gruen. Erst die Marke in der Seite selbst schliesst das.
-            # Die Zeile steht hinter <!DOCTYPE html>, wo ein Kommentar
-            # zulaessig ist, und wird bei jedem Lauf neu gesetzt, weil der
-            # Checkout oben hart auf origin/main zurueckgesetzt wird.
-            for f in homepage/*.html; do
-              sed -i '1a <!-- nurovelle-build: ${{ github.sha }} -->' "$f"
-            done
-            echo "Baumarke in $(ls homepage/*.html | wc -l) HTML-Dateien gesetzt."
+          # Dieselbe Marke zusaetzlich in jede ausgelieferte HTML-Seite.
+          # version.txt allein beweist nur, dass irgendein Deploy gelaufen
+          # ist - nicht, dass die Seite selbst neu ist. Beide Dateien
+          # koennen unabhaengig voneinander aus einem Cache stammen oder
+          # von einem rsync-Ausschluss betroffen sein; version.txt kaeme
+          # dann frisch, index.html alt, und der Deploy meldete trotzdem
+          # gruen. Erst die Marke in der Seite selbst schliesst das.
+          # Die Zeile steht hinter <!DOCTYPE html>, wo ein Kommentar
+          # zulaessig ist, und wird bei jedem Lauf neu gesetzt, weil der
+          # Checkout oben hart auf den ausloesenden Main-Commit gesetzt wird.
+          for f in "$QUELLE"/homepage/*.html; do
+            sed -i "1a <!-- nurovelle-build: $GITHUB_SHA -->" "$f"
+          done
+          echo "Baumarke in $(ls "$QUELLE"/homepage/*.html | wc -l) HTML-Dateien gesetzt."
 
-            mkdir -p ${{ env.ZIEL }}
-            rsync -a --delete \
-              --exclude='.history/' \
-              --exclude='*.py' \
-              --exclude='*.xlsx' \
-              --exclude='*.psd' \
-              --exclude='*.blend' \
-              --exclude='*.blend1' \
-              --exclude='*backup*' \
-              --exclude='overwrite-audit.json' \
-              --exclude='slack.md' \
-              --exclude='xcomponents/' \
-              homepage/ ${{ env.ZIEL }}/
-            mkdir -p ${{ env.ROOT_ZIEL }}
-            sed 's#https://nurovelle.de/homepage/sitemap.xml#https://nurovelle.de/sitemap.xml#' \
-              homepage/robots.txt > ${{ env.ROOT_ZIEL }}/robots.txt
-            cp homepage/sitemap.xml ${{ env.ROOT_ZIEL }}/sitemap.xml
-            echo "Auf den Server geschrieben: $(git rev-parse --short HEAD)"
+          mkdir -p "$ZIEL"
+          rsync -a --delete \
+            --exclude='.history/' \
+            --exclude='*.py' \
+            --exclude='*.xlsx' \
+            --exclude='*.psd' \
+            --exclude='*.blend' \
+            --exclude='*.blend1' \
+            --exclude='*backup*' \
+            --exclude='overwrite-audit.json' \
+            --exclude='slack.md' \
+            --exclude='xcomponents/' \
+            "$QUELLE"/homepage/ "$ZIEL"/
+          mkdir -p "$ROOT_ZIEL"
+          sed 's#https://nurovelle.de/homepage/sitemap.xml#https://nurovelle.de/sitemap.xml#' \
+            "$QUELLE"/homepage/robots.txt > "$ROOT_ZIEL"/robots.txt
+          cp "$QUELLE"/homepage/sitemap.xml "$ROOT_ZIEL"/sitemap.xml
+          echo "Auf den Server geschrieben: $(git -C "$QUELLE" rev-parse --short HEAD)"
 
-            # Next.js liest das Verzeichnis public nur beim Start ein. Ohne
-            # Neustart liefert es fuer jede spaeter hinzugekommene Datei 404 -
-            # genau daran sind die letzten Deploys gescheitert. Nachgewiesen am
-            # 22.08.2026: Datei im Container vorhanden, next start auf Port 3000
-            # antwortete trotzdem mit 404, waehrend die beim letzten Start
-            # vorhandene index.html mit 200 antwortete.
-            docker restart ${{ env.CONTAINER }}
-            for i in $(seq 1 20); do
-              if docker exec ${{ env.CONTAINER }} wget -q -O /dev/null http://127.0.0.1:3000/homepage/index.html 2>/dev/null; then
-                echo "Frontend ist nach $i Versuchen wieder bereit."
-                break
-              fi
-              sleep 2
-            done
+          # Next.js liest das Verzeichnis public nur beim Start ein. Ohne
+          # Neustart liefert es fuer jede spaeter hinzugekommene Datei 404 -
+          # genau daran sind die letzten Deploys gescheitert. Nachgewiesen am
+          # 22.08.2026: Datei im Container vorhanden, next start auf Port 3000
+          # antwortete trotzdem mit 404, waehrend die beim letzten Start
+          # vorhandene index.html mit 200 antwortete.
+          docker restart "$CONTAINER"
+          for i in $(seq 1 20); do
+            if docker exec "$CONTAINER" wget -q -O /dev/null http://127.0.0.1:3000/homepage/index.html 2>/dev/null; then
+              echo "Frontend ist nach $i Versuchen wieder bereit."
+              break
+            fi
+            sleep 2
+          done
 
       - name: Live pruefen
         id: pruefung
         run: |
-          erwartet="${{ github.sha }}"
+          erwartet="$GITHUB_SHA"
           marke="<!-- nurovelle-build: $erwartet -->"
-          seite="${{ env.SEITE_URL }}"
+          seite="$SEITE_URL"
           echo "Erwartet wird: $erwartet"
           echo "--- Antwortkopf beim ersten Versuch ---"
-          curl -sS -D - -o /dev/null --max-time 20 "${{ env.PRUEF_URL }}" 2>&1 | head -n 25 || true
+          curl -sS -D - -o /dev/null --max-time 20 "$PRUEF_URL" 2>&1 | head -n 25 || true
           echo "---------------------------------------"
           for versuch in $(seq 1 6); do
-            status="$(curl -sS -o /tmp/antwort.txt -w '%{http_code}' --max-time 20 "${{ env.PRUEF_URL }}" 2>/dev/null || echo 000)"
+            status="$(curl -sS -o /tmp/antwort.txt -w '%{http_code}' --max-time 20 "$PRUEF_URL" 2>/dev/null || echo 000)"
             gelesen="$(head -n1 /tmp/antwort.txt 2>/dev/null | tr -d '\r')"
             # Zweite und eigentlich entscheidende Pruefung: traegt die
             # ausgelieferte Seite selbst die Marke dieses Commits?
@@ -172,52 +168,47 @@ jobs:
 
       - name: Diagnose auf dem VPS
         if: failure() && steps.pruefung.outcome == 'failure'
-        uses: appleboy/ssh-action@v1
-        with:
-          host: ${{ secrets.VPS_HOST }}
-          username: ${{ secrets.VPS_USER }}
-          key: ${{ secrets.VPS_SSH_KEY }}
-          script: |
-            set +e
-            C=${{ env.CONTAINER }}
+        run: |
+          set +e
+          C="$CONTAINER"
 
-            echo "===== A. Sieht der Container die Datei? ====="
-            docker exec "$C" sh -c 'ls -la /app/public/homepage/version.txt 2>&1; echo "Inhalt: $(cat /app/public/homepage/version.txt 2>&1)"'
-            echo "Erwartet: ${{ github.sha }}"
-            echo
+          echo "===== A. Sieht der Container die Datei? ====="
+          docker exec "$C" sh -c 'ls -la /app/public/homepage/version.txt 2>&1; echo "Inhalt: $(cat /app/public/homepage/version.txt 2>&1)"'
+          echo "Erwartet: $GITHUB_SHA"
+          echo
 
-            echo "===== B. Liefert der Container die Datei selbst aus? ====="
-            docker exec "$C" sh -c '
-              for p in 3000 8080 80; do
-                for pfad in /homepage/version.txt /public/homepage/version.txt; do
-                  code=$(wget -S -qO- "http://127.0.0.1:$p$pfad" 2>&1 | grep -m1 "HTTP/" || echo "keine Antwort")
-                  echo "Port $p $pfad -> $code"
-                done
-              done' 2>&1 | head -n 20
-            echo
+          echo "===== B. Liefert der Container die Datei selbst aus? ====="
+          docker exec "$C" sh -c '
+            for p in 3000 8080 80; do
+              for pfad in /homepage/version.txt /public/homepage/version.txt; do
+                code=$(wget -S -qO- "http://127.0.0.1:$p$pfad" 2>&1 | grep -m1 "HTTP/" || echo "keine Antwort")
+                echo "Port $p $pfad -> $code"
+              done
+            done' 2>&1 | head -n 20
+          echo
 
-            echo "===== C. Antwortet der Host selbst? ====="
-            for ziel in "http://127.0.0.1/homepage/version.txt" "https://127.0.0.1/homepage/version.txt"; do
-              echo "$ziel -> $(curl -sk -o /dev/null -w '%{http_code}' -H 'Host: nurovelle.de' --max-time 10 "$ziel" 2>&1)"
-            done
-            echo "oeffentlich  -> $(curl -s -o /dev/null -w '%{http_code}' --max-time 10 ${{ env.PRUEF_URL }} 2>&1)"
-            echo "Startseite   -> $(curl -s -o /dev/null -w '%{http_code}' --max-time 10 https://nurovelle.de/homepage/index.html 2>&1)"
-            echo
+          echo "===== C. Antwortet der Host selbst? ====="
+          for ziel in "http://127.0.0.1/homepage/version.txt" "https://127.0.0.1/homepage/version.txt"; do
+            echo "$ziel -> $(curl -sk -o /dev/null -w '%{http_code}' -H 'Host: nurovelle.de' --max-time 10 "$ziel" 2>&1)"
+          done
+          echo "oeffentlich  -> $(curl -s -o /dev/null -w '%{http_code}' --max-time 10 "$PRUEF_URL" 2>&1)"
+          echo "Startseite   -> $(curl -s -o /dev/null -w '%{http_code}' --max-time 10 https://nurovelle.de/homepage/index.html 2>&1)"
+          echo
 
-            echo "===== D. Wie ist der Frontend-Container bei Traefik angemeldet? ====="
-            docker inspect -f '{{range $k,$v := .Config.Labels}}{{$k}} = {{$v}}{{"\n"}}{{end}}' "$C" 2>/dev/null | grep -i traefik
-            echo "--- veroeffentlichte Ports ---"
-            docker port "$C" 2>&1
-            echo
+          echo "===== D. Wie ist der Frontend-Container bei Traefik angemeldet? ====="
+          docker inspect -f '{{range $k,$v := .Config.Labels}}{{$k}} = {{$v}}{{"\n"}}{{end}}' "$C" 2>/dev/null | grep -i traefik
+          echo "--- veroeffentlichte Ports ---"
+          docker port "$C" 2>&1
+          echo
 
-            echo "===== E. Traefik: dynamische Konfiguration ====="
-            ls -la /opt/Avatar-Generator/proxy/dynamic 2>&1 | head -n 10
-            grep -rhE 'nurovelle|homepage' /opt/Avatar-Generator/proxy/dynamic 2>/dev/null | head -n 25
-            echo
+          echo "===== E. Traefik: dynamische Konfiguration ====="
+          ls -la /opt/Avatar-Generator/proxy/dynamic 2>&1 | head -n 10
+          grep -rhE 'nurovelle|homepage' /opt/Avatar-Generator/proxy/dynamic 2>/dev/null | head -n 25
+          echo
 
-            echo "===== F. Letzte Zeilen aus den Logs ====="
-            echo "--- $C ---"
-            docker logs --tail 25 "$C" 2>&1 | tail -n 25
-            echo "--- traefik (nur nurovelle/homepage) ---"
-            docker logs --tail 400 traefik 2>&1 | grep -iE 'nurovelle|homepage|error' | tail -n 15
-            exit 0
+          echo "===== F. Letzte Zeilen aus den Logs ====="
+          echo "--- $C ---"
+          docker logs --tail 25 "$C" 2>&1 | tail -n 25
+          echo "--- traefik (nur nurovelle/homepage) ---"
+          docker logs --tail 400 traefik 2>&1 | grep -iE 'nurovelle|homepage|error' | tail -n 15
+          exit 0

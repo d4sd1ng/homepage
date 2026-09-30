@@ -1,0 +1,143 @@
+{
+  "directed": true,
+  "multigraph": false,
+  "graph": {
+    "name": "Curated Nurovelle workspace relationships",
+    "schema_version": 1,
+    "purpose": "Project-level relationships backed by repository documentation. Edges distinguish documented runtime behavior from user-approved plans and unresolved documentation claims."
+  },
+  "nodes": [
+    {
+      "id": "homepage_repo::workspace-project",
+      "label": "homepage_repo",
+      "repo": "homepage_repo",
+      "file_type": "project",
+      "_origin": "curated",
+      "integration_status": "Public marketing and analysis entry point for the Neurova/Nurovelle runtime."
+    },
+    {
+      "id": "neurova-ai-infrastructure-analysis::workspace-project",
+      "label": "neurova-ai-infrastructure-analysis",
+      "repo": "neurova-ai-infrastructure-analysis",
+      "file_type": "project",
+      "_origin": "curated",
+      "integration_status": "Documented analysis, lead, homepage-serving, and newsletter runtime."
+    },
+    {
+      "id": "Nurtoring-Email::workspace-project",
+      "label": "Nurtoring-Email",
+      "repo": "Nurtoring-Email",
+      "file_type": "project",
+      "_origin": "curated",
+      "integration_status": "Conflicting documentation: Neurova describes this repository as superseded legacy; its own current-state file describes it as the system foundation."
+    },
+    {
+      "id": "seo-toolbox::workspace-project",
+      "label": "seo-toolbox",
+      "repo": "seo-toolbox",
+      "file_type": "project",
+      "_origin": "curated",
+      "integration_status": "Separate authenticated application. Only a planned CTA from the SEO detail page is asserted; no live widget or data-sharing integration is documented."
+    },
+    {
+      "id": "homepage_repo::detail-seo-page",
+      "label": "SEO & digitale Sichtbarkeit (Detailseite)",
+      "repo": "homepage_repo",
+      "file_type": "page",
+      "_origin": "curated",
+      "source_file": "homepage/detail_seo.html",
+      "integration_status": "Existing service detail page; Toolbox CTA planned, destination URL not provided."
+    },
+    {
+      "id": "homepage_repo::vps-deploy-runner",
+      "label": "Homepage GitHub Actions VPS runner",
+      "repo": "homepage_repo",
+      "file_type": "deployment_runner",
+      "_origin": "curated",
+      "integration_status": "Runner nurovelle-vps is registered for homepage_repo, labels self-hosted/linux/x64/vps, systemd service active, GitHub status online as verified 2026-09-30."
+    }
+  ],
+  "links": [
+    {
+      "source": "homepage_repo::workspace-project",
+      "target": "neurova-ai-infrastructure-analysis::workspace-project",
+      "relation": "public_entry_for_analysis_runtime",
+      "context": "curated_project_relationship",
+      "_origin": "curated",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "neurova-ai-infrastructure-analysis/docs/nurovelle_system_handover_technical_documentation.md",
+      "evidence": "The system handover identifies the static homepage as the commercial entry, then traces the funnel through the analysis page to the backend API, Postgres, results, and lead/follow-up processes. The homepage architecture independently documents the analysis form/API and lead-system handoff."
+    },
+    {
+      "source": "homepage_repo::workspace-project",
+      "target": "neurova-ai-infrastructure-analysis::workspace-project",
+      "relation": "homepage_source_deployed_into_runtime",
+      "context": "curated_project_relationship",
+      "_origin": "curated",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "neurova-ai-infrastructure-analysis/docs/homepage_deploy_from_repo.md",
+      "evidence": "The deployment runbook names homepage_repo as the source and syncs its homepage directory into the analysis app's frontend/public/homepage runtime path. The system handover describes the frontend container serving /homepage/*."
+    },
+    {
+      "source": "homepage_repo::workspace-project",
+      "target": "homepage_repo::detail-seo-page",
+      "relation": "contains_service_detail_page",
+      "context": "curated_project_relationship",
+      "_origin": "curated",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "homepage_repo/project_files/project_overview.md",
+      "evidence": "Project overview documents SEO as a service with its own detail page; the existing page is homepage/detail_seo.html."
+    },
+    {
+      "source": "homepage_repo::detail-seo-page",
+      "target": "seo-toolbox::workspace-project",
+      "relation": "planned_cta_to",
+      "context": "planned_project_relationship",
+      "_origin": "curated",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "implementation_status": "planned_not_implemented",
+      "target_url": null,
+      "source_file": "user-confirmed-plan:2026-09-30",
+      "evidence": "The user confirmed a planned CTA from the SEO detail page to the separate SEO Toolbox. The CTA is not implemented and its real destination URL has not been provided. This is not a live data widget or runtime integration."
+    },
+    {
+      "source": "homepage_repo::workspace-project",
+      "target": "homepage_repo::vps-deploy-runner",
+      "relation": "homepage_deploy_job_runs_on",
+      "context": "documented_deployment_configuration",
+      "_origin": "curated",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "implementation_status": "runner_registered_and_online",
+      "source_file": "homepage_repo/.github/workflows/deploy.yml",
+      "evidence": "The deploy job is configured with runs-on labels self-hosted, linux, vps and runs only for refs/heads/main. Its run steps execute deployment and failure diagnostics directly on the runner. On 2026-09-30 GitHub reported runner nurovelle-vps online with labels self-hosted, Linux, X64, vps; its systemd service was active."
+    },
+    {
+      "source": "neurova-ai-infrastructure-analysis::workspace-project",
+      "target": "Nurtoring-Email::workspace-project",
+      "relation": "documents_as_consolidated_legacy_source",
+      "context": "curated_documentation_claim",
+      "_origin": "curated",
+      "confidence": "AMBIGUOUS",
+      "confidence_score": 0.5,
+      "source_file": "neurova-ai-infrastructure-analysis/docs/nurturing_email_repo_merge.md",
+      "evidence": "Neurova's merge document says Neurova is the single source of truth for productive analysis, lead, Notion, and newsletter runtime, and that the old standalone repository is not the production runtime. Neurova current_state.md and newsletter_integration.md repeat that claim."
+    },
+    {
+      "source": "Nurtoring-Email::workspace-project",
+      "target": "neurova-ai-infrastructure-analysis::workspace-project",
+      "relation": "documents_as_current_nurturing_system_foundation",
+      "context": "curated_documentation_claim",
+      "_origin": "curated",
+      "confidence": "AMBIGUOUS",
+      "confidence_score": 0.5,
+      "source_file": "Nurtoring-Email/current_state.md",
+      "evidence": "The Nurtoring-Email current-state document, dated 2026-07-20, describes this repository as the technical foundation for Nurovelle nurturing and newsletters. This conflicts with Neurova's documentation that the standalone repository is no longer the production runtime. Actual ownership remains unresolved."
+    }
+  ],
+  "hyperedges": []
+}

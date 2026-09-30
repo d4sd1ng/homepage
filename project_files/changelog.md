@@ -1,5 +1,59 @@
 # Changelog
 
+## 2026-09-30 – Homepage-Deploy auf VPS-Runner umgestellt
+
+Status: in Arbeit
+
+Geändert:
+
+- `.github/workflows/deploy.yml`: Deploy-Job und Fehlerdiagnose laufen direkt auf einem self-hosted Linux-Runner mit Label `vps`; SSH-Aktionen wurden aus diesem Workflow entfernt.
+- `.github/workflows/deploy.yml`: Deployment auf `main` beschränkt und den Checkout auf den exakten auslösenden Commit gesetzt.
+- `.github/workflows/deploy.yml`: bestehende Versionsmarken, rsync-Ziele, Container-Neustart, Live-Prüfungen, Sitemap-/Robots-Prüfungen und Zertifikatsprüfung erhalten.
+- VPS: offiziellen GitHub Actions Runner `2.337.0` mit geprüftem SHA-256 für `d4sd1ng/homepage` installiert, mit Label `vps` registriert und als systemd-Dienst aktiviert; GitHub meldet ihn online.
+- `project_files/architecture.md`: Runner-Ausführung, Sicherheitsgrenze und verifizierten VPS-Status dokumentiert.
+- `graphify-out/cross-project-relationships.json` und `graphify-out/cross-project-graph.json`: geplanten CTA, dokumentierte Projektbeziehungen und Runner-Zuordnung mit Evidenz festgehalten.
+
+Nicht geändert:
+
+- `.github/workflows/notify-nurovelle-system.yml` und der SEO-Toolbox-Deploy-Workflow.
+- Homepage-HTML, sichtbare Texte, Layout, Assets und Formularlogik.
+
+## 2026-09-29 – analyse.html vollständig auf Shared Header/Footer umgestellt
+
+Status: fertig
+
+Geändert:
+
+- `homepage/analyse.html`: sämtliche lokalen Header-CSS-Regeln entfernt.
+- `homepage/analyse.html`: sämtliche lokalen Footer-CSS-Regeln entfernt.
+- Lokale Breadcrumb-, Logo-, Header-CTA-, Footer- und Mobile-Overrides entfernt.
+- Lokale Deklarationen für `--header-height`, `--page-gutter`, `--logo-box`, `--logo-w` und `--logo-h` entfernt.
+- Lokales `body padding-top` und `html scroll-padding-top` für den Header entfernt.
+- `shared-header-footer.css` bleibt die einzige CSS-Quelle für Header und Footer.
+- Seiten-CSS für Hero, Cards, Leistungsumfang, Anwendung, Formular und FAQ erhalten.
+- Kein Merge nach `main`.
+
+## 2026-09-29 – Analyse-Breitenkorrektur und Footer-Abstände auf Prüf-Branch
+
+Status: fertig
+
+Geändert:
+
+- `homepage/analyse.html`: globale `.section-inner`-Breite wieder auf `1560px` gesetzt, damit Kicker, Titel, Subtitle und Bodytext ihre bisherige Position behalten.
+- Nur die Inhaltsmodule `.analysis-intro-cards`, `#leistungen .num-list`, `#einsatzbereiche > .section-inner > .panel`, `#analyse-formular .analysis-layout` und `#faq .faq-grid` auf `1300px` begrenzt und zentriert.
+- `homepage/shared-header-footer.css`: oberen Footer-Abstand von `43.2px` auf `21.6px` halbiert.
+- Abstand zwischen Footer-Titel und folgendem Inhalt von `6.4px` auf `12.8px` verdoppelt.
+- Footer-Legal-/Copyright-Bereich weiter nach unten gesetzt; `.footer-bottom`-Abstand oben von `27.2px` auf `54.4px` erhöht.
+- Footer-Abstand unten auf `25px` gesetzt.
+
+Nicht geändert:
+
+- Hero-Inhalte
+- Formularlogik
+- API-Endpunkte
+- Texte
+- `main`
+
 ## 2026-09-29 – Shared Header/Footer in analyse.html korrekt angewandt
 
 Status: fertig
