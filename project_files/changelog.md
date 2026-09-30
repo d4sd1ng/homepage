@@ -1,3 +1,17 @@
+## 2026-09-30 – Analyse-Styles und Header-CTA repariert
+
+Status: geprüft
+
+Geändert:
+
+- `homepage/analyse.html`: wörtliche `\n`-Zeichen vor `:root` durch echte Zeilenumbrüche ersetzt. Die Seitentokens greifen damit wieder; Hero- und Abschnittsüberschriften haben ihre definierte Größe.
+- `homepage/analyse.html`: vorhandenen statischen Goldverlauf für `h1` und `main h2` wiederhergestellt.
+- `homepage/shared-header-footer.css`: bestehende `.golden-button`-Basis-, Hover- und Active-Regeln aus `homepage/index.html` für den gemeinsamen Header-CTA ergänzt; dessen Link-Unterstreichung entfernt und vorhandene Icon-Größe übernommen.
+
+Nicht geändert:
+
+- Texte, Assetpfade, Formular- und JavaScript-Logik sowie die goldene Definition-Card.
+
 ## 2026-09-30 – Shared Header-Offset zentralisiert und Gold-Card wiederhergestellt
 
 Status: fertig

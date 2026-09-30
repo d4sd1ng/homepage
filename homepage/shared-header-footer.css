@@ -1,4 +1,48 @@
 body { padding-top: var(--header-height); }
+.golden-button {
+  touch-action: manipulation;
+  display: inline-flex;
+  align-items: center;
+  gap: 6.4px;
+  justify-content: center;
+  min-width: 176px;
+  box-sizing: border-box;
+  height: 2.75em;
+  padding: 0 1em;
+  border: 0.8px solid var(--nv-gold-border);
+  border-radius: 0.3em;
+  color: var(--nv-gold-text-dark);
+  background-image: var(--nv-gold-gradient);
+  background-position: center;
+  background-size: 100% 100%;
+  box-shadow: 0 2.4px 4.8px var(--shadow-soft), 0 2.4px 4.8px var(--shadow-soft-2),
+    inset 0 -1.6px 4px 0.8px var(--nv-gold-inner-dark), inset 0 -0.8px 0.8px 2.4px var(--nv-gold-highlight);
+  font-family: inherit;
+  font-size: 1em;
+  font-weight: 800;
+  line-height: 2.5em;
+  letter-spacing: 0.045em;
+  text-shadow: 0 1.6px 1.6px var(--nv-gold-highlight);
+  text-transform: uppercase;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  position: relative;
+}
+a:hover .golden-button, a:focus-visible .golden-button {
+  color: var(--nv-gold-text-hover);
+  border-color: var(--nv-gold-border-hover);
+  background-size: 150% 150%;
+  transform: translateY(-1.6px);
+  box-shadow: 0 8px 16px var(--shadow-hover-1), 0 4.8px 4.8px var(--shadow-hover-2),
+    inset 0 -1.6px 4px 0.8px var(--nv-gold-inner-mid), inset 0 -0.8px 0.8px 2.4px var(--nv-gold-highlight);
+}
+a:active .golden-button {
+  box-shadow: 0 2.4px 4.8px var(--shadow-soft), 0 2.4px 4.8px var(--shadow-soft-2),
+    inset 0 -1.6px 4px 0.8px var(--nv-gold-inner-mid), inset 0 -0.8px 0.8px 2.4px var(--nv-gold-highlight);
+}
+.header-cta { text-decoration: none; }
+.header-cta .nv-calendly-icon { width: 16px; height: 16px; flex: 0 0 auto; }
 /* Nurovelle – Header/Footer – exakt aus index.html extrahierte komponenteneigene Regeln. */
 .site-header {
   height: var(--header-height);
