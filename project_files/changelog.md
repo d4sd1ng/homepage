@@ -1,3 +1,17 @@
+## 2026-09-30 – Anwendungs-Cards kompakter gesetzt
+
+Status: fertig
+
+Geändert:
+
+- `homepage/analyse.html`: „Vorbereitung von Daten, Prozessen oder Schnittstellen“ auf „Vorbereitung von Daten, Prozessen“ gekürzt.
+- Innen-Padding der Anwendungs-Cards halbiert: Desktop `9px 12px` → `4.5px 6px`, kurze Desktop-Ansicht `7px 10px` → `3.5px 5px`.
+
+Nicht geändert:
+
+- Card-Höhen, Grid-/Reihenabstände, übrige Texte und andere Sektionen.
+- `homepage/shared-header-footer.css`.
+
 ## 2026-09-30 – Analyse-Hero von Shared-Header-Höhe entkoppelt
 
 Status: fertig
