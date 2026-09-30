@@ -74,7 +74,7 @@
 .footer::before { content: ""; position: absolute; left: 0; right: 0; top: 0; height: 0.8px; background: linear-gradient(90deg, transparent, #fae385 20%, #fae385 80%, transparent); box-shadow: 0 0 6.4px #fae38566; pointer-events: none; }
 .footer-inner { display: grid;
         grid-template-columns: minmax(0, 320px) auto minmax(0, 304px) auto; justify-content: space-between; gap: 76.8px; width: 100%; max-width: none; margin: 0; }
-.footer h4, .footer .footer-col__title { margin: 0 0 12.8px; color: #fae385; font: var(--w-zwischentitel) var(--t-zwischentitel)/1.2 "Exo 2",Inter,Arial,sans-serif; letter-spacing: 0.06em; text-transform: uppercase; }
+.footer h4, .footer .footer-col__title { margin: 0 0 6.4px; color: #fae385; font: var(--w-zwischentitel) var(--t-zwischentitel)/1.2 "Exo 2",Inter,Arial,sans-serif; letter-spacing: 0.06em; text-transform: uppercase; }
 .footer a:not(.footer-top):not(.footer-social a), .footer p { display: block; margin: 0 0 5.6px; color: #c4ccc6; font: 400 13.6px/1.7 Inter, Arial, sans-serif; text-decoration: none; }
 .footer-col--about p { color: #aab2ad; }
 .footer a:hover, .footer a:focus-visible { color: #fae385; outline: none; }
