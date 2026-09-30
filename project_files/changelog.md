@@ -74,6 +74,20 @@ Nicht geändert:
 
 # Changelog
 
+## 2026-09-30 – SEO-Toolbox-Widget auf detail_seo.html eingebunden
+
+Status: in Arbeit
+
+Geändert:
+
+- `homepage/detail_seo.html`: Stylesheet `https://seo.nurovelle.de/toolbox/widget.css` im Head eingebunden.
+- `homepage/detail_seo.html`: im bestehenden Hero-CTA-Bereich den Link `Kostenloser SEO-Check` mit `id="nv-seo-trigger"`, bestehender Klasse `btn` und `mailto:info@nurovelle.de` als Ziel ergänzt.
+- `homepage/detail_seo.html`: Skript `https://seo.nurovelle.de/toolbox/widget.js` mit `async` vor `</body>` eingebunden.
+
+Nicht geändert:
+
+- Bestehender CTA `SEO-Potenzial analysieren`, übrige Seiteninhalte, Assetpfade, CSS-Regeln und vorhandene JavaScript-Logik.
+
 ## 2026-09-30 – Homepage-Deploy auf VPS-Runner umgestellt
 
 Status: in Arbeit
