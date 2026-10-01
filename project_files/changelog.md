@@ -1,3 +1,19 @@
+## 2026-10-01 – Analyse-Divider, Prozesspfeile und Wiederholungsanteil korrigiert
+
+Status: fertig
+
+Geändert:
+
+- `homepage/index.html`: Divider der breiten Analyse-Card ist jetzt eine eigene mittlere Grid-Spalte zwischen zwei gleich breiten Inhaltsbereichen; damit liegt die Linie strukturell exakt in der Mitte.
+- `homepage/index.html`: Prozesspfeile werden horizontal im Zwischenraum der sechs Schritte und vertikal auf Höhe der Modulmitten positioniert.
+- `homepage/index.html`: Regler „Anteil automatisierbarer Aufgaben“ ersetzt durch „Anteil wiederkehrender Abläufe“.
+- `homepage/index.html`: erklärender Hinweis ergänzt: „Wie viel dieser Arbeit läuft nach einem ähnlichen Muster ab?“
+- `homepage/index.html`: Reglerbereich auf 0–100 % erweitert. Die bestehende Berechnungsformel nutzt denselben numerischen Faktor weiter.
+
+Nicht geändert:
+
+- IDs, JavaScript-Berechnungsformel, bestehende Formular-/API-Feldnamen, Datenfaktor, Stundensatzlogik und Ergebniskennzahlen.
+
 ## 2026-10-01 – Deep-Analyse-Preise spaltenweise ausgerichtet
 
 Status: fertig

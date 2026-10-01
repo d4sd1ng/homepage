@@ -225,3 +225,11 @@ Entscheidung: Der Projektstart-Hinweis steht direkt unter der mittleren Card. In
 
 Entscheidung: Der Divider zwischen „Von der Idee zum Projekt“ und „Pakete“ wird sichtbar verstärkt.
 
+## 2026-10-01 – Wiederholungsanteil als Eingabe der Richtwertberechnung
+
+Entscheidung: Die Richtwertberechnung fragt nicht mehr nach dem vom Besucher selbst einzuschätzenden „Anteil automatisierbarer Aufgaben“. Stattdessen wird der beobachtbare „Anteil wiederkehrender Abläufe“ mit der Erklärung „Wie viel dieser Arbeit läuft nach einem ähnlichen Muster ab?“ auf einer Skala von 0–100 % abgefragt. Der Wert übernimmt denselben numerischen Faktor in der bestehenden Berechnungsformel.
+
+## 2026-10-01 – Analyse-Divider und Prozesspfeile
+
+Entscheidung: Der Divider der breiten Analyse-Card wird als eigene mittlere Grid-Spalte zwischen zwei gleich breiten Bereichen aufgebaut. Die Pfeile im sechs-stufigen Ablauf sitzen mittig in den Zwischenräumen und auf Höhe der Modulmitten.
+
