@@ -856,9 +856,11 @@ canvas.nv-step-viz {
 .nv-acard__title, .nv-aform > h3 { margin: 0 0 19.2px; color: transparent; background: var(--gold-1); background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent; font: var(--w-kartentitel) var(--t-kartentitel)/1.05 "Exo 2",Inter,Arial,sans-serif; text-transform: none; }
 .nv-acard__split { display: grid; grid-template-columns: 1fr 1fr; gap: 25.6px; align-items: start; }
 .nv-acard__col { min-width: 0; }
-.nv-analyse__grid > :nth-child(1) .nv-acard__split { grid-template-columns: minmax(0,1fr) minmax(0,1fr); justify-content: stretch; align-items: stretch; }
+.nv-analyse__grid > :nth-child(1) .nv-acard__split { position: relative; grid-template-columns: minmax(0,1fr) minmax(0,1fr); justify-content: stretch; align-items: stretch; }
+
+.nv-analyse__grid > :nth-child(1) .nv-acard__split::after { content: ""; position: absolute; top: 0; bottom: 0; left: 50%; width: 1px; transform: translateX(-50%); background: linear-gradient(180deg, transparent, #d4af37 12%, #d4af37 88%, transparent); pointer-events: none; }
 .nv-analyse__grid > :nth-child(1) .nv-acard__col:last-child { display: flex; flex-direction: column; justify-content: space-between; position: relative; }
-.nv-analyse__grid > :nth-child(1) .nv-acard__col:last-child::before { content: ""; position: absolute; left: -16px; transform: translateX(-50%); top: 0; bottom: 0; width: 0.8px; background: linear-gradient(180deg, transparent, #d4af37 12%, #d4af37 88%, transparent); }
+.nv-analyse__grid > :nth-child(1) .nv-acard__col:last-child::before { content: none; }
 .nv-analyse__grid > :nth-child(1),
 .nv-analyse__grid > :nth-child(2) { width: auto; max-width: none; justify-self: stretch; }
 @media(max-width:760px){ .nv-acard__split{ grid-template-columns:1fr; } }
@@ -2260,7 +2262,7 @@ canvas.nv-step-viz {
             <li>Workshop mit Ihrem Team</li>
             <li>Report als HTML und PDF sowie Implementierungsleitfaden</li>
           </ul>
-          <p class="nv-analyse__offer-price">Einführungspreis 555&nbsp;€ netto · Listenpreis 699&nbsp;€ netto</p>
+          <p class="nv-analyse__offer-price">Einführungspreis 555&nbsp;€ netto<br>Listenpreis 699&nbsp;€ netto</p>
           <p class="nv-analyse__offer-note">Einführungspreis für Anfragen bis 31.12.2026, zzgl. 19&nbsp;% MwSt. Scope wird vor Start schriftlich festgehalten.</p>
           <a class="hero-cta" href="potenzialanalyse-deep.html">
             <span class="golden-button"><span class="golden-text">Tiefgehende Potenzialanalyse ansehen</span></span>

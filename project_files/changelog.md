@@ -1,3 +1,17 @@
+## 2026-10-01 – Deep-Preise und Analyse-Divider korrigiert
+
+Status: fertig
+
+Geändert:
+
+- `homepage/index.html`: Einführungspreis und Listenpreis der Tiefgehenden Potenzialanalyse stehen jetzt als zwei separate Zeilen ohne Trennpunkt untereinander.
+- `homepage/index.html`: Divider der breiten oberen Analyse-Card direkt am gesamten 50/50-Split auf `left: 50%` verankert.
+- `homepage/index.html`: bisherigen Divider an der rechten Spalte deaktiviert.
+
+Nicht geändert:
+
+- Preise selbst, Analyseberechnung, Card-Breiten, Sliderlogik, Formularlogik und übrige Sektionen.
+
 ## 2026-10-01 – Analyse-, Paket-, Projektstart- und Leistungsdetails korrigiert
 
 Status: fertig
