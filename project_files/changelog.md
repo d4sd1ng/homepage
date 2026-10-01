@@ -883,3 +883,15 @@ Nicht geändert:
 - reale Backend-/API-Systeme
 - reale Notion-/Mail-/Lead-Integrationen
 - Assetdateien selbst
+
+## 2026-10-02 – SEO-Widget nach CDN-404 wieder erreichbar
+
+Status: geprüft
+
+Geändert:
+
+- `homepage/detail_seo.html`: bestehende Widget-Skript-URL mit `?v=1fa290b9` versioniert, damit der nach einem Toolbox-Neustart zwischengespeicherte 404-Eintrag umgangen wird.
+
+Nicht geändert:
+
+- Widget-CSS, CTA, Seitentexte, Assetpfade und vorhandene JavaScript-Logik.
