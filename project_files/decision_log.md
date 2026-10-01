@@ -211,3 +211,9 @@ Entscheidung: Die Desktop-Schieberegler der Homepage-Potenzialanalyse verwenden 
 
 Auswirkung: Nur die Track-Breite der bestehenden Slider-Regel wird angepasst; das bestehende Analyse-Spaltenverhältnis und die übrige Analyse-Logik bleiben unverändert.
 
+## 2026-10-01 – Obere Analyse-Cards breiter/schmaler gewichtet
+
+Entscheidung: Die obere Analyse-Card-Reihe verwendet für die Regler-Card und die Ergebnis-Card das Verhältnis `1.14fr / .86fr`. Gauge und Kennzahlenblock der Ergebnis-Card werden linksbündig mit `20px` Spaltenabstand angeordnet.
+
+Auswirkung: Nur die beiden oberen Analyse-Cards werden neu gewichtet; Sliderbreite, innere Regler-Card-Aufteilung, Berechnung und untere Analyse-Cards bleiben unverändert.
+

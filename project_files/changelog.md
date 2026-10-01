@@ -1,3 +1,16 @@
+## 2026-10-01 – Analyse-Cards neu gewichtet
+
+Status: fertig
+
+Geändert:
+
+- `homepage/index.html`: obere Analyse-Card-Aufteilung von `1fr / 1fr` auf `1.14fr / .86fr` geändert, damit die Regler-Card breiter und die Ergebnis-Card schmaler wird.
+- `homepage/index.html`: Gauge und Kennzahlenblock in der Ergebnis-Card linksbündig angeordnet und deren Spaltenabstand auf `20px` gesetzt.
+
+Nicht geändert:
+
+- Sliderbreite `calc(100% - 152px)`, innere Aufteilung der linken Regler-Card, Texte, Berechnung, Formularlogik und untere Analyse-Cards.
+
 ## 2026-10-01 – Analyse-Schieberegler auf 152 px Verkürzung korrigiert
 
 Status: fertig
