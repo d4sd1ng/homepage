@@ -1,3 +1,15 @@
+## 2026-10-01 – Analyse-Schieberegler auf 152 px Verkürzung korrigiert
+
+Status: fertig
+
+Geändert:
+
+- `homepage/index.html`: Desktop-Schieberegler der Potenzialanalyse von `calc(100% - 232px)` auf `calc(100% - 152px)` korrigiert.
+
+Nicht geändert:
+
+- Analyse-Spaltenverhältnis `.88fr / 1.12fr`, Labelbreite, Formularlogik, Inhalte und übrige Homepage-Bereiche.
+
 ## 2026-10-01 – Analyse-Schieberegler auf 232 px Verkürzung gesetzt
 
 Status: fertig
