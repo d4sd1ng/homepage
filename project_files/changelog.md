@@ -1,3 +1,24 @@
+## 2026-10-01 – Analyse-, Paket-, Projektstart- und Leistungsdetails korrigiert
+
+Status: fertig
+
+Geändert:
+
+- `homepage/index.html`: obere Analyse-Cards auf `1.28fr / .72fr` neu gewichtet; Ergebnis-Card kompakter und nach links ausgerichtet.
+- `homepage/index.html`: linke Analyse-Card intern auf `1fr / 1fr` gesetzt, damit der Divider mittig sitzt.
+- `homepage/index.html`: Slider auf `calc(100% - 64px)` verbreitert und Text-/Wert-Abstände auf festen `12px`-Gap reduziert.
+- `homepage/index.html`: „Manuelle/repetitive Arbeit je Person“ auf „Repetitive Arbeit / Mitarb.“ geändert.
+- `homepage/index.html`: Gauge auf `128px` und Ergebnis-Kennzahlkarten auf kompakte `148px`-Spalten gesetzt.
+- `homepage/index.html`: Paketpreise über feste Preis-Spalte sauber untereinander ausgerichtet.
+- `homepage/index.html`: Pfeile der „Mehr erfahren“-Buttons in Projektstart- und Leistungs-Cards vertikal nachjustiert.
+- `homepage/index.html`: Hinweis „Klicken für mehr Informationen“ direkt unter die mittlere Projektstart-Card verschoben.
+- `homepage/index.html`: alle drei Divider der Leistungs-Cards im aktiven Zustand mit höherem Stacking und klarerer Goldlinie abgesichert.
+- `homepage/index.html`: Divider zwischen „Von der Idee zum Projekt“ und „Pakete“ auf `1.6px` mit stärkerem Gold-Glow angehoben.
+
+Nicht geändert:
+
+- Potenzialberechnung, Formularfelder/-logik, Paketpreise selbst, Card-Texte außerhalb der ausdrücklich genannten Beschriftung und übrige Sektionen.
+
 ## 2026-10-01 – Analyse-Cards neu gewichtet
 
 Status: fertig

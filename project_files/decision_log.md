@@ -217,3 +217,11 @@ Entscheidung: Die obere Analyse-Card-Reihe verwendet für die Regler-Card und di
 
 Auswirkung: Nur die beiden oberen Analyse-Cards werden neu gewichtet; Sliderbreite, innere Regler-Card-Aufteilung, Berechnung und untere Analyse-Cards bleiben unverändert.
 
+## 2026-10-01 – Analyse-Card-Gewichtung und Divider-Korrekturen
+
+Entscheidung: Die obere Analyse-Card-Reihe verwendet `1.28fr / .72fr`; die linke Analyse-Card ist intern gleichmäßig `1fr / 1fr` geteilt. Die Slider nutzen `calc(100% - 64px)`, Text und Wert stehen ohne automatischen Zwischenraum mit `12px` Gap.
+
+Entscheidung: Der Projektstart-Hinweis steht direkt unter der mittleren Card. In der Leistungssektion müssen vertikaler Divider, linker Horizontal-Divider und rechter kurzer Horizontal-Divider im aktiven Zustand gleichzeitig sichtbar sein.
+
+Entscheidung: Der Divider zwischen „Von der Idee zum Projekt“ und „Pakete“ wird sichtbar verstärkt.
+
