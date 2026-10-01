@@ -1,3 +1,16 @@
+## 2026-10-01 – Deep-Analyse-Preise spaltenweise ausgerichtet
+
+Status: fertig
+
+Geändert:
+
+- `homepage/index.html`: „Einführungspreis“ und „Listenpreis“ bleiben in zwei Zeilen, ihre Preiswerte stehen jetzt in einer eigenen zweiten Spalte exakt untereinander.
+- `homepage/index.html`: Preiswerte verwenden tabellarische Ziffern und sind rechtsbündig innerhalb der gemeinsamen Preisspalte.
+
+Nicht geändert:
+
+- Preiswerte, Texte, Card-Breite, übrige Analyse- und Paketpreise.
+
 ## 2026-10-01 – Deep-Preise und Analyse-Divider korrigiert
 
 Status: fertig

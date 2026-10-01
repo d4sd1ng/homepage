@@ -839,6 +839,8 @@ canvas.nv-step-viz {
 .nv-analyse__offer-list li::before { content: ""; position: absolute; left: 0; top: 0.55em; width: 5.6px; height: 5.6px; border-radius: 1.6px; background: #dfbd69; }
 .nv-analyse__offer-list strong { color: #e4e0d6; }
 .nv-analyse__offer-price { color: #fae385 !important; font: 600 22px/1.3 Inter,Arial,sans-serif !important; }
+.nv-analyse__offer-price--stacked { display: grid; grid-template-columns: max-content max-content; column-gap: 12px; row-gap: 2px; align-items: baseline; width: max-content; }
+.nv-analyse__offer-price--stacked .nv-analyse__offer-price-value { text-align: right; justify-self: end; font-variant-numeric: tabular-nums; }
 .nv-analyse__offer-note { color: #8b938d !important; font-size: 14px !important; }
 .nv-analyse__offer .hero-cta { margin-top: auto; align-self: flex-start; padding-top: 8px; }
 @media (max-width: 1100px) { .nv-analyse__offers { grid-template-columns: 1fr; } }
@@ -2262,7 +2264,7 @@ canvas.nv-step-viz {
             <li>Workshop mit Ihrem Team</li>
             <li>Report als HTML und PDF sowie Implementierungsleitfaden</li>
           </ul>
-          <p class="nv-analyse__offer-price">Einführungspreis 555&nbsp;€ netto<br>Listenpreis 699&nbsp;€ netto</p>
+          <p class="nv-analyse__offer-price nv-analyse__offer-price--stacked"><span>Einführungspreis</span><span class="nv-analyse__offer-price-value">555&nbsp;€ netto</span><span>Listenpreis</span><span class="nv-analyse__offer-price-value">699&nbsp;€ netto</span></p>
           <p class="nv-analyse__offer-note">Einführungspreis für Anfragen bis 31.12.2026, zzgl. 19&nbsp;% MwSt. Scope wird vor Start schriftlich festgehalten.</p>
           <a class="hero-cta" href="potenzialanalyse-deep.html">
             <span class="golden-button"><span class="golden-text">Tiefgehende Potenzialanalyse ansehen</span></span>
