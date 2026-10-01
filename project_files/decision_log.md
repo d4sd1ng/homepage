@@ -204,3 +204,10 @@ konkrete Ausführung der Modulwelt aus Abschnitt 14. Ein verbindliches
 Einzelmotiv daraus steht noch aus.
 
 Aktuelle Bildregeln: siehe `styleguide.md`, Abschnitt 17a.
+
+## 2026-10-01 – Analyse-Schieberegler mit 232 px Verkürzung freigegeben
+
+Entscheidung: Die Desktop-Schieberegler der Homepage-Potenzialanalyse verwenden `calc(100% - 232px)`.
+
+Auswirkung: Nur die Track-Breite der bestehenden Slider-Regel wird angepasst; das bestehende Analyse-Spaltenverhältnis und die übrige Analyse-Logik bleiben unverändert.
+
