@@ -1,3 +1,19 @@
+## 2026-10-04 – Hero-Bild tatsächlich vergrößert, Position beibehalten
+
+Status: fertig
+
+Geändert:
+
+- `homepage/analyse.html`: Desktop-Grid auf die vorherige Text-/Bildposition `1.35fr / .85fr` zurückgesetzt.
+- Das Hero-Bild wird jetzt selbst auf 760 px Breite gesetzt; nicht nur seine Grid-Spalte.
+- Das Bild wird relativ zur bestehenden Visual-Spalte zentriert, damit sein Mittelpunkt beim Vergrößern an derselben Position bleibt.
+- Im Bereich 901–1100 px wird das Bild analog tatsächlich auf 680 px Breite gesetzt.
+- Shared Header/Footer und übrige Sektionen unverändert.
+
+Ursache:
+
+- Die vorherige Änderung vergrößerte primär die rechte Grid-Spalte. Wegen `width:100%` am Bild blieb dessen effektive Größe an die Spaltenbreite gebunden; dadurch änderte sich vor allem die Position.
+
 ## 2026-10-04 – Hero-Bild der Analyse wieder vergrößert
 
 Status: fertig

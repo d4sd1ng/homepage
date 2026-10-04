@@ -277,3 +277,7 @@ Entscheidung: Der funktionierende Shared Footer wird nicht zur Korrektur eines s
 
 Entscheidung: Das Hero-Visual auf `analyse.html` nutzt auf Desktop ab 1101 px wieder maximal 760 px Breite und die zuvor verwendete Spaltenverteilung `1.08fr / 1.12fr`.
 
+## 2026-10-04 – Analyse-Hero-Bild wird unabhängig von der Grid-Spalte skaliert
+
+Entscheidung: Die Position des Hero-Visuals auf `analyse.html` bleibt über das bestehende Desktop-Grid erhalten. Die Bildgröße wird separat gesteuert: 760 px ab 1101 px und 680 px von 901–1100 px, jeweils um den Mittelpunkt der Visual-Spalte zentriert.
+
