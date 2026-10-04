@@ -1,3 +1,19 @@
+## 2026-10-04 – Abstände in der Definitionssektion vergrößert
+
+Status: fertig
+
+Geändert:
+
+- `homepage/analyse.html`: Die Viewport-Höhe von `#was-ist-das` bleibt unverändert bestehen.
+- Abstand zwischen Subline und den beiden Definitions-Cards auf Desktop auf 64 px erhöht.
+- Abstand zwischen den Definitions-Cards und dem CTA auf Desktop auf 56 px erhöht.
+- Auf Mobile werden 40 px zwischen Subline und Cards sowie 36 px zwischen Cards und CTA verwendet.
+- Keine `!important`-Regeln ergänzt.
+
+Nicht geändert:
+
+- Cards, Texte, CTA-Ziel, Viewport-Logik und übrige Sektionen.
+
 ## 2026-10-04 – Analyse-Layout von Override-Schichten bereinigt
 
 Status: fertig

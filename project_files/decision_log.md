@@ -253,3 +253,7 @@ Entscheidung: Die eigenständige Sektion `#was-ist-das` belegt auf Desktop die v
 
 Entscheidung: Hero-, Viewport- und Section-Layout von `analyse.html` wird aus einer konsolidierten CSS-Quelle ohne `!important` gesteuert. Hero und Definitionssektion belegen auf Desktop die sichtbare Höhe unterhalb des Headers; weitere Inhaltssektionen folgen bei ausreichender Bildschirmhöhe demselben Viewport-Prinzip. Historische Layout-Override-Schichten werden nicht weitergeführt.
 
+## 2026-10-04 – Größere vertikale Abstände in der Definitionssektion
+
+Entscheidung: `#was-ist-das` bleibt eine Viewport-Sektion. Innerhalb der Sektion werden Subline und Cards sowie Cards und CTA deutlicher voneinander getrennt: Desktop 64 px bzw. 56 px; Mobile 40 px bzw. 36 px.
+
