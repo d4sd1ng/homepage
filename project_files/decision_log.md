@@ -241,3 +241,7 @@ Entscheidung: Die Hauptnavigation erhält nach den bestehenden Breadcrumbs zwei 
 
 Entscheidung: „Was ist eine KI-Potenzialanalyse?“ steht auf `analyse.html` als eigenständige Sektion direkt nach dem Hero. Die bestehenden Definitionsinhalte bleiben unverändert. Die Sektion erhält den CTA `KI-Potenzialanalyse starten` mit Ziel `#analyse-formular`.
 
+## 2026-10-04 – Potenzialanalyse-Hero nutzt volle sichtbare Höhe
+
+Entscheidung: Nach der Trennung von Hero und Definitionssektion belegt der Hero auf Desktop die sichtbare Viewport-Höhe unterhalb des Headers. Die Höhe liegt am `#hero` selbst, nicht an einem leeren Wrapper; der bestehende Hero-Inhalt wird vertikal in dieser Fläche ausgerichtet.
+

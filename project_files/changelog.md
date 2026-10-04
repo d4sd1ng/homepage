@@ -1,3 +1,17 @@
+## 2026-10-04 – Hero der Potenzialanalyse auf volle sichtbare Höhe gezogen
+
+Status: fertig
+
+Geändert:
+
+- `homepage/analyse.html`: Nach dem Herauslösen der Definitionssektion nutzt der Hero selbst auf Desktop jetzt die volle sichtbare Höhe unterhalb des Headers.
+- Die bisherige `100dvh`-Mindesthöhe des leeren `.hero-viewport`-Wrappers wurde entfernt.
+- `#hero` erhält `min-height: calc(100dvh - var(--header-height))` und zentriert seinen bestehenden Inhalt vertikal innerhalb dieser Fläche.
+
+Nicht geändert:
+
+- Hero-Texte, Hero-Grafik, CTA, Spaltenbreiten und nachfolgende Sektionen.
+
 ## 2026-10-04 – „Was ist eine KI-Potenzialanalyse?“ als eigene Sektion
 
 Status: fertig

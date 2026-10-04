@@ -583,9 +583,18 @@ h1, main h2 {\n  -webkit-text-stroke: .6px rgba(255,248,207,.40);\n  background-
 @media(min-width:901px){
   .hero-viewport{
     height:auto!important;
-    min-height:100dvh!important;
-    justify-content:flex-start!important;
+    min-height:0!important;
+    display:block!important;
     background:#000!important;
+  }
+  .hero-viewport #hero{
+    min-height:calc(100dvh - var(--header-height))!important;
+    height:auto!important;
+    display:flex!important;
+    align-items:center!important;
+  }
+  .hero-viewport #hero>.section-inner{
+    width:100%;
   }
   #was-ist-das{
     margin-top:0!important;
