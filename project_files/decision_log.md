@@ -281,3 +281,7 @@ Entscheidung: Das Hero-Visual auf `analyse.html` nutzt auf Desktop ab 1101 px wi
 
 Entscheidung: Die Position des Hero-Visuals auf `analyse.html` bleibt über das bestehende Desktop-Grid erhalten. Die Bildgröße wird separat gesteuert: 760 px ab 1101 px und 680 px von 901–1100 px, jeweils um den Mittelpunkt der Visual-Spalte zentriert.
 
+## 2026-10-04 – Analyse-Hero-Visual um festen Mittelpunkt skalieren
+
+Entscheidung: Das Hero-Visual auf `analyse.html` wird nicht durch erneute Grid-Verschiebungen vergrößert. Die bestehende Position bleibt erhalten; der sichtbare Bildinhalt wird auf Desktop per `scale(1.6)` und zwischen 901–1100 px per `scale(1.45)` um den Mittelpunkt skaliert.
+

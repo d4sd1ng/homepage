@@ -1,3 +1,18 @@
+## 2026-10-04 – Sichtbaren Inhalt des Analyse-Hero-Visuals vergrößert
+
+Status: fertig
+
+Geändert:
+
+- `homepage/analyse.html`: Das Hero-Bild bleibt an derselben Position und wird zusätzlich um seinen eigenen Mittelpunkt skaliert.
+- Desktop ab 1101 px: `scale(1.6)`.
+- Desktop/Tablet 901–1100 px: `scale(1.45)`.
+- Grid, Textspalte, Hero-Position, Shared Header/Footer und übrige Sektionen bleiben unverändert.
+
+Ursache:
+
+- Die vorherige Änderung erhöhte zwar die CSS-Bildbreite, vergrößerte den sichtbaren Diagramminhalt aber kaum. Deshalb wird jetzt das gerenderte Bild selbst skaliert, ohne das Grid erneut zu verschieben.
+
 ## 2026-10-04 – Hero-Bild tatsächlich vergrößert, Position beibehalten
 
 Status: fertig
