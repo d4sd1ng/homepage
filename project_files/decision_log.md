@@ -233,3 +233,7 @@ Entscheidung: Die Richtwertberechnung fragt nicht mehr nach dem vom Besucher sel
 
 Entscheidung: Der Divider der breiten Analyse-Card wird als eigene mittlere Grid-Spalte zwischen zwei gleich breiten Bereichen aufgebaut. Die Pfeile im sechs-stufigen Ablauf sitzen mittig in den Zwischenräumen und auf Höhe der Modulmitten.
 
+## 2026-10-04 – SEO Toolbox und Automationen in der Hauptnavigation
+
+Entscheidung: Die Hauptnavigation erhält nach den bestehenden Breadcrumbs zwei zusätzliche direkte Breadcrumbs: `SEO Toolbox` → `detail_seo.html` und `Automationen` → `detail_automationen.html`. Die beiden Einträge sind direkte Navigationselemente und keine zusätzlichen Dropdown-Menüs.
+

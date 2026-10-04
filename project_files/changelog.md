@@ -1,3 +1,15 @@
+## 2026-10-04 – SEO Toolbox und Automationen als Haupt-Breadcrumbs ergänzt
+
+Status: fertig
+
+Geändert:
+
+- Die bestehende Hauptnavigation wurde auf allen 32 aktiven HTML-Seiten mit Breadcrumb-Header um zwei direkte Breadcrumbs erweitert.
+- `SEO Toolbox` verlinkt auf `detail_seo.html`.
+- `Automationen` verlinkt auf `detail_automationen.html`.
+- Auf den Branchen-Unterseiten werden die vorhandenen relativen Pfade `../../detail_seo.html` und `../../detail_automationen.html` verwendet.
+- Bestehende Breadcrumb-Dropdowns, Header-CTA und übrige Navigation wurden nicht verändert.
+
 ## 2026-10-04 – Rechter kurzer Divider aller Leistungs-Cards abgesichert
 
 Status: fertig
