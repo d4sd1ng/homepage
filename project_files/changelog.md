@@ -1,3 +1,12 @@
+## 2026-10-04 – CTA unter den Definitions-Cards zentriert
+
+Status: fertig
+
+Geändert:
+
+- `homepage/analyse.html`: Der CTA `KI-Potenzialanalyse starten` sitzt mittig unter den beiden Definitions-Cards.
+- Bestehende Abstände und Viewport-Höhe bleiben unverändert.
+
 ## 2026-10-04 – Abstände in der Definitionssektion vergrößert
 
 Status: fertig

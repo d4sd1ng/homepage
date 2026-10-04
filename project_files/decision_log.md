@@ -257,3 +257,7 @@ Entscheidung: Hero-, Viewport- und Section-Layout von `analyse.html` wird aus ei
 
 Entscheidung: `#was-ist-das` bleibt eine Viewport-Sektion. Innerhalb der Sektion werden Subline und Cards sowie Cards und CTA deutlicher voneinander getrennt: Desktop 64 px bzw. 56 px; Mobile 40 px bzw. 36 px.
 
+## 2026-10-04 – CTA der Definitionssektion mittig
+
+Entscheidung: Der CTA unter den beiden Cards in `#was-ist-das` wird horizontal mittig ausgerichtet.
+
