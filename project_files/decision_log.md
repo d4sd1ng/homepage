@@ -273,3 +273,7 @@ Entscheidung: Der Desktop-Footer in `shared-header-footer.css` verwendet vier fl
 
 Entscheidung: Der funktionierende Shared Footer wird nicht zur Korrektur eines seitenbezogenen Problems verändert. Abweichungen auf `analyse.html` werden ausschließlich in `analyse.html` behoben.
 
+## 2026-10-04 – Analyse-Hero-Visual wieder in großer Desktop-Proportion
+
+Entscheidung: Das Hero-Visual auf `analyse.html` nutzt auf Desktop ab 1101 px wieder maximal 760 px Breite und die zuvor verwendete Spaltenverteilung `1.08fr / 1.12fr`.
+

@@ -1,3 +1,18 @@
+## 2026-10-04 – Hero-Bild der Analyse wieder vergrößert
+
+Status: fertig
+
+Geändert:
+
+- `homepage/analyse.html`: Desktop-Hero-Visual wieder auf die zuvor verwendete Größe von maximal 760 px gesetzt.
+- Desktop-Spaltenverhältnis wieder auf `1.08fr / 1.12fr` mit mindestens 560 px für die Visual-Spalte gesetzt.
+- Tablet-Bereich 901–1100 px bleibt unverändert bei maximal 680 px.
+- Shared Header/Footer und übrige Sektionen unverändert.
+
+Ursache:
+
+- Beim CSS-Cleanup war das Desktop-Hero-Visual von 760 px auf 650 px verkleinert und die Textspalte verbreitert worden.
+
 ## 2026-10-04 – Shared Footer zurückgesetzt, Analyse lokal korrigiert
 
 Status: fertig
