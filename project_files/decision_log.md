@@ -245,3 +245,7 @@ Entscheidung: „Was ist eine KI-Potenzialanalyse?“ steht auf `analyse.html` a
 
 Entscheidung: Nach der Trennung von Hero und Definitionssektion belegt der Hero auf Desktop die sichtbare Viewport-Höhe unterhalb des Headers. Die Höhe liegt am `#hero` selbst, nicht an einem leeren Wrapper; der bestehende Hero-Inhalt wird vertikal in dieser Fläche ausgerichtet.
 
+## 2026-10-04 – Definitionssektion der Potenzialanalyse als Viewport-Sektion
+
+Entscheidung: Die eigenständige Sektion `#was-ist-das` belegt auf Desktop die volle sichtbare Viewport-Höhe unterhalb des Headers und zentriert ihren bestehenden Inhalt vertikal. Mobile bleibt in natürlicher Inhalts-Höhe.
+

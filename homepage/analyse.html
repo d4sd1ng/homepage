@@ -714,6 +714,17 @@ main > .section:not(#hero),
   padding-top:var(--detail-section-space)!important;
   padding-bottom:var(--detail-section-space)!important;
 }
+@media(min-width:901px){
+  #was-ist-das{
+    min-height:calc(100dvh - var(--header-height))!important;
+    height:auto!important;
+    display:flex!important;
+    align-items:center!important;
+  }
+  #was-ist-das>.section-inner{
+    width:100%;
+  }
+}
 .definition-intro{
   transform:none!important;
   margin-bottom:var(--detail-subtitle-gap)!important;

@@ -1,3 +1,17 @@
+## 2026-10-04 – Definitionssektion auf volle Viewport-Höhe gesetzt
+
+Status: fertig
+
+Geändert:
+
+- `homepage/analyse.html`: Die eigenständige Sektion `#was-ist-das` nutzt auf Desktop jetzt wie der Hero die volle sichtbare Höhe unterhalb des Headers.
+- `#was-ist-das` erhält `min-height: calc(100dvh - var(--header-height))`, `display:flex` und vertikale Zentrierung.
+- Die bestehende Inhaltsbreite, beide Cards, Texte und der CTA bleiben unverändert.
+
+Ursache:
+
+- Eine spätere Normalisierungsregel setzte für alle Nicht-Hero-Sektionen `min-height:0` und `height:auto` mit `!important` und übersteuerte damit die ältere Viewport-Regel.
+
 ## 2026-10-04 – Hero der Potenzialanalyse auf volle sichtbare Höhe gezogen
 
 Status: fertig
