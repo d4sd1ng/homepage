@@ -1,3 +1,18 @@
+## 2026-10-04 – „Was ist eine KI-Potenzialanalyse?“ als eigene Sektion
+
+Status: fertig
+
+Geändert:
+
+- `homepage/analyse.html`: Die Definition „Was ist eine KI-Potenzialanalyse?“ wurde aus dem bisherigen gemeinsamen `.hero-viewport` gelöst und als eigenständige normale Sektion direkt nach dem Hero angeordnet.
+- Zwischen Hero und Definition sowie zwischen Definition und Ausgangslage steht jeweils der bestehende Section-Divider.
+- Die vorhandenen beiden Inhaltskarten und ihre Texte bleiben unverändert.
+- Unter den beiden Karten wurde der freigegebene CTA `KI-Potenzialanalyse starten` mit Ziel `#analyse-formular` ergänzt.
+
+Nicht geändert:
+
+- Hero-Inhalt, Analyseformular, API-Logik, übrige Sektionen und deren Texte.
+
 ## 2026-10-04 – SEO Toolbox und Automationen als Haupt-Breadcrumbs ergänzt
 
 Status: fertig

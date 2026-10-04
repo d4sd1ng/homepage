@@ -237,3 +237,7 @@ Entscheidung: Der Divider der breiten Analyse-Card wird als eigene mittlere Grid
 
 Entscheidung: Die Hauptnavigation erhält nach den bestehenden Breadcrumbs zwei zusätzliche direkte Breadcrumbs: `SEO Toolbox` → `detail_seo.html` und `Automationen` → `detail_automationen.html`. Die beiden Einträge sind direkte Navigationselemente und keine zusätzlichen Dropdown-Menüs.
 
+## 2026-10-04 – Definition der Potenzialanalyse als eigene Sektion
+
+Entscheidung: „Was ist eine KI-Potenzialanalyse?“ steht auf `analyse.html` als eigenständige Sektion direkt nach dem Hero. Die bestehenden Definitionsinhalte bleiben unverändert. Die Sektion erhält den CTA `KI-Potenzialanalyse starten` mit Ziel `#analyse-formular`.
+
