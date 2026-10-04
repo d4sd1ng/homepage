@@ -265,3 +265,7 @@ Entscheidung: Der CTA unter den beiden Cards in `#was-ist-das` wird horizontal m
 
 Entscheidung: Alle echten Bulletpoint-Listen auf `analyse.html` verwenden den grünen 3D-Punkt aus `assets/bulletpoint.png`. Nummerierte Prozessschritte bleiben als nummerierte Elemente bestehen.
 
+## 2026-10-04 – Shared Footer mit vier flexiblen Spalten
+
+Entscheidung: Der Desktop-Footer in `shared-header-footer.css` verwendet vier flexible Grid-Spalten im Verhältnis `1.35fr 1fr 1.2fr 1fr`. Feste Auto-/Pixel-Spalten werden nicht verwendet, damit alle vier Footer-Bereiche einschließlich „Kontakt“ innerhalb des verfügbaren Viewports bleiben.
+

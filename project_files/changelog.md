@@ -1,3 +1,18 @@
+## 2026-10-04 – Shared Footer auf vier flexible Spalten zurückgestellt
+
+Status: fertig
+
+Geändert:
+
+- `homepage/shared-header-footer.css`: Footer-Grid wieder auf vier flexible Spalten `1.35fr 1fr 1.2fr 1fr` gestellt.
+- Die feste Kombination `320px / auto / 304px / auto` mit `space-between` wurde entfernt.
+- Spaltenabstand auf 48 px gesetzt und `align-items:start` ergänzt.
+- Änderung ausschließlich im Shared Footer; keine Seiten-spezifischen Footer-Regeln ergänzt.
+
+Ursache:
+
+- Der aktuelle Shared Footer verwendete feste und intrinsische Spaltenbreiten plus `space-between`. Dadurch konnte die vierte Spalte „Kontakt“ aus dem sichtbaren Bereich gedrückt werden. Die vorherige Box-Sizing-Korrektur allein änderte diese Grid-Geometrie nicht.
+
 ## 2026-10-04 – Grüne 3D-Bulletpoints auf Analyse-Seite wiederhergestellt
 
 Status: fertig
