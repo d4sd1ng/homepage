@@ -269,3 +269,7 @@ Entscheidung: Alle echten Bulletpoint-Listen auf `analyse.html` verwenden den gr
 
 Entscheidung: Der Desktop-Footer in `shared-header-footer.css` verwendet vier flexible Grid-Spalten im Verhältnis `1.35fr 1fr 1.2fr 1fr`. Feste Auto-/Pixel-Spalten werden nicht verwendet, damit alle vier Footer-Bereiche einschließlich „Kontakt“ innerhalb des verfügbaren Viewports bleiben.
 
+## 2026-10-04 – Shared Footer bleibt unangetastet
+
+Entscheidung: Der funktionierende Shared Footer wird nicht zur Korrektur eines seitenbezogenen Problems verändert. Abweichungen auf `analyse.html` werden ausschließlich in `analyse.html` behoben.
+

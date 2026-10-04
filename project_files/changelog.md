@@ -1,3 +1,18 @@
+## 2026-10-04 – Shared Footer zurückgesetzt, Analyse lokal korrigiert
+
+Status: fertig
+
+Geändert:
+
+- `homepage/shared-header-footer.css` exakt auf den funktionierenden Stand vor den letzten beiden Footer-Eingriffen zurückgesetzt.
+- `homepage/analyse.html`: nur dort `.footer, .footer * { box-sizing: border-box; }` ergänzt, weil die Seite bisher `border-box` ausschließlich auf `main` und dessen Inhalte beschränkte.
+- `index.html` unverändert.
+
+Nicht geändert:
+
+- Shared Footer Grid, Typografie, Abstände und Inhalte.
+- Header und übrige Seiten.
+
 ## 2026-10-04 – Shared Footer auf vier flexible Spalten zurückgestellt
 
 Status: fertig
