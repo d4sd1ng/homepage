@@ -1,3 +1,18 @@
+## 2026-10-04 – Grüne 3D-Bulletpoints auf Analyse-Seite wiederhergestellt
+
+Status: fertig
+
+Geändert:
+
+- `homepage/analyse.html`: sämtliche echten Bulletpoint-Listen verwenden wieder den freigegebenen grünen 3D-Punkt aus `assets/bulletpoint.png`.
+- Betroffen sind `.card-bullets`, `.label-list`, `.dot-list` und `.result-points`.
+- Der Sonderfall in der goldenen Summary-Card verwendet ebenfalls denselben grünen 3D-Punkt statt eines dunklen bzw. goldenen Punktes.
+- Die nummerierte `.num-list` bleibt unverändert, da sie keine Bulletpoints, sondern nummerierte Schritte verwendet.
+
+Ursache:
+
+- Bei der Konsolidierung der Analyse-CSS wurden die früheren 3D-Bullet-Regeln zusammen mit den Override-Schichten entfernt; dadurch fielen die Listen auf alte goldene/dunkle Punktregeln zurück.
+
 ## 2026-10-04 – CTA unter den Definitions-Cards zentriert
 
 Status: fertig

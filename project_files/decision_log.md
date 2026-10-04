@@ -261,3 +261,7 @@ Entscheidung: `#was-ist-das` bleibt eine Viewport-Sektion. Innerhalb der Sektion
 
 Entscheidung: Der CTA unter den beiden Cards in `#was-ist-das` wird horizontal mittig ausgerichtet.
 
+## 2026-10-04 – Einheitliche grüne 3D-Bulletpoints
+
+Entscheidung: Alle echten Bulletpoint-Listen auf `analyse.html` verwenden den grünen 3D-Punkt aus `assets/bulletpoint.png`. Nummerierte Prozessschritte bleiben als nummerierte Elemente bestehen.
+
