@@ -1,3 +1,17 @@
+## 2026-10-04 – Rechter kurzer Divider aller Leistungs-Cards abgesichert
+
+Status: fertig
+
+Geändert:
+
+- `homepage/index.html`: den rechten kurzen Horizontal-Divider nicht mehr als separates `.nv-s7-card__short-rule`-Element geführt.
+- `homepage/index.html`: Divider direkt an `.nv-s7-card__points::before` gebunden. Da alle elf Leistungs-Cards denselben Punkteblock besitzen, wird der Divider jetzt bei jedem Hover-/Focus-/Active-Zustand zusammen mit diesem Block sichtbar.
+- `homepage/index.html`: alle elf bisherigen `.nv-s7-card__short-rule`-Markup-Elemente entfernt; keine doppelte Divider-Implementierung bleibt bestehen.
+
+Nicht geändert:
+
+- vertikaler Divider, linker Horizontal-Divider, Card-Inhalte, Card-Größen, Hover-Höhe, Navigation und Leistungsreihenfolge.
+
 ## 2026-10-01 – Analyse-Divider, Prozesspfeile und Wiederholungsanteil korrigiert
 
 Status: fertig
