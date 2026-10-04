@@ -249,3 +249,7 @@ Entscheidung: Nach der Trennung von Hero und Definitionssektion belegt der Hero 
 
 Entscheidung: Die eigenständige Sektion `#was-ist-das` belegt auf Desktop die volle sichtbare Viewport-Höhe unterhalb des Headers und zentriert ihren bestehenden Inhalt vertikal. Mobile bleibt in natürlicher Inhalts-Höhe.
 
+## 2026-10-04 – Keine Override-Schichten für Analyse-Seitenlayout
+
+Entscheidung: Hero-, Viewport- und Section-Layout von `analyse.html` wird aus einer konsolidierten CSS-Quelle ohne `!important` gesteuert. Hero und Definitionssektion belegen auf Desktop die sichtbare Höhe unterhalb des Headers; weitere Inhaltssektionen folgen bei ausreichender Bildschirmhöhe demselben Viewport-Prinzip. Historische Layout-Override-Schichten werden nicht weitergeführt.
+

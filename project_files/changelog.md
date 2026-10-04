@@ -1,3 +1,21 @@
+## 2026-10-04 – Analyse-Layout von Override-Schichten bereinigt
+
+Status: fertig
+
+Geändert:
+
+- `homepage/analyse.html`: widersprüchliche Hero-, Viewport- und Section-Regeln aus mehreren historischen Korrekturblöcken entfernt.
+- Die nachgeschobenen Style-Blöcke `DETAILSEITE — finale Proportionen und Abstände` und `analyse-layout-normalization` wurden aufgelöst.
+- Hero, Definitionssektion und allgemeiner Section-Rhythmus besitzen jetzt eine einzige konsolidierte Layoutquelle ohne `!important`.
+- Hero und `#was-ist-das` nutzen auf Desktop `min-height: calc(100dvh - var(--header-height))`.
+- Die übrigen Inhaltssektionen nutzen auf Desktop ab 720 px Höhe ebenfalls die sichtbare Höhe unterhalb des Headers; bei kleineren Desktop-Höhen bleibt natürliche Inhaltshöhe mit 42 px Vertikalabstand.
+- Aktuell wirksame Hero-Spaltenbreiten, Bildgrößen, Inhaltsbreiten und Abstände wurden in die konsolidierte Quelle übernommen.
+
+Nicht geändert:
+
+- Texte, CTA-Ziele, Formular-/API-Logik, Header/Footer, Breadcrumbs und fachliche Inhalte.
+- Komponentenbezogene `!important`-Altlasten außerhalb des Hero-/Viewport-/Section-Layouts wurden nicht Bestandteil dieser Änderung.
+
 ## 2026-10-04 – Definitionssektion auf volle Viewport-Höhe gesetzt
 
 Status: fertig
