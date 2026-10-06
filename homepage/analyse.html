@@ -148,7 +148,7 @@ main h3 { font: var(--w-zwischentitel) var(--t-zwischentitel)/1.2 "Exo 2",Inter,
 .detail-hero .kicker { margin-bottom: 14px; }
 .detail-hero h1 { margin-bottom: 21px; }
 .detail-hero .sub { font-size: 20px; margin-bottom: 24px; }
-.detail-hero .actions { margin-top: 78px; position: relative; z-index: 4; }
+.detail-hero .actions { margin-top: 38px; position: relative; z-index: 4; }
 .visual-card { position: relative; overflow: hidden; border: 1.25px solid transparent; border-radius: 10px; background-image: linear-gradient(#080B09,#080B09), var(--gold-3); background-origin: border-box; background-clip: padding-box, border-box; filter: drop-shadow(0 16px 24px rgba(0,0,0,.34)); }
 .visual-card>img:first-child { width: 100%; height: auto; max-height: 230px; object-fit: contain; }
 .visual-card--empty { aspect-ratio: 16 / 9; }
@@ -651,6 +651,32 @@ h1, main h2 {\n  -webkit-text-stroke: .6px rgba(255,248,207,.40);\n  background-
   }
 }
 @media(min-width:901px){
+  #hero .detail-hero{
+    transform:translateY(-80px);
+    align-items:center;
+  }
+  #hero .visual-card--hero{
+    position:relative;
+    isolation:isolate;
+  }
+  #hero .visual-card--hero::before{
+    content:"";
+    position:absolute;
+    inset:-24% -34%;
+    background:
+      radial-gradient(ellipse at center,
+        rgba(13,40,24,.44) 0%,
+        rgba(37,43,44,.24) 38%,
+        rgba(5,20,10,.12) 58%,
+        transparent 76%);
+    filter:blur(34px);
+    opacity:.78;
+    pointer-events:none;
+    z-index:0;
+  }
+  #hero .visual-card--hero img{
+    z-index:1;
+  }
   .hero-viewport #hero,
   #was-ist-das{
     min-height:calc(100dvh - var(--header-height));

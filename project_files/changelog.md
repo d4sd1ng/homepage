@@ -1,3 +1,17 @@
+## 2026-10-06 – Analyse-Hero neu ausbalanciert
+
+Status: fertig
+
+Geändert:
+
+- `homepage/analyse.html`: Hero-Inhalt auf Desktop als Einheit um 80 px nach oben verschoben.
+- Text und Visual bleiben in derselben vertikalen Grid-Achse zentriert.
+- CTA-Abstand unter dem Fließtext von 78 px auf 38 px reduziert.
+- Bestehende horizontale Visual-Position und bestehende Bildskalierung bleiben unverändert.
+- Hinter dem Hero-Visual wurde ausschließlich per CSS-Pseudoelement ein dezenter dunkler Emerald-/Gunmetal-Glow ergänzt.
+- Keine Card, kein Rahmen und keine zusätzlichen dekorativen Objekte ergänzt.
+- Shared Header/Footer und übrige Sektionen unverändert.
+
 ## 2026-10-06 – SEO Toolbox als kompakte Inline-Box
 
 Status: in Arbeit

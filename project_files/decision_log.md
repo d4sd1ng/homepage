@@ -285,3 +285,7 @@ Entscheidung: Die Position des Hero-Visuals auf `analyse.html` bleibt über das 
 
 Entscheidung: Das Hero-Visual auf `analyse.html` wird nicht durch erneute Grid-Verschiebungen vergrößert. Die bestehende Position bleibt erhalten; der sichtbare Bildinhalt wird auf Desktop per `scale(1.6)` und zwischen 901–1100 px per `scale(1.45)` um den Mittelpunkt skaliert.
 
+## 2026-10-06 – Professionellere Analyse-Hero-Komposition
+
+Entscheidung: Der Desktop-Hero von `analyse.html` wird als gemeinsame Text-/Visual-Einheit um 80 px nach oben versetzt. Der CTA-Abstand beträgt 38 px. Position und Größe des vorhandenen Visuals bleiben bestehen; hinter dem Visual ist nur ein dezenter dunkler Emerald-/Gunmetal-Glow zulässig. Zusätzliche dekorative Objekte werden ohne separate Freigabe nicht ergänzt.
+
