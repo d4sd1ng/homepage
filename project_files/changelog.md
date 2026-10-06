@@ -11,6 +11,153 @@ Geändert:
 Nicht geändert:
 
 - Seitentexte, Header, Footer, FAQ, Newsletterformular, Assetpfade und Toolbox-Zugriffsprüfung.
+## 2026-10-04 – Sichtbaren Inhalt des Analyse-Hero-Visuals vergrößert
+
+Status: fertig
+
+Geändert:
+
+- `homepage/analyse.html`: Das Hero-Bild bleibt an derselben Position und wird zusätzlich um seinen eigenen Mittelpunkt skaliert.
+- Desktop ab 1101 px: `scale(1.6)`.
+- Desktop/Tablet 901–1100 px: `scale(1.45)`.
+- Grid, Textspalte, Hero-Position, Shared Header/Footer und übrige Sektionen bleiben unverändert.
+
+Ursache:
+
+- Die vorherige Änderung erhöhte zwar die CSS-Bildbreite, vergrößerte den sichtbaren Diagramminhalt aber kaum. Deshalb wird jetzt das gerenderte Bild selbst skaliert, ohne das Grid erneut zu verschieben.
+
+## 2026-10-04 – Hero-Bild tatsächlich vergrößert, Position beibehalten
+
+Status: fertig
+
+Geändert:
+
+- `homepage/analyse.html`: Desktop-Grid auf die vorherige Text-/Bildposition `1.35fr / .85fr` zurückgesetzt.
+- Das Hero-Bild wird jetzt selbst auf 760 px Breite gesetzt; nicht nur seine Grid-Spalte.
+- Das Bild wird relativ zur bestehenden Visual-Spalte zentriert, damit sein Mittelpunkt beim Vergrößern an derselben Position bleibt.
+- Im Bereich 901–1100 px wird das Bild analog tatsächlich auf 680 px Breite gesetzt.
+- Shared Header/Footer und übrige Sektionen unverändert.
+
+Ursache:
+
+- Die vorherige Änderung vergrößerte primär die rechte Grid-Spalte. Wegen `width:100%` am Bild blieb dessen effektive Größe an die Spaltenbreite gebunden; dadurch änderte sich vor allem die Position.
+
+## 2026-10-04 – Hero-Bild der Analyse wieder vergrößert
+
+Status: fertig
+
+Geändert:
+
+- `homepage/analyse.html`: Desktop-Hero-Visual wieder auf die zuvor verwendete Größe von maximal 760 px gesetzt.
+- Desktop-Spaltenverhältnis wieder auf `1.08fr / 1.12fr` mit mindestens 560 px für die Visual-Spalte gesetzt.
+- Tablet-Bereich 901–1100 px bleibt unverändert bei maximal 680 px.
+- Shared Header/Footer und übrige Sektionen unverändert.
+
+Ursache:
+
+- Beim CSS-Cleanup war das Desktop-Hero-Visual von 760 px auf 650 px verkleinert und die Textspalte verbreitert worden.
+
+## 2026-10-04 – Shared Footer zurückgesetzt, Analyse lokal korrigiert
+
+Status: fertig
+
+Geändert:
+
+- `homepage/shared-header-footer.css` exakt auf den funktionierenden Stand vor den letzten beiden Footer-Eingriffen zurückgesetzt.
+- `homepage/analyse.html`: nur dort `.footer, .footer * { box-sizing: border-box; }` ergänzt, weil die Seite bisher `border-box` ausschließlich auf `main` und dessen Inhalte beschränkte.
+- `index.html` unverändert.
+
+Nicht geändert:
+
+- Shared Footer Grid, Typografie, Abstände und Inhalte.
+- Header und übrige Seiten.
+
+## 2026-10-04 – Shared Footer auf vier flexible Spalten zurückgestellt
+
+Status: fertig
+
+Geändert:
+
+- `homepage/shared-header-footer.css`: Footer-Grid wieder auf vier flexible Spalten `1.35fr 1fr 1.2fr 1fr` gestellt.
+- Die feste Kombination `320px / auto / 304px / auto` mit `space-between` wurde entfernt.
+- Spaltenabstand auf 48 px gesetzt und `align-items:start` ergänzt.
+- Änderung ausschließlich im Shared Footer; keine Seiten-spezifischen Footer-Regeln ergänzt.
+
+Ursache:
+
+- Der aktuelle Shared Footer verwendete feste und intrinsische Spaltenbreiten plus `space-between`. Dadurch konnte die vierte Spalte „Kontakt“ aus dem sichtbaren Bereich gedrückt werden. Die vorherige Box-Sizing-Korrektur allein änderte diese Grid-Geometrie nicht.
+
+## 2026-10-04 – Grüne 3D-Bulletpoints auf Analyse-Seite wiederhergestellt
+
+Status: fertig
+
+Geändert:
+
+- `homepage/analyse.html`: sämtliche echten Bulletpoint-Listen verwenden wieder den freigegebenen grünen 3D-Punkt aus `assets/bulletpoint.png`.
+- Betroffen sind `.card-bullets`, `.label-list`, `.dot-list` und `.result-points`.
+- Der Sonderfall in der goldenen Summary-Card verwendet ebenfalls denselben grünen 3D-Punkt statt eines dunklen bzw. goldenen Punktes.
+- Die nummerierte `.num-list` bleibt unverändert, da sie keine Bulletpoints, sondern nummerierte Schritte verwendet.
+
+Ursache:
+
+- Bei der Konsolidierung der Analyse-CSS wurden die früheren 3D-Bullet-Regeln zusammen mit den Override-Schichten entfernt; dadurch fielen die Listen auf alte goldene/dunkle Punktregeln zurück.
+
+## 2026-10-04 – CTA unter den Definitions-Cards zentriert
+
+Status: fertig
+
+Geändert:
+
+- `homepage/analyse.html`: Der CTA `KI-Potenzialanalyse starten` sitzt mittig unter den beiden Definitions-Cards.
+- Bestehende Abstände und Viewport-Höhe bleiben unverändert.
+
+## 2026-10-04 – Abstände in der Definitionssektion vergrößert
+
+Status: fertig
+
+Geändert:
+
+- `homepage/analyse.html`: Die Viewport-Höhe von `#was-ist-das` bleibt unverändert bestehen.
+- Abstand zwischen Subline und den beiden Definitions-Cards auf Desktop auf 64 px erhöht.
+- Abstand zwischen den Definitions-Cards und dem CTA auf Desktop auf 56 px erhöht.
+- Auf Mobile werden 40 px zwischen Subline und Cards sowie 36 px zwischen Cards und CTA verwendet.
+- Keine `!important`-Regeln ergänzt.
+
+Nicht geändert:
+
+- Cards, Texte, CTA-Ziel, Viewport-Logik und übrige Sektionen.
+
+## 2026-10-04 – Analyse-Layout von Override-Schichten bereinigt
+
+Status: fertig
+
+Geändert:
+
+- `homepage/analyse.html`: widersprüchliche Hero-, Viewport- und Section-Regeln aus mehreren historischen Korrekturblöcken entfernt.
+- Die nachgeschobenen Style-Blöcke `DETAILSEITE — finale Proportionen und Abstände` und `analyse-layout-normalization` wurden aufgelöst.
+- Hero, Definitionssektion und allgemeiner Section-Rhythmus besitzen jetzt eine einzige konsolidierte Layoutquelle ohne `!important`.
+- Hero und `#was-ist-das` nutzen auf Desktop `min-height: calc(100dvh - var(--header-height))`.
+- Die übrigen Inhaltssektionen nutzen auf Desktop ab 720 px Höhe ebenfalls die sichtbare Höhe unterhalb des Headers; bei kleineren Desktop-Höhen bleibt natürliche Inhaltshöhe mit 42 px Vertikalabstand.
+- Aktuell wirksame Hero-Spaltenbreiten, Bildgrößen, Inhaltsbreiten und Abstände wurden in die konsolidierte Quelle übernommen.
+
+Nicht geändert:
+
+- Texte, CTA-Ziele, Formular-/API-Logik, Header/Footer, Breadcrumbs und fachliche Inhalte.
+- Komponentenbezogene `!important`-Altlasten außerhalb des Hero-/Viewport-/Section-Layouts wurden nicht Bestandteil dieser Änderung.
+
+## 2026-10-04 – Definitionssektion auf volle Viewport-Höhe gesetzt
+
+Status: fertig
+
+Geändert:
+
+- `homepage/analyse.html`: Die eigenständige Sektion `#was-ist-das` nutzt auf Desktop jetzt wie der Hero die volle sichtbare Höhe unterhalb des Headers.
+- `#was-ist-das` erhält `min-height: calc(100dvh - var(--header-height))`, `display:flex` und vertikale Zentrierung.
+- Die bestehende Inhaltsbreite, beide Cards, Texte und der CTA bleiben unverändert.
+
+Ursache:
+
+- Eine spätere Normalisierungsregel setzte für alle Nicht-Hero-Sektionen `min-height:0` und `height:auto` mit `!important` und übersteuerte damit die ältere Viewport-Regel.
 
 ## 2026-10-04 – Hero der Potenzialanalyse auf volle sichtbare Höhe gezogen
 

@@ -109,6 +109,7 @@
   --content-max: 1560px;
 }
 main, main * { box-sizing: border-box; margin: 0; padding: 0; }
+.footer, .footer * { box-sizing: border-box; }
 html { scroll-behavior: smooth; background: #000;  }
 html { scroll-behavior: smooth; background: #000;  }
 body {
@@ -171,10 +172,11 @@ main h3 { font: var(--w-zwischentitel) var(--t-zwischentitel)/1.2 "Exo 2",Inter,
 .card-bullets li::before { 
   content: ""; 
   position: absolute; 
-  left: 0; top: calc(50% - 3.5px); 
-  width: 7px; height: 7px; 
-  border-radius: 2px; 
-  background: #DFBD69; 
+  left: 0; top: calc(50% - 2.8px); 
+  width: 5.6px; height: 5.6px; 
+  border: .8px solid #55863f;
+  border-radius: 50%; 
+  background: url("assets/bulletpoint.png") center / cover no-repeat; 
   }
 .summary { border: 1px solid rgba(255,215,163,.78); background: linear-gradient(180deg,#ffd7a3 0%,#f0a05a 24%,#d89828 58%,#7a3518 100%); box-shadow: inset 0 0 0 1px rgba(255,244,199,.20),0 8px 16px rgba(0,0,0,.30); }
 .summary h2,.summary p { color: #050505; text-shadow: none; }
@@ -182,14 +184,14 @@ main h3 { font: var(--w-zwischentitel) var(--t-zwischentitel)/1.2 "Exo 2",Inter,
 .summary .sub { color: #050505; }
 .summary h3 { color: #0A1913; }
 .summary .dot-list li { color: #0A1913; font: 600 17px/1.55 "Inter",Arial,sans-serif; }
-.summary .dot-list li::before { background: #0A1913; top: 10px; }
+.summary .dot-list li::before { background: url("assets/bulletpoint.png") center / cover no-repeat; border-color: #55863f; top: 10px; }
 .actions { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 33px; }
 .text-cols { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 18px 48px; margin-top: 9px; }
 .text-cols p { font: var(--w-fliesstext) var(--t-fliesstext)/1.7 "Inter",Arial,sans-serif; color: #b9c3bd; }
 .text-cols--1 { grid-template-columns: minmax(0,1fr); max-width: 1060px; gap: 14px; }
 .label-list { column-count: 2; column-gap: 48px; list-style: none; margin: 97px 0 0; padding: 0; }
 .label-list li { position: relative; break-inside: avoid; margin-bottom: 26px; padding-left: 20px; font: var(--w-fliesstext) var(--t-fliesstext)/1.7 "Inter",Arial,sans-serif; color: #b9c3bd; }
-.label-list li::before { content: ""; position: absolute; left: 0; top: 8px; width: 7px; height: 7px; border-radius: 2px; background: #DFBD69; }
+.label-list li::before { content: ""; position: absolute; left: 0; top: 8px; width: 5.6px; height: 5.6px; border: .8px solid #55863f; border-radius: 50%; background: url("assets/bulletpoint.png") center / cover no-repeat; }
 .label-list strong { display: block; margin-bottom: 4px; font: var(--w-bulletlabel) var(--t-bulletlabel)/1.35 "Inter",Arial,sans-serif; background: var(--gold-2); background-clip: text; -webkit-background-clip: text; color: transparent; -webkit-text-fill-color: transparent; }
 .text { max-width: 88ch; font: var(--w-fliesstext) var(--t-fliesstext)/1.7 "Inter",Arial,sans-serif; color: #b9c3bd; }
 .text--after { margin-top: 26px; }
@@ -213,7 +215,7 @@ main h3 { font: var(--w-zwischentitel) var(--t-zwischentitel)/1.2 "Exo 2",Inter,
 /* ---------- Punktlisten & Gruppen ---------- */
 .dot-list { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 10px 48px; list-style: none; margin: 14px 0 0; padding: 0; }
 .dot-list li { position: relative; padding-left: 20px; font: var(--w-fliesstext) var(--t-fliesstext)/1.65 "Inter",Arial,sans-serif; color: #b9c3bd; }
-.dot-list li::before { content: ""; position: absolute; left: 0; top: 9px; width: 7px; height: 7px; border-radius: 2px; background: #DFBD69; }
+.dot-list li::before { content: ""; position: absolute; left: 0; top: 9px; width: 5.6px; height: 5.6px; border: .8px solid #55863f; border-radius: 50%; background: url("assets/bulletpoint.png") center / cover no-repeat; }
 .group-cards { margin-top: 16px; }
 .group-cards .dot-list { grid-template-columns: 1fr; margin-top: 12px; }
 .group-cards article:only-child { grid-column: 1 / -1; }
@@ -277,7 +279,7 @@ main h3 { font: var(--w-zwischentitel) var(--t-zwischentitel)/1.2 "Exo 2",Inter,
 .result-strip p { font-size: 14px; line-height: 1.6; color: #b9c3bd; }
 .result-points { display: grid; gap: 8px; list-style: none; margin: 21px 0 0 20px; padding: 0; }
 .result-points li { position: relative; padding-left: 14px; font-family: "Inter",Arial,sans-serif; font-size: 12.5px; font-weight: 600; letter-spacing: .04em; text-transform: uppercase; color: #F5F7F4; }
-.result-points li::before { content: ""; position: absolute; left: 0; top: .4em; width: 5px; height: 5px; border-radius: 2px; background: #f7c64a; }
+.result-points li::before { content: ""; position: absolute; left: 0; top: .4em; width: 5.6px; height: 5.6px; border: .8px solid #55863f; border-radius: 50%; background: url("assets/bulletpoint.png") center / cover no-repeat; }
 .analysis-status { margin-top: 10px; min-height: 17px; font-family: "Inter",Arial,sans-serif; font-size: 11px; font-weight: 600; line-height: 1.45; letter-spacing: .045em; text-transform: uppercase; color: rgba(247,215,122,.9); }
 .result-strip.is-active { box-shadow: 0 0 16px rgba(212,175,55,.35); }
 .result-strip.is-error { background-image: linear-gradient(135deg, rgba(205,82,66,.16), rgba(0,0,0,0) 55%), linear-gradient(#080B09,#080B09), linear-gradient(135deg,#e0705f,#7a2f26); }
@@ -287,7 +289,7 @@ main h3 { font: var(--w-zwischentitel) var(--t-zwischentitel)/1.2 "Exo 2",Inter,
 .result-strip p { font-size: 14px; line-height: 1.6; color: #b9c3bd; }
 .result-points { display: grid; gap: 8px; list-style: none; margin: 21px 0 0 20px; padding: 0; }
 .result-points li { position: relative; padding-left: 14px; font-family: "Inter",Arial,sans-serif; font-size: 12.5px; font-weight: 600; letter-spacing: .04em; text-transform: uppercase; color: #F5F7F4; }
-.result-points li::before { content: ""; position: absolute; left: 0; top: .4em; width: 5px; height: 5px; border-radius: 2px; background: #f7c64a; }
+.result-points li::before { content: ""; position: absolute; left: 0; top: .4em; width: 5.6px; height: 5.6px; border: .8px solid #55863f; border-radius: 50%; background: url("assets/bulletpoint.png") center / cover no-repeat; }
 .analysis-status { margin-top: 10px; min-height: 17px; font-family: "Inter",Arial,sans-serif; font-size: 11px; font-weight: 600; line-height: 1.45; letter-spacing: .045em; text-transform: uppercase; color: rgba(247,215,122,.9); }
 .result-strip.is-active { box-shadow: 0 0 16px rgba(212,175,55,.35); }
 .result-strip.is-error { background-image: linear-gradient(135deg, rgba(205,82,66,.16), rgba(0,0,0,0) 55%), linear-gradient(#080B09,#080B09), linear-gradient(135deg,#e0705f,#7a2f26); }
@@ -381,8 +383,6 @@ h1, main h2 {\n  -webkit-text-stroke: .6px rgba(255,248,207,.40);\n  background-
   .faq-item summary > span { height: auto; min-height: 50px; padding: 12px 16px; line-height: 1.3; }
 }
 /* Analyse-Seite: freigegebene 8-Bereich-Struktur und Bildintegration */
-.visual-card--hero{border:0;background:none;filter:none;overflow:visible}
-.visual-card--hero>img:first-child{width:100%;max-height:none;object-fit:contain}
 .media-split{display:grid;grid-template-columns:minmax(0,1fr) minmax(320px,.9fr);gap:64px;align-items:center}
 .media-split--visual-left{grid-template-columns:minmax(320px,.9fr) minmax(0,1fr)}
 .section-photo{margin:0;overflow:hidden;border:1.25px solid transparent;border-radius:10px;background-image:linear-gradient(#080B09,#080B09),var(--gold-3);background-origin:border-box;background-clip:padding-box,border-box;filter:drop-shadow(0 16px 24px rgba(0,0,0,.34))}
@@ -392,44 +392,6 @@ h1, main h2 {\n  -webkit-text-stroke: .6px rgba(255,248,207,.40);\n  background-
 .analysis-flow span{padding:16px 14px;border:1px solid rgba(223,189,105,.38);border-radius:8px;background:#080B09;color:#d7ded9;font:600 13px/1.4 "Exo 2",Inter,Arial,sans-serif}
 @media(max-width:900px){.media-split,.media-split--visual-left{grid-template-columns:1fr;gap:36px}.media-split--visual-left .section-photo{order:2}.analysis-flow{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:640px){.analysis-flow{grid-template-columns:1fr}.section-photo img{aspect-ratio:16/10}}
-
-/* Analyse-Seite – gezielte Korrekturen */
-#hero{padding-top:36px;padding-bottom:40px;margin-bottom:0;}
-@media(min-width:901px){
-   .hero-viewport{height:auto;min-height:0;box-sizing:border-box;display:flex;flex-direction:column;justify-content:space-between;}
-  .hero-viewport #hero,.hero-viewport #was-ist-das{min-height:0;height:auto;box-sizing:border-box;flex:0 0 auto;}
-  #hero>.section-inner,#was-ist-das>.section-inner{width:100%;}
-}
-#hero .detail-hero{
-  grid-template-columns:minmax(0,1fr) minmax(420px,.92fr);
-  gap:clamp(44px,5vw,76px);
-  min-height:auto;
-}
-#hero .visual-card--hero img{width:100%;max-width:560px;margin-inline:auto;}
-#hero .lead{max-width:760px;}
-#was-ist-das{padding-top:6px;padding-bottom:14px;}
-.definition-intro{max-width:980px;margin-bottom:14px;transform:translateY(115px);}
-.definition-intro .sub{margin-top:8px;margin-bottom:0;max-width:850px;}
-.analysis-intro-cards{gap:32px;transform:translateY(150px);margin-bottom:300px;}
-.analysis-intro-cards .panel{padding:16px 20px;}
-.analysis-intro-cards h3{margin:0 0 12px;color:var(--nv-gold-highlight);font:var(--w-zwischentitel) var(--t-zwischentitel)/1.2 "Exo 2",Inter,Arial,sans-serif;}
-.analysis-intro-cards p+p{margin-top:10px;}
-@media(max-width:1100px){
-#hero .detail-hero{grid-template-columns:minmax(0,1fr) minmax(400px,.9fr);gap:52px;min-height:auto;}
-}
-@media(max-width:900px){
-  #hero{padding-top:36px;padding-bottom:40px;}
-  #hero .detail-hero{grid-template-columns:1fr;gap:38px;}
-  .analysis-intro-cards{gap:28px;}
-}
-
-/* Hero/Card spacing corrections */
-@media(min-width:1101px){
-  #hero .detail-hero{grid-template-columns:minmax(0,1.18fr) minmax(470px,1fr);gap:clamp(36px,4vw,64px);}
-  #hero h1{max-width:820px;}
-  #hero .visual-card--hero img{max-width:650px;}
-}
-
 
 .section-divider{
   width:min(calc(100% - (var(--side) * 2)),1280px);
@@ -450,27 +412,6 @@ h1, main h2 {\n  -webkit-text-stroke: .6px rgba(255,248,207,.40);\n  background-
 }
 
 
-/* Hero visual: no frame/glow; Ausgangslage: more breathing room after divider */
-#hero .visual-card--hero{
-  border:0!important;
-  border-radius:0!important;
-  background:none!important;
-  background-image:none!important;
-  box-shadow:none!important;
-  filter:none!important;
-}
-#warum{padding-top:58px;}
-
-/* Hero image size correction: larger visual, no other layout changes */
-@media(min-width:1101px){
-  #hero .detail-hero{grid-template-columns:minmax(0,1.08fr) minmax(560px,1.12fr);gap:clamp(28px,3vw,48px);}
-  #hero .visual-card--hero img{width:100%;max-width:760px;}
-}
-@media(min-width:901px) and (max-width:1100px){
-  #hero .detail-hero{grid-template-columns:minmax(0,1fr) minmax(470px,1fr);gap:36px;}
-  #hero .visual-card--hero img{width:100%;max-width:680px;}
-}
-
 /* Final section rhythm + compact application cards */
 :root{
   --analysis-divider-gap:58px;
@@ -478,23 +419,7 @@ h1, main h2 {\n  -webkit-text-stroke: .6px rgba(255,248,207,.40);\n  background-
   --analysis-title-sub-gap:16px;
   --analysis-sub-body-gap:30px;
 }
-/* One consistent vertical sequence: divider -> kicker -> title -> subtitle -> body */
-.section:not(#hero):not(#was-ist-das){padding-top:var(--analysis-divider-gap)!important;padding-bottom:var(--analysis-divider-gap)!important;}
-#warum{padding-top:var(--analysis-divider-gap)!important;}
-.section:not(#hero):not(#was-ist-das) .media-copy>.kicker,
-.section:not(#hero):not(#was-ist-das) .section-inner>.kicker{margin:0 0 var(--analysis-kicker-title-gap)!important;}
-.section:not(#hero):not(#was-ist-das) .media-copy>h2,
-.section:not(#hero):not(#was-ist-das) .section-inner>h2{margin-top:0!important;margin-bottom:var(--analysis-title-sub-gap)!important;}
-.section:not(#hero):not(#was-ist-das) .media-copy>h2+.sub,
-.section:not(#hero):not(#was-ist-das) .section-inner>h2+.sub{margin-top:0!important;margin-bottom:var(--analysis-sub-body-gap)!important;}
-/* Sections without a subtitle: title -> body/list uses the body gap, not the tight kicker/title gap. */
-.section:not(#hero):not(#was-ist-das) .media-copy>h2+ul,
-.section:not(#hero):not(#was-ist-das) .media-copy>h2+ol,
-.section:not(#hero):not(#was-ist-das) .media-copy>h2+p:not(.sub),
-.section:not(#hero):not(#was-ist-das) .section-inner>h2+ul,
-.section:not(#hero):not(#was-ist-das) .section-inner>h2+ol,
-.section:not(#hero):not(#was-ist-das) .section-inner>h2+p:not(.sub){margin-top:var(--analysis-sub-body-gap)!important;}
-#leistungen .num-list{margin-top:0!important;}
+#leistungen .num-list{margin-top:0;}
 #einsatzbereiche .panel{margin-top:6px!important;padding:22px!important;}
 #einsatzbereiche .pair-grid{gap:12px 16px!important;}
 #einsatzbereiche .pair{gap:10px!important;}
@@ -534,115 +459,40 @@ h1, main h2 {\n  -webkit-text-stroke: .6px rgba(255,248,207,.40);\n  background-
 }
 
 
-/* Desktop viewport sections: each main content section fits one visible screen while preserving internal hierarchy */
+/* Komponenten innerhalb der Desktop-Viewport-Sektionen */
 @media (min-width: 901px) and (min-height: 720px){
-  main > .section:not(#hero){
-    height:100svh;
-    min-height:0;
-    box-sizing:border-box;
-    display:flex;
-    align-items:center;
-    padding-top:var(--analysis-divider-gap)!important;
-    padding-bottom:var(--analysis-divider-gap)!important;
-    overflow:visible;
-  }
-  main > .section:not(#hero) > .section-inner{width:100%;}
-
-  /* Keep the hierarchy consistent without compressing the content itself. */
-  .section:not(#hero) .media-copy>.kicker,
-  .section:not(#hero) .section-inner>.kicker{margin-bottom:10px!important;}
-  .section:not(#hero) .media-copy>h2,
-  .section:not(#hero) .section-inner>h2{margin-bottom:clamp(20px,2.4vh,26px)!important;}
-  .section:not(#hero) .media-copy>h2+.sub,
-  .section:not(#hero) .section-inner>h2+.sub{margin-bottom:clamp(30px,3.6vh,38px)!important;}
-
-  /* Application keeps generous row separation, but the whole block remains inside its viewport. */
-  #einsatzbereiche .panel{padding:clamp(20px,2.5vh,26px)!important;}
-  #einsatzbereiche .pair-grid{row-gap:clamp(16px,2.2vh,22px)!important;column-gap:18px!important;}
-  #einsatzbereiche .pair-chip{min-height:clamp(62px,7.2vh,70px)!important;padding:4.5px 6px!important;}
-  #einsatzbereiche .text--after{margin-top:clamp(18px,2.2vh,24px)!important;}
-
-  /* Large imagery remains visually dominant without increasing section height. */
-  #warum .section-photo,#nutzen .section-photo{max-height:clamp(430px,58vh,620px)!important;}
-  #warum .section-photo img,#nutzen .section-photo img{height:100%!important;max-height:clamp(430px,58vh,620px)!important;object-fit:cover!important;}
+  #einsatzbereiche .panel{padding:clamp(20px,2.5vh,26px);}
+  #einsatzbereiche .pair-grid{row-gap:clamp(16px,2.2vh,22px);column-gap:18px;}
+  #einsatzbereiche .pair-chip{min-height:clamp(62px,7.2vh,70px);padding:4.5px 6px;}
+  #einsatzbereiche .text--after{margin-top:clamp(18px,2.2vh,24px);}
+  #warum .section-photo,#nutzen .section-photo{max-height:clamp(430px,58vh,620px);}
+  #warum .section-photo img,#nutzen .section-photo img{height:100%;max-height:clamp(430px,58vh,620px);object-fit:cover;}
 }
-
-/* Short desktop screens: fit content rather than forcing oversized fixed spacing. */
 @media (min-width: 901px) and (max-height: 719px){
-  main > .section:not(#hero){padding-top:42px!important;padding-bottom:42px!important;}
-  #einsatzbereiche .pair-grid{row-gap:12px!important;}
-  #einsatzbereiche .pair-chip{min-height:58px!important;padding:3.5px 5px!important;}
-  #einsatzbereiche .panel{padding:18px!important;}
+  #einsatzbereiche .pair-grid{row-gap:12px;}
+  #einsatzbereiche .pair-chip{min-height:58px;padding:3.5px 5px;}
+  #einsatzbereiche .panel{padding:18px;}
 }
 
 
-</style>
-<style>
-/* DETAILSEITE — finale Proportionen und Abstände */
-/* Requested spacing corrections */
-@media(min-width:901px){
-  .hero-viewport{
-    height:auto!important;
-    min-height:0!important;
-    display:block!important;
-    background:#000!important;
-  }
-  .hero-viewport #hero{
-    min-height:calc(100dvh - var(--header-height))!important;
-    height:auto!important;
-    display:flex!important;
-    align-items:center!important;
-  }
-  .hero-viewport #hero>.section-inner{
-    width:100%;
-  }
-  #was-ist-das{
-    margin-top:0!important;
-    padding-top:6px!important;
-  }
-}
-
-/* More separation between every section subtitle and the following body/content. */
-:root{--analysis-sub-body-gap:46px;}
-.section:not(#hero):not(#was-ist-das) .media-copy>h2+.sub,
-.section:not(#hero):not(#was-ist-das) .section-inner>h2+.sub{
-  margin-bottom:46px!important;
-}
-
-/* Leistungsumfang needs substantially more air between the eight individual items. */
-#leistungen .num-list{
-  row-gap:52px!important;
-  column-gap:56px!important;
-}
-#leistungen .num-list li{
-  padding-bottom:6px!important;
-}
-@media(max-width:900px){
-  :root{--analysis-sub-body-gap:34px;}
-  .section:not(#hero):not(#was-ist-das) .media-copy>h2+.sub,
-  .section:not(#hero):not(#was-ist-das) .section-inner>h2+.sub{margin-bottom:34px!important;}
-  #leistungen .num-list{row-gap:36px!important;}
-}
-
-</style>
-
-
-
-
-
-<style id="analyse-layout-normalization">
+/* ==========================================================================
+   ANALYSE — konsolidiertes Layout ohne !important-Overrides
+   ========================================================================== */
 :root{
   --content-max:1560px;
   --side:clamp(19.2px,4.8vw,96px);
   --detail-section-space:64px;
   --detail-title-gap:20px;
   --detail-subtitle-gap:32px;
+  --analysis-divider-gap:58px;
+  --analysis-kicker-title-gap:8px;
+  --analysis-title-sub-gap:16px;
+  --analysis-sub-body-gap:46px;
 }
 
-/* Gleiche Inhaltsbreite wie index.html */
 .section{
-  padding-left:var(--side)!important;
-  padding-right:var(--side)!important;
+  padding-left:var(--side);
+  padding-right:var(--side);
 }
 .section-inner{
   width:100%;
@@ -651,7 +501,6 @@ h1, main h2 {\n  -webkit-text-stroke: .6px rgba(255,248,207,.40);\n  background-
   margin-right:auto;
 }
 
-/* Nur Inhaltsmodule begrenzen; Kicker, Titel, Subtitle und Bodytext behalten ihre bisherige Position. */
 .analysis-intro-cards,
 #leistungen .num-list,
 #einsatzbereiche > .section-inner > .panel,
@@ -659,47 +508,177 @@ h1, main h2 {\n  -webkit-text-stroke: .6px rgba(255,248,207,.40);\n  background-
 #faq .faq-grid{
   width:100%;
   max-width:1300px;
-  margin-left:auto!important;
-  margin-right:auto!important;
+  margin-left:auto;
+  margin-right:auto;
 }
 
-/* Einheitlicher vertikaler Rhythmus; Hero bleibt eigenständig. */
-main > .section:not(#hero),
-.hero-viewport > .section:not(#hero){
-  padding-top:var(--detail-section-space)!important;
-  padding-bottom:var(--detail-section-space)!important;
-  min-height:0!important;
-  height:auto!important;
-  align-items:initial!important;
+.hero-viewport{
+  background:#000;
 }
-.section:not(#hero) .section-inner > .kicker,
-.section:not(#hero) .media-copy > .kicker{
-  margin-bottom:10px!important;
+#hero{
+  padding-top:36px;
+  padding-bottom:40px;
+  margin-bottom:0;
 }
-.section:not(#hero) .section-inner > h2,
-.section:not(#hero) .media-copy > h2{
-  margin-bottom:var(--detail-title-gap)!important;
+#hero>.section-inner{
+  width:100%;
 }
-.section:not(#hero) .section-inner > h2 + .sub,
-.section:not(#hero) .media-copy > h2 + .sub{
-  margin-bottom:var(--detail-subtitle-gap)!important;
-}
-
-/* Hero: exakt zwei Zeilen; Textspalte auf Desktop breit genug halten. */
 #hero h1{
-  max-width:none!important;
+  max-width:none;
 }
 #hero .hero-title-line{
   display:block;
   white-space:nowrap;
 }
+#hero .lead{
+  max-width:760px;
+}
+#hero .visual-card--hero{
+  border:0;
+  border-radius:0;
+  background:none;
+  background-image:none;
+  box-shadow:none;
+  filter:none;
+  overflow:visible;
+}
+#hero .visual-card--hero img{
+  width:100%;
+  margin-inline:auto;
+  object-fit:contain;
+}
+
+#was-ist-das{
+  margin-top:0;
+  padding-top:var(--detail-section-space);
+  padding-bottom:var(--detail-section-space);
+}
+#was-ist-das>.section-inner{
+  width:100%;
+}
+.definition-intro{
+  max-width:980px;
+  margin-bottom:64px;
+}
+.definition-intro .sub{
+  margin-top:8px;
+  margin-bottom:0;
+  max-width:850px;
+}
+.analysis-intro-cards{
+  gap:32px;
+  margin-top:0;
+  margin-bottom:0;
+}
+.analysis-intro-cards .panel{
+  padding:16px 20px;
+}
+.analysis-intro-cards h3{
+  margin:0 0 12px;
+  color:var(--nv-gold-highlight);
+  font:var(--w-zwischentitel) var(--t-zwischentitel)/1.2 "Exo 2",Inter,Arial,sans-serif;
+}
+.analysis-intro-cards p+p{
+  margin-top:10px;
+}
+#was-ist-das .actions{
+  margin-top:56px;
+  justify-content:center;
+}
+
+.section:not(#hero){
+  padding-top:var(--detail-section-space);
+  padding-bottom:var(--detail-section-space);
+}
+.section:not(#hero) .section-inner > .kicker,
+.section:not(#hero) .media-copy > .kicker{
+  margin-bottom:10px;
+}
+.section:not(#hero) .section-inner > h2,
+.section:not(#hero) .media-copy > h2{
+  margin-top:0;
+  margin-bottom:var(--detail-title-gap);
+}
+.section:not(#hero) .section-inner > h2 + .sub,
+.section:not(#hero) .media-copy > h2 + .sub{
+  margin-top:0;
+  margin-bottom:var(--analysis-sub-body-gap);
+}
+.section:not(#hero) .media-copy > h2 + ul,
+.section:not(#hero) .media-copy > h2 + ol,
+.section:not(#hero) .media-copy > h2 + p:not(.sub),
+.section:not(#hero) .section-inner > h2 + ul,
+.section:not(#hero) .section-inner > h2 + ol,
+.section:not(#hero) .section-inner > h2 + p:not(.sub){
+  margin-top:var(--analysis-sub-body-gap);
+}
+
+#leistungen .num-list{
+  margin-top:0;
+  row-gap:52px;
+  column-gap:56px;
+}
+#leistungen .num-list li{
+  padding-bottom:6px;
+}
+
 @media(min-width:1101px){
   #hero .detail-hero{
-    grid-template-columns:minmax(780px,1.35fr) minmax(460px,.85fr)!important;
-    gap:clamp(28px,3vw,48px)!important;
+    grid-template-columns:minmax(780px,1.35fr) minmax(460px,.85fr);
+    gap:clamp(28px,3vw,48px);
   }
   #hero .visual-card--hero img{
-    max-width:650px!important;
+    width:760px;
+    max-width:none;
+    position:relative;
+    left:50%;
+    transform:translateX(-50%) scale(1.6);
+    transform-origin:center center;
+  }
+}
+@media(min-width:901px) and (max-width:1100px){
+  #hero .detail-hero{
+    grid-template-columns:minmax(0,1fr) minmax(470px,1fr);
+    gap:36px;
+  }
+  #hero .visual-card--hero img{
+    width:680px;
+    max-width:none;
+    position:relative;
+    left:50%;
+    transform:translateX(-50%) scale(1.45);
+    transform-origin:center center;
+  }
+}
+@media(min-width:901px){
+  .hero-viewport #hero,
+  #was-ist-das{
+    min-height:calc(100dvh - var(--header-height));
+    height:auto;
+    display:flex;
+    align-items:center;
+    box-sizing:border-box;
+  }
+  .hero-viewport #hero>.section-inner,
+  #was-ist-das>.section-inner{
+    width:100%;
+  }
+}
+@media(min-width:901px) and (min-height:720px){
+  main > .section:not(#was-ist-das){
+    min-height:calc(100dvh - var(--header-height));
+    display:flex;
+    align-items:center;
+    box-sizing:border-box;
+  }
+  main > .section:not(#was-ist-das)>.section-inner{
+    width:100%;
+  }
+}
+@media(min-width:901px) and (max-height:719px){
+  main > .section:not(#was-ist-das){
+    padding-top:42px;
+    padding-bottom:42px;
   }
 }
 @media(max-width:1100px){
@@ -707,75 +686,37 @@ main > .section:not(#hero),
     white-space:normal;
   }
 }
-
-/* Alte Verschiebungs-Hacks neutralisieren. */
-#was-ist-das{
-  margin-top:0!important;
-  padding-top:var(--detail-section-space)!important;
-  padding-bottom:var(--detail-section-space)!important;
-}
-.definition-intro{
-  transform:none!important;
-  margin-bottom:var(--detail-subtitle-gap)!important;
-}
-.analysis-intro-cards{
-  width:100%;
-  max-width:1300px;
-  transform:none!important;
-  margin-top:0!important;
-  margin-right:auto!important;
-  margin-bottom:0!important;
-  margin-left:auto!important;
-}
-#warum{
-  padding-top:var(--detail-section-space)!important;
-}
-
-/* Bullet-Listen wie auf index.html um 30px einrücken. */
-.label-list,
-.dot-list{
-  margin-left:30px!important;
-}
-
-/* Bulletpoints exakt wie auf index.html: grüner 3D-Bullet. */
-.label-list li::before,
-.dot-list li::before,
-.card-bullets li::before{
-  content:""!important;
-  width:5.6px!important;
-  height:5.6px!important;
-  border:.8px solid #55863f!important;
-  border-radius:50%!important;
-  background:url("assets/bulletpoint.png") center / cover no-repeat!important;
-}
-.label-list li::before{top:8px!important;}
-.dot-list li::before{top:9px!important;}
-.card-bullets li::before{top:calc(50% - 2.8px)!important;}
-.summary .dot-list li::before{
-  width:5.6px!important;
-  height:5.6px!important;
-  border:.8px solid #55863f!important;
-  border-radius:50%!important;
-  background:url("assets/bulletpoint.png") center / cover no-repeat!important;
-  top:10px!important;
-}
-
-/* Divider exakt auf Homepage-Stärke und -Verlauf. */
-.section-divider{
-  width:min(calc(100% - (var(--side) * 2)),var(--content-max))!important;
-  height:.8px!important;
-  background:linear-gradient(90deg,transparent,#fae385 20%,#fae385 80%,transparent)!important;
-  box-shadow:0 0 6.4px #fae38566!important;
-  border:0!important;
-}
-
 @media(max-width:900px){
-  :root{--detail-section-space:40px;}
+  :root{
+    --detail-section-space:40px;
+    --analysis-sub-body-gap:34px;
+  }
   .section{
-    padding-left:18px!important;
-    padding-right:18px!important;
+    padding-left:18px;
+    padding-right:18px;
+  }
+  #hero{
+    padding-top:36px;
+    padding-bottom:40px;
+  }
+  #hero .detail-hero{
+    grid-template-columns:1fr;
+    gap:38px;
+  }
+  .definition-intro{
+    margin-bottom:40px;
+  }
+  .analysis-intro-cards{
+    gap:28px;
+  }
+  #was-ist-das .actions{
+    margin-top:36px;
+  }
+  #leistungen .num-list{
+    row-gap:36px;
   }
 }
+
 </style>
 
 

@@ -245,3 +245,43 @@ Entscheidung: „Was ist eine KI-Potenzialanalyse?“ steht auf `analyse.html` a
 
 Entscheidung: Nach der Trennung von Hero und Definitionssektion belegt der Hero auf Desktop die sichtbare Viewport-Höhe unterhalb des Headers. Die Höhe liegt am `#hero` selbst, nicht an einem leeren Wrapper; der bestehende Hero-Inhalt wird vertikal in dieser Fläche ausgerichtet.
 
+## 2026-10-04 – Definitionssektion der Potenzialanalyse als Viewport-Sektion
+
+Entscheidung: Die eigenständige Sektion `#was-ist-das` belegt auf Desktop die volle sichtbare Viewport-Höhe unterhalb des Headers und zentriert ihren bestehenden Inhalt vertikal. Mobile bleibt in natürlicher Inhalts-Höhe.
+
+## 2026-10-04 – Keine Override-Schichten für Analyse-Seitenlayout
+
+Entscheidung: Hero-, Viewport- und Section-Layout von `analyse.html` wird aus einer konsolidierten CSS-Quelle ohne `!important` gesteuert. Hero und Definitionssektion belegen auf Desktop die sichtbare Höhe unterhalb des Headers; weitere Inhaltssektionen folgen bei ausreichender Bildschirmhöhe demselben Viewport-Prinzip. Historische Layout-Override-Schichten werden nicht weitergeführt.
+
+## 2026-10-04 – Größere vertikale Abstände in der Definitionssektion
+
+Entscheidung: `#was-ist-das` bleibt eine Viewport-Sektion. Innerhalb der Sektion werden Subline und Cards sowie Cards und CTA deutlicher voneinander getrennt: Desktop 64 px bzw. 56 px; Mobile 40 px bzw. 36 px.
+
+## 2026-10-04 – CTA der Definitionssektion mittig
+
+Entscheidung: Der CTA unter den beiden Cards in `#was-ist-das` wird horizontal mittig ausgerichtet.
+
+## 2026-10-04 – Einheitliche grüne 3D-Bulletpoints
+
+Entscheidung: Alle echten Bulletpoint-Listen auf `analyse.html` verwenden den grünen 3D-Punkt aus `assets/bulletpoint.png`. Nummerierte Prozessschritte bleiben als nummerierte Elemente bestehen.
+
+## 2026-10-04 – Shared Footer mit vier flexiblen Spalten
+
+Entscheidung: Der Desktop-Footer in `shared-header-footer.css` verwendet vier flexible Grid-Spalten im Verhältnis `1.35fr 1fr 1.2fr 1fr`. Feste Auto-/Pixel-Spalten werden nicht verwendet, damit alle vier Footer-Bereiche einschließlich „Kontakt“ innerhalb des verfügbaren Viewports bleiben.
+
+## 2026-10-04 – Shared Footer bleibt unangetastet
+
+Entscheidung: Der funktionierende Shared Footer wird nicht zur Korrektur eines seitenbezogenen Problems verändert. Abweichungen auf `analyse.html` werden ausschließlich in `analyse.html` behoben.
+
+## 2026-10-04 – Analyse-Hero-Visual wieder in großer Desktop-Proportion
+
+Entscheidung: Das Hero-Visual auf `analyse.html` nutzt auf Desktop ab 1101 px wieder maximal 760 px Breite und die zuvor verwendete Spaltenverteilung `1.08fr / 1.12fr`.
+
+## 2026-10-04 – Analyse-Hero-Bild wird unabhängig von der Grid-Spalte skaliert
+
+Entscheidung: Die Position des Hero-Visuals auf `analyse.html` bleibt über das bestehende Desktop-Grid erhalten. Die Bildgröße wird separat gesteuert: 760 px ab 1101 px und 680 px von 901–1100 px, jeweils um den Mittelpunkt der Visual-Spalte zentriert.
+
+## 2026-10-04 – Analyse-Hero-Visual um festen Mittelpunkt skalieren
+
+Entscheidung: Das Hero-Visual auf `analyse.html` wird nicht durch erneute Grid-Verschiebungen vergrößert. Die bestehende Position bleibt erhalten; der sichtbare Bildinhalt wird auf Desktop per `scale(1.6)` und zwischen 901–1100 px per `scale(1.45)` um den Mittelpunkt skaliert.
+
