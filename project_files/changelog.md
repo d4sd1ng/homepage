@@ -1,3 +1,17 @@
+## 2026-10-06 – Hero-Randformen auf alle Detailseiten ausgerollt
+
+Status: fertig
+
+Geändert:
+
+- Die auf `analyse.html` freigegebene CSS-Formsprache wurde auf alle 13 Dateien `homepage/detail_*.html` übertragen.
+- Oben rechts: gestaffelte offene Goldlinien.
+- Unten links: auslaufende Emerald-/Gunmetal-/Gold-Form.
+- Keine Form unten rechts.
+- Moderne Detailseiten mit `.hero-viewport` und ältere Detailseiten mit der ersten Hero-Section werden mit demselben CSS-Block unterstützt.
+- Hero-Inhalt bleibt durch getrennte Z-Ebenen über den Dekorformen.
+- Keine Änderungen an Header, Footer, Texten, CTA, Hero-Grafiken oder übrigen Sektionen.
+
 ## 2026-10-06 – Hero-Randformen sichtbar gemacht
 
 Status: fertig

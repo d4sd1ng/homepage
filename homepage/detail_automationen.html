@@ -85,6 +85,80 @@
 .page-warum .num-list { margin-top: 20px; }
 .page-warum .chip-list--stacked { margin-bottom: 32px; }
 .page-warum #kontakt .sub { margin-bottom: 32px; }
+
+/* ==========================================================================
+   DETAIL-HERO-RANDFORMEN — freigegebener Pilot aus analyse.html
+   ========================================================================== */
+@media (min-width:901px){
+  .hero-viewport,
+  main > .section:first-child{
+    position:relative;
+    isolation:isolate;
+  }
+
+  .hero-viewport::before,
+  main > .section:first-child::before{
+    content:"";
+    position:absolute;
+    top:18px;
+    right:clamp(20px,3vw,46px);
+    width:clamp(150px,11vw,210px);
+    height:clamp(165px,20vh,220px);
+    background:
+      linear-gradient(90deg,#8b641a 0%,#dfbd69 46%,#fff6bd 72%,#b98424 100%) right 0 top 0/100% 2px no-repeat,
+      linear-gradient(180deg,#fff6bd 0%,#dfbd69 48%,#926f34 100%) right 0 top 0/2px 100% no-repeat,
+      linear-gradient(90deg,#8b641a 0%,#dfbd69 46%,#fff6bd 72%,#b98424 100%) right 14px top 14px/88% 2px no-repeat,
+      linear-gradient(180deg,#fff6bd 0%,#dfbd69 48%,#926f34 100%) right 14px top 14px/2px 88% no-repeat,
+      linear-gradient(90deg,#8b641a 0%,#dfbd69 46%,#fff6bd 72%,#b98424 100%) right 28px top 28px/76% 2px no-repeat,
+      linear-gradient(180deg,#fff6bd 0%,#dfbd69 48%,#926f34 100%) right 28px top 28px/2px 76% no-repeat,
+      linear-gradient(90deg,#8b641a 0%,#dfbd69 46%,#fff6bd 72%,#b98424 100%) right 42px top 42px/64% 2px no-repeat,
+      linear-gradient(180deg,#fff6bd 0%,#dfbd69 48%,#926f34 100%) right 42px top 42px/2px 64% no-repeat,
+      linear-gradient(90deg,#8b641a 0%,#dfbd69 46%,#fff6bd 72%,#b98424 100%) right 56px top 56px/52% 2px no-repeat,
+      linear-gradient(180deg,#fff6bd 0%,#dfbd69 48%,#926f34 100%) right 56px top 56px/2px 52% no-repeat;
+    opacity:.84;
+    filter:drop-shadow(0 0 5px rgba(212,175,55,.16));
+    pointer-events:none;
+    z-index:1;
+  }
+
+  .hero-viewport::after,
+  main > .section:first-child::after{
+    content:"";
+    position:absolute;
+    left:-8px;
+    bottom:0;
+    width:112px;
+    height:235px;
+    clip-path:polygon(0 14%,18% 14%,100% 100%,0 100%);
+    background:
+      linear-gradient(64deg,
+        #05140a 0%,
+        #0d2818 35%,
+        #252b2c 52%,
+        #8b641a 54%,
+        #dfbd69 57%,
+        #fff6bd 59%,
+        #b98424 62%,
+        #0d2818 65%,
+        #05140a 100%);
+    opacity:.92;
+    filter:drop-shadow(0 0 7px rgba(212,175,55,.12));
+    pointer-events:none;
+    z-index:1;
+  }
+
+  .hero-viewport #hero,
+  main > .section:first-child{
+    z-index:auto;
+  }
+
+  .hero-viewport #hero > .section-inner,
+  main > .section:first-child > .section-inner{
+    position:relative;
+    z-index:2;
+  }
+}
+
 </style>
 <link rel="stylesheet" href="nurovelle-mobil.css" />
 
