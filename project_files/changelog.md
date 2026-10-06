@@ -1,3 +1,21 @@
+## 2026-10-06 – CSS-Randformen im Analyse-Hero als Pilot umgesetzt
+
+Status: in Arbeit
+
+Geändert:
+
+- `homepage/analyse.html`: ausschließlich im Desktop-Hero drei CSS-Randformen ergänzt.
+- Oben rechts: gestaffelte offene Goldlinien nach der ausgewählten Form 3.
+- Unten links: schmale Emerald-/Gunmetal-/Gold-Form, die bis an den unteren Viewportrand läuft und dort optisch ausläuft.
+- Unten rechts: kleiner Emerald-/Gold-Keil als sekundärer Gegenakzent.
+- Alle Formen liegen hinter dem Hero-Inhalt, reagieren nicht auf Pointer-Eingaben und verwenden keine zusätzlichen HTML-Elemente oder Bildassets.
+- Vorhandene Hero-Texte, CTA, Visual-Größe, Visual-Position und Glow bleiben unverändert.
+- Umsetzung zunächst nur auf `analyse.html`; Übertragung auf weitere Detailseiten erst nach Sichtprüfung und Freigabe.
+
+Nicht geändert:
+
+- `shared-header-footer.css`, `index.html`, übrige Detailseiten und Hero-Inhalte.
+
 ## 2026-10-06 – Analyse-Hero neu ausbalanciert
 
 Status: fertig

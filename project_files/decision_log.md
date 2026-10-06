@@ -289,3 +289,7 @@ Entscheidung: Das Hero-Visual auf `analyse.html` wird nicht durch erneute Grid-V
 
 Entscheidung: Der Desktop-Hero von `analyse.html` wird als gemeinsame Text-/Visual-Einheit um 80 px nach oben versetzt. Der CTA-Abstand beträgt 38 px. Position und Größe des vorhandenen Visuals bleiben bestehen; hinter dem Visual ist nur ein dezenter dunkler Emerald-/Gunmetal-Glow zulässig. Zusätzliche dekorative Objekte werden ohne separate Freigabe nicht ergänzt.
 
+## 2026-10-06 – Pilot für CSS-Randformen zunächst nur auf analyse.html
+
+Entscheidung: Die ausgewählte Hero-Formsprache wird zunächst ausschließlich auf `analyse.html` getestet: gestaffelte Goldlinien oben rechts, auslaufende Emerald-/Gunmetal-/Gold-Form unten links und kleiner Emerald-/Gold-Gegenakzent unten rechts. Ein Rollout auf weitere Detailseiten erfolgt erst nach visueller Freigabe dieses Piloten.
+
