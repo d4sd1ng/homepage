@@ -1,3 +1,19 @@
+## 2026-10-07 – Untere linke Hero-Randform korrigiert
+
+Status: fertig
+
+Geändert:
+
+- `homepage/analyse.html` und alle 13 `homepage/detail_*.html`: die massive dreieckige Fläche unten links entfernt.
+- Ersetzt durch eine schmale, nach unten aus dem Viewport laufende diagonale Randform aus Gold, Emerald und Gunmetal.
+- Die Form endet nicht sichtbar im Hero, sondern läuft unterhalb des Viewports weiter.
+- Die gestaffelten Goldlinien oben rechts bleiben unverändert.
+- Keine Änderungen an Hero-Text, CTA, Visual, Header, Footer oder anderen Sektionen.
+
+Ursache:
+
+- Die vorherige `clip-path`-Fläche erzeugte einen großen dunklen Keil statt des gewünschten schmalen Randakzents.
+
 ## 2026-10-06 – Hero-Randformen auf alle Detailseiten ausgerollt
 
 Status: fertig
