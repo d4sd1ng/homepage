@@ -124,6 +124,22 @@ Ursache:
 
 - Die vorherige `clip-path`-Fläche erzeugte einen großen dunklen Keil statt des gewünschten schmalen Randakzents.
 
+## 2026-10-06 – SEO Toolbox an Seitenende und Nurovelle-Design angepasst
+
+Status: in Arbeit
+
+Geändert:
+
+- `homepage/detail_seo.html`: bestehende Toolbox-Box aus dem Hero an das Ende des Hauptinhalts vor den Footer verschoben; maximal 800px und mobile Inhaltsbreite erhalten.
+- `.nv-seo-inline`: vorhandenen Gold-3-Rahmen der Nurovelle-Komponenten übernommen.
+- Hero: doppelten CTA `SEO-Potenzial analysieren` entfernt; `Kostenloser SEO-Check` mit bestehender ID `nv-seo-trigger` bleibt erhalten und verweist auf `#nv-seo-inline`.
+- Kontaktbereich: `SEO-Potenzial analysieren` verweist auf `#nv-seo-inline` statt `analyse.html`.
+- Toolbox-Repository, `apps/web/app/toolbox/embed/widget.css`: Exo 2 und Inter, Gunmetal-Fläche, Goldtitel, kompakte Auswahlfelder und helle Eingaben nach der vom Nutzer gelieferten Homepage-Analysevorlage. Vorhandene Webfonts unter `apps/web/public/toolbox/fonts/` wiederverwendet.
+
+Nicht geändert:
+
+- Header-CTA zur KI-Potenzialanalyse, Seitentexte, Assetpfade der Homepage, FAQ, Newsletterformular, Accounts, Login, Tarifprüfungen und Tool-Ausführung.
+
 ## 2026-10-06 – Hero-Randformen auf alle Detailseiten ausgerollt
 
 Status: fertig
