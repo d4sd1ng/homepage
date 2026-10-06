@@ -1,3 +1,17 @@
+## 2026-10-06 – SEO Toolbox als kompakte Inline-Box
+
+Status: in Arbeit
+
+Geändert:
+
+- `homepage/detail_seo.html`: Toolbox unter dem bestehenden Hero eingebettet, maximal 800px breit und auf Mobile volle Inhaltsbreite. Der bestehende SEO-Check-CTA verweist auf die Box statt auf E-Mail.
+- `.nv-seo-inline` und dessen iframe-Regel begrenzen die Box; die modale Widget-Einbindung wurde auf dieser Seite entfernt.
+- `homepage/seo-toolbox-inline.js`: automatische iframe-Höhe mit Prüfung von Nachrichtenursprung und Absender; vorhandene Owner-Rückkehr wird an das Embed weitergegeben.
+
+Nicht geändert:
+
+- Seitentexte, Header, Footer, FAQ, Newsletterformular, Assetpfade und Toolbox-Zugriffsprüfung.
+
 ## 2026-10-04 – Hero der Potenzialanalyse auf volle sichtbare Höhe gezogen
 
 Status: fertig
