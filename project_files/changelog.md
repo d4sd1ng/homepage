@@ -1,3 +1,17 @@
+## 2026-10-06 – Falsch gesetzte Hero-Form unten rechts entfernt
+
+Status: fertig
+
+Geändert:
+
+- `homepage/analyse.html`: den unten rechts ergänzten Emerald-/Gold-Keil vollständig entfernt.
+- Im Hero verbleiben nur die gestaffelten Goldlinien oben rechts und die auslaufende Form unten links.
+- Keine Änderung an Text, CTA, Hero-Visual, Glow, Header/Footer oder anderen Sektionen.
+
+Ursache:
+
+- Der unten rechts gesetzte Keil entsprach in der Formsprache erneut der zuvor verworfenen Form 7 und widersprach damit der abgestimmten Komposition.
+
 ## 2026-10-06 – CSS-Randformen im Analyse-Hero als Pilot umgesetzt
 
 Status: in Arbeit

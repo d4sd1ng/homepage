@@ -701,30 +701,6 @@ h1, main h2 {\n  -webkit-text-stroke: .6px rgba(255,248,207,.40);\n  background-
     pointer-events:none;
     z-index:0;
   }
-  #hero::after{
-    content:"";
-    position:absolute;
-    right:clamp(18px,2.6vw,44px);
-    bottom:24px;
-    width:clamp(145px,10vw,190px);
-    height:44px;
-    clip-path:polygon(22% 34%,100% 0,100% 100%,0 100%,0 72%);
-    background:
-      linear-gradient(172deg,
-        transparent 0 37%,
-        #fff6bd 38% 43%,
-        #dfbd69 44% 47%,
-        transparent 48% 100%),
-      linear-gradient(172deg,
-        #05140a 0%,
-        #0d2818 42%,
-        #1a4d2e 67%,
-        #05140a 100%);
-    opacity:.9;
-    filter:drop-shadow(0 0 6px rgba(212,175,55,.12));
-    pointer-events:none;
-    z-index:0;
-  }
   #hero>.section-inner{
     position:relative;
     z-index:1;

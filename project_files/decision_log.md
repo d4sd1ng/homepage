@@ -293,3 +293,7 @@ Entscheidung: Der Desktop-Hero von `analyse.html` wird als gemeinsame Text-/Visu
 
 Entscheidung: Die ausgewählte Hero-Formsprache wird zunächst ausschließlich auf `analyse.html` getestet: gestaffelte Goldlinien oben rechts, auslaufende Emerald-/Gunmetal-/Gold-Form unten links und kleiner Emerald-/Gold-Gegenakzent unten rechts. Ein Rollout auf weitere Detailseiten erfolgt erst nach visueller Freigabe dieses Piloten.
 
+## 2026-10-06 – Keine Form 7 unten rechts im Analyse-Hero
+
+Entscheidung: Im Analyse-Hero wird unten rechts keine Variante der verworfenen Form 7 eingesetzt. Der Pilot besteht nur aus den gestaffelten Goldlinien oben rechts und der auslaufenden Randform unten links.
+
