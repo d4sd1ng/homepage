@@ -1,3 +1,18 @@
+## 2026-10-06 – Hero-Randformen sichtbar gemacht
+
+Status: fertig
+
+Geändert:
+
+- `homepage/analyse.html`: Stacking-Kontext des Hero korrigiert.
+- `.hero-viewport::before` (Goldlinien oben rechts) und `.hero-viewport::after` (auslaufende Form unten links) liegen jetzt über dem schwarzen Hero-Hintergrund.
+- Der eigentliche Hero-Inhalt liegt weiterhin darüber.
+- Keine Änderung an Form, Größe, Position, Farben, Text, CTA, Visual oder Shared Header/Footer.
+
+Ursache:
+
+- `#hero` hatte `z-index:1`, während beide Randformen auf `z-index:0` lagen. Da `#hero` eine deckende schwarze Fläche hat, wurden die Formen vollständig dahinter verdeckt.
+
 ## 2026-10-06 – Falsch gesetzte Hero-Form unten rechts entfernt
 
 Status: fertig

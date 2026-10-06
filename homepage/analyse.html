@@ -514,11 +514,12 @@ h1, main h2 {\n  -webkit-text-stroke: .6px rgba(255,248,207,.40);\n  background-
 
 .hero-viewport{
   position:relative;
+  isolation:isolate;
   background:#000;
 }
 #hero{
   position:relative;
-  z-index:1;
+  z-index:auto;
   padding-top:36px;
   padding-bottom:40px;
   margin-bottom:0;
@@ -675,7 +676,7 @@ h1, main h2 {\n  -webkit-text-stroke: .6px rgba(255,248,207,.40);\n  background-
     opacity:.84;
     filter:drop-shadow(0 0 5px rgba(212,175,55,.16));
     pointer-events:none;
-    z-index:0;
+    z-index:1;
   }
   .hero-viewport::after{
     content:"";
@@ -699,11 +700,11 @@ h1, main h2 {\n  -webkit-text-stroke: .6px rgba(255,248,207,.40);\n  background-
     opacity:.92;
     filter:drop-shadow(0 0 7px rgba(212,175,55,.12));
     pointer-events:none;
-    z-index:0;
+    z-index:1;
   }
   #hero>.section-inner{
     position:relative;
-    z-index:1;
+    z-index:2;
   }
   #hero .detail-hero{
     transform:translateY(-80px);
