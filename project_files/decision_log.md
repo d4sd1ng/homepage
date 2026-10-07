@@ -305,7 +305,7 @@ Entscheidung: Die dekorativen Hero-Randformen werden nicht als Linien-/Box-Shado
 
 ## 2026-10-07 – Mobile Homepage als verbindliches Layoutsystem
 
-Entscheidung: Die Homepage wird auf Mobile nicht mehr sektionsweise mit Einzelkorrekturen behandelt, sondern mit einer gemeinsamen Breiten-, Abstands- und CTA-Logik. Normale CTAs verwenden mobil die kompakte, schmale Form des bestehenden `Mehr erfahren`-Buttons aus den Analyse-/Leistungskarten; der Header-CTA bleibt die einzige separat dimensionierte Ausnahme. CTA-Texte bleiben einzeilig.
+Entscheidung: Die Homepage wird auf Mobile nicht mehr sektionsweise mit Einzelkorrekturen behandelt, sondern mit einer gemeinsamen Breiten-, Abstands- und CTA-Logik. Normale CTAs verwenden mobil die bestehende goldene CTA-Optik der Analyse-Angebots-Cards; sie werden nur kompakt und einzeilig dimensioniert. Der Header-CTA bleibt die einzige separat dimensionierte Ausnahme. CTA-Texte bleiben einzeilig.
 
 Entscheidung: Der Hero nutzt auf Mobile die verfügbare Breite ohne automatische Silbentrennung. Der Kicker bleibt klar lesbar. Video und Bulletpoints in „Warum Nurovelle“ werden enger zusammengeführt, die Texte in den Projektstart-Cards erhalten Innenabstand, die Projektidee-Beispiele werden ohne leere Sliderzustände vollständig untereinander dargestellt und die sechs Ablauf-Module werden mobil deutlich kleiner skaliert.
 
