@@ -1,3 +1,15 @@
+## 2026-10-07 – CTA-Stil auf bestehenden goldenen Analyse-CTA zurückgesetzt
+
+Status: fertig
+
+Geändert:
+
+- Die zuvor fälschlich eingeführte dunkle Card-CTA-Optik für normale Mobile-CTAs wurde wieder entfernt.
+- Normale Mobile-CTAs verwenden wieder die bestehende goldene `golden-button`-Optik der Analyse-Angebots-Cards.
+- Projektstart- und Leistungskarten-CTAs werden auf Mobile an dieselbe goldene CTA-Sprache angeglichen.
+- SEO-Toolbox-Callouts verwenden ebenfalls den normalen goldenen CTA.
+- Header-CTA bleibt als einzige separat dimensionierte Variante bestehen.
+
 ## 2026-10-07 – Mobile Homepage systematisiert und SEO-Toolbox-Callouts ergänzt
 
 Status: in Arbeit
