@@ -297,3 +297,7 @@ Entscheidung: Die ausgewählte Hero-Formsprache wird zunächst ausschließlich a
 
 Entscheidung: Im Analyse-Hero wird unten rechts keine Variante der verworfenen Form 7 eingesetzt. Der Pilot besteht nur aus den gestaffelten Goldlinien oben rechts und der auslaufenden Randform unten links.
 
+## 2026-10-07 – Hero-Randformen als gefüllte CSS-Dreiecke
+
+Entscheidung: Die dekorativen Hero-Randformen werden nicht als Linien-/Box-Shadow-Nachbildung und nicht als Bildasset aufgebaut. Die Formfamilie besteht aus vollflächigen CSS-Dreiecken mit `clip-path` und Nurovelle-Verläufen. Die vertikale Variante verwendet vier ineinanderliegende Dreiecke einschließlich zusätzlicher Emerald-Lage; die horizontale Variante verwendet drei Dreiecke mit denselben Materialprinzipien und nur veränderten Proportionen. Umsetzung zunächst nur auf `analyse.html`; Übertragung auf weitere Detailseiten erst nach Sichtprüfung.
+

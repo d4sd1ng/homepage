@@ -678,23 +678,121 @@ h1, main h2 {\n  -webkit-text-stroke: .6px rgba(255,248,207,.40);\n  background-
     pointer-events:none;
     z-index:1;
   }
-  .hero-viewport::after{
-    content:"";
+  .hero-edge-accent{
     position:absolute;
-    left:96px;
-    bottom:-68px;
-    width:7px;
-    height:285px;
-    background:linear-gradient(180deg,#fff6bd 0%,#dfbd69 38%,#8b641a 100%);
-    transform:rotate(-18deg);
-    transform-origin:bottom center;
-    box-shadow:
-      -9px 0 0 rgba(13,40,24,.92),
-      -15px 0 0 rgba(37,43,44,.88);
-    opacity:.82;
-    filter:drop-shadow(0 0 5px rgba(212,175,55,.12));
-    pointer-events:none;
     z-index:1;
+    display:block;
+    pointer-events:none;
+  }
+  .hero-edge-accent span{
+    position:absolute;
+    display:block;
+    pointer-events:none;
+  }
+
+  /* Vertikale Variante: vier ineinanderliegende, vollflächige Dreiecke.
+     Alle teilen dieselbe Spitze; unterschiedliche Breiten erzeugen die
+     sichtbaren Materiallagen. */
+  .hero-edge-accent--vertical{
+    left:0;
+    bottom:0;
+    width:132px;
+    height:292px;
+  }
+  .hero-edge-accent--vertical span{
+    left:0;
+    bottom:0;
+    height:100%;
+    clip-path:polygon(0 0,100% 100%,0 100%);
+  }
+  .hero-edge-accent--vertical .edge-v-emerald{
+    width:100%;
+    z-index:1;
+    background:
+      linear-gradient(165deg,
+        var(--color-deep-green) 0%,
+        var(--color-emerald) 42%,
+        var(--color-emerald-bright) 72%,
+        var(--color-deep-green) 100%);
+  }
+  .hero-edge-accent--vertical .edge-v-light{
+    width:82%;
+    z-index:2;
+    background:
+      linear-gradient(165deg,
+        #8b641a 0%,
+        #fff6bd 42%,
+        #d2ac47 72%,
+        #926f34 100%);
+  }
+  .hero-edge-accent--vertical .edge-v-gold{
+    width:66%;
+    z-index:3;
+    background:
+      linear-gradient(165deg,
+        #76551a 0%,
+        #d2ac47 34%,
+        #fff6bd 56%,
+        #b98424 78%,
+        #8b641a 100%);
+  }
+  .hero-edge-accent--vertical .edge-v-gunmetal{
+    width:49%;
+    z-index:4;
+    background:
+      linear-gradient(165deg,
+        #0b100f 0%,
+        var(--color-gunmetal-dark) 44%,
+        var(--color-gunmetal) 74%,
+        #101615 100%);
+  }
+
+  /* Horizontale Variante: drei vollflächige Dreiecke mit gestaffelten
+     Spitzen. Gleiche Formsprache, nur langgezogen. */
+  .hero-edge-accent--horizontal{
+    right:0;
+    bottom:0;
+    width:clamp(250px,19vw,365px);
+    height:84px;
+  }
+  .hero-edge-accent--horizontal span{
+    right:0;
+    bottom:0;
+    clip-path:polygon(0 100%,100% 0,100% 100%);
+  }
+  .hero-edge-accent--horizontal .edge-h-emerald{
+    width:100%;
+    height:100%;
+    z-index:1;
+    background:
+      linear-gradient(168deg,
+        var(--color-deep-green) 0%,
+        var(--color-emerald-bright) 52%,
+        var(--color-emerald) 76%,
+        var(--color-deep-green) 100%);
+  }
+  .hero-edge-accent--horizontal .edge-h-gold{
+    width:79%;
+    height:62%;
+    z-index:2;
+    background:
+      linear-gradient(168deg,
+        #76551a 0%,
+        #d2ac47 32%,
+        #fff6bd 58%,
+        #b98424 82%,
+        #8b641a 100%);
+  }
+  .hero-edge-accent--horizontal .edge-h-gunmetal{
+    width:58%;
+    height:34%;
+    z-index:3;
+    background:
+      linear-gradient(168deg,
+        #0b100f 0%,
+        var(--color-gunmetal-dark) 42%,
+        var(--color-gunmetal) 72%,
+        #101615 100%);
   }
   #hero>.section-inner{
     position:relative;
@@ -867,6 +965,17 @@ h1, main h2 {\n  -webkit-text-stroke: .6px rgba(255,248,207,.40);\n  background-
 <main>
 <!-- ============================ 1. HERO ============================ -->
 <div class="hero-viewport">
+<div class="hero-edge-accent hero-edge-accent--vertical" aria-hidden="true">
+  <span class="edge-v-emerald"></span>
+  <span class="edge-v-light"></span>
+  <span class="edge-v-gold"></span>
+  <span class="edge-v-gunmetal"></span>
+</div>
+<div class="hero-edge-accent hero-edge-accent--horizontal" aria-hidden="true">
+  <span class="edge-h-emerald"></span>
+  <span class="edge-h-gold"></span>
+  <span class="edge-h-gunmetal"></span>
+</div>
 <section class="section section--landing" id="hero"><div class="section-inner detail-hero"><div><div class="kicker">KI-Potenzialanalyse</div><h1><span class="hero-title-line">Wo lohnt sich KI in Ihrem</span><span class="hero-title-line">Unternehmen wirklich?</span></h1><p class="sub">Bevor Zeit und Budget in eine KI-Lösung fließen.</p><p class="lead">Die KI-Potenzialanalyse zeigt, welche Prozesse für KI oder Automatisierung geeignet sind, welche Voraussetzungen fehlen und welche nächsten Schritte sinnvoll sind.</p><div class="actions"><a class="btn" href="#analyse-formular">KI-Potenzialanalyse starten</a></div></div><div class="visual-card visual-card--hero"><img src="assets/detail_pages_grafics/Analyse_detail _final.png" alt="Ablauf der KI-Potenzialanalyse"/></div></div></section>
 </div>
 <div class="section-divider" aria-hidden="true"></div>

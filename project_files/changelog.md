@@ -1,3 +1,25 @@
+## 2026-10-07 – Hero-Randformen auf analyse.html als gefüllte CSS-Dreiecke neu aufgebaut
+
+Status: in Arbeit
+
+Geändert:
+
+- Nur `homepage/analyse.html` geändert.
+- Die bisherige schmale Linien-/Box-Shadow-Konstruktion unten links wurde vollständig entfernt.
+- Vertikale Randform unten links neu aus vier ineinanderliegenden, vollflächigen CSS-Dreiecken aufgebaut:
+  - äußerer Emerald-Verlauf
+  - heller Gold-/Lichtverlauf
+  - Goldverlauf
+  - innerer Gunmetal-Verlauf
+- Horizontale Randform unten rechts neu aus drei vollflächigen CSS-Dreiecken aufgebaut:
+  - Emerald-Verlauf
+  - Goldverlauf
+  - Gunmetal-Verlauf
+- Die Dreiecke teilen dieselbe Grundgeometrie; die horizontale Variante verwendet nur andere Proportionen.
+- Die gestaffelten Goldlinien oben rechts bleiben unverändert.
+- Hero-Text, CTA, Visual, Visual-Größe, Visual-Position, Header, Footer und weitere Sektionen bleiben unverändert.
+- Noch kein Rollout auf weitere Detailseiten; zuerst Sichtprüfung auf `analyse.html`.
+
 ## 2026-10-07 – Untere linke Hero-Randform korrigiert
 
 Status: fertig
