@@ -1,3 +1,42 @@
+## 2026-10-07 – Mobile Homepage systematisiert und SEO-Toolbox-Callouts ergänzt
+
+Status: in Arbeit
+
+Geändert:
+
+- `homepage/index.html`: Mobile-Hero auf volle Inhaltsbreite umgestellt; automatische Silbentrennung und aggressive Wortumbrüche auf Mobile entfernt; Hero-Kicker lesbarer skaliert.
+- `homepage/index.html`: gemeinsame mobile Section-Abstände für die Homepage zentralisiert und große mobile Leerhöhen reduziert.
+- `homepage/index.html`: Abstand zwischen „Warum Nurovelle“-Bulletpoints und Video deutlich reduziert.
+- `homepage/index.html`: Projektstart-Cardtexte mit zusätzlichem Innenabstand versehen.
+- `homepage/index.html`: „Von der Idee zum Projekt“ zeigt auf Mobile alle drei vorhandenen Bild-/Text-Beispiele statisch untereinander; leere Slider-Zwischenzustände entfallen.
+- `homepage/index.html`: normale mobile Homepage-CTAs auf die schmale längliche Form des bestehenden `Mehr erfahren`-Card-CTAs vereinheitlicht; einzeiliger Text; Header-CTA bewusst ausgenommen.
+- `homepage/index.html`: Analyse-Bulletmarker auf `assets/bulletpoint.png` als grünen 3D-Punkt umgestellt.
+- `homepage/index.html`: sechs Ablauf-Module auf Mobile deutlich kompakter skaliert.
+- `homepage/index.html`: drei kompakte SEO-Toolbox-Callouts nach Projektidee, nach Leistungssektion und vor Downloads ergänzt; kurzer Fade-/Glow-Reveal per IntersectionObserver, Reduced-Motion-Fallback vorhanden.
+- SEO-Callout verwendet ausschließlich die belegte Aussage „Kostenloser SEO-Check“ und verlinkt auf `detail_seo.html`; unbestätigte Tarifnamen „Agency“/„Pro“ wurden nicht verwendet.
+- `project_files/styleguide.md`: verbindliches Homepage-Mobile-System und SEO-Callout-Regeln ergänzt.
+- `project_files/decision_log.md`: aktuelle Mobile-, CTA-, Bullet- und SEO-Callout-Entscheidungen dokumentiert.
+
+Nicht geändert:
+
+- `homepage/shared-header-footer.css`; der Header-CTA bleibt als eigene Variante bestehen.
+- Desktop-Layout außerhalb der bestehenden Mobile-Media-Query.
+- Formulardaten, Feldnamen, Submission-, Consent-, Honeypot-, Success-/Error-Logik.
+- bestehende Assetpfade und vorhandene Projektidee-/Ablaufbilder.
+
+Geprüft:
+
+- keine doppelten HTML-IDs im geänderten `homepage/index.html`.
+- Anzahl öffnender/schließender `section`-, `aside`- und `script`-Elemente stimmt überein.
+- Klammeranzahl für CSS/JavaScript im Gesamtfile ist ausgeglichen.
+- drei SEO-Callouts und genau ein zugehöriger Observer sind vorhanden.
+- keine neue `!important`-Regel hinzugefügt; die bisherige `!important`-Positionierung des mobilen Projektidee-Sliders wurde entfernt.
+
+Offen:
+
+- visuelle Abnahme der Breakpoints 320, 360, 390 und 430 px nach Deployment.
+- Browserkonsolen- und reale Touch-Prüfung nach Deployment.
+
 ## 2026-10-07 – Hero-Randformen auf analyse.html als gefüllte CSS-Dreiecke neu aufgebaut
 
 Status: in Arbeit

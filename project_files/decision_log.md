@@ -301,3 +301,18 @@ Entscheidung: Im Analyse-Hero wird unten rechts keine Variante der verworfenen F
 
 Entscheidung: Die dekorativen Hero-Randformen werden nicht als Linien-/Box-Shadow-Nachbildung und nicht als Bildasset aufgebaut. Die Formfamilie besteht aus vollflächigen CSS-Dreiecken mit `clip-path` und Nurovelle-Verläufen. Die vertikale Variante verwendet vier ineinanderliegende Dreiecke einschließlich zusätzlicher Emerald-Lage; die horizontale Variante verwendet drei Dreiecke mit denselben Materialprinzipien und nur veränderten Proportionen. Umsetzung zunächst nur auf `analyse.html`; Übertragung auf weitere Detailseiten erst nach Sichtprüfung.
 
+
+
+## 2026-10-07 – Mobile Homepage als verbindliches Layoutsystem
+
+Entscheidung: Die Homepage wird auf Mobile nicht mehr sektionsweise mit Einzelkorrekturen behandelt, sondern mit einer gemeinsamen Breiten-, Abstands- und CTA-Logik. Normale CTAs verwenden mobil die kompakte, schmale Form des bestehenden `Mehr erfahren`-Buttons aus den Analyse-/Leistungskarten; der Header-CTA bleibt die einzige separat dimensionierte Ausnahme. CTA-Texte bleiben einzeilig.
+
+Entscheidung: Der Hero nutzt auf Mobile die verfügbare Breite ohne automatische Silbentrennung. Der Kicker bleibt klar lesbar. Video und Bulletpoints in „Warum Nurovelle“ werden enger zusammengeführt, die Texte in den Projektstart-Cards erhalten Innenabstand, die Projektidee-Beispiele werden ohne leere Sliderzustände vollständig untereinander dargestellt und die sechs Ablauf-Module werden mobil deutlich kleiner skaliert.
+
+Entscheidung: Bulletpoints in Analysebereichen der Homepage verwenden den grünen 3D-Punkt aus `assets/bulletpoint.png`.
+
+## 2026-10-07 – SEO Toolbox als wiederkehrender Homepage-Callout
+
+Entscheidung: Die SEO Toolbox wird auf der Homepage an drei definierten Stellen als kompakter, nicht blockierender Callout eingeblendet. Die Callouts erscheinen per kurzer Fade-/Glow-Bewegung, bleiben im Inhaltsfluss und verwenden denselben kompakten CTA-Stil wie die übrigen mobilen Homepage-CTAs.
+
+Entscheidung: Solange die Tarifbezeichnungen bzw. die Gratis-Verfügbarkeit von „Agency“ und „Pro“ nicht eindeutig belegt sind, werden diese Begriffe im Homepage-Callout nicht verwendet. Verwendet wird der bereits belegte „Kostenloser SEO-Check“ mit Ziel `detail_seo.html`.

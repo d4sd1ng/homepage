@@ -1265,6 +1265,67 @@ canvas.nv-step-viz {
   100% { background-position: 250% center; }
 }
 @media (prefers-reduced-motion: reduce) { .nv-s7-card__result, .nv-about__mini > div, .nv-ametrics > div, .nv-aform__row, .nv-about__play { animation: none; } }
+
+/* ==========================================================================
+   SEO TOOLBOX PROMO — compact, non-blocking callout
+   ========================================================================== */
+.nv-seo-promo {
+  position: relative;
+  z-index: 2;
+  width: min(calc(100% - (2 * var(--side))), 980px);
+  margin: 28px auto;
+  padding: 14px 16px;
+  border: 0.8px solid transparent;
+  border-radius: 8px;
+  background:
+    linear-gradient(var(--color-gunmetal-dark), var(--color-gunmetal-dark)) padding-box,
+    var(--gold-3) border-box;
+  box-shadow: 0 8px 24px rgba(0,0,0,.28), inset 0 0.8px 0 rgba(250,227,133,.14);
+  display: grid;
+  grid-template-columns: minmax(0,1fr) auto;
+  align-items: center;
+  gap: 18px;
+  opacity: 0;
+  transform: translateY(12px) scale(.985);
+  transition: opacity .42s ease, transform .42s cubic-bezier(.22,1,.36,1);
+}
+.nv-seo-promo.is-visible {
+  opacity: 1;
+  transform: none;
+  animation: nv-seo-promo-glow 1.1s ease-out 1;
+}
+.nv-seo-promo__copy { min-width: 0; }
+.nv-seo-promo__kicker {
+  margin: 0 0 4px;
+  color: #55863f;
+  font: var(--w-kicker-karte) var(--t-kicker-karte)/1.15 "Inter",Arial,sans-serif;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+}
+.nv-seo-promo__title {
+  margin: 0 0 4px;
+  color: transparent;
+  background: var(--gold-1);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font: 700 19.2px/1.15 "Exo 2","Inter",Arial,sans-serif;
+}
+.nv-seo-promo__text {
+  margin: 0;
+  color: var(--color-text-muted);
+  font: var(--w-fliesstext) var(--t-fliesstext)/1.5 "Inter",Arial,sans-serif;
+}
+@keyframes nv-seo-promo-glow {
+  0% { box-shadow: 0 8px 24px rgba(0,0,0,.28), 0 0 0 rgba(212,175,55,0); }
+  45% { box-shadow: 0 8px 24px rgba(0,0,0,.28), 0 0 22px rgba(212,175,55,.22); }
+  100% { box-shadow: 0 8px 24px rgba(0,0,0,.28), 0 0 0 rgba(212,175,55,0); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .nv-seo-promo { opacity: 1; transform: none; transition: none; }
+  .nv-seo-promo.is-visible { animation: none; }
+}
+
 /* ==========================================================================
    MOBIL — ab hier wird die Desktop-Rasterbreite aufgeloest
    ========================================================================== */
@@ -1422,7 +1483,7 @@ canvas.nv-step-viz {
 
   /* Projektidee: der Slider bekommt eine Spalte */
   .nvp4-projectidea__slider { width: 100%; margin-left: 0; min-height: 0; }
-  .nvp4-projectidea__slide { position: static !important; }
+  .nvp4-projectidea__slide { position: relative; }
   .nvp4-projectidea__slide:not(:first-child) { display: none; }
   .nvp4-projectidea__dots { display: none; }
   .nvp4-projectidea__slide,
@@ -1440,6 +1501,257 @@ canvas.nv-step-viz {
   .download-display__header { flex-wrap: wrap; gap: 3.2px; }
   /* FAQ-Knoepfe: mehrzeilige Fragen brauchen eine mitwachsende Hoehe */
   .nv-faq-item summary { height: auto; min-height: 2.75em; padding: 8px 11.2px; line-height: 1.3; white-space: normal; }
+
+  /* Mobile-Homepage-System: gemeinsame Breiten, Abstaende und CTA-Hierarchie */
+  :root {
+    --nv-mobile-section-y: 56px;
+    --nv-mobile-content-gap: 24px;
+    --nv-mobile-card-gap: 16px;
+  }
+
+  .hero {
+    min-height: 0;
+    height: auto;
+    align-items: flex-start;
+    padding: 40px var(--side) 48px;
+  }
+  .hero-content {
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+    padding: 0;
+  }
+  .hero-kicker {
+    padding-bottom: 18px;
+    font-size: 14.4px;
+    line-height: 1.2;
+  }
+  .hero h1 {
+    width: 100%;
+    max-width: 100%;
+    padding-bottom: 24px;
+    font-size: clamp(36px, 9.8vw, 44px);
+    line-height: 1.02;
+    overflow-wrap: normal;
+    word-break: normal;
+    hyphens: none;
+  }
+  .hero h2 {
+    max-width: 34ch;
+    padding-bottom: 20px;
+    font-size: 17.6px;
+    line-height: 1.35;
+  }
+  .hero-text {
+    width: 100%;
+    max-width: 34ch;
+    padding-bottom: 24px;
+    font-size: 16px;
+    line-height: 1.6;
+    overflow-wrap: normal;
+    word-break: normal;
+    hyphens: none;
+  }
+  h1, h2, h3, .hero-title-l1, .hero-subtitle-l1 {
+    overflow-wrap: normal;
+    word-break: normal;
+    hyphens: none;
+  }
+
+  .nv-about,
+  .nv-section-step,
+  .nvp4-projectidea,
+  .nv-pack,
+  .nv-s7,
+  .nv-analyse,
+  .nv-process,
+  .nv-contact,
+  .downloads-section,
+  .nv-resource-section {
+    min-height: 0;
+    padding-top: var(--nv-mobile-section-y);
+    padding-bottom: var(--nv-mobile-section-y);
+    padding-left: var(--side);
+    padding-right: var(--side);
+  }
+  .downloads-section .section-head,
+  .nv-resource-section__head {
+    margin-bottom: 32px;
+  }
+  #formular .nv-resource-section__title {
+    font-size: var(--t-sektionstitel);
+  }
+
+  /* Video und Bulletpoints gehoeren auf Mobile sichtbar zusammen. */
+  .nv-about__body {
+    row-gap: 28px;
+  }
+  .nv-about__text--before-bullets {
+    margin-bottom: 16px;
+  }
+  .nv-about__bullets {
+    gap: 10px;
+  }
+  .nv-about__mediacol {
+    margin-top: 0;
+  }
+
+  /* Projektstart: Text innerhalb der Glasplatten bekommt Innenabstand. */
+  .nv-step-item .nv-step-card__content {
+    box-sizing: border-box;
+    padding-inline: 10px;
+  }
+
+  /* Von der Idee zum Projekt: auf Mobile alle drei Bilder ohne leere Slides zeigen. */
+  .nvp4-projectidea__slider {
+    display: grid;
+    gap: 32px;
+    min-height: 0;
+    overflow: visible;
+  }
+  .nvp4-projectidea__slide,
+  .nvp4-projectidea__slide:nth-child(1) {
+    position: relative;
+    inset: auto;
+    display: grid;
+    grid-template-columns: minmax(0,1fr);
+    gap: 12px;
+    align-items: start;
+    justify-items: stretch;
+    opacity: 1;
+    transform: none;
+    animation: none;
+  }
+  .nvp4-projectidea__slide:not(:first-child) {
+    display: grid;
+  }
+  .nvp4-projectidea__image {
+    width: min(100%, 320px);
+    max-width: 100%;
+    justify-self: center;
+    aspect-ratio: 1;
+  }
+  .nvp4-projectidea__image--wide {
+    width: 100%;
+    max-width: 100%;
+    aspect-ratio: 16 / 9;
+  }
+  .nvp4-projectidea__dots {
+    display: none;
+  }
+
+  /* Einheitlicher normaler CTA: Referenz ist der schmale Analyse-/Card-CTA. */
+  .hero-cta {
+    width: auto;
+    max-width: 100%;
+  }
+  .hero-cta .golden-button,
+  .nv-s7-card__more {
+    width: auto;
+    min-width: 0;
+    min-height: 40px;
+    height: 40px;
+    padding: 0 16px;
+    gap: 7.2px;
+    border: 0.8px solid transparent;
+    border-radius: 6.4px;
+    background-image:
+      linear-gradient(var(--color-gunmetal-dark),var(--color-gunmetal-dark)),
+      var(--gold-3);
+    background-origin: border-box;
+    background-clip: padding-box,border-box;
+    box-shadow: 0 2.4px 6.4px #0000008c, inset 0 0.8px 0 #fae38524;
+    color: #fae385;
+    font: 700 12.8px/1 "Inter",Arial,sans-serif;
+    letter-spacing: .1em;
+    text-shadow: none;
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+  .hero-cta .nv-calendly-icon {
+    display: none;
+  }
+  .hero-cta .golden-button::after {
+    content: "";
+    width: 0;
+    height: 0;
+    flex: 0 0 auto;
+    margin-left: 2px;
+    border-style: solid;
+    border-width: 3.2px 0 3.2px 4.8px;
+    border-color: transparent transparent transparent #fae385;
+    transform: translateY(-0.4px);
+  }
+  .hero-actions,
+  .nv-section-step__actions,
+  .nvp4-projectidea__actions,
+  .nv-s7__actions,
+  .nv-process__actions {
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+  .nv-s7-card__more {
+    margin-top: 14px;
+  }
+  .nv-step-card__more {
+    left: 50%;
+    bottom: 13%;
+    min-height: 50px;
+    padding: 0 20px;
+    font-size: 16px;
+    transform: translateX(-50%);
+  }
+  .nv-step-card__more:hover,
+  .nv-step-card__more:focus-visible {
+    transform: translateX(-50%) translateY(-0.8px);
+  }
+
+  /* Analyse-Bullets: gruener 3D-Punkt statt goldenem Quadrat. */
+  .nv-analyse__offer-list li,
+  .nv-ainfo li {
+    padding-left: 20px;
+  }
+  .nv-analyse__offer-list li::before,
+  .nv-ainfo li::before {
+    top: .48em;
+    width: 9px;
+    height: 9px;
+    border: 0;
+    border-radius: 50%;
+    background: url("assets/bulletpoint.png") center / contain no-repeat;
+    filter: drop-shadow(0 0 4px rgba(85,134,63,.7));
+  }
+
+  /* Ablauf-Module auf Mobile kompakter statt bildschirmdominant. */
+  .nv-process__steps {
+    row-gap: 20px;
+  }
+  .nv-process__step {
+    max-width: 168px;
+  }
+  .nv-process__visual {
+    margin-bottom: 8px;
+  }
+  .nv-process__module {
+    width: 58%;
+  }
+  .nv-process__base {
+    width: 78%;
+    margin-top: -22%;
+  }
+
+  /* SEO-Toolbox-Promo bleibt mobil im Contentfluss und blockiert nichts. */
+  .nv-seo-promo {
+    width: calc(100% - (2 * var(--side)));
+    margin: 20px auto;
+    grid-template-columns: minmax(0,1fr);
+    gap: 12px;
+    padding: 14px;
+  }
+  .nv-seo-promo .nv-s7-card__more {
+    justify-self: start;
+    margin-top: 0;
+  }
 }
 @media (max-width: 560px) {
   
@@ -1757,6 +2069,15 @@ canvas.nv-step-viz {
     </div>
   </div>
 </section>
+
+<aside class="nv-seo-promo" data-seo-promo aria-label="SEO Toolbox">
+  <div class="nv-seo-promo__copy">
+    <p class="nv-seo-promo__kicker">SEO TOOLBOX</p>
+    <h3 class="nv-seo-promo__title">Kostenloser SEO-Check</h3>
+    <p class="nv-seo-promo__text">Kostenlosen SEO-Check öffnen und die SEO Toolbox ansehen.</p>
+  </div>
+  <a class="nv-s7-card__more" href="detail_seo.html">SEO Toolbox öffnen</a>
+</aside>
 
 <section class="nv-pack" id="pakete" aria-labelledby="nv-pack-title">
   <div class="nv-pack__inner">
@@ -2167,6 +2488,14 @@ canvas.nv-step-viz {
   </div>
 </section>
 
+<aside class="nv-seo-promo" data-seo-promo aria-label="SEO Toolbox">
+  <div class="nv-seo-promo__copy">
+    <p class="nv-seo-promo__kicker">SEO TOOLBOX</p>
+    <h3 class="nv-seo-promo__title">Kostenloser SEO-Check</h3>
+    <p class="nv-seo-promo__text">Kostenlosen SEO-Check öffnen und die SEO Toolbox ansehen.</p>
+  </div>
+  <a class="nv-s7-card__more" href="detail_seo.html">SEO Toolbox öffnen</a>
+</aside>
 
 <section class="nv-analyse" id="potenzialanalyse" aria-labelledby="nv-analyse-title">
   <div class="nv-analyse__inner">
@@ -2558,6 +2887,15 @@ canvas.nv-step-viz {
         </div>
       </div>
     </section>
+
+<aside class="nv-seo-promo" data-seo-promo aria-label="SEO Toolbox">
+  <div class="nv-seo-promo__copy">
+    <p class="nv-seo-promo__kicker">SEO TOOLBOX</p>
+    <h3 class="nv-seo-promo__title">Kostenloser SEO-Check</h3>
+    <p class="nv-seo-promo__text">Kostenlosen SEO-Check öffnen und die SEO Toolbox ansehen.</p>
+  </div>
+  <a class="nv-s7-card__more" href="detail_seo.html">SEO Toolbox öffnen</a>
+</aside>
 
 <section
       class="section downloads-section"
@@ -3609,6 +3947,29 @@ void main(){
       closeEls.forEach(function (el) { el.addEventListener("click", closeModal); });
     })();
 </script>
+
+<script>
+  (() => {
+    const promos = [...document.querySelectorAll("[data-seo-promo]")];
+    if (!promos.length) return;
+    if (!("IntersectionObserver" in window)) {
+      promos.forEach(promo => promo.classList.add("is-visible"));
+      return;
+    }
+    const observer = new IntersectionObserver(
+      entries => {
+        entries.forEach(entry => {
+          if (!entry.isIntersecting) return;
+          entry.target.classList.add("is-visible");
+          observer.unobserve(entry.target);
+        });
+      },
+      { threshold: 0.3 }
+    );
+    promos.forEach(promo => observer.observe(promo));
+  })();
+</script>
+
 <script>
   (() => {
     const groups = [...document.querySelectorAll("details.nv-breadcrumb__group")];
