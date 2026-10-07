@@ -1640,47 +1640,69 @@ canvas.nv-step-viz {
     display: none;
   }
 
-  /* Einheitlicher normaler CTA: Referenz ist der schmale Analyse-/Card-CTA. */
+  /* Einheitlicher normaler CTA: exakt die bestehende goldene Analyse-CTA-Optik. */
   .hero-cta {
     width: auto;
     max-width: 100%;
   }
-  .hero-cta .golden-button,
-  .nv-s7-card__more {
+  .hero-cta .golden-button {
     width: auto;
     min-width: 0;
-    min-height: 40px;
     height: 40px;
-    padding: 0 16px;
-    gap: 7.2px;
-    border: 0.8px solid transparent;
-    border-radius: 6.4px;
-    background-image:
-      linear-gradient(var(--color-gunmetal-dark),var(--color-gunmetal-dark)),
-      var(--gold-3);
-    background-origin: border-box;
-    background-clip: padding-box,border-box;
-    box-shadow: 0 2.4px 6.4px #0000008c, inset 0 0.8px 0 #fae38524;
-    color: #fae385;
-    font: 700 12.8px/1 "Inter",Arial,sans-serif;
-    letter-spacing: .1em;
-    text-shadow: none;
-    text-transform: uppercase;
+    padding: 0 14px;
+    gap: 6.4px;
+    font-size: 11.2px;
+    line-height: 1;
     white-space: nowrap;
   }
   .hero-cta .nv-calendly-icon {
-    display: none;
+    width: 14px;
+    height: 14px;
+    flex: 0 0 14px;
   }
-  .hero-cta .golden-button::after {
-    content: "";
-    width: 0;
-    height: 0;
-    flex: 0 0 auto;
-    margin-left: 2px;
-    border-style: solid;
-    border-width: 3.2px 0 3.2px 4.8px;
-    border-color: transparent transparent transparent #fae385;
-    transform: translateY(-0.4px);
+
+  /* Card-CTAs bekommen mobil dieselbe bereits vorhandene goldene CTA-Sprache. */
+  .nv-step-card__more,
+  .nv-s7-card__more {
+    box-sizing: border-box;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: auto;
+    min-width: 0;
+    height: 40px;
+    padding: 0 14px;
+    border: 0.8px solid var(--nv-gold-border);
+    border-radius: .3em;
+    color: var(--nv-gold-text-dark);
+    background-image: var(--nv-gold-gradient);
+    background-position: center;
+    background-size: 100% 100%;
+    box-shadow:
+      0 2.4px 4.8px var(--shadow-soft),
+      0 2.4px 4.8px var(--shadow-soft-2),
+      inset 0 -1.6px 4px .8px var(--nv-gold-inner-dark),
+      inset 0 -.8px .8px 2.4px var(--nv-gold-highlight);
+    font: 800 11.2px/1 "Inter",Arial,sans-serif;
+    letter-spacing: .045em;
+    text-shadow: 0 1.6px 1.6px var(--nv-gold-highlight);
+    text-transform: uppercase;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+  .nv-step-card__more::before,
+  .nv-step-card__more::after,
+  .nv-s7-card__more::after {
+    content: none;
+  }
+  .nv-step-card__more:hover,
+  .nv-step-card__more:focus-visible,
+  .nv-s7-card__more:hover,
+  .nv-s7-card__more:focus-visible {
+    color: var(--nv-gold-text-hover);
+    border-color: var(--nv-gold-border-hover);
+    background-image: var(--nv-gold-gradient);
+    background-size: 150% 150%;
   }
   .hero-actions,
   .nv-section-step__actions,
@@ -1696,9 +1718,6 @@ canvas.nv-step-viz {
   .nv-step-card__more {
     left: 50%;
     bottom: 13%;
-    min-height: 50px;
-    padding: 0 20px;
-    font-size: 16px;
     transform: translateX(-50%);
   }
   .nv-step-card__more:hover,
@@ -1748,7 +1767,7 @@ canvas.nv-step-viz {
     gap: 12px;
     padding: 14px;
   }
-  .nv-seo-promo .nv-s7-card__more {
+  .nv-seo-promo .hero-cta {
     justify-self: start;
     margin-top: 0;
   }
@@ -2076,7 +2095,7 @@ canvas.nv-step-viz {
     <h3 class="nv-seo-promo__title">Kostenloser SEO-Check</h3>
     <p class="nv-seo-promo__text">Kostenlosen SEO-Check öffnen und die SEO Toolbox ansehen.</p>
   </div>
-  <a class="nv-s7-card__more" href="detail_seo.html">SEO Toolbox öffnen</a>
+  <a class="hero-cta" href="detail_seo.html"><span class="golden-button"><span class="golden-text">SEO Toolbox öffnen</span></span></a>
 </aside>
 
 <section class="nv-pack" id="pakete" aria-labelledby="nv-pack-title">
@@ -2494,7 +2513,7 @@ canvas.nv-step-viz {
     <h3 class="nv-seo-promo__title">Kostenloser SEO-Check</h3>
     <p class="nv-seo-promo__text">Kostenlosen SEO-Check öffnen und die SEO Toolbox ansehen.</p>
   </div>
-  <a class="nv-s7-card__more" href="detail_seo.html">SEO Toolbox öffnen</a>
+  <a class="hero-cta" href="detail_seo.html"><span class="golden-button"><span class="golden-text">SEO Toolbox öffnen</span></span></a>
 </aside>
 
 <section class="nv-analyse" id="potenzialanalyse" aria-labelledby="nv-analyse-title">
@@ -2894,7 +2913,7 @@ canvas.nv-step-viz {
     <h3 class="nv-seo-promo__title">Kostenloser SEO-Check</h3>
     <p class="nv-seo-promo__text">Kostenlosen SEO-Check öffnen und die SEO Toolbox ansehen.</p>
   </div>
-  <a class="nv-s7-card__more" href="detail_seo.html">SEO Toolbox öffnen</a>
+  <a class="hero-cta" href="detail_seo.html"><span class="golden-button"><span class="golden-text">SEO Toolbox öffnen</span></span></a>
 </aside>
 
 <section

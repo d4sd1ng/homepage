@@ -441,7 +441,7 @@ Für die produktive Homepage gilt Mobile als vorrangige Darstellungsprüfung.
 - Mobile-Sektionen verwenden eine gemeinsame vertikale Abstandslogik statt sektionsweise abweichender Leerhöhen.
 - Hero-Inhalt nutzt auf Mobile die verfügbare Inhaltsbreite; künstliche Wort- und Silbentrennung wird nicht verwendet.
 - Der Hero-Kicker muss auf Mobile klar lesbar bleiben und darf nicht zur kaum sichtbaren Nebenbeschriftung schrumpfen.
-- Normale Homepage-CTAs verwenden auf Mobile dieselbe kompakte, schmale und längliche Form wie der bestehende `Mehr erfahren`-CTA der Analyse-/Leistungskarten.
+- Normale Homepage-CTAs verwenden auf Mobile dieselbe bestehende goldene CTA-Optik wie die CTAs in den Analyse-Angebots-Cards; sie werden nur kompakt, schmal und einzeilig dimensioniert.
 - CTA-Text bleibt auf Mobile einzeilig. Der Header-CTA ist die einzige separat dimensionierte Ausnahme.
 - Die 3D-Module im Abschnitt „Vom Geschäftsprozess zur KI-Lösung“ werden auf Mobile deutlich kompakter dargestellt als auf Desktop.
 - Echte Bulletpoint-Listen in Analysebereichen verwenden den grünen 3D-Punkt `assets/bulletpoint.png` statt goldener Quadratmarker.
