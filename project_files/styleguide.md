@@ -1,6 +1,6 @@
 # Nurovelle Styleguide
 
-Stand: 2026-09-06  
+Stand: 2026-10-07  
 Status: freigegeben
 
 ## Zweck dieser Datei
@@ -432,3 +432,19 @@ Bei Konflikt gilt:
 2. dieser Styleguide
 3. `nurovelle-tokens.css`
 4. bestehender Produktionscode
+
+
+## 20. Homepage Mobile-System
+
+Für die produktive Homepage gilt Mobile als vorrangige Darstellungsprüfung.
+
+- Mobile-Sektionen verwenden eine gemeinsame vertikale Abstandslogik statt sektionsweise abweichender Leerhöhen.
+- Hero-Inhalt nutzt auf Mobile die verfügbare Inhaltsbreite; künstliche Wort- und Silbentrennung wird nicht verwendet.
+- Der Hero-Kicker muss auf Mobile klar lesbar bleiben und darf nicht zur kaum sichtbaren Nebenbeschriftung schrumpfen.
+- Normale Homepage-CTAs verwenden auf Mobile dieselbe kompakte, schmale und längliche Form wie der bestehende `Mehr erfahren`-CTA der Analyse-/Leistungskarten.
+- CTA-Text bleibt auf Mobile einzeilig. Der Header-CTA ist die einzige separat dimensionierte Ausnahme.
+- Die 3D-Module im Abschnitt „Vom Geschäftsprozess zur KI-Lösung“ werden auf Mobile deutlich kompakter dargestellt als auf Desktop.
+- Echte Bulletpoint-Listen in Analysebereichen verwenden den grünen 3D-Punkt `assets/bulletpoint.png` statt goldener Quadratmarker.
+- „Von der Idee zum Projekt“ zeigt auf Mobile alle vorhandenen Bild-/Text-Beispiele ohne leere Slider-Zwischenzustände.
+- Video und zugehörige Bulletpoints in „Warum Nurovelle“ bleiben auf Mobile als zusammengehöriger Inhaltsblock mit engem, konsistentem Abstand.
+- SEO-Toolbox-Hinweise dürfen auf der Homepage an zwei bis drei definierten Stellen als kompakte, nicht blockierende Callouts eingeblendet werden. Kein Modal, kein Dauerblinken, kein neuer CTA-Stil.
