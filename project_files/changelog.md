@@ -5,7 +5,6 @@ Status: in Arbeit
 Geändert:
 
 - `homepage/index.html`: Mobile-Leistungskarten bleiben direkt sichtbar; Bildhöhe von 140.8px auf 96px reduziert, Kartenabstand von 32px auf 20px reduziert und Innenabstände von Inhalt, Bulletpoints und CTA verdichtet.
-- `homepage/index.html`: die drei vorgesehenen Divider der Leistungskarten auf Mobile an das gestapelte Layout angepasst und dauerhaft sichtbar gemacht: langer Trenner unter dem Bild, langer Trenner vor den Bulletpoints und kurzer Trenner vor dem CTA. Desktop-Dividerlogik bleibt unverändert.
 - `homepage/index.html`: normale Mobile-CTAs behalten die bestehende goldene Optik; sichtbare Höhe von 40px auf 36px und horizontales Padding von 14px auf 10px reduziert. Header-CTA bleibt unverändert.
 - `homepage/index.html`: drei vorhandene SEO-Toolbox-Callouts von maximal 980px auf maximal 620px reduziert; Mobile-Maximalbreite auf 320px begrenzt.
 - `homepage/index.html`: SEO-Callout-Reveal von vertikalem Translate/Scale auf sichtbares Einfliegen von links plus Fade-in umgestellt; Reduced-Motion-Fallback bleibt erhalten.
