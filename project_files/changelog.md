@@ -4,6 +4,11 @@ Status: in Arbeit
 
 Geändert:
 
+- `homepage/index.html`: Issue #54 vollständig umgesetzt: linker kurzer Divider, vertikaler Divider und rechter Horizontal-Divider bleiben im Grundzustand unsichtbar und werden bei Hover, Focus oder `.is-active` eingeblendet.
+- `homepage/index.html`: Abstand zwischen Icon-Rahmen und linkem kurzen Divider auf eine einzige bestehende Abstandsstufe reduziert; der doppelte Abstand aus Icon-Unterrand plus Divider-Oberrand entfällt.
+- `homepage/index.html`: Hinweistext auf `Hover & Klick für mehr Informationen` geändert.
+- `homepage/index.html`: `Mehr erfahren` der Leistungskarten auf dieselbe goldene Material-CTA-Sprache wie die übrigen CTAs umgestellt; Mobile-Goldstil bleibt erhalten.
+
 - `homepage/index.html`: die drei Divider der Leistungskarten in Sektion 5 technisch erneut abgesichert: linker kurzer Divider unter dem Icon, vertikaler Divider und rechter horizontaler Divider sind im Grundzustand `opacity: 0` / `visibility: hidden` und werden ausschließlich bei Hover, Focus oder `.is-active` eingeblendet.
 - `homepage/index.html`: der rechte horizontale Divider an `.nv-s7-card__points::before` besitzt jetzt eine eigene Sichtbarkeitslogik statt nur indirekt über die Sichtbarkeit des Punkteblocks zu erscheinen. Alle drei Divider bleiben 1.6px stark.
 
