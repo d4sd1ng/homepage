@@ -1,3 +1,27 @@
+## 2026-10-09 – Mobile Leistungskarten, SEO-Callouts und CTA-Padding korrigiert
+
+Status: in Arbeit
+
+Geändert:
+
+- `homepage/index.html`: Mobile-Leistungskarten bleiben direkt sichtbar; Bildhöhe von 140.8px auf 96px reduziert, Kartenabstand von 32px auf 20px reduziert und Innenabstände von Inhalt, Bulletpoints und CTA verdichtet.
+- `homepage/index.html`: normale Mobile-CTAs behalten die bestehende goldene Optik; sichtbare Höhe von 40px auf 36px und horizontales Padding von 14px auf 10px reduziert. Header-CTA bleibt unverändert.
+- `homepage/index.html`: drei vorhandene SEO-Toolbox-Callouts von maximal 980px auf maximal 620px reduziert; Mobile-Maximalbreite auf 320px begrenzt.
+- `homepage/index.html`: SEO-Callout-Reveal von vertikalem Translate/Scale auf sichtbares Einfliegen von links plus Fade-in umgestellt; Reduced-Motion-Fallback bleibt erhalten.
+- `project_files/styleguide.md`: freigegebene Mobile-/SEO-Callout-Regel auf Einflug von links und kompaktere Mobile-Ausführung präzisiert.
+- `project_files/decision_log.md`: bestehende SEO-Callout-Entscheidung an die aktuelle Benutzervorgabe angepasst.
+
+Nicht geändert:
+
+- Desktop-Leistungskarten und deren Hover-/Focus-Aufbau.
+- Inhalte, Texte, IDs, Assetpfade und Kartenreihenfolge.
+- Formular-, Analyse-, Download-, FAQ- und Footer-Logik.
+- Header-CTA und Shared-Header/Footer-CSS.
+
+Offen:
+
+- Visuelle Abnahme auf realen Mobile-Breakpoints nach Deployment.
+
 ## 2026-10-07 – CTA-Stil auf bestehenden goldenen Analyse-CTA zurückgesetzt
 
 Status: fertig
