@@ -166,8 +166,10 @@ Es gibt kein zweites Fontsystem. Ältere Stacks sind abgelöst; die Historie ste
 
 ## 6. Section-Hintergründe
 
-- Wechsel zwischen mattem Schwarz und sehr dunklem Grün/Smaragd
-- Gunmetal als technische Fläche oder Tiefe
+- Homepage `index.html`: einheitlicher Deep-Green-/Emerald-Grundhintergrund `#0A1913` über alle Inhaltssektionen; kein Wechsel zwischen mehreren Schwarz-/Grüntönen.
+- Detailseiten: einheitlicher matter, fast schwarzer Grundhintergrund `#080B09`.
+- Header und Footer dürfen ihre bestehende dunkle Systemfläche behalten.
+- Gunmetal dient als Card-/Technikfläche, nicht als wechselnder Section-Hintergrund.
 - keine hellen Vollflächen
 - keine Stockfoto-Hintergründe
 - Gold niemals als großflächiger Section-Hintergrund
@@ -277,7 +279,9 @@ Interaktion:
 
 ### Weitere Card-Systeme
 
-- schwarze Cards
+- normale dunkle Cards verwenden einheitlich Dark Gunmetal `#15191A` / `--color-gunmetal-dark`
+- ausdrücklich grüne Cards behalten ihre freigegebene Emerald-/Green-Fläche
+- ausdrücklich goldene Cards behalten ihre freigegebene Gold-Fläche
 - Problem-/Lösungs-Cards
 - CSS-Cards
 - Frosted-Glass/Overlay nur dort, wo ausdrücklich freigegeben oder noch als Prüfvariante geführt
@@ -299,7 +303,7 @@ Rahmenprinzip:
 
 ```css
 background:
-  linear-gradient(var(--color-black), var(--color-black)) padding-box,
+  linear-gradient(var(--color-gunmetal-dark), var(--color-gunmetal-dark)) padding-box,
   var(--gradient-gold-border) border-box;
 border: 1px solid transparent;
 ```
