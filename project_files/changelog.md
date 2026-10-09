@@ -10,6 +10,11 @@ Geändert:
 - `homepage/index.html`: SEO-Callout-Reveal von vertikalem Translate/Scale auf sichtbares Einfliegen von links plus Fade-in umgestellt; Reduced-Motion-Fallback bleibt erhalten.
 - `project_files/styleguide.md`: freigegebene Mobile-/SEO-Callout-Regel auf Einflug von links und kompaktere Mobile-Ausführung präzisiert.
 - `project_files/decision_log.md`: bestehende SEO-Callout-Entscheidung an die aktuelle Benutzervorgabe angepasst.
+- `homepage/index.html`: Grundhintergrund von Hero und allen Homepage-Inhaltssektionen auf einheitlich `#0A1913` / `--color-deep-green` gestellt.
+- `homepage/index.html`: normale dunkle Card-Flächen der Leistungskarten, Standard-Analyseangebote, Kontakt-Cards und Download-Cards auf Dark Gunmetal `#15191A` vereinheitlicht; grüne und goldene Card-Varianten unverändert gelassen.
+- `homepage/nurovelle.css`: gemeinsame Detailseiten-Grundfläche auf `#080B09` und Standard-Panel-/Form-Card-Flächen auf Dark Gunmetal `#15191A` vereinheitlicht.
+- `homepage/detail_*.html`: die vorhandenen Leistungsdetailseiten auf den matten fast schwarzen Grundhintergrund `#080B09` vereinheitlicht; standalone Chatbot-/Datenabgleich-Cards ebenfalls auf Dark Gunmetal gestellt.
+- `project_files/styleguide.md`, `homepage.instructions.md`, `project_files/copilot_homepage_update.json` und `project_files/decision_log.md`: das neue Hintergrund- und Card-Farbsystem verbindlich dokumentiert.
 
 Nicht geändert:
 
