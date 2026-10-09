@@ -4,6 +4,9 @@ Status: in Arbeit
 
 Geändert:
 
+- `homepage/index.html`: die drei Divider der Leistungskarten in Sektion 5 technisch erneut abgesichert: linker kurzer Divider unter dem Icon, vertikaler Divider und rechter horizontaler Divider sind im Grundzustand `opacity: 0` / `visibility: hidden` und werden ausschließlich bei Hover, Focus oder `.is-active` eingeblendet.
+- `homepage/index.html`: der rechte horizontale Divider an `.nv-s7-card__points::before` besitzt jetzt eine eigene Sichtbarkeitslogik statt nur indirekt über die Sichtbarkeit des Punkteblocks zu erscheinen. Alle drei Divider bleiben 1.6px stark.
+
 - `homepage/index.html`: Mobile-Leistungskarten bleiben direkt sichtbar; Bildhöhe von 140.8px auf 96px reduziert, Kartenabstand von 32px auf 20px reduziert und Innenabstände von Inhalt, Bulletpoints und CTA verdichtet.
 - `homepage/index.html`: normale Mobile-CTAs behalten die bestehende goldene Optik; sichtbare Höhe von 40px auf 36px und horizontales Padding von 14px auf 10px reduziert. Header-CTA bleibt unverändert.
 - `homepage/index.html`: drei vorhandene SEO-Toolbox-Callouts von maximal 980px auf maximal 620px reduziert; Mobile-Maximalbreite auf 320px begrenzt.
