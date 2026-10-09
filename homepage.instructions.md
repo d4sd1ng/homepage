@@ -28,18 +28,21 @@ Die bestehende `index.html` kontrolliert an den freigegebenen Homepage-Stand anp
 
 ## Hintergrundsystem
 
-- Hero: Partikelhintergrund hinter dem bestehenden Cube
-- Warum Nurovelle: Schwarz
-- Der erste Schritt zu Ihrem KI-Projekt: Dunkelgrün
-- Konkrete KI-Idee: Schwarz
-- Potenzialanalyse: Dunkelgrün
-- Formular: Schwarz
-- KI-Leistungen: Dunkelgrün
-- Vom Geschäftsprozess zur KI-Lösung: Schwarz
-- Download-Bereich: Dunkelgrün
-- Kontakt: Schwarz
-- FAQ: Dunkelgrün
-- Footer: Schwarz
+- Homepage-Inhaltsfläche: einheitlich `--color-deep-green` / `#0A1913`
+- Hero: derselbe Deep-Green-Grundhintergrund; Partikelhintergrund bleibt hinter dem bestehenden Cube
+- Warum Nurovelle: Deep Green
+- Der erste Schritt zu Ihrem KI-Projekt: Deep Green
+- Konkrete KI-Idee: Deep Green
+- Potenzialanalyse: Deep Green
+- Formular: Deep Green
+- KI-Leistungen: Deep Green
+- Vom Geschäftsprozess zur KI-Lösung: Deep Green
+- Download-Bereich: Deep Green
+- Kontakt: Deep Green
+- FAQ: Deep Green
+- Footer: bestehende dunkle Systemfläche beibehalten
+- Normale dunkle Cards: `--color-gunmetal-dark` / `#15191A`
+- Bereits grüne oder goldene Cards bleiben unverändert
 
 Nur bestehende Nurovelle-Farbvariablen verwenden.
 
