@@ -1398,19 +1398,51 @@ canvas.nv-step-viz {
   .nv-s7-card::after { display: none; }
   .nv-s7-card__visual { position: static; order: 1; opacity: 1; z-index: 0;
     width: 100%; height: 96px; object-fit: cover; }
-  .nv-s7-card__main { position: static; order: 2; left: auto; padding: 10px 12px 0; }
+  /* Die Desktop-Trenner bleiben auf Mobile erhalten, werden aber an das
+     gestapelte Kartenlayout angepasst: oben lang, im Inhalt rechts/lang,
+     vor dem CTA kurz. */
+  .nv-s7-card__divider {
+    position: static;
+    order: 2;
+    width: auto;
+    height: 1px;
+    margin: 0 12px;
+    background: linear-gradient(90deg, transparent, #d4af37 10%, #d4af37 90%, transparent);
+    opacity: 1;
+    visibility: visible;
+  }
+  .nv-s7-card__main { position: static; order: 3; left: auto; padding: 10px 12px 0; }
   .nv-s7-card__heading { position: static; top: auto; left: auto; right: auto; gap: 9.6px; }
   .nv-s7-card__number { width: 41.6px; height: 43.2px; flex: 0 0 41.6px; font-size: 20px; }
   .nv-s7-card__heading h3 { font-size: 20px; }
   .nv-s7-card__heading p { margin-top: 5.6px; font-size: 11.2px; }
-  .nv-s7-card__points { position: static; opacity: 1; transform: none;
+  .nv-s7-card__points { position: relative; opacity: 1; transform: none;
     margin: 8px 0 0; gap: 5.6px; }
+  .nv-s7-card__points::before {
+    position: static;
+    display: block;
+    width: 100%;
+    height: 1px;
+    margin: 0 0 3px;
+    background: linear-gradient(90deg, #d4af37, rgba(212,175,55,.72) 88%, transparent);
+    box-shadow: 0 0 4.8px rgba(212,175,55,.18);
+  }
   .nv-s7-card__points li { font-size: 13.2px; }
   .nv-s7-card__result { display: none; }
-  .nv-s7-card__left { position: static; order: 3; width: auto; opacity: 1;
+  .nv-s7-card__left { position: static; order: 4; width: auto; opacity: 1;
     transform: none; display: block; padding: 0 12px 10px; }
-  .nv-s7-card__iconbox, .nv-s7-card__left-rule, .nv-s7-card__uses { display: none; }
-  .nv-s7-card__more { margin-top: 6px; }
+  .nv-s7-card__iconbox, .nv-s7-card__uses { display: none; }
+  .nv-s7-card__left-rule {
+    display: block;
+    position: static;
+    width: 64px;
+    height: 1px;
+    margin: 0 0 6px;
+    background: linear-gradient(90deg, #d4af37, rgba(212,175,55,.58) 78%, transparent);
+    opacity: 1;
+    visibility: visible;
+  }
+  .nv-s7-card__more { margin-top: 0; }
 
   /* Desktop-Einzuege der Potenzialanalyse zuruecknehmen */
   .nv-analyse__intro, .nv-ainfo { margin-left: 0; max-width: 100%; }
