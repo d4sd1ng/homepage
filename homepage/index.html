@@ -1272,9 +1272,9 @@ canvas.nv-step-viz {
 .nv-seo-promo {
   position: relative;
   z-index: 2;
-  width: min(calc(100% - (2 * var(--side))), 980px);
-  margin: 28px auto;
-  padding: 14px 16px;
+  width: min(calc(100% - (2 * var(--side))), 620px);
+  margin: 20px auto;
+  padding: 10px 12px;
   border: 0.8px solid transparent;
   border-radius: 8px;
   background:
@@ -1284,10 +1284,10 @@ canvas.nv-step-viz {
   display: grid;
   grid-template-columns: minmax(0,1fr) auto;
   align-items: center;
-  gap: 18px;
+  gap: 12px;
   opacity: 0;
-  transform: translateY(12px) scale(.985);
-  transition: opacity .42s ease, transform .42s cubic-bezier(.22,1,.36,1);
+  transform: translateX(-64px);
+  transition: opacity .46s ease, transform .46s cubic-bezier(.22,1,.36,1);
 }
 .nv-seo-promo.is-visible {
   opacity: 1;
@@ -1309,7 +1309,7 @@ canvas.nv-step-viz {
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  font: 700 19.2px/1.15 "Exo 2","Inter",Arial,sans-serif;
+  font: 700 17.6px/1.15 "Exo 2","Inter",Arial,sans-serif;
 }
 .nv-seo-promo__text {
   margin: 0;
@@ -1376,7 +1376,7 @@ canvas.nv-step-viz {
   .nvp4-projectidea__idea, .nv-s7__head, .nv-s7__subtitle, .nv-s7__intro { max-width: 100%; }
 
   /* Leistungskarten: drei 720px-Spalten werden eine Spalte */
-  .nv-s7__cards { grid-template-columns: minmax(0,1fr); gap: 32px; width: 100%; margin: 0; zoom: 1; }
+  .nv-s7__cards { grid-template-columns: minmax(0,1fr); gap: 20px; width: 100%; margin: 0; zoom: 1; }
 
   /* Zweispaltige Bloecke stapeln */
   .nv-about__body { grid-template-columns: minmax(0,1fr); column-gap: 0; }
@@ -1397,20 +1397,20 @@ canvas.nv-step-viz {
   .nv-s7-card::before { content: none; }
   .nv-s7-card::after { display: none; }
   .nv-s7-card__visual { position: static; order: 1; opacity: 1; z-index: 0;
-    width: 100%; height: 140.8px; object-fit: cover; }
-  .nv-s7-card__main { position: static; order: 2; left: auto; padding: 14.4px 12.8px 0; }
-  .nv-s7-card__heading { position: static; top: auto; left: auto; right: auto; gap: 11.2px; }
+    width: 100%; height: 96px; object-fit: cover; }
+  .nv-s7-card__main { position: static; order: 2; left: auto; padding: 10px 12px 0; }
+  .nv-s7-card__heading { position: static; top: auto; left: auto; right: auto; gap: 9.6px; }
   .nv-s7-card__number { width: 41.6px; height: 43.2px; flex: 0 0 41.6px; font-size: 20px; }
   .nv-s7-card__heading h3 { font-size: 20px; }
   .nv-s7-card__heading p { margin-top: 5.6px; font-size: 11.2px; }
   .nv-s7-card__points { position: static; opacity: 1; transform: none;
-    margin: 12.8px 0 0; gap: 7.2px; }
+    margin: 8px 0 0; gap: 5.6px; }
   .nv-s7-card__points li { font-size: 13.2px; }
   .nv-s7-card__result { display: none; }
   .nv-s7-card__left { position: static; order: 3; width: auto; opacity: 1;
-    transform: none; display: block; padding: 3.2px 12.8px 14.4px; }
+    transform: none; display: block; padding: 0 12px 10px; }
   .nv-s7-card__iconbox, .nv-s7-card__left-rule, .nv-s7-card__uses { display: none; }
-  .nv-s7-card__more { margin-top: 8px; }
+  .nv-s7-card__more { margin-top: 6px; }
 
   /* Desktop-Einzuege der Potenzialanalyse zuruecknehmen */
   .nv-analyse__intro, .nv-ainfo { margin-left: 0; max-width: 100%; }
@@ -1648,17 +1648,17 @@ canvas.nv-step-viz {
   .hero-cta .golden-button {
     width: auto;
     min-width: 0;
-    height: 40px;
-    padding: 0 14px;
-    gap: 6.4px;
-    font-size: 11.2px;
+    height: 36px;
+    padding: 0 10px;
+    gap: 4.8px;
+    font-size: 10.4px;
     line-height: 1;
     white-space: nowrap;
   }
   .hero-cta .nv-calendly-icon {
-    width: 14px;
-    height: 14px;
-    flex: 0 0 14px;
+    width: 12px;
+    height: 12px;
+    flex: 0 0 12px;
   }
 
   /* Card-CTAs bekommen mobil dieselbe bereits vorhandene goldene CTA-Sprache. */
@@ -1670,8 +1670,8 @@ canvas.nv-step-viz {
     justify-content: center;
     width: auto;
     min-width: 0;
-    height: 40px;
-    padding: 0 14px;
+    height: 36px;
+    padding: 0 10px;
     border: 0.8px solid var(--nv-gold-border);
     border-radius: .3em;
     color: var(--nv-gold-text-dark);
@@ -1683,7 +1683,7 @@ canvas.nv-step-viz {
       0 2.4px 4.8px var(--shadow-soft-2),
       inset 0 -1.6px 4px .8px var(--nv-gold-inner-dark),
       inset 0 -.8px .8px 2.4px var(--nv-gold-highlight);
-    font: 800 11.2px/1 "Inter",Arial,sans-serif;
+    font: 800 10.4px/1 "Inter",Arial,sans-serif;
     letter-spacing: .045em;
     text-shadow: 0 1.6px 1.6px var(--nv-gold-highlight);
     text-transform: uppercase;
@@ -1713,7 +1713,7 @@ canvas.nv-step-viz {
     flex-wrap: wrap;
   }
   .nv-s7-card__more {
-    margin-top: 14px;
+    margin-top: 6px;
   }
   .nv-step-card__more {
     left: 50%;
@@ -1761,12 +1761,16 @@ canvas.nv-step-viz {
 
   /* SEO-Toolbox-Promo bleibt mobil im Contentfluss und blockiert nichts. */
   .nv-seo-promo {
-    width: calc(100% - (2 * var(--side)));
-    margin: 20px auto;
+    width: min(calc(100% - (2 * var(--side))), 320px);
+    margin: 16px auto;
     grid-template-columns: minmax(0,1fr);
-    gap: 12px;
-    padding: 14px;
+    gap: 8px;
+    padding: 10px 12px;
+    transform: translateX(-40px);
   }
+  .nv-seo-promo__kicker { font-size: 10.4px; }
+  .nv-seo-promo__title { font-size: 16.8px; }
+  .nv-seo-promo__text { font-size: 12.8px; line-height: 1.4; }
   .nv-seo-promo .hero-cta {
     justify-self: start;
     margin-top: 0;
