@@ -1,3 +1,24 @@
+## 2026-10-09 – Issue #54 Leistungskarten-Interaktion und Divider korrigiert
+
+Status: in Arbeit
+
+Geändert:
+
+- `homepage/index.html`: Klick auf eine Leistungskarte öffnet/schließt jetzt den `.is-active`-Zustand statt auf Desktop sofort zur Zielseite zu navigieren; Navigation erfolgt über den vorhandenen `Mehr erfahren`-CTA.
+- `homepage/index.html`: rechter horizontaler Divider als eigenes Element `.nv-s7-card__short-rule` in allen 11 Leistungskarten umgesetzt; linker Horizontal-Divider, vertikaler Divider und rechter Horizontal-Divider bleiben im Grundzustand unsichtbar und werden nur bei Hover, Focus oder `.is-active` sichtbar.
+- `homepage/index.html`: `Mehr erfahren` verwendet die vorhandene `golden-button`-Komponente; die kartenbezogene Klasse steuert nur Position und Größe.
+- `homepage/index.html`: Desktop-Divider bleiben im separaten Mobile-Kartenlayout ausgeblendet.
+
+Nicht geändert:
+
+- Texte, Kartenreihenfolge, IDs und Assetpfade.
+- Formular-, Analyse-, Download-, FAQ- und Footer-Logik.
+- Header-CTA und allgemeine `golden-button`-Basisregeln.
+
+Offen:
+
+- Visuelle Abnahme des Branches vor Merge.
+
 ## 2026-10-09 – Mobile Leistungskarten, SEO-Callouts und CTA-Padding korrigiert
 
 Status: in Arbeit
