@@ -447,4 +447,5 @@ Für die produktive Homepage gilt Mobile als vorrangige Darstellungsprüfung.
 - Echte Bulletpoint-Listen in Analysebereichen verwenden den grünen 3D-Punkt `assets/bulletpoint.png` statt goldener Quadratmarker.
 - „Von der Idee zum Projekt“ zeigt auf Mobile alle vorhandenen Bild-/Text-Beispiele ohne leere Slider-Zwischenzustände.
 - Video und zugehörige Bulletpoints in „Warum Nurovelle“ bleiben auf Mobile als zusammengehöriger Inhaltsblock mit engem, konsistentem Abstand.
-- SEO-Toolbox-Hinweise dürfen auf der Homepage an zwei bis drei definierten Stellen als kompakte, nicht blockierende Callouts eingeblendet werden. Kein Modal, kein Dauerblinken, kein neuer CTA-Stil.
+- SEO-Toolbox-Hinweise dürfen auf der Homepage an zwei bis drei definierten Stellen als kompakte, nicht blockierende Callouts eingeblendet werden. Sie erscheinen beim Eintritt in den sichtbaren Bereich von links mit gleichzeitigem Fade-in; kein Scale-/Bounce-Effekt. Auf Mobile bleiben sie klar kleiner als die regulären Inhaltskarten. Kein Modal, kein Dauerblinken, kein neuer CTA-Stil.
+- Normale Mobile-CTAs behalten die bestehende goldene CTA-Optik, werden aber mit reduziertem Innenabstand kompakt gehalten; der Header-CTA bleibt ausgenommen.
