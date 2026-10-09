@@ -1,3 +1,40 @@
+## 2026-10-09 – Mobile Leistungskarten, SEO-Callouts und CTA-Padding korrigiert
+
+Status: in Arbeit
+
+Geändert:
+
+- `homepage/index.html`: Issue #54 vollständig umgesetzt: linker kurzer Divider, vertikaler Divider und rechter Horizontal-Divider bleiben im Grundzustand unsichtbar und werden bei Hover, Focus oder `.is-active` eingeblendet.
+- `homepage/index.html`: Abstand zwischen Icon-Rahmen und linkem kurzen Divider auf eine einzige bestehende Abstandsstufe reduziert; der doppelte Abstand aus Icon-Unterrand plus Divider-Oberrand entfällt.
+- `homepage/index.html`: Hinweistext auf `Hover & Klick für mehr Informationen` geändert.
+- `homepage/index.html`: `Mehr erfahren` der Leistungskarten auf dieselbe goldene Material-CTA-Sprache wie die übrigen CTAs umgestellt; Mobile-Goldstil bleibt erhalten.
+
+- `homepage/index.html`: die drei Divider der Leistungskarten in Sektion 5 technisch erneut abgesichert: linker kurzer Divider unter dem Icon, vertikaler Divider und rechter horizontaler Divider sind im Grundzustand `opacity: 0` / `visibility: hidden` und werden ausschließlich bei Hover, Focus oder `.is-active` eingeblendet.
+- `homepage/index.html`: der rechte horizontale Divider an `.nv-s7-card__points::before` besitzt jetzt eine eigene Sichtbarkeitslogik statt nur indirekt über die Sichtbarkeit des Punkteblocks zu erscheinen. Alle drei Divider bleiben 1.6px stark.
+
+- `homepage/index.html`: Mobile-Leistungskarten bleiben direkt sichtbar; Bildhöhe von 140.8px auf 96px reduziert, Kartenabstand von 32px auf 20px reduziert und Innenabstände von Inhalt, Bulletpoints und CTA verdichtet.
+- `homepage/index.html`: normale Mobile-CTAs behalten die bestehende goldene Optik; sichtbare Höhe von 40px auf 36px und horizontales Padding von 14px auf 10px reduziert. Header-CTA bleibt unverändert.
+- `homepage/index.html`: drei vorhandene SEO-Toolbox-Callouts von maximal 980px auf maximal 620px reduziert; Mobile-Maximalbreite auf 320px begrenzt.
+- `homepage/index.html`: SEO-Callout-Reveal von vertikalem Translate/Scale auf sichtbares Einfliegen von links plus Fade-in umgestellt; Reduced-Motion-Fallback bleibt erhalten.
+- `project_files/styleguide.md`: freigegebene Mobile-/SEO-Callout-Regel auf Einflug von links und kompaktere Mobile-Ausführung präzisiert.
+- `project_files/decision_log.md`: bestehende SEO-Callout-Entscheidung an die aktuelle Benutzervorgabe angepasst.
+- `homepage/index.html`: Grundhintergrund von Hero und allen Homepage-Inhaltssektionen auf einheitlich `#0A1913` / `--color-deep-green` gestellt.
+- `homepage/index.html`: normale dunkle Card-Flächen der Leistungskarten, Standard-Analyseangebote, Kontakt-Cards und Download-Cards auf Dark Gunmetal `#15191A` vereinheitlicht; grüne und goldene Card-Varianten unverändert gelassen.
+- `homepage/nurovelle.css`: gemeinsame Detailseiten-Grundfläche auf `#080B09` und Standard-Panel-/Form-Card-Flächen auf Dark Gunmetal `#15191A` vereinheitlicht.
+- `homepage/detail_*.html`: die vorhandenen Leistungsdetailseiten auf den matten fast schwarzen Grundhintergrund `#080B09` vereinheitlicht; standalone Chatbot-/Datenabgleich-Cards ebenfalls auf Dark Gunmetal gestellt.
+- `project_files/styleguide.md`, `homepage.instructions.md`, `project_files/copilot_homepage_update.json` und `project_files/decision_log.md`: das neue Hintergrund- und Card-Farbsystem verbindlich dokumentiert.
+
+Nicht geändert:
+
+- Desktop-Leistungskarten und deren Hover-/Focus-Aufbau.
+- Inhalte, Texte, IDs, Assetpfade und Kartenreihenfolge.
+- Formular-, Analyse-, Download-, FAQ- und Footer-Logik.
+- Header-CTA und Shared-Header/Footer-CSS.
+
+Offen:
+
+- Visuelle Abnahme auf realen Mobile-Breakpoints nach Deployment.
+
 ## 2026-10-07 – CTA-Stil auf bestehenden goldenen Analyse-CTA zurückgesetzt
 
 Status: fertig

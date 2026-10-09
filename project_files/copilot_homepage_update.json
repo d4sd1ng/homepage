@@ -80,43 +80,43 @@
     "section_sequence": [
       {
         "section": "warum_nurovelle",
-        "background": "black"
+        "background": "deep_green"
       },
       {
         "section": "ki_projekt_start",
-        "background": "dark_green"
+        "background": "deep_green"
       },
       {
         "section": "projektidee",
-        "background": "black"
+        "background": "deep_green"
       },
       {
         "section": "potenzialanalyse",
-        "background": "dark_green"
+        "background": "deep_green"
       },
       {
         "section": "formular",
-        "background": "black"
+        "background": "deep_green"
       },
       {
         "section": "leistungen",
-        "background": "dark_green"
+        "background": "deep_green"
       },
       {
         "section": "prozess_zur_loesung",
-        "background": "black"
+        "background": "deep_green"
       },
       {
         "section": "downloads",
-        "background": "dark_green"
+        "background": "deep_green"
       },
       {
         "section": "kontakt",
-        "background": "black"
+        "background": "deep_green"
       },
       {
         "section": "faq",
-        "background": "dark_green"
+        "background": "deep_green"
       },
       {
         "section": "footer",
@@ -131,7 +131,14 @@
       "#163A35"
     ],
     "gold_usage": "accent_only",
-    "no_light_green_sections": true
+    "no_light_green_sections": true,
+    "homepage_base": "deep_green",
+    "homepage_base_color": "#0A1913",
+    "detail_pages_base": "matte_black",
+    "detail_pages_base_color": "#080B09",
+    "standard_dark_cards": "dark_gunmetal",
+    "standard_dark_cards_color": "#15191A",
+    "preserve_green_and_gold_cards": true
   },
   "sections": {
     "hero": {
@@ -141,7 +148,7 @@
       "existing_cube_required": true
     },
     "warum_nurovelle": {
-      "background": "black",
+      "background": "deep_green",
       "content": {
         "intro_paragraphs": 2,
         "bullet_count": 6,
@@ -155,7 +162,7 @@
       ]
     },
     "ki_projekt_start": {
-      "background": "dark_green",
+      "background": "deep_green",
       "cards": [
         "Prozess klären",
         "Daten prüfen",
@@ -181,7 +188,7 @@
       }
     },
     "projektidee": {
-      "background": "black",
+      "background": "deep_green",
       "type": "three_photo_elements",
       "items": [
         {
@@ -212,7 +219,7 @@
       "do_not_insert_replacement_section": true
     },
     "potenzialanalyse": {
-      "background": "dark_green",
+      "background": "deep_green",
       "use_exact_text_from_content_source": true,
       "required_blocks": [
         "Was geprüft wird",
@@ -228,7 +235,7 @@
       "no_rewording": true
     },
     "formular": {
-      "background": "black",
+      "background": "deep_green",
       "use_exact_text_from_content_source": true,
       "required_fields": [
         "Vorname",
@@ -256,7 +263,7 @@
       "do_not_change_technical_field_names_if_processing_depends_on_them": true
     },
     "leistungen": {
-      "background": "dark_green",
+      "background": "deep_green",
       "card_count": 11,
       "source": "nurovelle_homepage_visible_content.md",
       "layout": {
@@ -283,6 +290,8 @@
         "subtitle_repetition"
       ],
       "icon_paths": {
+        "10": "assets/cards/service/icons/10.png",
+        "11": "assets/cards/service/icons/11.png",
         "01": "assets/cards/service/icons/1.png",
         "02": "assets/cards/service/icons/2.png",
         "03": "assets/cards/service/icons/3.png",
@@ -291,15 +300,13 @@
         "06": "assets/cards/service/icons/6.png",
         "07": "assets/cards/service/icons/7.png",
         "08": "assets/cards/service/icons/8.png",
-        "09": "assets/cards/service/icons/9.png",
-        "10": "assets/cards/service/icons/10.png",
-        "11": "assets/cards/service/icons/11.png"
+        "09": "assets/cards/service/icons/9.png"
       },
       "result_icon": "assets/cards/service/icons/ergebnis.png",
       "do_not_generate_replacement_icons": true
     },
     "prozess_zur_loesung": {
-      "background": "black",
+      "background": "deep_green",
       "module_count": 6,
       "module_labels": [
         "Aufgabe erfassen",
@@ -332,7 +339,7 @@
       }
     },
     "downloads": {
-      "background": "dark_green",
+      "background": "deep_green",
       "cards": [
         {
           "title": "Case Study KI-Automatisierung",
@@ -380,7 +387,7 @@
       }
     },
     "kontakt": {
-      "background": "black",
+      "background": "deep_green",
       "layout": {
         "top": "kicker_heading_intro",
         "main": "two_columns_40_60",
@@ -421,7 +428,7 @@
       "do_not_invent_contact_data": true
     },
     "faq": {
-      "background": "dark_green",
+      "background": "deep_green",
       "kicker": "Häufige Fragen",
       "heading": "Fragen zu KI-Projekten und Zusammenarbeit",
       "intro": "Die wichtigsten Fragen zur Potenzialanalyse, Umsetzung und zum Umgang mit Daten.",
