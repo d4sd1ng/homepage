@@ -313,6 +313,6 @@ Entscheidung: Bulletpoints in Analysebereichen der Homepage verwenden den grüne
 
 ## 2026-10-07 – SEO Toolbox als wiederkehrender Homepage-Callout
 
-Entscheidung: Die SEO Toolbox wird auf der Homepage an drei definierten Stellen als kompakter, nicht blockierender Callout eingeblendet. Die Callouts erscheinen per kurzer Fade-/Glow-Bewegung, bleiben im Inhaltsfluss und verwenden denselben kompakten CTA-Stil wie die übrigen mobilen Homepage-CTAs.
+Entscheidung: Die SEO Toolbox wird auf der Homepage an drei definierten Stellen als kompakter, nicht blockierender Callout eingeblendet. Die Callouts bleiben im Inhaltsfluss und erscheinen beim Eintritt in den sichtbaren Bereich von links mit gleichzeitigem Fade-in; Scale-/Bounce-Bewegungen entfallen. Auf Mobile sind die Callouts klar kleiner als reguläre Inhaltskarten. Die bestehenden goldenen Mobile-CTAs bleiben erhalten, werden jedoch mit reduziertem Innenabstand kompakter dimensioniert.
 
 Entscheidung: Solange die Tarifbezeichnungen bzw. die Gratis-Verfügbarkeit von „Agency“ und „Pro“ nicht eindeutig belegt sind, werden diese Begriffe im Homepage-Callout nicht verwendet. Verwendet wird der bereits belegte „Kostenloser SEO-Check“ mit Ziel `detail_seo.html`.
