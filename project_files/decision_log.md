@@ -316,3 +316,10 @@ Entscheidung: Bulletpoints in Analysebereichen der Homepage verwenden den grüne
 Entscheidung: Die SEO Toolbox wird auf der Homepage an drei definierten Stellen als kompakter, nicht blockierender Callout eingeblendet. Die Callouts bleiben im Inhaltsfluss und erscheinen beim Eintritt in den sichtbaren Bereich von links mit gleichzeitigem Fade-in; Scale-/Bounce-Bewegungen entfallen. Auf Mobile sind die Callouts klar kleiner als reguläre Inhaltskarten. Die bestehenden goldenen Mobile-CTAs bleiben erhalten, werden jedoch mit reduziertem Innenabstand kompakter dimensioniert.
 
 Entscheidung: Solange die Tarifbezeichnungen bzw. die Gratis-Verfügbarkeit von „Agency“ und „Pro“ nicht eindeutig belegt sind, werden diese Begriffe im Homepage-Callout nicht verwendet. Verwendet wird der bereits belegte „Kostenloser SEO-Check“ mit Ziel `detail_seo.html`.
+
+
+## 2026-10-09 – Einheitliches Hintergrund- und Card-Farbsystem
+
+Entscheidung: Die Homepage verwendet über alle Inhaltssektionen hinweg einen einheitlichen Deep-Green-Grundhintergrund (`#0A1913`). Leistungs- und sonstige Detailseiten verwenden einen einheitlichen matten, fast schwarzen Grundhintergrund (`#080B09`). Normale dunkle Cards verwenden einheitlich Dark Gunmetal (`#15191A`). Bereits ausdrücklich grüne oder goldene Cards bleiben unverändert.
+
+Aktuelle Designregeln: siehe `styleguide.md`.
