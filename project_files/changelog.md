@@ -11,6 +11,7 @@ Geändert:
 - `homepage/index.html`: linken Inhaltsblock der geöffneten Leistungskarten um 16px nach oben gesetzt, damit Icon und Rahmen nicht zu tief sitzen.
 - `homepage/index.html`: Nummernrahmen von 64.8×68px auf 52×54px und Nummernschrift von 31.2px auf 24px reduziert; Abstand zum Titelblock von 18.4px auf 14.4px reduziert.
 - `homepage/index.html`: Bulletpoint-Texte gold gesetzt und die Bulletmarker auf grüne Emerald-Punkte umgestellt; gilt für Einsatzbereiche links und Bulletliste rechts.
+- `homepage/index.html`: Einsatzbereich-Bullets links von 15.6px auf 14.4px reduziert und erzwungene Worttrennung entfernt, damit lange Begriffe wie `Daten- und Systemprüfung` und `Maßnahmenpriorisierung` vollständig innerhalb der linken Kartenspalte bleiben.
 
 Nicht geändert:
 
