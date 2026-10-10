@@ -1,3 +1,28 @@
+## 2026-10-09 – Issue #54 Leistungskarten-Interaktion und Divider korrigiert
+
+Status: in Arbeit
+
+Geändert:
+
+- `homepage/index.html`: Klick auf eine Leistungskarte öffnet/schließt jetzt den `.is-active`-Zustand statt auf Desktop sofort zur Zielseite zu navigieren; Navigation erfolgt über den vorhandenen `Mehr erfahren`-CTA.
+- `homepage/index.html`: rechter horizontaler Divider als eigenes Element `.nv-s7-card__short-rule` in allen 11 Leistungskarten umgesetzt; linker Horizontal-Divider, vertikaler Divider und rechter Horizontal-Divider bleiben im Grundzustand unsichtbar und werden nur bei Hover, Focus oder `.is-active` sichtbar.
+- `homepage/index.html`: `Mehr erfahren` verwendet die vorhandene `golden-button`-Komponente; die kartenbezogene Klasse steuert nur Position und Größe.
+- `homepage/index.html`: Desktop-Divider bleiben im separaten Mobile-Kartenlayout ausgeblendet.
+- `homepage/index.html`: linken Inhaltsblock der geöffneten Leistungskarten um 16px nach oben gesetzt, damit Icon und Rahmen nicht zu tief sitzen.
+- `homepage/index.html`: Nummernrahmen von 64.8×68px auf 52×54px und Nummernschrift von 31.2px auf 24px reduziert; Abstand zum Titelblock von 18.4px auf 14.4px reduziert.
+- `homepage/index.html`: Bulletpoint-Texte gold gesetzt und die Bulletmarker auf grüne Emerald-Punkte umgestellt; gilt für Einsatzbereiche links und Bulletliste rechts.
+- `homepage/index.html`: Einsatzbereich-Bullets links von 15.6px auf 14.4px reduziert und erzwungene Worttrennung entfernt, damit lange Begriffe wie `Daten- und Systemprüfung` und `Maßnahmenpriorisierung` vollständig innerhalb der linken Kartenspalte bleiben.
+
+Nicht geändert:
+
+- Texte, Kartenreihenfolge, IDs und Assetpfade.
+- Formular-, Analyse-, Download-, FAQ- und Footer-Logik.
+- Header-CTA und allgemeine `golden-button`-Basisregeln.
+
+Offen:
+
+- Visuelle Abnahme des Branches vor Merge.
+
 ## 2026-10-09 – Mobile Leistungskarten, SEO-Callouts und CTA-Padding korrigiert
 
 Status: in Arbeit
