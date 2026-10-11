@@ -1,3 +1,22 @@
+## 2026-10-11 – Issue #55 Original-Module statt Hero-Sprite
+
+Status: in Arbeit
+
+Geändert:
+
+- `homepage/analyse.html`: die fehlerhafte CSS-Sprite-Verwendung des gesamten Hero-Bildes in der Leistungssektion entfernt.
+- Die sieben Leistungspunkte verwenden nun jeweils ein einzelnes bereits vorhandenes Modul-Asset aus `assets/Module/` als echtes `img`-Element.
+- Verwendete Originaldateien: `analyse/1.png`, `datenanalyse.webp`, `analyse/2.webp`, `Ablauf/umsetzung_struturieren.png`, `analyse/3.png`, `report.webp`, `analyse/4.png`.
+- Keine neuen Bildassets erstellt.
+
+Nicht geändert:
+
+- Hero-Bild, die sieben bereits abgestimmten Leistungstexte, Randformen und Linien, andere Seiten.
+
+Offen:
+
+- Visuelle Browserabnahme der Desktop- und Mobile-Darstellung vor Merge.
+
 ## 2026-10-11 – Issue #55 Leistungssektion auf sieben Hero-Icons umgestellt
 
 Status: in Arbeit
