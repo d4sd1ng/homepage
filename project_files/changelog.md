@@ -1,3 +1,26 @@
+## 2026-10-11 – Issue #55 Leistungssektion auf sieben Hero-Icons umgestellt
+
+Status: in Arbeit
+
+Geändert:
+
+- `homepage/analyse.html`: die acht nummerierten Leistungspunkte auf sieben Punkte reduziert.
+- Die Nummernrahmen der Leistungssektion entfernt; stattdessen werden ausschließlich die sieben Motive aus dem bestehenden Hero-Asset `assets/detail_pages_grafics/Analyse_detail _final.png` als CSS-Sprite verwendet.
+- Reihenfolge und Zuordnung: Prozesserfassung, Datenprüfung, Systemanalyse, Anwendungsfallentwicklung, Potenzialbewertung, Nutzen & Priorisierung, Aufgabenklassifikation.
+- `Nutzenbewertung` und `Risikobewertung` in `Potenzialbewertung` zusammengeführt; `Priorisierung` als `Nutzen & Priorisierung` konkretisiert.
+- Bestehende Beschreibungen wurden nur soweit zusammengeführt, wie es für die 7er-Struktur erforderlich ist.
+
+Nicht geändert:
+
+- Hero-Visual selbst.
+- Keile/Randformen und gestaffelte Linien.
+- Formular-, Analyse-, Download-, FAQ-, Header- und Footer-Logik.
+- Andere Seiten und Assets.
+
+Offen:
+
+- Visuelle Abnahme der sieben Sprite-Ausschnitte auf Desktop und Mobile.
+
 ## 2026-10-09 – Issue #54 Leistungskarten-Interaktion und Divider korrigiert
 
 Status: in Arbeit
