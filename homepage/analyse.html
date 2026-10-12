@@ -168,29 +168,28 @@ main h3 { font: var(--w-zwischentitel) var(--t-zwischentitel)/1.2 "Exo 2",Inter,
   color: transparent; 
   -webkit-text-fill-color: transparent; 
   }
-.card-bullets li::before { 
-  content: ""; 
-  position: absolute; 
-  left: 0; top: calc(50% - 2.8px); 
-  width: 5.6px; height: 5.6px; 
-  border: .8px solid #55863f;
-  border-radius: 50%; 
-  background: url("assets/bulletpoint.png") center / cover no-repeat; 
-  }
+.card-bullets li::before {
+  content: "";
+  position: absolute;
+  left: 0; top: calc(50% - 5px);
+  width: 10px; height: 10px;
+  border: 0; border-radius: 50%;
+  background: url("assets/BulletPoint.png") center / contain no-repeat;
+}
 .summary { border: 1px solid rgba(255,215,163,.78); background: linear-gradient(180deg,#ffd7a3 0%,#f0a05a 24%,#d89828 58%,#7a3518 100%); box-shadow: inset 0 0 0 1px rgba(255,244,199,.20),0 8px 16px rgba(0,0,0,.30); }
 .summary h2,.summary p { color: #050505; text-shadow: none; }
 .summary h2 { background: none; -webkit-background-clip: initial; background-clip: initial; color: #112A20; -webkit-text-fill-color: #112A20; }
 .summary .sub { color: #050505; }
 .summary h3 { color: #0A1913; }
 .summary .dot-list li { color: #0A1913; font: 600 17px/1.55 "Inter",Arial,sans-serif; }
-.summary .dot-list li::before { background: url("assets/bulletpoint.png") center / cover no-repeat; border-color: #55863f; top: 10px; }
+.summary .dot-list li::before { background: url("assets/BulletPoint.png") center / contain no-repeat; border: 0; top: 10px; }
 .actions { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 33px; }
 .text-cols { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 18px 48px; margin-top: 9px; }
 .text-cols p { font: var(--w-fliesstext) var(--t-fliesstext)/1.7 "Inter",Arial,sans-serif; color: #b9c3bd; }
 .text-cols--1 { grid-template-columns: minmax(0,1fr); max-width: 1060px; gap: 14px; }
 .label-list { column-count: 2; column-gap: 48px; list-style: none; margin: 97px 0 0; padding: 0; }
 .label-list li { position: relative; break-inside: avoid; margin-bottom: 26px; padding-left: 20px; font: var(--w-fliesstext) var(--t-fliesstext)/1.7 "Inter",Arial,sans-serif; color: #b9c3bd; }
-.label-list li::before { content: ""; position: absolute; left: 0; top: 8px; width: 5.6px; height: 5.6px; border: .8px solid #55863f; border-radius: 50%; background: url("assets/bulletpoint.png") center / cover no-repeat; }
+.label-list li::before { content: ""; position: absolute; left: 0; top: 8px; width: 10px; height: 10px; border: 0; border-radius: 50%; background: url("assets/BulletPoint.png") center / contain no-repeat; }
 .label-list strong { display: block; margin-bottom: 4px; font: var(--w-bulletlabel) var(--t-bulletlabel)/1.35 "Inter",Arial,sans-serif; background: var(--gold-2); background-clip: text; -webkit-background-clip: text; color: transparent; -webkit-text-fill-color: transparent; }
 .text { max-width: 88ch; font: var(--w-fliesstext) var(--t-fliesstext)/1.7 "Inter",Arial,sans-serif; color: #b9c3bd; }
 .text--after { margin-top: 26px; }
@@ -215,7 +214,7 @@ main h3 { font: var(--w-zwischentitel) var(--t-zwischentitel)/1.2 "Exo 2",Inter,
 /* ---------- Punktlisten & Gruppen ---------- */
 .dot-list { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 10px 48px; list-style: none; margin: 14px 0 0; padding: 0; }
 .dot-list li { position: relative; padding-left: 20px; font: var(--w-fliesstext) var(--t-fliesstext)/1.65 "Inter",Arial,sans-serif; color: #b9c3bd; }
-.dot-list li::before { content: ""; position: absolute; left: 0; top: 9px; width: 5.6px; height: 5.6px; border: .8px solid #55863f; border-radius: 50%; background: url("assets/bulletpoint.png") center / cover no-repeat; }
+.dot-list li::before { content: ""; position: absolute; left: 0; top: 9px; width: 10px; height: 10px; border: 0; border-radius: 50%; background: url("assets/BulletPoint.png") center / contain no-repeat; }
 .group-cards { margin-top: 16px; }
 .group-cards .dot-list { grid-template-columns: 1fr; margin-top: 12px; }
 .group-cards article:only-child { grid-column: 1 / -1; }
@@ -279,7 +278,7 @@ main h3 { font: var(--w-zwischentitel) var(--t-zwischentitel)/1.2 "Exo 2",Inter,
 .result-strip p { font-size: 14px; line-height: 1.6; color: #b9c3bd; }
 .result-points { display: grid; gap: 8px; list-style: none; margin: 21px 0 0 20px; padding: 0; }
 .result-points li { position: relative; padding-left: 14px; font-family: "Inter",Arial,sans-serif; font-size: 12.5px; font-weight: 600; letter-spacing: .04em; text-transform: uppercase; background: var(--gold-2); background-clip: text; -webkit-background-clip: text; color: transparent; -webkit-text-fill-color: transparent; }
-.result-points li::before { content: ""; position: absolute; left: 0; top: .4em; width: 5.6px; height: 5.6px; border: .8px solid #55863f; border-radius: 50%; background: url("assets/bulletpoint.png") center / cover no-repeat; }
+.result-points li::before { content: ""; position: absolute; left: 0; top: .35em; width: 10px; height: 10px; border: 0; border-radius: 50%; background: url("assets/BulletPoint.png") center / contain no-repeat; }
 .analysis-status { margin-top: 10px; min-height: 17px; font-family: "Inter",Arial,sans-serif; font-size: 11px; font-weight: 600; line-height: 1.45; letter-spacing: .045em; text-transform: uppercase; color: rgba(247,215,122,.9); }
 .result-strip.is-active { box-shadow: 0 0 16px rgba(212,175,55,.35); }
 .result-strip.is-error { background-image: linear-gradient(135deg, rgba(205,82,66,.16), rgba(0,0,0,0) 55%), linear-gradient(#080B09,#080B09), linear-gradient(135deg,#e0705f,#7a2f26); }
@@ -831,7 +830,7 @@ h1, main h2 {\n  -webkit-text-stroke: .6px rgba(255,248,207,.40);\n  background-
     <path d="M190 60 H500 V370"/>
   </g>
 </svg>
-<section class="section section--landing" id="hero"><div class="section-inner detail-hero"><div><div class="kicker">KI-Potenzialanalyse</div><h1><span class="hero-title-line">Wo lohnt sich KI in Ihrem</span><span class="hero-title-line">Unternehmen wirklich?</span></h1><p class="sub">Bevor Zeit und Budget in eine KI-Lösung fließen.</p><p class="lead">Die KI-Potenzialanalyse zeigt, welche Prozesse für KI oder Automatisierung geeignet sind, welche Voraussetzungen fehlen und welche nächsten Schritte sinnvoll sind.</p><div class="actions"><a class="btn" href="#analyse-formular">KI-Potenzialanalyse starten</a></div></div><div class="visual-card visual-card--hero"><img src="assets/detail_pages_grafics/Analyse_detail _final.png" alt="Ablauf der KI-Potenzialanalyse"/></div></div></section>
+<section class="section section--landing" id="hero"><div class="section-inner detail-hero"><div><div class="kicker">KI-Potenzialanalyse</div><h1><span class="hero-title-line">Wo lohnt sich KI in Ihrem</span><span class="hero-title-line">Unternehmen wirklich?</span></h1><p class="sub">Bevor Zeit und Budget in eine KI-Lösung fließen.</p><p class="lead">Die KI-Potenzialanalyse zeigt, welche Prozesse für KI oder Automatisierung geeignet sind, welche Voraussetzungen fehlen und welche nächsten Schritte sinnvoll sind.</p><div class="actions"><a class="btn" href="#analyse-formular">KI-Potenzialanalyse starten</a></div></div><div class="visual-card visual-card--hero"><img src="assets/detail_pages_grafics/Sockel_Loaded_Analyse.png" alt="Ablauf der KI-Potenzialanalyse"/></div></div></section>
 </div>
 <div class="section-divider" aria-hidden="true"></div>
 
