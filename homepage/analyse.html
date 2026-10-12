@@ -135,7 +135,6 @@ main img { display: block; max-width: 100%; }
 .btn:hover, .btn:focus-visible { color: var(--nv-gold-text-hover); border-color: var(--nv-gold-border-hover); background-size: 150% 150%; transform: translateY(-2px); box-shadow: 0 10px 20px var(--shadow-hover-1), 0 6px 6px var(--shadow-hover-2), inset 0 -2px 5px 1px var(--nv-gold-inner-mid), inset 0 -1px 1px 3px var(--nv-gold-highlight); }
 .section { position: relative; padding: 72px var(--side); background: #000; }
 .section--landing { padding-block: max(24px, calc(20.83vh - 167px)); }
-main > section:nth-child(n+4):before { content: ""; position: absolute; left: 7%; right: 7%; top: 0; height: 2px; background: linear-gradient(90deg,transparent 0%,#E0AA3E 14%,#FAF398 50%,#E0AA3E 86%,transparent 100%); box-shadow: 0 0 8px rgba(250,227,133,.4); }
 .section-inner { max-width: var(--content-max); margin-left: auto; margin-right: auto; }
 .kicker { font: var(--w-kicker-sektion) var(--t-kicker-sektion)/1.15 "Inter",Arial,sans-serif; letter-spacing: .14em; text-transform: uppercase; color: #55863f; margin-bottom: 10px; }
 h1,h2,h3 { font-family: "Exo 2",Inter,Arial,sans-serif; }
@@ -396,10 +395,10 @@ h1, main h2 {\n  -webkit-text-stroke: .6px rgba(255,248,207,.40);\n  background-
 
 .section-divider{
   width:86%;
-  height:0.8px;
+  height:2px;
   margin:0 auto;
-  background:linear-gradient(90deg,transparent,#fae385 20%,#fae385 80%,transparent);
-  box-shadow:0 0 6.4px #fae38566;
+  background:linear-gradient(90deg,transparent 0%,#E0AA3E 14%,#FAF398 50%,#E0AA3E 86%,transparent 100%);
+  box-shadow:0 0 8px rgba(250,227,133,.4);
   border:0;
 }
 
