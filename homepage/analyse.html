@@ -522,6 +522,10 @@ h1, main h2 {\n  -webkit-text-stroke: .6px rgba(255,248,207,.40);\n  background-
 .hero-viewport .hero-particle-bg{position:absolute;inset:0;z-index:0;width:100%;height:100%;display:block;pointer-events:none;}
 .hero-corner-lines{display:none;}
 .hero-viewport::after{content:"";position:absolute;inset:0;z-index:0;background:linear-gradient(90deg,rgba(0,0,0,.81),rgba(0,0,0,.58) 42%,rgba(0,0,0,.18));pointer-events:none;}
+/* Exact index.html section-boundary divider, located on the hero boundary. */
+.hero-viewport{border-bottom:0;}
+.hero-viewport .hero-particle-bg{border-bottom:0;}
+.hero-viewport > .hero-bottom-divider{position:absolute;left:7%;right:7%;bottom:0;z-index:3;height:0.8px;background:linear-gradient(90deg,#00000000,#fae385 20%,#fae385 80%,#00000000);box-shadow:0 0 6.4px #fae38566;pointer-events:none;}
 #hero{
   position:relative;
   z-index:1;
@@ -667,7 +671,7 @@ h1, main h2 {\n  -webkit-text-stroke: .6px rgba(255,248,207,.40);\n  background-
     top:18px;
     right:0;
     width:570px;
-    height:390px;
+    height:460px;
     pointer-events:none;
     z-index:2;
     overflow:visible;
@@ -842,7 +846,7 @@ h1, main h2 {\n  -webkit-text-stroke: .6px rgba(255,248,207,.40);\n  background-
 <!-- ============================ 1. HERO ============================ -->
 <div class="hero-viewport">
 <canvas class="hero-particle-bg" id="heroParticleCanvas" aria-hidden="true"></canvas>
-<svg class="hero-corner-lines" viewBox="0 0 570 390" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
+<svg class="hero-corner-lines" viewBox="0 0 570 460" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
   <defs>
     <linearGradient id="analyse-corner-gold" x1="0" y1="0" x2="1" y2="0">
       <stop offset="0" stop-color="#8b641a"/>
@@ -852,16 +856,16 @@ h1, main h2 {\n  -webkit-text-stroke: .6px rgba(255,248,207,.40);\n  background-
     </linearGradient>
   </defs>
   <g fill="none" stroke="url(#analyse-corner-gold)" stroke-width="2" opacity=".84">
-    <path d="M110 0 H560 V370"/>
-    <path d="M105 28 H525 V340"/>
-    <path d="M100 56 H490 V310"/>
-    <path d="M95 84 H455 V280"/>
-    <path d="M90 112 H420 V250"/>
+    <path d="M110 0 H560 V450"/>
+    <path d="M105 28 H495 V418"/>
+    <path d="M100 56 H430 V386"/>
+    <path d="M95 84 H365 V354"/>
+    <path d="M90 112 H300 V322"/>
   </g>
 </svg>
 <section class="section section--landing" id="hero"><div class="section-inner detail-hero"><div><div class="kicker">KI-Potenzialanalyse</div><h1><span class="hero-title-line">Wo lohnt sich KI in Ihrem</span><span class="hero-title-line">Unternehmen wirklich?</span></h1><p class="sub">Bevor Zeit und Budget in eine KI-Lösung fließen.</p><p class="lead">Die KI-Potenzialanalyse zeigt, welche Prozesse für KI oder Automatisierung geeignet sind, welche Voraussetzungen fehlen und welche nächsten Schritte sinnvoll sind.</p><div class="actions"><a class="btn" href="#analyse-formular">KI-Potenzialanalyse starten</a></div></div><div class="visual-card visual-card--hero"><img src="assets/detail_pages_grafics/Analyse_detail _final.png" alt="Ablauf der KI-Potenzialanalyse"/></div></div></section>
+<div class="hero-bottom-divider" aria-hidden="true"></div>
 </div>
-<div class="section-divider" aria-hidden="true"></div>
 
 <!-- ============================ 2. DEFINITION ============================ -->
 <section class="section" id="was-ist-das">
