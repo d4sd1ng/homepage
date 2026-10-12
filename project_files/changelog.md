@@ -1,3 +1,36 @@
+## 2026-10-12 – Goldwinkel-Abstand auf 15 px verdichtet
+
+Status: in Arbeit
+
+- In `homepage/analyse.html` alle fünf SVG-Winkel mit 15 px Vertikal- und Horizontalversatz angeordnet, statt der auseinandergezogenen Staffelung.
+- Schenkellängen pro Winkel bleiben identisch: 450/435/420/405/390 px; größter Winkel weiterhin 450 px.
+- Index-Hero-Divider und alle übrigen Elemente unverändert.
+
+Offen: Visuelle Freigabe vor Merge.
+
+## 2026-10-12 – Gleichschenklige Goldwinkel und Index-Hero-Divider korrigiert
+
+Status: in Arbeit
+
+- Fünf goldene SVG-Winkel: pro Winkel sind horizontaler und vertikaler Schenkel exakt gleich lang (450/390/330/270/210 px).
+- Sichtbar getrennte Endpunkte der Winkel durch abgestufte Längen; bisherige falsche SVG-Pfade ersetzt.
+- Hero-Divider exakt mit der `index.html`-Technik direkt an der Unterkante des Hero-Viewports platziert: links/rechts 7 %, Höhe 0,8 px, auslaufender Goldverlauf und Schatten.
+- Den zwischen Hero und nächster Sektion eingefügten separaten Divider entfernt, damit an dieser Grenze nur eine Linie gezeichnet wird.
+- Andere Sektionen, Partikelshader, Texte, Grafik, CTA und Textabstände unverändert.
+
+Offen: Visuelle Kontrolle vor Merge.
+
+## 2026-10-12 – Analyse-Hero: Goldwinkel als echte SVG-Linien, Divider wiederhergestellt
+
+Status: in Arbeit
+
+- `homepage/analyse.html`: die zehn überlagerten CSS-Background-Linien des oberen rechten Hero-Winkels vollständig entfernt und durch fünf einzeln definierte SVG-Pfade mit getrennten Endpunkten (450/420/390/360/330 px horizontal; 370/312/254/196/138 px vertikal) ersetzt.
+- Die ursprüngliche `.hero-viewport::before`-Regel ersetzt, keine zusätzliche CSS-Override-Schicht ergänzt.
+- Genau ein `section-divider`-Element direkt zwischen Hero-Viewport und nächster Sektion wieder eingesetzt, bestehende Index-Goldverlaufsregel wiederverwendet.
+- Das visuelle Ergebnis als auf dem bestehenden Screenshot montierte SVG-/Divider-Vorschau bereitgestellt; dies ist keine vollständige Browserprüfung der produktiven Seite.
+
+Offen: Browser-Abnahme und Freigabe vor Merge.
+
 ## 2026-10-12 – Analyse-Hero vertikale Goldschenkel und Divider korrigiert
 
 Status: in Arbeit
