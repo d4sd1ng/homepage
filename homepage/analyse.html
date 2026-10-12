@@ -520,6 +520,7 @@ h1, main h2 {\n  -webkit-text-stroke: .6px rgba(255,248,207,.40);\n  background-
   background:#000;
 }
 .hero-viewport .hero-particle-bg{position:absolute;inset:0;z-index:0;width:100%;height:100%;display:block;pointer-events:none;}
+.hero-corner-lines{display:none;}
 .hero-viewport::after{content:"";position:absolute;inset:0;z-index:0;background:linear-gradient(90deg,rgba(0,0,0,.81),rgba(0,0,0,.58) 42%,rgba(0,0,0,.18));pointer-events:none;}
 #hero{
   position:relative;
@@ -660,28 +661,17 @@ h1, main h2 {\n  -webkit-text-stroke: .6px rgba(255,248,207,.40);\n  background-
   }
 }
 @media(min-width:901px){
-  .hero-viewport::before{
-    content:"";
+  .hero-corner-lines{
+    display:block;
     position:absolute;
     top:18px;
     right:0;
-    width:562px;
-    height:360px;
-    background:
-      linear-gradient(90deg,#8b641a 0%,#dfbd69 46%,#fff6bd 72%,#b98424 100%) right 0px top 0px/450px 2px no-repeat,
-      linear-gradient(180deg,#fff6bd 0%,#dfbd69 48%,#926f34 100%) right 0px top 0px/2px 300px no-repeat,
-      linear-gradient(90deg,#8b641a 0%,#dfbd69 46%,#fff6bd 72%,#b98424 100%) right 28px top 25px/420px 2px no-repeat,
-      linear-gradient(180deg,#fff6bd 0%,#dfbd69 48%,#926f34 100%) right 28px top 25px/2px 285px no-repeat,
-      linear-gradient(90deg,#8b641a 0%,#dfbd69 46%,#fff6bd 72%,#b98424 100%) right 56px top 50px/390px 2px no-repeat,
-      linear-gradient(180deg,#fff6bd 0%,#dfbd69 48%,#926f34 100%) right 56px top 50px/2px 270px no-repeat,
-      linear-gradient(90deg,#8b641a 0%,#dfbd69 46%,#fff6bd 72%,#b98424 100%) right 84px top 75px/360px 2px no-repeat,
-      linear-gradient(180deg,#fff6bd 0%,#dfbd69 48%,#926f34 100%) right 84px top 75px/2px 255px no-repeat,
-      linear-gradient(90deg,#8b641a 0%,#dfbd69 46%,#fff6bd 72%,#b98424 100%) right 112px top 100px/330px 2px no-repeat,
-      linear-gradient(180deg,#fff6bd 0%,#dfbd69 48%,#926f34 100%) right 112px top 100px/2px 240px no-repeat;
-    opacity:.84;
-    filter:drop-shadow(0 0 5px rgba(212,175,55,.16));
+    width:570px;
+    height:390px;
     pointer-events:none;
     z-index:2;
+    overflow:visible;
+    filter:drop-shadow(0 0 5px rgba(212,175,55,.16));
   }
   #hero>.section-inner{
     position:relative;
@@ -852,8 +842,26 @@ h1, main h2 {\n  -webkit-text-stroke: .6px rgba(255,248,207,.40);\n  background-
 <!-- ============================ 1. HERO ============================ -->
 <div class="hero-viewport">
 <canvas class="hero-particle-bg" id="heroParticleCanvas" aria-hidden="true"></canvas>
+<svg class="hero-corner-lines" viewBox="0 0 570 390" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="analyse-corner-gold" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#8b641a"/>
+      <stop offset=".46" stop-color="#dfbd69"/>
+      <stop offset=".72" stop-color="#fff6bd"/>
+      <stop offset="1" stop-color="#b98424"/>
+    </linearGradient>
+  </defs>
+  <g fill="none" stroke="url(#analyse-corner-gold)" stroke-width="2" opacity=".84">
+    <path d="M110 0 H560 V370"/>
+    <path d="M105 28 H525 V340"/>
+    <path d="M100 56 H490 V310"/>
+    <path d="M95 84 H455 V280"/>
+    <path d="M90 112 H420 V250"/>
+  </g>
+</svg>
 <section class="section section--landing" id="hero"><div class="section-inner detail-hero"><div><div class="kicker">KI-Potenzialanalyse</div><h1><span class="hero-title-line">Wo lohnt sich KI in Ihrem</span><span class="hero-title-line">Unternehmen wirklich?</span></h1><p class="sub">Bevor Zeit und Budget in eine KI-Lösung fließen.</p><p class="lead">Die KI-Potenzialanalyse zeigt, welche Prozesse für KI oder Automatisierung geeignet sind, welche Voraussetzungen fehlen und welche nächsten Schritte sinnvoll sind.</p><div class="actions"><a class="btn" href="#analyse-formular">KI-Potenzialanalyse starten</a></div></div><div class="visual-card visual-card--hero"><img src="assets/detail_pages_grafics/Analyse_detail _final.png" alt="Ablauf der KI-Potenzialanalyse"/></div></div></section>
 </div>
+<div class="section-divider" aria-hidden="true"></div>
 
 <!-- ============================ 2. DEFINITION ============================ -->
 <section class="section" id="was-ist-das">
