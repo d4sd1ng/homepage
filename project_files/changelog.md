@@ -1,3 +1,15 @@
+## 2026-10-12 – Gleichschenklige Goldwinkel und Index-Hero-Divider korrigiert
+
+Status: in Arbeit
+
+- Fünf goldene SVG-Winkel: pro Winkel sind horizontaler und vertikaler Schenkel exakt gleich lang (450/390/330/270/210 px).
+- Sichtbar getrennte Endpunkte der Winkel durch abgestufte Längen; bisherige falsche SVG-Pfade ersetzt.
+- Hero-Divider exakt mit der `index.html`-Technik direkt an der Unterkante des Hero-Viewports platziert: links/rechts 7 %, Höhe 0,8 px, auslaufender Goldverlauf und Schatten.
+- Den zwischen Hero und nächster Sektion eingefügten separaten Divider entfernt, damit an dieser Grenze nur eine Linie gezeichnet wird.
+- Andere Sektionen, Partikelshader, Texte, Grafik, CTA und Textabstände unverändert.
+
+Offen: Visuelle Kontrolle vor Merge.
+
 ## 2026-10-12 – Analyse-Hero: Goldwinkel als echte SVG-Linien, Divider wiederhergestellt
 
 Status: in Arbeit
