@@ -1,3 +1,14 @@
+## 2026-10-12 – Analyse-Divider vereinheitlicht und doppelte Linien entfernt
+
+Status: in Arbeit
+
+- `homepage/analyse.html`: vorhandene `.section-divider`-Basisregel auf den bestehenden, 2 px starken Goldverlauf und Glow der vorherigen Sektions-Pseudolinien umgestellt.
+- Alte Regel `main > section:nth-child(n+4):before` entfernt. Sie erzeugte an nachfolgenden Sektionen zusätzliche Linien oberhalb des bereits vorhandenen Dividers.
+- Alle sechs vorhandenen `section-divider`-Elemente bleiben unverändert. Hero und Folgesektionen nutzen jetzt dieselbe Einzelregel; keine neuen Overrides.
+- Goldwinkel, Partikelhintergrund, Texte, CTA, Grafik und übrige Abschnitte unverändert.
+
+Offen: Visuelle Browserprüfung nach Bereitstellung.
+
 ## 2026-10-12 – Hero-Divider identisch zu den folgenden Abschnittstrennern
 
 Status: in Arbeit
