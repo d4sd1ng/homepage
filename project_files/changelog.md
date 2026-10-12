@@ -1,3 +1,23 @@
+## 2026-10-12 – Analyse-Hero CSS-Overrides konsolidiert
+
+Status: in Arbeit
+
+Geändert:
+
+- `homepage/analyse.html`: die nachträglich eingefügten redundanten `#hero .detail-hero .sub`- und `.actions`-Overrides entfernt; Abstände in vorhandenen `.detail-hero`-Basisregeln zusammengeführt.
+- Doppelte Hero-Hintergrund-/Positionierungsregeln und identische Mobile-Hero-Padding-Wiederholungen entfernt; wirksame Werte in den ursprünglichen Regeln belassen.
+- Alle fünf horizontalen Goldwinkel auf 450 px Schenkellänge gebracht, Versatz der Endpunkte beibehalten.
+- Subline-Abstand im ursprünglichen CSS auf 52 px, CTA-Abstand auf 70 px gesetzt.
+- Zusätzlichen Abschnitts-Divider direkt nach dem Hero entfernt (andere Abschnittstrenner unverändert).
+
+Nicht geändert:
+
+- HTML-Inhalte, Partikelshader, Goldlinien-Geometrie, Glow, Hero-Grafik, andere Abschnitte und andere Seiten.
+
+Offen:
+
+- Browserprüfung nach Deployment; keine generelle Löschung globaler bzw. funktionsnotwendiger Media-Query-Regeln vorgenommen.
+
 ## 2026-10-12 – Analyse-Hero: Index-Partikelhintergrund, Winkel und Abstände
 
 Status: in Arbeit
