@@ -1,3 +1,13 @@
+## 2026-10-12 – Analyse-Goldwinkel: rechte Knickpunkte getrennt
+
+Status: in Arbeit
+
+- In `homepage/analyse.html` ausschließlich die rechten Knickpunkte der SVG-Winkel 2–5 angepasst: x=545, 530, 515, 500 statt gemeinsam x=560.
+- Der erste Winkel bleibt bei x=560 unverändert. Die linke Staffelung (x=110/130/150/170/190), obere Positionen (y=0/15/30/45/60) und unteren Enden (y=450/430/410/390/370) bleiben unverändert.
+- Divider, Textabstände, CTA, Grafik, Partikelhintergrund, Farben und alle weiteren Bereiche unverändert.
+
+Offen: Visuelle Kontrolle und Freigabe vor Merge.
+
 ## 2026-10-12 – Analyse-Goldwinkel gemäß bestätigter 20-px-Geometrie
 
 Status: in Arbeit
