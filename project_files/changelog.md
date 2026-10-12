@@ -5,10 +5,10 @@ Status: in Arbeit
 - `homepage/analyse.html`: doppelte CSS-Definitionen der Ergebnis-Karte entfernt; ihre Bullet-Texte auf vorhandenen Goldverlauf umgestellt.
 - FAQ-Grid von 1300 auf maximal 1000 px reduziert, Abstände von 36 auf 16/20 px, FAQ-Summary-Höhen auf kompakte Mindesthöhe 44 px mit 8/14 px Innenabstand angepasst; FAQ aus der Desktop-Viewport-Mindesthöhenregel ausgenommen.
 - Doppelte Hintergrund-Animationsregeln und die Ganzkarten-Animation entfernt; Shine-Animation nur auf Titel `.result-strip h3` und `.form-panel h3` belassen.
-- Hero-Bildverweis auf `assets/detail_pages_grafics/Sockel_Loaded_Analyse.png` umgestellt und fünf Bulletpunkt-Verweise auf `assets/BulletPoint.png` korrigiert; Marker auf 10 px ohne überlagerte Kontur gesetzt.
+- Hero-Bildverweis auf `assets/detail_pages_grafics/sockel_loaded_analyse.png` umgestellt und fünf Bulletpunkt-Verweise auf `assets/Bulletpoint.png` korrigiert; Marker auf 10 px ohne überlagerte Kontur gesetzt.
 - Formularfunktion und übrige Hero-Geometrie nicht geändert.
 
-Blockiert: Die zwei namentlich vorgegebenen Bilddateien sind im geprüften GitHub-main-Baum derzeit nicht erreichbar; dieser Branch darf erst nach Bestätigung ihrer tatsächlichen Verfügbarkeit gemergt werden.
+Blockiert: Die beiden Assets liegen laut lokalem `git status` in der Staging-Area, sind aber noch nicht committed und gepusht. Vor dem Merge müssen sie unter den oben dokumentierten, exakt geschriebenen Pfaden in `main` vorhanden sein.
 
 ## 2026-10-12 – Analyse-Divider vereinheitlicht und doppelte Linien entfernt
 
