@@ -1,3 +1,13 @@
+## 2026-10-12 – Analyse-Goldwinkel gemäß bestätigter 20-px-Geometrie
+
+Status: in Arbeit
+
+- `homepage/analyse.html`: nur die fünf SVG-Pfade im oberen rechten Hero geändert.
+- Erster Winkel bleibt `M110 0 H560 V450`; Winkel 2–5 beginnen links bei x=130/150/170/190 und enden unten bei y=430/410/390/370, mit bestehender 15-px-Höhenstaffelung.
+- Rechter Eckpunkt aller Winkel bleibt bei x=560. Keine Änderungen an Divider, Hero-Inhalt, Glow, Partikelhintergrund, SVG-Farben oder CSS.
+
+Offen: Visuelle Kontrolle vor Merge.
+
 ## 2026-10-12 – Goldwinkel-Abstand auf 15 px verdichtet
 
 Status: in Arbeit
