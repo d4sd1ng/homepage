@@ -1,3 +1,13 @@
+## 2026-10-12 – Goldwinkel-Abstand auf 15 px verdichtet
+
+Status: in Arbeit
+
+- In `homepage/analyse.html` alle fünf SVG-Winkel mit 15 px Vertikal- und Horizontalversatz angeordnet, statt der auseinandergezogenen Staffelung.
+- Schenkellängen pro Winkel bleiben identisch: 450/435/420/405/390 px; größter Winkel weiterhin 450 px.
+- Index-Hero-Divider und alle übrigen Elemente unverändert.
+
+Offen: Visuelle Freigabe vor Merge.
+
 ## 2026-10-12 – Gleichschenklige Goldwinkel und Index-Hero-Divider korrigiert
 
 Status: in Arbeit
