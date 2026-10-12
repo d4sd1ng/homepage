@@ -1,3 +1,21 @@
+## 2026-10-12 – Issue #55 Hero-Keile und Goldlinien auf analyse.html angepasst
+
+Status: in Arbeit
+
+Geändert:
+
+- `homepage/analyse.html`: beide unteren Hero-Keile samt HTML-Elementen und zugehörigen CSS-Regeln entfernt.
+- Gestaffelte Goldlinien oben rechts von `right:clamp(20px,3vw,46px)` auf `right:0` gesetzt.
+- Horizontale und vertikale Linienlängen von 100/88/76/64/52 % auf 100/78/57/36/15 % stärker gestaffelt.
+
+Nicht geändert:
+
+- Hero-Bild, übrige Hero-Geometrie, Texte, sieben Leistungsicons, Formulare, Header, Footer, andere Seiten.
+
+Offen:
+
+- Visuelle Browserabnahme der Linienposition und Staffelung.
+
 ## 2026-10-12 – Analyse-Leistungsicons auf Originalgröße mit Goldrahmen korrigiert
 
 Status: in Arbeit
