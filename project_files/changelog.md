@@ -1,3 +1,249 @@
+## 2026-10-12 – Analyse-Divider vereinheitlicht und doppelte Linien entfernt
+
+Status: in Arbeit
+
+- `homepage/analyse.html`: vorhandene `.section-divider`-Basisregel auf den bestehenden, 2 px starken Goldverlauf und Glow der vorherigen Sektions-Pseudolinien umgestellt.
+- Alte Regel `main > section:nth-child(n+4):before` entfernt. Sie erzeugte an nachfolgenden Sektionen zusätzliche Linien oberhalb des bereits vorhandenen Dividers.
+- Alle sechs vorhandenen `section-divider`-Elemente bleiben unverändert. Hero und Folgesektionen nutzen jetzt dieselbe Einzelregel; keine neuen Overrides.
+- Goldwinkel, Partikelhintergrund, Texte, CTA, Grafik und übrige Abschnitte unverändert.
+
+Offen: Visuelle Browserprüfung nach Bereitstellung.
+
+## 2026-10-12 – Hero-Divider identisch zu den folgenden Abschnittstrennern
+
+Status: in Arbeit
+
+- `homepage/analyse.html`: gesondertes `hero-bottom-divider`-Element innerhalb des Hero-Viewports samt zugehöriger CSS-Regel vollständig entfernt.
+- Nach dem schließenden Hero-Viewport exakt dasselbe `<div class="section-divider" aria-hidden="true"></div>` eingefügt, das bereits zwischen den folgenden Sektionen verwendet wird.
+- Bestehende `.section-divider`-CSS-Regel unverändert übernommen. Kein Override hinzugefügt.
+- Goldwinkel, Hero-Texte, CTA, Grafik, WebGL-Partikelhintergrund sowie übrige Abschnittstrenner unverändert.
+
+Offen: Visuelle Kontrolle nach Bereitstellung, noch kein Merge.
+
+## 2026-10-12 – Analyse-Goldwinkel: rechte Knickpunkte getrennt
+
+Status: in Arbeit
+
+- In `homepage/analyse.html` ausschließlich die rechten Knickpunkte der SVG-Winkel 2–5 angepasst: x=545, 530, 515, 500 statt gemeinsam x=560.
+- Der erste Winkel bleibt bei x=560 unverändert. Die linke Staffelung (x=110/130/150/170/190), obere Positionen (y=0/15/30/45/60) und unteren Enden (y=450/430/410/390/370) bleiben unverändert.
+- Divider, Textabstände, CTA, Grafik, Partikelhintergrund, Farben und alle weiteren Bereiche unverändert.
+
+Offen: Visuelle Kontrolle und Freigabe vor Merge.
+
+## 2026-10-12 – Analyse-Goldwinkel gemäß bestätigter 20-px-Geometrie
+
+Status: in Arbeit
+
+- `homepage/analyse.html`: nur die fünf SVG-Pfade im oberen rechten Hero geändert.
+- Erster Winkel bleibt `M110 0 H560 V450`; Winkel 2–5 beginnen links bei x=130/150/170/190 und enden unten bei y=430/410/390/370, mit bestehender 15-px-Höhenstaffelung.
+- Rechter Eckpunkt aller Winkel bleibt bei x=560. Keine Änderungen an Divider, Hero-Inhalt, Glow, Partikelhintergrund, SVG-Farben oder CSS.
+
+Offen: Visuelle Kontrolle vor Merge.
+
+## 2026-10-12 – Goldwinkel-Abstand auf 15 px verdichtet
+
+Status: in Arbeit
+
+- In `homepage/analyse.html` alle fünf SVG-Winkel mit 15 px Vertikal- und Horizontalversatz angeordnet, statt der auseinandergezogenen Staffelung.
+- Schenkellängen pro Winkel bleiben identisch: 450/435/420/405/390 px; größter Winkel weiterhin 450 px.
+- Index-Hero-Divider und alle übrigen Elemente unverändert.
+
+Offen: Visuelle Freigabe vor Merge.
+
+## 2026-10-12 – Gleichschenklige Goldwinkel und Index-Hero-Divider korrigiert
+
+Status: in Arbeit
+
+- Fünf goldene SVG-Winkel: pro Winkel sind horizontaler und vertikaler Schenkel exakt gleich lang (450/390/330/270/210 px).
+- Sichtbar getrennte Endpunkte der Winkel durch abgestufte Längen; bisherige falsche SVG-Pfade ersetzt.
+- Hero-Divider exakt mit der `index.html`-Technik direkt an der Unterkante des Hero-Viewports platziert: links/rechts 7 %, Höhe 0,8 px, auslaufender Goldverlauf und Schatten.
+- Den zwischen Hero und nächster Sektion eingefügten separaten Divider entfernt, damit an dieser Grenze nur eine Linie gezeichnet wird.
+- Andere Sektionen, Partikelshader, Texte, Grafik, CTA und Textabstände unverändert.
+
+Offen: Visuelle Kontrolle vor Merge.
+
+## 2026-10-12 – Analyse-Hero: Goldwinkel als echte SVG-Linien, Divider wiederhergestellt
+
+Status: in Arbeit
+
+- `homepage/analyse.html`: die zehn überlagerten CSS-Background-Linien des oberen rechten Hero-Winkels vollständig entfernt und durch fünf einzeln definierte SVG-Pfade mit getrennten Endpunkten (450/420/390/360/330 px horizontal; 370/312/254/196/138 px vertikal) ersetzt.
+- Die ursprüngliche `.hero-viewport::before`-Regel ersetzt, keine zusätzliche CSS-Override-Schicht ergänzt.
+- Genau ein `section-divider`-Element direkt zwischen Hero-Viewport und nächster Sektion wieder eingesetzt, bestehende Index-Goldverlaufsregel wiederverwendet.
+- Das visuelle Ergebnis als auf dem bestehenden Screenshot montierte SVG-/Divider-Vorschau bereitgestellt; dies ist keine vollständige Browserprüfung der produktiven Seite.
+
+Offen: Browser-Abnahme und Freigabe vor Merge.
+
+## 2026-10-12 – Analyse-Hero vertikale Goldschenkel und Divider korrigiert
+
+Status: in Arbeit
+
+- Fünf horizontale Goldlinien wieder mit abgestuften Längen 450/420/390/360/330 px statt einheitlichen 450 px hergestellt.
+- Nur die vertikalen Goldschenkel von 205/190/175/160/145 px auf 300/285/270/255/240 px verlängert.
+- Abschnitts-Divider auf den gleichen auslaufenden Goldverlauf mit schwachem Glow wie die Trennlinien in `index.html` umgestellt; keine zusätzlichen Divider-Elemente eingefügt.
+- Andere Hero-Elemente, Textabstände und Seiten bleiben unverändert.
+
+Offen: Visuelle Browserabnahme; doppelt wahrgenommene Linien auf der Website noch nicht visuell verifiziert.
+
+## 2026-10-12 – Analyse-Hero CSS-Overrides konsolidiert
+
+Status: in Arbeit
+
+Geändert:
+
+- `homepage/analyse.html`: die nachträglich eingefügten redundanten `#hero .detail-hero .sub`- und `.actions`-Overrides entfernt; Abstände in vorhandenen `.detail-hero`-Basisregeln zusammengeführt.
+- Doppelte Hero-Hintergrund-/Positionierungsregeln und identische Mobile-Hero-Padding-Wiederholungen entfernt; wirksame Werte in den ursprünglichen Regeln belassen.
+- Alle fünf horizontalen Goldwinkel auf 450 px Schenkellänge gebracht, Versatz der Endpunkte beibehalten.
+- Subline-Abstand im ursprünglichen CSS auf 52 px, CTA-Abstand auf 70 px gesetzt.
+- Zusätzlichen Abschnitts-Divider direkt nach dem Hero entfernt (andere Abschnittstrenner unverändert).
+
+Nicht geändert:
+
+- HTML-Inhalte, Partikelshader, Goldlinien-Geometrie, Glow, Hero-Grafik, andere Abschnitte und andere Seiten.
+
+Offen:
+
+- Browserprüfung nach Deployment; keine generelle Löschung globaler bzw. funktionsnotwendiger Media-Query-Regeln vorgenommen.
+
+## 2026-10-12 – Analyse-Hero: Index-Partikelhintergrund, Winkel und Abstände
+
+Status: in Arbeit
+
+Geändert:
+
+- `homepage/analyse.html`: den bestehenden WebGL-Partikelshader aus `homepage/index.html` unverändert übernommen und auf den Hero-Viewport als Canvas-Ziel ausgerichtet; Canvas hinter dem Hero-Inhalt platziert.
+- Den deckenden schwarzen Hero-Sektionshintergrund innerhalb des Viewports transparent gesetzt und einen dezenten dunklen Verlaufs-Overlay zur Lesbarkeit eingefügt.
+- Fünf versetzte Goldwinkel: horizontale Schenkel 450, 420, 390, 360, 330 px; vertikale Schenkel 205, 190, 175, 160, 145 px.
+- Abstand Subline–Bodytext: 38 px; Abstand Bodytext–CTA: 52 px.
+- Bestehenden Emerald-/Gunmetal-Glow direkt hinter der Prozessgrafik sichtbar verstärkt und Bild über der Glow-Ebene positioniert; keine neue Card und kein Rahmen.
+
+Nicht geändert:
+
+- Hero-Texte, CTA-Beschriftung, Hero-Grafik, Leistungsbereich, Formulare und andere Seiten.
+
+Offen:
+
+- Visuelle Browserprüfung des Shader-Hintergrunds, der Staffelung sowie Desktop-/Mobilabstände.
+
+## 2026-10-12 – Analyse-Hero mittig und Goldwinkel länger versetzt
+
+Status: in Arbeit
+
+Geändert:
+
+- `homepage/analyse.html`: die fünf oberen rechten Goldwinkel gegeneinander versetzt und die horizontale Maximallänge auf 450 px gesetzt (weitere Längen 375, 300, 225 und 150 px); vertikale Längen auf 205, 165, 125, 85 und 45 px gestaffelt.
+- `homepage/analyse.html`: die bestehende Desktop-Verschiebung `translateY(-80px)` des Hero-Grid entfernt. Die vorhandene vertikale Zentrierung des Hero-Containers bleibt maßgeblich.
+
+Nicht geändert:
+
+- Hero-Grafik, deren Skalierung, Texte, CTA, Leistungsicons, Formular, Header, Footer und andere Seiten.
+
+Offen:
+
+- Visuelle Browserabnahme bei Desktop-Breakpoints und unterschiedlicher Viewporthöhe.
+
+## 2026-10-12 – Issue #55 Hero-Keile und Goldlinien auf analyse.html angepasst
+
+Status: in Arbeit
+
+Geändert:
+
+- `homepage/analyse.html`: beide unteren Hero-Keile samt HTML-Elementen und zugehörigen CSS-Regeln entfernt.
+- Gestaffelte Goldlinien oben rechts von `right:clamp(20px,3vw,46px)` auf `right:0` gesetzt.
+- Horizontale und vertikale Linienlängen von 100/88/76/64/52 % auf 100/78/57/36/15 % stärker gestaffelt.
+
+Nicht geändert:
+
+- Hero-Bild, übrige Hero-Geometrie, Texte, sieben Leistungsicons, Formulare, Header, Footer, andere Seiten.
+
+Offen:
+
+- Visuelle Browserabnahme der Linienposition und Staffelung.
+
+## 2026-10-12 – Analyse-Leistungsicons auf Originalgröße mit Goldrahmen korrigiert
+
+Status: in Arbeit
+
+Geändert:
+
+- `homepage/analyse.html`: alle sieben Einzelmodule in den bisherigen 45 × 45 px großen Goldverlaufsrahmen eingefügt.
+- Modulbilder innerhalb der Rahmen auf 34 × 34 px begrenzt; Einrückung der Texte auf die ursprünglichen 74 px zurückgesetzt.
+- Die bestehende Goldrahmen-Optik (10 px Radius, 1,5 px Verlaufskante) wiederhergestellt.
+
+Nicht geändert:
+
+- Einzelmoduldateien, Hero, Leistungsinhalte und Reihenfolge, Keile, Linien, andere Seiten.
+
+Offen:
+
+- Visuelle Abnahme im Browser nach Deployment.
+
+## 2026-10-11 – Issue #55 Original-Module statt Hero-Sprite
+
+Status: in Arbeit
+
+Geändert:
+
+- `homepage/analyse.html`: die fehlerhafte CSS-Sprite-Verwendung des gesamten Hero-Bildes in der Leistungssektion entfernt.
+- Die sieben Leistungspunkte verwenden nun jeweils ein einzelnes bereits vorhandenes Modul-Asset aus `assets/Module/` als echtes `img`-Element.
+- Verwendete Originaldateien: `analyse/1.png`, `datenanalyse.webp`, `analyse/2.webp`, `Ablauf/umsetzung_struturieren.png`, `analyse/3.png`, `report.webp`, `analyse/4.png`.
+- Keine neuen Bildassets erstellt.
+
+Nicht geändert:
+
+- Hero-Bild, die sieben bereits abgestimmten Leistungstexte, Randformen und Linien, andere Seiten.
+
+Offen:
+
+- Visuelle Browserabnahme der Desktop- und Mobile-Darstellung vor Merge.
+
+## 2026-10-11 – Issue #55 Leistungssektion auf sieben Hero-Icons umgestellt
+
+Status: in Arbeit
+
+Geändert:
+
+- `homepage/analyse.html`: die acht nummerierten Leistungspunkte auf sieben Punkte reduziert.
+- Die Nummernrahmen der Leistungssektion entfernt; stattdessen werden ausschließlich die sieben Motive aus dem bestehenden Hero-Asset `assets/detail_pages_grafics/Analyse_detail _final.png` als CSS-Sprite verwendet.
+- Reihenfolge und Zuordnung: Prozesserfassung, Datenprüfung, Systemanalyse, Anwendungsfallentwicklung, Potenzialbewertung, Nutzen & Priorisierung, Aufgabenklassifikation.
+- `Nutzenbewertung` und `Risikobewertung` in `Potenzialbewertung` zusammengeführt; `Priorisierung` als `Nutzen & Priorisierung` konkretisiert.
+- Bestehende Beschreibungen wurden nur soweit zusammengeführt, wie es für die 7er-Struktur erforderlich ist.
+
+Nicht geändert:
+
+- Hero-Visual selbst.
+- Keile/Randformen und gestaffelte Linien.
+- Formular-, Analyse-, Download-, FAQ-, Header- und Footer-Logik.
+- Andere Seiten und Assets.
+
+Offen:
+
+- Visuelle Abnahme der sieben Sprite-Ausschnitte auf Desktop und Mobile.
+
+## 2026-10-09 – Issue #54 Leistungskarten-Interaktion und Divider korrigiert
+
+Status: in Arbeit
+
+Geändert:
+
+- `homepage/index.html`: Klick auf eine Leistungskarte öffnet/schließt jetzt den `.is-active`-Zustand statt auf Desktop sofort zur Zielseite zu navigieren; Navigation erfolgt über den vorhandenen `Mehr erfahren`-CTA.
+- `homepage/index.html`: rechter horizontaler Divider als eigenes Element `.nv-s7-card__short-rule` in allen 11 Leistungskarten umgesetzt; linker Horizontal-Divider, vertikaler Divider und rechter Horizontal-Divider bleiben im Grundzustand unsichtbar und werden nur bei Hover, Focus oder `.is-active` sichtbar.
+- `homepage/index.html`: `Mehr erfahren` verwendet die vorhandene `golden-button`-Komponente; die kartenbezogene Klasse steuert nur Position und Größe.
+- `homepage/index.html`: Desktop-Divider bleiben im separaten Mobile-Kartenlayout ausgeblendet.
+- `homepage/index.html`: linken Inhaltsblock der geöffneten Leistungskarten um 16px nach oben gesetzt, damit Icon und Rahmen nicht zu tief sitzen.
+- `homepage/index.html`: Nummernrahmen von 64.8×68px auf 52×54px und Nummernschrift von 31.2px auf 24px reduziert; Abstand zum Titelblock von 18.4px auf 14.4px reduziert.
+- `homepage/index.html`: Bulletpoint-Texte gold gesetzt und die Bulletmarker auf grüne Emerald-Punkte umgestellt; gilt für Einsatzbereiche links und Bulletliste rechts.
+- `homepage/index.html`: Einsatzbereich-Bullets links von 15.6px auf 14.4px reduziert und erzwungene Worttrennung entfernt, damit lange Begriffe wie `Daten- und Systemprüfung` und `Maßnahmenpriorisierung` vollständig innerhalb der linken Kartenspalte bleiben.
+
+Nicht geändert:
+
+- Texte, Kartenreihenfolge, IDs und Assetpfade.
+- Formular-, Analyse-, Download-, FAQ- und Footer-Logik.
+- Header-CTA und allgemeine `golden-button`-Basisregeln.
+
+Offen:
+
+- Visuelle Abnahme des Branches vor Merge.
+
 ## 2026-10-09 – Mobile Leistungskarten, SEO-Callouts und CTA-Padding korrigiert
 
 Status: in Arbeit

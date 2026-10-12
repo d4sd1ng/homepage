@@ -135,7 +135,6 @@ main img { display: block; max-width: 100%; }
 .btn:hover, .btn:focus-visible { color: var(--nv-gold-text-hover); border-color: var(--nv-gold-border-hover); background-size: 150% 150%; transform: translateY(-2px); box-shadow: 0 10px 20px var(--shadow-hover-1), 0 6px 6px var(--shadow-hover-2), inset 0 -2px 5px 1px var(--nv-gold-inner-mid), inset 0 -1px 1px 3px var(--nv-gold-highlight); }
 .section { position: relative; padding: 72px var(--side); background: #000; }
 .section--landing { padding-block: max(24px, calc(20.83vh - 167px)); }
-main > section:nth-child(n+4):before { content: ""; position: absolute; left: 7%; right: 7%; top: 0; height: 2px; background: linear-gradient(90deg,transparent 0%,#E0AA3E 14%,#FAF398 50%,#E0AA3E 86%,transparent 100%); box-shadow: 0 0 8px rgba(250,227,133,.4); }
 .section-inner { max-width: var(--content-max); margin-left: auto; margin-right: auto; }
 .kicker { font: var(--w-kicker-sektion) var(--t-kicker-sektion)/1.15 "Inter",Arial,sans-serif; letter-spacing: .14em; text-transform: uppercase; color: #55863f; margin-bottom: 10px; }
 h1,h2,h3 { font-family: "Exo 2",Inter,Arial,sans-serif; }
@@ -147,8 +146,8 @@ main h3 { font: var(--w-zwischentitel) var(--t-zwischentitel)/1.2 "Exo 2",Inter,
 .detail-hero { display: grid; grid-template-columns: minmax(0,1fr) minmax(280px,680px); gap: 56px; align-items: center; }
 .detail-hero .kicker { margin-bottom: 14px; }
 .detail-hero h1 { margin-bottom: 21px; }
-.detail-hero .sub { font-size: 20px; margin-bottom: 24px; }
-.detail-hero .actions { margin-top: 38px; position: relative; z-index: 4; }
+.detail-hero .sub { font-size: 20px; margin-bottom: 52px; }
+.detail-hero .actions { margin-top: 70px; position: relative; z-index: 4; }
 .visual-card { position: relative; overflow: hidden; border: 1.25px solid transparent; border-radius: 10px; background-image: linear-gradient(#080B09,#080B09), var(--gold-3); background-origin: border-box; background-clip: padding-box, border-box; filter: drop-shadow(0 16px 24px rgba(0,0,0,.34)); }
 .visual-card>img:first-child { width: 100%; height: auto; max-height: 230px; object-fit: contain; }
 .visual-card--empty { aspect-ratio: 16 / 9; }
@@ -195,9 +194,10 @@ main h3 { font: var(--w-zwischentitel) var(--t-zwischentitel)/1.2 "Exo 2",Inter,
 .label-list strong { display: block; margin-bottom: 4px; font: var(--w-bulletlabel) var(--t-bulletlabel)/1.35 "Inter",Arial,sans-serif; background: var(--gold-2); background-clip: text; -webkit-background-clip: text; color: transparent; -webkit-text-fill-color: transparent; }
 .text { max-width: 88ch; font: var(--w-fliesstext) var(--t-fliesstext)/1.7 "Inter",Arial,sans-serif; color: #b9c3bd; }
 .text--after { margin-top: 26px; }
-.num-list { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 26px 48px; list-style: none; counter-reset: dpnum; margin: 97px 0 0; padding: 0; }
-.num-list li { counter-increment: dpnum; position: relative; padding-left: 74px; font: var(--w-fliesstext) var(--t-fliesstext)/1.7 "Inter",Arial,sans-serif; color: #b9c3bd; }
-.num-list li::before { content: counter(dpnum,decimal-leading-zero); position: absolute; left: 0; top: 2px; display: grid; place-items: center; width: 45px; height: 45px; border-radius: 10px; border: 1.5px solid transparent; background-image: linear-gradient(#080B09,#080B09), var(--gold-3); background-origin: border-box; background-clip: padding-box, border-box; color: #d4af37; font: 600 18px/1 "Exo 2",Inter,Arial,sans-serif; }
+.num-list { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 26px 48px; list-style: none; margin: 97px 0 0; padding: 0; }
+.num-list li { position: relative; padding-left: 74px; font: var(--w-fliesstext) var(--t-fliesstext)/1.7 "Inter",Arial,sans-serif; color: #b9c3bd; }
+.num-list .module-icon-frame { position: absolute; left: 0; top: 2px; display: grid; place-items: center; width: 45px; height: 45px; border-radius: 10px; border: 1.5px solid transparent; background-image: linear-gradient(#080B09,#080B09), var(--gold-3); background-origin: border-box; background-clip: padding-box, border-box; }
+.num-list .module-icon { display: block; width: 34px; height: 34px; object-fit: contain; }
 .num-list b { display: block; margin-bottom: 4px; font: var(--w-bulletlabel) var(--t-bulletlabel)/1.35 "Inter",Arial,sans-serif; background: var(--gold-2); background-clip: text; -webkit-background-clip: text; color: transparent; -webkit-text-fill-color: transparent; }
 .num-list span { display: block; }
 .pair-chips-row { margin: 0 0 32px; }
@@ -394,10 +394,11 @@ h1, main h2 {\n  -webkit-text-stroke: .6px rgba(255,248,207,.40);\n  background-
 @media(max-width:640px){.analysis-flow{grid-template-columns:1fr}.section-photo img{aspect-ratio:16/10}}
 
 .section-divider{
-  width:min(calc(100% - (var(--side) * 2)),1280px);
-  height:1px;
+  width:86%;
+  height:2px;
   margin:0 auto;
-  background:var(--nv-gold-highlight);
+  background:linear-gradient(90deg,transparent 0%,#E0AA3E 14%,#FAF398 50%,#E0AA3E 86%,transparent 100%);
+  box-shadow:0 0 8px rgba(250,227,133,.4);
   border:0;
 }
 
@@ -517,9 +518,13 @@ h1, main h2 {\n  -webkit-text-stroke: .6px rgba(255,248,207,.40);\n  background-
   isolation:isolate;
   background:#000;
 }
+.hero-viewport .hero-particle-bg{position:absolute;inset:0;z-index:0;width:100%;height:100%;display:block;pointer-events:none;}
+.hero-corner-lines{display:none;}
+.hero-viewport::after{content:"";position:absolute;inset:0;z-index:0;background:linear-gradient(90deg,rgba(0,0,0,.81),rgba(0,0,0,.58) 42%,rgba(0,0,0,.18));pointer-events:none;}
 #hero{
   position:relative;
-  z-index:auto;
+  z-index:1;
+  background:transparent;
   padding-top:36px;
   padding-bottom:40px;
   margin-bottom:0;
@@ -655,151 +660,23 @@ h1, main h2 {\n  -webkit-text-stroke: .6px rgba(255,248,207,.40);\n  background-
   }
 }
 @media(min-width:901px){
-  .hero-viewport::before{
-    content:"";
+  .hero-corner-lines{
+    display:block;
     position:absolute;
     top:18px;
-    right:clamp(20px,3vw,46px);
-    width:clamp(150px,11vw,210px);
-    height:clamp(165px,20vh,220px);
-    background:
-      linear-gradient(90deg,#8b641a 0%,#dfbd69 46%,#fff6bd 72%,#b98424 100%) right 0 top 0/100% 2px no-repeat,
-      linear-gradient(180deg,#fff6bd 0%,#dfbd69 48%,#926f34 100%) right 0 top 0/2px 100% no-repeat,
-      linear-gradient(90deg,#8b641a 0%,#dfbd69 46%,#fff6bd 72%,#b98424 100%) right 14px top 14px/88% 2px no-repeat,
-      linear-gradient(180deg,#fff6bd 0%,#dfbd69 48%,#926f34 100%) right 14px top 14px/2px 88% no-repeat,
-      linear-gradient(90deg,#8b641a 0%,#dfbd69 46%,#fff6bd 72%,#b98424 100%) right 28px top 28px/76% 2px no-repeat,
-      linear-gradient(180deg,#fff6bd 0%,#dfbd69 48%,#926f34 100%) right 28px top 28px/2px 76% no-repeat,
-      linear-gradient(90deg,#8b641a 0%,#dfbd69 46%,#fff6bd 72%,#b98424 100%) right 42px top 42px/64% 2px no-repeat,
-      linear-gradient(180deg,#fff6bd 0%,#dfbd69 48%,#926f34 100%) right 42px top 42px/2px 64% no-repeat,
-      linear-gradient(90deg,#8b641a 0%,#dfbd69 46%,#fff6bd 72%,#b98424 100%) right 56px top 56px/52% 2px no-repeat,
-      linear-gradient(180deg,#fff6bd 0%,#dfbd69 48%,#926f34 100%) right 56px top 56px/2px 52% no-repeat;
-    opacity:.84;
+    right:0;
+    width:570px;
+    height:460px;
+    pointer-events:none;
+    z-index:2;
+    overflow:visible;
     filter:drop-shadow(0 0 5px rgba(212,175,55,.16));
-    pointer-events:none;
-    z-index:1;
-  }
-  .hero-edge-accent{
-    position:absolute;
-    z-index:1;
-    display:block;
-    pointer-events:none;
-  }
-  .hero-edge-accent span{
-    position:absolute;
-    display:block;
-    pointer-events:none;
-  }
-
-  /* Vertikale Variante: vier ineinanderliegende, vollflächige Dreiecke.
-     Alle teilen dieselbe Spitze; unterschiedliche Breiten erzeugen die
-     sichtbaren Materiallagen. */
-  .hero-edge-accent--vertical{
-    left:0;
-    bottom:0;
-    width:132px;
-    height:292px;
-  }
-  .hero-edge-accent--vertical span{
-    left:0;
-    bottom:0;
-    height:100%;
-    clip-path:polygon(0 0,100% 100%,0 100%);
-  }
-  .hero-edge-accent--vertical .edge-v-emerald{
-    width:100%;
-    z-index:1;
-    background:
-      linear-gradient(165deg,
-        var(--color-deep-green) 0%,
-        var(--color-emerald) 42%,
-        var(--color-emerald-bright) 72%,
-        var(--color-deep-green) 100%);
-  }
-  .hero-edge-accent--vertical .edge-v-light{
-    width:82%;
-    z-index:2;
-    background:
-      linear-gradient(165deg,
-        #8b641a 0%,
-        #fff6bd 42%,
-        #d2ac47 72%,
-        #926f34 100%);
-  }
-  .hero-edge-accent--vertical .edge-v-gold{
-    width:66%;
-    z-index:3;
-    background:
-      linear-gradient(165deg,
-        #76551a 0%,
-        #d2ac47 34%,
-        #fff6bd 56%,
-        #b98424 78%,
-        #8b641a 100%);
-  }
-  .hero-edge-accent--vertical .edge-v-gunmetal{
-    width:49%;
-    z-index:4;
-    background:
-      linear-gradient(165deg,
-        #0b100f 0%,
-        var(--color-gunmetal-dark) 44%,
-        var(--color-gunmetal) 74%,
-        #101615 100%);
-  }
-
-  /* Horizontale Variante: drei vollflächige Dreiecke mit gestaffelten
-     Spitzen. Gleiche Formsprache, nur langgezogen. */
-  .hero-edge-accent--horizontal{
-    right:0;
-    bottom:0;
-    width:clamp(250px,19vw,365px);
-    height:84px;
-  }
-  .hero-edge-accent--horizontal span{
-    right:0;
-    bottom:0;
-    clip-path:polygon(0 100%,100% 0,100% 100%);
-  }
-  .hero-edge-accent--horizontal .edge-h-emerald{
-    width:100%;
-    height:100%;
-    z-index:1;
-    background:
-      linear-gradient(168deg,
-        var(--color-deep-green) 0%,
-        var(--color-emerald-bright) 52%,
-        var(--color-emerald) 76%,
-        var(--color-deep-green) 100%);
-  }
-  .hero-edge-accent--horizontal .edge-h-gold{
-    width:79%;
-    height:62%;
-    z-index:2;
-    background:
-      linear-gradient(168deg,
-        #76551a 0%,
-        #d2ac47 32%,
-        #fff6bd 58%,
-        #b98424 82%,
-        #8b641a 100%);
-  }
-  .hero-edge-accent--horizontal .edge-h-gunmetal{
-    width:58%;
-    height:34%;
-    z-index:3;
-    background:
-      linear-gradient(168deg,
-        #0b100f 0%,
-        var(--color-gunmetal-dark) 42%,
-        var(--color-gunmetal) 72%,
-        #101615 100%);
   }
   #hero>.section-inner{
     position:relative;
     z-index:2;
   }
   #hero .detail-hero{
-    transform:translateY(-80px);
     align-items:center;
   }
   #hero .visual-card--hero{
@@ -809,19 +686,21 @@ h1, main h2 {\n  -webkit-text-stroke: .6px rgba(255,248,207,.40);\n  background-
   #hero .visual-card--hero::before{
     content:"";
     position:absolute;
-    inset:-24% -34%;
+    inset:-26% -32%;
     background:
-      radial-gradient(ellipse at center,
-        rgba(13,40,24,.44) 0%,
-        rgba(37,43,44,.24) 38%,
-        rgba(5,20,10,.12) 58%,
-        transparent 76%);
-    filter:blur(34px);
-    opacity:.78;
+      radial-gradient(ellipse at 52% 48%,
+        rgba(14,91,60,.34) 0%,
+        rgba(11,67,49,.30) 26%,
+        rgba(37,48,52,.26) 48%,
+        rgba(7,28,23,.12) 64%,
+        transparent 78%);
+    filter:blur(38px);
+    opacity:.94;
     pointer-events:none;
     z-index:0;
   }
   #hero .visual-card--hero img{
+    position:relative;
     z-index:1;
   }
   .hero-viewport #hero,
@@ -867,10 +746,6 @@ h1, main h2 {\n  -webkit-text-stroke: .6px rgba(255,248,207,.40);\n  background-
   .section{
     padding-left:18px;
     padding-right:18px;
-  }
-  #hero{
-    padding-top:36px;
-    padding-bottom:40px;
   }
   #hero .detail-hero{
     grid-template-columns:1fr;
@@ -965,17 +840,24 @@ h1, main h2 {\n  -webkit-text-stroke: .6px rgba(255,248,207,.40);\n  background-
 <main>
 <!-- ============================ 1. HERO ============================ -->
 <div class="hero-viewport">
-<div class="hero-edge-accent hero-edge-accent--vertical" aria-hidden="true">
-  <span class="edge-v-emerald"></span>
-  <span class="edge-v-light"></span>
-  <span class="edge-v-gold"></span>
-  <span class="edge-v-gunmetal"></span>
-</div>
-<div class="hero-edge-accent hero-edge-accent--horizontal" aria-hidden="true">
-  <span class="edge-h-emerald"></span>
-  <span class="edge-h-gold"></span>
-  <span class="edge-h-gunmetal"></span>
-</div>
+<canvas class="hero-particle-bg" id="heroParticleCanvas" aria-hidden="true"></canvas>
+<svg class="hero-corner-lines" viewBox="0 0 570 460" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="analyse-corner-gold" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#8b641a"/>
+      <stop offset=".46" stop-color="#dfbd69"/>
+      <stop offset=".72" stop-color="#fff6bd"/>
+      <stop offset="1" stop-color="#b98424"/>
+    </linearGradient>
+  </defs>
+  <g fill="none" stroke="url(#analyse-corner-gold)" stroke-width="2" opacity=".84">
+    <path d="M110 0 H560 V450"/>
+    <path d="M130 15 H545 V430"/>
+    <path d="M150 30 H530 V410"/>
+    <path d="M170 45 H515 V390"/>
+    <path d="M190 60 H500 V370"/>
+  </g>
+</svg>
 <section class="section section--landing" id="hero"><div class="section-inner detail-hero"><div><div class="kicker">KI-Potenzialanalyse</div><h1><span class="hero-title-line">Wo lohnt sich KI in Ihrem</span><span class="hero-title-line">Unternehmen wirklich?</span></h1><p class="sub">Bevor Zeit und Budget in eine KI-Lösung fließen.</p><p class="lead">Die KI-Potenzialanalyse zeigt, welche Prozesse für KI oder Automatisierung geeignet sind, welche Voraussetzungen fehlen und welche nächsten Schritte sinnvoll sind.</p><div class="actions"><a class="btn" href="#analyse-formular">KI-Potenzialanalyse starten</a></div></div><div class="visual-card visual-card--hero"><img src="assets/detail_pages_grafics/Analyse_detail _final.png" alt="Ablauf der KI-Potenzialanalyse"/></div></div></section>
 </div>
 <div class="section-divider" aria-hidden="true"></div>
@@ -1010,7 +892,7 @@ h1, main h2 {\n  -webkit-text-stroke: .6px rgba(255,248,207,.40);\n  background-
 <div class="section-divider" aria-hidden="true"></div>
 
 <!-- ============================ 4. LEISTUNGSUMFANG ============================ -->
-<section class="section" id="leistungen"><div class="section-inner"><div class="media-copy"><div class="kicker">Leistungsumfang</div><h2>Unsere Leistungen innerhalb der Potenzialanalyse</h2><p class="sub">Von der Prozesserfassung bis zur Priorisierung geeigneter Handlungsfelder.</p></div><ol class="num-list"><li><b>Prozesserfassung</b><span>Wiederkehrende Abläufe, manuelle Bearbeitungsschritte, Übergaben und Medienbrüche werden strukturiert erfasst.</span></li><li><b>Aufgabenklassifikation</b><span>Tätigkeiten werden nach Regelgebundenheit, Informationsbedarf, Entscheidungsanteil und Automatisierbarkeit eingeordnet.</span></li><li><b>Datenprüfung</b><span>Relevante Datenquellen, Formate, Zugriffsrechte, Aktualität und Qualität werden geprüft.</span></li><li><b>Systemanalyse</b><span>Bestehende Anwendungen, Schnittstellen und technische Abhängigkeiten werden berücksichtigt.</span></li><li><b>Anwendungsfallentwicklung</b><span>Aus den analysierten Prozessen werden konkrete KI- und Automatisierungsanwendungen abgeleitet.</span></li><li><b>Nutzenbewertung</b><span>Mögliche Verbesserungen bei Bearbeitungszeit, Fehlerquote, Informationszugriff und Prozessqualität werden eingeordnet.</span></li><li><b>Risikobewertung</b><span>Datenschutz, Informationssicherheit, Fehlentscheidungen und notwendige Freigaben werden dokumentiert.</span></li><li><b>Priorisierung</b><span>Die identifizierten Anwendungsfälle werden nach Nutzen, Aufwand, Risiko und Umsetzungsreife geordnet.</span></li></ol></div></section>
+<section class="section" id="leistungen"><div class="section-inner"><div class="media-copy"><div class="kicker">Leistungsumfang</div><h2>Unsere Leistungen innerhalb der Potenzialanalyse</h2><p class="sub">Von der Prozesserfassung bis zur Priorisierung geeigneter Handlungsfelder.</p></div><ol class="num-list"><li><span class="module-icon-frame" aria-hidden="true"><img class="module-icon" src="assets/Module/analyse/1.png" alt="" loading="lazy" decoding="async"/></span><b>Prozesserfassung</b><span>Wiederkehrende Abläufe, manuelle Bearbeitungsschritte, Übergaben und Medienbrüche werden strukturiert erfasst.</span></li><li><span class="module-icon-frame" aria-hidden="true"><img class="module-icon" src="assets/Module/datenanalyse.webp" alt="" loading="lazy" decoding="async"/></span><b>Datenprüfung</b><span>Relevante Datenquellen, Formate, Zugriffsrechte, Aktualität und Qualität werden geprüft.</span></li><li><span class="module-icon-frame" aria-hidden="true"><img class="module-icon" src="assets/Module/analyse/2.webp" alt="" loading="lazy" decoding="async"/></span><b>Systemanalyse</b><span>Bestehende Anwendungen, Schnittstellen und technische Abhängigkeiten werden berücksichtigt.</span></li><li><span class="module-icon-frame" aria-hidden="true"><img class="module-icon" src="assets/Module/Ablauf/umsetzung_struturieren.png" alt="" loading="lazy" decoding="async"/></span><b>Anwendungsfallentwicklung</b><span>Aus den analysierten Prozessen werden konkrete KI- und Automatisierungsanwendungen abgeleitet.</span></li><li><span class="module-icon-frame" aria-hidden="true"><img class="module-icon" src="assets/Module/analyse/3.png" alt="" loading="lazy" decoding="async"/></span><b>Potenzialbewertung</b><span>Mögliche Verbesserungen werden gemeinsam mit Datenschutz, Informationssicherheit, Fehlentscheidungsrisiken und notwendigen Freigaben eingeordnet.</span></li><li><span class="module-icon-frame" aria-hidden="true"><img class="module-icon" src="assets/Module/report.webp" alt="" loading="lazy" decoding="async"/></span><b>Nutzen &amp; Priorisierung</b><span>Die identifizierten Anwendungsfälle werden nach Nutzen, Aufwand, Risiko und Umsetzungsreife geordnet und priorisiert.</span></li><li><span class="module-icon-frame" aria-hidden="true"><img class="module-icon" src="assets/Module/analyse/4.png" alt="" loading="lazy" decoding="async"/></span><b>Aufgabenklassifikation</b><span>Tätigkeiten werden nach Regelgebundenheit, Informationsbedarf, Entscheidungsanteil und Automatisierbarkeit eingeordnet.</span></li></ol></div></section>
 <div class="section-divider" aria-hidden="true"></div>
 
 <!-- ============================ 5. ANWENDUNG ============================ -->
@@ -1688,6 +1570,168 @@ if (analysisForm) {
     }
   }
 }
+</script>
+<script>
+  /* Hero-Hintergrund in reinem WebGL. Ersetzt three.js r128 (600 KB von
+     cdnjs) - gerendert wird ein Vollbild-Dreieck mit demselben
+     Fragment-Shader wie zuvor, unveraendert uebernommen. */
+  (function () {
+    "use strict";
+    var mount = document.querySelector(".hero-viewport");
+    var canvas = document.getElementById("heroParticleCanvas");
+    if (!mount || !canvas) return;
+    var gl = canvas.getContext("webgl", { antialias: false, alpha: true, powerPreference: "high-performance" });
+    if (!gl) return;
+    var baseDPR = Math.min(window.devicePixelRatio || 1, 2);
+
+    var VERT = "attribute vec2 position; void main(){ gl_Position = vec4(position, 0.0, 1.0); }";
+    var GLSL_COMUN = `
+  vec3 decodificar(vec3 e){
+    e = min(e, vec3(0.996));
+    return e / (1.0 - e);
+  }
+  vec3 codificar(vec3 c){
+    return c / (1.0 + c);
+  }
+`;
+    var FRAG = "precision highp float;\n" + GLSL_COMUN + `
+uniform float uTime, uYaw, uPitch, uFondo;
+uniform vec2  uRes;
+
+float hash21(vec2 p){
+  p = fract(p * vec2(123.34, 456.21));
+  p += dot(p, p + 45.32);
+  return fract(p.x * p.y);
+}
+float hash31(vec3 p){
+  p = fract(p * 0.1031);
+  p += dot(p, p.zyx + 31.32);
+  return fract((p.x + p.y) * p.z);
+}
+float noise2(vec2 p){
+  vec2 i = floor(p); vec2 f = fract(p);
+  f = f * f * (3.0 - 2.0 * f);
+  float a = hash21(i);
+  float b = hash21(i + vec2(1.0, 0.0));
+  float c = hash21(i + vec2(0.0, 1.0));
+  float d = hash21(i + vec2(1.0, 1.0));
+  return mix(mix(a, b, f.x), mix(c, d, f.x), f.y);
+}
+float fbm(vec2 p){
+  float v = 0.0; float a = 0.55;
+  for(int i = 0; i < 4; i++){
+    v += a * noise2(p);
+    p = p * 2.13 + vec2(13.7, 7.1);
+    a *= 0.5;
+  }
+  return v;
+}
+
+vec3 cielo(vec3 rd){
+  vec3 col = vec3(0.0);
+  for(int capa = 0; capa < 4; capa++){
+    float fc = float(capa);
+    float esc = 140.0 + fc * 200.0;
+    vec3 q = rd * esc;
+    vec3 id = floor(q);
+    float h = hash31(id);
+    if(h > 0.990 - fc * 0.0025){
+      vec3 c = fract(q) - 0.5;
+      float d = length(c);
+      float b = 1.0 - smoothstep(0.0, 0.5, d);
+      b = pow(b, 12.0) * (0.5 + 1.6 * fract(h * 91.7));
+      vec3 tinte = mix(vec3(0.65, 0.78, 1.0), vec3(1.0, 0.83, 0.62), fract(h * 53.1));
+      if(fract(h * 17.3) > 0.90) b *= 6.0;
+      col += b * tinte * 2.0;
+    }
+  }
+  float n1 = fbm(rd.xy * 2.0 + rd.z * 1.3);
+  float n2 = fbm(rd.zy * 3.1 - rd.x * 1.7 + 5.0);
+  vec3 gas = vec3(0.020, 0.045, 0.110) * pow(n1, 2.6) * 0.50
+           + vec3(0.090, 0.040, 0.022) * pow(n2, 3.2) * 0.40;
+  float banda = exp(-pow((rd.y + 0.16) * 2.6, 2.0));
+  float polvo = fbm(rd.xz * 5.0 + 2.3) * 0.7 + fbm(rd.xz * 11.0) * 0.5;
+  gas += (vec3(0.05, 0.06, 0.10) + vec3(0.06, 0.04, 0.02) * polvo) * banda * polvo * 0.30;
+  float oscuro = smoothstep(0.45, 0.75, fbm(rd.xz * 7.0 + 9.1));
+  gas *= mix(1.0, 0.25, oscuro * banda);
+  col += gas * uFondo;
+  return col;
+}
+
+void main(){
+  vec2 uv = (gl_FragCoord.xy - 0.5 * uRes) / uRes.y;
+  float cy = cos(uYaw); float sy = sin(uYaw);
+  float cp = cos(uPitch); float sp = sin(uPitch);
+  vec3 ro = 27.0 * vec3(cy * cp, sp, sy * cp);
+  vec3 fw = normalize(-ro);
+  vec3 rt = normalize(cross(fw, vec3(0.0, 1.0, 0.0)));
+  vec3 up = cross(rt, fw);
+  vec3 rd = normalize(fw * 1.5 + uv.x * rt + uv.y * up);
+  vec3 col = cielo(normalize(rd));
+  gl_FragColor = vec4(codificar(col), 1.0);
+}
+`;
+
+    function shader(typ, quelle) {
+      var s = gl.createShader(typ);
+      gl.shaderSource(s, quelle); gl.compileShader(s);
+      if (!gl.getShaderParameter(s, gl.COMPILE_STATUS)) { return null; }
+      return s;
+    }
+    var vs = shader(gl.VERTEX_SHADER, VERT);
+    var fs = shader(gl.FRAGMENT_SHADER, FRAG);
+    if (!vs || !fs) return;
+    var prog = gl.createProgram();
+    gl.attachShader(prog, vs); gl.attachShader(prog, fs); gl.linkProgram(prog);
+    if (!gl.getProgramParameter(prog, gl.LINK_STATUS)) return;
+    gl.useProgram(prog);
+
+    var buf = gl.createBuffer();
+    gl.bindBuffer(gl.ARRAY_BUFFER, buf);
+    gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1,-1, 3,-1, -1,3]), gl.STATIC_DRAW);
+    var loc = gl.getAttribLocation(prog, "position");
+    gl.enableVertexAttribArray(loc);
+    gl.vertexAttribPointer(loc, 2, gl.FLOAT, false, 0, 0);
+
+    var uTime = gl.getUniformLocation(prog, "uTime");
+    var uRes = gl.getUniformLocation(prog, "uRes");
+    var uYaw = gl.getUniformLocation(prog, "uYaw");
+    var uPitch = gl.getUniformLocation(prog, "uPitch");
+    var uFondo = gl.getUniformLocation(prog, "uFondo");
+    gl.uniform1f(uPitch, 0.12);
+    gl.uniform1f(uFondo, 0.0);
+
+    var yaw = 0;
+    var autoOrbita = true;
+    if (window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches) autoOrbita = false;
+
+    function resize() {
+      var rect = mount.getBoundingClientRect();
+      var w = Math.max(2, Math.floor(rect.width * baseDPR));
+      var h = Math.max(2, Math.floor(rect.height * baseDPR));
+      if (canvas.width !== w || canvas.height !== h) {
+        canvas.width = w; canvas.height = h;
+        canvas.style.width = Math.floor(rect.width) + "px";
+        canvas.style.height = Math.floor(rect.height) + "px";
+      }
+      gl.viewport(0, 0, w, h);
+      gl.uniform2f(uRes, w, h);
+    }
+    window.addEventListener("resize", resize, { passive: true });
+    resize();
+
+    var tPrev = performance.now();
+    function animar(t) {
+      requestAnimationFrame(animar);
+      var dt = Math.min((t - tPrev) / 1000, 0.05);
+      tPrev = t;
+      if (autoOrbita) yaw += dt * 0.04;
+      gl.uniform1f(uTime, t / 1000);
+      gl.uniform1f(uYaw, yaw);
+      gl.drawArrays(gl.TRIANGLES, 0, 3);
+    }
+    requestAnimationFrame(animar);
+  })();
 </script>
 </body>
 </html>
