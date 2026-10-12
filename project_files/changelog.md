@@ -1,3 +1,14 @@
+## 2026-10-12 – Analyse-Hero: Goldwinkel als echte SVG-Linien, Divider wiederhergestellt
+
+Status: in Arbeit
+
+- `homepage/analyse.html`: die zehn überlagerten CSS-Background-Linien des oberen rechten Hero-Winkels vollständig entfernt und durch fünf einzeln definierte SVG-Pfade mit getrennten Endpunkten (450/420/390/360/330 px horizontal; 370/312/254/196/138 px vertikal) ersetzt.
+- Die ursprüngliche `.hero-viewport::before`-Regel ersetzt, keine zusätzliche CSS-Override-Schicht ergänzt.
+- Genau ein `section-divider`-Element direkt zwischen Hero-Viewport und nächster Sektion wieder eingesetzt, bestehende Index-Goldverlaufsregel wiederverwendet.
+- Das visuelle Ergebnis als auf dem bestehenden Screenshot montierte SVG-/Divider-Vorschau bereitgestellt; dies ist keine vollständige Browserprüfung der produktiven Seite.
+
+Offen: Browser-Abnahme und Freigabe vor Merge.
+
 ## 2026-10-12 – Analyse-Hero vertikale Goldschenkel und Divider korrigiert
 
 Status: in Arbeit
