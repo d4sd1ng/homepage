@@ -1,3 +1,23 @@
+## 2026-10-12 – Analyse-Hero: Index-Partikelhintergrund, Winkel und Abstände
+
+Status: in Arbeit
+
+Geändert:
+
+- `homepage/analyse.html`: den bestehenden WebGL-Partikelshader aus `homepage/index.html` unverändert übernommen und auf den Hero-Viewport als Canvas-Ziel ausgerichtet; Canvas hinter dem Hero-Inhalt platziert.
+- Den deckenden schwarzen Hero-Sektionshintergrund innerhalb des Viewports transparent gesetzt und einen dezenten dunklen Verlaufs-Overlay zur Lesbarkeit eingefügt.
+- Fünf versetzte Goldwinkel: horizontale Schenkel 450, 420, 390, 360, 330 px; vertikale Schenkel 205, 190, 175, 160, 145 px.
+- Abstand Subline–Bodytext: 38 px; Abstand Bodytext–CTA: 52 px.
+- Bestehenden Emerald-/Gunmetal-Glow direkt hinter der Prozessgrafik sichtbar verstärkt und Bild über der Glow-Ebene positioniert; keine neue Card und kein Rahmen.
+
+Nicht geändert:
+
+- Hero-Texte, CTA-Beschriftung, Hero-Grafik, Leistungsbereich, Formulare und andere Seiten.
+
+Offen:
+
+- Visuelle Browserprüfung des Shader-Hintergrunds, der Staffelung sowie Desktop-/Mobilabstände.
+
 ## 2026-10-12 – Analyse-Hero mittig und Goldwinkel länger versetzt
 
 Status: in Arbeit

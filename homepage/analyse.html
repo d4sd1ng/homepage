@@ -518,6 +518,9 @@ h1, main h2 {\n  -webkit-text-stroke: .6px rgba(255,248,207,.40);\n  background-
   isolation:isolate;
   background:#000;
 }
+.hero-viewport .hero-particle-bg{position:absolute;inset:0;z-index:0;width:100%;height:100%;display:block;pointer-events:none;}
+.hero-viewport #hero{background:transparent;position:relative;z-index:1;}
+.hero-viewport::after{content:"";position:absolute;inset:0;z-index:0;background:linear-gradient(90deg,rgba(0,0,0,.81),rgba(0,0,0,.58) 42%,rgba(0,0,0,.18));pointer-events:none;}
 #hero{
   position:relative;
   z-index:auto;
@@ -538,6 +541,8 @@ h1, main h2 {\n  -webkit-text-stroke: .6px rgba(255,248,207,.40);\n  background-
 #hero .lead{
   max-width:760px;
 }
+#hero .detail-hero .sub{margin-bottom:38px;}
+#hero .detail-hero .actions{margin-top:52px;}
 #hero .visual-card--hero{
   border:0;
   border-radius:0;
@@ -661,23 +666,23 @@ h1, main h2 {\n  -webkit-text-stroke: .6px rgba(255,248,207,.40);\n  background-
     position:absolute;
     top:18px;
     right:0;
-    width:558px;
-    height:252px;
+    width:562px;
+    height:260px;
     background:
       linear-gradient(90deg,#8b641a 0%,#dfbd69 46%,#fff6bd 72%,#b98424 100%) right 0px top 0px/450px 2px no-repeat,
       linear-gradient(180deg,#fff6bd 0%,#dfbd69 48%,#926f34 100%) right 0px top 0px/2px 205px no-repeat,
-      linear-gradient(90deg,#8b641a 0%,#dfbd69 46%,#fff6bd 72%,#b98424 100%) right 27px top 25px/375px 2px no-repeat,
-      linear-gradient(180deg,#fff6bd 0%,#dfbd69 48%,#926f34 100%) right 27px top 25px/2px 165px no-repeat,
-      linear-gradient(90deg,#8b641a 0%,#dfbd69 46%,#fff6bd 72%,#b98424 100%) right 54px top 50px/300px 2px no-repeat,
-      linear-gradient(180deg,#fff6bd 0%,#dfbd69 48%,#926f34 100%) right 54px top 50px/2px 125px no-repeat,
-      linear-gradient(90deg,#8b641a 0%,#dfbd69 46%,#fff6bd 72%,#b98424 100%) right 81px top 75px/225px 2px no-repeat,
-      linear-gradient(180deg,#fff6bd 0%,#dfbd69 48%,#926f34 100%) right 81px top 75px/2px 85px no-repeat,
-      linear-gradient(90deg,#8b641a 0%,#dfbd69 46%,#fff6bd 72%,#b98424 100%) right 108px top 100px/150px 2px no-repeat,
-      linear-gradient(180deg,#fff6bd 0%,#dfbd69 48%,#926f34 100%) right 108px top 100px/2px 45px no-repeat;
+      linear-gradient(90deg,#8b641a 0%,#dfbd69 46%,#fff6bd 72%,#b98424 100%) right 28px top 25px/420px 2px no-repeat,
+      linear-gradient(180deg,#fff6bd 0%,#dfbd69 48%,#926f34 100%) right 28px top 25px/2px 190px no-repeat,
+      linear-gradient(90deg,#8b641a 0%,#dfbd69 46%,#fff6bd 72%,#b98424 100%) right 56px top 50px/390px 2px no-repeat,
+      linear-gradient(180deg,#fff6bd 0%,#dfbd69 48%,#926f34 100%) right 56px top 50px/2px 175px no-repeat,
+      linear-gradient(90deg,#8b641a 0%,#dfbd69 46%,#fff6bd 72%,#b98424 100%) right 84px top 75px/360px 2px no-repeat,
+      linear-gradient(180deg,#fff6bd 0%,#dfbd69 48%,#926f34 100%) right 84px top 75px/2px 160px no-repeat,
+      linear-gradient(90deg,#8b641a 0%,#dfbd69 46%,#fff6bd 72%,#b98424 100%) right 112px top 100px/330px 2px no-repeat,
+      linear-gradient(180deg,#fff6bd 0%,#dfbd69 48%,#926f34 100%) right 112px top 100px/2px 145px no-repeat;
     opacity:.84;
     filter:drop-shadow(0 0 5px rgba(212,175,55,.16));
     pointer-events:none;
-    z-index:1;
+    z-index:2;
   }
   #hero>.section-inner{
     position:relative;
@@ -693,19 +698,21 @@ h1, main h2 {\n  -webkit-text-stroke: .6px rgba(255,248,207,.40);\n  background-
   #hero .visual-card--hero::before{
     content:"";
     position:absolute;
-    inset:-24% -34%;
+    inset:-26% -32%;
     background:
-      radial-gradient(ellipse at center,
-        rgba(13,40,24,.44) 0%,
-        rgba(37,43,44,.24) 38%,
-        rgba(5,20,10,.12) 58%,
-        transparent 76%);
-    filter:blur(34px);
-    opacity:.78;
+      radial-gradient(ellipse at 52% 48%,
+        rgba(14,91,60,.34) 0%,
+        rgba(11,67,49,.30) 26%,
+        rgba(37,48,52,.26) 48%,
+        rgba(7,28,23,.12) 64%,
+        transparent 78%);
+    filter:blur(38px);
+    opacity:.94;
     pointer-events:none;
     z-index:0;
   }
   #hero .visual-card--hero img{
+    position:relative;
     z-index:1;
   }
   .hero-viewport #hero,
@@ -849,6 +856,7 @@ h1, main h2 {\n  -webkit-text-stroke: .6px rgba(255,248,207,.40);\n  background-
 <main>
 <!-- ============================ 1. HERO ============================ -->
 <div class="hero-viewport">
+<canvas class="hero-particle-bg" id="heroParticleCanvas" aria-hidden="true"></canvas>
 <section class="section section--landing" id="hero"><div class="section-inner detail-hero"><div><div class="kicker">KI-Potenzialanalyse</div><h1><span class="hero-title-line">Wo lohnt sich KI in Ihrem</span><span class="hero-title-line">Unternehmen wirklich?</span></h1><p class="sub">Bevor Zeit und Budget in eine KI-Lösung fließen.</p><p class="lead">Die KI-Potenzialanalyse zeigt, welche Prozesse für KI oder Automatisierung geeignet sind, welche Voraussetzungen fehlen und welche nächsten Schritte sinnvoll sind.</p><div class="actions"><a class="btn" href="#analyse-formular">KI-Potenzialanalyse starten</a></div></div><div class="visual-card visual-card--hero"><img src="assets/detail_pages_grafics/Analyse_detail _final.png" alt="Ablauf der KI-Potenzialanalyse"/></div></div></section>
 </div>
 <div class="section-divider" aria-hidden="true"></div>
@@ -1561,6 +1569,168 @@ if (analysisForm) {
     }
   }
 }
+</script>
+<script>
+  /* Hero-Hintergrund in reinem WebGL. Ersetzt three.js r128 (600 KB von
+     cdnjs) - gerendert wird ein Vollbild-Dreieck mit demselben
+     Fragment-Shader wie zuvor, unveraendert uebernommen. */
+  (function () {
+    "use strict";
+    var mount = document.querySelector(".hero-viewport");
+    var canvas = document.getElementById("heroParticleCanvas");
+    if (!mount || !canvas) return;
+    var gl = canvas.getContext("webgl", { antialias: false, alpha: true, powerPreference: "high-performance" });
+    if (!gl) return;
+    var baseDPR = Math.min(window.devicePixelRatio || 1, 2);
+
+    var VERT = "attribute vec2 position; void main(){ gl_Position = vec4(position, 0.0, 1.0); }";
+    var GLSL_COMUN = `
+  vec3 decodificar(vec3 e){
+    e = min(e, vec3(0.996));
+    return e / (1.0 - e);
+  }
+  vec3 codificar(vec3 c){
+    return c / (1.0 + c);
+  }
+`;
+    var FRAG = "precision highp float;\n" + GLSL_COMUN + `
+uniform float uTime, uYaw, uPitch, uFondo;
+uniform vec2  uRes;
+
+float hash21(vec2 p){
+  p = fract(p * vec2(123.34, 456.21));
+  p += dot(p, p + 45.32);
+  return fract(p.x * p.y);
+}
+float hash31(vec3 p){
+  p = fract(p * 0.1031);
+  p += dot(p, p.zyx + 31.32);
+  return fract((p.x + p.y) * p.z);
+}
+float noise2(vec2 p){
+  vec2 i = floor(p); vec2 f = fract(p);
+  f = f * f * (3.0 - 2.0 * f);
+  float a = hash21(i);
+  float b = hash21(i + vec2(1.0, 0.0));
+  float c = hash21(i + vec2(0.0, 1.0));
+  float d = hash21(i + vec2(1.0, 1.0));
+  return mix(mix(a, b, f.x), mix(c, d, f.x), f.y);
+}
+float fbm(vec2 p){
+  float v = 0.0; float a = 0.55;
+  for(int i = 0; i < 4; i++){
+    v += a * noise2(p);
+    p = p * 2.13 + vec2(13.7, 7.1);
+    a *= 0.5;
+  }
+  return v;
+}
+
+vec3 cielo(vec3 rd){
+  vec3 col = vec3(0.0);
+  for(int capa = 0; capa < 4; capa++){
+    float fc = float(capa);
+    float esc = 140.0 + fc * 200.0;
+    vec3 q = rd * esc;
+    vec3 id = floor(q);
+    float h = hash31(id);
+    if(h > 0.990 - fc * 0.0025){
+      vec3 c = fract(q) - 0.5;
+      float d = length(c);
+      float b = 1.0 - smoothstep(0.0, 0.5, d);
+      b = pow(b, 12.0) * (0.5 + 1.6 * fract(h * 91.7));
+      vec3 tinte = mix(vec3(0.65, 0.78, 1.0), vec3(1.0, 0.83, 0.62), fract(h * 53.1));
+      if(fract(h * 17.3) > 0.90) b *= 6.0;
+      col += b * tinte * 2.0;
+    }
+  }
+  float n1 = fbm(rd.xy * 2.0 + rd.z * 1.3);
+  float n2 = fbm(rd.zy * 3.1 - rd.x * 1.7 + 5.0);
+  vec3 gas = vec3(0.020, 0.045, 0.110) * pow(n1, 2.6) * 0.50
+           + vec3(0.090, 0.040, 0.022) * pow(n2, 3.2) * 0.40;
+  float banda = exp(-pow((rd.y + 0.16) * 2.6, 2.0));
+  float polvo = fbm(rd.xz * 5.0 + 2.3) * 0.7 + fbm(rd.xz * 11.0) * 0.5;
+  gas += (vec3(0.05, 0.06, 0.10) + vec3(0.06, 0.04, 0.02) * polvo) * banda * polvo * 0.30;
+  float oscuro = smoothstep(0.45, 0.75, fbm(rd.xz * 7.0 + 9.1));
+  gas *= mix(1.0, 0.25, oscuro * banda);
+  col += gas * uFondo;
+  return col;
+}
+
+void main(){
+  vec2 uv = (gl_FragCoord.xy - 0.5 * uRes) / uRes.y;
+  float cy = cos(uYaw); float sy = sin(uYaw);
+  float cp = cos(uPitch); float sp = sin(uPitch);
+  vec3 ro = 27.0 * vec3(cy * cp, sp, sy * cp);
+  vec3 fw = normalize(-ro);
+  vec3 rt = normalize(cross(fw, vec3(0.0, 1.0, 0.0)));
+  vec3 up = cross(rt, fw);
+  vec3 rd = normalize(fw * 1.5 + uv.x * rt + uv.y * up);
+  vec3 col = cielo(normalize(rd));
+  gl_FragColor = vec4(codificar(col), 1.0);
+}
+`;
+
+    function shader(typ, quelle) {
+      var s = gl.createShader(typ);
+      gl.shaderSource(s, quelle); gl.compileShader(s);
+      if (!gl.getShaderParameter(s, gl.COMPILE_STATUS)) { return null; }
+      return s;
+    }
+    var vs = shader(gl.VERTEX_SHADER, VERT);
+    var fs = shader(gl.FRAGMENT_SHADER, FRAG);
+    if (!vs || !fs) return;
+    var prog = gl.createProgram();
+    gl.attachShader(prog, vs); gl.attachShader(prog, fs); gl.linkProgram(prog);
+    if (!gl.getProgramParameter(prog, gl.LINK_STATUS)) return;
+    gl.useProgram(prog);
+
+    var buf = gl.createBuffer();
+    gl.bindBuffer(gl.ARRAY_BUFFER, buf);
+    gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1,-1, 3,-1, -1,3]), gl.STATIC_DRAW);
+    var loc = gl.getAttribLocation(prog, "position");
+    gl.enableVertexAttribArray(loc);
+    gl.vertexAttribPointer(loc, 2, gl.FLOAT, false, 0, 0);
+
+    var uTime = gl.getUniformLocation(prog, "uTime");
+    var uRes = gl.getUniformLocation(prog, "uRes");
+    var uYaw = gl.getUniformLocation(prog, "uYaw");
+    var uPitch = gl.getUniformLocation(prog, "uPitch");
+    var uFondo = gl.getUniformLocation(prog, "uFondo");
+    gl.uniform1f(uPitch, 0.12);
+    gl.uniform1f(uFondo, 0.0);
+
+    var yaw = 0;
+    var autoOrbita = true;
+    if (window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches) autoOrbita = false;
+
+    function resize() {
+      var rect = mount.getBoundingClientRect();
+      var w = Math.max(2, Math.floor(rect.width * baseDPR));
+      var h = Math.max(2, Math.floor(rect.height * baseDPR));
+      if (canvas.width !== w || canvas.height !== h) {
+        canvas.width = w; canvas.height = h;
+        canvas.style.width = Math.floor(rect.width) + "px";
+        canvas.style.height = Math.floor(rect.height) + "px";
+      }
+      gl.viewport(0, 0, w, h);
+      gl.uniform2f(uRes, w, h);
+    }
+    window.addEventListener("resize", resize, { passive: true });
+    resize();
+
+    var tPrev = performance.now();
+    function animar(t) {
+      requestAnimationFrame(animar);
+      var dt = Math.min((t - tPrev) / 1000, 0.05);
+      tPrev = t;
+      if (autoOrbita) yaw += dt * 0.04;
+      gl.uniform1f(uTime, t / 1000);
+      gl.uniform1f(uYaw, yaw);
+      gl.drawArrays(gl.TRIANGLES, 0, 3);
+    }
+    requestAnimationFrame(animar);
+  })();
 </script>
 </body>
 </html>
