@@ -1,3 +1,20 @@
+## 2026-10-12 – Analyse-Hero mittig und Goldwinkel länger versetzt
+
+Status: in Arbeit
+
+Geändert:
+
+- `homepage/analyse.html`: die fünf oberen rechten Goldwinkel gegeneinander versetzt und die horizontale Maximallänge auf 450 px gesetzt (weitere Längen 375, 300, 225 und 150 px); vertikale Längen auf 205, 165, 125, 85 und 45 px gestaffelt.
+- `homepage/analyse.html`: die bestehende Desktop-Verschiebung `translateY(-80px)` des Hero-Grid entfernt. Die vorhandene vertikale Zentrierung des Hero-Containers bleibt maßgeblich.
+
+Nicht geändert:
+
+- Hero-Grafik, deren Skalierung, Texte, CTA, Leistungsicons, Formular, Header, Footer und andere Seiten.
+
+Offen:
+
+- Visuelle Browserabnahme bei Desktop-Breakpoints und unterschiedlicher Viewporthöhe.
+
 ## 2026-10-12 – Issue #55 Hero-Keile und Goldlinien auf analyse.html angepasst
 
 Status: in Arbeit
