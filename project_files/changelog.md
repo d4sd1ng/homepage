@@ -1,3 +1,21 @@
+## 2026-10-12 – Analyse-Leistungsicons auf Originalgröße mit Goldrahmen korrigiert
+
+Status: in Arbeit
+
+Geändert:
+
+- `homepage/analyse.html`: alle sieben Einzelmodule in den bisherigen 45 × 45 px großen Goldverlaufsrahmen eingefügt.
+- Modulbilder innerhalb der Rahmen auf 34 × 34 px begrenzt; Einrückung der Texte auf die ursprünglichen 74 px zurückgesetzt.
+- Die bestehende Goldrahmen-Optik (10 px Radius, 1,5 px Verlaufskante) wiederhergestellt.
+
+Nicht geändert:
+
+- Einzelmoduldateien, Hero, Leistungsinhalte und Reihenfolge, Keile, Linien, andere Seiten.
+
+Offen:
+
+- Visuelle Abnahme im Browser nach Deployment.
+
 ## 2026-10-11 – Issue #55 Original-Module statt Hero-Sprite
 
 Status: in Arbeit
