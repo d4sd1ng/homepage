@@ -8,6 +8,7 @@ Geändert:
 - Den deckenden schwarzen Hero-Sektionshintergrund innerhalb des Viewports transparent gesetzt und einen dezenten dunklen Verlaufs-Overlay zur Lesbarkeit eingefügt.
 - Fünf versetzte Goldwinkel: horizontale Schenkel 450, 420, 390, 360, 330 px; vertikale Schenkel 205, 190, 175, 160, 145 px.
 - Abstand Subline–Bodytext: 38 px; Abstand Bodytext–CTA: 52 px.
+- Bestehenden Emerald-/Gunmetal-Glow direkt hinter der Prozessgrafik sichtbar verstärkt und Bild über der Glow-Ebene positioniert; keine neue Card und kein Rahmen.
 
 Nicht geändert:
 
