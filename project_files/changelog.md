@@ -1,3 +1,14 @@
+## 2026-10-12 – Analyse-Hero vertikale Goldschenkel und Divider korrigiert
+
+Status: in Arbeit
+
+- Fünf horizontale Goldlinien wieder mit abgestuften Längen 450/420/390/360/330 px statt einheitlichen 450 px hergestellt.
+- Nur die vertikalen Goldschenkel von 205/190/175/160/145 px auf 300/285/270/255/240 px verlängert.
+- Abschnitts-Divider auf den gleichen auslaufenden Goldverlauf mit schwachem Glow wie die Trennlinien in `index.html` umgestellt; keine zusätzlichen Divider-Elemente eingefügt.
+- Andere Hero-Elemente, Textabstände und Seiten bleiben unverändert.
+
+Offen: Visuelle Browserabnahme; doppelt wahrgenommene Linien auf der Website noch nicht visuell verifiziert.
+
 ## 2026-10-12 – Analyse-Hero CSS-Overrides konsolidiert
 
 Status: in Arbeit
