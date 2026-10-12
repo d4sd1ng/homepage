@@ -1,3 +1,14 @@
+## 2026-10-12 – Hero-Divider identisch zu den folgenden Abschnittstrennern
+
+Status: in Arbeit
+
+- `homepage/analyse.html`: gesondertes `hero-bottom-divider`-Element innerhalb des Hero-Viewports samt zugehöriger CSS-Regel vollständig entfernt.
+- Nach dem schließenden Hero-Viewport exakt dasselbe `<div class="section-divider" aria-hidden="true"></div>` eingefügt, das bereits zwischen den folgenden Sektionen verwendet wird.
+- Bestehende `.section-divider`-CSS-Regel unverändert übernommen. Kein Override hinzugefügt.
+- Goldwinkel, Hero-Texte, CTA, Grafik, WebGL-Partikelhintergrund sowie übrige Abschnittstrenner unverändert.
+
+Offen: Visuelle Kontrolle nach Bereitstellung, noch kein Merge.
+
 ## 2026-10-12 – Analyse-Goldwinkel: rechte Knickpunkte getrennt
 
 Status: in Arbeit
