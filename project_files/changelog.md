@@ -6,6 +6,9 @@ Geändert:
 
 - `homepage/analyse.html`: die nachträglich eingefügten redundanten `#hero .detail-hero .sub`- und `.actions`-Overrides entfernt; Abstände in vorhandenen `.detail-hero`-Basisregeln zusammengeführt.
 - Doppelte Hero-Hintergrund-/Positionierungsregeln und identische Mobile-Hero-Padding-Wiederholungen entfernt; wirksame Werte in den ursprünglichen Regeln belassen.
+- Alle fünf horizontalen Goldwinkel auf 450 px Schenkellänge gebracht, Versatz der Endpunkte beibehalten.
+- Subline-Abstand im ursprünglichen CSS auf 52 px, CTA-Abstand auf 70 px gesetzt.
+- Zusätzlichen Abschnitts-Divider direkt nach dem Hero entfernt (andere Abschnittstrenner unverändert).
 
 Nicht geändert:
 
