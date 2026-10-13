@@ -1,3 +1,20 @@
+## 2026-10-13 - Homepage: dunkleres Green, kompakte FAQ und gemeinsame Footer-Zeile
+
+Status: fertig
+
+- Screenshot-Prüfung: die beiden gemessenen FAQ-Hintergrundpixel zeigen `rgb(5, 20, 10)` / `#05140A`. Der Nutzer bestätigt, dass dieser Ton zu hell ist, und gibt anschließend das bereits auf der Homepage vorhandene, deutlich dunklere Green `#010603` frei.
+- `homepage/index.html`: die vorhandene seitenlokale Definition `--color-deep-green` auf `#010603` geändert. Damit verwenden Homepage-Hero und alle zehn Inhaltssektionen den neu freigegebenen Ton. Die gemeinsame Token-Datei und Detailseiten-Farbwerte bleiben unverändert; kein zusätzlicher Override-Block.
+- FAQ `.nv-resource-section`: Viewport-Mindesthöhe entfernt, Inhalt oben ausgerichtet, vertikales Padding von 83,2/105 px auf beidseitig 32 px reduziert. `.nv-resource-section__inner` nutzt die verfügbare Inhaltsbreite statt zusätzlicher Begrenzung auf 1560 px.
+- `.nv-resource-section__head`: Abstand zur Fragenliste von 92,8 auf 20 px reduziert. Titel- und Subline-Abstände auf je 12 px reduziert. Die doppelten Titel-/Intro-Definitionen in diesem FAQ-Regelbereich konsolidiert; wirksame Typografie erhalten.
+- `.nv-faq-layout` und `.nv-faq-grid`: Desktop-Spaltengap 16 px. `.nv-faq-col`: Zeilenabstand 8 px statt 24 px. `.nv-faq-item summary`: Desktop-Padding 4/8 px und Mindesthöhe 36 px statt 8/10 px und 44 px; Antworten mit 8/8/12 px Innenabstand. Fragen und Antworten unverändert.
+- Mobile FAQ: 8 px Listengap, volle Spaltenbreite, 6/8 px Buttonpadding bei weiterhin mindestens 44 px Höhe. FAQ aus der allgemeinen mobilen 56-px-Sektions- und 32-px-Headerabstandsregel herausgenommen, damit die kompakte FAQ-Basis auch mobil wirksam bleibt.
+- `homepage/shared-header-footer.css`: `.footer-bottom` hat auf Desktop zwei Spalten. `.footer-top` belegt Zeile 1, rechts; `.footer-legal` und `.footer-copy` teilen sich Zeile 2 am unteren Footer-Rand. Auf schmalen Viewports bis 900 px dürfen die Rechtstexte umbrechen und das Copyright folgt in einer eigenen Zeile, ohne horizontalen Überlauf.
+- Keine Änderungen an Texten, Fonts, IDs, Formularen, JavaScript, Assets, Detailseiten oder Deploy-Konfigurationen. Keine neue Blur-/Glow-Wirkung und keine neuen `!important`-Regeln.
+
+Prüfung: lokale HTML-/CSS-Parser, JavaScript-Syntax und JSON-LD, 60 unveränderte eindeutige IDs, zwölf unveränderte Script-Blöcke, Formular- und Linkverträge, Farbtokens, FAQ-Desktop-/Mobile-Regeln, gemeinsame Desktop-Footer-Zeile, Reduced-Motion-Regeln und `git diff --check` erfolgreich.
+
+Offen: keine neue gerenderte Desktop-/Mobile-Browserprüfung, da das Browserwerkzeug den Zugriff weiterhin blockiert. Der Screenshot belegt den Ausgangszustand, nicht das Ergebnis dieser Änderungen. Kein Push oder Deployment ausgeführt.
+
 ## 2026-10-13 - Homepage: Blur-Korrektur und fehlende Card-Grundfarbe
 
 Status: in Arbeit
