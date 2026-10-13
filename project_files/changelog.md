@@ -1,3 +1,17 @@
+## 2026-10-13 - Homepage: FAQ-Breite und Bullet-/Preisfarben korrigiert
+
+Status: fertig
+
+- `homepage/index.html`: `.nv-resource-section__inner` wieder auf dieselbe maximale Inhaltsbreite `1560px` wie die übrigen Homepage-Sektionen gesetzt. Die zuvor von Codex entfernte Breitenbegrenzung war nicht die beauftragte Korrektur. Kompakte FAQ-Abstände, natürliche Inhaltshöhe ohne Viewport-Mindesthöhe und bestehende Mobile-Regeln bleiben erhalten.
+- `.nv-about__bullets`, `.nv-s7-card__uses li`, `.nv-s7-card__points li`, `.nv-analyse__offer-list li`, `.nv-ainfo li` und `.nv-checklist-result__insights li`: Bullet-Text auf den vorhandenen Off-White-Token `--color-text-light` / `#F5F7F4` gesetzt. `.nv-pack__features li` verwendet bereits diesen Wert und bleibt unverändert.
+- Gemäß anschließendem Screenshot-Auftrag die beiden vorhandenen Goldtöne getauscht: `.nv-about__bullets strong`, `.nv-analyse__offer-list strong` und `.nv-ainfo li strong` verwenden jetzt `#FAE385`, zuvor der Ton von Einführungspreis und Listenpreis.
+- `.nv-analyse__offer-price` verwendet jetzt `#D4AF37`, zuvor der Ton der Bullet-Titel. Dies gilt sowohl für `199 € · für Sie kostenlos` als auch für die vorhandenen Namen `Einführungspreis` / `Listenpreis` und ihre Werte `555 € netto` / `699 € netto`. Wortlaut, Beträge, Preisbedingungen und Ausrichtung unverändert.
+- Grüne Marker aus `assets/Bulletpoint.png`, Hintergrund `#010603`, Card-Farben, Footer, Typografie, Detailseiten, Formularverträge, zwölf Script-Blöcke und alle IDs unverändert. Keine neuen Selektoren, Override-Blöcke, Blur-/Glow-Effekte oder `!important`-Regeln.
+
+Prüfung: lokale HTML-/CSS-Parser, JavaScript-Syntax und JSON-LD, 60 unveränderte eindeutige IDs, unveränderte Formular- und Linkverträge, Vergleich der FAQ-Breite mit Analyse-/Leistungssektion, kompakte FAQ-Höhen-/Abstandsregeln, grüne Marker, Off-White-Bullet-Text, Goldton-Zuordnung für Titel und Preise sowie `git diff --check` erfolgreich.
+
+Offen: Ergebnis nicht erneut im Browser gerendert geprüft; Browserzugriff weiterhin durch das Werkzeug blockiert. Kein Push oder Deployment durchgeführt.
+
 ## 2026-10-13 - Homepage: dunkleres Green, kompakte FAQ und gemeinsame Footer-Zeile
 
 Status: fertig

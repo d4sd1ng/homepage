@@ -333,7 +333,7 @@ a:active .golden-button,
   max-width: none;
   display: grid;
   gap: 8px;
-  color: var(--color-text-muted);
+  color: var(--color-text-light);
   font-family: "Inter", Arial, sans-serif;
   font-size: var(--t-fliesstext); /* was 12.8px, bullet text ->16px per explicit instruction */
   line-height: 1.85;
@@ -354,7 +354,7 @@ a:active .golden-button,
 .nv-about__text--subtitle { margin-bottom: 32px; font-size: var(--t-subtitle); /* per explicit instruction (was 19.2px) */
   font-weight: var(--w-subtitle); line-height: 1.22; color: var(--color-text-sub); width: 944px; }
 .nv-about__bullets li { position: relative; padding-left: 14.4px; }
-.nv-about__bullets strong { position: relative; display: block; margin-bottom: 1.6px;   color: #d4af37;      font-family: "Inter",Arial,sans-serif; font-size: var(--t-bulletlabel); font-weight: var(--w-bulletlabel); }
+.nv-about__bullets strong { position: relative; display: block; margin-bottom: 1.6px;   color: #fae385;      font-family: "Inter",Arial,sans-serif; font-size: var(--t-bulletlabel); font-weight: var(--w-bulletlabel); }
 .nv-about__bullets strong::before { content: ""; position: absolute; top: 50%; left: -14.4px; width: 9px; height: 9px; border-radius: 50%; background: url("assets/Bulletpoint.png") center / contain no-repeat; transform: translateY(-50%); }
 .nv-about__media { grid-column: 2; grid-row: 5; align-self: center; justify-self: start; position: relative; aspect-ratio: 16 / 9; border: 0.8px solid transparent; border-radius: 6.4px; background-image: linear-gradient(135deg, #ffffff12 0%, #ffffff03 28%, #00000000 29%), radial-gradient(circle at 52% 72%, #9bff6b4d 0%, #1f5f3b1f 28%, #00000000 60%), linear-gradient(150deg, #101a15 0%, #020403 100%), var(--gold-3); background-origin: border-box; background-clip: padding-box, padding-box, padding-box, border-box; overflow: hidden; width: var(--nv-about-media-column); margin-left: 0; }
 .nv-about__media img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0.9; filter: brightness(0.74) contrast(1.02) saturate(0.92); }
@@ -657,7 +657,7 @@ a:active .golden-button,
 .nv-s7-card__uses h4, .nv-s7-card__uses .nv-s7-card__uses-title { display: flex; align-items: center; gap: 5.6px; margin: 0 0 14.4px; color: transparent; background: var(--gold-1); background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent; font: 700 14.4px / 1.2 Inter, Arial, sans-serif; letter-spacing: 0.045em; text-align: left; text-transform: uppercase; }
 .nv-s7-card__target { color: #fef1a2; -webkit-text-fill-color: #fef1a2; font-size: 16.8px; line-height: 1; transform: translateY(-1.2px); }
 .nv-s7-card__uses ul { display: grid; gap: 7.2px; margin: 0; padding: 0; list-style: none; }
-.nv-s7-card__uses li { position: relative; padding-left: 16.8px; margin: 0 0 5.6px; color: var(--color-gold); overflow-wrap: normal; word-break: normal; font: 500 14.4px / 1.3 Inter, Arial, sans-serif; }
+.nv-s7-card__uses li { position: relative; padding-left: 16.8px; margin: 0 0 5.6px; color: var(--color-text-light); overflow-wrap: normal; word-break: normal; font: 500 14.4px / 1.3 Inter, Arial, sans-serif; }
 .nv-s7-card__uses li::before { content: ""; position: absolute; left: 0; top: 0.35em; width: 9px; height: 9px; border-radius: 50%; background: url("assets/Bulletpoint.png") center / contain no-repeat; }
 .nv-s7-card__more { align-self: center; margin-top: 20.8px; min-width: 176px; font-size: 12.8px; text-decoration: none; }
 .nv-s7-card__more::after { content: none; }
@@ -673,7 +673,7 @@ a:active .golden-button,
 .nv-s7-card__heading p { margin: 12.8px 0 0; color: #e4e0d6; font: 600 15.6px / 1.25 Inter, Arial, sans-serif; letter-spacing: 0.06em; text-transform: uppercase; }
 .nv-s7-card__points { position: absolute; top: 145.6px; left: 31.2px; right: 28px; display: grid; gap: 8.4px; margin: 0; padding: 0; list-style: none; opacity: 0; transform: none; transition: opacity 0.42s ease; }
 .nv-s7-card__short-rule { position: absolute; z-index: 5; top: 125.6px; left: 31.2px; right: 25.6px; height: 1.6px; background: linear-gradient(90deg, #d4af37, rgba(212, 175, 55, 0.72) 88%, transparent); box-shadow: 0 0 4.8px rgba(212,175,55,.24); opacity: 0; visibility: hidden; pointer-events: none; transition: opacity 0.42s ease; }
-.nv-s7-card__points li { position: relative; padding-left: 16.8px; color: #d4af37; overflow-wrap: anywhere; font: var(--w-bulletlabel) var(--t-bulletlabel)/1.35 "Inter",Arial,sans-serif; }
+.nv-s7-card__points li { position: relative; padding-left: 16.8px; color: var(--color-text-light); overflow-wrap: anywhere; font: var(--w-bulletlabel) var(--t-bulletlabel)/1.35 "Inter",Arial,sans-serif; }
 .nv-s7-card__points li::before { content: ""; position: absolute; left: 0; top: 0.48em; width: 9px; height: 9px; border-radius: 50%; background: url("assets/Bulletpoint.png") center / contain no-repeat; }
 .nv-s7-card__result { position: absolute; left: 50%; right: auto; top: 318.4px; bottom: auto; width: 297.6px; height: auto; min-height: 0; box-sizing: border-box; overflow: hidden; display: grid; grid-template-columns: 22.4px minmax(0, 1fr); gap: 19.2px; align-items: center; padding: 8px 11.2px; border: 0.8px solid transparent; border-radius: 5.6px; background-image: linear-gradient(var(--color-emerald),var(--color-emerald)), var(--gold-3); background-origin: border-box; background-clip: padding-box, border-box; opacity: 0; transform: translate(-50%, -50%); transition: opacity 0.42s ease; }
 .nv-s7-card__result-icon { grid-column: 1; grid-row: 1; align-self: center; position: relative; width: 22.4px; height: 22.4px; margin-top: 0; box-sizing: border-box; border: 1.6px solid #d4af37; background: #000; border-radius: 50% 50% 50% 50% / 18% 18% 62% 62%; }
@@ -836,10 +836,10 @@ canvas.nv-step-viz {
 .nv-analyse__offer p { margin: 0; max-width: none; color: #b9c3bd; font: var(--w-fliesstext) var(--t-fliesstext)/1.65 Inter,Arial,sans-serif; }
 .nv-analyse__offer-label { margin: 8px 0 0 !important; color: #e4e0d6 !important; font: 600 13px/1.3 Inter,Arial,sans-serif !important; letter-spacing: 0.08em; text-transform: uppercase; }
 .nv-analyse__offer-list { margin: 0; padding: 0; list-style: none; display: grid; gap: 8px; }
-.nv-analyse__offer-list li { position: relative; padding-left: 16px; color: #d4af37; font: var(--w-fliesstext) var(--t-fliesstext)/1.5 Inter,Arial,sans-serif; }
+.nv-analyse__offer-list li { position: relative; padding-left: 16px; color: var(--color-text-light); font: var(--w-fliesstext) var(--t-fliesstext)/1.5 Inter,Arial,sans-serif; }
 .nv-analyse__offer-list li::before { content: ""; position: absolute; left: 0; top: 0.48em; width: 9px; height: 9px; border-radius: 50%; background: url("assets/Bulletpoint.png") center / contain no-repeat; }
-.nv-analyse__offer-list strong { color: inherit; }
-.nv-analyse__offer-price { color: #fae385 !important; font: 600 22px/1.3 Inter,Arial,sans-serif !important; }
+.nv-analyse__offer-list strong { color: #fae385; }
+.nv-analyse__offer-price { color: #d4af37 !important; font: 600 22px/1.3 Inter,Arial,sans-serif !important; }
 .nv-analyse__offer-price--stacked { display: grid; grid-template-columns: max-content max-content; column-gap: 12px; row-gap: 2px; align-items: baseline; width: max-content; }
 .nv-analyse__offer-price--stacked .nv-analyse__offer-price-value { text-align: right; justify-self: end; font-variant-numeric: tabular-nums; }
 .nv-analyse__offer-note { color: #8b938d !important; font-size: 14px !important; }
@@ -924,9 +924,9 @@ canvas.nv-step-viz {
 .nv-ainfo__eyebrow::after { content: "—"; margin: 0 0.4em; }
 .nv-ainfo__eyebrow, .nv-ainfo h3 { margin: 0; color: #b9c3bd; font: 400 16px/1.85 "Inter",Arial,sans-serif; letter-spacing: normal; text-transform: none; background: none; -webkit-text-fill-color: currentColor; }
 .nv-ainfo ul { margin: 12.8px 0; padding: 0; list-style: none; display: grid; gap: 19.2px; }
-.nv-ainfo li { position: relative; padding-left: 14.4px; color: #d4af37; font:var(--w-fliesstext) var(--t-fliesstext)/1.85 "Inter",Arial,sans-serif; }
+.nv-ainfo li { position: relative; padding-left: 14.4px; color: var(--color-text-light); font:var(--w-fliesstext) var(--t-fliesstext)/1.85 "Inter",Arial,sans-serif; }
 .nv-ainfo li::before { content: ""; position: absolute; left: 0; top: calc(var(--t-bulletlabel) * 0.925 - 4.5px); width: 9px; height: 9px; border-radius: 50%; background: url("assets/Bulletpoint.png") center / contain no-repeat; }
-.nv-ainfo li strong { display: block; margin-bottom: 1.6px; color: #d4af37; font: var(--w-bulletlabel) var(--t-bulletlabel)/1.85 "Inter",Arial,sans-serif; }
+.nv-ainfo li strong { display: block; margin-bottom: 1.6px; color: #fae385; font: var(--w-bulletlabel) var(--t-bulletlabel)/1.85 "Inter",Arial,sans-serif; }
 .nv-ainfo h4 { margin: 52.8px 0 3.2px; color: #d4af37; font: var(--w-bulletlabel) var(--t-bulletlabel)/1.85 "Inter",Arial,sans-serif; letter-spacing: .06em; text-transform: uppercase; }
 .nv-ainfo__note { color: #e8b048 !important; }
 #analyse-formular { hyphens: none; }
@@ -1107,7 +1107,7 @@ canvas.nv-step-viz {
 .nv-checklist-result__label { margin:6.4px 0 4.8px; color: #f7d77a; font: 700 14.4px/1.3 "Exo 2",Inter,Arial,sans-serif; text-transform: uppercase; }
 .nv-checklist-result__desc { margin: 0 0 12.8px; max-width: 62ch; color: #b9c3bd; font: 500 12.8px/1.55 "Inter",Arial,sans-serif; }
 .nv-checklist-result__insights { list-style: none; margin: 0 0 16px; padding: 0; display: grid; gap: 4.8px; }
-.nv-checklist-result__insights li { position: relative; padding-left: 15.2px; color: #d7ddd9; font: 500 12px/1.4 "Inter",Arial,sans-serif; }
+.nv-checklist-result__insights li { position: relative; padding-left: 15.2px; color: var(--color-text-light); font: 500 12px/1.4 "Inter",Arial,sans-serif; }
 .nv-checklist-result__insights li::before { content: ""; position: absolute; left: 0; top: 0.3em; width: 9px; height: 9px; border-radius: 50%; background: url("assets/Bulletpoint.png") center / contain no-repeat; }
 .nv-checklist-result__cta { margin: 4px 0 12.8px; }
 .nv-checklist-result__note { margin: 0; color: #757c78; font: 500 10.4px/1.5 "Inter",Arial,sans-serif; }
@@ -1126,7 +1126,7 @@ canvas.nv-step-viz {
 .nv-faq-item summary:active { box-shadow: 0 2.4px 4.8px rgba(0, 0, 0, 0.16), 0 2.4px 4.8px rgba(110, 80, 20, 0.4), inset 0 -1.6px 4px 0.8px var(--nv-gold-inner-mid), inset 0 -0.8px 0.8px 2.4px #fae385; }
 .nv-resource-section { display: flex; flex-direction: column; justify-content: flex-start; min-height: 0; margin-left: 0px; padding: 32px var(--side); color: var(--color-text-light); background: var(--color-deep-green); position: relative; overflow: hidden; }
 .nv-resource-section + .nv-resource-section { border-top: 0.8px solid rgba(212, 175, 55, 0.22); }
-.nv-resource-section__inner { width: 100%; max-width: none; margin: 0 auto; position: relative; z-index: 1; }
+.nv-resource-section__inner { width: 100%; max-width: 1560px; margin: 0 auto; position: relative; z-index: 1; }
 .nv-resource-section__head { max-width: none; margin: 0 0 20px; }
 #formular .nv-resource-section__title { font-size: 96px; }
 .nv-faq-layout { display: grid; grid-template-columns: minmax(0, 1fr); gap: 16px; align-items: start; width: 100%; margin: 0; }
