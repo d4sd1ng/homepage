@@ -1,3 +1,26 @@
+## 2026-10-13 - Footer: Copyright mittig und golden
+
+Status: fertig
+
+- `homepage/shared-header-footer.css`: `.footer-bottom` verwendet gleich breite aeussere Grid-Spalten um die Copyright-Spalte. `.footer .footer-copy` steht mittig in der unteren Zeile unter dem Pfeil, mit zentriertem Text und dem vorhandenen Gold-Token `--nv-gold-highlight` / `#FAE385`. Rechtliche Links bleiben links in derselben Desktop-Zeile.
+- Copyright aus der gemeinsamen grauen Textregel herausgenommen. Bestehende wirksame Schriftwerte erhalten und die vorhandene Copyright-Regel gezielt gegen die allgemeine Footer-Absatzregel abgegrenzt. Mobile behaelt eine eigene, mittige Copyright-Zeile mit erlaubtem Textumbruch.
+- Wortlaut, Links, Assets, IDs, Formulare und JavaScript unveraendert. Keine neuen Overrides, Farben oder `!important`-Regeln. Die gemeinsame Footer-CSS wirkt auf alle Seiten, die sie einbinden.
+
+Pruefung: bestehende lokale Regressionstests, HTML-/CSS-Parser, JavaScript-Syntax, unveraenderte Formularvertraege, Copyright-Spalte, Zentrierung, Goldtoken und Mobile-Umbruchregeln erfolgreich. Gerenderte Desktop-/Mobile-Pruefung weiterhin durch Browserzugriff blockiert. Kein Push oder Deployment.
+
+Offen: FAQ-Buttons sollen gleichmaessig gestreckt bleiben, jedoch in einem schmaleren Fragenblock statt ueber die volle Seitenbreite. Die gewuenschte maximale Desktop-Breite ist noch nicht festgelegt; FAQ bis zur Klaerung unveraendert.
+
+## 2026-10-13 - Leistungskarten: urspruengliche Hintergrundzustaende wiederhergestellt
+
+Status: fertig
+
+- `homepage/index.html`: `.nv-s7-card` wieder mit transparentem Hintergrund im geschlossenen Zustand. Die vorhandene Hover-/Focus-/Aktiv-Regel verwendet wieder `var(--color-gunmetal-dark)`. Beide Regeln entsprechen dem Stand vor der Hintergrund-Aenderung in `4903c28`.
+- Ausschliesslich diese beiden Hintergrunddeklarationen geaendert. Alle elf Leistungskarten, Texte, Layout, Assets, Links, IDs, JavaScript, Formulare, andere Card-Farben, Paket-Preiszeilen und Bullet-Farben bleiben erhalten. Keine neuen Overrides oder `!important`-Regeln.
+
+Pruefung: lokale HTML-/CSS-Parser, JavaScript-Syntax, unveraenderte Formular-/Linkvertraege, Hintergrundzustaende, bestehende Regressionstests und `git diff --check` erfolgreich.
+
+Offen: FAQ-Kuerzung wartet auf Klaerung, ob Hauptueberschrift oder einzelne Fragen gemeint sind. Keine gerenderte Desktop-/Mobile-Pruefung wegen weiterhin blockiertem Browserzugriff. Kein Push oder Deployment.
+
 ## 2026-10-13 - Automationspakete: goldene Bullet-Titel und Preiszeilen
 
 Status: fertig
