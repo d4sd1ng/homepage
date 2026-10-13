@@ -1742,3 +1742,22 @@ Status: in Arbeit
 - Desktop, Karteninhalte, Bildpfade, Links, CTAs und JavaScript unveraendert.
 
 Offen: gerenderte Mobile-Ansicht pruefen lassen. Kein Browser- oder Geraete-Rendering in diesem Schritt.
+
+## 2026-10-13 - FAQ-Fragen auf Textbreite begrenzt
+
+Status: in Arbeit
+
+- `homepage/index.html`: `.nv-faq-grid` verwendet auf Desktop zwei `max-content`-Spalten statt zwei dehnbaren `1fr`-Spalten. `.nv-faq-col` richtet sich ebenfalls nach dem laengsten Fragetext der jeweiligen Spalte.
+- Bis 1100 px steht der Fragenblock einspaltig mit maximal 560 px Breite; die bestehende Mobile-Regel bis 640 px behält volle Viewport-Breite. Fragen, Antworten und FAQ-Interaktion unveraendert.
+
+Offen: gerenderte Desktop- und Tablet-Breitenpruefung.
+
+## 2026-10-13 - Bestehende 3D-Card-Oberflaeche auf Homepage-Cards
+
+Status: in Arbeit
+
+- `homepage/index.html`: Raster sowie dezente Gold- und Smaragd-Ebenen der vorhandenen `homepage/xcomponents/nurovelle-tilt-card.css` als `--nv-holo-face` und `--nv-holo-overlay` in die ausgelieferte Homepage-CSS uebernommen. Die Komponenten-Datei selbst wird vom Deploy ausgeschlossen und war in `index.html` nicht eingebunden.
+- Die Oberflaeche liegt auf `.nv-about__mini > div`, `.nv-analyse__offer`, `.nv-acard` (auch Paket- und Formular-Cards), `.nv-contact__portrait`, `.nv-contact__card` und `.download-item`. Bildkarten `.nv-about__media`, `.nv-step-card` und `.nvp4-projectidea__image` verwenden die transparente Version ueber dem vorhandenen Bild. Die Video-Play-Steuerung bleibt darueber.
+- Die bewegte Rahmen-Animation der Mini-Cards deaktiviert; vorhandene Neigung und Hover-Ausrichtung bleiben. Die scharfe Materialkante sitzt wie bei der vorhandenen Muster-Card diagonal versetzt. Abschnitt 5 `.nv-s7-card` sowie Card-Texte, Bilder, Links und JavaScript unveraendert.
+
+Offen: gerenderte Desktop-, Mobile- und Reduced-Motion-Pruefung. Kein Push oder Deployment in diesem Schritt.
