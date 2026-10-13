@@ -1,3 +1,28 @@
+## 2026-10-13 - Holo-Card: isolierte Musterkarte mit leichter Ruhe-Neigung
+
+Status: in Arbeit
+
+- Isolierte lokale Musterdatei `/home/d4sd1ng/.codex/visualizations/2026/10/12/01a13205-05ad-70e3-a3bf-b8ed1a0c86df/holo-card-sample.html` erstellt. `.holo-shell` verwendet 2 Grad X-/minus 3 Grad Y-Neigung und 4 px vertikalen Versatz im Ruhezustand. Bei Hover auf hoverfaehigen Geraeten und bei Tastaturfokus richtet sie sich gerade aus. Keine Mausverfolgung oder Dauerschwebe-Animation.
+- `.holo-shell::before` bildet eine um 4,8 px versetzte, scharfe Seitenkante; `.holo-card` verwendet eine dunkle transparente Flaeche und vorhandene Nurovelle-Goldmaterialien ohne Blur. Vorhandene Schriften, PDF-Icon, Downloadziel und Text der ersten Homepage-Downloadkarte wiederverwendet. Reduced Motion deaktiviert Neigung und Uebergang.
+- `homepage/index.html` und `homepage/shared-header-footer.css` waehrend dieser Musterarbeit unveraendert; SHA-256 vor und nach der Arbeit identisch. Kein Rollout auf vorhandene Cards, kein Push oder Deployment.
+
+Pruefung: HTML-/CSS-Parser, vorhandene lokale Asset-/Font-/Downloadpfade, Ruhe-/Hover-/Fokus-Regeln und Reduced Motion statisch erfolgreich geprueft.
+
+Offen: gerenderte Desktop-/Mobile-Pruefung durch weiterhin blockierten Browserzugriff nicht durchgefuehrt. Visuelle Freigabe des Musters vor einer Uebertragung auf die Homepage ausstehend.
+
+## 2026-10-13 - FAQ: Fragenblock nicht mehr ueber volle Sektionsbreite
+
+Status: fertig
+
+- `homepage/index.html`, `.nv-faq-grid`: die bislang voll gestreckte Flex-Zeile durch zwei gleich breite Grid-Spalten ersetzt. `width: max-content` dimensioniert den Fragenblock anhand der laengsten Frage, `max-width: 100%` begrenzt ihn auf die verfuegbare Sektionsbreite. Vorhandene linke Ausrichtung und 16-px-Spaltengap erhalten; die einzelnen Frage-Buttons bleiben auf volle Spaltenbreite gestreckt.
+- `.nv-faq-item p`: `contain: inline-size` verhindert, dass aufgeklappte Antworttexte die inhaltsbasierte Breite des Fragenblocks vergroessern. Die Antworthoehe bleibt inhaltsabhaengig.
+- Vorhandene mobile `.nv-faq-grid`-Regel auf eine volle Grid-Spalte mit `width: 100%` angepasst. Mobile Mindesthoehe, Textumbruch und kompakte Abstaende unveraendert.
+- Sektionsbreite, Ueberschrift, alle acht Fragen und Antworten, Gold-Buttons, Footer, Assets, IDs, Links, Formulare und JavaScript unveraendert. Keine neuen globalen Overrides oder `!important`-Regeln.
+
+Pruefung: lokale HTML-/CSS-Parser, unveraenderte FAQ-Inhalte und HTML-Struktur, Grid-/Breitenregeln fuer Desktop und Mobile, JavaScript-Syntax, Formular-/Linkvertraege, bestehende Regressionstests und `git diff --check` erfolgreich.
+
+Offen: keine gerenderte Desktop-/Mobile-Pruefung wegen weiterhin blockiertem Browserzugriff. Aenderung lokal ausgefuehrt; kein Push oder Deployment.
+
 ## 2026-10-13 - Footer: Copyright mittig und golden
 
 Status: fertig
@@ -1687,3 +1712,33 @@ Geändert:
 Nicht geändert:
 
 - Widget-CSS, CTA, Seitentexte, Assetpfade und vorhandene JavaScript-Logik.
+
+## 2026-10-13 - Homepage-Cards: statische 3D-Holo-Optik
+
+Status: in Arbeit
+
+- `homepage/index.html`: den vorhandenen Card-Regeln eine leichte, statische 3D-Neigung mit unterschiedlichen Ausrichtungen je Bereich und Card-Position hinzugefügt. Betroffen sind `.nv-about__media`, `.nv-about__mini > div`, `.nv-step-card`, `.nvp4-projectidea__image`, `.nv-pack__card`, `.nv-analyse__offer`, `.nv-acard` einschliesslich Formular-Card, `.nv-contact__portrait`, `.nv-contact__card` und `.download-item`.
+- Vorhandene Gold-/Schwarz-Tokens erzeugen eine scharfkantige, versetzte Materialkante ohne neue Farben oder Glow-/Blur-Regeln. Bestehende Hover-/Focus-Zustaende richten die Karten plan aus. Auf Mobile bleiben die Karten ohne Hover leicht geneigt sichtbar; Projektstart-Karten nutzen dort eine noch kleinere Neigung.
+- Die zuvor weiche Rahmenschattierung der betroffenen Info- und Tiefenanalyse-Cards wurde durch die scharfe Kante ersetzt. Keine dauerhafte Kartenbewegung oder Mausverfolgung; vorhandene Card-Inhalte, Bilder, Links, IDs, Formularverhalten und Layout-Raster bleiben erhalten.
+- Abschnitt 5 `.nv-s7-card` bleibt unverändert. FAQ-Frage-CTAs, die SEO-Promo und Ablauf-Module sind Controls bzw. bestehende 3D-Module und keine Card-Komponenten dieser Umsetzung.
+
+Offen: gerenderter Desktop-/Mobile-Check durch den Nutzer steht aus. Keine Browseransicht, Tests, Push oder Deployment in diesem Schritt.
+
+## 2026-10-13 - Abschnitt 5: Mobile-Leistungskarten kompakter
+
+Status: in Arbeit
+
+- `homepage/index.html`: Im bestehenden Mobile-Layout von `.nv-s7__cards` den Kartenabstand von 20 px auf 24 px erhöht und die Bannerhöhe von `.nv-s7-card__visual` von 96 px auf 56 px reduziert.
+- Desktopdarstellung, Kartentexte, Bilder, Links, CTAs und JavaScript unverändert.
+
+Offen: gerenderte Mobile-Ansicht durch den Nutzer pruefen lassen. Kein Browser- oder Geraete-Rendering in diesem Schritt.
+
+## 2026-10-13 - Abschnitt 5: Mobile-Kartenstruktur ausgerichtet
+
+Status: in Arbeit
+
+- `homepage/index.html`: Im bestehenden Mobile-Regelbereich von `.nv-s7-card__number` die Nummernplakette von 41,6 x 43,2 px auf 34 x 36 px und die Ziffer von 20 px auf 16 px verkleinert. Den Abstand zwischen Plakette und Titel auf 8 px reduziert.
+- `.nv-s7-card__points` unter den Titeltext eingerueckt, statt am linken Rand des Karteninhalts zu beginnen.
+- Desktop, Karteninhalte, Bildpfade, Links, CTAs und JavaScript unveraendert.
+
+Offen: gerenderte Mobile-Ansicht pruefen lassen. Kein Browser- oder Geraete-Rendering in diesem Schritt.
