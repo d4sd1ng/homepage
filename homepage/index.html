@@ -94,7 +94,7 @@
   --color-text-sub: #D7DDD9;
 
   --gold-1: linear-gradient(110deg, #8B641A 0%, #DFBD69 18%, #FFF6BD 34%, #B98424 48%, #F7DF82 66%, #926F34 82%, #E6C45F 100%);
-  --gold-glow: drop-shadow(0 0.8px 0 rgba(255,245,180,.18)) drop-shadow(0 0 8px rgba(247,239,138,.28)) drop-shadow(0 0 21px rgba(224,170,62,.16));
+  --gold-glow: drop-shadow(0 0.8px 0 rgba(255,245,180,.18));
   --gold-2: linear-gradient(135deg, #DFBD69, #926F34);
   --gold-3: linear-gradient(135deg, #76551A 0%, #AE8625 13%, #F7EF8A 27%, #FFF9C9 33%, #D2AC47 43%, #926F34 57%, #EDC967 72%, #FFF3A1 80%, #9B7423 100%);
   --frame-glow: 0 0.8px 0 rgba(255,255,220,.30) inset, 0 -1.6px 2.4px rgba(76,46,5,.60) inset, 0 0 0 0.8px rgba(146,111,52,.55), 0 4.8px 12.8px rgba(0,0,0,.42), 0 0 17.6px rgba(212,175,55,.16);
@@ -536,7 +536,7 @@ a:active .golden-button,
 .nvp4-projectidea__image img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: center; background: #010603; }
 .nvp4-projectidea__slide:nth-child(1) .nvp4-projectidea__image img { background: transparent; object-fit: cover; }
 .nvp4-projectidea__idea { max-width: 336px; text-align: left; }
-.nvp4-projectidea__idea h3 { margin: 0 0 9.6px; font-size: var(--t-zwischentitel); font-weight: var(--w-zwischentitel); font-family: "Exo 2", "Inter", Arial, sans-serif; line-height: 1.3; color: #fae385; filter: var(--gold-glow); }
+.nvp4-projectidea__idea h3 { margin: 0 0 9.6px; font-size: var(--t-zwischentitel); font-weight: var(--w-zwischentitel); font-family: "Exo 2", "Inter", Arial, sans-serif; line-height: 1.3; color: #fae385; }
 .nvp4-projectidea__idea p { margin: 0; color: var(--color-text-muted); font-family: "Inter", Arial, sans-serif; font-size: var(--t-fliesstext); /* was 12.8px, matched to other sections' body scale per explicit instruction */
   line-height: 1.85; }
 .nvp4-projectidea__dots { position: static; display: flex; justify-content: center; gap: 6.4px; margin-top: 16px; }
@@ -628,7 +628,7 @@ a:active .golden-button,
 .nv-s7__cards { display: grid; grid-template-columns: repeat(3, 720px); column-gap: 48px; row-gap: 16px; width: max-content; margin: 0 auto; zoom: 0.65; overflow: visible; }
 .nv-s7__actions { display: flex; align-items: center; justify-content: center; gap: 14.4px; margin-top: 40px; flex-wrap: wrap; }
 .nv-s7-card[data-href] { cursor: pointer; }
-.nv-s7-card { --card-index: 0; position: relative; width: 720px; height: 136px; min-width: 0; overflow: hidden; isolation: isolate; border: 0.8px solid transparent; border-radius: 5.6px; background: transparent; box-shadow: none; opacity: 0; transform: none; transition: opacity 0.55s ease, height 0.42s ease, border-color 0.28s ease, background 0.28s ease, box-shadow 0.28s ease; }
+.nv-s7-card { --card-index: 0; position: relative; width: 720px; height: 136px; min-width: 0; overflow: hidden; isolation: isolate; border: 0.8px solid transparent; border-radius: 5.6px; background: var(--color-gunmetal-dark); box-shadow: none; opacity: 0; transform: none; transition: opacity 0.55s ease, height 0.42s ease, border-color 0.28s ease, background 0.28s ease, box-shadow 0.28s ease; }
 .nv-s7-card::before { content: none; }
 .nv-s7-card:nth-child(1) { --card-index: 0; }
 .nv-s7-card:nth-child(2) { --card-index: 1; }
@@ -643,7 +643,7 @@ a:active .golden-button,
 .nv-s7-card:nth-child(11) { --card-index: 10; }
 .nv-s7-card:nth-child(10), .nv-s7-card:nth-child(11) { margin-left: 384px; }
 .nv-s7-card.is-visible { opacity: 1; transition-delay: calc(var(--card-index) * 45ms); }
-.nv-s7-card:hover, .nv-s7-card:focus-visible, .nv-s7-card.is-active { z-index: 3; height: 409.6px; border-color: #f7ef8a; background: var(--color-gunmetal-dark); outline: none; }
+.nv-s7-card:hover, .nv-s7-card:focus-visible, .nv-s7-card.is-active { z-index: 3; height: 409.6px; border-color: #f7ef8a; outline: none; }
 .nv-s7-card__visual { position: absolute; inset: 0 0 0 auto; z-index: 0; width: 73%; height: 100%; object-fit: cover; object-position: center; opacity: 0; filter: brightness(0.62) contrast(1.08) saturate(0.72); transform: none; transition: opacity 0.38s ease 0.08s, filter 0.38s ease; }
 .nv-s7-card::after { content: ""; position: absolute; inset: 0; z-index: 1; background: linear-gradient(90deg, #050706e6 0%, #050706cc 30%, #05070666 55%, #05070626 100%); opacity: 0; pointer-events: none; transition: opacity 0.35s ease; }
 .nv-s7-card:hover .nv-s7-card__visual, .nv-s7-card:focus-visible .nv-s7-card__visual, .nv-s7-card.is-active .nv-s7-card__visual { opacity: 1; }
@@ -985,7 +985,7 @@ canvas.nv-step-viz {
 .nv-process__visual { position: relative; z-index: 1; height: 219px; margin-bottom: 28px; transform: scale(var(--nv-process-depth)); transform-origin: 50% 80%; transform-style: preserve-3d; }
 .nv-process__module { position: absolute; top: var(--nv-module-top, 0px); left: 50%; z-index: 2; width: 156px; height: 156px; object-fit: contain; transform: translateX(-50%); filter: drop-shadow(0 11.2px 12.8px rgba(0, 0, 0, 0.55)); }
 .nv-process__base { position: absolute; bottom: 0; left: 50%; z-index: 1; width: 198px; height: auto; object-fit: contain; transform: translateX(-50%); }
-.nv-process__step h3 { margin: 0 0 4.8px; color: #fae385; filter: var(--gold-glow); font: var(--w-bildunterschrift) var(--t-bildunterschrift)/1.2 "Exo 2", Inter, Arial, sans-serif; text-transform: uppercase; }
+.nv-process__step h3 { margin: 0 0 4.8px; color: #fae385; font: var(--w-bildunterschrift) var(--t-bildunterschrift)/1.2 "Exo 2", Inter, Arial, sans-serif; text-transform: uppercase; }
 .nv-process__step p { margin: 0; color: #b9c3bd; font: 500 9.6px/1.5 Inter, Arial, sans-serif; }
 .nv-process__actions { display: flex; align-items: center; gap: 14.4px; margin-top: 32px; justify-content: center; }
 .nv-process::after { content: ""; position: absolute; left: 7%; right: 7%; bottom: 0; height: 0.8px; background: linear-gradient(90deg,transparent,#fae385 20%,#fae385 80%,transparent); box-shadow: 0 0 6.4px #fae38566; pointer-events: none; }@media (max-width: 1100px) {
@@ -1298,15 +1298,9 @@ canvas.nv-step-viz {
 .nv-seo-promo.is-visible {
   opacity: 1;
   transform: none;
-  animation: nv-seo-promo-glow 1.1s ease-out 1;
-}
-@keyframes nv-seo-promo-glow {
-  0%, 100% { filter: drop-shadow(0 0 0 rgba(212,175,55,0)); }
-  45% { filter: drop-shadow(0 0 22px rgba(212,175,55,.22)); }
 }
 @media (prefers-reduced-motion: reduce) {
   .nv-seo-promo { opacity: 1; transform: none; transition: none; }
-  .nv-seo-promo.is-visible { animation: none; }
 }
 
 /* ==========================================================================

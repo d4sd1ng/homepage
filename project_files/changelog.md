@@ -1,3 +1,18 @@
+## 2026-10-13 - Homepage: Blur-Korrektur und fehlende Card-Grundfarbe
+
+Status: in Arbeit
+
+- `homepage/index.html`: die von Codex erneut eingeführten weichen 8-/21-px-Schatten aus `--gold-glow` entfernt. Der vorherige scharfe 0-px-Lichtkanteneffekt und die separate `nv-gold-shine`-Titelanimation bleiben erhalten.
+- Die zusätzlich eingeführten statischen Filter auf `.nvp4-projectidea__idea h3` und `.nv-process__step h3` entfernt.
+- `.nv-seo-promo.is-visible`: den hinzugefügten verschwommenen Goldglow einschließlich `nv-seo-promo-glow`-Keyframes und überflüssiger Reduced-Motion-Animationsregel entfernt. Einflug, Fade-in und bestehender Scroll-Observer bleiben erhalten.
+- `.nv-s7-card`: die bislang transparente Grundfläche direkt in der vorhandenen Basisregel auf `var(--color-gunmetal-dark)` geändert. Die identische Hintergrunddeklaration aus der vorhandenen Hover-/Focus-/Aktiv-Regel entfernt. Damit verwenden auch inaktive Desktop-Cards und die mobile Card-Grundfläche Dark Gunmetal `#15191A`.
+- Hintergrundprüfung: alle zehn Homepage-Inhaltssektionen verwenden bereits `--color-deep-green`; sowohl die Homepage-Definition als auch der eingebundene Runtime-Token sind `#05140A`. Diese bereits freigegebenen Werte nicht erneut oder abweichend verändert. Paket-, Analyse-, Kontakt-, Download- und Checklisten-Cards verwenden den vorhandenen Gunmetal-Token. Ausdrücklich grüne und goldene Flächen unverändert.
+- Keine neuen CSS-Selektoren, Override-Blöcke oder `!important`-Regeln. Keine Texte, IDs, Assetpfade, zwölf Script-Blöcke, Formularverträge, Detailseiten oder Deploy-Konfigurationen geändert.
+
+Prüfung: offline HTML-/CSS-Parser, JavaScript-Syntax, JSON-LD, unveränderte IDs/Formulare/Links, Oberflächen-Token, alle sieben Bullet-Marker-Regeln, FAQ-Regeln, Footer-Reihenfolge, Calendly-Zuordnung, Reduced-Motion-Regeln und `git diff --check` erfolgreich. Die deklarierte Grundfarbe aller elf Service-Cards geprüft, nicht deren Live-Darstellung.
+
+Offen: Der vorherige Eintrag ist kein Nachweis, dass alle GitHub-Issues visuell gelöst sind. Der Nutzer meldet weiterhin falsche Live-Hintergrund-/Card-Farben. Live-Browserzugriff bleibt trotz Nutzerfreigabe durch die Werkzeugrichtlinie blockiert. Screenshot des tatsächlich falschen Zustands angefordert; Ursache dieses verbleibenden Darstellungsunterschieds noch nicht nachgewiesen. Keine erneute Live-Prüfung, kein Push und kein Deployment durchgeführt.
+
 ## 2026-10-13 - Homepage: GitHub-Issues 56, 57, 58 und 74 bis 78
 
 Status: fertig
