@@ -1761,3 +1761,21 @@ Status: in Arbeit
 - Die bewegte Rahmen-Animation der Mini-Cards deaktiviert; vorhandene Neigung und Hover-Ausrichtung bleiben. Die scharfe Materialkante sitzt wie bei der vorhandenen Muster-Card diagonal versetzt. Abschnitt 5 `.nv-s7-card` sowie Card-Texte, Bilder, Links und JavaScript unveraendert.
 
 Offen: gerenderte Desktop-, Mobile- und Reduced-Motion-Pruefung. Kein Push oder Deployment in diesem Schritt.
+
+## 2026-10-13 - FAQ-Fragenblock zentriert
+
+Status: in Arbeit
+
+- `homepage/index.html`: `.nv-faq-grid` innerhalb des bestehenden FAQ-Layouts horizontal zentriert.
+- FAQ-Titel, Subline, Beschreibung, Fragen, Antworten und Interaktion unveraendert.
+
+Offen: gerenderte Desktop- und Mobile-Pruefung.
+
+## 2026-10-13 - Download-Karten am Rand nicht mehr abgeschnitten
+
+Status: in Arbeit
+
+- `homepage/index.html`: `.download-display` verwendet den vorhandenen Abstandstoken `--space-4` statt der nicht definierten Variable `--nv-space-md`. `overflow: visible` laesst die geneigten Karten und ihre Kanten vollstaendig sichtbar.
+- Download-Texte, Assets, Links, CTA- und Checklist-Logik unveraendert.
+
+Offen: gerenderte Desktop- und Mobile-Pruefung.
