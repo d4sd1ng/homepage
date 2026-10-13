@@ -1,3 +1,15 @@
+## 2026-10-13 - Automationspakete: goldene Bullet-Titel und Preiszeilen
+
+Status: fertig
+
+- `homepage/index.html`, `.nv-pack__features li`: die zwölf alleinstehenden Funktions-/Bullet-Titel ohne Beschreibung verwenden gemäß Screenshot-Auftrag Gold `#FAE385` statt Off-White. Grüne 3D-Punkte unverändert.
+- `.nv-pack__price b` und `.nv-pack__price span`: beide direkt in den vorhandenen Regeln auf `grid-row: 1` gesetzt. Die bereits festgelegten Spalten 2 für den Betrag und 1 für die Bezeichnung sowie `align-items: baseline` bleiben erhalten. Der zuerst im DOM stehende Betrag kann die anschließend platzierte Bezeichnung damit nicht mehr in eine zweite automatische Grid-Zeile verschieben.
+- Alle sechs vorhandenen Preis-/Bezeichnungspaare der drei Paket-Cards erfasst. Wortlaut, Beträge, Farben der Preise und ihrer Bezeichnungen, Fonts, Abstände, CTA, Assets, IDs, Formulare, JavaScript und Detailseiten unverändert. Keine neuen Selektoren, Override-Blöcke oder `!important`-Regeln.
+
+Prüfung: lokale HTML-/CSS-Parser, unveränderte sechs Preis-/Bezeichnungspaare, gleiche explizite Grid-Zeile bei getrennten Spalten und Baseline-Ausrichtung, Goldton der zwölf Paket-Bullets, grüne Marker, bestehende Regressionstests sowie `git diff --check` erfolgreich.
+
+Offen: keine erneute gerenderte Desktop-/Mobile-Prüfung wegen weiterhin blockiertem Browserzugriff. Kein Push oder Deployment ausgeführt.
+
 ## 2026-10-13 - Homepage: FAQ-Breite und Bullet-/Preisfarben korrigiert
 
 Status: fertig
