@@ -1,3 +1,31 @@
+## 2026-10-14 - Ablaufmodule enger angeordnet
+
+Status: in Arbeit
+
+- `homepage/index.html`: `.nv-process__steps` auf maximal 1000 px statt 1440 px begrenzt, Spaltengap auf 24 px gesetzt und oberen Abstand von 20 auf 12 px reduziert.
+- `.nv-process__visual`: Skalierungsursprung nach oben verlegt und die durch Skalierung ungenutzte Hoehe im unteren Abstand ausgeglichen. Sichtbare Modul-/Sockelgroesse bleibt unveraendert; Abstand zur Beschriftung auf 14 px reduziert.
+- `.nv-process__step:not(:last-child)::after`: bestehende Verbindungspfeile mittig im kleineren Spaltengap und auf Hoehe der nach oben gerueckten Module ausgerichtet.
+- Texte, Assets, Modulreihenfolge, CTAs, Formulare, JavaScript sowie bestehende Mobile-Visual-Regeln unveraendert.
+
+Pruefung: CSS-Parser, unveraenderte HTML-/JavaScript-Struktur und `git diff --check` erfolgreich.
+
+Offen: gerenderte Desktop-/Mobile-Pruefung durch weiterhin blockierten Browserzugriff. Lokal geaendert; kein Deployment.
+
+## 2026-10-14 - Raster entfernt, Bildeffekte zurueckgenommen und SEO Toolbox erklaert
+
+Status: in Arbeit
+
+- `homepage/index.html`: Raster aus `--nv-holo-face` entfernt; vorhandene Gold-/Smaragd-Schimmer erhalten, Grundflaeche auf vorhandenen Schwarz-Token gesetzt. Unbenutzte `--nv-holo-overlay`-Variable und Bild-Overlay-Regel entfernt.
+- `.nv-about__media`, `.nv-step-card` und `.nvp4-projectidea__image`: zusaetzliche Card-Neigung, Materialkanten und Hover-Ausrichtung auf Bildern auf den Stand vor `38eb1d3` zurueckgenommen, einschliesslich mobiler Projektstart-Regeln. Bestehende Staffelung und Bild-Assets erhalten.
+- `.nv-analyse__offer--deep .nv-analyse__offer-list li`: ausschliesslich die sechs Bulletpoint-Texte der Tiefenanalyse-Card mit vorhandenem Goldtoken dargestellt. Irrtuemliche Goldfaerbung des Preishinweises zurueckgenommen; beide Angebotshinweise bleiben grau. Gruene Bulletpoint-Symbole und die kostenlose Card unveraendert. Zwei bestehende `!important`-Deklarationen der Hinweisregel durch gezielte Selektoren ersetzt.
+- Vorhandene Logo-Hintergrundregeln ueber `--asset-logo-mark` mit dem realen, bereits im Header verwendeten Asset `assets/hero/nurovelle_logo_gold.png` verbunden; vorhandene dezente Deckkraft erhalten.
+- Drei bestehende `.nv-seo-promo`-Hinweise um Titel `SEO Toolbox` und Satz `Pruefen Sie Ihre Website auf SEO-Probleme und Verbesserungspotenzial.` ergaenzt (im HTML mit Umlaut). Kompakte schwarze Box mit vorhandenem Goldrahmen; Mobile maximal 320 px. Vorhandener Einflug von links nach rechts, Observer, Reduced Motion, CTA und Link `detail_seo.html` erhalten.
+- Formulare, Consent, Honeypot, gesamte JavaScript-Logik, Bilder und Assetpfade unveraendert. Bereits vor Arbeitsbeginn vorhandene Download-Aenderungen erhalten.
+
+Pruefung: CSS-Parser, JavaScript-Syntax, identische Formular-/Script-/Bildstruktur und `git diff --check` erfolgreich.
+
+Offen: gerenderte Desktop-/Mobile- und Reduced-Motion-Pruefung sowie Browserkonsole, da Browsernavigation blockiert war. Lokal geaendert; kein Push oder Deployment.
+
 ## 2026-10-13 - Holo-Card: isolierte Musterkarte mit leichter Ruhe-Neigung
 
 Status: in Arbeit
@@ -1768,6 +1796,15 @@ Status: in Arbeit
 
 - `homepage/index.html`: `.nv-faq-grid` innerhalb des bestehenden FAQ-Layouts horizontal zentriert.
 - FAQ-Titel, Subline, Beschreibung, Fragen, Antworten und Interaktion unveraendert.
+
+Offen: gerenderte Desktop- und Mobile-Pruefung.
+
+## 2026-10-13 - Download-Karten ohne Raster und Hintergrundstrich
+
+Status: in Arbeit
+
+- `homepage/index.html`: `.download-item` wieder mit der bestehenden glatten Gunmetal-Flaeche statt `--nv-holo-face` dargestellt. Versetzte Tiefenschatten an den Karten sowie die Trennlinie von `.download-display__header` entfernt.
+- Bestehende Karteneigung, Goldrahmen, Inhalte, Assets und Download-/Checklist-Logik unveraendert.
 
 Offen: gerenderte Desktop- und Mobile-Pruefung.
 

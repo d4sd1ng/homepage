@@ -97,17 +97,11 @@
   --gold-glow: drop-shadow(0 0.8px 0 rgba(255,245,180,.18));
   --gold-2: linear-gradient(135deg, #DFBD69, #926F34);
   --gold-3: linear-gradient(135deg, #76551A 0%, #AE8625 13%, #F7EF8A 27%, #FFF9C9 33%, #D2AC47 43%, #926F34 57%, #EDC967 72%, #FFF3A1 80%, #9B7423 100%);
+  --asset-logo-mark: url("assets/hero/nurovelle_logo_gold.png");
   --nv-holo-face:
-    linear-gradient(90deg, rgba(255,255,255,.08) 1px, transparent 1px) 0 0 / 20px 20px padding-box,
-    linear-gradient(0deg, rgba(255,255,255,.08) 1px, transparent 1px) 0 0 / 20px 20px padding-box,
     radial-gradient(circle at 22% 18%, rgba(217,161,47,.18), transparent 34%) padding-box,
     radial-gradient(circle at 82% 78%, rgba(80,200,120,.14), transparent 38%) padding-box,
-    linear-gradient(var(--color-gunmetal-dark), var(--color-gunmetal-dark)) padding-box;
-  --nv-holo-overlay:
-    linear-gradient(90deg, rgba(255,255,255,.08) 1px, transparent 1px) 0 0 / 20px 20px,
-    linear-gradient(0deg, rgba(255,255,255,.08) 1px, transparent 1px) 0 0 / 20px 20px,
-    radial-gradient(circle at 22% 18%, rgba(217,161,47,.18), transparent 34%),
-    radial-gradient(circle at 82% 78%, rgba(80,200,120,.14), transparent 38%);
+    linear-gradient(var(--color-black), var(--color-black)) padding-box;
   --nv-holo-depth: 4px 4px 0 var(--color-gold-deep), 7px 7px 0 var(--color-black);
   --nv-holo-depth-flat: 2px 2px 0 var(--color-gold-deep), 4px 4px 0 var(--color-black);
   --frame-glow: 0 0.8px 0 rgba(255,255,220,.30) inset, 0 -1.6px 2.4px rgba(76,46,5,.60) inset, 0 0 0 0.8px rgba(146,111,52,.55), 0 4.8px 12.8px rgba(0,0,0,.42), 0 0 17.6px rgba(212,175,55,.16);
@@ -369,8 +363,7 @@ a:active .golden-button,
 .nv-about__bullets li { position: relative; padding-left: 14.4px; }
 .nv-about__bullets strong { position: relative; display: block; margin-bottom: 1.6px;   color: #fae385;      font-family: "Inter",Arial,sans-serif; font-size: var(--t-bulletlabel); font-weight: var(--w-bulletlabel); }
 .nv-about__bullets strong::before { content: ""; position: absolute; top: 50%; left: -14.4px; width: 9px; height: 9px; border-radius: 50%; background: url("assets/Bulletpoint.png") center / contain no-repeat; transform: translateY(-50%); }
-.nv-about__media { grid-column: 2; grid-row: 5; align-self: center; justify-self: start; position: relative; aspect-ratio: 16 / 9; border: 0.8px solid transparent; border-radius: 6.4px; background-image: linear-gradient(135deg, #ffffff12 0%, #ffffff03 28%, #00000000 29%), radial-gradient(circle at 52% 72%, #9bff6b4d 0%, #1f5f3b1f 28%, #00000000 60%), linear-gradient(150deg, #101a15 0%, #020403 100%), var(--gold-3); background-origin: border-box; background-clip: padding-box, padding-box, padding-box, border-box; overflow: hidden; width: var(--nv-about-media-column); margin-left: 0; transform: perspective(880px) rotateX(1.4deg) rotateY(-2deg); transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1); box-shadow: var(--nv-holo-depth); }
-.nv-about__media:hover, .nv-about__media:focus-within { transform: perspective(880px) rotateX(0) rotateY(0); box-shadow: var(--nv-holo-depth-flat); }
+.nv-about__media { grid-column: 2; grid-row: 5; align-self: center; justify-self: start; position: relative; aspect-ratio: 16 / 9; border: 0.8px solid transparent; border-radius: 6.4px; background-image: linear-gradient(135deg, #ffffff12 0%, #ffffff03 28%, #00000000 29%), radial-gradient(circle at 52% 72%, #9bff6b4d 0%, #1f5f3b1f 28%, #00000000 60%), linear-gradient(150deg, #101a15 0%, #020403 100%), var(--gold-3); background-origin: border-box; background-clip: padding-box, padding-box, padding-box, border-box; overflow: hidden; width: var(--nv-about-media-column); margin-left: 0; }
 .nv-about__media img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0.9; filter: brightness(0.74) contrast(1.02) saturate(0.92); }
 .nv-about__play { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); width: 44.8px; aspect-ratio: 1; border: 0.8px solid transparent; border-radius: 50%; background-image: linear-gradient(#050706,#050706), var(--gold-3); background-origin: border-box; background-clip: padding-box, border-box; box-shadow: 0 0 17.6px #bc881b45; }
 .nv-about__play::before { content: ""; position: absolute; left: 17.6px; top: 13.6px; border-style: solid; border-width: 8.8px 0 8.8px 12.8px; border-color: transparent transparent transparent #fae385; }@media (max-width: 899px) {
@@ -453,10 +446,7 @@ a:active .golden-button,
 .nv-step-card { position: relative; width: 428px; /* shrunk 15% from 504px */
   aspect-ratio: 470 / 360; padding: 53.6px 35.2px 37.6px; /* was 55.2px 36px 38.4px real / 36.8px 24px 25.6px / 43.2px 28px 29.6px / 48px 31.2px 33.6px last passes */
   display: flex; flex-direction: column; justify-content: flex-start;
-  background: transparent; border: 0; border-radius: 6.4px; box-shadow: var(--nv-holo-depth); overflow: hidden; transform: perspective(880px) rotateX(1.2deg) rotateY(-1.8deg); transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.35s cubic-bezier(0.22, 1, 0.36, 1); }
-.nv-step-item:nth-child(2) .nv-step-card { transform: perspective(880px) rotateX(-1.4deg) rotateY(1.8deg); }
-.nv-step-card:hover, .nv-step-card:focus-within { transform: perspective(880px) rotateX(0) rotateY(0); box-shadow: var(--nv-holo-depth-flat); }
-.nv-step-item:nth-child(2) .nv-step-card:hover, .nv-step-item:nth-child(2) .nv-step-card:focus-within { transform: perspective(880px) rotateX(0) rotateY(0); }
+  background: transparent; border: 0; border-radius: 6.4px; box-shadow: none; overflow: hidden; }
 .nv-step-card h3 { margin: 0 0 7.2px; font-size: var(--t-kartentitel); font-weight: var(--w-kartentitel); font-family: "Exo 2", "Inter", Arial, sans-serif; line-height: 1.05; letter-spacing: 0.025em; color: transparent; background: var(--gold-1); background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
 .nv-step-card p { margin: 0; font-size: var(--t-kartenbullet); font-weight: var(--w-kartenbullet); font-family: "Inter", Arial, sans-serif; line-height: 1.5; color: var(--color-text-light); }
 .nv-step-card__more { display: block; margin-top: 11.2px; /* was 11.2px real / 7.2px / 8.8px / 9.6px last passes */
@@ -548,15 +538,9 @@ a:active .golden-button,
 .nvp4-projectidea__slide:nth-child(2) { animation-delay: 4s; }
 .nvp4-projectidea__slide:nth-child(3) { animation-delay: 9s; }
 .nvp4-projectidea__slide:nth-child(1) { animation-delay: -1s; grid-template-columns: 766.4px 336px; }
-.nvp4-projectidea__image { position: relative; margin: 0; width: 416px; aspect-ratio: 1; background: #010603; border-radius: 6.4px; overflow: hidden; justify-self: center; border: 0.8px solid var(--color-gold-deep); box-shadow: var(--nv-holo-depth); transform: perspective(880px) rotateX(1.4deg) rotateY(-2deg); transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.35s cubic-bezier(0.22, 1, 0.36, 1); }
-.nvp4-projectidea__slide:nth-child(2) .nvp4-projectidea__image { transform: perspective(880px) rotateX(-1.4deg) rotateY(2deg); }
-.nvp4-projectidea__slide:nth-child(3) .nvp4-projectidea__image { transform: perspective(880px) rotateX(1.8deg) rotateY(1.2deg); }
-.nvp4-projectidea__image:hover, .nvp4-projectidea__image:focus-within { transform: perspective(880px) rotateX(0) rotateY(0); box-shadow: var(--nv-holo-depth-flat); }
-.nvp4-projectidea__slide:nth-child(2) .nvp4-projectidea__image:hover, .nvp4-projectidea__slide:nth-child(2) .nvp4-projectidea__image:focus-within, .nvp4-projectidea__slide:nth-child(3) .nvp4-projectidea__image:hover, .nvp4-projectidea__slide:nth-child(3) .nvp4-projectidea__image:focus-within { transform: perspective(880px) rotateX(0) rotateY(0); }
+.nvp4-projectidea__image { position: relative; margin: 0; width: 416px; aspect-ratio: 1; background: #010603;border-radius: 6.4px; overflow: hidden; justify-self: center; }
 .nvp4-projectidea__image--wide { width: 766.4px; aspect-ratio: 16 / 9; }
 .nvp4-projectidea__image img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: center; background: #010603; }
-.nv-about__media::after, .nv-step-card::after, .nvp4-projectidea__image::after { content: ""; position: absolute; inset: 0; z-index: 1; border-radius: inherit; background: var(--nv-holo-overlay); pointer-events: none; }
-.nv-about__play { z-index: 2; }
 .nvp4-projectidea__slide:nth-child(1) .nvp4-projectidea__image img { background: transparent; object-fit: cover; }
 .nvp4-projectidea__idea { max-width: 336px; text-align: left; }
 .nvp4-projectidea__idea h3 { margin: 0 0 9.6px; font-size: var(--t-zwischentitel); font-weight: var(--w-zwischentitel); font-family: "Exo 2", "Inter", Arial, sans-serif; line-height: 1.3; color: #fae385; }
@@ -869,7 +853,8 @@ canvas.nv-step-viz {
 .nv-analyse__offer-price { color: #d4af37 !important; font: 600 22px/1.3 Inter,Arial,sans-serif !important; }
 .nv-analyse__offer-price--stacked { display: grid; grid-template-columns: max-content max-content; column-gap: 12px; row-gap: 2px; align-items: baseline; width: max-content; }
 .nv-analyse__offer-price--stacked .nv-analyse__offer-price-value { text-align: right; justify-self: end; font-variant-numeric: tabular-nums; }
-.nv-analyse__offer-note { color: #8b938d !important; font-size: 14px !important; }
+.nv-analyse__offer p.nv-analyse__offer-note { color: #8b938d; font-size: 14px; }
+.nv-analyse__offer--deep .nv-analyse__offer-list li { color: var(--nv-gold-highlight); }
 .nv-analyse__offer .hero-cta { margin-top: auto; align-self: flex-start; padding-top: 8px; }
 @media (max-width: 1100px) { .nv-analyse__offers { grid-template-columns: 1fr; } }
 .nv-analyse__layout { display: grid; grid-template-columns: minmax(0,1fr); gap: 24px; align-items: start; }
@@ -920,7 +905,7 @@ canvas.nv-step-viz {
 /* PORT: section-3 — diagrams on glass, all text ABOVE each panel; ascending staircase via translateY (card 2 stays put) */
 .nv-step-ladder, .nv-step-item, .nv-step-card { overflow: visible; }
    /* card 1 down → lowest */
-.nv-step-item:nth-child(3) .nv-step-card { transform: perspective(880px) translateY(-72px) rotateX(-1.2deg) rotateY(1.8deg); }
+.nv-step-item:nth-child(3) .nv-step-card { transform: translateY(-72px); }
   /* card 3 up → highest */
 /* PORT: hero stats row (below hero CTAs) */
 .hero-stats {
@@ -995,9 +980,7 @@ canvas.nv-step-viz {
 .nv-aform__row .hero-cta { flex: 0 0 auto; padding: 0; border: 0; background: none; cursor: pointer; }
 .nv-aform__row .golden-button { min-width: 0; height: auto; padding: 7.2px 14.4px; line-height: 1.2; font-size: 9.6px; white-space: nowrap; }
 .nv-step-item .nv-step-card__content { left: calc(20% - 4.8px); right: auto; top: -96px; bottom: auto; width: 80%; text-align: left; }
-.nv-step-item:nth-child(1) .nv-step-card { transform: perspective(880px) translateY(72px) rotateX(1.2deg) rotateY(-1.8deg); }
-.nv-step-item:nth-child(1) .nv-step-card:hover, .nv-step-item:nth-child(1) .nv-step-card:focus-within { transform: perspective(880px) translateY(72px) rotateX(0) rotateY(0); }
-.nv-step-item:nth-child(3) .nv-step-card:hover, .nv-step-item:nth-child(3) .nv-step-card:focus-within { transform: perspective(880px) translateY(-72px) rotateX(0) rotateY(0); }
+.nv-step-item:nth-child(1) .nv-step-card { transform: translateY(72px); }
 .hero-stat b { display: block; margin-bottom: 3.2px; font-family: "Exo 2", "Inter", Arial, sans-serif; font-weight: var(--w-hero-kennzahl); font-size: var(--t-hero-kennzahl); line-height: 1; background: var(--gold-2); background-clip: text; -webkit-background-clip: text; color: transparent; -webkit-text-fill-color: transparent; }
 .hero-stat span { font-size: var(--t-hero-statlabel); font-weight: var(--w-hero-statlabel); color: var(--color-text-muted); letter-spacing: 0.04em; }
 .nv-process { display: flex; flex-direction: column; justify-content: center;  min-height: calc(100vh - var(--header-height)); position: relative; padding: 32px var(--side) 32px; background: var(--color-deep-green); color: var(--color-text-light); overflow: hidden; }
@@ -1006,7 +989,7 @@ canvas.nv-step-viz {
 .nv-process__title { margin: 0 0 20px; color: transparent; background: var(--gold-1); background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent; font: var(--w-sektionstitel) var(--t-sektionstitel)/1.15 "Exo 2", Inter, Arial, sans-serif; white-space: nowrap; }
 .nv-process__subtitle { max-width: 60ch; margin: 0 0 32px; color: var(--color-text-sub); font: var(--w-subtitle) var(--t-subtitle)/1.22 "Inter", Arial, sans-serif; }
 .nv-process__intro { max-width: 58ch; margin: 0; color: #b9c3bd; font: var(--w-fliesstext) var(--t-fliesstext)/1.85 "Inter", Arial, sans-serif; }
-.nv-process__steps { position: relative; display: flex; justify-content: center; align-items: flex-start; gap: clamp(38.4px, 4vw, 76.8px); width: 100%; max-width: 1440px; margin: 20px auto 0; padding: 8px 0 19.2px; list-style: none; }
+.nv-process__steps { position: relative; display: flex; justify-content: center; align-items: flex-start; gap: 24px; width: 100%; max-width: 1000px; margin: 12px auto 0; padding: 8px 0 19.2px; list-style: none; }
 .nv-process__step { --nv-process-turn: 0deg; --nv-process-depth: 0.58; position: relative; flex: 1 1 0; min-width: 0; max-width: 240px; text-align: center; }
 .nv-process__step:nth-child(even) { margin-top: 0; }
 .nv-process__step:nth-child(1) { --nv-process-turn: 26deg; --nv-module-top: 13.6px; }
@@ -1015,8 +998,8 @@ canvas.nv-step-viz {
 .nv-process__step:nth-child(4) { --nv-process-turn: -6deg; --nv-module-top: 13.6px; }
 .nv-process__step:nth-child(5) { --nv-process-turn: -16deg; --nv-module-top: 13.6px; }
 .nv-process__step:nth-child(6) { --nv-process-turn: -26deg; --nv-module-top: 13.6px; }
-.nv-process__step:not(:last-child)::after { content: "\2192"; position:absolute; top:126px; left:calc(100% + clamp(19.2px, 2vw, 38.4px)); z-index:0; color:#d4af37; font-size:clamp(30px,2.7vw,44px); line-height:1; opacity:.85; transform:translate(-50%,-50%); pointer-events:none; }
-.nv-process__visual { position: relative; z-index: 1; height: 219px; margin-bottom: 28px; transform: scale(var(--nv-process-depth)); transform-origin: 50% 80%; transform-style: preserve-3d; }
+.nv-process__step:not(:last-child)::after { content: "\2192"; position:absolute; top:52px; left:calc(100% + 12px); z-index:0; color:#d4af37; font-size:clamp(30px,2.7vw,44px); line-height:1; opacity:.85; transform:translate(-50%,-50%); pointer-events:none; }
+.nv-process__visual { position: relative; z-index: 1; height: 219px; margin-bottom: calc(219px * (var(--nv-process-depth) - 1) + 14px); transform: scale(var(--nv-process-depth)); transform-origin: 50% 0; transform-style: preserve-3d; }
 .nv-process__module { position: absolute; top: var(--nv-module-top, 0px); left: 50%; z-index: 2; width: 156px; height: 156px; object-fit: contain; transform: translateX(-50%); filter: drop-shadow(0 11.2px 12.8px rgba(0, 0, 0, 0.55)); }
 .nv-process__base { position: absolute; bottom: 0; left: 50%; z-index: 1; width: 198px; height: auto; object-fit: contain; transform: translateX(-50%); }
 .nv-process__step h3 { margin: 0 0 4.8px; color: #fae385; font: var(--w-bildunterschrift) var(--t-bildunterschrift)/1.2 "Exo 2", Inter, Arial, sans-serif; text-transform: uppercase; }
@@ -1090,12 +1073,12 @@ canvas.nv-step-viz {
 .nv-contact__cta .nv-calendly-icon { width: 24px; height: 24px; flex: 0 0 24px; }
 .nv-contact__subtitle { max-width: 60ch; margin: 0 0 32px; color: var(--color-text-sub); font: var(--w-subtitle) var(--t-subtitle)/1.22 "Inter",Arial,sans-serif; }
 .nv-contact::after { content: ""; position: absolute; left: 7%; right: 7%; bottom: 0; height: 0.8px; background: linear-gradient(90deg,transparent,#fae385 20%,#fae385 80%,transparent); box-shadow: 0 0 6.4px #fae38566; pointer-events: none; }
-.download-display__header { display: flex; align-items: center; justify-content: space-between; gap: var(--nv-space-2xl); min-height: 30.4px; padding: 0 var(--nv-space-xs) var(--nv-space-sm); border-bottom: 0.8px solid rgba(212, 175, 55, 0.26); color: #d4af37; font: 700 8px/1 Inter, Arial, sans-serif; letter-spacing: 0.12em; }
+.download-display__header { display: flex; align-items: center; justify-content: space-between; gap: var(--nv-space-2xl); min-height: 30.4px; padding: 0 var(--nv-space-xs) var(--nv-space-sm); color: #d4af37; font: 700 8px/1 Inter, Arial, sans-serif; letter-spacing: 0.12em; }
 .download-display__grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 11.2px; padding-top: var(--nv-space-md); perspective: 880px; }
-.download-item { position: relative; display: grid; grid-template-columns: 49.6px minmax(0, 1fr); grid-template-rows: auto 1fr auto; column-gap: 11.2px; row-gap: 6.4px; min-width: 0; min-height: 196px; padding: 11.2px; overflow: hidden; border: 0.8px solid transparent; border-radius: 8px; background: var(--nv-holo-face), var(--gold-3) border-box; transform-style: preserve-3d; transform: perspective(880px) rotateX(1.2deg) rotateY(-2deg); transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1); box-shadow: var(--nv-holo-depth); }
+.download-item { position: relative; display: grid; grid-template-columns: 49.6px minmax(0, 1fr); grid-template-rows: auto 1fr auto; column-gap: 11.2px; row-gap: 6.4px; min-width: 0; min-height: 196px; padding: 11.2px; overflow: hidden; border: 0.8px solid transparent; border-radius: 8px; background: linear-gradient(var(--color-gunmetal-dark), var(--color-gunmetal-dark)) padding-box, var(--gold-3) border-box; transform-style: preserve-3d; transform: perspective(880px) rotateX(1.2deg) rotateY(-2deg); transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1); }
 .download-item::after { content: none; }
 .download-item > * { position: relative; z-index: 2; }
-.download-item:hover, .download-item:focus-within { transform: perspective(880px) rotateX(0) rotateY(0); box-shadow: var(--nv-holo-depth-flat); }
+.download-item:hover, .download-item:focus-within { transform: perspective(880px) rotateX(0) rotateY(0); }
 .download-item__type { grid-column: 1; grid-row: 1; align-self: start; display: flex; justify-content: center; align-items: center; gap: 6.4px; width: 38.4px; height: 38.4px; padding: 2.4px; border: 0.8px solid transparent; border-radius: 8px; background: linear-gradient(var(--color-gunmetal-dark), var(--color-gunmetal-dark)) padding-box, var(--gold-3) border-box; color: #d4af37; font: 700 7.2px/1 Inter, Arial, sans-serif; letter-spacing: 0.1em; }
 .download-item__type img { width: 32px; height: 32px; object-fit: contain; }
 .download-item__content { grid-column: 2; grid-row: 1 / span 2; min-width: 0; align-self: start; }
@@ -1305,7 +1288,7 @@ canvas.nv-step-viz {
   box-shadow: var(--frame-glow);
 }
 .nv-about__mini > div { animation: none; }
-.nv-about__media { box-shadow: var(--nv-holo-depth); }
+.nv-about__media { box-shadow: var(--frame-glow); }
 .nv-ametrics > div, .nv-aform__row { box-shadow: var(--frame-glow); }
 @keyframes nv-frame-shine {
   0%   { background-position: 0% center; }
@@ -1321,15 +1304,23 @@ canvas.nv-step-viz {
   --nv-seo-entry-offset: -160px;
   position: relative;
   z-index: 2;
-  width: max-content;
-  max-width: calc(100% - (2 * var(--side)));
+  width: min(620px, calc(100% - (2 * var(--side))));
   margin: 20px auto;
-  padding: 0;
+  padding: 16px 20px;
   display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px 20px;
+  border: 0.8px solid transparent;
+  border-radius: 8px;
+  background: linear-gradient(var(--color-black), var(--color-black)) padding-box, var(--gold-3) border-box;
   opacity: 0;
   transform: translateX(var(--nv-seo-entry-offset));
   transition: opacity .46s ease, transform .46s cubic-bezier(.22,1,.36,1);
 }
+.nv-seo-promo__copy { flex: 1 1 240px; min-width: 0; }
+.nv-seo-promo__copy strong { display: block; margin-bottom: 4px; color: var(--nv-gold-highlight); font: 600 16px/1.3 "Inter",Arial,sans-serif; }
+.nv-seo-promo__copy p { margin: 0; color: var(--color-text-muted); font: 400 14px/1.5 "Inter",Arial,sans-serif; }
 .nv-seo-promo.is-visible {
   opacity: 1;
   transform: none;
@@ -1452,12 +1443,8 @@ canvas.nv-step-viz {
      Webfonts (Exo 2 / Inter) innerhalb der Glasplatte bleibt. */
   .nv-step-card h3 { font-size: 24.8px; line-height: 1.05; margin-bottom: 6.4px; }
   .nv-step-card p { font-size: 13.6px; line-height: 1.4; }
-  .nv-step-item:nth-child(1) .nv-step-card { transform: perspective(880px) rotateX(0.7deg) rotateY(-1deg); }
-  .nv-step-item:nth-child(2) .nv-step-card { transform: perspective(880px) rotateX(-0.7deg) rotateY(1deg); }
-  .nv-step-item:nth-child(3) .nv-step-card { transform: perspective(880px) rotateX(-0.7deg) rotateY(1deg); }
-  .nv-step-item:nth-child(1) .nv-step-card:hover, .nv-step-item:nth-child(1) .nv-step-card:focus-within,
-  .nv-step-item:nth-child(2) .nv-step-card:hover, .nv-step-item:nth-child(2) .nv-step-card:focus-within,
-  .nv-step-item:nth-child(3) .nv-step-card:hover, .nv-step-item:nth-child(3) .nv-step-card:focus-within { transform: perspective(880px) rotateX(0) rotateY(0); }
+  .nv-step-item:nth-child(1) .nv-step-card,
+  .nv-step-item:nth-child(3) .nv-step-card { transform: none; }
   .nv-step-card { width: 428px; }
   .nv-section-step { min-height: auto; }
   .nv-section-step__actions { margin-top: 38.4px; }
@@ -1776,6 +1763,8 @@ canvas.nv-step-viz {
   /* SEO-Toolbox-Promo bleibt mobil im Contentfluss und blockiert nichts. */
   .nv-seo-promo {
     --nv-seo-entry-offset: -40px;
+    width: min(320px, calc(100% - (2 * var(--side))));
+    padding: 12px 14px;
     margin: 16px auto;
   }
   .nv-seo-promo .hero-cta {
@@ -2097,6 +2086,7 @@ canvas.nv-step-viz {
 </section>
 
 <aside class="nv-seo-promo" data-seo-promo aria-label="SEO Toolbox">
+  <div class="nv-seo-promo__copy"><strong>SEO Toolbox</strong><p>Prüfen Sie Ihre Website auf SEO-Probleme und Verbesserungspotenzial.</p></div>
   <a class="hero-cta" href="detail_seo.html"><span class="golden-button"><span class="golden-text">SEO Toolbox öffnen</span></span></a>
 </aside>
 
@@ -2510,6 +2500,7 @@ canvas.nv-step-viz {
 </section>
 
 <aside class="nv-seo-promo" data-seo-promo aria-label="SEO Toolbox">
+  <div class="nv-seo-promo__copy"><strong>SEO Toolbox</strong><p>Prüfen Sie Ihre Website auf SEO-Probleme und Verbesserungspotenzial.</p></div>
   <a class="hero-cta" href="detail_seo.html"><span class="golden-button"><span class="golden-text">SEO Toolbox öffnen</span></span></a>
 </aside>
 
@@ -2904,6 +2895,7 @@ canvas.nv-step-viz {
     </section>
 
 <aside class="nv-seo-promo" data-seo-promo aria-label="SEO Toolbox">
+  <div class="nv-seo-promo__copy"><strong>SEO Toolbox</strong><p>Prüfen Sie Ihre Website auf SEO-Probleme und Verbesserungspotenzial.</p></div>
   <a class="hero-cta" href="detail_seo.html"><span class="golden-button"><span class="golden-text">SEO Toolbox öffnen</span></span></a>
 </aside>
 
