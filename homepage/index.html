@@ -447,8 +447,8 @@ a:active .golden-button,
   aspect-ratio: 470 / 360; padding: 53.6px 35.2px 37.6px; /* was 55.2px 36px 38.4px real / 36.8px 24px 25.6px / 43.2px 28px 29.6px / 48px 31.2px 33.6px last passes */
   display: flex; flex-direction: column; justify-content: flex-start;
   background: transparent; border: 0; border-radius: 6.4px; box-shadow: none; overflow: hidden; }
-.nv-step-card h3 { margin: 0 0 7.2px; font-size: var(--t-kartentitel); font-weight: var(--w-kartentitel); font-family: "Exo 2", "Inter", Arial, sans-serif; line-height: 1.05; letter-spacing: 0.025em; color: transparent; background: var(--gold-1); background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-.nv-step-card p { margin: 0; font-size: var(--t-kartenbullet); font-weight: var(--w-kartenbullet); font-family: "Inter", Arial, sans-serif; line-height: 1.5; color: var(--color-text-light); }
+.nv-step-card h3 { margin: 0 0 7.2px; font-size: var(--t-kartentitel); font-weight: 600; font-family: "Exo 2", "Inter", Arial, sans-serif; line-height: 1.05; letter-spacing: 0.025em; color: transparent; background: var(--gold-1); background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+.nv-step-card p { margin: 0; font-size: var(--t-kartenbullet); font-weight: 400; font-family: "Inter", Arial, sans-serif; line-height: 1.5; color: var(--color-text-light); }
 .nv-step-card__more { display: block; margin-top: 11.2px; /* was 11.2px real / 7.2px / 8.8px / 9.6px last passes */
   color: #fae385; font-family: "Inter", Arial, sans-serif; font-size: 10.56px; font-weight: 700; line-height: 1; letter-spacing: 0.08em; text-transform: uppercase; }
 .nv-step-card__more::before { content: ""; display: block; width: 16.8px; /* was 17.6px real / 12px / 13.6px / 15.2px last passes */
@@ -835,12 +835,20 @@ canvas.nv-step-viz {
 .nv-analyse--deep .nv-analyse__offer { max-width: 860px; }
 .nv-analyse__subtitle { max-width: 60ch; margin: 0 0 32px; color: var(--color-text-sub); font: var(--w-subtitle) var(--t-subtitle)/1.22 "Inter",Arial,sans-serif; }
 .nv-analyse__intro { max-width: 854.4px; margin: 0 0 9.6px 0; color: #b9c3bd; font: var(--w-fliesstext) var(--t-fliesstext)/1.85 "Inter",Arial,sans-serif; }
-.nv-analyse__offers { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 24px; margin: 32px auto 40px; align-items: stretch; width: 100%; }
+.nv-analyse__comparison { display: grid; grid-template-columns: minmax(0,1.28fr) minmax(0,.72fr); gap: var(--space-6); align-items: center; margin: 32px auto; }
+.nv-analyse__offers { display: grid; grid-template-columns: minmax(0,1fr); gap: 16px; align-items: start; width: 100%; }
+.nv-analyse__visual { display: grid; grid-template-columns: minmax(0,1fr); grid-template-rows: minmax(0,1fr); width: min(100%, 480px); aspect-ratio: 3 / 4; margin: 0; justify-self: center; }
+.nv-analyse__image { grid-area: 1 / 1; width: 100%; height: 100%; min-height: 0; object-fit: contain; transition: opacity var(--transition-base); }
+.nv-analyse__image--deep { opacity: 0; visibility: hidden; }
+.nv-analyse__comparison:has(.nv-analyse__offer--deep .nv-analyse__disclosure[open]) .nv-analyse__image--free { opacity: 0; visibility: hidden; }
+.nv-analyse__comparison:has(.nv-analyse__offer--deep .nv-analyse__disclosure[open]) .nv-analyse__image--deep { opacity: 1; visibility: visible; }
+@media (max-width: 980px) { .nv-analyse__comparison { grid-template-columns: minmax(0,1fr); } .nv-analyse__visual { width: min(100%, 320px); } }
+@media (prefers-reduced-motion: reduce) { .nv-analyse__image { transition: none; } }
 .nv-analyse__offer { position: relative; overflow: hidden; display: flex; flex-direction: column; gap: 12px; min-height: 0; padding: 28px 32px; border: 0.8px solid transparent; border-radius: 8px; background: var(--nv-holo-face), var(--gold-3) border-box; transform: perspective(880px) rotateX(1.2deg) rotateY(-1.8deg); transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.35s cubic-bezier(0.22, 1, 0.36, 1); box-shadow: var(--nv-holo-depth); }
 .nv-analyse__offer:nth-child(even) { transform: perspective(880px) rotateX(-1.2deg) rotateY(1.8deg); }
 .nv-analyse__offer:hover, .nv-analyse__offer:focus-within { transform: perspective(880px) rotateX(0) rotateY(0); box-shadow: var(--nv-holo-depth-flat); }
 .nv-analyse__offer > * { position: relative; z-index: 2; }
-.nv-analyse__offer::before { content: ""; position: absolute; inset: 0; z-index: 0; background: var(--asset-logo-mark) center / 46% auto no-repeat; opacity: 0.07; pointer-events: none; }
+.nv-analyse__offer::before { content: ""; position: absolute; inset: 0; z-index: 0; background: var(--asset-logo-mark) center / 85% auto no-repeat; opacity: 0.025; pointer-events: none; }
 .nv-analyse__offer--deep { box-shadow: var(--nv-holo-depth); }
 .nv-analyse__offer .nv-analyse__offer-kicker { margin: 0; color: #55863f; font: var(--w-kicker-karte) var(--t-kicker-karte)/1.15 Inter,Arial,sans-serif; letter-spacing: 0.12em; text-transform: uppercase; }
 .nv-analyse__offer h3 { margin: 0; color: transparent; background: var(--gold-1); background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent; font: var(--w-kartentitel) var(--t-kartentitel)/1.1 "Exo 2",Inter,Arial,sans-serif; hyphens: none; }
@@ -856,7 +864,21 @@ canvas.nv-step-viz {
 .nv-analyse__offer p.nv-analyse__offer-note { color: #8b938d; font-size: 14px; }
 .nv-analyse__offer--deep .nv-analyse__offer-list li { color: var(--nv-gold-highlight); }
 .nv-analyse__offer .hero-cta { margin-top: auto; align-self: flex-start; padding-top: 8px; }
-@media (max-width: 1100px) { .nv-analyse__offers { grid-template-columns: 1fr; } }
+
+.nv-analyse__disclosure { width: 100%; }
+.nv-analyse__summary { position: relative; display: grid; gap: 8px; padding-right: 36px; cursor: pointer; list-style: none; }
+.nv-analyse__summary::-webkit-details-marker { display: none; }
+.nv-analyse__summary::after { content: "+"; position: absolute; right: 0; top: 50%; transform: translateY(-50%); color: var(--nv-gold-highlight); font: 400 28px/1 Inter,Arial,sans-serif; }
+.nv-analyse__disclosure[open] > .nv-analyse__summary::after { content: "−"; }
+.nv-analyse__summary:focus-visible { outline: 2px solid var(--nv-gold-highlight); outline-offset: 6px; }
+.nv-analyse__body { display: grid; gap: 16px; padding-top: 24px; max-width: 85ch; }
+.nv-analyse__disclosure[open] .nv-analyse__body { animation: nv-analysis-reveal 240ms ease-out; }
+@keyframes nv-analysis-reveal { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
+@media (prefers-reduced-motion: reduce) { .nv-analyse__disclosure[open] .nv-analyse__body { animation: none; } }
+.nv-analyse__body > p { max-width: 75ch; }
+.nv-analyse__inner > .nv-aform { width: 100%; height: auto; margin-bottom: 40px; padding: 28px 32px; transform: none; }
+@media (max-width: 640px) { .nv-analyse__offers > .nv-analyse__offer { padding: 20px 16px; transform: none; } .nv-analyse__summary h3 { font-size: 24px; overflow-wrap: break-word; } .nv-analyse__offer-price--stacked { grid-template-columns: minmax(0,1fr) max-content; width: 100%; column-gap: 8px; } .nv-analyse__inner > .nv-aform { padding: 14.4px; } }
+
 .nv-analyse__layout { display: grid; grid-template-columns: minmax(0,1fr); gap: 24px; align-items: start; }
 .nv-analyse__grid { display: grid; grid-template-columns: minmax(0,1.28fr) minmax(0,.72fr); gap: 24px; align-items: stretch; width: 100%; }@media(max-width:980px){ .nv-analyse__grid{ grid-template-columns:1fr; } }
 /* uniform card shell for all 4 cards */
@@ -980,6 +1002,8 @@ canvas.nv-step-viz {
 .nv-aform__row .hero-cta { flex: 0 0 auto; padding: 0; border: 0; background: none; cursor: pointer; }
 .nv-aform__row .golden-button { min-width: 0; height: auto; padding: 7.2px 14.4px; line-height: 1.2; font-size: 9.6px; white-space: nowrap; }
 .nv-step-item .nv-step-card__content { left: calc(20% - 4.8px); right: auto; top: -96px; bottom: auto; width: 80%; text-align: left; }
+.nv-step-item:nth-child(1) .nv-step-card__content { text-align: right; }
+.nv-step-item:nth-child(2) .nv-step-card__content { text-align: center; }
 .nv-step-item:nth-child(1) .nv-step-card { transform: translateY(72px); }
 .hero-stat b { display: block; margin-bottom: 3.2px; font-family: "Exo 2", "Inter", Arial, sans-serif; font-weight: var(--w-hero-kennzahl); font-size: var(--t-hero-kennzahl); line-height: 1; background: var(--gold-2); background-clip: text; -webkit-background-clip: text; color: transparent; -webkit-text-fill-color: transparent; }
 .hero-stat span { font-size: var(--t-hero-statlabel); font-weight: var(--w-hero-statlabel); color: var(--color-text-muted); letter-spacing: 0.04em; }
@@ -1035,18 +1059,18 @@ canvas.nv-step-viz {
 .nv-contact { min-height: calc(100vh - var(--header-height)); display: flex; flex-direction: column; position: relative; padding: 32px var(--side) 32px; background: var(--color-deep-green); color: var(--color-text-light); overflow: hidden; }
 .nv-contact__inner { position: relative; z-index: 1; width: 100%; max-width: 1560px; margin: 0 auto; display: flex; flex-direction: column; flex: 1; }
 .nv-contact__head { max-width: none; margin: 0 0 20px; }
-.nv-contact__intro { max-width: 58ch; margin: 0; color: #b9c3bd; font: var(--w-fliesstext) var(--t-fliesstext)/1.85 "Inter",Arial,sans-serif; }
+.nv-contact__intro { max-width: 90ch; margin: 0; color: #b9c3bd; font: var(--w-fliesstext) var(--t-fliesstext)/1.85 "Inter",Arial,sans-serif; }
 .nv-contact__grid { position: relative; display: grid; grid-template-columns: 407.2px 380px; gap: 24px; align-items: stretch; width: 811.2px; max-width: 100%; margin: 0 auto; flex: 1; perspective: 880px; }
 .nv-contact__portrait { position: relative; overflow: hidden; border: 0.8px solid transparent; border-radius: 8px; background: var(--nv-holo-face), var(--gold-3) border-box; transform-style: preserve-3d; transform: perspective(880px) rotateX(1.4deg) rotateY(-2deg); transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1); box-shadow: var(--nv-holo-depth); display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 0; margin-bottom: 40px; padding: 20px 20px; text-align: center; }
-.nv-contact__portrait::before { content: ""; position: absolute; inset: 0; z-index: 0; border-radius: inherit; background: var(--asset-logo-mark) center / 58% auto no-repeat; opacity: 0.07; pointer-events: none; transition: opacity 0.35s ease; }
-.nv-contact__portrait:hover::before, .nv-contact__portrait:focus-within::before { opacity: 0.2; }
+.nv-contact__portrait::before { content: ""; position: absolute; inset: 0; z-index: 0; border-radius: inherit; background: var(--asset-logo-mark) center / 85% auto no-repeat; opacity: 0.025; pointer-events: none; transition: opacity 0.35s ease; }
+.nv-contact__portrait:hover::before, .nv-contact__portrait:focus-within::before { opacity: 0.04; }
 .nv-contact__portrait > * { position: relative; z-index: 2; }
 .nv-contact__portrait::after { content: none; }
 .nv-contact__portrait:hover, .nv-contact__portrait:focus-within { transform: perspective(880px) rotateX(0) rotateY(0); box-shadow: var(--nv-holo-depth-flat); }
 .nv-contact__portrait:hover::after, .nv-contact__portrait:focus-within::after { opacity: 1; }
 .nv-contact__card { position: relative; overflow: hidden; border: 0.8px solid transparent; border-radius: 8px; background: var(--nv-holo-face), var(--gold-3) border-box; transform-style: preserve-3d; transform: perspective(880px) rotateX(-1.4deg) rotateY(2deg); transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1); box-shadow: var(--nv-holo-depth); display: flex; flex-direction: column; justify-content: center; min-height: 0; margin-top: 40px; padding: 24px 32px; }
-.nv-contact__card::before, .download-item::before { content: ""; position: absolute; inset: 0; z-index: 0; border-radius: inherit; background: var(--asset-logo-mark) center / 58% auto no-repeat; opacity: 0.07; pointer-events: none; transition: opacity 0.35s ease; }
-.nv-contact__card:hover::before, .nv-contact__card:focus-within::before, .download-item:hover::before, .download-item:focus-within::before { opacity: 0.2; }
+.nv-contact__card::before, .download-item::before { content: ""; position: absolute; inset: 0; z-index: 0; border-radius: inherit; background: var(--asset-logo-mark) center / 85% auto no-repeat; opacity: 0.025; pointer-events: none; transition: opacity 0.35s ease; }
+.nv-contact__card:hover::before, .nv-contact__card:focus-within::before, .download-item:hover::before, .download-item:focus-within::before { opacity: 0.04; }
 .nv-contact__card > * { position: relative; z-index: 2; }
 .nv-contact__card::after { content: none; }
 .nv-contact__card:hover, .nv-contact__card:focus-within { transform: perspective(880px) rotateX(0) rotateY(0); box-shadow: var(--nv-holo-depth-flat); }
@@ -2584,98 +2608,99 @@ canvas.nv-step-viz {
     </div>
     </div>
 
-      <div class="nv-analyse__offers">
-        <article class="nv-analyse__offer">
-          <p class="nv-analyse__offer-kicker">Kostenlos</p>
-          <h3>Kostenlose Potenzialanalyse</h3>
-          <p>Die Potenzialanalyse ist kein Verkaufsformular, sondern ein strukturierter Einstieg. Sie zeigt, welche Abläufe aktuell Zeit binden, wo Medienbrüche entstehen und welche Datenquellen bereits vorhanden sind.</p>
-          <p class="nv-analyse__offer-label">Was geprüft wird</p>
-          <ul class="nv-analyse__offer-list">
-            <li><strong>Prozesslage</strong> Welche wiederkehrenden Aufgaben aktuell Zeit binden, wo Rückfragen entstehen und welche Übergaben manuell laufen.</li>
-            <li><strong>Datenlage</strong> Welche Systeme, Tabellen, E-Mails oder Dokumente beteiligt sind und ob die Informationen nutzbar zusammengeführt werden können.</li>
-            <li><strong>Automatisierungspotenzial</strong> Ob KI, Automatisierung, SaaS-Tool oder ein normaler Prozessumbau für den konkreten Ablauf sinnvoller ist.</li>
-            <li><strong>Nächster Schritt</strong> Welche Umsetzung zuerst den größten Nutzen bringt und welcher Einstieg realistisch vorbereitet werden sollte.</li>
-          </ul>
-          <p>Eine klare erste Einschätzung, ob und wo sich KI-Automatisierung lohnt — mit einer Einordnung von Einsparpotenzial, Aufwand, Nutzen und Priorität sowie einer Empfehlung für den sinnvollsten nächsten Schritt.</p>
-          <p class="nv-analyse__offer-price">199&nbsp;€ · für Sie kostenlos</p>
-          <p class="nv-analyse__offer-note">Kein Abo. Keine versteckten Kosten. Formular direkt daneben.</p>
-        </article>
-        <article class="nv-analyse__offer nv-analyse__offer--deep">
-          <p class="nv-analyse__offer-kicker">Wesentliche Erweiterung</p>
-          <h3>Tiefgehende Potenzialanalyse</h3>
-          <p>Die Tiefgehende Potenzialanalyse geht über die kostenlose Potenzialanalyse hinaus. Sobald mehrere Prozesse, eine Investitionsentscheidung oder technische Abhängigkeiten betroffen sind, reicht die erste Einordnung nicht aus. Die kostenlose Analyse ist der übliche Einstieg, aber keine Voraussetzung.</p>
-          <p>Prozesse, Daten und Systeme werden vollständig erfasst. Daraus entsteht nicht nur eine Einschätzung, sondern ausgearbeiteter Output für die Umsetzung.</p>
-          <p class="nv-analyse__offer-label">Zusätzlicher Output gegenüber der kostenlosen Analyse</p>
-          <ul class="nv-analyse__offer-list">
-            <li>ROI-Überschlag je Prozess</li>
-            <li>technische Lösungsarchitektur</li>
-            <li>detaillierte Schnittstellenplanung</li>
-            <li>ausgearbeitete Implementierungs-Roadmap</li>
-            <li>Workshop mit Ihrem Team</li>
-            <li>Report als HTML und PDF sowie Implementierungsleitfaden</li>
-          </ul>
-          <p class="nv-analyse__offer-price nv-analyse__offer-price--stacked"><span>Einführungspreis</span><span class="nv-analyse__offer-price-value">555&nbsp;€ netto</span><span>Listenpreis</span><span class="nv-analyse__offer-price-value">699&nbsp;€ netto</span></p>
-          <p class="nv-analyse__offer-note">Einführungspreis für Anfragen bis 31.12.2026, zzgl. 19&nbsp;% MwSt. Scope wird vor Start schriftlich festgehalten.</p>
-          <a class="hero-cta" href="potenzialanalyse-deep.html">
-            <span class="golden-button"><span class="golden-text">Tiefgehende Potenzialanalyse ansehen</span></span>
-          </a>
-        </article>
-      
+<div class="nv-analyse__comparison">
+<div class="nv-analyse__offers">
+<article class="nv-analyse__offer"><details class="nv-analyse__disclosure" name="nv-analysis-offer" open=""><summary class="nv-analyse__summary"><p class="nv-analyse__offer-kicker">Kostenlos</p><h3>Kostenlose Potenzialanalyse</h3></summary><div class="nv-analyse__body">
 
-      <form class="nv-acard nv-aform" id="nvAnaForm" action="analyse.html#analyse-formular" method="get">
-        <h3 id="analyse-formular">Kostenlose Potenzialanalyse</h3>
-        <p class="nv-aform__intro">Senden Sie uns die wichtigsten Angaben zu Ihrem Prozess. Wir melden uns mit einer ersten strukturierten Einordnung.</p>
-        <div class="nv-aform__grid">
-          <input autocomplete="given-name" name="vorname" placeholder="Vorname" required type="text">
-          <input autocomplete="family-name" name="nachname" placeholder="Nachname" required type="text">
-          <input autocomplete="tel" name="telefon" placeholder="Telefon optional" type="tel">
 
-          <input autocomplete="email" name="email" placeholder="E-Mail-Adresse" required type="email">
-          <input autocomplete="organization" name="unternehmen" placeholder="Unternehmen" required type="text">
-          <input autocomplete="url" name="website" placeholder="Website optional" type="url">
+<p>Die Potenzialanalyse ist kein Verkaufsformular, sondern ein strukturierter Einstieg. Sie zeigt, welche Abläufe aktuell Zeit binden, wo Medienbrüche entstehen und welche Datenquellen bereits vorhanden sind.</p>
+<p class="nv-analyse__offer-label">Was geprüft wird</p>
+<ul class="nv-analyse__offer-list">
+<li><strong>Prozesslage</strong> Welche wiederkehrenden Aufgaben aktuell Zeit binden, wo Rückfragen entstehen und welche Übergaben manuell laufen.</li>
+<li><strong>Datenlage</strong> Welche Systeme, Tabellen, E-Mails oder Dokumente beteiligt sind und ob die Informationen nutzbar zusammengeführt werden können.</li>
+<li><strong>Automatisierungspotenzial</strong> Ob KI, Automatisierung, SaaS-Tool oder ein normaler Prozessumbau für den konkreten Ablauf sinnvoller ist.</li>
+<li><strong>Nächster Schritt</strong> Welche Umsetzung zuerst den größten Nutzen bringt und welcher Einstieg realistisch vorbereitet werden sollte.</li>
+</ul>
+<p>Eine klare erste Einschätzung, ob und wo sich KI-Automatisierung lohnt — mit einer Einordnung von Einsparpotenzial, Aufwand, Nutzen und Priorität sowie einer Empfehlung für den sinnvollsten nächsten Schritt.</p>
 
-          <select name="branche" required>
-            <option value="">Branche auswählen</option>
-            <option>Energie &amp; Versorgung</option><option>Finanzen &amp; Versicherung</option>
-            <option>Industrie &amp; Produktion</option><option>Verwaltung, Vertrieb, Einkauf &amp; Marketing</option>
-            <option>Gesundheitswesen &amp; Pflege</option><option>Immobilien &amp; Facility Management</option>
-            <option>Bildung &amp; Forschung</option><option>Dienstleistungen &amp; KMU</option><option>Sonstiges</option>
-          </select>
-          <select name="mitarbeiteranzahl" id="nvAnaFieldSize">
-            <option value="">Unternehmensgröße optional</option>
-            <option>Einzelunternehmer / Freelancer</option><option>2–10 Mitarbeiter</option>
-            <option>11–50 Mitarbeiter</option><option>51–250 Mitarbeiter</option><option>250+ Mitarbeiter</option>
-          </select>
-          <textarea name="herausforderung" placeholder="Beschreiben Sie den Prozess, den Sie prüfen möchten: Aufgabe, Zeitaufwand, Datenquellen und aktuelles Problem." required></textarea>
 
-          <select name="zeitaufwand" id="nvAnaFieldTime" required>
-            <option value="">Aktuellen Zeitaufwand auswählen</option>
-            <option>unter 5 Stunden pro Woche</option><option>5–10 Stunden pro Woche</option>
-            <option>10–25 Stunden pro Woche</option><option>25+ Stunden pro Woche</option>
-          </select>
-          <select name="datenlage" id="nvAnaFieldData" required>
-            <option value="">Datenlage auswählen</option>
-            <option>E-Mails / Dokumente</option><option>Tabellen / CSV</option>
-            <option>CRM / ERP / Fachsystem</option><option>mehrere Quellen</option><option>noch unklar</option>
-          </select>
+</div></details><p class="nv-analyse__offer-price">199 € · für Sie kostenlos</p><p class="nv-analyse__offer-note">Kein Abo. Keine versteckten Kosten. Formular direkt darunter.</p></article>
+<article class="nv-analyse__offer nv-analyse__offer--deep"><details class="nv-analyse__disclosure" name="nv-analysis-offer"><summary class="nv-analyse__summary"><p class="nv-analyse__offer-kicker">Wesentliche Erweiterung</p><h3>Tiefgehende Potenzialanalyse</h3></summary><div class="nv-analyse__body">
 
-          <input type="hidden" name="potenzial_prozent" id="nvAnaHiddenPct">
-          <input type="hidden" name="potenzial_stunden_jahr" id="nvAnaHiddenHours">
-          <input type="hidden" name="potenzial_einsparung_eur" id="nvAnaHiddenEuro">
-          <input type="hidden" name="anteil_automatisierbar" id="nvAnaHiddenShare">
-          <input type="hidden" name="stundensatz" id="nvAnaHiddenRate">
-          <div class="nv-aform__hp" aria-hidden="true"><label>Bitte leer lassen<input autocomplete="off" name="website_confirmation" tabindex="-1" type="text"></label></div>
 
-          <div class="nv-aform__row nv-aform__row--privacy">
-            <label class="nv-aform__consent"><input name="privacy_consent" type="checkbox" value="yes" required><span><strong>Datenschutzerklärung akzeptieren (Pflichtfeld).</strong> Ich habe die <a href="datenschutz.html">Datenschutzerklärung</a> und die <a href="analyse-rechtliche-hinweise.html">rechtlichen Hinweise zur Analyse</a> gelesen und bin einverstanden.</span></label>
-          </div>
-          <div class="nv-aform__row nv-aform__row--news">
-            <label class="nv-aform__consent"><input name="newsletter" type="checkbox" value="yes"><span><strong>Newsletter erhalten.</strong> Passende Hinweise zur Potenzialanalyse per E-Mail.</span></label>
-          </div>
-          <button class="hero-cta nv-aform__submit" type="submit"><span class="golden-button"><span class="golden-text">Kostenlose Potenzialanalyse</span></span></button>
-        </div>
-      </form>
-      </div>
+<p>Die Tiefgehende Potenzialanalyse geht über die kostenlose Potenzialanalyse hinaus. Sobald mehrere Prozesse, eine Investitionsentscheidung oder technische Abhängigkeiten betroffen sind, reicht die erste Einordnung nicht aus. Die kostenlose Analyse ist der übliche Einstieg, aber keine Voraussetzung.</p>
+<p>Prozesse, Daten und Systeme werden vollständig erfasst. Daraus entsteht nicht nur eine Einschätzung, sondern ausgearbeiteter Output für die Umsetzung.</p>
+<p class="nv-analyse__offer-label">Zusätzlicher Output gegenüber der kostenlosen Analyse</p>
+<ul class="nv-analyse__offer-list">
+<li>ROI-Überschlag je Prozess</li>
+<li>technische Lösungsarchitektur</li>
+<li>detaillierte Schnittstellenplanung</li>
+<li>ausgearbeitete Implementierungs-Roadmap</li>
+<li>Workshop mit Ihrem Team</li>
+<li>Report als HTML und PDF sowie Implementierungsleitfaden</li>
+</ul>
+
+
+
+</div></details><p class="nv-analyse__offer-price nv-analyse__offer-price--stacked"><span>Einführungspreis</span><span class="nv-analyse__offer-price-value">555 € netto</span><span>Listenpreis</span><span class="nv-analyse__offer-price-value">699 € netto</span></p><p class="nv-analyse__offer-note">Einführungspreis für Anfragen bis 31.12.2026, zzgl. 19 % MwSt. Scope wird vor Start schriftlich festgehalten.</p><a class="hero-cta" href="potenzialanalyse-deep.html">
+<span class="golden-button"><span class="golden-text">Tiefgehende Potenzialanalyse ansehen</span></span>
+</a></article>
+
+</div>
+<figure class="nv-analyse__visual" aria-hidden="true">
+  <img class="nv-analyse__image nv-analyse__image--free" src="assets/Fotos/Analyse.png" alt="" width="941" height="1672" loading="lazy" decoding="async" />
+  <img class="nv-analyse__image nv-analyse__image--deep" src="assets/Fotos/deep_analysis.png" alt="" width="927" height="1240" loading="lazy" decoding="async" />
+</figure>
+</div>
+
+<form action="analyse.html#analyse-formular" class="nv-acard nv-aform" id="nvAnaForm" method="get">
+<h3 id="analyse-formular">Kostenlose Potenzialanalyse</h3>
+<p class="nv-aform__intro">Senden Sie uns die wichtigsten Angaben zu Ihrem Prozess. Wir melden uns mit einer ersten strukturierten Einordnung.</p>
+<div class="nv-aform__grid">
+<input autocomplete="given-name" name="vorname" placeholder="Vorname" required="" type="text"/>
+<input autocomplete="family-name" name="nachname" placeholder="Nachname" required="" type="text"/>
+<input autocomplete="tel" name="telefon" placeholder="Telefon optional" type="tel"/>
+<input autocomplete="email" name="email" placeholder="E-Mail-Adresse" required="" type="email"/>
+<input autocomplete="organization" name="unternehmen" placeholder="Unternehmen" required="" type="text"/>
+<input autocomplete="url" name="website" placeholder="Website optional" type="url"/>
+<select name="branche" required="">
+<option value="">Branche auswählen</option>
+<option>Energie &amp; Versorgung</option><option>Finanzen &amp; Versicherung</option>
+<option>Industrie &amp; Produktion</option><option>Verwaltung, Vertrieb, Einkauf &amp; Marketing</option>
+<option>Gesundheitswesen &amp; Pflege</option><option>Immobilien &amp; Facility Management</option>
+<option>Bildung &amp; Forschung</option><option>Dienstleistungen &amp; KMU</option><option>Sonstiges</option>
+</select>
+<select id="nvAnaFieldSize" name="mitarbeiteranzahl">
+<option value="">Unternehmensgröße optional</option>
+<option>Einzelunternehmer / Freelancer</option><option>2–10 Mitarbeiter</option>
+<option>11–50 Mitarbeiter</option><option>51–250 Mitarbeiter</option><option>250+ Mitarbeiter</option>
+</select>
+<textarea name="herausforderung" placeholder="Beschreiben Sie den Prozess, den Sie prüfen möchten: Aufgabe, Zeitaufwand, Datenquellen und aktuelles Problem." required=""></textarea>
+<select id="nvAnaFieldTime" name="zeitaufwand" required="">
+<option value="">Aktuellen Zeitaufwand auswählen</option>
+<option>unter 5 Stunden pro Woche</option><option>5–10 Stunden pro Woche</option>
+<option>10–25 Stunden pro Woche</option><option>25+ Stunden pro Woche</option>
+</select>
+<select id="nvAnaFieldData" name="datenlage" required="">
+<option value="">Datenlage auswählen</option>
+<option>E-Mails / Dokumente</option><option>Tabellen / CSV</option>
+<option>CRM / ERP / Fachsystem</option><option>mehrere Quellen</option><option>noch unklar</option>
+</select>
+<input id="nvAnaHiddenPct" name="potenzial_prozent" type="hidden"/>
+<input id="nvAnaHiddenHours" name="potenzial_stunden_jahr" type="hidden"/>
+<input id="nvAnaHiddenEuro" name="potenzial_einsparung_eur" type="hidden"/>
+<input id="nvAnaHiddenShare" name="anteil_automatisierbar" type="hidden"/>
+<input id="nvAnaHiddenRate" name="stundensatz" type="hidden"/>
+<div aria-hidden="true" class="nv-aform__hp"><label>Bitte leer lassen<input autocomplete="off" name="website_confirmation" tabindex="-1" type="text"/></label></div>
+<div class="nv-aform__row nv-aform__row--privacy">
+<label class="nv-aform__consent"><input name="privacy_consent" required="" type="checkbox" value="yes"/><span><strong>Datenschutzerklärung akzeptieren (Pflichtfeld).</strong> Ich habe die <a href="datenschutz.html">Datenschutzerklärung</a> und die <a href="analyse-rechtliche-hinweise.html">rechtlichen Hinweise zur Analyse</a> gelesen und bin einverstanden.</span></label>
+</div>
+<div class="nv-aform__row nv-aform__row--news">
+<label class="nv-aform__consent"><input name="newsletter" type="checkbox" value="yes"/><span><strong>Newsletter erhalten.</strong> Passende Hinweise zur Potenzialanalyse per E-Mail.</span></label>
+</div>
+<button class="hero-cta nv-aform__submit" type="submit"><span class="golden-button"><span class="golden-text">Kostenlose Potenzialanalyse</span></span></button>
+</div>
+</form>
 
   </div>
 </section>

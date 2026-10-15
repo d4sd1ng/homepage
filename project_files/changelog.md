@@ -1,3 +1,71 @@
+## 2026-10-15 - Gemeinsamer Bildbereich fuer die Analyse-Angebote
+
+Status: in Arbeit
+
+- `homepage/index.html`: `.nv-analyse__comparison` gruppiert die vorhandenen Angebote mit einem gemeinsamen Bildbereich `.nv-analyse__visual`. Desktop zweispaltig, bis 980 px untereinander; Bildbreite mobil maximal 320 px.
+- `assets/Fotos/Analyse.png` der kostenlosen Potenzialanalyse und `assets/Fotos/deep_analysis.png` der Tiefenanalyse gemaess Nutzerfreigabe zugeordnet. Beide PNG-Dateien unveraendert eingebunden, mit ihren realen Abmessungen und `object-fit: contain` ohne Beschnitt oder Verzerrung.
+- `.nv-analyse__image`, `.nv-analyse__image--free` und `.nv-analyse__image--deep`: CSS-Bildwechsel ueber den bestehenden offenen Details-Zustand der Tiefenanalyse; initial kostenloses Bild. Reduced Motion deaktiviert den Uebergang. Keine neue JavaScript-Logik.
+- Angebotstexte, Preise, Links, Regler/Gauge, Formular einschliesslich Consent/Honeypot, IDs, alle bestehenden Scripts und Assetpfade unveraendert.
+
+Pruefung: HTML5-Parser ohne Fehler, CSS-Parser, JavaScript-Syntax, JSON-LD, unveraenderte Formular-/Angebots-/Regler-/Script-Struktur und IDs erfolgreich. Im lokalen Browser beide Bilder geladen und Bildwechsel in beide Richtungen sowie gegenseitiges Schliessen der Angebote bestaetigt. Keine Seitenfehler in den abgefragten Konsolenlogs; vorhandene Electron-CSP-Warnungen.
+
+Offen: visuelle Desktop-/Mobile-Abnahme, da Screenshot-Aufnahme mit Zeitueberschreitung scheiterte und die angeforderte 390-px-Viewport-Umstellung nicht wirksam wurde. Tastaturumschaltung und Reduced Motion nicht im Browser bestaetigt. Kein Formularversand, Push oder Deployment.
+
+## 2026-10-14 - Analysesektion ohne Bilder fertig umgesetzt
+
+Status: in Arbeit
+
+- `homepage/index.html`: Reihenfolge Regler/Gauge, gemeinsam gruppierte aufklappbare Analysen und Formular darunter abgeschlossen. Preise, Hinweise und Tiefenanalyse-Link dauerhaft sichtbar, kostenlose Analyse initial offen. Tastatur-Fokusrahmen und native Summary-Bedienung erhalten.
+- Dezenter 240-ms-Reveal der geoeffneten Inhalte mit Reduced-Motion-Regel. Mobile Angebotspadding und Titelumbruch angepasst; Preisraster auf verfuegbare Breite begrenzt. Formular ohne perspektivische Neigung ueber volle Inhaltsbreite.
+- Hinweis `Formular direkt darunter.` an neue Position angepasst. Alle weiteren Texte, Regler, Gauge, Formularfelder, Consent, Honeypot und Scripts unveraendert.
+- Bilder werden spaeter hinzugefuegt; keine leere Bildspalte oder Platzhalter im aktuellen Bereich.
+
+Pruefung: CSS-Parser, unveraenderte Formular-/Regler-/Script-Struktur und Angebotsinhalte bis auf beauftragten Hinweis sowie `git diff --check` erfolgreich.
+
+Offen: gerenderte Desktop-/Mobile-/Tastaturpruefung weiterhin wegen nicht verfuegbarem Browserzugriff ausstehend. Kein Push oder Deployment.
+
+## 2026-10-14 - Analysesektion als aufklappbarer Bereich vorbereitet
+
+Status: in Arbeit
+
+- `homepage/index.html`: zwei bestehende interaktive Cards mit Reglern und Gauge oberhalb erhalten. Beide Analyse-Angebote darunter als native, gemeinsam gruppierte Details-/Summary-Bereiche umgesetzt; kostenlose Analyse initial offen. Preise, Hinweise und Tiefenanalyse-Link bleiben ausserhalb der aufklappbaren Texte sichtbar.
+- Bestehendes Formular `#nvAnaForm` unter beide Angebote verschoben, ueber volle Inhaltsbreite. Alle Feldattribute, IDs, Consent, Honeypot und JavaScript unveraendert.
+- Neue lokale Klassen `.nv-analyse__disclosure`, `.nv-analyse__summary`, `.nv-analyse__body`; vorhandene Card-Farben und Assets erhalten. Keine externe GSAP-/Tweakpane-Abhaengigkeit eingebaut.
+- Hinweis gemaess Nutzerauftrag auf `Formular direkt darunter.` korrigiert; sonstiger Analyse-Wortlaut unveraendert.
+
+Pruefung: CSS-Parser, unveraenderte Angebotsinhalte/Preise, Formularattribute, Regler-Card und gesamte Scripts sowie `git diff --check` erfolgreich.
+
+Offen: eindeutige Bildzuordnung fuer beide Analysen beim Nutzer angefragt. Der gemeinsame Bildbereich und Bildwechsel sind daher noch nicht umgesetzt. Browser-/Mobile-/Tastaturpruefung weiterhin ausstehend. Kein Push oder Deployment.
+
+## 2026-10-14 - Kontakt-Einleitung breiter
+
+Status: in Arbeit
+
+- `homepage/index.html`: `.nv-contact__intro` von maximal 58ch auf 90ch verbreitert, damit der vollstaendige Einleitungstext auf breitem Desktop in zwei Zeilen passt.
+- Wortlaut, Typografie, Cards, mobile verfuegbare Inhaltsbreite und JavaScript unveraendert. Kein Abschneiden oder Line-Clamp.
+
+Pruefung: CSS-Parser und `git diff --check` erfolgreich. Tatsaechlicher Zweizeilenumbruch im Browser noch nicht geprueft. Kein Push oder Deployment.
+
+## 2026-10-14 - Projektstart-Card-Texte leichter und ausgerichtet
+
+Status: in Arbeit
+
+- `homepage/index.html`: `.nv-step-card h3` mit Schriftgewicht 600 statt 750, `.nv-step-card p` mit 400 statt 500.
+- `.nv-step-item:nth-child(1) .nv-step-card__content` rechtsbuendig, zweite Card zentriert, dritte Card weiterhin linksbuendig. Normale Leserichtung bleibt erhalten.
+- Wortlaut, Schriftgroessen, Schriften, Farben, Bilder, Abstaende, CTAs und JavaScript unveraendert.
+
+Pruefung: CSS-Parser, unveraenderte HTML-/JavaScript-Struktur und `git diff --check` erfolgreich. Gerenderte Browserpruefung weiterhin blockiert. Kein Push oder Deployment.
+
+## 2026-10-14 - Card-Hintergrundlogo groesser und dezenter
+
+Status: in Arbeit
+
+- `homepage/index.html`: Logo-Hintergruende von `.nv-analyse__offer`, `.nv-contact__portrait`, `.nv-contact__card` und `.download-item` auf 85 % Breite vergroessert (vorher 46 % bzw. 58 %).
+- Logo-Deckkraft im Ruhezustand von 7 % auf 2,5 %, bei vorhandenem Hover/Focus von 20 % auf 4 % reduziert.
+- Logo-Asset, Card-Schimmer, Rahmen, Inhalte, Layout und JavaScript unveraendert.
+
+Pruefung: CSS-Parser, unveraenderte HTML-/JavaScript-Struktur und `git diff --check` erfolgreich. Gerenderte Browserpruefung weiterhin blockiert. Kein Push oder Deployment.
+
 ## 2026-10-14 - Ablaufmodule enger angeordnet
 
 Status: in Arbeit
