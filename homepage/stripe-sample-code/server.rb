@@ -1,9 +1,13 @@
+require 'dotenv'
 require 'stripe'
 require 'sinatra'
 
-# This is your test secret API key.
-# Don't put any keys in code. See https://docs.stripe.com/keys-best-practices.
-client = Stripe::StripeClient.new('sk_test_51U9Z6jHhj2rcxrubesAFCiel86aMf8jwXEkjszhl02UbjLfUelpEHDLb2ZmaAJhqLdPetnxDeikeVVORWo4RhnvY005iRaqN92')
+env_file = File.expand_path(ENV.fetch('NUROVELLE_STRIPE_ENV_FILE', '~/.config/nurovelle-stripe/.env'))
+Dotenv.load(env_file)
+secret_key = ENV.fetch('STRIPE_SECRET_KEY')
+raise 'STRIPE_SECRET_KEY must not be empty' if secret_key.strip.empty?
+
+client = Stripe::StripeClient.new(secret_key)
 
 set :static, true
 set :port, 4242
@@ -15,13 +19,11 @@ post '/create-checkout-session' do
 
   session = client.v1.checkout.sessions.create({
     line_items: [{
-      # Provide the exact Price ID (for example, price_1234) of the product you want to sell
       price: '{{PRICE_ID}}',
       quantity: 1,
     }],
     mode: 'payment',
     success_url: YOUR_DOMAIN + '/success.html',
-    # Provide a name (for example, hosted_web_0001) to label this Checkout integration and measure its conversion independently
     integration_identifier: '{{INTEGRATION_ID}}',
   })
   redirect session.url, 303

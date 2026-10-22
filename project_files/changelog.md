@@ -1,3 +1,371 @@
+## 2026-10-22 - KI-Agenten-Vorschau fuer die visuelle Abnahme komprimiert
+
+Status: geprüft
+
+- Ausschliesslich `homepage/preview-detail_ki-agenten.html` neu erzeugt. `tools/detail_pages/build.py` erzeugt ohne Seitenauswahl jetzt nur diese Vorschau; Buero- und SEO-Vorschau bleiben unveraendert.
+- `tools/detail_pages/ki_agenten.py` neu: verantwortliche, aus `analyse.html` kopierte CSS-Deklarationen direkt angepasst, keine zusaetzliche Override-Stylesheet-Schicht. `.section-inner` maximal 1000 px; `.detail-hero` mit flexiblen Desktop-Spalten ohne 780-/470-px-Mindestbreiten; `.visual-card--hero img` ohne feste Ueberbreite und ohne 1.6-/1.45-Skalierung. Originalgrafik vollstaendig sichtbar.
+- `#hero h1` / `.hero-title-line`: vorhandener Titel bleibt wortgleich in zwei Zeilen, laeuft ueber die Bildspalte; Titelgroesse 28 bis 52 px. Bestehende Typografie numerisch komprimiert: Fliesstext 14 px, Subline 16 px, Abschnittstitel 26 bis 34 px. Keine neuen Schriften, Farben oder CTA-Varianten.
+- `.media-split` / `.media-split--visual-left`: feste 580-px-Fotomindestbreiten durch flexible Spalten ersetzt. `.label-list li` und `.num-list li`: auch Beschreibungstexte erhalten vorhandene Goldfarbe. `.num-list`: kompaktere Abstaende, genau acht urspruengliche Module, keine zusaetzlichen Konzeption-/Umsetzungskarten.
+- `.analysis-layout` flexibel; `.form-grid` wechselt bei kleinen Breiten auf eine Feldspalte. `.section` erhaelt Scrollabstand fuer den vorhandenen festen Header. Formular bleibt bei mehr Inhalt natuerlich hoeher als ein Viewport; es wird nicht abgeschnitten.
+- `tools/detail_pages/reference.py`: nur fuer KI-Vorschau fehlenden Submit-Button `#nurovelle-analysis-submit` mit vorhandener `.hero-cta > .golden-button > .golden-text`-Komponente wiederhergestellt. Wortlaut aus vorhandenem Formulartitel: `Potenzialanalyse starten`. Unsichtbare Feldbeschriftungen aus bestehenden Platzhaltern/Optionen ergaenzt. Formularfelder, Pflicht-Consent, Newsletter, Honeypot, API-/Status-/Ergebnislogik bleiben erhalten.
+- `tools/detail_pages/verify.py`: veraltete Gesamttext-/Altrasterpruefung durch konkrete Vergleiche der beauftragten acht Referenzsektionen, uebernommenen Texte, acht Module und acht unveraenderten FAQ ersetzt. Prueft ebenfalls Formularvergleich mit Referenz, exakte Originalscripts plus Referenz-API-/Canvas-Script, erhaltene Sprungziele, lokale Assets/Links, HTML5, CSS und JavaScript-Syntax. Gold-CTA- und FAQ-Materialregeln bleiben identisch zur Analyse; keine neuen `!important`-Regeln. `tools/detail_pages/README.md` auf den tatsaechlichen Einzelvorschau-Ablauf aktualisiert.
+
+Geprueft: Generator und Verifier, Python-Syntax, `git diff --check`; Browser bei 960x600, 1280x720, 1440x900, 390x844 und 320x720 CSS-Pixeln. Kein Inhaltsueberlauf in geprueften Raster-/Text-/CTA-Komponenten; Hero-Titel zweizeilig, Grafik innerhalb der Inhaltsbreite, Hero-CTA im ersten Viewport. Modulbilder und Nutzenfoto laden. FAQ per Maus geoeffnet; unvollstaendiges Formular bleibt beim ersten Pflichtfeld, ohne API-Versand. Keine Seitenfehler in der Browserkonsole.
+
+Nicht geaendert: `homepage/analyse.html`, Originaldetailseiten, `homepage/index.html`, `homepage/shared-header-footer.css`, `homepage/nurovelle-tokens.css`, andere Vorschauen und Assets. Bestehendes Navigations-/FAQ-JavaScript sowie API- und Canvas-Script nicht veraendert.
+
+Offen: visuelle Nutzerfreigabe; echter API-Versand und Zahlung nicht getestet. Reduced-Motion-Regeln statisch geprueft, keine Laufzeit-Emulation verfuegbar. Tastatur-Aktivierung der nativen FAQ wurde durch die Browserautomatisierung nicht ausgeloest und ist daher nicht als erfolgreich getestet gewertet. Bestehende Social-Links des unveraenderten Footers zeigen weiterhin auf `index.html#`. Kein Deployment, keine Uebernahme auf weitere Seiten.
+
+## 2026-10-21 - Freigegebene integrierte Eyecatcher-Positionen implementiert
+
+Status: in Arbeit
+
+- `homepage/index.html`: exakt freigegebene Einbindungen aus `seo-placement-preview.html` uebernommen: Warum Nurovelle neben Einleitung, Automationspakete neben Subline/Bodytext, Downloads tiefer zwischen Titel und Karten ueber letztem Drittel der Prompt-Guide-Spalte.
+- Gunmetal-Motiv, Breite 240 px, Homepage-CTA, `rotateY(-18deg)`, 460-ms-Fade-in von links und Reduced-Motion-Regel aus Vorschau erhalten. Vorhandenen Observer unveraendert weiterverwendet.
+- Vorschau-`noindex` nicht uebernommen. Alle bisherigen Texte, Formular-/Rechnerlogik, IDs, Scripts und sonstigen Assetreferenzen unveraendert; separate Vorschau erhalten.
+
+Pruefung: HTML5-/CSS-Parser, Identitaet zur freigegebenen Vorschau ohne deren Robots-Metatag, erhaltene IDs/Scripts/Formular und `git diff --check` erfolgreich. Kein Deployment.
+
+## 2026-10-21 - Seitliche Vorschauperspektive entgegengesetzt
+
+Status: in Arbeit
+
+- Nur `homepage/seo-placement-preview.html`: `.seo-placement__display` von `rotateY(18deg)` auf `rotateY(-18deg)` gesetzt. Alle drei Vorschau-Eyecatcher betroffen; Position, Groesse, Motiv, Texte und Einblendeffekt unveraendert. `homepage/index.html` unveraendert.
+- `git diff --check` erfolgreich; visuelle Abnahme offen.
+
+## 2026-10-21 - Einblendeffekt fuer integrierte Vorschau-Eyecatcher
+
+Status: in Arbeit
+
+- Nur `homepage/seo-placement-preview.html`: drei `.seo-placement` an vorhandenen `data-seo-promo`-Observer angeschlossen. Beim Eintritt in den sichtbaren Bereich Fade-in mit 32-px-Bewegung von links, Dauer 460 ms. Reduced Motion zeigt die Elemente ohne Animation.
+- Positionen, Groesse, innere Perspektive, Texte und Homepage unveraendert. Keine neue JavaScript-Logik.
+- HTML5-/CSS-Pruefung und `git diff --check`; visuelle Abnahme offen.
+
+## 2026-10-21 - Positionen in separater Homepage-Vorschau nachjustiert
+
+Status: in Arbeit
+
+- Nur `homepage/seo-placement-preview.html`: Downloads-Eyecatcher tiefer zwischen Titel und Karten sowie nach links ueber das letzte Drittel der Prompt-Guide-Spalte verschoben. Warum-Nurovelle-Eyecatcher um 80 px nach links und 32 px nach unten versetzt. Mobile Positionierungen bleiben im Inhaltsfluss.
+- Automationspakete, Eyecatcher-Groesse, Motiv, Perspektive und `homepage/index.html` unveraendert.
+- `git diff --check` erfolgreich; visuelle Abnahme offen.
+
+## 2026-10-21 - Separate Homepage-Vorschau integrierter Eyecatcher-Positionen
+
+Status: in Arbeit
+
+- `homepage/seo-placement-preview.html`: separate Homepage-Kopie mit drei kompakten Gunmetal-Eyecatchern innerhalb der vorhandenen Einleitungsbereiche: Warum Nurovelle neben Einleitung, Automationspakete neben Subline/Bodytext, Downloads unter Titel im rechten Bereich ueber Prompt Guide/Checkliste. Keine zusaetzlichen Zwischenbloecke.
+- Freigegebenes Motiv und Perspektive erhalten, maximale Breite 240 px. Mobile Positionierung im jeweiligen Einleitungsbereich statt absolut.
+- `homepage/index.html` unveraendert, per SHA-256 vor/nach Erstellung bestaetigt. Bestehende Texte, Bilder, Links, Formulare und Scripts in der Vorschau erhalten.
+- HTML5-/CSS-Parser, drei Platzierungen und `git diff --check` erfolgreich. Visuelle Desktop-/Mobile-Abnahme offen.
+
+## 2026-10-21 - SEO-Eyecatcher aus Homepage entfernt
+
+Status: in Arbeit
+
+- Alle drei `aside.nv-seo-promo` aus `homepage/index.html` auf Nutzerwunsch entfernt. Damit entfallen auch deren Inhalts- und Randabstaende im Seitenfluss.
+- Separate Vorschau und Assets erhalten. Andere Sektionen, Texte, Formulare und JavaScript unveraendert.
+
+Pruefung: HTML5-Parser, keine verbliebenen Eyecatcher-Elemente und `git diff --check` erfolgreich. Visuelle Abnahme offen.
+
+## 2026-10-21 - Homepage-Eyecatcher deutlich verkleinert
+
+Status: in Arbeit
+
+- Nur Homepage-Eyecatcher: maximale Breite von 360 auf 240 px reduziert; Typografie und innere Abstaende proportional auf zwei Drittel angepasst. Alle drei Instanzen betroffen. Perspektive, Motiv, Position, CTA-Komponente, Texte und Linkziele unveraendert. Separate Vorschau unveraendert.
+- `git diff --check` erfolgreich; visuelle Abnahme offen.
+
+## 2026-10-21 - Freigegebenen Gunmetal-Eyecatcher links eingebunden
+
+Status: in Arbeit
+
+- `homepage/index.html`: drei bestehende SEO-Hinweise auf freigegebenes Gunmetal-Display mit Lupe, HTML-Text und Homepage-CTA umgestellt. Maximal 360 px breit, links an der bestehenden Inhaltskante statt zentriert. Motiv, 18-Grad-Y-Perspektive, Texte und Text-/CTA-Position aus separater Vorschau uebernommen.
+- `.nv-seo-promo__display` trennt feste Displayperspektive von der bisherigen Einblendanimation. Bandflaechen entfernt; `.nv-seo-promo__image` und lokale responsive CTA-Dimensionierung ergaenzt. Linkziel bleibt `detail_seo.html`.
+- Analysebereich, Formulare, bestehende JavaScript-Logik und andere Assets unveraendert. Separate Vorschau erhalten.
+
+Pruefung: HTML5-/CSS-Parser, drei Einbindungen und `git diff --check`; visuelle Abnahme im Seitenkontext offen. Kein Deployment.
+
+## 2026-10-21 - Original-Homepage-CTA in separater Vorschau
+
+Status: in Arbeit
+
+- `homepage/seo-eyecatcher-preview.html`: vorhandene `nurovelle-tokens.css` und `shared-header-footer.css` eingebunden; eigenen Pillenbutton durch Homepage-Markup `.hero-cta`, `.golden-button`, `.golden-text` ersetzt. Material, Rahmen, Schatten, Grossschreibung und Hover-/Active-Zustaende aus bestehender Komponente. Nur kompakte Schriftgroesse und Mindestbreite lokal angepasst.
+- Motiv, Perspektive, Textposition, Linkziel und `homepage/index.html` unveraendert. Visuelle Abnahme offen.
+
+## 2026-10-20 - Gunmetal-Grundmaterial in separater Eyecatcher-Vorschau
+
+Status: in Arbeit
+
+- `homepage/assets/seo-check-preview-gunmetal.png`: Farbvariante mit dunklem Gunmetal-Grundmaterial, gruenen Schatten und goldenen Highlights erstellt; vorheriges Motiv erhalten.
+- Nur Bildreferenz in `homepage/seo-eyecatcher-preview.html` aktualisiert. Freigegebene aufrechte Perspektive mit rechter Seite nach hinten, Groesse, Text und CTA unveraendert. Homepage nicht angepasst.
+- `git diff --check` erfolgreich; visuelle Abnahme der Farbvariante offen.
+
+## 2026-10-20 - Vorschau aufrecht, ausschliesslich rechte Seite nach hinten
+
+Status: in Arbeit
+
+- `homepage/seo-eyecatcher-preview.html`: bisherigen kombinierten Transform durch `perspective(900px) rotateY(18deg)` ersetzt. Keine X-/Z-Drehung und keine Scherung; nur rechte Seite nach hinten. Breite 360 px, Motiv, Text, CTA und Homepage unveraendert.
+- `git diff --check` erfolgreich; visuelle Abnahme offen.
+
+## 2026-10-20 - Vorherige Perspektive bei kleiner Vorschaugroesse wiederhergestellt
+
+Status: in Arbeit
+
+- Nur Perspektivmatrix in `homepage/seo-eyecatcher-preview.html` auf den Stand vor der letzten Verkleinerung zurueckgesetzt. Breite bleibt 360 px; Motiv, Lupe, Texte, CTA und Homepage unveraendert.
+- `git diff --check` erfolgreich; visuelle Abnahme offen.
+
+## 2026-10-20 - Kompaktere und weniger schraege separate Vorschau
+
+Status: in Arbeit
+
+- `homepage/seo-eyecatcher-preview.html`: maximale Breite von 420 auf 360 px reduziert. Projektive Verkuerzung und Scherung abgeschwaecht, sodass die obere linke Seite weniger nach hinten fluchtet. Textblock weiterhin ohne Innenpadding; vorhandene Motivvariante, Lupe, Text-/CTA-Position und Homepage unveraendert.
+- `git diff --check` erfolgreich; visuelle Abnahme offen.
+
+## 2026-10-20 - Lupe in Vorschau weiter nach links
+
+Status: in Arbeit
+
+- Nur Bildreferenz der separaten Vorschau auf neue Variante `homepage/assets/seo-check-preview-loupe-left.png` umgestellt, mit weiter nach links versetzter Lupe. CSS-Perspektive, Groesse, Texte, CTA und Homepage unveraendert. Bisherige Bildvarianten erhalten. Visuelle Abnahme offen.
+
+## 2026-10-20 - Lupe nach links unten und kleinere separate Vorschau
+
+Status: in Arbeit
+
+- Neue Vorschau-Bildvariante `homepage/assets/seo-check-preview-loupe-inset.png` mit nach links unten versetzter Lupe erzeugt; bisheriges Motiv erhalten.
+- `homepage/seo-eyecatcher-preview.html`: Variante eingesetzt und maximale Gesamtbreite von 460 auf 420 px reduziert. Perspektivtransform und HTML-Text-/CTA-Position unveraendert. Homepage unveraendert.
+- `git diff --check` erfolgreich; visuelle Abnahme offen.
+
+## 2026-10-20 - Linke Vorschauseite minimal abgesenkt
+
+Status: in Arbeit
+
+- Nur separate Vorschau: gemeinsame Drehung um -1 Grad ergaenzt, sodass die linke Seite minimal tiefer steht. Bestehende Perspektivmatrix, Motiv, Texte, CTA und Homepage unveraendert. Visuelle Abnahme offen.
+
+## 2026-10-20 - Rueckneigung der Vorschau sichtbar reduziert
+
+Status: in Arbeit
+
+- Nur Transform der separaten Vorschau: vertikale Scherung von .153328203 auf .04 reduziert und vertikalen projektiven Term auf null gesetzt. Vorherige kaum sichtbare Zusatzrotation entfernt; seitliche Perspektivparameter erhalten. Motiv, Texte, CTA und Homepage unveraendert. Visuelle Abnahme offen.
+
+## 2026-10-20 - Oberseite der separaten Vorschau leicht nach vorne
+
+Status: in Arbeit
+
+- Nur Perspektivtransform der separaten Vorschau um 4 Grad Vorwaertsneigung der Oberkante ergaenzt. Motiv, Text-/CTA-Position, Groesse und Homepage unveraendert. Visuelle Abnahme offen.
+
+## 2026-10-20 - Vorschauperspektive am Originalentwurf abgeglichen
+
+Status: in Arbeit
+
+- Nur `transform` von `.preview` in `homepage/seo-eyecatcher-preview.html` angepasst: projektive Matrix anhand der Kantenrichtung des urspruenglichen Entwurfs statt weiterer unabhaengiger Euler-Drehungen. Visuelle Annaeherung, keine identische Wiederherstellung der urspruenglichen 3D-Kamera behauptet.
+- Motivdatei, Texte, CTA, Groesse, Positionierung und Homepage unveraendert. Visuelle Abnahme offen.
+
+## 2026-10-20 - Seitliche Perspektivrichtung separat korrigiert
+
+Status: in Arbeit
+
+- Nur Vorschaucontainer in `homepage/seo-eyecatcher-preview.html`: Y-Drehung von -18 auf 18 Grad umgekehrt. X-/Z-Drehung, Motiv, Texte, CTA und Homepage unveraendert. Visuelle Abnahme offen.
+
+## 2026-10-20 - Unbeauftragten Motivwechsel zurueckgenommen
+
+Status: in Arbeit
+
+- Separate Vorschau: vorheriges freies Displaymotiv sowie Text-/CTA-Position wiederhergestellt. Nur gemeinsame Perspektive am Vorschaucontainer angepasst; keine Aenderung der Bilddateien oder Homepage.
+- Visuelle Abnahme offen.
+
+## 2026-10-20 - Urspruengliches Perspektivmotiv in separater Vorschau
+
+Status: in Arbeit
+
+- `homepage/seo-eyecatcher-preview.html`: urspruengliches Motiv `assets/seo-check-eyecatcher.png` wieder eingesetzt und nachtraegliche Drehungen des Gesamtmotivs entfernt. HTML-Text und CTA auf urspruengliche Displayposition angepasst, ohne eigene Hintergrundbox.
+- Homepage und Bilddateien unveraendert. Visuelle Abnahme offen.
+
+## 2026-10-20 - Oberkante der Vorschau nach hinten gekippt
+
+Status: in Arbeit
+
+- Nur `homepage/seo-eyecatcher-preview.html`: X-Drehung von 6 auf 18 Grad verstaerkt, damit die Oberkante weiter nach hinten kippt. Seitliche Drehung, Texte, CTA und Homepage unveraendert.
+- `git diff --check` erfolgreich; visuelle Abnahme offen.
+
+## 2026-10-20 - Perspektivrichtung der separaten Vorschau korrigiert
+
+Status: in Arbeit
+
+- `homepage/seo-eyecatcher-preview.html`: Y-Drehung von -18 auf 18 Grad und Z-Drehung von -3 auf 3 Grad geaendert. Display, Text und CTA bleiben gemeinsam ausgerichtet.
+- Homepage und Assets unveraendert. Visuelle Abnahme offen.
+
+## 2026-10-20 - Gemeinsame Perspektive fuer Display-Vorschau
+
+Status: in Arbeit
+
+- Ausschliesslich `homepage/seo-eyecatcher-preview.html`: gemeinsamer perspektivischer Transform auf `.preview`, sodass Displaymotiv, HTML-Text und klickbarer CTA dieselbe raeumliche Ausrichtung erhalten. Positionierung auf der Displayflaeche erhalten.
+- `homepage/index.html` und Bilddateien unveraendert.
+
+Pruefung: HTML5-/CSS-Parser und `git diff --check`; visuelle Nutzerabnahme offen.
+
+## 2026-10-20 - Display-Vorschau ohne aufgeklebte Textbox
+
+Status: in Arbeit
+
+- Nur separate Vorschau: `homepage/assets/seo-check-preview-display.png` mit freier Displayflaeche und seitlicher Lupe vorbereitet. `homepage/seo-eyecatcher-preview.html` verwendet dieses Motiv; Text und bedienbarer Button sitzen ohne eigene Hintergrundbox innerhalb der freien Displayflaeche.
+- Maximale Vorschaugroesse bleibt 460 px. `homepage/index.html` und urspruengliches Eyecatcher-Motiv unveraendert.
+
+Pruefung: HTML5, CSS und `git diff --check`; visuelle Nutzerabnahme offen.
+
+## 2026-10-20 - Vorschautext und CTA auf Displayflaeche
+
+Status: in Arbeit
+
+- Ausschliesslich `homepage/seo-eyecatcher-preview.html`: Text und bedienbaren CTA ueber der Displayflaeche statt neben dem Motiv positioniert. Kompakte Gesamtbreite von maximal 460 px erhalten, mobile Typografie angepasst.
+- `homepage/index.html`, Assets und Homepage-Funktionalitaet unveraendert.
+
+Pruefung: HTML5-/CSS-Parser und `git diff --check`; visuelle Abnahme offen.
+
+## 2026-10-20 - Eyecatcher-Einbindung zurueckgenommen, separate kleine Vorschau
+
+Status: in Arbeit
+
+- Letzte SEO-Eyecatcher-Einbindung in `homepage/index.html` zurueckgenommen: vorheriges Emerald-Band samt Texten und CTA an allen drei Stellen wiederhergestellt. Andere Homepage-Aenderungen erhalten.
+- `homepage/seo-eyecatcher-preview.html`: isolierte Vorschau mit maximal 460 px Gesamtbreite statt 840 px; Motiv 160 px breit, mobil 110 px. Keine Einbindung in der Homepage.
+- Vorhandenes Eyecatcher-Asset weiter nur fuer die separate Vorschau verwendet. Keine anderen Assets veraendert.
+
+Pruefung: HTML5, CSS und `git diff --check`; visuelle Nutzerabnahme offen.
+
+## 2026-10-19 - Freigegebenen SEO-Eyecatcher an drei Stellen eingebunden
+
+Status: in Arbeit
+
+- `homepage/assets/seo-check-eyecatcher.png`: transparentes Browserfenster-/Lupenmotiv aus dem freigegebenen visuellen Entwurf vorbereitet und eingebunden. Originalentwurf erhalten; sonstige Assets nicht bearbeitet.
+- `homepage/index.html`: alle drei bestehenden `.nv-seo-promo`-Positionen verwenden das Motiv mit echtem HTML-Text „Kostenloser SEO-Check“, „SEO-Probleme erkennen. Potenziale entdecken.“ und bestehender goldener CTA-Komponente mit Text „Website prüfen“. Ziel bleibt `detail_seo.html`.
+- Band-Pseudoelemente entfernt. `.nv-seo-promo__image` und responsives Text-/Bildraster ergaenzt, ohne umschliessende Card-Flaeche. Mobile unter 560 px Motiv ueber Text/CTA. Hooks, Einblendung und Reduced-Motion-Regel erhalten.
+- Analysebereich, Formulare und bestehende JavaScript-Logik unveraendert.
+
+Pruefung: HTML5-/CSS-Parser, drei Bild-/CTA-Zuordnungen und `git diff --check` erfolgreich. Sichtbares Motiv im Browser geladen; uebrige Positionen verwenden dieselbe Datei mit Lazy Loading. Visuelle Nutzerabnahme offen; kein Deployment.
+
+## 2026-10-19 - SEO-Eyecatcher als Emerald-Band zur Vorschau
+
+Status: in Arbeit
+
+- `homepage/index.html`: `.nv-seo-promo` von abgerundeter schwarzer Card auf Emerald-Band mit schraegen Enden und Goldkante umgestellt. Hintergrundform ueber lokale Pseudoelemente; Texte und CTA bleiben unverzerrt. Desktop- und Mobile-Innenabstand angepasst.
+- An allen drei bestehenden Callout-Positionen Titel „SEO Toolbox“ fuer die freigegebene Vorschau durch „Kostenloser SEO-Check“ ersetzt. Beschreibung, CTA „SEO Toolbox öffnen“, Ziel `detail_seo.html`, Hooks, Einblendung und Reduced-Motion-Verhalten erhalten.
+- Analysebereich, Formulare und weitere Komponenten unveraendert.
+
+Pruefung: HTML5-/CSS-Parser und `git diff --check` erfolgreich. Drei aktualisierte Hinweise im geladenen Browser-DOM bestaetigt. Visuelle Abnahme der Vorschau offen; kein Deployment.
+
+## 2026-10-19 - Gruene transparente Aufklappfelder
+
+Status: in Arbeit
+
+- `homepage/index.html`: Hintergrund von `.nv-analyse__disclosure` von deckendem Gunmetal auf vorhandenes Emerald mit 85 Prozent Deckkraft umgestellt. Nur die Feldflaeche ist transparent, Schrift und Symbole bleiben deckend; Bilder hinter geoeffneten Feldern koennen dezent durchscheinen.
+- Abmessungen, Aufklapplogik, Texte, aeussere Karten, Bilder und Formular unveraendert.
+
+Pruefung: CSS-Parser und `git diff --check` erfolgreich. Visuelle Abnahme offen.
+
+## 2026-10-19 - Aufklappfelder verbreitern sich beim Oeffnen
+
+Status: in Arbeit
+
+- `homepage/index.html`: `.nv-analyse__column` stellt die verfuegbare Breite bereit. Einzelne `.nv-analyse__disclosure` sind geschlossen 58 Prozent und geoeffnet 86 Prozent breit; mobil 88 bzw. 100 Prozent. Nur das aktive Feld verbreitert sich, mit lokalem Breitenuebergang und Reduced-Motion-Regel.
+- Aeussere Karten, Texte, Bilder, CTA, Preise, Formular und JavaScript unveraendert.
+
+Pruefung: HTML5-/CSS-Parser und `git diff --check` erfolgreich. Visuelle Abnahme offen.
+
+## 2026-10-19 - Gemeinsames Kartensystem, groesseres linkes Motiv und mittiger CTA
+
+Status: in Arbeit
+
+- `homepage/index.html`: beide Analyse-Angebote verwenden nun die vorhandene `.nv-acard`-Komponente fuer Rahmen, Flaeche, Innenabstand, Tiefenschatten und Hover-/Fokusverhalten wie die Rechnerkarten. Doppelte eigene Shell-Regeln und dekoratives Hintergrundlogo entfernt.
+- Linkes Analysebild auf 292 px Hoehe vergroessert; rechtes Bild bleibt 220 px hoch. Damit erhalten beide proportional dargestellten Bilddateien etwa dieselbe Breite von 164 px. Keine Bilddateien bearbeitet.
+- `.nv-analyse__offer .hero-cta`: horizontal zentriert. Mobile bestehende CTA-Breite beibehalten.
+- Texte, Preise, Links, Formular und JavaScript unveraendert.
+
+Pruefung: HTML5- und CSS-Parser sowie `git diff --check` erfolgreich. Optische Groessenabnahme offen.
+
+## 2026-10-19 - Einstiegssatz und reduzierte Analyse-Textbreite
+
+Status: in Arbeit
+
+- `homepage/index.html`: freigegebenen Satz unter dem Titel der kostenlosen Analyse eingefuegt: „Für eine erste unverbindliche Einschätzung Ihrer Prozesse und Automatisierungspotenziale.“
+- `.nv-analyse__column`: Desktop-Textbreite von 78 auf 66 Prozent reduziert. Mobile-Regel mit 100 Prozent, Bilder, Preise, weitere Texte, Formular und JavaScript unveraendert.
+
+Pruefung: HTML5-Struktur, CSS-Parser und `git diff --check` erfolgreich. Visuelle Abnahme offen.
+
+## 2026-10-19 - Tiefenanalyse zeigt ausschliesslich Erweiterungen
+
+Status: in Arbeit
+
+- `homepage/index.html`: Aufklapppunkt „Überblick“ samt Kurztext ausschliesslich aus der Tiefenanalyse entfernt. Einen zugehoerigen Bildzustand entfernt; fuenf Erweiterungen und ein Ausgangsbildzustand bleiben.
+- Ueberblick der kostenlosen Analyse, dauerhaft sichtbarer Erweiterungshinweis, CSS, JavaScript, Preise, Assets und Formular unveraendert.
+
+Pruefung: HTML5-Struktur, verbleibende Aufklapppunkte, Bildzustandsanzahl und `git diff --check` erfolgreich. Visuelle Abnahme offen.
+
+## 2026-10-19 - Kurze Ueberblicktexte und breitere Textspalten
+
+Status: in Arbeit
+
+- `homepage/index.html`: beide Ueberblick-Inhalte durch die ausdruecklich freigegebenen Kurztexte ersetzt. Kostenlos: „Wir prüfen Ihre Prozesse, Daten und Automatisierungspotenziale und empfehlen den sinnvollsten nächsten Schritt.“ Tiefgehend: „Wir vertiefen die Analyse und erstellen eine konkrete Grundlage für die technische und wirtschaftliche Umsetzung.“
+- `.nv-analyse__stage`, `.nv-analyse__column`, `.nv-analyse__visual`: Text und Bild auf Desktop in derselben Grid-Zelle angeordnet. Textspalte 78 Prozent, Bildbereich rechts 40 Prozent; Text liegt vor dem teilweise ueberlappenden Bild. Mobile bis 640 px weiter untereinander ohne Ueberlagerung.
+- Preise, sonstige Leistungstexte, Formular, JavaScript und Assets unveraendert.
+
+Pruefung: HTML5- und CSS-Parser sowie `git diff --check` erfolgreich. Visuelle Abnahme offen.
+
+## 2026-10-19 - Workshop aus Tiefenanalyse entfernt
+
+Status: in Arbeit
+
+- `homepage/index.html`: Aufklapppunkt „Workshop mit Ihrem Team“ einschliesslich Beschreibung auf Nutzerwunsch entfernt. Zugehoerige Anzahl der Bildzustaende um einen reduziert.
+- Andere Leistungen, CSS, JavaScript, Preise, Assetpfade und Formular unveraendert.
+
+Pruefung: HTML5-Struktur, Zuordnung von Aufklapppunkten und Bildzustaenden sowie `git diff --check` erfolgreich. Visuelle Abnahme offen.
+
+## 2026-10-19 - Leistungsumfang der Tiefenanalyse verdeutlicht
+
+Status: in Arbeit
+
+- `homepage/index.html`: freigegebenen Hinweis dauerhaft sichtbar unter dem Titel der Tiefenanalyse und vor den Aufklapppunkten eingefuegt: „Enthält alle Leistungen der kostenlosen Potenzialanalyse und erweitert diese um folgende Leistungen:“
+- Bestehende Inhalte, CSS-Klassen, JavaScript, Bildpfade, Preise und Formular unveraendert.
+
+Pruefung: HTML5-Parser und `git diff --check` erfolgreich. Desktop-/Mobile-Sichtpruefung offen; keine Browserpruefung oder Formularuebermittlung ausgefuehrt.
+
+## 2026-10-19 - Sektionsbody und gemeinsame Analysebreite angeglichen
+
+Status: in Arbeit
+
+- `homepage/index.html`: `.nv-analyse__text` mit unveraendertem Bodytext aus dem zentrierten Rechnercontainer direkt unter die Subline verschoben. `.nv-analyse__intro` erhaelt 32 px Abstand zum folgenden Rechnerbereich.
+- `.nv-analyse__offers` und `.nv-analyse__inner > .nv-aform` auf dieselbe maximale Gesamtbreite von 1260 px wie `.nv-analyse__layout` gesetzt. Abweichende mobile Maximalbreite von 618 px entfernt; alle drei Bereiche folgen derselben verfuegbaren Inhaltsbreite. Gleiche Breite der beiden unteren Karten beibehalten; unterschiedliche Gewichtung der oberen Rechnerkarten unveraendert.
+- Texte, Preise, Assets, Formular, IDs, JavaScript und andere Sektionen unveraendert.
+
+Pruefung: HTML5-Struktur, CSS-Parser und `git diff --check`. Browserpruefung offen, da der bisherige Browser-Tab nicht mehr vorhanden ist. Kein Deployment.
+
+## 2026-10-19 - Analyse-Kartenbreite, gleiche Hoehen und oberster Ueberblick
+
+Status: in Arbeit
+
+- `homepage/index.html`: allgemeine Einleitungs- und Ergebnistexte beider Analysen unveraendert in den jeweils ersten Aufklapppunkt `Überblick` verschoben, einschliesslich der bisherigen Output-Zwischenzeilen. Bildzustaende um diesen Punkt erweitert; vorhandene JavaScript-Steuerung unveraendert.
+- `.nv-analyse__offers`: zentrierte Gesamtbreite auf maximal 1000 px begrenzt, beide Desktop-Karten gleich breit und gleich hoch. Unter 980 px einspaltig mit gleichen Kartenhoehen, gemeinsamer maximaler Breite von 618 px und responsiver Begrenzung durch den Inhaltsbereich.
+- `.nv-analyse__inner > .nv-aform`: dieselbe Breite und dieselben seitlichen Kanten wie die gesamte Kartenreihe darueber. Formular-Markup und -Logik unveraendert.
+- `.nv-analyse__visual`, `.nv-analyse__image`: beide Motive mit gleicher Hoehe von 220 px, ohne Beschnitt oder Verzerrung; ihre unterschiedlichen Seitenverhaeltnisse bleiben erhalten. `.nv-analyse__offer-footer` gruppiert Preise und Hinweise im normalen Inhaltsfluss. Preisraster mobil einspaltig; Summary-Texte koennen innerhalb ihrer Spalte umbrechen.
+- Keine bestehenden Texte gekuerzt oder umformuliert, Preise, Links, IDs, Bildpfade und Bilddateien erhalten. Rechner und andere Sektionen unveraendert.
+
+Pruefung: HTML5-Parser, CSS-Parser, JavaScript-/JSON-LD-Syntax und `git diff --check` erfolgreich. Formular, IDs, bisherige Scripts und Angebotstexte gegen Sicherung verglichen. Browser-Messungen bei 1280 px Desktop sowie 390 und 320 px Mobile: gleiche Kartenhoehen, identische Formular-/Kartenreihenbreite, aktive Bilder jeweils 220 px hoch, keine Summary-/Preistext-Ueberlaeufe in den geschlossenen Mobilkarten. Abstand vom Aufklappbereich zum Preis 12 px; auch geoeffnete Ueberblick-Punkte geprueft. Navigation vom neuen Ueberblick zum naechsten Punkt und einzelner aktiver Bildzustand bestaetigt. Keine Fehler in abgefragten Konsolenlogs.
+
+Offen: visuelle Nutzerabnahme; Screenshot-Aufnahme scheiterte mit Zeitueberschreitung. Reduced Motion nur statisch geprueft, nicht emuliert. Kein Formularversand und kein Deployment.
+
+## 2026-10-19 - Zwei eigenstaendige Analyse-Karten mit aufklappbaren Bulletpoints
+
+Status: in Arbeit
+
+- `homepage/index.html`: gemeinsame Bildspalte entfernt. Kostenlose und tiefgehende Potenzialanalyse als zwei getrennte Karten nebeneinander innerhalb der vorhandenen 1260-px-Inhaltsbreite umgesetzt; unter 980 px untereinander. Analysenamen stehen dauerhaft als Kartentitel ueber den Inhalten.
+- Vier vorhandene kostenlose Leistungspunkte und sechs vorhandene Tiefenanalyse-Punkte als jeweils eigene Details-/Summary-Elemente umgesetzt. Bestehende kostenlose Beschreibungen unveraendert uebernommen; sechs kurze Tiefenanalyse-Erlaeuterungen auf ausdruecklichen Nutzerauftrag ergaenzt. Alle bisherigen Angebotstexte, Preise, Bedingungen und Links erhalten.
+- Originalvorlage mit eigenen Inhalts-/Bildspalten, geschlossenem Ausgangszustand, animierter Inhaltshoehe und Bildzustaenden je Karte adaptiert. Jede Karte verwendet ausschliesslich ihr bestaetigtes Originalbild ohne Bildbearbeitung: `assets/Fotos/Analyse.png` bzw. `assets/Fotos/deep_analysis.png`.
+- `homepage/analysis-offers.js`: Weiter-, Zurueck- und Schliessen-Steuerung sowie Abstimmung auf abgeschlossene Animationen pro Karte. Eigene Details-Gruppen verhindern gegenseitiges Schliessen zwischen beiden Analysen. Escape schliesst den aktiven Punkt und fuehrt den Fokus zurueck.
+- Analyse-Rechner/Gauge oberhalb auf vorhandene 1260 px begrenzt; unveraendertes Formular darunter zentriert auf maximal 800 px. Die Einleitung bleibt an der bestehenden linken Sektionskante.
+- Angepasste Klassen: `.nv-analyse__offers`, `.nv-analyse__offer`, `.nv-analyse__disclosure`, `.nv-analyse__summary`, `.nv-analyse__body`, `.nv-analyse__visual`, `.nv-analyse__image`, `.nv-analyse__layout`. Neue lokale Klassen: `.nv-analyse__stage`, `.nv-analyse__column`, `.nv-analyse__image-block`, `.nv-analyse__image-wrapper`, `.nv-analyse__control`. Fruehere `.nv-analyse__comparison`- und gemeinsame Bildwechsel-Regeln entfernt.
+- Formularfelder, Consent, Honeypot, Rechner-Markup, alle bisherigen Scripts und IDs sowie saemtliche anderen Sektionen unveraendert. Keine Assets bearbeitet und keine neuen Bibliotheken eingebunden.
+
+Pruefung: HTML5 ohne Parserfehler; CSS, JavaScript-Syntax, JSON-LD, unveraenderte Originaltexte/Preise/IDs/Formular-/Rechner-/Script-Struktur und andere Sektionen sowie `git diff --check` erfolgreich. Im lokalen Browser Desktop-Zweispaltenlayout, eigene Bilder, einzeln geoeffnete Punkte, unabhaengige Karten, Weiter/Zurueck/Schliessen und Escape geprueft. Mobile bei 375 CSS-px einspaltig ohne horizontalen Sektionsueberlauf, oeffnende Bulletpoints und Formular darunter bestaetigt. Keine Fehler in den abgefragten Browserkonsolenlogs.
+
+Offen: Nutzerabnahme der Darstellung und neuen Tiefenanalyse-Texte. Reduced Motion statisch geprueft, nicht emuliert. Native Enter-/Leertasten-Aktivierung der Summary-Elemente in dieser Browserumgebung nicht abschliessend bestaetigt. Kein Formularversand, Push oder Deployment.
+
 ## 2026-10-15 - Gemeinsamer Bildbereich fuer die Analyse-Angebote
 
 Status: in Arbeit
@@ -1884,3 +2252,22 @@ Status: in Arbeit
 - Download-Texte, Assets, Links, CTA- und Checklist-Logik unveraendert.
 
 Offen: gerenderte Desktop- und Mobile-Pruefung.
+## 2026-10-21 - Gemeinsames Detailseiten-System als drei separate Vorschauen
+
+Status: in Arbeit
+
+- Neu: `tools/detail_pages/build.py`, `template.html`, `pages.json`, `verify.py`, `README.md` sowie `content/detail_ki-agenten.json`, `content/paket-buero.json`, `content/detail_seo.json`. Gemeinsames statisches Geruest mit vorhandenen Seitentexten, Sektionen, IDs, Metadaten, Header/Footer und Scripts als Seitendaten. Ausgabe ausschliesslich als separate Vorschau, kein Schreibmodus fuer Produktionsseiten.
+- Neu: `homepage/preview-detail_ki-agenten.html`, `homepage/preview-paket-buero.html`, `homepage/preview-detail_seo.html` und `homepage/detail-pages.css`. Gemeinsame Sektionsreihenfolge nach Analyse-Referenz; bestehende Zusatzsektionen bleiben erhalten. Hero-Motive und je zwei Fotos aus den vorhandenen Assetordnern eingebunden, ohne Bildbearbeitung. Textfilter und Glow aus den alten Seitenstyles nicht uebernommen.
+- CSS-Bereiche: `.detail-group`, `[data-section-role]`, `.detail-hero`, `.visual-card--hero`, `.detail-photo-layout`, `.detail-photo-layout--reverse`, `.detail-copy`, `.section-photo` sowie bestehende Inhaltsklassen fuer Panels, Listen, Module, Vergleiche, FAQ und SEO-Iframe. Bestehende Basisresets fuer Header/Footer in der Vorschau vor deren unveraendertem Shared-Stylesheet geladen. Keine neue JavaScript-Logik.
+- Originale `analyse.html`, `index.html`, `shared-header-footer.css`, `nurovelle-tokens.css` und alle drei Original-Pilotseiten unveraendert. Vorher-/Nachher-Pruefsummen fuer die vier besonders geschuetzten Dateien und Quell-Pruefsummen der Pilotseiten bestaetigt. Originaltexte, Linkziele, IDs, Formularmarkup, Scripts und SEO-Iframe unveraendert uebernommen; kein Deployment.
+- Pruefung: drei Vorschauen mit HTML5-Parser fehlerfrei; generatorbasierter Identitaetsvergleich fuer Texte, IDs, Links, Header/Footer, Formulare, Scripts und Iframes erfolgreich. Lokale Assetpfade vorhanden, neun Hero-/Foto-Dateien dekodierbar, CSS geparst, bestehende Inline-Scripts mit `node --check` geprueft, `git diff --check` erfolgreich. KI-Agenten-FAQ per Browser geoeffnet; KI-Agenten bei tatsaechlich 390 px ohne horizontalen Ueberlauf. Alle drei Vorschauen im Browser geladen; SEO ohne erfasste Seitenfehler. Vollstaendige Desktop-/Mobile-Sichtabnahme wegen fehlerhafter Browser-Viewport-/Screenshot-Ausgabe offen. Formulare nicht abgesendet, Reduced Motion nur statisch geprueft.
+- Weitere Seiten bleiben bis zur visuellen Freigabe der drei Vorschauen unberuehrt. Offene Hero-/Fotozuordnungen sind in `tools/detail_pages/README.md` benannt.
+
+## 2026-10-21 - Stripe-Secret aus dem Quellcode ausgelagert
+
+Status: in Arbeit
+
+- `homepage/stripe-sample-code/server.rb`: hartcodierten Secret Key entfernt; `STRIPE_SECRET_KEY` wird aus Prozessumgebung beziehungsweise privater `.env` mit `dotenv` geladen. Fehlender oder leerer Key fuehrt zum Abbruch. `NUROVELLE_STRIPE_ENV_FILE` erlaubt einen abweichenden privaten Pfad.
+- Bestehenden Key in `/home/d4sd1ng/.config/nurovelle-stripe/.env` ausserhalb von Repository und Webroot gespeichert; Verzeichnis 700, Datei 600. Keyinhalt nicht ausgegeben. `homepage/stripe-sample-code/Gemfile` um `dotenv` ergaenzt, Ladeverhalten in `README.md` dokumentiert.
+- Checkout-Routen, Preis-/Integrationsplatzhalter und `homepage/stripe-config.js` unveraendert. Keine Zahlungs-, Produkt-, Webhook- oder Deployment-Aenderung. Aktuelle versionierte Textdateien auf Secret-Key-Literale geprueft: keine Treffer. Alte Git-Versionen nicht umgeschrieben; Schluesselrotation bleibt offen.
+- Ruby ist in dieser Umgebung nicht installiert; deshalb kein Serverstart und keine Laufzeitpruefung der Ruby-/dotenv-Integration. Keine Installation durchgefuehrt. Paket-Checkout bleibt unvollstaendig und wurde nicht als funktionierend bestaetigt.

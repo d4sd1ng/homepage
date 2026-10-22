@@ -834,60 +834,89 @@ canvas.nv-step-viz {
 .nv-analyse--deep { padding-bottom: 48px; }
 .nv-analyse--deep .nv-analyse__offer { max-width: 860px; }
 .nv-analyse__subtitle { max-width: 60ch; margin: 0 0 32px; color: var(--color-text-sub); font: var(--w-subtitle) var(--t-subtitle)/1.22 "Inter",Arial,sans-serif; }
-.nv-analyse__intro { max-width: 854.4px; margin: 0 0 9.6px 0; color: #b9c3bd; font: var(--w-fliesstext) var(--t-fliesstext)/1.85 "Inter",Arial,sans-serif; }
-.nv-analyse__comparison { display: grid; grid-template-columns: minmax(0,1.28fr) minmax(0,.72fr); gap: var(--space-6); align-items: center; margin: 32px auto; }
-.nv-analyse__offers { display: grid; grid-template-columns: minmax(0,1fr); gap: 16px; align-items: start; width: 100%; }
-.nv-analyse__visual { display: grid; grid-template-columns: minmax(0,1fr); grid-template-rows: minmax(0,1fr); width: min(100%, 480px); aspect-ratio: 3 / 4; margin: 0; justify-self: center; }
-.nv-analyse__image { grid-area: 1 / 1; width: 100%; height: 100%; min-height: 0; object-fit: contain; transition: opacity var(--transition-base); }
-.nv-analyse__image--deep { opacity: 0; visibility: hidden; }
-.nv-analyse__comparison:has(.nv-analyse__offer--deep .nv-analyse__disclosure[open]) .nv-analyse__image--free { opacity: 0; visibility: hidden; }
-.nv-analyse__comparison:has(.nv-analyse__offer--deep .nv-analyse__disclosure[open]) .nv-analyse__image--deep { opacity: 1; visibility: visible; }
-@media (max-width: 980px) { .nv-analyse__comparison { grid-template-columns: minmax(0,1fr); } .nv-analyse__visual { width: min(100%, 320px); } }
-@media (prefers-reduced-motion: reduce) { .nv-analyse__image { transition: none; } }
-.nv-analyse__offer { position: relative; overflow: hidden; display: flex; flex-direction: column; gap: 12px; min-height: 0; padding: 28px 32px; border: 0.8px solid transparent; border-radius: 8px; background: var(--nv-holo-face), var(--gold-3) border-box; transform: perspective(880px) rotateX(1.2deg) rotateY(-1.8deg); transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.35s cubic-bezier(0.22, 1, 0.36, 1); box-shadow: var(--nv-holo-depth); }
-.nv-analyse__offer:nth-child(even) { transform: perspective(880px) rotateX(-1.2deg) rotateY(1.8deg); }
-.nv-analyse__offer:hover, .nv-analyse__offer:focus-within { transform: perspective(880px) rotateX(0) rotateY(0); box-shadow: var(--nv-holo-depth-flat); }
+.nv-analyse__intro { max-width: 854.4px; margin: 0 0 32px; color: #b9c3bd; font: var(--w-fliesstext) var(--t-fliesstext)/1.85 "Inter",Arial,sans-serif; }
+.nv-analyse__offers { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 24px; align-items: stretch; width: min(100%, 1260px); margin: 32px auto; }
+.nv-analyse__offer { position: relative; overflow: hidden; display: flex; flex-direction: column; gap: 12px; min-width: 0; }
 .nv-analyse__offer > * { position: relative; z-index: 2; }
-.nv-analyse__offer::before { content: ""; position: absolute; inset: 0; z-index: 0; background: var(--asset-logo-mark) center / 85% auto no-repeat; opacity: 0.025; pointer-events: none; }
-.nv-analyse__offer--deep { box-shadow: var(--nv-holo-depth); }
 .nv-analyse__offer .nv-analyse__offer-kicker { margin: 0; color: #55863f; font: var(--w-kicker-karte) var(--t-kicker-karte)/1.15 Inter,Arial,sans-serif; letter-spacing: 0.12em; text-transform: uppercase; }
 .nv-analyse__offer h3 { margin: 0; color: transparent; background: var(--gold-1); background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent; font: var(--w-kartentitel) var(--t-kartentitel)/1.1 "Exo 2",Inter,Arial,sans-serif; hyphens: none; }
 .nv-analyse__offer p { margin: 0; max-width: none; color: #b9c3bd; font: var(--w-fliesstext) var(--t-fliesstext)/1.65 Inter,Arial,sans-serif; }
-.nv-analyse__offer-label { margin: 8px 0 0 !important; color: #e4e0d6 !important; font: 600 13px/1.3 Inter,Arial,sans-serif !important; letter-spacing: 0.08em; text-transform: uppercase; }
+.nv-analyse__offer .nv-analyse__offer-label { margin: 8px 0 0; color: #e4e0d6; font: 600 13px/1.3 Inter,Arial,sans-serif; letter-spacing: 0.08em; text-transform: uppercase; }
 .nv-analyse__offer-list { margin: 0; padding: 0; list-style: none; display: grid; gap: 8px; }
 .nv-analyse__offer-list li { position: relative; padding-left: 16px; color: var(--color-text-light); font: var(--w-fliesstext) var(--t-fliesstext)/1.5 Inter,Arial,sans-serif; }
 .nv-analyse__offer-list li::before { content: ""; position: absolute; left: 0; top: 0.48em; width: 9px; height: 9px; border-radius: 50%; background: url("assets/Bulletpoint.png") center / contain no-repeat; }
 .nv-analyse__offer-list strong { color: #fae385; }
 .nv-analyse__offer-price { color: #d4af37 !important; font: 600 22px/1.3 Inter,Arial,sans-serif !important; }
-.nv-analyse__offer-price--stacked { display: grid; grid-template-columns: max-content max-content; column-gap: 12px; row-gap: 2px; align-items: baseline; width: max-content; }
+.nv-analyse__offer-price--stacked { display: grid; grid-template-columns: minmax(0,1fr) max-content; column-gap: 12px; row-gap: 2px; align-items: baseline; width: 100%; }
+.nv-analyse__offer-price--stacked > span { min-width: 0; overflow-wrap: anywhere; }
+.nv-analyse__offer-footer { display: flex; flex-direction: column; gap: 12px; min-height: 190px; }
+.nv-analyse__offer > h3 { min-height: 64px; overflow-wrap: anywhere; }
 .nv-analyse__offer-price--stacked .nv-analyse__offer-price-value { text-align: right; justify-self: end; font-variant-numeric: tabular-nums; }
 .nv-analyse__offer p.nv-analyse__offer-note { color: #8b938d; font-size: 14px; }
 .nv-analyse__offer--deep .nv-analyse__offer-list li { color: var(--nv-gold-highlight); }
-.nv-analyse__offer .hero-cta { margin-top: auto; align-self: flex-start; padding-top: 8px; }
+.nv-analyse__offer .hero-cta { margin-top: auto; align-self: center; padding-top: 8px; }
 
-.nv-analyse__disclosure { width: 100%; }
-.nv-analyse__summary { position: relative; display: grid; gap: 8px; padding-right: 36px; cursor: pointer; list-style: none; }
+.nv-analyse__stage { --analysis-speed: .5s; --analysis-ease: cubic-bezier(.42,0,.58,1); --analysis-distance: 15%; position: relative; display: grid; grid-template-columns: minmax(0,1fr); gap: 12px; align-items: center; min-height: 320px; flex: 1 0 auto; }
+.nv-analyse__column { grid-area: 1 / 1; width: 100%; display: grid; gap: 8px; padding: 40px 0 12px 28px; min-width: 0; z-index: 2; }
+.nv-analyse__disclosure { width: 58%; min-width: 0; overflow: hidden; border-radius: 8px; background: color-mix(in srgb, var(--color-emerald) 85%, transparent); color: var(--color-text-light); transition: width var(--analysis-speed) var(--analysis-ease); }
+.nv-analyse__disclosure[open] { width: 86%; }
+.nv-analyse__summary { position: relative; display: flex; gap: 8px; align-items: center; min-height: 44px; padding: 10px; cursor: pointer; list-style: none; transition: opacity calc(var(--analysis-speed) * .5) var(--analysis-ease); font: 600 14px/1.35 Inter,Arial,sans-serif; }
 .nv-analyse__summary::-webkit-details-marker { display: none; }
-.nv-analyse__summary::after { content: "+"; position: absolute; right: 0; top: 50%; transform: translateY(-50%); color: var(--nv-gold-highlight); font: 400 28px/1 Inter,Arial,sans-serif; }
-.nv-analyse__disclosure[open] > .nv-analyse__summary::after { content: "−"; }
+.nv-analyse__summary::marker { content: ""; }
+.nv-analyse__summary svg { width: 18px; height: 18px; flex: 0 0 18px; color: var(--nv-gold-highlight); }
+.nv-analyse__summary span { min-width: 0; overflow-wrap: anywhere; }
+.nv-analyse__disclosure[open] > .nv-analyse__summary { color: var(--nv-gold-highlight); }
 .nv-analyse__summary:focus-visible { outline: 2px solid var(--nv-gold-highlight); outline-offset: 6px; }
-.nv-analyse__body { display: grid; gap: 16px; padding-top: 24px; max-width: 85ch; }
-.nv-analyse__disclosure[open] .nv-analyse__body { animation: nv-analysis-reveal 240ms ease-out; }
-@keyframes nv-analysis-reveal { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
-@media (prefers-reduced-motion: reduce) { .nv-analyse__disclosure[open] .nv-analyse__body { animation: none; } }
-.nv-analyse__body > p { max-width: 75ch; }
-.nv-analyse__inner > .nv-aform { width: 100%; height: auto; margin-bottom: 40px; padding: 28px 32px; transform: none; }
-@media (max-width: 640px) { .nv-analyse__offers > .nv-analyse__offer { padding: 20px 16px; transform: none; } .nv-analyse__summary h3 { font-size: 24px; overflow-wrap: break-word; } .nv-analyse__offer-price--stacked { grid-template-columns: minmax(0,1fr) max-content; width: 100%; column-gap: 8px; } .nv-analyse__inner > .nv-aform { padding: 14.4px; } }
+.nv-analyse__disclosure, .nv-analyse__disclosure::details-content { interpolate-size: allow-keywords; }
+.nv-analyse__disclosure::details-content { height: 0; opacity: 0; overflow: hidden; transition-property: content-visibility, height, opacity; transition-duration: var(--analysis-speed), calc(var(--analysis-speed) * 1.6), calc(var(--analysis-speed) * .5); transition-behavior: allow-discrete; transition-timing-function: var(--analysis-ease); }
+.nv-analyse__disclosure[open]::details-content { height: auto; opacity: 1; transition-delay: 0s, 0s, calc(var(--analysis-speed) * .5); }
+.nv-analyse__body { display: grid; gap: 16px; padding: 0 16px 16px; }
+.nv-analyse__visual { grid-area: 1 / 1; justify-self: end; z-index: 1; position: relative; width: 40%; height: 220px; margin: 0; pointer-events: none; }
+.nv-analyse__offer:not(.nv-analyse__offer--deep) .nv-analyse__visual { height: 292px; }
+.nv-analyse__image-block { position: absolute; inset: 0; }
+.nv-analyse__image-wrapper { width: 100%; height: 100%; opacity: 0; scale: .9; translate: 0 0; transform-origin: 100% 150%; transition-property: translate, opacity, scale; transition-duration: calc(var(--analysis-speed) * .6), calc(var(--analysis-speed) * .35), calc(var(--analysis-speed) * 1.15); transition-timing-function: var(--analysis-ease); }
+.nv-analyse__image { display: block; width: auto; max-width: none; height: 100%; margin-inline: auto; object-fit: contain; }
+.nv-analyse__image-block.is-active .nv-analyse__image-wrapper { opacity: 1; scale: 1; translate: 0 0; transition-delay: calc(var(--analysis-speed) * .2); }
+.nv-analyse__stage[data-checking-details="true"] .nv-analyse__image-wrapper { transform-origin: 50% 100%; }
+.nv-analyse__stage[data-checking-details="true"]:has(.nv-analyse__disclosure[open]) .nv-analyse__image-block:first-child .nv-analyse__image-wrapper { translate: calc(var(--analysis-distance) * -1) 0; scale: 1.25; }
+.nv-analyse__control.golden-button { position: absolute; z-index: 3; min-width: 0; width: 32px; height: 32px; padding: 4px; }
+.nv-analyse__control[hidden] { display: none; }
+.nv-analyse__control svg { width: 20px; height: 20px; }
+.nv-analyse__control[data-action="previous"] { left: -12px; top: calc(50% - 40px); }
+.nv-analyse__control[data-action="next"] { left: -12px; top: calc(50% + 8px); }
+.nv-analyse__control[data-action="next"] svg { rotate: 180deg; }
+.nv-analyse__control[data-action="exit"] { right: 0; top: 0; }
+.nv-analyse__control[data-action="exit"] svg { rotate: 45deg; }
+.nv-analyse__control:focus-visible { outline: 2px solid var(--nv-gold-highlight); outline-offset: 4px; }
+.nv-analyse__inner > .nv-aform { width: min(100%, 1260px); height: auto; margin: 0 auto 40px; padding: 28px 32px; transform: none; }
+@media (max-width: 980px) { .nv-analyse__offers { grid-template-columns: minmax(0,1fr); grid-auto-rows: 1fr; } }
+@media (max-width: 640px) {
+  .nv-analyse__offers > .nv-analyse__offer { padding: 20px 16px; }
+  .nv-analyse__stage { grid-template-columns: minmax(0,1fr); gap: 16px; min-height: 0; align-content: start; }
+  .nv-analyse__column { grid-area: auto; width: 100%; padding: 44px 24px 0; }
+  .nv-analyse__disclosure { width: 88%; }
+  .nv-analyse__disclosure[open] { width: 100%; }
+  .nv-analyse__visual { grid-area: auto; width: 100%; height: 220px; }
+  .nv-analyse__control[data-action="previous"] { left: 0; top: 0; }
+  .nv-analyse__control[data-action="next"] { left: 44px; top: 0; }
+  .nv-analyse__summary { padding: 12px; }
+  .nv-analyse__body { padding-inline: 12px; }
+  .nv-analyse__offer-price--stacked { grid-template-columns: minmax(0,1fr); row-gap: 4px; }
+  .nv-analyse__offer-price--stacked .nv-analyse__offer-price-value { justify-self: start; text-align: left; }
+  .nv-analyse__offer .hero-cta, .nv-analyse__offer .hero-cta .golden-button { width: 100%; min-width: 0; }
+  .nv-analyse__offer .hero-cta .golden-text { white-space: nowrap; text-align: center; }
+  .nv-analyse__inner > .nv-aform { padding: 14.4px; }
+}
+@media (prefers-reduced-motion: reduce) { .nv-analyse__stage { --analysis-speed: 0s; } .nv-analyse__image-wrapper, .nv-analyse__summary, .nv-analyse__disclosure, .nv-analyse__disclosure::details-content { transition: none; } }
 
-.nv-analyse__layout { display: grid; grid-template-columns: minmax(0,1fr); gap: 24px; align-items: start; }
+.nv-analyse__layout { display: grid; grid-template-columns: minmax(0,1fr); gap: 24px; align-items: start; max-width: 1260px; margin-inline: auto; }
 .nv-analyse__grid { display: grid; grid-template-columns: minmax(0,1.28fr) minmax(0,.72fr); gap: 24px; align-items: stretch; width: 100%; }@media(max-width:980px){ .nv-analyse__grid{ grid-template-columns:1fr; } }
 /* uniform card shell for all 4 cards */
 .nv-acard { border:0.8px solid transparent; background: var(--nv-holo-face), var(--gold-3) border-box; border-radius:8px; padding:16px; }
 .nv-acard { transform: perspective(880px) rotateX(1.1deg) rotateY(-1.6deg); transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.35s cubic-bezier(0.22, 1, 0.36, 1); box-shadow: var(--nv-holo-depth); }
-.nv-pack__card:nth-child(even), .nv-analyse__grid > .nv-acard:nth-of-type(even), .nv-analyse__offers > .nv-aform { transform: perspective(880px) rotateX(-1.1deg) rotateY(1.6deg); }
+.nv-pack__card:nth-child(even), .nv-analyse__grid > .nv-acard:nth-of-type(even) { transform: perspective(880px) rotateX(-1.1deg) rotateY(1.6deg); }
 .nv-pack__card:nth-child(even):hover, .nv-pack__card:nth-child(even):focus-within, .nv-analyse__grid > .nv-acard:nth-of-type(even):hover, .nv-analyse__grid > .nv-acard:nth-of-type(even):focus-within { transform: perspective(880px) rotateX(0) rotateY(0); }
 .nv-acard:hover, .nv-acard:focus-within { transform: perspective(880px) rotateX(0) rotateY(0); box-shadow: var(--nv-holo-depth-flat); }
-.nv-analyse__offer--deep:hover, .nv-analyse__offer--deep:focus-within { box-shadow: var(--nv-holo-depth-flat); }
 
 /* gauge column hugs the gauge; metrics take the rest */
 .nv-analyse__grid > :nth-child(2) .nv-acard__split { grid-template-columns:128px minmax(0,1fr); justify-content:start; column-gap:12px; align-items:center; }
@@ -1328,23 +1357,22 @@ canvas.nv-step-viz {
   --nv-seo-entry-offset: -160px;
   position: relative;
   z-index: 2;
-  width: min(620px, calc(100% - (2 * var(--side))));
-  margin: 20px auto;
-  padding: 16px 20px;
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 12px 20px;
-  border: 0.8px solid transparent;
-  border-radius: 8px;
-  background: linear-gradient(var(--color-black), var(--color-black)) padding-box, var(--gold-3) border-box;
+  width: min(240px, calc(100% - (2 * var(--side))));
+  margin: 20px 0 20px var(--side);
+  padding: 0;
+  isolation: isolate;
   opacity: 0;
   transform: translateX(var(--nv-seo-entry-offset));
   transition: opacity .46s ease, transform .46s cubic-bezier(.22,1,.36,1);
 }
-.nv-seo-promo__copy { flex: 1 1 240px; min-width: 0; }
-.nv-seo-promo__copy strong { display: block; margin-bottom: 4px; color: var(--nv-gold-highlight); font: 600 16px/1.3 "Inter",Arial,sans-serif; }
-.nv-seo-promo__copy p { margin: 0; color: var(--color-text-muted); font: 400 14px/1.5 "Inter",Arial,sans-serif; }
+.nv-seo-promo__display { position: relative; transform: perspective(900px) rotateY(18deg); transform-origin: center; }
+.nv-seo-promo__image { display: block; width: 100%; height: auto; }
+.nv-seo-promo__copy { position: absolute; top: 49%; left: 9%; width: 58%; padding: 0; transform: translateY(-50%); }
+.nv-seo-promo__copy strong { display: block; margin: 0 0 4px; color: var(--nv-gold-highlight); font: 600 11.33px/1.2 "Inter",Arial,sans-serif; }
+.nv-seo-promo__copy p { margin: 0; color: var(--color-text-muted); font: 400 8px/1.5 "Inter",Arial,sans-serif; }
+.nv-seo-promo__copy .hero-cta { display: inline-flex; margin-top: 8px; text-decoration: none; font-size: 6.67px; }
+.nv-seo-promo__copy .hero-cta .golden-button { min-width: 0; width: auto; height: 2.75em; padding: 0 1em; font-size: inherit; line-height: 2.5em; white-space: nowrap; }
+.nv-seo-promo__copy .hero-cta:focus-visible { outline: 2px solid var(--nv-gold-highlight); outline-offset: 4px; }
 .nv-seo-promo.is-visible {
   opacity: 1;
   transform: none;
@@ -1787,23 +1815,40 @@ canvas.nv-step-viz {
   /* SEO-Toolbox-Promo bleibt mobil im Contentfluss und blockiert nichts. */
   .nv-seo-promo {
     --nv-seo-entry-offset: -40px;
-    width: min(320px, calc(100% - (2 * var(--side))));
-    padding: 12px 14px;
-    margin: 16px auto;
-  }
-  .nv-seo-promo .hero-cta {
-    justify-self: start;
-    margin-top: 0;
+    margin: 16px 0 16px var(--side);
   }
 }
 @media (max-width: 560px) {
-  
-  
-  
 }
+@media (max-width: 440px) { .nv-seo-promo__copy strong { font-size: 11.33px; margin-bottom: 4px; } .nv-seo-promo__copy p { font-size: 8px; } .nv-seo-promo__copy .hero-cta { margin-top: 8px; } }
 
 .skip-link { position: absolute; left: 9.6px; top: -48px; z-index: 200; padding: 8px 12.8px; border-radius: 0 0 6.4px 6.4px; background: #0a0d0b; color: #fae385; font: 600 11.2px/1 Inter, Arial, sans-serif; text-decoration: none; border: 0.8px solid #8a6a24; transition: top 0.15s ease; }
 .skip-link:focus-visible { top: 0; outline: none; }
+
+.seo-placement { position: absolute; top: 0; right: 0; width: 240px; margin: 0; z-index: 3; opacity: 0; transform: translateX(-32px); transition: opacity .46s ease, transform .46s cubic-bezier(.22,1,.36,1); }
+.seo-placement.is-visible { opacity: 1; transform: none; }
+@media (prefers-reduced-motion: reduce) { .seo-placement { opacity: 1; transform: none; transition: none; } }
+.seo-placement__display { position: relative; transform: perspective(900px) rotateY(-18deg); transform-origin: center; }
+.seo-placement img { display: block; width: 100%; height: auto; }
+.seo-placement__copy { position: absolute; top: 49%; left: 9%; width: 58%; transform: translateY(-50%); }
+.seo-placement .seo-placement__copy strong { display: block; margin: 0 0 4px; color: var(--nv-gold-highlight); font: 600 11.33px/1.2 Inter,Arial,sans-serif; }
+.seo-placement .seo-placement__copy p { margin: 0; color: var(--color-text-muted); font: 400 8px/1.5 Inter,Arial,sans-serif; }
+.seo-placement .hero-cta { display: inline-flex; margin-top: 8px; text-decoration: none; font-size: 6.67px; }
+.seo-placement .hero-cta .golden-button { min-width: 0; width: auto; height: 2.75em; padding: 0 1em; font-size: inherit; line-height: 2.5em; white-space: nowrap; }
+.nv-about__body { position: relative; }
+.nv-about__intro > .seo-placement { top: 32px; right: 80px; }
+.nv-about__intro > .nv-about__text { width: min(760px, calc(100vw - 420px)); }
+.nv-pack__intro, .nv-pack__subtitle { max-width: calc(100% - 280px); }
+.nv-pack__inner > .seo-placement { top: 92px; }
+.downloads-section .section-head { position: relative; }
+.downloads-section .section-head > .seo-placement { top: calc(50% + 48px); left: calc(70.833% - 120px); right: auto; }
+@media (max-width: 900px) {
+ .seo-placement { position: relative; top: auto; right: auto; width: 240px; max-width: 100%; }
+ .nv-about__intro > .nv-about__text { width: 100%; }
+ .nv-about__intro > .seo-placement { top: auto; right: auto; margin-bottom: 12px; }
+ .nv-pack__intro, .nv-pack__subtitle { max-width: 100%; }
+ .nv-pack__inner > .seo-placement, .downloads-section .section-head > .seo-placement { top: auto; left: auto; right: auto; margin-bottom: 12px; }
+}
 </style>
 
 <meta name="description" content="Nurovelle entwickelt KI-Agenten, Automatisierungen und Software für den Mittelstand — von der kostenlosen Potenzialanalyse bis zum laufenden System." />
@@ -1947,6 +1992,10 @@ canvas.nv-step-viz {
         <p class="nv-about__text nv-about__text--before-bullets">
           Deshalb beginnt Nurovelle nicht mit einem fertigen Tool, sondern mit der Frage, welcher Ablauf verbessert werden soll und welche technische Lösung dafür tatsächlich sinnvoll ist.
         </p>
+<aside class="seo-placement" data-seo-promo aria-label="Kostenloser SEO-Check">
+  <div class="seo-placement__display"><img src="assets/seo-check-preview-gunmetal.png" alt="" width="1536" height="1024" loading="lazy" decoding="async" />
+  <div class="seo-placement__copy"><strong>Kostenloser SEO-Check</strong><p>SEO-Probleme erkennen.<br />Potenziale entdecken.</p><a class="hero-cta" href="detail_seo.html"><span class="golden-button"><span class="golden-text">Website prüfen</span></span></a></div></div>
+</aside>
         <ul class="nv-about__bullets">
           <li><strong>Prozesse zuerst</strong></li>
           <li><strong>Technologie nach Bedarf</strong></li>
@@ -2109,10 +2158,6 @@ canvas.nv-step-viz {
   </div>
 </section>
 
-<aside class="nv-seo-promo" data-seo-promo aria-label="SEO Toolbox">
-  <div class="nv-seo-promo__copy"><strong>SEO Toolbox</strong><p>Prüfen Sie Ihre Website auf SEO-Probleme und Verbesserungspotenzial.</p></div>
-  <a class="hero-cta" href="detail_seo.html"><span class="golden-button"><span class="golden-text">SEO Toolbox öffnen</span></span></a>
-</aside>
 
 <section class="nv-pack" id="pakete" aria-labelledby="nv-pack-title">
   <div class="nv-pack__inner">
@@ -2120,6 +2165,10 @@ canvas.nv-step-viz {
     <h2 class="nv-pack__title" id="nv-pack-title">Automationspakete.</h2>
     <p class="nv-pack__subtitle">Für wiederkehrende Abläufe in Betreuung, Handwerk und Büro — drei Pakete mit je vier Funktionen.</p>
     <p class="nv-pack__intro">Wo sich Abläufe in vielen Betrieben gleichen, muss nichts neu entwickelt werden. Diese drei Pakete bündeln je vier Handgriffe, die im jeweiligen Arbeitsalltag täglich anfallen — in einem Programm, das Ihnen gehört und auf Ihrem eigenen Server läuft. Keine Fremd-Cloud nötig.</p>
+<aside class="seo-placement" data-seo-promo aria-label="Kostenloser SEO-Check">
+  <div class="seo-placement__display"><img src="assets/seo-check-preview-gunmetal.png" alt="" width="1536" height="1024" loading="lazy" decoding="async" />
+  <div class="seo-placement__copy"><strong>Kostenloser SEO-Check</strong><p>SEO-Probleme erkennen.<br />Potenziale entdecken.</p><a class="hero-cta" href="detail_seo.html"><span class="golden-button"><span class="golden-text">Website prüfen</span></span></a></div></div>
+</aside>
     <div class="nv-pack__grid">
       <article class="nv-acard nv-pack__card">
         <p class="nv-acard__eyebrow">Betreuung</p>
@@ -2523,20 +2572,16 @@ canvas.nv-step-viz {
   </div>
 </section>
 
-<aside class="nv-seo-promo" data-seo-promo aria-label="SEO Toolbox">
-  <div class="nv-seo-promo__copy"><strong>SEO Toolbox</strong><p>Prüfen Sie Ihre Website auf SEO-Probleme und Verbesserungspotenzial.</p></div>
-  <a class="hero-cta" href="detail_seo.html"><span class="golden-button"><span class="golden-text">SEO Toolbox öffnen</span></span></a>
-</aside>
 
 <section class="nv-analyse" id="potenzialanalyse" aria-labelledby="nv-analyse-title">
   <div class="nv-analyse__inner">
     <p class="nv-analyse__kicker">KI-Potenzialanalyse</p>
     <h2 class="nv-analyse__title" id="nv-analyse-title">Kostenlose KI-Potenzialanalyse.</h2>
     <p class="nv-analyse__subtitle">Ein strukturierter Einstieg statt Verkaufsformular.</p>
-    <div class="nv-analyse__layout">
     <div class="nv-analyse__text">
     <p class="nv-analyse__intro">Zuerst der Richtwert aus Ihren Angaben. Darunter die passende Stufe: kostenlose Potenzialanalyse oder Tiefgehende Potenzialanalyse als wesentliche Erweiterung.</p>
     </div>
+    <div class="nv-analyse__layout">
 
     <div class="nv-analyse__grid">
       <!-- Card 1: Regler -->
@@ -2608,49 +2653,100 @@ canvas.nv-step-viz {
     </div>
     </div>
 
-<div class="nv-analyse__comparison">
 <div class="nv-analyse__offers">
-<article class="nv-analyse__offer"><details class="nv-analyse__disclosure" name="nv-analysis-offer" open=""><summary class="nv-analyse__summary"><p class="nv-analyse__offer-kicker">Kostenlos</p><h3>Kostenlose Potenzialanalyse</h3></summary><div class="nv-analyse__body">
-
-
-<p>Die Potenzialanalyse ist kein Verkaufsformular, sondern ein strukturierter Einstieg. Sie zeigt, welche Abläufe aktuell Zeit binden, wo Medienbrüche entstehen und welche Datenquellen bereits vorhanden sind.</p>
-<p class="nv-analyse__offer-label">Was geprüft wird</p>
-<ul class="nv-analyse__offer-list">
-<li><strong>Prozesslage</strong> Welche wiederkehrenden Aufgaben aktuell Zeit binden, wo Rückfragen entstehen und welche Übergaben manuell laufen.</li>
-<li><strong>Datenlage</strong> Welche Systeme, Tabellen, E-Mails oder Dokumente beteiligt sind und ob die Informationen nutzbar zusammengeführt werden können.</li>
-<li><strong>Automatisierungspotenzial</strong> Ob KI, Automatisierung, SaaS-Tool oder ein normaler Prozessumbau für den konkreten Ablauf sinnvoller ist.</li>
-<li><strong>Nächster Schritt</strong> Welche Umsetzung zuerst den größten Nutzen bringt und welcher Einstieg realistisch vorbereitet werden sollte.</li>
-</ul>
-<p>Eine klare erste Einschätzung, ob und wo sich KI-Automatisierung lohnt — mit einer Einordnung von Einsparpotenzial, Aufwand, Nutzen und Priorität sowie einer Empfehlung für den sinnvollsten nächsten Schritt.</p>
-
-
-</div></details><p class="nv-analyse__offer-price">199 € · für Sie kostenlos</p><p class="nv-analyse__offer-note">Kein Abo. Keine versteckten Kosten. Formular direkt darunter.</p></article>
-<article class="nv-analyse__offer nv-analyse__offer--deep"><details class="nv-analyse__disclosure" name="nv-analysis-offer"><summary class="nv-analyse__summary"><p class="nv-analyse__offer-kicker">Wesentliche Erweiterung</p><h3>Tiefgehende Potenzialanalyse</h3></summary><div class="nv-analyse__body">
-
-
-<p>Die Tiefgehende Potenzialanalyse geht über die kostenlose Potenzialanalyse hinaus. Sobald mehrere Prozesse, eine Investitionsentscheidung oder technische Abhängigkeiten betroffen sind, reicht die erste Einordnung nicht aus. Die kostenlose Analyse ist der übliche Einstieg, aber keine Voraussetzung.</p>
-<p>Prozesse, Daten und Systeme werden vollständig erfasst. Daraus entsteht nicht nur eine Einschätzung, sondern ausgearbeiteter Output für die Umsetzung.</p>
-<p class="nv-analyse__offer-label">Zusätzlicher Output gegenüber der kostenlosen Analyse</p>
-<ul class="nv-analyse__offer-list">
-<li>ROI-Überschlag je Prozess</li>
-<li>technische Lösungsarchitektur</li>
-<li>detaillierte Schnittstellenplanung</li>
-<li>ausgearbeitete Implementierungs-Roadmap</li>
-<li>Workshop mit Ihrem Team</li>
-<li>Report als HTML und PDF sowie Implementierungsleitfaden</li>
-</ul>
-
-
-
-</div></details><p class="nv-analyse__offer-price nv-analyse__offer-price--stacked"><span>Einführungspreis</span><span class="nv-analyse__offer-price-value">555 € netto</span><span>Listenpreis</span><span class="nv-analyse__offer-price-value">699 € netto</span></p><p class="nv-analyse__offer-note">Einführungspreis für Anfragen bis 31.12.2026, zzgl. 19 % MwSt. Scope wird vor Start schriftlich festgehalten.</p><a class="hero-cta" href="potenzialanalyse-deep.html">
+  <article class="nv-acard nv-analyse__offer" aria-label="Kostenlose Potenzialanalyse" data-analysis-offer>
+    <p class="nv-analyse__offer-kicker">Kostenlos</p>
+    <h3>Kostenlose Potenzialanalyse</h3>
+    <p>Für eine erste unverbindliche Einschätzung Ihrer Prozesse und Automatisierungspotenziale.</p>
+    <div class="nv-analyse__stage" data-checking-details="false">
+      <div class="nv-analyse__column">
+        <details class="nv-analyse__disclosure" name="nv-analysis-free">
+          <summary class="nv-analyse__summary"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v6m3-3H9m12 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" /></svg><span>Überblick</span></summary>
+          <div class="nv-analyse__body">
+            <p>Wir prüfen Ihre Prozesse, Daten und Automatisierungspotenziale und empfehlen den sinnvollsten nächsten Schritt.</p>
+          </div>
+        </details>
+        <details class="nv-analyse__disclosure" name="nv-analysis-free">
+          <summary class="nv-analyse__summary"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v6m3-3H9m12 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" /></svg><span>Prozesslage</span></summary>
+          <div class="nv-analyse__body"><p>Welche wiederkehrenden Aufgaben aktuell Zeit binden, wo Rückfragen entstehen und welche Übergaben manuell laufen.</p></div>
+        </details>
+        <details class="nv-analyse__disclosure" name="nv-analysis-free">
+          <summary class="nv-analyse__summary"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v6m3-3H9m12 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" /></svg><span>Datenlage</span></summary>
+          <div class="nv-analyse__body"><p>Welche Systeme, Tabellen, E-Mails oder Dokumente beteiligt sind und ob die Informationen nutzbar zusammengeführt werden können.</p></div>
+        </details>
+        <details class="nv-analyse__disclosure" name="nv-analysis-free">
+          <summary class="nv-analyse__summary"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v6m3-3H9m12 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" /></svg><span>Automatisierungspotenzial</span></summary>
+          <div class="nv-analyse__body"><p>Ob KI, Automatisierung, SaaS-Tool oder ein normaler Prozessumbau für den konkreten Ablauf sinnvoller ist.</p></div>
+        </details>
+        <details class="nv-analyse__disclosure" name="nv-analysis-free">
+          <summary class="nv-analyse__summary"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v6m3-3H9m12 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" /></svg><span>Nächster Schritt</span></summary>
+          <div class="nv-analyse__body"><p>Welche Umsetzung zuerst den größten Nutzen bringt und welcher Einstieg realistisch vorbereitet werden sollte.</p></div>
+        </details>
+      </div>
+      <div class="nv-analyse__visual" aria-hidden="true">
+        <div class="nv-analyse__image-block is-active"><div class="nv-analyse__image-wrapper"><img class="nv-analyse__image" src="assets/Fotos/Analyse.png" alt="" width="941" height="1672" loading="lazy" decoding="async" /></div></div>
+        <div class="nv-analyse__image-block"><div class="nv-analyse__image-wrapper"><img class="nv-analyse__image" src="assets/Fotos/Analyse.png" alt="" width="941" height="1672" loading="lazy" decoding="async" /></div></div>
+        <div class="nv-analyse__image-block"><div class="nv-analyse__image-wrapper"><img class="nv-analyse__image" src="assets/Fotos/Analyse.png" alt="" width="941" height="1672" loading="lazy" decoding="async" /></div></div>
+        <div class="nv-analyse__image-block"><div class="nv-analyse__image-wrapper"><img class="nv-analyse__image" src="assets/Fotos/Analyse.png" alt="" width="941" height="1672" loading="lazy" decoding="async" /></div></div>
+        <div class="nv-analyse__image-block"><div class="nv-analyse__image-wrapper"><img class="nv-analyse__image" src="assets/Fotos/Analyse.png" alt="" width="941" height="1672" loading="lazy" decoding="async" /></div></div>
+        <div class="nv-analyse__image-block"><div class="nv-analyse__image-wrapper"><img class="nv-analyse__image" src="assets/Fotos/Analyse.png" alt="" width="941" height="1672" loading="lazy" decoding="async" /></div></div>
+      </div>
+      <button class="golden-button nv-analyse__control" type="button" data-action="previous" aria-label="Vorheriger Abschnitt" hidden><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 15.75 7.5-7.5 7.5 7.5" /></svg></button>
+      <button class="golden-button nv-analyse__control" type="button" data-action="next" aria-label="Nächster Abschnitt" hidden><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 15.75 7.5-7.5 7.5 7.5" /></svg></button>
+      <button class="golden-button nv-analyse__control" type="button" data-action="exit" aria-label="Abschnitt schließen" hidden><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" /></svg></button>
+    </div>
+    <div class="nv-analyse__offer-footer">
+    <p class="nv-analyse__offer-price">199 € · für Sie kostenlos</p>
+    <p class="nv-analyse__offer-note">Kein Abo. Keine versteckten Kosten. Formular direkt darunter.</p>
+    </div>
+  </article>
+  <article class="nv-acard nv-analyse__offer nv-analyse__offer--deep" aria-label="Tiefgehende Potenzialanalyse" data-analysis-offer>
+    <p class="nv-analyse__offer-kicker">Wesentliche Erweiterung</p>
+    <h3>Tiefgehende Potenzialanalyse</h3>
+    <p>Enthält alle Leistungen der kostenlosen Potenzialanalyse und erweitert diese um folgende Leistungen:</p>
+    <div class="nv-analyse__stage" data-checking-details="false">
+      <div class="nv-analyse__column">
+        <details class="nv-analyse__disclosure" name="nv-analysis-deep">
+          <summary class="nv-analyse__summary"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v6m3-3H9m12 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" /></svg><span>ROI-Überschlag je Prozess</span></summary>
+          <div class="nv-analyse__body"><p>Für jeden betrachteten Prozess werden Aufwand und möglicher Nutzen gegenübergestellt. So lässt sich einschätzen, wo sich eine Umsetzung wirtschaftlich lohnt.</p></div>
+        </details>
+        <details class="nv-analyse__disclosure" name="nv-analysis-deep">
+          <summary class="nv-analyse__summary"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v6m3-3H9m12 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" /></svg><span>technische Lösungsarchitektur</span></summary>
+          <div class="nv-analyse__body"><p>Die passenden technischen Bausteine werden zu einer Lösungsarchitektur verbunden. Sie zeigt, wie die geplante Lösung in Ihre vorhandenen Systeme eingebunden wird.</p></div>
+        </details>
+        <details class="nv-analyse__disclosure" name="nv-analysis-deep">
+          <summary class="nv-analyse__summary"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v6m3-3H9m12 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" /></svg><span>detaillierte Schnittstellenplanung</span></summary>
+          <div class="nv-analyse__body"><p>Benötigte Datenflüsse, Schnittstellen und Zugriffe werden konkret geplant. Technische Abhängigkeiten und Voraussetzungen werden vor der Umsetzung sichtbar.</p></div>
+        </details>
+        <details class="nv-analyse__disclosure" name="nv-analysis-deep">
+          <summary class="nv-analyse__summary"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v6m3-3H9m12 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" /></svg><span>ausgearbeitete Implementierungs-Roadmap</span></summary>
+          <div class="nv-analyse__body"><p>Die Umsetzung wird in nachvollziehbare Schritte mit Prioritäten und Abhängigkeiten gegliedert. Daraus entsteht ein konkreter Fahrplan für Ihr Projekt.</p></div>
+        </details>
+        <details class="nv-analyse__disclosure" name="nv-analysis-deep">
+          <summary class="nv-analyse__summary"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v6m3-3H9m12 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" /></svg><span>Report als HTML und PDF sowie Implementierungsleitfaden</span></summary>
+          <div class="nv-analyse__body"><p>Die Ergebnisse werden als HTML- und PDF-Report dokumentiert. Ein Implementierungsleitfaden hält die geplanten Schritte für die anschließende Umsetzung fest.</p></div>
+        </details>
+      </div>
+      <div class="nv-analyse__visual" aria-hidden="true">
+        <div class="nv-analyse__image-block is-active"><div class="nv-analyse__image-wrapper"><img class="nv-analyse__image" src="assets/Fotos/deep_analysis.png" alt="" width="927" height="1240" loading="lazy" decoding="async" /></div></div>
+        <div class="nv-analyse__image-block"><div class="nv-analyse__image-wrapper"><img class="nv-analyse__image" src="assets/Fotos/deep_analysis.png" alt="" width="927" height="1240" loading="lazy" decoding="async" /></div></div>
+        <div class="nv-analyse__image-block"><div class="nv-analyse__image-wrapper"><img class="nv-analyse__image" src="assets/Fotos/deep_analysis.png" alt="" width="927" height="1240" loading="lazy" decoding="async" /></div></div>
+        <div class="nv-analyse__image-block"><div class="nv-analyse__image-wrapper"><img class="nv-analyse__image" src="assets/Fotos/deep_analysis.png" alt="" width="927" height="1240" loading="lazy" decoding="async" /></div></div>
+        <div class="nv-analyse__image-block"><div class="nv-analyse__image-wrapper"><img class="nv-analyse__image" src="assets/Fotos/deep_analysis.png" alt="" width="927" height="1240" loading="lazy" decoding="async" /></div></div>
+        <div class="nv-analyse__image-block"><div class="nv-analyse__image-wrapper"><img class="nv-analyse__image" src="assets/Fotos/deep_analysis.png" alt="" width="927" height="1240" loading="lazy" decoding="async" /></div></div>
+      </div>
+      <button class="golden-button nv-analyse__control" type="button" data-action="previous" aria-label="Vorheriger Abschnitt" hidden><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 15.75 7.5-7.5 7.5 7.5" /></svg></button>
+      <button class="golden-button nv-analyse__control" type="button" data-action="next" aria-label="Nächster Abschnitt" hidden><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 15.75 7.5-7.5 7.5 7.5" /></svg></button>
+      <button class="golden-button nv-analyse__control" type="button" data-action="exit" aria-label="Abschnitt schließen" hidden><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" /></svg></button>
+    </div>
+    <div class="nv-analyse__offer-footer">
+    <p class="nv-analyse__offer-price nv-analyse__offer-price--stacked"><span>Einführungspreis</span><span class="nv-analyse__offer-price-value">555 € netto</span><span>Listenpreis</span><span class="nv-analyse__offer-price-value">699 € netto</span></p>
+    <p class="nv-analyse__offer-note">Einführungspreis für Anfragen bis 31.12.2026, zzgl. 19 % MwSt. Scope wird vor Start schriftlich festgehalten.</p>
+    <a class="hero-cta" href="potenzialanalyse-deep.html">
 <span class="golden-button"><span class="golden-text">Tiefgehende Potenzialanalyse ansehen</span></span>
-</a></article>
-
-</div>
-<figure class="nv-analyse__visual" aria-hidden="true">
-  <img class="nv-analyse__image nv-analyse__image--free" src="assets/Fotos/Analyse.png" alt="" width="941" height="1672" loading="lazy" decoding="async" />
-  <img class="nv-analyse__image nv-analyse__image--deep" src="assets/Fotos/deep_analysis.png" alt="" width="927" height="1240" loading="lazy" decoding="async" />
-</figure>
+</a>
+    </div>
+  </article>
 </div>
 
 <form action="analyse.html#analyse-formular" class="nv-acard nv-aform" id="nvAnaForm" method="get">
@@ -2919,10 +3015,6 @@ canvas.nv-step-viz {
       </div>
     </section>
 
-<aside class="nv-seo-promo" data-seo-promo aria-label="SEO Toolbox">
-  <div class="nv-seo-promo__copy"><strong>SEO Toolbox</strong><p>Prüfen Sie Ihre Website auf SEO-Probleme und Verbesserungspotenzial.</p></div>
-  <a class="hero-cta" href="detail_seo.html"><span class="golden-button"><span class="golden-text">SEO Toolbox öffnen</span></span></a>
-</aside>
 
 <section
       class="section downloads-section"
@@ -2942,6 +3034,10 @@ canvas.nv-step-viz {
             Praxisnahe Guides, Checklisten und Vorlagen unterstützen Sie bei der
             Bewertung und Umsetzung von KI- und Automatisierungspotenzialen.
           </p>
+<aside class="seo-placement" data-seo-promo aria-label="Kostenloser SEO-Check">
+  <div class="seo-placement__display"><img src="assets/seo-check-preview-gunmetal.png" alt="" width="1536" height="1024" loading="lazy" decoding="async" />
+  <div class="seo-placement__copy"><strong>Kostenloser SEO-Check</strong><p>SEO-Probleme erkennen.<br />Potenziale entdecken.</p><a class="hero-cta" href="detail_seo.html"><span class="golden-button"><span class="golden-text">Website prüfen</span></span></a></div></div>
+</aside>
         </div>
 
         <div class="download-display">
@@ -4035,5 +4131,6 @@ void main(){
   });
 })();
 </script>
+<script src="analysis-offers.js" defer></script>
 </body>
 </html>

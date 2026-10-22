@@ -1,0 +1,22 @@
+{
+  "pilot": ["detail_ki-agenten.html", "paket-buero.html", "detail_seo.html"],
+  "pages": {
+    "detail_ki-agenten.html": {"title_lines": ["Aufgaben abgeben,", "Kontrolle behalten."], "hero": "Ki_agenten_detail_page.png", "photos": ["ki_agenten_1.jpg", "ki_agenten_2.jpg"]},
+    "paket-buero.html": {"title_lines": ["Eine Anmeldung statt vier", "Programme – kein Datensalat."], "hero": "büro_Ödetail_page.png", "photos": ["automation_1.jpg", "workflows_1.jpg"]},
+    "detail_seo.html": {"title_lines": ["Sichtbarkeit aufbauen"], "hero": "seo_detail_page.png", "photos": ["seo_1.jpg", "seo__2.jpg"]},
+    "detail_chatbots.html": {"hero": "chatbot_detail_page.png", "photos": ["chatbot_1.jpg", "chatbot_2.jpg"]},
+    "detail_datenabgleich.html": {"hero": "daten_dokumente_detail_page.png", "photos": ["prozessauto_1.jpg", "ki_agenten_2.jpg"]},
+    "detail_ki-sicherheit.html": {"hero": "gouvernance_detail_page.png", "photos": ["ki_sicherheit_1.jpg", "ki_siccherheit_2.jpg"]},
+    "detail_ki-software.html": {"hero": "ki_software_detail_page.png", "photos": ["ki_software_1.jpg", "ki_software_2+.jpg"]},
+    "detail_prompt-engineering.html": {"hero": "prompt_engineering_detail_page.png", "photos": ["prompt_engineering_1.jpg", "promptengineering_2.jpg"]},
+    "detail_prozessautomatisierung.html": {"hero": "prozessautomation_detail_page.png", "photos": ["prozessauto_1.jpg", "prozessauto_2.jpg"]},
+    "detail_roadmap.html": {"hero": "ki_roadmap_detail_pager.png", "photos": ["ki_roadmap_1.jpg", "tiefenanalyse_2.jpg"]},
+    "detail_sprachassistenten.html": {"hero": "sprachassistent_detail_page.png", "photos": ["sprachassistent_1.jpg", "sprchassistent_2.jpg"]},
+    "detail_workflows.html": {"hero": null, "photos": ["workflows_1.jpg", "workflow_2.jpg"]},
+    "detail_automationen.html": {"hero": null, "photos": ["automation_1.jpg", "automation_2.jpg"]},
+    "detail_warum-nurovelle.html": {"hero": null, "photos": ["warum_1.jpg", "warum_2.jpg"]},
+    "potenzialanalyse-deep.html": {"hero": null, "photos": ["tiefenanalyse_1.jpg", "tiefenanalyse_2.jpg"]},
+    "paket-betreuung.html": {"hero": "betreuung_detail_page.png", "photos": [null, null]},
+    "paket-handwerk.html": {"hero": "hanwerk_detail_page.png", "photos": ["automation_2.jpg", null]}
+  }
+}
