@@ -1,3 +1,31 @@
+## 2026-11-13 - Bild der Analyse-Angebote steht fest
+
+Status: geprueft
+
+Der Nutzer meldete, dass das rechte Bild mitwandert. Vorgabe: Das Bild bleibt an fester Position, die gruenen Karten duerfen darueber laufen.
+
+Ursache: `.nv-analyse__column` und `.nv-analyse__visual` liegen beide in `grid-area: 1 / 1`, die Buehne hat `align-items: center`. Beim Aufklappen waechst die Spalte, die Rasterzeile waechst mit, und das mittig ausgerichtete Bild wird neu zentriert. Zusaetzlich verschob und vergroesserte eine eigene Regel das erste Bild beim Oeffnen.
+
+- `homepage/index.html`, `.nv-analyse__visual`: `align-self: start` ergaenzt und `margin: 0` zu `margin: 56px 0 0` geaendert. Das Bild haengt damit oben an der Buehne statt mittig und wandert beim Wachsen nicht mehr mit. Der Abstand entspricht der bisherigen mittigen Lage im geschlossenen Zustand.
+- `.nv-analyse__offer:not(.nv-analyse__offer--deep) .nv-analyse__visual`: `margin-top: 20px` ergaenzt, passend zur groesseren Bildhoehe von 292 px. Der Selektor bestand bereits fuer die Hoehe.
+- Regel `.nv-analyse__stage[data-checking-details="true"]:has(.nv-analyse__disclosure[open]) .nv-analyse__image-block:first-child .nv-analyse__image-wrapper { translate: ...; scale: 1.25; }` entfernt. Sie verschob und vergroesserte das Bild beim Oeffnen.
+- Im Block `@media (max-width: 640px)`: `align-self: auto; margin: 0` fuer `.nv-analyse__visual` ergaenzt, damit die Aenderung dort nicht greift. Unterhalb von 640 px stehen Bild und Karten untereinander statt uebereinander.
+
+Nicht geaendert: die Ueberlappung selbst. Karten und Bild liegen weiterhin in derselben Rasterzelle, die offene Karte laeuft weiter ueber das Bild. Ebenso unveraendert die Breiten 58 Prozent geschlossen und 86 Prozent offen, der Bildwechsel zwischen den Angeboten, `analysis-offers.js`, Texte, Preise und Assetpfade.
+
+Pruefung, Lage des Bildes relativ zur Buehne, geschlossen gegen offen:
+
+| Breite | vorher | nachher |
+| --- | --- | --- |
+| 1440 px | 20 auf 54 px, 56 auf 90 px | 20 auf 20 px, 56 auf 56 px |
+| 1100 px | wanderte | steht fest |
+| 640 px | gestapelt | gestapelt, unveraendert |
+| 390 px | gestapelt | gestapelt, unveraendert |
+
+Kein horizontaler Ueberlauf bei 1440, 1100, 640 und 390 px. Geschlossener Zustand bei 1440 px unveraendert gegenueber vorher, es verschiebt sich nichts fuer Besucher, die keine Karte oeffnen.
+
+Offen: Unterhalb von 640 px schiebt die aufklappende Karte das darunter liegende Bild nach unten. Das ist normaler Textfluss in der gestapelten Darstellung und war dort auch vorher so; es wurde bewusst nicht angefasst.
+
 ## 2026-11-13 - Hero-Partikel-Canvas laeuft nicht mehr ausserhalb des Sichtfelds
 
 Status: geprueft
