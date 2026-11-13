@@ -46,7 +46,12 @@ Keine abgeschlossenen historischen Entscheidungen, Designregeln oder Projektbesc
 
 - [ ] Exo 2 und Inter als Webfont in die Website einbinden (self-hosted, OFL-Dateien liegen unter `/usr/local/share/fonts/nurovelle/`) — offen
 - [ ] Produktionscode auf `--font-display` prüfen: Stellen finden, die noch fest Tapera, Eastman Grotesque oder einen alten Stack setzen — offen
-- [ ] Goldwort-Regel im Produktionscode umsetzen: genau ein tragendes Wort je Überschrift im Goldverlauf, „Nurovelle" immer gold — offen
+- [ ] **Goldwort-Regel: Entscheidung steht aus** — blockiert
+  - `styleguide.md` Zeile 106: auf der Website trägt die Überschrift den Goldverlauf über den **kompletten** Text, „und so bleibt es".
+  - Diese Datei verlangte bisher das Gegenteil: genau ein tragendes Wort je Überschrift.
+  - Beides kann nicht gelten. Der Nutzer hat am 2026-11-13 entschieden, die Frage vorerst offen zu lassen.
+  - Aktueller Produktionsstand: alle `h1`/`h2` tragen über `nurovelle.css` den vollen Goldverlauf. Ausnahme sind die drei am 2026-11-13 ergänzten Abschnitte `#fallbeispiel` auf `detail_datenabgleich`, `detail_prozessautomatisierung` und `detail_prompt-engineering`; dort trägt genau ein Wort den Verlauf, auf ausdrückliche Vorgabe des Nutzers.
+  - Nach der Entscheidung ist entweder `styleguide.md` nachzuziehen oder sind die drei Abschnitte auf Vollgold umzustellen. „Nurovelle" bleibt in jedem Fall gold.
 - [ ] finale Divider-Variante live prüfen und freigeben — offen
 - [ ] Hero-Orb / Cube-Entstehung live prüfen — offen
 - [ ] Board-/Stepdiagramm-Darstellung live prüfen — offen

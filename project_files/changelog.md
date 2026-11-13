@@ -1,3 +1,68 @@
+## 2026-11-13 - Fehlende Dateien der Startseite ergaenzt, Blocker aufgeloest
+
+Status: geprueft
+
+- `homepage/analysis-offers.js`: neu, vom Nutzer geliefert. Steuert je Angebotskarte die `details`-Elemente `.nv-analyse__disclosure` und die drei Bedienelemente `previous`, `next`, `exit`, blendet diese nur bei geoeffnetem Angebot ein, schaltet den zugehoerigen `.nv-analyse__image-block` auf `is-active` und schliesst per Escape. Reines DOM-Skript ohne Netzwerkaufruf.
+- `homepage/assets/seo-check-preview-gunmetal.png`: neu, vom Nutzer geliefert, 1536 x 1024, aus WebP nach PNG mit Alphakanal gewandelt. Entspricht den im Markup angegebenen Abmessungen.
+- Keine Zeile in `homepage/index.html` geaendert; die Datei verwies bereits auf beide Pfade.
+
+Pruefung: Alle sieben vom Skript verwendeten Selektoren im Markup vorhanden. `node --check` fehlerfrei. Im Browser durchgespielt: Start geschlossen und ohne Bedienelemente, nach dem Oeffnen drei Bedienelemente und aktiver Bildbereich, Weiter und Zurueck blaettern durch die fuenf Angebote, Schliessen raeumt auf. SEO-Bild mit 1536 x 1024 geladen. Gerendert bei 1440, 900 und 390 px: kein horizontaler Ueberlauf, zehn Sektionen, Formular vorhanden, keine Seitenfehler.
+
+Berichtigung zum Eintrag weiter unten: `assets/cards/cards_problem_loesung/best_card_single%20470x360.webp` fehlte nie. Der Pfad ist URL-kodiert, die Datei existiert mit echtem Leerzeichen im Namen. Die frueher gemeldete fehlende Datei war ein Fehler der Pruefung, nicht der Seite.
+
+Offen: keine. Die Startseite ist deploybar.
+
+## 2026-11-13 - Goldwort-Regel als offene Entscheidung festgehalten
+
+Status: blockiert
+
+- `project_files/todo.md`, Abschnitt Homepage - Design / Komponenten: der Punkt zur Goldwort-Regel ist von `offen` auf `blockiert` gesetzt und um den Widerspruch ergaenzt. `styleguide.md` Zeile 106 schreibt fuer die Website den Goldverlauf ueber den kompletten Text vor, `todo.md` verlangte bisher genau ein tragendes Wort. Beides kann nicht gleichzeitig gelten.
+- Festgehalten ist ausserdem der tatsaechliche Produktionsstand: alle `h1`/`h2` tragen ueber `nurovelle.css` den vollen Goldverlauf; Ausnahme sind die drei Abschnitte `#fallbeispiel`, dort traegt genau ein Wort den Verlauf, auf ausdrueckliche Vorgabe des Nutzers.
+- Der Nutzer hat entschieden, die Frage vorerst offen zu lassen. Es wurde deshalb weder `styleguide.md` geaendert noch eine der drei Ueberschriften umgestellt.
+- Keine Aenderung im Produktionscode.
+
+## 2026-11-13 - Schriftangabe in AGENTS.md berichtigt
+
+Status: fertig
+
+- `AGENTS.md`, Abschnitt Typografie: `Eastman Grotesque Alt` als Headline-Schrift durch `Exo 2` ersetzt. Die Angabe widersprach `styleguide.md` Zeile 151, wo `Exo 2` als aktive Display-Schrift steht und ausdruecklich festgehalten ist, dass es kein zweites Fontsystem gibt. Der Nutzer hat bestaetigt, dass `Exo 2` und `Inter` die gueltigen Schriften sind.
+- `Eastman Grotesque Alt` in die Liste der nicht neu zu verwendenden Schriften aufgenommen.
+- Verweis auf `styleguide.md` als zustaendige Quelle ergaenzt, damit die Angabe nicht erneut auseinanderlaeuft.
+- Keine Schrift im Produktionscode geaendert. Die Seiten verwenden unveraendert `Exo 2` und `Inter`.
+
+## 2026-11-13 - Startseite auf den vom Nutzer gelieferten Stand gesetzt
+
+Status: blockiert
+
+- `homepage/index.html`: vollstaendig durch die vom Nutzer hochgeladene Fassung ersetzt. Der bisherige Stand war laut Nutzer nicht der gueltige. Geaendert sind im Wesentlichen der Angebotsbereich `.nv-analyse__*` einschliesslich `.nv-analyse__disclosure`, `.nv-analyse__body`, `.nv-analyse__image-block` und `.nv-analyse__control`, die Hero-CTA-Buttons sowie `.seo-placement__*`. 315 geaenderte Zeilen, 97 Zeilen mehr als zuvor.
+- Keine Sektion und kein Element entfernt oder ergaenzt: die Menge der `id`-Werte ist vor und nach dem Austausch identisch, ebenso die Zahl der `section`-Elemente.
+- Keine andere Datei geaendert.
+
+Pruefung: Tagbilanz ausgeglichen, Dokument vollstaendig von `<!DOCTYPE html>` bis `</html>`. Gerendert bei 1440, 900 und 390 px: kein horizontaler Ueberlauf, zehn Sektionen, Formular vorhanden. Alle zehn Angebots-Bloecke sind ohne JavaScript sichtbar, es wird kein Inhalt verborgen.
+
+Offen: Die gelieferte Fassung verweist auf zwei Dateien, die weder im Arbeitsbaum noch in der Git-Historie eines Branches existieren:
+
+- `homepage/analysis-offers.js`, eingebunden in Zeile 4134 als `<script src="analysis-offers.js" defer>`. Ohne diese Datei bleiben die sechs Bedienelemente `.nv-analyse__control` (`previous`, `next`, `exit`) ohne Funktion.
+- `homepage/assets/seo-check-preview-gunmetal.png`, dreimal eingebunden in den Zeilen 1996, 2169 und 3038 mit `width="1536" height="1024"`. Ohne diese Datei bleibt an drei Stellen ein leerer Bildbereich.
+
+Beide Dateien wurden nicht ersatzweise erzeugt und es wurde kein Fallback eingebaut. Die Startseite ist deshalb nicht zum Deployment freigegeben. Vorbestehend fehlt unveraendert `assets/cards/cards_problem_loesung/best_card_single%20470x360.webp`; dieser Verweis stand bereits vorher so in der Datei.
+
+## 2026-11-13 - Drei Faelle der Case Study in die Detailseiten eingebaut
+
+Status: in Arbeit
+
+- `homepage/detail_datenabgleich.html`: Abschnitt `#fallbeispiel` vor `#kontakt` ergaenzt. Szenario A der Case Study, Belegverarbeitung in einer Steuerkanzlei. Vier Schritte mit den Icons `dokumente`, `datenabgleich`, `api`, `valedierung`.
+- `homepage/detail_prozessautomatisierung.html`: Abschnitt `#fallbeispiel` vor `#kontakt` ergaenzt. Szenario B, Angebotserstellung in einem Elektroinstallationsbetrieb. Vier Schritte mit `figur_tablett`, `klembrett`, `speicher_vernetzt`, `mail_bot`.
+- `homepage/detail_prompt-engineering.html`: Abschnitt `#fallbeispiel` vor `#kontakt` ergaenzt. Szenario C, Produktbeschreibungen in einem Online-Shop fuer Gartenbedarf. Drei Schritte mit `software`, `lupe_keyword`, `valedierung`; das Dokument nennt fuer dieses Szenario drei Bestandteile, ein vierter wurde nicht erfunden.
+- Alle Angaben zu Unternehmensgroesse, Vorgangsvolumen, Aufwand, Investition, Zeitersparnis, Fehler- und Erfolgsquote, Umsatzwirkung, ROI und Amortisation stammen unveraendert aus `Dokumente_lead/final/case_studies/CASE_STUDY_KI_AUTOMATISIERUNG_NUROVELLE_FINAL.docx`. Die Saetze unter UMSETZUNG und die Lerneffekte der REGELBOX sind woertlich uebernommen.
+- Je Seite drei auf `#fallbeispiel` begrenzte CSS-Bloecke im seitenlokalen `<style>`: Spaltenbreite 820 px, Stufenaufbau mit Haarlinie, Schrittliste `.fb-schritte`. Eigene Klasse statt `.num-list`, weil zwei Detailseiten `.num-list` seitenlokal als nummerierte Liste ohne `.module-img` definieren.
+- Jeder Abschnitt schliesst mit der Herkunftsangabe und dem Link auf `assets/downloads/CASE_STUDY_KI_AUTOMATISIERUNG_NUROVELLE_FINAL.pdf`, die Datei liegt im Projekt und ist bereits von der Startseite verlinkt.
+- Keine andere Sektion, kein Text, keine ID, kein Assetpfad und keine bestehende Logik dieser Seiten geaendert. Die uebrigen zehn Detailseiten unveraendert.
+
+Pruefung: Alle Zahlen des Dokuments im jeweiligen Abschnitt wiedergefunden, 14 von 14, 12 von 12 und 13 von 13. Gerendert bei 1440 px: drei Stufen, Icons geladen, genau ein Wort der Ueberschrift im Goldverlauf, Herkunftslink vorhanden, kein horizontaler Ueberlauf. Alle zehn verwendeten Icon-Dateien im Projekt vorhanden.
+
+Offen: visuelle Abnahme durch den Nutzer. Die Goldwort-Fassung der Ueberschrift weicht von `styleguide.md` Abschnitt Goldwort-Regel ab, siehe dort.
+
 ## 2026-10-15 - Gemeinsamer Bildbereich fuer die Analyse-Angebote
 
 Status: in Arbeit
