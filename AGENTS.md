@@ -80,11 +80,14 @@ Bei Widersprüchen gilt diese Reihenfolge:
 
 Verbindlich:
 
-- Headlines und große Titel: `Eastman Grotesque Alt`
+- Headlines und große Titel: `Exo 2`
 - Fließtext, Navigation, Buttons, Formulare, Cards und Footer: `Inter`
+
+Zuständige Quelle ist `styleguide.md`, Abschnitt Schriften. Bei Abweichung gilt der Styleguide.
 
 Nicht neu verwenden:
 
+- Eastman Grotesque Alt
 - Tapera
 - Bebas Neue
 - Anca Coder

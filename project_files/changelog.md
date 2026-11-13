@@ -1,3 +1,12 @@
+## 2026-11-13 - Schriftangabe in AGENTS.md berichtigt
+
+Status: fertig
+
+- `AGENTS.md`, Abschnitt Typografie: `Eastman Grotesque Alt` als Headline-Schrift durch `Exo 2` ersetzt. Die Angabe widersprach `styleguide.md` Zeile 151, wo `Exo 2` als aktive Display-Schrift steht und ausdruecklich festgehalten ist, dass es kein zweites Fontsystem gibt. Der Nutzer hat bestaetigt, dass `Exo 2` und `Inter` die gueltigen Schriften sind.
+- `Eastman Grotesque Alt` in die Liste der nicht neu zu verwendenden Schriften aufgenommen.
+- Verweis auf `styleguide.md` als zustaendige Quelle ergaenzt, damit die Angabe nicht erneut auseinanderlaeuft.
+- Keine Schrift im Produktionscode geaendert. Die Seiten verwenden unveraendert `Exo 2` und `Inter`.
+
 ## 2026-11-13 - Startseite auf den vom Nutzer gelieferten Stand gesetzt
 
 Status: blockiert
