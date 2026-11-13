@@ -3577,8 +3577,11 @@ void main(){
     resize();
 
     var tPrev = performance.now();
-    function animar(t) {
-      requestAnimationFrame(animar);
+    var laeuft = false;
+    var imBild = true;
+    var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    function zeichne(t) {
       var dt = Math.min((t - tPrev) / 1000, 0.05);
       tPrev = t;
       if (autoOrbita) yaw += dt * 0.04;
@@ -3586,7 +3589,37 @@ void main(){
       gl.uniform1f(uYaw, yaw);
       gl.drawArrays(gl.TRIANGLES, 0, 3);
     }
-    requestAnimationFrame(animar);
+    function animar(t) {
+      if (!laeuft) return;
+      requestAnimationFrame(animar);
+      zeichne(t);
+    }
+    function starte() {
+      if (laeuft || reduce) return;
+      laeuft = true;
+      tPrev = performance.now();
+      requestAnimationFrame(animar);
+    }
+    function halte() { laeuft = false; }
+
+    // Nur rechnen, solange der Hero im Bild und der Tab sichtbar ist. Der
+    // Shader deckt das ganze Sichtfeld ab; ohne diese Begrenzung lief er
+    // dauerhaft weiter und blockierte den Hauptthread auch weit unterhalb
+    // des Heros.
+    if ("IntersectionObserver" in window) {
+      new IntersectionObserver(function (eintraege) {
+        imBild = eintraege[0].isIntersecting;
+        if (imBild && !document.hidden) starte(); else halte();
+      }, { rootMargin: "100px" }).observe(canvas);
+    } else {
+      starte();
+    }
+    document.addEventListener("visibilitychange", function () {
+      if (!document.hidden && imBild) starte(); else halte();
+    });
+
+    // Bei reduzierter Bewegung ein einzelnes Standbild statt der Schleife.
+    if (reduce) requestAnimationFrame(zeichne);
   })();
 </script>
 

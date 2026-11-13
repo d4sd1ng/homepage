@@ -1,3 +1,29 @@
+## 2026-11-13 - Hero-Partikel-Canvas laeuft nicht mehr ausserhalb des Sichtfelds
+
+Status: geprueft
+
+Der Nutzer meldete Ruckeln. Die Messung zeigt: Ursache ist der WebGL-Partikelhintergrund im Hero, nicht die neu ergaenzten Abschnitte.
+
+- `homepage/index.html`, Skriptblock des Hero-Partikel-Canvas: Die Zeichenschleife rief `requestAnimationFrame` bedingungslos auf und lief damit dauerhaft weiter, auch weit unterhalb des Heros und in einem unsichtbaren Tab. Sie pruefte als einzige der drei Animationsschleifen der Seite `prefers-reduced-motion` nicht.
+- Die Schleife laeuft jetzt nur noch, solange das Canvas im Sichtfeld ist, ueber einen `IntersectionObserver` mit 100 px Vorlauf, und solange der Tab sichtbar ist. Bei reduzierter Bewegung wird ein einzelnes Standbild gezeichnet statt der Schleife.
+- Zeichenlogik, Shader, Aufloesung, Bildrate und Erscheinungsbild unveraendert. Keine CSS-Regel, kein Markup und keine andere Datei geaendert.
+
+Messung, Leerlauf ueber drei Sekunden ohne Scrollen, Hauptthread blockiert:
+
+| Zustand | vorher | nachher |
+| --- | --- | --- |
+| Hero sichtbar | 91 % | 90 % |
+| weit unten gescrollt | 91 % | 0 % |
+| reduzierte Bewegung | 91 % | 0 % |
+
+Eingegrenzt wurde die Ursache durch Ausschluss: ohne CSS-Animationen unveraendert 91 %, ohne Bilder unveraendert 91 %, ohne das Canvas `heroParticleCanvas` 0 %. Jedes der vier anderen Canvas einzeln entfernt aendert nichts. Die alte `index.html` vom Commit `45ad447` zeigt dieselben 91 %; das Verhalten ist also aelter als die zuletzt ergaenzten Abschnitte.
+
+Einschraenkung: Der Testbrowser rendert mit SwiftShader, also in Software ohne Grafikkarte. Der Absolutwert fuer den sichtbaren Hero ist dadurch ueberzeichnet und auf einem Rechner mit Grafikkarte niedriger. Der Befund, dass die Schleife ausserhalb des Sichtfelds weiterrechnet, ist davon unabhaengig.
+
+Pruefung: Hero nach der Aenderung unveraendert dargestellt, Partikelglobus vorhanden. Angebotsbereich weiterhin funktionsfaehig, Oeffnen, Blaettern und Schliessen durchgespielt. Keine Seitenfehler.
+
+Offen: Ob der Hero auf echter Hardware noch ruckelt, kann hier nicht entschieden werden. Falls ja, waeren eine Begrenzung der Pixeldichte auf 1 statt 2 oder eine Begrenzung der Bildrate zu pruefen; beides veraendert das Erscheinungsbild leicht und ist nicht ohne Freigabe umzusetzen.
+
 ## 2026-10-17 - Drei Hero-Grafiken fuer Detailseiten ergaenzt, nachtraeglich dokumentiert
 
 Status: offen
