@@ -1,3 +1,17 @@
+## 2026-11-13 - Fehlende Dateien der Startseite ergaenzt, Blocker aufgeloest
+
+Status: geprueft
+
+- `homepage/analysis-offers.js`: neu, vom Nutzer geliefert. Steuert je Angebotskarte die `details`-Elemente `.nv-analyse__disclosure` und die drei Bedienelemente `previous`, `next`, `exit`, blendet diese nur bei geoeffnetem Angebot ein, schaltet den zugehoerigen `.nv-analyse__image-block` auf `is-active` und schliesst per Escape. Reines DOM-Skript ohne Netzwerkaufruf.
+- `homepage/assets/seo-check-preview-gunmetal.png`: neu, vom Nutzer geliefert, 1536 x 1024, aus WebP nach PNG mit Alphakanal gewandelt. Entspricht den im Markup angegebenen Abmessungen.
+- Keine Zeile in `homepage/index.html` geaendert; die Datei verwies bereits auf beide Pfade.
+
+Pruefung: Alle sieben vom Skript verwendeten Selektoren im Markup vorhanden. `node --check` fehlerfrei. Im Browser durchgespielt: Start geschlossen und ohne Bedienelemente, nach dem Oeffnen drei Bedienelemente und aktiver Bildbereich, Weiter und Zurueck blaettern durch die fuenf Angebote, Schliessen raeumt auf. SEO-Bild mit 1536 x 1024 geladen. Gerendert bei 1440, 900 und 390 px: kein horizontaler Ueberlauf, zehn Sektionen, Formular vorhanden, keine Seitenfehler.
+
+Berichtigung zum Eintrag weiter unten: `assets/cards/cards_problem_loesung/best_card_single%20470x360.webp` fehlte nie. Der Pfad ist URL-kodiert, die Datei existiert mit echtem Leerzeichen im Namen. Die frueher gemeldete fehlende Datei war ein Fehler der Pruefung, nicht der Seite.
+
+Offen: keine. Die Startseite ist deploybar.
+
 ## 2026-11-13 - Goldwort-Regel als offene Entscheidung festgehalten
 
 Status: blockiert
