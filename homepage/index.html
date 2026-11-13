@@ -858,7 +858,7 @@ canvas.nv-step-viz {
 
 .nv-analyse__stage { --analysis-speed: .5s; --analysis-ease: cubic-bezier(.42,0,.58,1); --analysis-distance: 15%; position: relative; display: grid; grid-template-columns: minmax(0,1fr); gap: 12px; align-items: center; min-height: 320px; flex: 1 0 auto; }
 .nv-analyse__column { grid-area: 1 / 1; width: 100%; display: grid; gap: 8px; padding: 40px 0 12px 28px; min-width: 0; z-index: 2; }
-.nv-analyse__disclosure { width: 58%; min-width: 0; overflow: hidden; border-radius: 8px; background: color-mix(in srgb, var(--color-emerald) 85%, transparent); color: var(--color-text-light); transition: width var(--analysis-speed) var(--analysis-ease); }
+.nv-analyse__disclosure { width: 58%; min-width: 0; overflow: hidden; border-radius: 8px; background: color-mix(in srgb, var(--color-emerald) 85%, transparent); color: var(--color-text-light); }
 .nv-analyse__disclosure[open] { width: 86%; }
 .nv-analyse__summary { position: relative; display: flex; gap: 8px; align-items: center; min-height: 44px; padding: 10px; cursor: pointer; list-style: none; transition: opacity calc(var(--analysis-speed) * .5) var(--analysis-ease); font: 600 14px/1.35 Inter,Arial,sans-serif; }
 .nv-analyse__summary::-webkit-details-marker { display: none; }

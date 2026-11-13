@@ -1,3 +1,29 @@
+## 2026-11-13 - Analyse-Angebote klappen ohne Springen auf
+
+Status: geprueft
+
+Der Nutzer meldete, der Abschnitt springe beim Oeffnen einer Karte hoch und runter statt fluessig aufzugehen.
+
+Ursache: `.nv-analyse__disclosure` animierte die Breite von 58 auf 86 Prozent ueber `transition: width`. Waehrend die Breite laeuft, bricht der Text fortlaufend neu um, die Inhaltshoehe aendert sich also waehrend der Animation. Die Hoehenanimation des `::details-content` von `0` auf `auto` jagt damit einem wandernden Ziel hinterher, schiesst darueber hinaus und korrigiert zurueck. Durch das `name`-Attribut der `details`-Elemente sind die Punkte ein natives Akkordeon: beim Umschalten laufen zwei Hoehenanimationen gegeneinander, was den Ausschlag verstaerkt.
+
+Gemessener Hoehenverlauf der Buehne beim Umschalten, vorher: 403 auf 410, dann auf 358, dann auf 376. Ausschlag 52 px, zwei Richtungswechsel.
+
+- `homepage/index.html`, `.nv-analyse__disclosure`: Deklaration `transition: width var(--analysis-speed) var(--analysis-ease)` entfernt. Die Breite wechselt weiterhin von 58 auf 86 Prozent, nur nicht mehr animiert. Die Hoehenanimation des Aufklappens bleibt vollstaendig erhalten.
+
+Pruefung, Richtungswechsel der Buehnenhoehe je Phase:
+
+| Breite | oeffnen | umschalten | schliessen |
+| --- | --- | --- | --- |
+| 1440 px | 0 | 0 | 0 |
+| 1100 px | 0 | 0 | 0 |
+| 640 px | 0 | 0 | 0 |
+
+Vorher lag das Umschalten bei zwei Richtungswechseln und 52 px Ausschlag. Die Kartenbreite wechselt weiterhin von 320 auf 477 px. Das Bild bleibt bei 1440 und 1100 px unbewegt.
+
+Nicht geaendert: Hoehenanimation, Opazitaetsverlauf, `interpolate-size`, das `name`-Attribut und damit das Akkordeonverhalten, Breitenwerte, Texte, `analysis-offers.js`.
+
+Offen: Unterhalb von 640 px schiebt die aufklappende Karte das darunter liegende Bild nach unten. Gestapelte Darstellung, normaler Textfluss, vorbestehend, bewusst nicht angefasst.
+
 ## 2026-11-13 - Bild der Analyse-Angebote steht fest
 
 Status: geprueft
