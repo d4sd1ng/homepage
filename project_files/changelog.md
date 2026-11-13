@@ -1,3 +1,40 @@
+## 2026-11-13 - Analyse-Angebote: Ausschlag beim Umschalten beseitigt
+
+Status: geprueft
+
+Korrektur zum vorigen Eintrag: Die dort angegebene Tabelle mit null Richtungswechseln beim Umschalten war zu grob abgetastet. Bei 8 Messpunkten pro Sekunde fiel der Ausschlag zwischen die Proben. Mit 125 Messpunkten pro Sekunde und einem Zeitstempel relativ zum Klick ist er eindeutig messbar. Das Entfernen der Breitenanimation hat das Bild ruhig gestellt, den Hoehenausschlag beim Umschalten aber nicht beseitigt.
+
+Zwei Ursachen, beide durch Ausschluss belegt:
+
+1. Ausschlag nach oben. Die Breite wechselt seit dem vorigen Eintrag sofort statt animiert. Beim Umschalten wird die zugehende Karte im selben Moment von 86 auf 58 Prozent schmal. Ihr Text bricht dadurch auf mehr Zeilen um, waehrend ihre Hoehe noch von `auto` auf `0` laeuft. Die `auto`-Hoehe waechst also genau in dem Augenblick, in dem sie schrumpfen soll.
+2. Ausschlag nach unten. In `::details-content` lief `content-visibility` ueber `var(--analysis-speed)` gleich 0,5 s, die Hoehe aber ueber das 1,6fache gleich 0,8 s. Bei 0,5 s schaltete der Inhalt der zugehenden Karte diskret auf `hidden`, waehrend ihre Hoehenanimation noch 0,3 s weiterlief. Die Buehne sackte dadurch unter den Endwert und stieg danach wieder an.
+
+Gemessener Ausschlag vorher, Buehnenhoehe beim Umschalten: 1440 px 26,6 px nach oben und 19,5 px nach unten, 1100 px 79,6 px nach oben und 12,4 px nach unten, 390 px 26,5 px nach oben und 12,4 px nach unten.
+
+- `homepage/index.html`, `.nv-analyse__column`: `container-type: inline-size` ergaenzt. Die Spalte wird damit zur Containerreferenz.
+- `homepage/index.html`, `.nv-analyse__body`: `width: 86cqw` ergaenzt. Der Inhalt behaelt damit die Breite der geoeffneten Karte, auch waehrend die Karte selbst schmal wird. Der Text bricht nicht mehr um, die ueberstehende Breite deckt das vorhandene `overflow: hidden` der Karte ab.
+- `homepage/index.html`, `@media (max-width: 640px)`, `.nv-analyse__body`: `width: 100cqw` ergaenzt, weil die geoeffnete Karte dort 100 statt 86 Prozent breit ist.
+- `homepage/index.html`, `.nv-analyse__disclosure::details-content`: erster Wert von `transition-duration` von `var(--analysis-speed)` auf `calc(var(--analysis-speed) * 1.6)` geaendert. `content-visibility` und `height` laufen damit gleich lang, der diskrete Umschaltpunkt faellt mit dem Ende der Hoehenanimation zusammen.
+
+Pruefung, Buehnenhoehe je Phase, 125 Messpunkte pro Sekunde:
+
+| Breite | oeffnen | umschalten | schliessen |
+| --- | --- | --- | --- |
+| 1440 px | 0 / 0 / 0 | 0 / 0 / 0 | 0 / 0 / 0 |
+| 1100 px | 0 / 0 / 0 | 0 / 0 / 0 | 0 / 0 / 0 |
+| 640 px | 0 / 0 / 0 | 0 / 0 / 0 | 0 / 0 / 0 |
+| 390 px | 0 / 0 / 0 | 0 / 0 / 0 | 0 / 0 / 0 |
+
+Gelesen als Ausschlag nach oben in px / Ausschlag nach unten in px / Richtungswechsel.
+
+Darstellung unveraendert: Spaltenbreite, Kartenbreite und Bodybreite sind bei 1440, 1100, 640 und 390 px vor und nach der Aenderung auf das Pixel gleich. Bildvergleich der geoeffneten Karte bei 1440, 1100 und 640 px: null abweichende Pixel. Bei 390 px ist der Screenshot nicht reproduzierbar, zwei Laeufe derselben unveraenderten Fassung weichen um 32132 Pixel voneinander ab, der Vergleich vorher gegen nachher liegt mit 18493 Pixeln darunter.
+
+Funktionspruefung bei 1440 und 390 px, jeweils mit und ohne Reduced Motion, fuer beide Buehnen: fuenf Punkte je Buehne, Knoepfe `previous`, `next` und `exit` erscheinen erst beim Oeffnen und verschwinden beim Schliessen, `next` und `previous` wechseln den Punkt, `exit` schliesst, Escape schliesst, Bodybreite gleich Kartenbreite, kein waagerechter Seitenueberlauf, keine Konsolenfehler.
+
+Nicht geaendert: `analysis-offers.js`, Breitenwerte 58, 86, 88 und 100 Prozent, das `name`-Attribut und damit das Akkordeonverhalten, `interpolate-size`, Opazitaetsverlauf, Bildanimation, Texte, IDs, Assetpfade.
+
+Offen: Unterhalb von 640 px schiebt die aufklappende Karte das darunter liegende Bild weiterhin nach unten. Gestapelte Darstellung, normaler Textfluss, vorbestehend, bewusst nicht angefasst.
+
 ## 2026-11-13 - Analyse-Angebote klappen ohne Springen auf
 
 Status: geprueft
