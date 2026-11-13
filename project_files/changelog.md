@@ -1,3 +1,12 @@
+## 2026-11-13 - Goldwort-Regel als offene Entscheidung festgehalten
+
+Status: blockiert
+
+- `project_files/todo.md`, Abschnitt Homepage - Design / Komponenten: der Punkt zur Goldwort-Regel ist von `offen` auf `blockiert` gesetzt und um den Widerspruch ergaenzt. `styleguide.md` Zeile 106 schreibt fuer die Website den Goldverlauf ueber den kompletten Text vor, `todo.md` verlangte bisher genau ein tragendes Wort. Beides kann nicht gleichzeitig gelten.
+- Festgehalten ist ausserdem der tatsaechliche Produktionsstand: alle `h1`/`h2` tragen ueber `nurovelle.css` den vollen Goldverlauf; Ausnahme sind die drei Abschnitte `#fallbeispiel`, dort traegt genau ein Wort den Verlauf, auf ausdrueckliche Vorgabe des Nutzers.
+- Der Nutzer hat entschieden, die Frage vorerst offen zu lassen. Es wurde deshalb weder `styleguide.md` geaendert noch eine der drei Ueberschriften umgestellt.
+- Keine Aenderung im Produktionscode.
+
 ## 2026-11-13 - Schriftangabe in AGENTS.md berichtigt
 
 Status: fertig
