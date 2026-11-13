@@ -1,3 +1,18 @@
+## 2026-10-17 - Drei Hero-Grafiken fuer Detailseiten ergaenzt, nachtraeglich dokumentiert
+
+Status: offen
+
+Nachtrag zu Commit `45ad447` vom 2026-10-17, Betreff „neue hero bilder". Der Commit hatte als einziger seit dem 2026-10-13 keinen Changelog-Eintrag; die uebrigen Commits dieses Zeitraums wurden von ihren Autoren selbst dokumentiert. Dieser Eintrag beschreibt ausschliesslich, was der Diff zeigt.
+
+- `homepage/assets/detail_pages_grafics/chatbot_detail_page.png`: neu.
+- `homepage/assets/detail_pages_grafics/sprachassistent_detail_page.png`: neu.
+- `homepage/assets/detail_pages_grafics/cahtbots_detail_page.png` nach `daten_detail_page.png` umbenannt, Dateiinhalt unveraendert. Der alte Name enthielt einen Schreibfehler; die Datei dient nun der Daten-Detailseite.
+- Keine HTML-, CSS- oder JavaScript-Datei im Commit geaendert.
+
+Pruefung: Der alte Name `cahtbots_detail_page.png` war in keiner HTML-Datei verlinkt, die Umbenennung hat also keinen Verweis gebrochen. Alle drei Dateien liegen im Projekt.
+
+Offen: Keine der drei Grafiken ist bisher eingebunden. Im HTML verwendet werden aus diesem Ordner nur `chatbots_detail_grafic.webp`, `daten_dokumente_detail_grafic.webp` und `sockel_loaded_analyse.png`. Zu klaeren ist, auf welchen Detailseiten die drei neuen PNG-Dateien die bestehenden WebP-Grafiken ersetzen sollen und ob sie als PNG oder als WebP eingebunden werden.
+
 ## 2026-11-13 - Fehlende Dateien der Startseite ergaenzt, Blocker aufgeloest
 
 Status: geprueft
