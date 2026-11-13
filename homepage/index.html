@@ -857,7 +857,7 @@ canvas.nv-step-viz {
 .nv-analyse__offer .hero-cta { margin-top: auto; align-self: center; padding-top: 8px; }
 
 .nv-analyse__stage { --analysis-speed: .5s; --analysis-ease: cubic-bezier(.42,0,.58,1); --analysis-distance: 15%; position: relative; display: grid; grid-template-columns: minmax(0,1fr); gap: 12px; align-items: center; min-height: 320px; flex: 1 0 auto; }
-.nv-analyse__column { grid-area: 1 / 1; width: 100%; display: grid; gap: 8px; padding: 40px 0 12px 28px; min-width: 0; z-index: 2; }
+.nv-analyse__column { grid-area: 1 / 1; width: 100%; display: grid; gap: 8px; padding: 40px 0 12px 28px; min-width: 0; z-index: 2; container-type: inline-size; }
 .nv-analyse__disclosure { width: 58%; min-width: 0; overflow: hidden; border-radius: 8px; background: color-mix(in srgb, var(--color-emerald) 85%, transparent); color: var(--color-text-light); }
 .nv-analyse__disclosure[open] { width: 86%; }
 .nv-analyse__summary { position: relative; display: flex; gap: 8px; align-items: center; min-height: 44px; padding: 10px; cursor: pointer; list-style: none; transition: opacity calc(var(--analysis-speed) * .5) var(--analysis-ease); font: 600 14px/1.35 Inter,Arial,sans-serif; }
@@ -868,9 +868,9 @@ canvas.nv-step-viz {
 .nv-analyse__disclosure[open] > .nv-analyse__summary { color: var(--nv-gold-highlight); }
 .nv-analyse__summary:focus-visible { outline: 2px solid var(--nv-gold-highlight); outline-offset: 6px; }
 .nv-analyse__disclosure, .nv-analyse__disclosure::details-content { interpolate-size: allow-keywords; }
-.nv-analyse__disclosure::details-content { height: 0; opacity: 0; overflow: hidden; transition-property: content-visibility, height, opacity; transition-duration: var(--analysis-speed), calc(var(--analysis-speed) * 1.6), calc(var(--analysis-speed) * .5); transition-behavior: allow-discrete; transition-timing-function: var(--analysis-ease); }
+.nv-analyse__disclosure::details-content { height: 0; opacity: 0; overflow: hidden; transition-property: content-visibility, height, opacity; transition-duration: calc(var(--analysis-speed) * 1.6), calc(var(--analysis-speed) * 1.6), calc(var(--analysis-speed) * .5); transition-behavior: allow-discrete; transition-timing-function: var(--analysis-ease); }
 .nv-analyse__disclosure[open]::details-content { height: auto; opacity: 1; transition-delay: 0s, 0s, calc(var(--analysis-speed) * .5); }
-.nv-analyse__body { display: grid; gap: 16px; padding: 0 16px 16px; }
+.nv-analyse__body { width: 86cqw; display: grid; gap: 16px; padding: 0 16px 16px; }
 .nv-analyse__visual { grid-area: 1 / 1; justify-self: end; align-self: start; z-index: 1; position: relative; width: 40%; height: 220px; margin: 56px 0 0; pointer-events: none; }
 .nv-analyse__offer:not(.nv-analyse__offer--deep) .nv-analyse__visual { height: 292px; margin-top: 20px; }
 .nv-analyse__image-block { position: absolute; inset: 0; }
@@ -899,7 +899,7 @@ canvas.nv-step-viz {
   .nv-analyse__control[data-action="previous"] { left: 0; top: 0; }
   .nv-analyse__control[data-action="next"] { left: 44px; top: 0; }
   .nv-analyse__summary { padding: 12px; }
-  .nv-analyse__body { padding-inline: 12px; }
+  .nv-analyse__body { width: 100cqw; padding-inline: 12px; }
   .nv-analyse__offer-price--stacked { grid-template-columns: minmax(0,1fr); row-gap: 4px; }
   .nv-analyse__offer-price--stacked .nv-analyse__offer-price-value { justify-self: start; text-align: left; }
   .nv-analyse__offer .hero-cta, .nv-analyse__offer .hero-cta .golden-button { width: 100%; min-width: 0; }
