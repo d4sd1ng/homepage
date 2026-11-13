@@ -1,3 +1,23 @@
+## 2026-11-13 - Analyse-Angebote: Bild steht auch auf Mobil fest
+
+Status: geprueft
+
+Auf dem Desktop liegen Punktespalte und Bild in derselben Rasterzelle, das Bild bleibt deshalb stehen, waehrend die Karte darueber waechst. Unterhalb von 640 Pixeln stehen beide untereinander im normalen Textfluss, und das Bild stand unter den Punkten. Jede Karte, die aufging, schob es nach unten, gemessen 147 px bei 390 px Breite.
+
+Der Nutzer hat am 2026-11-13 aus vier vorgelegten Varianten die kompakte gewaehlt: Bild ueber die Punkte, Hoehe auf 170 px.
+
+- `homepage/index.html`, `@media (max-width: 640px)`: Regel `.nv-analyse__offer .nv-analyse__visual, .nv-analyse__offer:not(.nv-analyse__offer--deep) .nv-analyse__visual { order: -1; height: 170px; }` ergaenzt. Der doppelte Selektor ist noetig, weil die bestehende Regel `.nv-analyse__offer:not(.nv-analyse__offer--deep) .nv-analyse__visual` mit 292 px eine hoehere Spezifitaet hat als die Mobilregel `.nv-analyse__visual` und diese bisher ueberstimmte.
+
+Verworfene Varianten: Bild oben in Originalgroesse, die Punkte beginnen dann erst nach rund 300 px Bild. Bild hinter die Karten legen wie auf dem Desktop, bei 390 px decken die Karten es fast vollstaendig ab, sichtbar bleibt nur ein Rest oben rechts. Bild auf Mobil ausblenden, haette die Sektion von 776 auf 481 px verkuerzt, das Bild aber entfernt.
+
+Pruefung bei 360, 390, 430 und 640 px, beide Angebotskarten, jeder der fuenf Punkte einzeln geoeffnet: Bildversatz 0 px, kein abgeschnittener Karteninhalt, kein waagerechter Seitenueberlauf, keine JavaScript-Fehler.
+
+Nebeneffekt bei der kostenlosen Karte: Da `.nv-analyse__offers` unterhalb von 980 px mit `grid-auto-rows: 1fr` beide Karten auf gleiche Hoehe zieht, hat die kostenlose Karte durch das kleinere Bild genug Reserve. Ihre Hoehe aendert sich beim Aufklappen gar nicht mehr. Gemessene Abschnittshoehe bei 390 px: 667,7 px in allen Phasen, Oeffnen, Umschalten und Schliessen.
+
+Desktop unveraendert: Die Regel steht ausschliesslich in der 640-px-Abfrage. Bei 1440 und 1100 px sind Spalten-, Karten- und Bodybreite sowie der Bewegungsverlauf identisch. Der Bildvergleich der geoeffneten Karte weicht bei 1440 px in der kostenlosen Karte in einem Feld von 34 mal 32 Pixeln oben rechts ab. Das ist der `exit`-Knopf mit seinem animierten Goldverlauf, eine Phasenverschiebung von einem Frame, keine Layoutaenderung. Alle anderen Vergleiche: null abweichende Pixel.
+
+Nicht geaendert: `analysis-offers.js`, Bildquelle und Assetpfad, Bildbreite von 100 Prozent auf Mobil, Reihenfolge im Quelltext, Texte, IDs, Desktopregeln.
+
 ## 2026-11-13 - Analyse-Angebote: Ausschlag beim Umschalten beseitigt
 
 Status: geprueft
