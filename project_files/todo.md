@@ -97,7 +97,7 @@ Keine abgeschlossenen historischen Entscheidungen, Designregeln oder Projektbesc
   - Der Ordner in der Anleitung war falsch. Er stand auf `assets/Module/Ablauf/` und ist am 2026-11-14 auf `assets/detail_pages_grafics/` korrigiert, wo die Hero-Grafiken der Detailseiten liegen.
   - Welche Grafik auf welche Seite gehört, ist nicht entschieden. Der Nutzer klärt das bei der jeweiligen Seite, nicht pauschal.
   - `width="620" height="507"` ist am 2026-11-14 aus der Anleitung entfernt. Die Zahlen stammten aus `assets/Module/Ablauf/lösung_wählen.png`, das tatsächlich 620 x 507 misst, und passten zu keiner Hero-Grafik; zwölf von vierzehn sind 1672 x 941, dazu `ki_roadmap` 1659 x 948, `ki_software` 1912 x 823 und `seo` 1774 x 887. Beim Einsetzen werden die echten Masse der jeweiligen Datei eingetragen.
-  - **Noch offen:** In der Anleitung steht `alt="Ablauf"`. Das ist für eine Hero-Grafik kein sinnvoller Alternativtext und muss je Seite durch eine Beschreibung des Motivs ersetzt werden.
+  - `alt="Ablauf"` ist am 2026-11-15 durch den Platzhalter `alt="BESCHREIBUNG"` ersetzt, zusammen mit einem Hinweis im Kommentar. Beim Einsetzen werden `DATEI` und `BESCHREIBUNG` ersetzt: Dateiname ohne Endung und ein Alternativtext, der das Motiv beschreibt.
   - Vorhandene Grafiken in `assets/detail_pages_grafics/`: `betreuung`, `büro`, `chatbot`, `daten`, `gouvernance`, `handwerk`, `ki_agenten`, `ki_roadmap`, `ki_software`, `prompt_engineering`, `prozessautomation`, `seo`, `sprachassistent`, jeweils als `<name>_detail_page.png`, vier davon zusätzlich als `.webp`.
 - [ ] verwandte Leistungen je Seite final zuordnen — offen
 - [ ] FAQ je Detailseite final prüfen — offen

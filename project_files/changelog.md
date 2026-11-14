@@ -1,3 +1,44 @@
+## 2026-11-15 - Schreibweisen korrigiert und Alt-Text-Platzhalter gesetzt
+
+Status: geprueft
+
+Drei Vorgaben des Nutzers.
+
+**1. Schreibweise `prozessautomatisierung`.** Die Hero-Grafik hiess `prozessautomation_detail_page.png`, die vorhandene Ablaufgrafik derselben Seite dagegen `prozessautomatisierung_detail_grafic.webp`. Vereinheitlicht auf die lange Form, die auch der Seitenname `detail_prozessautomatisierung.html` traegt.
+
+- `homepage/assets/detail_pages_grafics/prozessautomation_detail_page.png` nach `prozessautomatisierung_detail_page.png`.
+
+**2. Schreibweise `governance`.** Beide Dateien trugen die franzoesische Form `gouvernance`.
+
+- `gouvernance_detail_page.png` nach `governance_detail_page.png`
+- `gouvernance_detail_grafic.webp` nach `governance_detail_grafic.webp`
+
+Die zweite Datei lag schon vorher im Projekt und war nicht Teil der Nachfrage, traegt aber denselben Fehler. Beide sind korrigiert, damit die Schreibweise nicht erneut auseinanderlaeuft.
+
+Vor den Umbenennungen geprueft: Keine der vier Dateien war in HTML, CSS oder JavaScript verlinkt. Es ist nichts gebrochen.
+
+**3. `alt="Ablauf"` entfernt.** Der Alternativtext stand fest in der Einsetz-Anleitung der 14 Detailseiten und haette so fuer jede Seite dasselbe behauptet.
+
+Geaendert in 14 Dateien:
+
+```
+alt="Ablauf" /></picture> -->
+```
+
+wird zu
+
+```
+alt="BESCHREIBUNG" /></picture>. DATEI und BESCHREIBUNG ersetzen: Dateiname ohne Endung und ein Alternativtext, der das Motiv beschreibt. -->
+```
+
+`BESCHREIBUNG` ist bewusst ein Platzhalter wie `DATEI`: Er erzwingt beim Einsetzen eine Entscheidung, statt einen falschen Text stehen zu lassen.
+
+`detail_automationen`, `detail_ki-agenten`, `detail_ki-sicherheit`, `detail_ki-software`, `detail_prompt-engineering`, `detail_roadmap`, `detail_seo`, `detail_sprachassistenten`, `detail_warum-nurovelle`, `detail_workflows`, `paket-betreuung`, `paket-buero`, `paket-handwerk`, `potenzialanalyse-deep`.
+
+`alt="Ablauf"` kommt im Projekt nicht mehr vor.
+
+**Weiterhin offen:** Die Goldwort-Regel ist unveraendert nicht entschieden und steht als `blockiert` in `todo.md`.
+
 ## 2026-11-15 - Die letzten fuenf Modulgrafiken benannt
 
 Status: geprueft
