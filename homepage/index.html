@@ -872,7 +872,6 @@ canvas.nv-step-viz {
 .nv-analyse__disclosure[open]::details-content { height: auto; opacity: 1; transition-delay: 0s, 0s, calc(var(--analysis-speed) * .5); }
 .nv-analyse__body { width: 86cqw; display: grid; gap: 16px; padding: 0 16px 16px; }
 .nv-analyse__visual { grid-area: 1 / 1; justify-self: end; align-self: start; z-index: 1; position: relative; width: 40%; height: 220px; margin: 56px 0 0; pointer-events: none; }
-.nv-analyse__offer:not(.nv-analyse__offer--deep) .nv-analyse__visual { height: 292px; margin-top: 20px; }
 .nv-analyse__image-block { position: absolute; inset: 0; }
 .nv-analyse__image-wrapper { width: 100%; height: 100%; opacity: 0; scale: .9; translate: 0 0; transform-origin: 100% 150%; transition-property: translate, opacity, scale; transition-duration: calc(var(--analysis-speed) * .6), calc(var(--analysis-speed) * .35), calc(var(--analysis-speed) * 1.15); transition-timing-function: var(--analysis-ease); }
 .nv-analyse__image { display: block; width: auto; max-width: none; height: 100%; margin-inline: auto; object-fit: contain; }
@@ -891,8 +890,7 @@ canvas.nv-step-viz {
   .nv-analyse__column { grid-area: auto; width: 100%; padding: 44px 24px 0; }
   .nv-analyse__disclosure { width: 88%; }
   .nv-analyse__disclosure[open] { width: 100%; }
-  .nv-analyse__visual { grid-area: auto; width: 100%; height: 220px; align-self: auto; margin: 0; }
-  .nv-analyse__offer .nv-analyse__visual, .nv-analyse__offer:not(.nv-analyse__offer--deep) .nv-analyse__visual { order: -1; height: 170px; }
+  .nv-analyse__visual { grid-area: auto; order: -1; width: 100%; height: 170px; align-self: auto; margin: 0; }
   .nv-analyse__summary { padding: 12px; }
   .nv-analyse__body { width: 100cqw; padding-inline: 12px; }
   .nv-analyse__offer-price--stacked { grid-template-columns: minmax(0,1fr); row-gap: 4px; }
