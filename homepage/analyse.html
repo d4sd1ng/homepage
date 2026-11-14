@@ -236,7 +236,7 @@ main h3 { font: var(--w-zwischentitel) var(--t-zwischentitel)/1.2 "Exo 2",Inter,
 @media (max-width: 640px) { .chip-list { grid-template-columns: 1fr; } }
 
 /* ---------- FAQ ---------- */
-.faq-grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 16px 20px; align-items: start; width: 100%; max-width: none; margin: 16px 0 0; }
+.faq-grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 16px 20px; align-items: start; width: 100%; max-width: 1300px; margin: 16px auto 0; }
 .faq-item summary { list-style: none; cursor: pointer; }
 .faq-item summary::-webkit-details-marker { display: none; }
 .faq-item summary > span { display: flex; width: 100%; box-sizing: border-box; align-items: center; justify-content: space-between; gap: 12px; min-height: 44px; padding: 8px 14px; border-radius: 0.3em; border: 1px solid var(--nv-gold-border); background-image: var(--nv-gold-gradient); background-position: center; background-size: 100% 100%; box-shadow: 0 3px 6px var(--shadow-soft), 0 3px 6px var(--shadow-soft-2), inset 0 -2px 5px 1px var(--nv-gold-inner-dark), inset 0 -1px 1px 3px var(--nv-gold-highlight); color: var(--nv-gold-text-dark); text-align: left; white-space: normal; font-family: "Inter",Arial,sans-serif; font-size: var(--t-cta); font-weight: 700; line-height: 1.2; letter-spacing: 0.045em; text-shadow: 0 2px 2px var(--nv-gold-highlight); text-transform: uppercase; transition: all 0.2s ease-in-out; }
@@ -418,9 +418,9 @@ h1, main h2 {\n  -webkit-text-stroke: .6px rgba(255,248,207,.40);\n  background-
 
 /* Targeted correction: larger section images + more vertical air between application rows */
 @media(min-width:901px){
-  #warum .media-split{grid-template-columns:minmax(0,1fr) 544px!important;gap:56px!important;margin-left:1px;width:calc(100% - 1px);}
+  #warum .media-split{grid-template-columns:minmax(0,1fr) 544px!important;gap:56px!important;width:100%!important;max-width:1300px!important;margin-left:auto!important;margin-right:auto!important;}
   #warum .section-photo{max-width:544px!important;width:100%!important;}
-  #nutzen .media-split--visual-left{grid-template-columns:544px minmax(0,1fr)!important;gap:56px!important;margin-left:1px;width:calc(100% - 1px);}
+  #nutzen .media-split--visual-left{grid-template-columns:544px minmax(0,1fr)!important;gap:56px!important;width:100%!important;max-width:1300px!important;margin-left:auto!important;margin-right:auto!important;}
   #nutzen .section-photo{max-width:544px!important;width:100%!important;}
 }
 #einsatzbereiche .pair-grid{row-gap:20px!important;column-gap:18px!important;}

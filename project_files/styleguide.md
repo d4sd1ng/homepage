@@ -469,10 +469,11 @@ Grundregel: **Kicker, Headline und Subline sitzen an der linken Inhaltskante. Al
 | Kicker, Headline: linke Kante | 69 px |
 | Headline: Breite | volle 1302 px |
 | Subline: Breite | 820 px |
-| Inhaltsbehaelter: linke Kante | 70 px |
-| Inhaltskorridor, linke Kante | **70 px, verbindlich** |
-| Inhaltskorridor, rechte Kante | **1370 px, verbindlich** |
-| Inhaltskorridor, Breite | **1300 px** |
+| **Inhaltsbreite** | **1300 px, fest** |
+| **Ausrichtung des Inhalts** | **mittig im `.section-inner`** |
+| daraus bei 1440 px | 70 .. 1370 |
+| daraus bei 1600 px | 150 .. 1450 |
+| daraus ab 1920 px | 310 .. 1610 bei 1920, mitwandernd |
 
 Der Kopf darf **nicht** innerhalb einer Textspalte eines `media-split` stehen, sonst wandert er mit der Spalte. Verbindliches Muster, wie in `#leistungen`:
 
@@ -485,13 +486,24 @@ Der Kopf darf **nicht** innerhalb einer Textspalte eines `media-split` stehen, s
 
 `media-split`-Zeilen bleiben mittig ausgerichtet. Das Bild sitzt auf halber Hoehe der Bulletpoint-Liste.
 
-**Inhaltskorridor: 70 px bis 1370 px, Breite 1300 px.** Bei 1440 px Fensterbreite. Jeder Inhalt einer Sektion beginnt links bei 70 und endet rechts bei 1370. Der Kopf aus Kicker, Headline und Subline sitzt davor bei 69 px.
+**Der Inhalt einer Sektion ist 1300 px breit und sitzt mittig im `.section-inner`.** Der Kopf aus Kicker, Headline und Subline sitzt an der Kante des `.section-inner`, also weiter aussen. Daraus entsteht die Einrueckung, die der Nutzer verlangt hat: Kopf aussen, alles danach eingerueckt.
 
-Das gilt fuer jede Art von Inhalt: Karten, Bulletpoint-Listen, nummerierte Listen, `media-split`-Bloecke, Formularbloecke und das FAQ-Raster. Kein Inhalt wird mittig in einem schmaleren Kasten zentriert, kein Inhalt beginnt links von 70 oder endet rechts von 1370.
+Der `.section-inner` ist nicht fest, er waechst bis `--content-max: 1560px`. Deshalb ist **1300 px der verbindliche Wert, nicht 70 und 1370**. Diese beiden Zahlen sind nur das Ergebnis bei genau 1440 px Fensterbreite und taugen nicht als Vorgabe: eine Sektion ohne Begrenzung misst bei 1440 px ebenfalls 70 .. 1370 und faellt erst bei breiterem Fenster auf.
 
-Referenz ist die Definitionssektion: linke Karte beginnt bei 70, rechte Karte endet bei 1370, dazwischen 32 px Spalte, beide Karten 634 px breit. Am 2026-11-14 vom Nutzer festgelegt und an dieser Sektion gemessen.
+| Fensterbreite | `.section-inner` | Inhalt, 1300 mittig |
+| --- | --- | --- |
+| 1440 px | 69 .. 1371 | 70 .. 1370 |
+| 1600 px | 77 .. 1523 | 150 .. 1450 |
+| 1920 px | 180 .. 1740 | 310 .. 1610 |
+| 2560 px | 500 .. 2060 | 630 .. 1930 |
 
-In `#warum` und `#nutzen` wird der Wert ueber `margin-left:1px` und `width:calc(100% - 1px)` am `media-split` erreicht, damit der Block nicht ueber die rechte Inhaltskante hinauslaeuft.
+Das gilt fuer jede Art von Inhalt: Karten, Bulletpoint-Listen, nummerierte Listen, `media-split`-Bloecke, Formularbloecke und das FAQ-Raster.
+
+Umgesetzt wird es mit `width:100%`, `max-width:1300px` und `margin-left:auto; margin-right:auto` am Inhaltsblock. Ein Block ohne `max-width` waechst mit dem Fenster mit und ist dann zu breit.
+
+Referenz ist die Definitionssektion: zwei Karten zu je 634 px mit 32 px Spalte, zusammen 1300 px. Am 2026-11-14 vom Nutzer festgelegt und an dieser Sektion gemessen.
+
+**Pruefung nur bei 1440 px ist nicht aussagekraeftig.** Jede Breitenpruefung wird bei mindestens zwei Fensterbreiten gemessen, davon einer ueber 1560 px.
 
 **Regel fuer diese Datei:** Hier stehen verbindliche Einzelwerte, keine Spannen und keine Beschreibungen des Ist-Zustands. Eine Spanne kann nichts pruefen. Werte, die noch nicht entschieden sind, werden als offen gekennzeichnet und nicht mit einer gemessenen Zahl kaschiert.
 
@@ -507,7 +519,9 @@ In `#warum` und `#nutzen` wird der Wert ueber `margin-left:1px` und `width:calc(
 
 In `#nutzen` steht das Bild links, das ist so gewollt und bleibt so.
 
-Die Bildspalte ist auf genau 544 px gesetzt, nicht auf einen Bruchteil. Nur so sitzt das Bild auf der Korridorkante: in `#warum` von 826 bis 1370, in `#nutzen` von 70 bis 614. Eine `fr`-Spalte macht die Spalte breiter als das Bild, das Bild bleibt dann linksbuendig darin stehen und der Korridor wird rechts nicht erreicht.
+Die Bildspalte ist auf genau 544 px gesetzt, nicht auf einen Bruchteil. Nur so sitzt das Bild an der Kante des 1300 px breiten Inhaltsblocks. Eine `fr`-Spalte macht die Spalte breiter als das Bild, das Bild bleibt dann linksbuendig darin stehen und die rechte Kante wird nicht erreicht.
+
+Der `media-split` selbst traegt `width:100%`, `max-width:1300px` und `margin-left:auto; margin-right:auto`. Ohne diese Begrenzung waechst er mit dem Fenster mit; die Textspalte war dadurch bei 1920 px 959 px breit statt 700.
 
 ### 21.3 Modul-Icons in `.num-list`
 
@@ -524,15 +538,14 @@ Die drei Werte haengen zusammen: `padding-left` ist Rahmenbreite plus 29 px. Wir
 
 | Element | Wert |
 | --- | --- |
-| `.faq-grid` `max-width` | keine, volle Korridorbreite |
-| `.faq-grid`, linke Kante | 70 px |
-| `.faq-grid`, rechte Kante | 1370 px |
+| `.faq-grid` `max-width` | 1300 px |
+| `.faq-grid` `margin` | `16px auto 0`, mittig |
 | Spalten | 2, Abstand 16 px / 20 px |
-| Breite je Knopf bei 1440 px | 641 px |
+| Breite je Knopf | 640 px, bei jeder Fensterbreite |
 | Breitenbedarf des laengsten Knopfes | 535 px |
 | Hoehe je Knopf | 44 px, einzeilig |
 
-Das Raster wird nicht zentriert und nicht begrenzt, es fuellt den Inhaltskorridor. Die Knoepfe muessen einzeilig bleiben. Kommen laengere Fragen dazu, ist der Bedarf neu zu messen; mehr als 641 px je Knopf gibt der Korridor nicht her, dann muss die Frage kuerzer werden.
+Das Raster ist auf 1300 px begrenzt und mittig gesetzt, wie jeder andere Inhaltsblock. Die Knoepfe muessen einzeilig bleiben. Kommen laengere Fragen dazu, ist der Bedarf neu zu messen; mehr als 640 px je Knopf gibt die Inhaltsbreite nicht her, dann muss die Frage kuerzer werden.
 
 ### 21.5 Trennlinien
 
