@@ -1,3 +1,17 @@
+## 2026-11-14 - Leistungskarten mobil: mehr Abstand zwischen Text und CTA
+
+Status: geprueft
+
+Der Nutzer bemaengelte, dass die CTA-Schaltflaeche zu dicht am Text sitzt. Im vorigen Schritt war `margin-top` von 6 auf 4 px gesenkt worden, um Hoehe zu sparen; gemessen betrug der Abstand vom letzten Stichpunkt bis zur Schaltflaeche 4 px.
+
+- `homepage/index.html`, `@media (max-width: 900px)`, `.nv-s7-card__more`: `margin-top` von 4 auf 14 px.
+
+14 px entspricht dem Abstand, den die Stichpunktliste nach oben hat. Gepruefte Alternativen: 10 px zu knapp, 18 px kostet 4 px Hoehe mehr ohne sichtbaren Gewinn.
+
+Ergebnis bei 390 px: Abstand 14 statt 4 px, Karte 197 statt 187 px. Gegenueber dem Ausgangszustand von 233 px bleibt die Karte 36 px flacher.
+
+Pruefung bei 360, 390, 430, 768 und 900 px: elf Karten, Hoehe 197 bis 211 px, CTA durchgaengig 30 px hoch, Mittenabweichung 0 px, kein abgeschnittener Karteninhalt, kein waagerechter Seitenueberlauf, keine JavaScript-Fehler. Ab 901 px unveraendert.
+
 ## 2026-11-14 - Leistungskarten mobil: flacher, CTA mittig
 
 Status: geprueft
