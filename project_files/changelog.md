@@ -1,3 +1,20 @@
+## 2026-11-14 - Leistungskarten mobil: oberer und unterer Kartenabstand gleich
+
+Status: geprueft
+
+Der Nutzer hat die Begriffe festgelegt: Der obere Abstand ist der Abstand vom Text zum Kartenrand, der untere der Abstand von der Schaltflaeche zum Kartenrand. Drei zuvor vorgelegte Fassungen waren abgelehnt worden, weil darin jeweils der Abstand zwischen Text und Schaltflaeche gegen den unteren Kartenrand gestellt wurde, also das falsche Paar.
+
+Gemessen vorher bei 390 px: oben 37 px vom Kartenrand bis zum Kopfblock, unten 9 px von der Schaltflaeche bis zum Kartenrand.
+
+- `homepage/index.html`, `@media (max-width: 900px)`, `.nv-s7-card__left`: `padding` von `0 12px 8px` auf `0 12px 36px`. Zusammen mit dem 0,8 px breiten Kartenrahmen ergibt das gemessene 37 px unter der Schaltflaeche.
+- `homepage/index.html`, `@media (max-width: 900px)`, `.nv-s7-card__more`: `margin-top` von 14 auf 50 px, nach ausdruecklicher Vorgabe des Nutzers.
+
+Der obere Abstand von 37 px bleibt unveraendert; er setzt sich aus dem 28 px hohen Bildstreifen und 9 px Innenabstand zusammen.
+
+Ergebnis bei 390 px: oben 37 px, unten 37 px, dazwischen 50 px zwischen letztem Stichpunkt und Schaltflaeche. Karte 261 px, vorher 197 px.
+
+Pruefung bei 360, 390, 430, 768 und 900 px: elf Karten, Hoehe 261 bis 275 px, CTA durchgaengig 30 px hoch, Mittenabweichung 0 px, kein abgeschnittener Karteninhalt, kein waagerechter Seitenueberlauf, keine JavaScript-Fehler. Ab 901 px unveraendert, Karten 88 px, CTA 23 px.
+
 ## 2026-11-14 - Leistungskarten mobil: mehr Abstand zwischen Text und CTA
 
 Status: geprueft
