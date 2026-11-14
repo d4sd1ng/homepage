@@ -1,3 +1,29 @@
+## 2026-11-14 - Analyse-Detailseite: sieben Punkte ueberarbeitet
+
+Status: geprueft
+
+Alle Aenderungen in `homepage/analyse.html`, gemessen bei 1440 px.
+
+1. **Hero-Eckenlinien entfernt.** `svg.hero-corner-lines` aus dem Markup geloescht, dazu die Regel `.hero-corner-lines{display:none;}` und der zugehoerige Block in `@media(min-width:901px)`. Markup und CSS sind entfernt, nicht nur ausgeblendet.
+2. **Die beiden grossen Bilder 20 Prozent kleiner.** `#warum .section-photo` und `#nutzen .section-photo` von `max-width:680px` auf `544px`. Gerendert vorher 680 mal 511 und 673 mal 505, jetzt beide 544 mal 409. Dazu `justify-self:end` bei `#warum` und `justify-self:start` bei `#nutzen`, damit die Aussenkante buendig zur Inhaltskante bleibt.
+3. **FAQ-Knoepfe laenger.** `.faq-grid` `max-width` von 1000 auf 1120 px. Der laengste Knopf, "Ersetzt die Analyse eine technische Konzeption?", braucht 535 px und hatte 490. Jetzt 550 px je Knopf, alle acht einzeilig bei 44 px Hoehe.
+4. **Fehlende Trennlinie ergaenzt.** Zwischen `#analyse-formular` und `#faq` fehlte als einziger ein `section-divider`. Jetzt sieben statt sechs.
+5. **Modul-Icons 20 Prozent groesser.** `.num-list .module-icon-frame` von 45 auf 54 px, `.num-list .module-icon` von 34 auf 41 px. `.num-list li` `padding-left` von 74 auf 83 px nachgezogen, damit der Abstand von 29 px zwischen Rahmenkante und Text erhalten bleibt.
+6. **Footer geprueft.** Die goldene Linie ueber dem Footer ist vorhanden und kommt aus `.footer::before` in `shared-header-footer.css`. `analyse.html` bindet diese Datei ein, `.footer` steht auf `position: relative`, die Linie rendert. Punkt 6 und Punkt 4 waren dieselbe Sache: es fehlte genau eine Linie, und zwar die vor dem FAQ.
+7. **Inhaltsbreite vereinheitlicht.** In `#warum` und `#nutzen` steckten Kicker, Headline und Subline innerhalb der Textspalte des `media-split` und wanderten dadurch mit. Gemessen vorher: `#warum` Titel 69 bis 630 statt voller Breite, `#nutzen` Titel erst ab 798. Der Kopf steht jetzt als `.section-inner > .media-copy` vor dem `media-split`, wie in `#leistungen`. Danach alle Sektionen: Titel 69 bis 1371, Subline 69 bis 889.
+
+Zusaetzlich noetig geworden: `align-items:start` auf beiden `media-split`-Zeilen. Durch das Herausziehen des Kopfes stand das Bild sonst 142 beziehungsweise 128 px tief in der Zeile, weil die Spalten mittig ausgerichtet waren.
+
+In `#nutzen` bleibt das Bild links, auf ausdrueckliche Vorgabe des Nutzers.
+
+Alle Masse sind in `project_files/styleguide.md`, Abschnitt 21, festgehalten, auf Wunsch des Nutzers, damit sie abrufbar sind.
+
+Pruefung bei 1440, 1100, 900 und 390 px: Eckenlinien nicht mehr im DOM, sieben Trenner mit einem vor dem FAQ, Icon-Rahmen 54 px, Fotos 544 mal 409 px ab 901 px, Footerlinie vorhanden.
+
+Offen und nicht von dieser Aenderung verursacht, am Ausgangsstand gegengeprueft: ein waagerechter Seitenueberlauf von 290 px bei 1440 und 201 px bei 1100, sowie der Konsolenfehler `Identifier 'breadcrumbGroups' has already been declared`. Beides bestand vorher genauso.
+
+Ebenfalls offen: Bei 1100 px bleibt ein FAQ-Knopf zweizeilig, weil die Inhaltsbreite dort nur rund 962 px betraegt und eine Spalte damit unter den noetigen 535 px liegt. Bei 1440 px ist es geloest.
+
 ## 2026-11-14 - Analyse-Grafiken auf gemeinsame Leinwand gebracht
 
 Status: in Arbeit

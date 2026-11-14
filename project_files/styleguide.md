@@ -453,3 +453,76 @@ Für die produktive Homepage gilt Mobile als vorrangige Darstellungsprüfung.
 - Video und zugehörige Bulletpoints in „Warum Nurovelle“ bleiben auf Mobile als zusammengehöriger Inhaltsblock mit engem, konsistentem Abstand.
 - SEO-Toolbox-Hinweise dürfen auf der Homepage an zwei bis drei definierten Stellen als kompakte, nicht blockierende Callouts eingeblendet werden. Sie erscheinen beim Eintritt in den sichtbaren Bereich von links mit gleichzeitigem Fade-in; kein Scale-/Bounce-Effekt. Auf Mobile bleiben sie klar kleiner als die regulären Inhaltskarten. Kein Modal, kein Dauerblinken, kein neuer CTA-Stil.
 - Normale Mobile-CTAs behalten die bestehende goldene CTA-Optik, werden aber mit reduziertem Innenabstand kompakt gehalten; der Header-CTA bleibt ausgenommen.
+
+## 21. Detailseiten: verbindliche Masse
+
+Gilt fuer die Leistungs- und Analysedetailseiten. Alle Werte sind an `homepage/analyse.html` bei 1440 px Fensterbreite gemessen und am 2026-11-14 vom Nutzer festgelegt. Wer hier etwas aendert, traegt den neuen Wert hier ein.
+
+### 21.1 Inhaltsbreite und Einrueckung
+
+Grundregel: **Kicker, Headline und Subline sitzen an der linken Inhaltskante. Alles andere ist davon eingerueckt.** Das betrifft Karten, Bulletpoint-Listen und alle uebrigen Inhalte.
+
+| Element | Wert |
+| --- | --- |
+| `.section-inner`, linke Kante | 69 px |
+| `.section-inner`, Breite | 1302 px |
+| Kicker, Headline: linke Kante | 69 px |
+| Headline: Breite | volle 1302 px |
+| Subline: Breite | 820 px |
+| Inhaltsbehaelter: linke Kante | 70 px |
+| Textkante im Inhalt | 88 bis 95 px, also 19 bis 26 px Einzug |
+
+Der Kopf darf **nicht** innerhalb einer Textspalte eines `media-split` stehen, sonst wandert er mit der Spalte. Verbindliches Muster, wie in `#leistungen`:
+
+```html
+<div class="section-inner">
+  <div class="media-copy">kicker, h2, p.sub</div>
+  <div class="media-split">...Inhalt...</div>
+</div>
+```
+
+`media-split`-Zeilen werden oben ausgerichtet, `align-items: start`, damit der Inhalt buendig unter der Subline beginnt.
+
+### 21.2 Bilder in Textsektionen
+
+| Element | Wert |
+| --- | --- |
+| `.section-photo`, Breite ab 901 px | 544 px |
+| daraus folgende Hoehe bei 4:3 | 409 px |
+| Ausrichtung Bild rechts, zum Beispiel `#warum` | `justify-self: end` |
+| Ausrichtung Bild links, zum Beispiel `#nutzen` | `justify-self: start` |
+
+In `#nutzen` steht das Bild links, das ist so gewollt und bleibt so.
+
+### 21.3 Modul-Icons in `.num-list`
+
+| Element | Wert |
+| --- | --- |
+| `.module-icon-frame` | 54 x 54 px |
+| `.module-icon` | 41 x 41 px |
+| `.num-list li` `padding-left` | 83 px |
+| Abstand Rahmenkante bis Text | 29 px |
+
+Die drei Werte haengen zusammen: `padding-left` ist Rahmenbreite plus 29 px. Wird der Rahmen geaendert, ist der Einzug mitzuziehen.
+
+### 21.4 FAQ
+
+| Element | Wert |
+| --- | --- |
+| `.faq-grid` `max-width` | 1120 px |
+| Spalten | 2, Abstand 16 px / 20 px |
+| Breite je Knopf bei 1440 px | 550 px |
+| Breitenbedarf des laengsten Knopfes | 535 px |
+| Hoehe je Knopf | 44 px, einzeilig |
+
+Die Knoepfe muessen einzeilig bleiben. Kommen laengere Fragen dazu, ist der Bedarf neu zu messen und `max-width` anzupassen.
+
+### 21.5 Trennlinien
+
+Zwischen je zwei Sektionen steht genau ein `<div class="section-divider" aria-hidden="true"></div>`. Auf `analyse.html` sind das sieben Stueck: nach Hero, Definition, Ausgangslage, Leistungsumfang, Anwendung, Ihr Nutzen und Potenzialanalyse starten.
+
+Die Linie ueber dem Footer ist keine `section-divider`, sondern `.footer::before` aus `shared-header-footer.css`.
+
+### 21.6 Hero
+
+Die goldenen Eckenlinien oben rechts, frueher `svg.hero-corner-lines`, sind am 2026-11-14 entfernt worden. Markup und CSS sind geloescht, nicht nur ausgeblendet.

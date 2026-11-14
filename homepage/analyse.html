@@ -194,9 +194,9 @@ main h3 { font: var(--w-zwischentitel) var(--t-zwischentitel)/1.2 "Exo 2",Inter,
 .text { max-width: 88ch; font: var(--w-fliesstext) var(--t-fliesstext)/1.7 "Inter",Arial,sans-serif; color: #b9c3bd; }
 .text--after { margin-top: 26px; }
 .num-list { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 26px 48px; list-style: none; margin: 97px 0 0; padding: 0; }
-.num-list li { position: relative; padding-left: 74px; font: var(--w-fliesstext) var(--t-fliesstext)/1.7 "Inter",Arial,sans-serif; color: #b9c3bd; }
-.num-list .module-icon-frame { position: absolute; left: 0; top: 2px; display: grid; place-items: center; width: 45px; height: 45px; border-radius: 10px; border: 1.5px solid transparent; background-image: linear-gradient(#080B09,#080B09), var(--gold-3); background-origin: border-box; background-clip: padding-box, border-box; }
-.num-list .module-icon { display: block; width: 34px; height: 34px; object-fit: contain; }
+.num-list li { position: relative; padding-left: 83px; font: var(--w-fliesstext) var(--t-fliesstext)/1.7 "Inter",Arial,sans-serif; color: #b9c3bd; }
+.num-list .module-icon-frame { position: absolute; left: 0; top: 2px; display: grid; place-items: center; width: 54px; height: 54px; border-radius: 10px; border: 1.5px solid transparent; background-image: linear-gradient(#080B09,#080B09), var(--gold-3); background-origin: border-box; background-clip: padding-box, border-box; }
+.num-list .module-icon { display: block; width: 41px; height: 41px; object-fit: contain; }
 .num-list b { display: block; margin-bottom: 4px; font: var(--w-bulletlabel) var(--t-bulletlabel)/1.35 "Inter",Arial,sans-serif; background: var(--gold-2); background-clip: text; -webkit-background-clip: text; color: transparent; -webkit-text-fill-color: transparent; }
 .num-list span { display: block; }
 .pair-chips-row { margin: 0 0 32px; }
@@ -236,7 +236,7 @@ main h3 { font: var(--w-zwischentitel) var(--t-zwischentitel)/1.2 "Exo 2",Inter,
 @media (max-width: 640px) { .chip-list { grid-template-columns: 1fr; } }
 
 /* ---------- FAQ ---------- */
-.faq-grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 16px 20px; align-items: start; width: 100%; max-width: 1000px; margin: 16px auto 0; }
+.faq-grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 16px 20px; align-items: start; width: 100%; max-width: 1120px; margin: 16px auto 0; }
 .faq-item summary { list-style: none; cursor: pointer; }
 .faq-item summary::-webkit-details-marker { display: none; }
 .faq-item summary > span { display: flex; width: 100%; box-sizing: border-box; align-items: center; justify-content: space-between; gap: 12px; min-height: 44px; padding: 8px 14px; border-radius: 0.3em; border: 1px solid var(--nv-gold-border); background-image: var(--nv-gold-gradient); background-position: center; background-size: 100% 100%; box-shadow: 0 3px 6px var(--shadow-soft), 0 3px 6px var(--shadow-soft-2), inset 0 -2px 5px 1px var(--nv-gold-inner-dark), inset 0 -1px 1px 3px var(--nv-gold-highlight); color: var(--nv-gold-text-dark); text-align: left; white-space: normal; font-family: "Inter",Arial,sans-serif; font-size: var(--t-cta); font-weight: 700; line-height: 1.2; letter-spacing: 0.045em; text-shadow: 0 2px 2px var(--nv-gold-highlight); text-transform: uppercase; transition: all 0.2s ease-in-out; }
@@ -418,10 +418,10 @@ h1, main h2 {\n  -webkit-text-stroke: .6px rgba(255,248,207,.40);\n  background-
 
 /* Targeted correction: larger section images + more vertical air between application rows */
 @media(min-width:901px){
-  #warum .media-split{grid-template-columns:minmax(0,.9fr) minmax(580px,1.1fr)!important;gap:56px!important;}
-  #warum .section-photo{max-width:680px!important;width:100%!important;}
-  #nutzen .media-split--visual-left{grid-template-columns:minmax(580px,1.08fr) minmax(0,.92fr)!important;gap:56px!important;}
-  #nutzen .section-photo{max-width:680px!important;width:100%!important;}
+  #warum .media-split{grid-template-columns:minmax(0,.9fr) minmax(580px,1.1fr)!important;gap:56px!important;align-items:start!important;}
+  #warum .section-photo{max-width:544px!important;width:100%!important;justify-self:end;}
+  #nutzen .media-split--visual-left{grid-template-columns:minmax(580px,1.08fr) minmax(0,.92fr)!important;gap:56px!important;align-items:start!important;}
+  #nutzen .section-photo{max-width:544px!important;width:100%!important;justify-self:start;}
 }
 #einsatzbereiche .pair-grid{row-gap:20px!important;column-gap:18px!important;}
 #einsatzbereiche .pair{gap:12px!important;}
@@ -491,7 +491,6 @@ h1, main h2 {\n  -webkit-text-stroke: .6px rgba(255,248,207,.40);\n  background-
   background:#000;
 }
 .hero-viewport .hero-particle-bg{position:absolute;inset:0;z-index:0;width:100%;height:100%;display:block;pointer-events:none;}
-.hero-corner-lines{display:none;}
 .hero-viewport::after{content:"";position:absolute;inset:0;z-index:0;background:linear-gradient(90deg,rgba(0,0,0,.81),rgba(0,0,0,.58) 42%,rgba(0,0,0,.18));pointer-events:none;}
 #hero{
   position:relative;
@@ -632,18 +631,6 @@ h1, main h2 {\n  -webkit-text-stroke: .6px rgba(255,248,207,.40);\n  background-
   }
 }
 @media(min-width:901px){
-  .hero-corner-lines{
-    display:block;
-    position:absolute;
-    top:18px;
-    right:0;
-    width:570px;
-    height:460px;
-    pointer-events:none;
-    z-index:2;
-    overflow:visible;
-    filter:drop-shadow(0 0 5px rgba(212,175,55,.16));
-  }
   #hero>.section-inner{
     position:relative;
     z-index:2;
@@ -813,23 +800,6 @@ h1, main h2 {\n  -webkit-text-stroke: .6px rgba(255,248,207,.40);\n  background-
 <!-- ============================ 1. HERO ============================ -->
 <div class="hero-viewport">
 <canvas class="hero-particle-bg" id="heroParticleCanvas" aria-hidden="true"></canvas>
-<svg class="hero-corner-lines" viewBox="0 0 570 460" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
-  <defs>
-    <linearGradient id="analyse-corner-gold" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0" stop-color="#8b641a"/>
-      <stop offset=".46" stop-color="#dfbd69"/>
-      <stop offset=".72" stop-color="#fff6bd"/>
-      <stop offset="1" stop-color="#b98424"/>
-    </linearGradient>
-  </defs>
-  <g fill="none" stroke="url(#analyse-corner-gold)" stroke-width="2" opacity=".84">
-    <path d="M110 0 H560 V450"/>
-    <path d="M130 15 H545 V430"/>
-    <path d="M150 30 H530 V410"/>
-    <path d="M170 45 H515 V390"/>
-    <path d="M190 60 H500 V370"/>
-  </g>
-</svg>
 <section class="section section--landing" id="hero"><div class="section-inner detail-hero"><div><div class="kicker">KI-Potenzialanalyse</div><h1><span class="hero-title-line">Wo lohnt sich KI in Ihrem</span><span class="hero-title-line">Unternehmen wirklich?</span></h1><p class="sub">Bevor Zeit und Budget in eine KI-Lösung fließen.</p><p class="lead">Die KI-Potenzialanalyse zeigt, welche Prozesse für KI oder Automatisierung geeignet sind, welche Voraussetzungen fehlen und welche nächsten Schritte sinnvoll sind.</p><div class="actions"><a class="btn" href="#analyse-formular">KI-Potenzialanalyse starten</a></div></div><div class="visual-card visual-card--hero"><img src="assets/detail_pages_grafics/sockel_loaded_analyse.png" alt="Ablauf der KI-Potenzialanalyse"/></div></div></section>
 </div>
 <div class="section-divider" aria-hidden="true"></div>
@@ -860,7 +830,7 @@ h1, main h2 {\n  -webkit-text-stroke: .6px rgba(255,248,207,.40);\n  background-
 <div class="section-divider" aria-hidden="true"></div>
 
 <!-- ============================ 3. AUSGANGSLAGE ============================ -->
-<section class="section" id="warum"><div class="section-inner"><div class="media-split media-split--text-left"><div class="media-copy"><div class="kicker">Ausgangslage</div><h2>Warum ist die Analyse entscheidend?</h2><p class="sub">Potenziale lassen sich erst belastbar bewerten, wenn Prozesse, Daten und Systeme gemeinsam betrachtet werden.</p><ul class="label-list label-list--single"><li><strong>Unklare Anwendungsfälle</strong>Nicht jede technisch mögliche KI-Anwendung ist fachlich oder wirtschaftlich sinnvoll.</li><li><strong>Fehlende Prozessabgrenzung</strong>Automatisierung erfordert klar definierte Eingaben, Bearbeitungsschritte, Ausnahmen und Ergebnisse.</li><li><strong>Unzureichende Datenbasis</strong>Fehlende, widersprüchliche oder schwer zugängliche Daten begrenzen die Qualität späterer Systeme.</li><li><strong>Technische Abhängigkeiten</strong>Schnittstellen, Rechte, Softwarearchitektur und Systemverfügbarkeit beeinflussen die Umsetzbarkeit.</li><li><strong>Ungeklärte Risiken</strong>Datenschutz, Informationssicherheit und menschliche Kontrollpunkte müssen früh berücksichtigt werden.</li><li><strong>Fehlende Priorisierung</strong>Mehrere Ideen benötigen eine einheitliche Bewertung nach Nutzen, Aufwand, Risiko und Umsetzungsreife.</li></ul></div><figure class="section-photo"><img src="assets/images/ausgestreckte_hand.png" alt="Digitale Dokumente, Systeme und Datenflüsse"/></figure></div></div></section>
+<section class="section" id="warum"><div class="section-inner"><div class="media-copy"><div class="kicker">Ausgangslage</div><h2>Warum ist die Analyse entscheidend?</h2><p class="sub">Potenziale lassen sich erst belastbar bewerten, wenn Prozesse, Daten und Systeme gemeinsam betrachtet werden.</p></div><div class="media-split media-split--text-left"><div class="media-copy"><ul class="label-list label-list--single"><li><strong>Unklare Anwendungsfälle</strong>Nicht jede technisch mögliche KI-Anwendung ist fachlich oder wirtschaftlich sinnvoll.</li><li><strong>Fehlende Prozessabgrenzung</strong>Automatisierung erfordert klar definierte Eingaben, Bearbeitungsschritte, Ausnahmen und Ergebnisse.</li><li><strong>Unzureichende Datenbasis</strong>Fehlende, widersprüchliche oder schwer zugängliche Daten begrenzen die Qualität späterer Systeme.</li><li><strong>Technische Abhängigkeiten</strong>Schnittstellen, Rechte, Softwarearchitektur und Systemverfügbarkeit beeinflussen die Umsetzbarkeit.</li><li><strong>Ungeklärte Risiken</strong>Datenschutz, Informationssicherheit und menschliche Kontrollpunkte müssen früh berücksichtigt werden.</li><li><strong>Fehlende Priorisierung</strong>Mehrere Ideen benötigen eine einheitliche Bewertung nach Nutzen, Aufwand, Risiko und Umsetzungsreife.</li></ul></div><figure class="section-photo"><img src="assets/images/ausgestreckte_hand.png" alt="Digitale Dokumente, Systeme und Datenflüsse"/></figure></div></div></section>
 <div class="section-divider" aria-hidden="true"></div>
 
 <!-- ============================ 4. LEISTUNGSUMFANG ============================ -->
@@ -886,7 +856,7 @@ h1, main h2 {\n  -webkit-text-stroke: .6px rgba(255,248,207,.40);\n  background-
 <div class="section-divider" aria-hidden="true"></div>
 
 <!-- ============================ 6. IHR NUTZEN ============================ -->
-<section class="section" id="nutzen"><div class="section-inner"><div class="media-split media-split--visual-left"><figure class="section-photo"><img src="assets/images/tablett.png" alt="Auswertung und Entscheidungsgrundlage auf einem Analyse-Dashboard"/></figure><div class="media-copy"><div class="kicker">Ihr Nutzen</div><h2>Ihr Nutzen aus der Potenzialanalyse</h2><p class="sub">Sie erhalten eine belastbare Grundlage für Priorisierung, Planung und den nächsten sinnvollen Schritt.</p><ul class="label-list label-list--single"><li><strong>Klare Handlungsfelder</strong>Geeignete Anwendungsfälle werden von allgemeinen oder technisch ungeeigneten Ideen getrennt.</li><li><strong>Nachvollziehbare Prioritäten</strong>Vorhaben werden anhand einheitlicher Kriterien bewertet.</li><li><strong>Vermeidung ungeeigneter Investitionen</strong>Software, Lizenzen und Entwicklungen werden nicht ohne belastbare Grundlage ausgewählt.</li><li><strong>Frühzeitige Risikoerkennung</strong>Datenschutz, Sicherheitsanforderungen und technische Abhängigkeiten werden vor der Umsetzung sichtbar.</li><li><strong>Bessere Planbarkeit</strong>Datenarbeiten, Schnittstellen und organisatorische Voraussetzungen können früh eingeplant werden.</li><li><strong>Grundlage für den nächsten Schritt</strong>Das Ergebnis zeigt, ob eine Roadmap, ein Pilotprojekt, eine Prozessbereinigung oder eine technische Detailanalyse sinnvoll ist.</li></ul></div></div></div></section>
+<section class="section" id="nutzen"><div class="section-inner"><div class="media-copy"><div class="kicker">Ihr Nutzen</div><h2>Ihr Nutzen aus der Potenzialanalyse</h2><p class="sub">Sie erhalten eine belastbare Grundlage für Priorisierung, Planung und den nächsten sinnvollen Schritt.</p></div><div class="media-split media-split--visual-left"><figure class="section-photo"><img src="assets/images/tablett.png" alt="Auswertung und Entscheidungsgrundlage auf einem Analyse-Dashboard"/></figure><div class="media-copy"><ul class="label-list label-list--single"><li><strong>Klare Handlungsfelder</strong>Geeignete Anwendungsfälle werden von allgemeinen oder technisch ungeeigneten Ideen getrennt.</li><li><strong>Nachvollziehbare Prioritäten</strong>Vorhaben werden anhand einheitlicher Kriterien bewertet.</li><li><strong>Vermeidung ungeeigneter Investitionen</strong>Software, Lizenzen und Entwicklungen werden nicht ohne belastbare Grundlage ausgewählt.</li><li><strong>Frühzeitige Risikoerkennung</strong>Datenschutz, Sicherheitsanforderungen und technische Abhängigkeiten werden vor der Umsetzung sichtbar.</li><li><strong>Bessere Planbarkeit</strong>Datenarbeiten, Schnittstellen und organisatorische Voraussetzungen können früh eingeplant werden.</li><li><strong>Grundlage für den nächsten Schritt</strong>Das Ergebnis zeigt, ob eine Roadmap, ein Pilotprojekt, eine Prozessbereinigung oder eine technische Detailanalyse sinnvoll ist.</li></ul></div></div></div></section>
 <div class="section-divider" aria-hidden="true"></div>
 
 <!-- ============================ 7. ABSCHLUSS-CTA / FORMULAR ============================ -->
@@ -936,6 +906,8 @@ h1, main h2 {\n  -webkit-text-stroke: .6px rgba(255,248,207,.40);\n  background-
 <div class="analysis-status" id="nurovelle-analysis-status" aria-live="polite"></div>
 <p class="form-note">Ihre Angaben werden ausschließlich zur Durchführung und Auswertung der Potenzialanalyse verwendet. Personenbezogene Angaben werden nach Abschluss gelöscht; interne Auswertungen erfolgen nur anonymisiert. Details stehen in der <a href="datenschutz.html">Datenschutzerklärung</a>.</p>
 </form></div></div></section>
+
+<div class="section-divider" aria-hidden="true"></div>
 
 <!-- ============================ 8. FAQ ============================ -->
 <section class="section" id="faq"><div class="section-inner"><div class="kicker">Häufige Fragen</div><h2>FAQ</h2><div class="faq-grid"><details class="faq-item"><summary><span>Ist die Analyse wirklich kostenlos?</span></summary><p>Ja. Die erste Einschätzung ist kostenlos und dient dazu, sinnvolle Potenziale zu erkennen.</p></details><details class="faq-item"><summary><span>Muss bereits ein KI-System vorhanden sein?</span></summary><p>Nein. Die Analyse startet bei Ihren bestehenden Abläufen, Daten und Aufgaben.</p></details><details class="faq-item"><summary><span>Für welche Unternehmen passt das?</span></summary><p>Für Unternehmen mit wiederkehrenden Aufgaben, manuellen Dokumentenprozessen oder verteilten Datenquellen.</p></details><details class="faq-item"><summary><span>Welche Bereiche werden untersucht?</span></summary><p>Untersucht werden Prozesse, Dokumente, Datenflüsse, Wissenszugriffe, Systembrüche und standardisierte Kommunikationsvorgänge.</p></details><details class="faq-item"><summary><span>Ersetzt die Analyse eine technische Konzeption?</span></summary><p>Nein. Sie dient der Ersteinschätzung und Priorisierung. Für die Umsetzung kann anschließend eine technische Detailkonzeption erforderlich sein.</p></details><details class="faq-item"><summary><span>Wie werden Anwendungsfälle priorisiert?</span></summary><p>Bewertet werden Nutzen, Häufigkeit, Datenlage, Integrationsaufwand, Risiko und Erweiterbarkeit.</p></details><details class="faq-item"><summary><span>Was erhalte ich als Ergebnis?</span></summary><p>Sie erhalten eine strukturierte Einordnung der identifizierten Potenziale und Empfehlungen für die nächsten Schritte.</p></details><details class="faq-item"><summary><span>Was folgt nach der Analyse?</span></summary><p>Je nach Ergebnis kann eine KI-Roadmap, ein Pilotprojekt oder zunächst eine vorbereitende Prozess- und Datenarbeit folgen.</p></details></div></div></section>
