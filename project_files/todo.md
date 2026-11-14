@@ -75,9 +75,9 @@ Keine abgeschlossenen historischen Entscheidungen, Designregeln oder Projektbesc
 - [ ] Download-Dateiendungen und endgültige Dateinamen prüfen — offen
 - [ ] Analyse-Grafiken `assets/analyse/1.png` bis `8.png` auf finalen Nurovelle-Stil prüfen — offen
 - [ ] Hero-/Detailseiten-Assets auf Transparenz und Stilkonstanz prüfen — offen
-- [ ] **Unbenannte Moduldateien `from - NN.png` benennen** — offen
-  - Neun Dateien in `homepage/assets/Module/`: `from - 5`, `- 16`, `- 51`, `- 70`, `- 86`, `- 87`, `- 89`, `- 90`, `- 92`. Vier lagen schon vorher im Projekt, fünf kamen am 2026-11-14 aus dem Sicherungszweig dazu.
-  - Der Nutzer hat am 2026-11-14 bestätigt: Das sind Module, nur noch nicht benannt. Sie bleiben liegen, bis die Motive zugeordnet sind.
+- [ ] **Neu benannte Modulgrafiken einbinden** — offen
+  - Am 2026-11-15 benannt und bisher auf keiner Seite verwendet: `seo.png`, `web.png`, `data.png`, `ausschuss.png`, `google.svg`, `datenaufbereitung.png`, `datenschutz.png`, `sicherung.png`, `api2.png`, `mitarbeiterfreigabe.png`.
+  - Wo sie eingesetzt werden, ist nicht entschieden.
 - [ ] **Analyse-Hero auf `analyse_detail_page` umstellen** — offen
   - Der Nutzer hat die Analysegrafik lokal in `analyse_detail_page.png` und `analyse_detail_page.webp` umbenannt, damit sie namentlich zu `chatbot_detail_page.png` und `daten_detail_page.png` passt. Beide Dateien sind am 2026-11-14 noch nicht im Repository und live 404.
   - Bestätigt: die WebP ist dieselbe Grafik wie die PNG.
