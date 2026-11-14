@@ -1,3 +1,55 @@
+## 2026-11-14 - Analyse-Detailseite: WebP eingebunden, Schriften lokal, Assets eingecheckt und Dateinamen korrigiert
+
+Status: geprueft
+
+Vier Auftraege des Nutzers in einem Durchgang.
+
+**1. WebP wird jetzt genutzt.**
+
+- `homepage/analyse.html`, Zeile 148: Der Kind-Selektor `.visual-card>img:first-child` ist um `.visual-card>picture:first-child>img` erweitert. Damit gilt `width:100%`, `height:auto` und `max-height:230px` auch, wenn ein `picture` zwischen Karte und Bild steht. Vorher haette ein `picture` diese Regel ausgehebelt.
+- Das Hero-Bild ist auf das Projektmuster umgestellt: `<picture><source srcset="assets/detail_pages_grafics/analyse_detail_page.webp" type="image/webp" /><img src="assets/detail_pages_grafics/analyse_detail_page.png" alt="Ablauf der KI-Potenzialanalyse" width="1672" height="941" /></picture>`.
+
+Gemessen: Der Browser laedt `analyse_detail_page.webp`, die Bildbox bleibt unveraendert bei 740,324 und 631 x 355 px.
+
+**2. Schriftquelle auf lokal umgestellt.**
+
+`analyse.html` war die einzige von 25 Seiten, die die Schriften von Google Fonts geladen hat; die uebrigen 24 laden lokal und keine einzige laedt Google.
+
+- Die drei Verweise `preconnect` auf `fonts.googleapis.com`, `preconnect` auf `fonts.gstatic.com` und das Stylesheet von `fonts.googleapis.com` sind ersetzt durch `<link rel="preload" href="assets/fonts/inter-var-latin.woff2" as="font" type="font/woff2" crossorigin />` und `<link rel="stylesheet" href="assets/fonts/fonts.css" />`, wie auf `index.html`.
+
+Gemessen: null Verweise auf googleapis, `inter-var-latin.woff2` und `exo2-var-latin.woff2` jeweils mit HTTP 200 geladen, Headline weiter in Exo 2, Fliesstext in Inter. Damit faellt auch die Verbindung zu einem Drittanbieter weg.
+
+**3. `sockel_loaded_analyse.png` geloescht.** Vorher geprueft: keine Referenz mehr in HTML, CSS oder JavaScript.
+
+**4. 58 Assets aus dem Sicherungszweig eingecheckt, zehn Dateinamen korrigiert.**
+
+Die Dateien lagen seit dem letzten lokalen Commit des Nutzers fest, weil ein unaufgeloester Merge den Push blockierte. Sie sind aus `origin/sicherung-2026-11-14` uebernommen, 29,2 MB, alle 58 als Bild lesbar geprueft.
+
+| alt | neu |
+| --- | --- |
+| `ki_siccherheit_2.jpg` | `ki_sicherheit_2.jpg` |
+| `ki_software_2+.jpg` | `ki_software_2.jpg` |
+| `promptengineering_2.jpg` | `prompt_engineering_2.jpg` |
+| `seo__2.jpg` | `seo_2.jpg` |
+| `sprchassistent_2.jpg` | `sprachassistent_2.jpg` |
+| `workflow_2.jpg` | `workflows_2.jpg` |
+| `hanwerk_detail_page.png` | `handwerk_detail_page.png` |
+| `ki_roadmap_detail_pager.png` | `ki_roadmap_detail_page.png` |
+| `büro_Ödetail_page.png` | `büro_detail_page.png` |
+| `Ki_agenten_detail_page.png` | `ki_agenten_detail_page.png` |
+
+Die Themenfotos liegen damit durchgaengig als Paar `_1` und `_2` vor.
+
+**Nicht umbenannt, weil kein Schreibfehler sondern eine Entscheidung:**
+
+- `prozessautomation_detail_page.png` gegen das vorhandene `prozessautomatisierung_detail_grafic.webp`. Zwei verschiedene Woerter, nicht ein Tippfehler.
+- `gouvernance_detail_page.png`. Schreibweise stimmt mit dem vorhandenen `gouvernance_detail_grafic.webp` ueberein.
+- `prozessauto_1.jpg` und `prozessauto_2.jpg`. Abkuerzung, kein Fehler.
+
+**Nicht umbenannt, weil der Inhalt unbekannt ist:** die Ordner `Fotos/Kein Titel (927 x 1200 px)` und `Fotos/Kein Titel (927 x 1200 px)-(1)` mit drei Bildern sowie `Module/from - 51.png`, `from - 86.png`, `from - 87.png`, `from - 90.png` und `from - 92.png`. Das sind unbenannte Exporte. Welches Motiv sie zeigen und wie sie heissen sollen, kann nicht geraten werden.
+
+Keine der 58 Dateien ist bisher in einer Seite eingebunden. Die Zuordnung zu den Detailseiten steht weiter als offener Punkt in `todo.md`.
+
 ## 2026-11-14 - Analyse-Detailseite: Hero-Textblock um ein Drittel des Kopfabstands hochgerueckt
 
 Status: geprueft
