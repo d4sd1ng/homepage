@@ -1,3 +1,36 @@
+## 2026-11-14 - Analyse-Angebote: Klick oeffnet die Karte, sonst bewegt sich nichts
+
+Status: geprueft
+
+Der Nutzer meldete weiterhin Springen, mobil wie auf dem Desktop. Alle bisherigen Messungen galten der Hoehe des Abschnitts. Gemessen wurde nun die Position des angetippten Punktes selbst. Ergebnis vorher:
+
+| Aktion | Folge |
+| --- | --- |
+| Punkt antippen, der unter dem offenen liegt | springt 95 bis 149 px nach oben |
+| Punkt antippen, der ueber dem offenen liegt | bleibt stehen |
+
+Ursache ist keine fehlerhafte Logik, sondern Geometrie. Durch das `name`-Attribut waren die `details` ein exklusives Akkordeon. Beim Antippen eines unteren Punktes ging der obere gleichzeitig zu, und alles darunter rutschte um dessen Hoehe nach oben. Solange das Zuklappen erzwungen wird, laesst sich das nicht beheben.
+
+Der Nutzer hat am 2026-11-14 entschieden: Klick auf eine Karte oeffnet diese Karte, sonst passiert nichts. Eine zuvor gepruefte Variante, den Text unter die Punkteliste zu haengen, hat er als unprofessionell verworfen.
+
+- `homepage/index.html`: Attribut `name="nv-analysis-free"` an fuenf und `name="nv-analysis-deep"` an fuenf `details`-Elementen entfernt. Damit schliesst sich kein Punkt mehr von selbst.
+- `homepage/index.html`, `.nv-analyse__column`: `align-self: start` ergaenzt. Die Buehne steht auf `align-items: center`, wodurch die Spalte bei jedem Aufklappen neu zentriert wurde und um die halbe Zunahme wanderte, 15 px bei 1440 und 37 px bei 1100 px.
+- `homepage/analysis-offers.js`: `activeIndex` ergaenzt, der den zuletzt geoeffneten Punkt festhaelt. `getOpenDetails` liefert diesen, solange er offen ist, sonst wie bisher den ersten offenen. Bildzuordnung und Steuerung folgen damit dem zuletzt geoeffneten Punkt statt dem obersten.
+- `homepage/analysis-offers.js`, `navigate`: oeffnet den naechsten Punkt, ohne den aktuellen zu schliessen. Ist der naechste bereits offen, wird `syncState` direkt gerufen, weil dann kein `toggle` ausgeloest wird.
+- `homepage/analysis-offers.js`, `close`: schliesst alle offenen Punkte statt nur des ersten und setzt den Fokus wie bisher auf dessen `summary`.
+- `homepage/analysis-offers.js`, `toggle`-Listener: merkt sich den gerade geoeffneten Punkt, bevor `syncState` laeuft.
+
+Pruefung bei 1440, 1100, 640, 430, 390 und 360 px, je mit und ohne Reduced Motion, fuer beide Angebotskarten, Punkte in der Reihenfolge 1, 3, 2, 5, 4 angetippt:
+
+- Versatz des angetippten Punktes 0 bis 5 px, vorher 95 bis 149 px
+- Klick oeffnet, erneuter Klick schliesst genau diesen Punkt
+- `next` oeffnet den folgenden Punkt und laesst den vorigen offen, `previous` ebenso rueckwaerts
+- `exit` und Escape schliessen alle Punkte und verstecken die drei Knoepfe
+- Bildzuordnung folgt dem zuletzt geoeffneten Punkt
+- kein waagerechter Seitenueberlauf, keine JavaScript-Fehler
+
+Nicht geaendert: Texte, IDs, Assetpfade, Aufklappanimation, Bildanimation, Breitenwechsel der Karten von 58 auf 86 Prozent, Bild oben auf Mobil, saemtliche Farben.
+
 ## 2026-11-13 - Analyse-Angebote: Bild steht auch auf Mobil fest
 
 Status: geprueft

@@ -5,8 +5,12 @@
     const controls = [...stage.querySelectorAll("[data-action]")];
     const images = [...stage.querySelectorAll(".nv-analyse__image-block")];
     let revision = 0;
+    let activeIndex = -1;
 
-    const getOpenDetails = () => detailsElements.findIndex(details => details.open);
+    const getOpenDetails = () => {
+      if (activeIndex !== -1 && detailsElements[activeIndex].open) return activeIndex;
+      return detailsElements.findIndex(details => details.open);
+    };
 
     const syncState = async () => {
       const currentRevision = ++revision;
@@ -30,15 +34,18 @@
     const navigate = direction => {
       const currentIndex = getOpenDetails();
       if (currentIndex === -1) return;
-      detailsElements[currentIndex].open = false;
       const nextIndex = (currentIndex + direction + detailsElements.length) % detailsElements.length;
+      const wasOpen = detailsElements[nextIndex].open;
       detailsElements[nextIndex].open = true;
+      activeIndex = nextIndex;
+      if (wasOpen) syncState();
     };
 
     const close = () => {
       const currentIndex = getOpenDetails();
       if (currentIndex === -1) return;
-      detailsElements[currentIndex].open = false;
+      detailsElements.forEach(details => { details.open = false; });
+      activeIndex = -1;
       detailsElements[currentIndex].querySelector("summary").focus();
     };
 
@@ -50,7 +57,11 @@
       event.preventDefault();
       close();
     });
-    stage.addEventListener("toggle", syncState, true);
+    stage.addEventListener("toggle", event => {
+      const index = detailsElements.indexOf(event.target);
+      if (index !== -1 && event.target.open) activeIndex = index;
+      syncState();
+    }, true);
     syncState();
   });
 })();
