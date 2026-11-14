@@ -13,7 +13,15 @@ Beide Zutaten waren im vorigen Schritt zusaetzlich in `project_files/styleguide.
 
 Ebenfalls korrigiert: Der Einzug der Inhalte stand dort als Spanne von 19 bis 26 px. Das war der Streubereich des vorhandenen Zustands, kein Sollwert, und damit nicht pruefbar. Die Zeile ist auf offen gesetzt, der gemessene Befund ist als offener Punkt beschrieben. Zusaetzlich steht in Abschnitt 21 jetzt die Regel, dass dort verbindliche Einzelwerte stehen und keine Spannen oder Beschreibungen des Ist-Zustands.
 
-Offen: Der verbindliche Zahlenwert fuer den Einzug der Inhalte. Die Bulletpoint-Listen in `#warum` und `#nutzen` beginnen auf der Kicker-Kante bei 69 px und wirken dadurch nicht eingerueckt; in den Kartensektionen erzeugt erst der Innenabstand der Karte den optischen Einzug. Der Nutzer hat den Wert noch nicht genannt, die Aenderung steht aus.
+Der Nutzer hat den offenen Wert am 2026-11-14 festgelegt: Der Inhaltsblock sitzt auf **70 px**, nicht auf 69.
+
+- `homepage/analyse.html`, `#warum .media-split` und `#nutzen .media-split--visual-left`: `margin-left:1px` und `width:calc(100% - 1px)` ergaenzt. Der Block beginnt damit bei 70 px und laeuft nicht ueber die rechte Inhaltskante hinaus.
+
+Gemessen danach bei 1440 px: `#warum` Inhaltsblock und Bulletpoint-Liste bei 70 px, vorher 69. `#nutzen` Inhaltsblock bei 70 px, Bild 70 bis 614, die Liste bleibt als rechte Spalte bei 798. Zum Vergleich die uebrigen Sektionen, alle unveraendert bei 70: `#was-ist-das`, `#leistungen`, `#einsatzbereiche`.
+
+Der Mechanismus war bisher uneinheitlich: `#einsatzbereiche .panel` erreicht die 70 ueber `margin-left:0.890625px`, bei `#leistungen .num-list` entsteht sie nur durch Rundung. Deshalb wurde fuer die beiden Sektionen ein eindeutiger Versatz gesetzt statt eines weiteren Zufallswerts.
+
+In `project_files/styleguide.md` steht jetzt **70 px, verbindlich** als Einzelwert anstelle der frueheren Spanne, zusammen mit dem Hinweis, wie der Wert in den beiden `media-split`-Sektionen erreicht wird.
 
 ## 2026-11-14 - Analyse-Detailseite: sieben Punkte ueberarbeitet
 

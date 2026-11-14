@@ -418,9 +418,9 @@ h1, main h2 {\n  -webkit-text-stroke: .6px rgba(255,248,207,.40);\n  background-
 
 /* Targeted correction: larger section images + more vertical air between application rows */
 @media(min-width:901px){
-  #warum .media-split{grid-template-columns:minmax(0,.9fr) minmax(580px,1.1fr)!important;gap:56px!important;}
+  #warum .media-split{grid-template-columns:minmax(0,.9fr) minmax(580px,1.1fr)!important;gap:56px!important;margin-left:1px;width:calc(100% - 1px);}
   #warum .section-photo{max-width:544px!important;width:100%!important;}
-  #nutzen .media-split--visual-left{grid-template-columns:minmax(580px,1.08fr) minmax(0,.92fr)!important;gap:56px!important;}
+  #nutzen .media-split--visual-left{grid-template-columns:minmax(580px,1.08fr) minmax(0,.92fr)!important;gap:56px!important;margin-left:1px;width:calc(100% - 1px);}
   #nutzen .section-photo{max-width:544px!important;width:100%!important;}
 }
 #einsatzbereiche .pair-grid{row-gap:20px!important;column-gap:18px!important;}
