@@ -1,3 +1,37 @@
+## 2026-11-15 - Die letzten fuenf Modulgrafiken benannt
+
+Status: geprueft
+
+Der Nutzer hatte am 2026-11-15 mit Commit `3dc78c5` bereits vier der neun unbenannten Moduldateien benannt und ein SVG mit umbenannt:
+
+| alt | neu |
+| --- | --- |
+| `from - 5.png` | `seo.png` |
+| `from - 16.png` | `web.png` |
+| `from - 70.png` | `data.png` |
+| `from - 89.png` | `ausschuss.png` |
+| `g439.svg` | `google.svg` |
+
+Geprueft: Keiner der alten Namen war in HTML, CSS oder JavaScript verlinkt, die Umbenennung hat nichts gebrochen.
+
+Die verbliebenen fuenf stammten aus dem Sicherungszweig. Der Nutzer hat die Namen nach Ansicht der Motive vorgegeben:
+
+| alt | neu |
+| --- | --- |
+| `from - 51.png` | `datenaufbereitung.png` |
+| `from - 86.png` | `datenschutz.png` |
+| `from - 87.png` | `sicherung.png` |
+| `from - 90.png` | `api2.png` |
+| `from - 92.png` | `mitarbeiterfreigabe.png` |
+
+Alle fuenf je 1067 x 759 px. Vor der Umbenennung geprueft: kein Name war vergeben, und keine der fuenf Dateien war irgendwo verlinkt.
+
+Kleinschreibung gewaehlt, weil die Modulbenennung im Projekt 111 zu 7 kleingeschrieben ist, etwa `freigabe.png` und `sicherheit.png`. Die Namen grenzen sich von den vorhandenen ab: `aufbereitung.png` und `aufbereitung2.png`, `datensicherheit.png`, `sicherheit.png`, `api.png`, `freigabe.png` bleiben unberuehrt.
+
+In `homepage/assets/Module/` gibt es damit keine Datei `from - NN.png` mehr.
+
+**Offen:** Keine der zehn neu benannten Grafiken ist bisher auf einer Seite eingebunden. Wo sie eingesetzt werden, ist nicht entschieden und steht als Punkt in `todo.md`.
+
 ## 2026-11-14 - Drei namenlose Fotos geloescht
 
 Status: geprueft
