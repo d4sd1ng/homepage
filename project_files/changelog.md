@@ -1,3 +1,31 @@
+## 2026-11-14 - Analyse-Grafiken auf gemeinsame Leinwand gebracht
+
+Status: in Arbeit
+
+Der Nutzer wies darauf hin, dass die beiden Grafiken der Angebotskarten weiterhin unterschiedlich gross wirken, und dass meine bisherigen Versuche das Ziel nicht erreichen. Das war zutreffend.
+
+Ursache: Am CSS laesst sich nur der Rahmen einstellen, die Darstellungsgroesse bestimmt aber die Datei. `Analyse.png` hatte ein Motivverhaeltnis von 0,60, `deep_analysis.png` von 0,76. Bei gleicher Rahmenhoehe fuellt das zweite Motiv den Rahmen breiter aus, gemessen 167 mal 222 gegen 126 mal 221 Pixel, also 33 Prozent mehr Flaeche. Gleiche Darstellungsgroesse ist mit zwei verschiedenen Seitenverhaeltnissen in CSS nicht erreichbar, ohne zu verzerren oder zu beschneiden.
+
+Zuvor verworfene Ansaetze, alle rein ueber CSS: gleiche Rahmenhoehe fuer beide, gleiche Flaeche ueber unterschiedliche Rahmenhoehen in zwei Richtungen. Keiner liefert gleich grosse Kaesten.
+
+Der Nutzer hat am 2026-11-14 dem Ersetzen der bestehenden Dateien zugestimmt.
+
+- `homepage/assets/Fotos/Analyse.png`: Motiv freigestellt, auf 963 mal 1600 skaliert, mittig auf eine Leinwand von 1078 mal 1600 gesetzt.
+- `homepage/assets/Fotos/deep_analysis.png`: Motiv freigestellt, auf 1078 mal 1428 skaliert, mittig auf dieselbe Leinwand gesetzt.
+- `homepage/index.html`: die Attribute `width` und `height` an allen zwoelf `img`-Elementen von 941 mal 1672 beziehungsweise 927 mal 1240 auf 1078 mal 1600 geaendert, damit der Seitenverhaeltnishinweis stimmt.
+
+Beide Motive haben damit dieselbe Flaeche, 1 540 800 gegen 1 539 384 Pixel, Abweichung 0,09 Prozent. Beide Dateien haben dasselbe Seitenverhaeltnis, derselbe Rahmen ergibt deshalb zwangslaeufig denselben Kasten.
+
+Am CSS wurde nichts geaendert, die Rahmenhoehe steht unveraendert auf 220 Pixel.
+
+Ergebnis, gemessenes Motiv in der Seite: kostenlos von 126 mal 221 auf 135 mal 222 Pixel, plus 8 Prozent; tiefgehend von 167 mal 222 auf 151 mal 198 Pixel, minus 19 Prozent. Die zu grosse Grafik wurde also verkleinert, nichts wurde zu ihr hinaufskaliert.
+
+Pruefung bei 1440, 1100, 768 und 390 Pixel: Kasten beider Grafiken identisch, Motivflaechen gleich innerhalb von 0,7 Prozent, beide Dateien geladen, natuerliche Groesse 1078 mal 1600, keine JavaScript-Fehler.
+
+Dateigroesse: `Analyse.png` von 1 169 307 auf 1 171 815 Byte, `deep_analysis.png` von 1 558 549 auf 1 620 377 Byte.
+
+Offen: Die kostenlose Grafik ist um 8 Prozent gewachsen. Auf Wunsch senke ich die Rahmenhoehe von 220 auf 209 Pixel, dann liegt sie bei 126 mal 209 und damit nicht ueber dem heutigen Stand, die tiefgehende bei 141 mal 186. Die Entscheidung steht aus, bis dahin ist nichts veroeffentlicht.
+
 ## 2026-11-14 - Formular: optionale Felder Telefon und Website entfernt
 
 Status: geprueft
