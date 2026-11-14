@@ -1,3 +1,27 @@
+## 2026-11-14 - Analyse-Detailseite: Hero-Textblock um ein Drittel des Kopfabstands hochgerueckt
+
+Status: geprueft
+
+Vorgabe des Nutzers: Der Abstand vom Header zum Kicker ist zu gross. Kicker, Headline, Subline und Bodytext ruecken um ein Drittel dieses Abstands nach oben. Der CTA bleibt stehen, sonst wird nichts bewegt.
+
+Gemessen vorher bei 940 px Fensterhoehe: Header endet bei 68, Kicker beginnt bei 269 (1440 px) beziehungsweise 276 (1920 px). Abstand 200 und 208 px, ein Drittel also rund 68 px.
+
+Geaendert in `homepage/analyse.html`, Block `@media(min-width:1101px)`:
+
+- `#hero .kicker` neu: `margin-top:-68px`
+- `#hero .actions` neu: `margin-top:138px` statt der geerbten 70 px
+
+Der CTA bekommt genau den Betrag als zusaetzlichen Abstand, den der Kicker nach oben wandert. Die Gesamthoehe der Textspalte bleibt dadurch gleich, die mittige Ausrichtung des Heros bleibt unberuehrt und der CTA steht unveraendert.
+
+Gemessen nachher:
+
+| Fensterbreite | Abstand Header zu Kicker vorher | nachher | Soll, zwei Drittel | CTA vorher | CTA nachher |
+| --- | --- | --- | --- | --- | --- |
+| 1440 px | 200 | 132 | 133 | 695 .. 735 | 695 .. 735 |
+| 1920 px | 208 | 140 | 139 | 687 .. 727 | 687 .. 727 |
+
+**Vorbefund, nicht von dieser Aenderung verursacht und nicht geaendert:** Der CTA steht bei 1440 px 8 px tiefer als bei 1920 px. Ursache ist der Bodytext, der bei 1440 px ueber drei statt zwei Zeilen laeuft. Der Textblock ist dadurch 15 px hoeher und waechst wegen der mittigen Ausrichtung nach oben und unten, je um die Haelfte. Ob der CTA bei allen Breiten auf derselben Hoehe stehen soll, ist nicht entschieden.
+
 ## 2026-11-14 - Analyse-Detailseite: Hero-Headline und Bild neu aufgeteilt, Schein verkleinert
 
 Status: geprueft
