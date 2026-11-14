@@ -470,7 +470,9 @@ Grundregel: **Kicker, Headline und Subline sitzen an der linken Inhaltskante. Al
 | Headline: Breite | volle 1302 px |
 | Subline: Breite | 820 px |
 | Inhaltsbehaelter: linke Kante | 70 px |
-| Inhaltsblock, linke Kante | **70 px, verbindlich** |
+| Inhaltskorridor, linke Kante | **70 px, verbindlich** |
+| Inhaltskorridor, rechte Kante | **1370 px, verbindlich** |
+| Inhaltskorridor, Breite | **1300 px** |
 
 Der Kopf darf **nicht** innerhalb einer Textspalte eines `media-split` stehen, sonst wandert er mit der Spalte. Verbindliches Muster, wie in `#leistungen`:
 
@@ -483,7 +485,11 @@ Der Kopf darf **nicht** innerhalb einer Textspalte eines `media-split` stehen, s
 
 `media-split`-Zeilen bleiben mittig ausgerichtet. Das Bild sitzt auf halber Hoehe der Bulletpoint-Liste.
 
-Der Inhaltsblock einer Sektion beginnt bei **70 px**, der Kopf aus Kicker, Headline und Subline bei 69 px. Das gilt fuer jede Art von Inhalt: Karten, Bulletpoint-Listen, nummerierte Listen und `media-split`-Bloecke. Am 2026-11-14 vom Nutzer festgelegt.
+**Inhaltskorridor: 70 px bis 1370 px, Breite 1300 px.** Bei 1440 px Fensterbreite. Jeder Inhalt einer Sektion beginnt links bei 70 und endet rechts bei 1370. Der Kopf aus Kicker, Headline und Subline sitzt davor bei 69 px.
+
+Das gilt fuer jede Art von Inhalt: Karten, Bulletpoint-Listen, nummerierte Listen, `media-split`-Bloecke, Formularbloecke und das FAQ-Raster. Kein Inhalt wird mittig in einem schmaleren Kasten zentriert, kein Inhalt beginnt links von 70 oder endet rechts von 1370.
+
+Referenz ist die Definitionssektion: linke Karte beginnt bei 70, rechte Karte endet bei 1370, dazwischen 32 px Spalte, beide Karten 634 px breit. Am 2026-11-14 vom Nutzer festgelegt und an dieser Sektion gemessen.
 
 In `#warum` und `#nutzen` wird der Wert ueber `margin-left:1px` und `width:calc(100% - 1px)` am `media-split` erreicht, damit der Block nicht ueber die rechte Inhaltskante hinauslaeuft.
 
@@ -495,8 +501,13 @@ In `#warum` und `#nutzen` wird der Wert ueber `margin-left:1px` und `width:calc(
 | --- | --- |
 | `.section-photo`, Breite ab 901 px | 544 px |
 | daraus folgende Hoehe bei 4:3 | 409 px |
+| Bildspalte im `media-split` | 544 px, fest |
+| Spaltenabstand Text zu Bild | 56 px |
+| Textspalte, daraus folgende Breite | 700 px |
 
 In `#nutzen` steht das Bild links, das ist so gewollt und bleibt so.
+
+Die Bildspalte ist auf genau 544 px gesetzt, nicht auf einen Bruchteil. Nur so sitzt das Bild auf der Korridorkante: in `#warum` von 826 bis 1370, in `#nutzen` von 70 bis 614. Eine `fr`-Spalte macht die Spalte breiter als das Bild, das Bild bleibt dann linksbuendig darin stehen und der Korridor wird rechts nicht erreicht.
 
 ### 21.3 Modul-Icons in `.num-list`
 
@@ -513,13 +524,15 @@ Die drei Werte haengen zusammen: `padding-left` ist Rahmenbreite plus 29 px. Wir
 
 | Element | Wert |
 | --- | --- |
-| `.faq-grid` `max-width` | 1120 px |
+| `.faq-grid` `max-width` | keine, volle Korridorbreite |
+| `.faq-grid`, linke Kante | 70 px |
+| `.faq-grid`, rechte Kante | 1370 px |
 | Spalten | 2, Abstand 16 px / 20 px |
-| Breite je Knopf bei 1440 px | 550 px |
+| Breite je Knopf bei 1440 px | 641 px |
 | Breitenbedarf des laengsten Knopfes | 535 px |
 | Hoehe je Knopf | 44 px, einzeilig |
 
-Die Knoepfe muessen einzeilig bleiben. Kommen laengere Fragen dazu, ist der Bedarf neu zu messen und `max-width` anzupassen.
+Das Raster wird nicht zentriert und nicht begrenzt, es fuellt den Inhaltskorridor. Die Knoepfe muessen einzeilig bleiben. Kommen laengere Fragen dazu, ist der Bedarf neu zu messen; mehr als 641 px je Knopf gibt der Korridor nicht her, dann muss die Frage kuerzer werden.
 
 ### 21.5 Trennlinien
 
