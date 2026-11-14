@@ -611,6 +611,17 @@ h1, main h2 {\n  -webkit-text-stroke: .6px rgba(255,248,207,.40);\n  background-
     position:relative;
     z-index:3;
   }
+  /* Kicker, Headline, Subline und Bodytext ruecken um ein Drittel des
+     Abstands Header zu Kicker nach oben. Der CTA bekommt denselben
+     Betrag als zusaetzlichen Abstand und bleibt dadurch stehen; die
+     Gesamthoehe der Spalte aendert sich nicht, die mittige
+     Ausrichtung bleibt unberuehrt. */
+  #hero .kicker{
+    margin-top:-68px;
+  }
+  #hero .actions{
+    margin-top:138px;
+  }
   #hero h1{
     width:max-content;
     max-width:none;
