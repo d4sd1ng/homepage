@@ -1,3 +1,19 @@
+## 2026-11-14 - Analyse-Detailseite: richtiges Hero-Bild eingebunden
+
+Status: geprueft
+
+Der Nutzer hat die Analysegrafik lokal in `analyse_detail_page.png` und `analyse_detail_page.webp` umbenannt und mit Commit `31250dc` eingecheckt. Beide Dateien sind 1672 x 941 Pixel gross.
+
+- `homepage/analyse.html`, Hero: `src` von `assets/detail_pages_grafics/sockel_loaded_analyse.png` auf `assets/detail_pages_grafics/analyse_detail_page.png` geaendert, dazu `width="1672"` und `height="941"` ergaenzt.
+
+Gemessen danach, Bildkasten unveraendert 1216 x 368 px, weil ihn das CSS festlegt, nicht die Datei.
+
+**Kein `<picture>` eingebaut, und die WebP-Datei ist damit unbenutzt.** Grund: `.visual-card>img:first-child` in Zeile 148 ist ein Kind-Selektor und setzt `max-height: 230px`. Genau diese Regel begrenzt die Hoehe des Hero-Bildes. Ein `<picture>` schiebt sich zwischen `.visual-card` und `img`, die Regel greift dann nicht mehr und das Bild aendert seine Groesse. Dafuer muesste der Selektor erweitert werden, zum Beispiel auf `.visual-card > img:first-child, .visual-card > picture:first-child > img`. Das ist eine CSS-Aenderung am gemeinsamen Kartenstil und nicht entschieden.
+
+**Weiterhin offen, vom Nutzer als eigener Punkt benannt:** Das Hero-Bild laeuft rechts aus dem Fenster. `#hero .visual-card--hero img` traegt im Block `@media(min-width:1101px)` die Angaben `width:760px`, `left:50%` und `transform:translateX(-50%) scale(1.6)`. Der Bildkasten misst dadurch 1216 px und reicht bei 1440 px Fensterbreite von 514 bis 1730, also 290 px ueber den Rand. Bei 1920 px sind es 136 px. Das Motiv wird rechts sichtbar abgeschnitten. Mit der alten Grafik fiel das weniger auf, weil sie hochformatiger war; die neue ist 16:9 und reicht weiter nach rechts.
+
+`sockel_loaded_analyse.png` ist bewusst noch nicht geloescht.
+
 ## 2026-11-14 - Analyse-Detailseite: Calendly-Icon aus dem Header-CTA entfernt
 
 Status: geprueft
