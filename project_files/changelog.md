@@ -1,3 +1,31 @@
+## 2026-11-14 - Analyse-Detailseite: FAQ-Raster auf die linke Inhaltskante gerueckt
+
+Status: geprueft
+
+Pruefauftrag des Nutzers: in jeder Sektion muss der Inhalt bei 70 beginnen und bei 1370 enden. Nur diese beiden Kanten zaehlen, die Spaltenaufteilung innerhalb einer Sektion ist dafuer ohne Belang, weil die Sektionen unterschiedlich aufgebaut sind.
+
+Geprueft wurde der Inhaltsblock jeder Sektion, also alles unterhalb der Subline, bei 1440 px:
+
+| Sektion | links | rechts |
+| --- | --- | --- |
+| `#was-ist-das` | 70 | 1370 |
+| `#warum` | 70 | 1370 |
+| `#leistungen` | 70 | 1370 |
+| `#einsatzbereiche` | 70 | 1370 |
+| `#nutzen` | 70 | 1370 |
+| `#analyse-formular` | 70 | 1370 |
+| `#faq` | 70 | 1370 |
+
+Eine Abweichung gefunden und behoben:
+
+- `homepage/analyse.html`, `.faq-grid`: `width` von `100%` auf `calc(100% - 1px)`, `margin` von `16px 0 0` auf `16px 0 0 1px`. Das Raster begann bei 69 statt bei 70.
+
+Zurueckgenommen wurde ein Zwischenstand aus derselben Sitzung, der die beiden `media-split`-Sektionen auf zwei feste 634-px-Spalten mit 32 px Abstand gesetzt und dabei die Bilder von 544 auf 634 px vergroessert haette. Der Nutzer hat klargestellt, dass nur die Aussenkanten zaehlen. Bildbreite bleibt bei den beschlossenen 544 px, Spaltenabstand bei 56 px.
+
+Offen und dem Nutzer zur Entscheidung vorgelegt: Die Aussenkanten stimmen in allen sieben Sektionen, der Nutzer sieht Ausgangslage, Ihr Nutzen und FAQ dennoch als zu breit. Der einzige messbare Unterschied liegt im Inneren des Blocks. Breitestes Einzelelement je Sektion: Definition 634 px (Karte), Ausgangslage 700 px (Textspalte), Ihr Nutzen 700 px (Textspalte), FAQ 641 px (Knopf). Ob Textspalten und FAQ-Knoepfe auf 634 px begrenzt werden, ist noch nicht entschieden.
+
+Ebenfalls offen, vom Nutzer als eigener Punkt benannt und hier nicht angefasst: Das Hero-Bild `sockel_loaded_analyse.png` laeuft durch `transform: scale(1.6)` und `left: 230px` bis 1730 px und erzeugt den waagerechten Ueberlauf der Seite von 290 px.
+
 ## 2026-11-14 - Analyse-Detailseite: Inhaltskorridor 70 bis 1370 festgeschrieben und durchgesetzt
 
 Status: geprueft
