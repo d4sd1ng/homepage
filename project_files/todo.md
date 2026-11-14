@@ -75,6 +75,12 @@ Keine abgeschlossenen historischen Entscheidungen, Designregeln oder Projektbesc
 - [ ] Download-Dateiendungen und endgültige Dateinamen prüfen — offen
 - [ ] Analyse-Grafiken `assets/analyse/1.png` bis `8.png` auf finalen Nurovelle-Stil prüfen — offen
 - [ ] Hero-/Detailseiten-Assets auf Transparenz und Stilkonstanz prüfen — offen
+- [ ] **Unbenannte Moduldateien `from - NN.png` benennen** — offen
+  - Neun Dateien in `homepage/assets/Module/`: `from - 5`, `- 16`, `- 51`, `- 70`, `- 86`, `- 87`, `- 89`, `- 90`, `- 92`. Vier lagen schon vorher im Projekt, fünf kamen am 2026-11-14 aus dem Sicherungszweig dazu.
+  - Der Nutzer hat am 2026-11-14 bestätigt: Das sind Module, nur noch nicht benannt. Sie bleiben liegen, bis die Motive zugeordnet sind.
+- [ ] **Drei namenlose Fotos zuordnen oder verwerfen** — offen
+  - `homepage/assets/Fotos/Kein Titel (927 x 1200 px)/1.png` und `/2.png`, dazu `homepage/assets/Fotos/Kein Titel (927 x 1200 px)-(1)/2.png`. Je 927 x 1200 px, zusammen 3,5 MB.
+  - Ordner- und Dateinamen stammen aus einem Export ohne gesetzten Titel.
 - [ ] **Analyse-Hero auf `analyse_detail_page` umstellen** — offen
   - Der Nutzer hat die Analysegrafik lokal in `analyse_detail_page.png` und `analyse_detail_page.webp` umbenannt, damit sie namentlich zu `chatbot_detail_page.png` und `daten_detail_page.png` passt. Beide Dateien sind am 2026-11-14 noch nicht im Repository und live 404.
   - Bestätigt: die WebP ist dieselbe Grafik wie die PNG.
@@ -93,7 +99,8 @@ Keine abgeschlossenen historischen Entscheidungen, Designregeln oder Projektbesc
   - Betroffen: `detail_roadmap`, `detail_prompt-engineering`, `paket-buero`, `potenzialanalyse-deep`, `detail_workflows`, `detail_seo`, `paket-betreuung`, `detail_ki-software`, `detail_ki-agenten`, `detail_ki-sicherheit`, `detail_automationen`, `detail_warum-nurovelle`, `paket-handwerk`, `detail_sprachassistenten`.
   - Der Ordner in der Anleitung war falsch. Er stand auf `assets/Module/Ablauf/` und ist am 2026-11-14 auf `assets/detail_pages_grafics/` korrigiert, wo die Hero-Grafiken der Detailseiten liegen.
   - Welche Grafik auf welche Seite gehört, ist nicht entschieden. Der Nutzer klärt das bei der jeweiligen Seite, nicht pauschal.
-  - **Noch zu klären, wenn die erste Seite drankommt:** Die Anleitung nennt `width="620" height="507"`. Keine der vorhandenen Grafiken hat dieses Verhältnis; zwölf von vierzehn sind 1672 x 941, dazu `ki_roadmap` 1659 x 948, `ki_software` 1912 x 823 und `seo` 1774 x 887. Ebenso steht dort `alt="Ablauf"`, was für eine Hero-Grafik kein sinnvoller Alternativtext ist.
+  - `width="620" height="507"` ist am 2026-11-14 aus der Anleitung entfernt. Die Zahlen stammten aus `assets/Module/Ablauf/lösung_wählen.png`, das tatsächlich 620 x 507 misst, und passten zu keiner Hero-Grafik; zwölf von vierzehn sind 1672 x 941, dazu `ki_roadmap` 1659 x 948, `ki_software` 1912 x 823 und `seo` 1774 x 887. Beim Einsetzen werden die echten Masse der jeweiligen Datei eingetragen.
+  - **Noch offen:** In der Anleitung steht `alt="Ablauf"`. Das ist für eine Hero-Grafik kein sinnvoller Alternativtext und muss je Seite durch eine Beschreibung des Motivs ersetzt werden.
   - Vorhandene Grafiken in `assets/detail_pages_grafics/`: `betreuung`, `büro`, `chatbot`, `daten`, `gouvernance`, `handwerk`, `ki_agenten`, `ki_roadmap`, `ki_software`, `prompt_engineering`, `prozessautomation`, `seo`, `sprachassistent`, jeweils als `<name>_detail_page.png`, vier davon zusätzlich als `.webp`.
 - [ ] verwandte Leistungen je Seite final zuordnen — offen
 - [ ] FAQ je Detailseite final prüfen — offen
