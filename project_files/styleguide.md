@@ -470,7 +470,7 @@ Grundregel: **Kicker, Headline und Subline sitzen an der linken Inhaltskante. Al
 | Headline: Breite | volle 1302 px |
 | Subline: Breite | 820 px |
 | Inhaltsbehaelter: linke Kante | 70 px |
-| Textkante im Inhalt | 88 bis 95 px, also 19 bis 26 px Einzug |
+| Inhaltsblock, linke Kante | **70 px, verbindlich** |
 
 Der Kopf darf **nicht** innerhalb einer Textspalte eines `media-split` stehen, sonst wandert er mit der Spalte. Verbindliches Muster, wie in `#leistungen`:
 
@@ -481,7 +481,13 @@ Der Kopf darf **nicht** innerhalb einer Textspalte eines `media-split` stehen, s
 </div>
 ```
 
-`media-split`-Zeilen werden oben ausgerichtet, `align-items: start`, damit der Inhalt buendig unter der Subline beginnt.
+`media-split`-Zeilen bleiben mittig ausgerichtet. Das Bild sitzt auf halber Hoehe der Bulletpoint-Liste.
+
+Der Inhaltsblock einer Sektion beginnt bei **70 px**, der Kopf aus Kicker, Headline und Subline bei 69 px. Das gilt fuer jede Art von Inhalt: Karten, Bulletpoint-Listen, nummerierte Listen und `media-split`-Bloecke. Am 2026-11-14 vom Nutzer festgelegt.
+
+In `#warum` und `#nutzen` wird der Wert ueber `margin-left:1px` und `width:calc(100% - 1px)` am `media-split` erreicht, damit der Block nicht ueber die rechte Inhaltskante hinauslaeuft.
+
+**Regel fuer diese Datei:** Hier stehen verbindliche Einzelwerte, keine Spannen und keine Beschreibungen des Ist-Zustands. Eine Spanne kann nichts pruefen. Werte, die noch nicht entschieden sind, werden als offen gekennzeichnet und nicht mit einer gemessenen Zahl kaschiert.
 
 ### 21.2 Bilder in Textsektionen
 
@@ -489,8 +495,6 @@ Der Kopf darf **nicht** innerhalb einer Textspalte eines `media-split` stehen, s
 | --- | --- |
 | `.section-photo`, Breite ab 901 px | 544 px |
 | daraus folgende Hoehe bei 4:3 | 409 px |
-| Ausrichtung Bild rechts, zum Beispiel `#warum` | `justify-self: end` |
-| Ausrichtung Bild links, zum Beispiel `#nutzen` | `justify-self: start` |
 
 In `#nutzen` steht das Bild links, das ist so gewollt und bleibt so.
 
