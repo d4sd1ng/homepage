@@ -1,3 +1,54 @@
+## 2026-11-14 - Analyse-Detailseite: doppelt eingefuegte Kopfbereiche entfernt, Header-Skript repariert
+
+Status: geprueft
+
+Der Nutzer hat gemeldet, dass die Analyseseite den gemeinsamen Header und Footer nicht richtig verwendet. Die Pruefung hat drei Dopplungen aus einer fehlerhaften Zusammenfuehrung gefunden. Alle drei betreffen `homepage/analyse.html`.
+
+**1. Header-Skript war syntaktisch kaputt und lief gar nicht.**
+
+Im Skriptblock waren Anweisungen doppelt eingefuegt, darunter `const breadcrumbGroups` und `const hoverNavigation` zweimal im selben Funktionskoerper. Das ergibt `SyntaxError: Identifier 'breadcrumbGroups' has already been declared`. Der gesamte Block wurde deshalb nie ausgefuehrt. Folgen auf der Seite:
+
+- Die Hover-Navigation der Breadcrumb-Gruppen im Header war ohne Funktion.
+- Das Schliessen der Gruppen per Klick ausserhalb und per Escape war ohne Funktion.
+- Die FAQ-Eintraege schlossen einander nicht, weil auch diese Schleife in demselben Block steht.
+
+Zusaetzlich lag die FAQ-Schleife zweimal vor, davon einmal unvollstaendig.
+
+Der Block ist durch die kanonische Fassung aus `homepage/detail_roadmap.html` ersetzt, die auf allen uebrigen Seiten laeuft. Keine eigene Logik ergaenzt.
+
+**2. Der Icon-Sprite war zweimal eingebettet.**
+
+Zwei byte-identische `<svg style="display:none">`-Bloecke mit je 21 Symbolen, dadurch 21 doppelt vergebene IDs: `i-chev`, `i-doc`, `i-book`, `i-db`, `i-gear`, `i-headset`, `i-chat`, `i-bot`, `i-plus`, `i-seo`, `i-chart`, `i-sync`, `i-bulb`, `i-wrench`, `i-loop`, `i-rocket`, `i-map`, `i-plug`, `i-pen`, `i-trend`, `nv-calendly-mark`. Der zweite Block ist entfernt.
+
+**3. `<meta name="description">` und die drei Schriftverweise standen doppelt im `<head>`.**
+
+Zeilen 11 bis 14 und 15 bis 18 waren byte-identisch. Das Duplikat ist entfernt. Die Seite forderte die Google-Fonts-Stylesheets dadurch zweimal an.
+
+**Ausserdem: Das Kalender-Icon im Header wurde nicht dargestellt.**
+
+`<use href="index.html#nv-calendly-mark">` verweist auf ein Symbol in einem anderen Dokument. Browser loesen das bei `<use>` nicht auf, gemessen wurde eine Bounding-Box von 0 x 0. Das Symbol liegt in der Seite selbst vor, der Verweis ist auf `#nv-calendly-mark` geaendert. Gemessen danach 46 x 49.
+
+Gemessen vorher und nachher bei 1440 px:
+
+| Pruefung | vorher | nachher |
+| --- | --- | --- |
+| doppelt vergebene IDs | 21 | 0 |
+| JS-Fehler in der Konsole | `breadcrumbGroups has already been declared` | keiner |
+| Breadcrumb-Hover | ohne Funktion | oeffnet und wechselt zwischen den Gruppen |
+| FAQ, zwei Eintraege nacheinander geoeffnet | beide offen | genau einer offen |
+| Bounding-Box des Kalender-Symbols | 0 x 0 | 46 x 49 |
+| `<meta name="description">` | 2 | 1 |
+| Sprite-Bloecke | 2 | 1 |
+
+**Verhaltensaenderung, die daraus folgt:** Die FAQ-Eintraege auf `analyse.html` schliessen sich jetzt gegenseitig, wie auf allen anderen Seiten. Bisher blieben mehrere offen, weil das Skript nicht lief. Das ist kein neues Verhalten, sondern das der gemeinsamen Fassung.
+
+Die goldene Trennlinie ueber dem Footer ist vorhanden und entspricht der von `index.html`: `.footer::before`, Hoehe 0,8 px, gleicher Verlauf.
+
+Nicht geaendert, weil Entscheidungen:
+
+- `analyse.html` laedt die Schriften von Google Fonts, `index.html` dagegen lokal ueber `assets/fonts/fonts.css` mit vorgeladener `inter-var-latin.woff2`. Welche Quelle gelten soll, ist nicht entschieden.
+- `analyse.html` hat kein `rel="icon"`, kein `apple-touch-icon` und kein `rel="canonical"`; `index.html` hat alle drei. Daher die 404-Antwort auf `/favicon.ico`.
+
 ## 2026-11-14 - Styleguide Abschnitt 21 vervollstaendigt
 
 Status: geprueft
