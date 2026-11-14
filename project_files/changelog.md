@@ -1,3 +1,26 @@
+## 2026-11-14 - Leistungskarten mobil: flacher, CTA mittig
+
+Status: geprueft
+
+Der Nutzer bemaengelte an den Leistungskarten der Sektion mit den Leistungen, dass sie auf Mobil zu gross sind und dass die CTA-Schaltflaeche zu hoch ist und mittig sitzen soll. Gemessen vorher bei 390 px: Karte 233 px hoch, Bildstreifen oben 56 px, CTA 36 px hoch bei 10,4 px Schrift, linksbuendig bei x 13 statt mittig.
+
+Alle Aenderungen liegen in der bestehenden Abfrage `@media (max-width: 900px)`, der Zuschnitt der Abfrage bleibt unveraendert.
+
+- `homepage/index.html`, `.nv-s7-card__left`: `display` von `block` auf `flex` mit `justify-content: center`, `padding` von `0 12px 10px` auf `0 12px 8px`. Der CTA ist damit mittig; andere Kinder des Bereichs sind auf Mobil ohnehin ausgeblendet.
+- `homepage/index.html`, `.nv-s7-card__more`: `height: 30px` ergaenzt, `margin-top` von 6 auf 4 px.
+- `homepage/index.html`, `.nv-s7-card__visual`: `height` von 56 auf 28 px.
+- `homepage/index.html`, `.nv-s7-card__main`: `padding` von `10px 12px 0` auf `8px 12px 0`.
+- `homepage/index.html`, `.nv-s7-card__heading p`: `margin-top` von 5,6 auf 4 px.
+- `homepage/index.html`, `.nv-s7-card__points`: `margin` von `8px 0 0 42px` auf `6px 0 0 42px`, `gap` von 5,6 auf 4 px.
+
+Der Nutzer hat am 2026-11-14 aus vier vorgelegten Varianten den 28 px schmalen Bildstreifen gewaehlt. Verworfen: 40 px, 56 px unveraendert, und ganz ohne Bildstreifen.
+
+Ergebnis bei 390 px: Karte 187 statt 233 px, also 46 px oder rund 20 Prozent weniger je Karte. Bei elf Karten rund 500 px weniger Scrollweg.
+
+Pruefung bei 360, 390, 430, 768 und 900 px: elf Karten, Hoehe 187 bis 201 px, CTA durchgaengig 30 px hoch, Mittenabweichung 0 px, kein abgeschnittener Karteninhalt, kein waagerechter Seitenueberlauf, keine JavaScript-Fehler. Ab 901 px greift die Desktopdarstellung unveraendert, dort bleiben die Karten 88 px hoch mit 23 px hohem CTA.
+
+Offen: Der CTA liegt mit 30 px unter der von Apple empfohlenen Mindestgroesse von 44 px fuer Beruehrungsziele. Die gesamte Karte ist ueber `data-href` anklickbar, der Verweis ist also auch ohne die Schaltflaeche erreichbar.
+
 ## 2026-11-14 - Analyse-Angebote: beide Grafiken im gleichen Rahmen
 
 Status: geprueft
