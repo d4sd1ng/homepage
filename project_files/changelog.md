@@ -1,3 +1,19 @@
+## 2026-11-14 - Platzhalter der Detailseiten: falscher Ordner korrigiert, Fehlbefund richtiggestellt
+
+Status: geprueft
+
+**Richtigstellung eines frueheren Befundes.** Im Changelog und in `todo.md` stand, 14 Seiten wuerden `assets/Module/Ablauf/DATEI.webp` und `.png` einbinden und beide Pfade lieferten live HTTP 404. Das war irrefuehrend. Der `<picture>`-Block steht auf allen 14 Seiten **innerhalb eines HTML-Kommentars**, als Anleitung zum Einsetzen. Die Hero-Stelle traegt dort einen leeren, bewusst gesetzten Platzhalter `<div class="visual-card visual-card--empty" aria-hidden="true">`. Die Pfade werden nie angefordert, es ist nichts kaputt. Geprueft auf allen 14 Seiten.
+
+**Der Ordner in der Anleitung war trotzdem falsch,** wie der Nutzer festgestellt hat. `assets/Module/Ablauf/` enthaelt Ablaufmotive wie `aufgabe_erfassen` und `Prozesse_planen`. Die Hero-Grafiken der Detailseiten liegen dagegen in `assets/detail_pages_grafics/`.
+
+Geaendert: In 14 Dateien je zwei Verweise, `assets/Module/Ablauf/DATEI` auf `assets/detail_pages_grafics/DATEI`.
+
+`detail_automationen`, `detail_ki-agenten`, `detail_ki-sicherheit`, `detail_ki-software`, `detail_prompt-engineering`, `detail_roadmap`, `detail_seo`, `detail_sprachassistenten`, `detail_warum-nurovelle`, `detail_workflows`, `paket-betreuung`, `paket-buero`, `paket-handwerk`, `potenzialanalyse-deep`.
+
+Nur der Ordner ist geaendert. `DATEI` bleibt Platzhalter, weil die Zuordnung Grafik zu Seite beim Durchgehen der jeweiligen Seite entschieden wird.
+
+**Zwei weitere Fehler in derselben Anleitung, nicht geaendert und in `todo.md` vermerkt:** Sie nennt `width="620" height="507"`; keine der vorhandenen Grafiken hat dieses Verhaeltnis, zwoelf von vierzehn sind 1672 x 941. Und sie setzt `alt="Ablauf"`, was fuer eine Hero-Grafik kein sinnvoller Alternativtext ist.
+
 ## 2026-11-14 - Analyse-Detailseite: WebP eingebunden, Schriften lokal, Assets eingecheckt und Dateinamen korrigiert
 
 Status: geprueft

@@ -88,12 +88,13 @@ Keine abgeschlossenen historischen Entscheidungen, Designregeln oder Projektbesc
 - [ ] Texte jeder Detailseite vollständig freigeben — offen
 - [ ] Framework je Detailseite mit mindestens der freigegebenen Anzahl Module/Schritte prüfen — offen
 - [ ] Hero-Visual je Detailseite zuordnen — offen
-- [ ] **Platzhalter `Ablauf/DATEI` ersetzen, je Seite beim Durchgehen der jeweiligen Seite** — offen
-  - 14 Seiten binden `assets/Module/Ablauf/DATEI.webp` und `assets/Module/Ablauf/DATEI.png` ein. `DATEI` ist ein nie ersetzter Platzhalter, beide Pfade liefern live HTTP 404.
+- [ ] **Hero-Grafik je Detailseite einsetzen, beim Durchgehen der jeweiligen Seite** — offen
+  - 14 Seiten haben an der Hero-Stelle einen leeren Platzhalter `<div class="visual-card visual-card--empty" aria-hidden="true">` mit einer Einsetz-Anleitung im HTML-Kommentar. **Es ist nichts kaputt**: Der Pfad steht nur im Kommentar und wird nie angefordert.
   - Betroffen: `detail_roadmap`, `detail_prompt-engineering`, `paket-buero`, `potenzialanalyse-deep`, `detail_workflows`, `detail_seo`, `paket-betreuung`, `detail_ki-software`, `detail_ki-agenten`, `detail_ki-sicherheit`, `detail_automationen`, `detail_warum-nurovelle`, `paket-handwerk`, `detail_sprachassistenten`.
-  - Im Ordner liegen die echten Motive je als PNG und WebP, unter anderem `aufgabe_erfassen`, `Prozesse_planen`, `daten_prüfen1`, `lösung_wählen`, `ki_potential`.
-  - Welches Motiv auf welche Seite gehört, ist nicht entschieden. Der Nutzer hat am 2026-11-14 festgelegt, das bei der jeweiligen Seite zu klären, nicht pauschal.
-  - Gefunden am 2026-11-14 bei der Arbeit an `analyse.html`, dort nicht vorhanden.
+  - Der Ordner in der Anleitung war falsch. Er stand auf `assets/Module/Ablauf/` und ist am 2026-11-14 auf `assets/detail_pages_grafics/` korrigiert, wo die Hero-Grafiken der Detailseiten liegen.
+  - Welche Grafik auf welche Seite gehört, ist nicht entschieden. Der Nutzer klärt das bei der jeweiligen Seite, nicht pauschal.
+  - **Noch zu klären, wenn die erste Seite drankommt:** Die Anleitung nennt `width="620" height="507"`. Keine der vorhandenen Grafiken hat dieses Verhältnis; zwölf von vierzehn sind 1672 x 941, dazu `ki_roadmap` 1659 x 948, `ki_software` 1912 x 823 und `seo` 1774 x 887. Ebenso steht dort `alt="Ablauf"`, was für eine Hero-Grafik kein sinnvoller Alternativtext ist.
+  - Vorhandene Grafiken in `assets/detail_pages_grafics/`: `betreuung`, `büro`, `chatbot`, `daten`, `gouvernance`, `handwerk`, `ki_agenten`, `ki_roadmap`, `ki_software`, `prompt_engineering`, `prozessautomation`, `seo`, `sprachassistent`, jeweils als `<name>_detail_page.png`, vier davon zusätzlich als `.webp`.
 - [ ] verwandte Leistungen je Seite final zuordnen — offen
 - [ ] FAQ je Detailseite final prüfen — offen
 - [ ] Kontakt-/Erstgesprächskomponente final prüfen — offen
