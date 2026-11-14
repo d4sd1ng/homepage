@@ -1,3 +1,41 @@
+## 2026-11-14 - Styleguide Abschnitt 21 vervollstaendigt
+
+Status: geprueft
+
+Nur Dokumentation, keine Aenderung an Seiten, CSS oder JavaScript.
+
+Abschnitt 21 enthielt die Inhaltsbreite, die Icongroessen und die Bildgroessen, aber nicht die Werte, aus denen sich das Seitenraster ergibt. Fuer weitere Detailseiten fehlten damit die Grundlagen. Alle ergaenzten Werte sind an der ausgelieferten Seite `https://nurovelle.de/homepage/analyse.html`, Baumarke 85fdd55, bei 1440, 1920, 900 und 390 px gemessen.
+
+Neu, Abschnitt 21.0 Container und Seitenraster:
+
+- `--content-max` 1560 px
+- `--side` `clamp(19.2px, 4.8vw, 96px)`
+- `.section-inner` Breite `min(100% - 2 x --side, 1560px)`
+- `.section` Innenabstand oben und unten: 64 px ab 901 px, 40 px bis 900 px
+- Wertetabelle fuer 1440, 1600, 1920 und 2560 px
+- Einrueckung des Inhalts gegenueber dem Kopf ab 1920 px: 130 px je Seite
+
+Neu, Abschnitt 21.1, Breite der einzelnen Inhaltsbausteine, fest bei jeder Fensterbreite:
+
+- Karte im Zweierraster 634 px, Spalte 32 px
+- breites Einzelfeld 1300 px
+- nummerierte Liste 1300 px, Eintrag darin 622 px
+- Textspalte im `media-split` 700 px
+- Bild im `media-split` 544 px, Spaltenabstand 56 px
+- FAQ-Raster 1300 px, Knopf 640 px
+- Formularblock 710 px
+
+Neu, Abschnitt 21.7 Mobil bis 900 px: Seitenrand, Innenabstand, volle Inhaltsbreite statt 1300 px, einspaltiger `media-split` und einspaltiges FAQ-Raster, Umbruchpunkte 901, 900 und 640 px.
+
+Ergaenzt, Abschnitt 21.5: Trennlinie 2 px hoch, ohne Aussenabstand.
+
+Korrigiert: Der Einleitungssatz von Abschnitt 21 sagte, alle Werte seien bei 1440 px gemessen. Das war genau der Grund fuer den Fehler bei der Inhaltsbreite. Er sagt jetzt, dass feste Werte bei jeder Fensterbreite gelten, abhaengige Werte mit Formel und Wertetabelle stehen und eine Zahl, die nur bei 1440 px gilt, keine Vorgabe ist. Aus der Tabelle in 21.1 sind die reinen 1440-px-Zahlen entfernt; dort stehen jetzt Regeln statt Momentaufnahmen.
+
+Zwei offene Punkte sind als solche eingetragen, nicht mit einer gemessenen Zahl kaschiert:
+
+- Die Trennlinie folgt nicht der Inhaltsbreite. Gemessen 1238 px bei 1440, 1651 px bei 1920 und 774 px bei 900 px Fensterbreite. Bei 1920 px ist sie breiter als der `.section-inner`. Nicht entschieden, nicht geaendert.
+- Unterhalb von 1280 px werden einzelne FAQ-Knoepfe zweizeilig, bei 1100 px einer, bei 1000 px drei. Nicht entschieden.
+
 ## 2026-11-14 - Analyse-Detailseite: Inhaltsbreite auf feste 1300 px begrenzt
 
 Status: geprueft

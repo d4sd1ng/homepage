@@ -456,7 +456,31 @@ Für die produktive Homepage gilt Mobile als vorrangige Darstellungsprüfung.
 
 ## 21. Detailseiten: verbindliche Masse
 
-Gilt fuer die Leistungs- und Analysedetailseiten. Alle Werte sind an `homepage/analyse.html` bei 1440 px Fensterbreite gemessen und am 2026-11-14 vom Nutzer festgelegt. Wer hier etwas aendert, traegt den neuen Wert hier ein.
+Gilt fuer die Leistungs- und Analysedetailseiten und ist die Vorlage fuer jede weitere Detailseite. Referenz ist `homepage/analyse.html`, Stand 2026-11-14, vom Nutzer festgelegt. Wer hier etwas aendert, traegt den neuen Wert hier ein.
+
+Feste Werte stehen in Pixeln und gelten bei jeder Fensterbreite. Wo ein Wert von der Fensterbreite abhaengt, steht die Formel und zusaetzlich eine Wertetabelle. **Eine Zahl, die nur bei 1440 px gilt, ist keine Vorgabe.**
+
+### 21.0 Container und Seitenraster
+
+| Element | Wert |
+| --- | --- |
+| `--content-max` | 1560 px |
+| `--side` (Seitenrand der Sektion) | `clamp(19.2px, 4.8vw, 96px)` |
+| `.section-inner`, Breite | `min(100% - 2 x --side, 1560px)` |
+| `.section` `padding-top`/`-bottom`, ab 901 px | 64 px |
+| `.section` `padding-top`/`-bottom`, bis 900 px | 40 px |
+| **Inhaltsbreite** | **1300 px, fest, mittig im `.section-inner`** |
+
+Daraus ergibt sich:
+
+| Fensterbreite | `--side` | `.section-inner` | Inhalt, 1300 mittig |
+| --- | --- | --- | --- |
+| 1440 px | 69 px | 69 .. 1371 (1302) | 70 .. 1370 |
+| 1600 px | 77 px | 77 .. 1523 (1446) | 150 .. 1450 |
+| 1920 px | 92 px | 180 .. 1740 (1560) | 310 .. 1610 |
+| 2560 px | 96 px | 500 .. 2060 (1560) | 630 .. 1930 |
+
+Ab 1920 px ist der `.section-inner` auf 1560 px gedeckelt und wandert nur noch mit. Die Einrueckung des Inhalts gegenueber dem Kopf betraegt dann 130 px je Seite.
 
 ### 21.1 Inhaltsbreite und Einrueckung
 
@@ -464,16 +488,11 @@ Grundregel: **Kicker, Headline und Subline sitzen an der linken Inhaltskante. Al
 
 | Element | Wert |
 | --- | --- |
-| `.section-inner`, linke Kante | 69 px |
-| `.section-inner`, Breite | 1302 px |
-| Kicker, Headline: linke Kante | 69 px |
-| Headline: Breite | volle 1302 px |
-| Subline: Breite | 820 px |
-| **Inhaltsbreite** | **1300 px, fest** |
-| **Ausrichtung des Inhalts** | **mittig im `.section-inner`** |
-| daraus bei 1440 px | 70 .. 1370 |
-| daraus bei 1600 px | 150 .. 1450 |
-| daraus ab 1920 px | 310 .. 1610 bei 1920, mitwandernd |
+| Kicker, Headline, Subline: linke Kante | Kante des `.section-inner` |
+| Headline: Breite | volle `.section-inner`-Breite |
+| Subline: `max-width` | 820 px |
+| **Inhalt, Breite** | **1300 px, fest** |
+| **Inhalt, Ausrichtung** | **mittig im `.section-inner`** |
 
 Der Kopf darf **nicht** innerhalb einer Textspalte eines `media-split` stehen, sonst wandert er mit der Spalte. Verbindliches Muster, wie in `#leistungen`:
 
@@ -503,6 +522,19 @@ Umgesetzt wird es mit `width:100%`, `max-width:1300px` und `margin-left:auto; ma
 
 Referenz ist die Definitionssektion: zwei Karten zu je 634 px mit 32 px Spalte, zusammen 1300 px. Am 2026-11-14 vom Nutzer festgelegt und an dieser Sektion gemessen.
 
+Breite der einzelnen Inhaltsbausteine, fest bei jeder Fensterbreite:
+
+| Baustein | Breite |
+| --- | --- |
+| Karte im Zweierraster (`.panel` in `#was-ist-das`) | 634 px, Spalte 32 px |
+| Breites Einzelfeld (`.panel` in `#einsatzbereiche`) | 1300 px |
+| Nummerierte Liste (`.num-list`) | 1300 px |
+| Eintrag darin (`li`) | 622 px |
+| Textspalte im `media-split` | 700 px |
+| Bild im `media-split` | 544 px, Spaltenabstand 56 px |
+| FAQ-Raster | 1300 px, Knopf 640 px |
+| Formularblock (`.form-panel`) | 710 px |
+
 **Pruefung nur bei 1440 px ist nicht aussagekraeftig.** Jede Breitenpruefung wird bei mindestens zwei Fensterbreiten gemessen, davon einer ueber 1560 px.
 
 **Regel fuer diese Datei:** Hier stehen verbindliche Einzelwerte, keine Spannen und keine Beschreibungen des Ist-Zustands. Eine Spanne kann nichts pruefen. Werte, die noch nicht entschieden sind, werden als offen gekennzeichnet und nicht mit einer gemessenen Zahl kaschiert.
@@ -516,6 +548,7 @@ Referenz ist die Definitionssektion: zwei Karten zu je 634 px mit 32 px Spalte, 
 | Bildspalte im `media-split` | 544 px, fest |
 | Spaltenabstand Text zu Bild | 56 px |
 | Textspalte, daraus folgende Breite | 700 px |
+| `.section-photo`, bis 900 px | volle Spaltenbreite |
 
 In `#nutzen` steht das Bild links, das ist so gewollt und bleibt so.
 
@@ -553,6 +586,29 @@ Zwischen je zwei Sektionen steht genau ein `<div class="section-divider" aria-hi
 
 Die Linie ueber dem Footer ist keine `section-divider`, sondern `.footer::before` aus `shared-header-footer.css`.
 
+| Element | Wert |
+| --- | --- |
+| `.section-divider`, Hoehe | 2 px |
+| `.section-divider`, Aussenabstand | 0 |
+
+**Offen:** Die Trennlinie folgt nicht der Inhaltsbreite von 1300 px. Gemessen 1238 px bei 1440 px Fensterbreite, 1651 px bei 1920 px und 774 px bei 900 px. Bei 1920 px ist sie damit breiter als der `.section-inner` von 1560 px. Ob die Linie auf 1300 px gesetzt wird, ist nicht entschieden und wurde deshalb nicht geaendert.
+
 ### 21.6 Hero
 
 Die goldenen Eckenlinien oben rechts, frueher `svg.hero-corner-lines`, sind am 2026-11-14 entfernt worden. Markup und CSS sind geloescht, nicht nur ausgeblendet.
+
+### 21.7 Mobil, bis 900 px Fensterbreite
+
+| Element | Wert |
+| --- | --- |
+| `--side` | 18 px bei 390 px, nach der Formel `clamp(19.2px, 4.8vw, 96px)` |
+| `.section` `padding-top`/`-bottom` | 40 px |
+| Inhaltsbreite | volle Breite des `.section-inner`, keine 1300-px-Begrenzung |
+| `media-split` | einspaltig, Bild ueber dem Text |
+| FAQ-Raster | einspaltig |
+
+Die feste Inhaltsbreite von 1300 px greift nur ab 901 px. Darunter fuellt jeder Inhaltsblock den `.section-inner`, weil dieser ohnehin schmaler als 1300 px ist.
+
+Umbruchpunkte der Seite: **901 px** (Desktop-Block `@media(min-width:901px)`), **900 px** und **640 px**.
+
+**Offen:** Unterhalb von 1280 px werden einzelne FAQ-Knoepfe zweizeilig, bei 1100 px einer, bei 1000 px drei. Nicht entschieden, ob das Raster dort einspaltig wird oder die Fragen gekuerzt werden.
