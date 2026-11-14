@@ -610,7 +610,7 @@ Das Bild fuellt seine Rasterspalte und behaelt sein Seitenverhaeltnis. Groesse u
 
 **Verboten: `transform: scale()` zum Vergroessern des Hero-Bildes.** Eine Transformation aendert nur die Darstellung, nicht den Platz im Layout. Das Raster rechnet weiter mit der deklarierten Breite, das Bild laeuft aus dem Fenster und wird abgeschnitten. Genau daran ist die frueher Fassung gescheitert: `width:760px` mit `scale(1.6)` ergab einen 1216 px breiten Kasten und bei 1440 px Fensterbreite 290 px Ueberlauf. Soll das Bild groesser werden, wird die Spalte breiter gemacht, nicht das Bild skaliert.
 
-`overflow-x:clip` an `.hero-viewport` ist noetig, weil der dekorative Schein `#hero .visual-card--hero::before` mit `inset:-26% -32%` ueber die Kartenkante hinausreicht. Ohne das Abklemmen erzeugt eine reine Dekoration eine waagerechte Scrollleiste. `clip` statt `hidden`, damit kein Scrollcontainer entsteht.
+`overflow-x:clip` an `.hero-viewport` ist noetig, weil der dekorative Schein `#hero .visual-card--hero::before` mit `inset:-16% -19%` ueber die Kartenkante hinausreicht. Ohne das Abklemmen erzeugt eine reine Dekoration eine waagerechte Scrollleiste. `clip` statt `hidden`, damit kein Scrollcontainer entsteht.
 
 Gemessenes Ergebnis, Bild stets im Seitenverhaeltnis 1,777:
 
@@ -619,12 +619,22 @@ Gemessenes Ergebnis, Bild stets im Seitenverhaeltnis 1,777:
 | 390 px | 354 x 199 | 0 |
 | 900 px | 864 x 486 | 0 |
 | 1100 px | 479 x 270 | 0 |
-| 1440 px | 460 x 259 | 0 |
-| 1600 px | 540 x 304 | 0 |
-| 1920 px | 584 x 329 | 0 |
-| 2560 px | 584 x 329 | 0 |
+| 1440 px | 631 x 355 | 0 |
+| 1920 px | 760 x 428 | 0 |
 
-Die Breite des Bildes ist durch die Textspalte begrenzt: `#hero .hero-title-line` traegt oberhalb von 1100 px `white-space:nowrap`, die Headline braucht dadurch 780 px bei 1440 px und 928 px bei 1920 px. Die Bildspalte bekommt den Rest. Soll das Bild groesser werden, muss die Headline umbrechen duerfen; das ist nicht entschieden.
+**Headline und Bild ueberlappen, die Headline liegt davor.** Ab 1101 px teilt `#hero .detail-hero` haelftig, `minmax(0,1fr) minmax(0,1fr)` mit 40 px Abstand. Die Headline traegt `width:max-content` und laeuft dadurch ueber ihre Spalte hinaus ins Bildfeld. Die Textspalte traegt `z-index:3`, das Bild `z-index:1`, die Schrift liegt also vor dem Bild. So bekommt das Bild die volle halbe Breite, ohne dass die Headline umbrechen oder kleiner werden muss.
+
+| Element | Wert |
+| --- | --- |
+| `#hero .detail-hero`, ab 1101 px | `minmax(0,1fr) minmax(0,1fr)`, `gap:40px` |
+| `#hero .detail-hero>div:first-child` | `position:relative; z-index:3` |
+| `#hero h1` | `width:max-content; max-width:none` |
+| `#hero .lead` | `max-width:none` |
+| Schriftgrad der Headline | unveraendert `--t-sektionstitel`, `clamp(40px, 4.6vw, 72px)` |
+
+Der Zeilenumbruch der Headline ist redaktionell gesetzt und steht im Markup: Zeile 1 `Wo lohnt sich KI in Ihrem Unternehmen`, Zeile 2 `wirklich?`. Beide Zeilen sind `span.hero-title-line` mit `white-space:nowrap` oberhalb von 1100 px. Der Wortlaut bleibt unveraendert, nur die Umbruchstelle ist gesetzt.
+
+Keine festen Pixelbreiten fuer Textspalte oder Lead. Die frueheren Werte `minmax(780px,1.35fr)` am Raster und `max-width:760px` am Lead sind entfernt; sie hielten die Textspalte unabhaengig vom tatsaechlichen Bedarf bei 760 bis 787 px und druckten das Bild auf 460 px.
 
 ### 21.7 Mobil, bis 900 px Fensterbreite
 

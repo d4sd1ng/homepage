@@ -508,7 +508,7 @@ h1, main h2 {\n  -webkit-text-stroke: .6px rgba(255,248,207,.40);\n  background-
   white-space:nowrap;
 }
 #hero .lead{
-  max-width:760px;
+  max-width:none;
 }
 #hero .visual-card--hero{
   border:0;
@@ -604,8 +604,16 @@ h1, main h2 {\n  -webkit-text-stroke: .6px rgba(255,248,207,.40);\n  background-
 
 @media(min-width:1101px){
   #hero .detail-hero{
-    grid-template-columns:minmax(780px,1.35fr) minmax(460px,.85fr);
-    gap:clamp(28px,3vw,48px);
+    grid-template-columns:minmax(0,1fr) minmax(0,1fr);
+    gap:40px;
+  }
+  #hero .detail-hero>div:first-child{
+    position:relative;
+    z-index:3;
+  }
+  #hero h1{
+    width:max-content;
+    max-width:none;
   }
 }
 @media(min-width:901px) and (max-width:1100px){
@@ -629,7 +637,7 @@ h1, main h2 {\n  -webkit-text-stroke: .6px rgba(255,248,207,.40);\n  background-
   #hero .visual-card--hero::before{
     content:"";
     position:absolute;
-    inset:-26% -32%;
+    inset:-16% -19%;
     background:
       radial-gradient(ellipse at 52% 48%,
         rgba(14,91,60,.34) 0%,
@@ -637,8 +645,8 @@ h1, main h2 {\n  -webkit-text-stroke: .6px rgba(255,248,207,.40);\n  background-
         rgba(37,48,52,.26) 48%,
         rgba(7,28,23,.12) 64%,
         transparent 78%);
-    filter:blur(38px);
-    opacity:.94;
+    filter:blur(30px);
+    opacity:.90;
     pointer-events:none;
     z-index:0;
   }
@@ -783,7 +791,7 @@ h1, main h2 {\n  -webkit-text-stroke: .6px rgba(255,248,207,.40);\n  background-
 <!-- ============================ 1. HERO ============================ -->
 <div class="hero-viewport">
 <canvas class="hero-particle-bg" id="heroParticleCanvas" aria-hidden="true"></canvas>
-<section class="section section--landing" id="hero"><div class="section-inner detail-hero"><div><div class="kicker">KI-Potenzialanalyse</div><h1><span class="hero-title-line">Wo lohnt sich KI in Ihrem</span><span class="hero-title-line">Unternehmen wirklich?</span></h1><p class="sub">Bevor Zeit und Budget in eine KI-Lösung fließen.</p><p class="lead">Die KI-Potenzialanalyse zeigt, welche Prozesse für KI oder Automatisierung geeignet sind, welche Voraussetzungen fehlen und welche nächsten Schritte sinnvoll sind.</p><div class="actions"><a class="btn" href="#analyse-formular">KI-Potenzialanalyse starten</a></div></div><div class="visual-card visual-card--hero"><img src="assets/detail_pages_grafics/analyse_detail_page.png" alt="Ablauf der KI-Potenzialanalyse" width="1672" height="941"/></div></div></section>
+<section class="section section--landing" id="hero"><div class="section-inner detail-hero"><div><div class="kicker">KI-Potenzialanalyse</div><h1><span class="hero-title-line">Wo lohnt sich KI in Ihrem Unternehmen</span><span class="hero-title-line">wirklich?</span></h1><p class="sub">Bevor Zeit und Budget in eine KI-Lösung fließen.</p><p class="lead">Die KI-Potenzialanalyse zeigt, welche Prozesse für KI oder Automatisierung geeignet sind, welche Voraussetzungen fehlen und welche nächsten Schritte sinnvoll sind.</p><div class="actions"><a class="btn" href="#analyse-formular">KI-Potenzialanalyse starten</a></div></div><div class="visual-card visual-card--hero"><img src="assets/detail_pages_grafics/analyse_detail_page.png" alt="Ablauf der KI-Potenzialanalyse" width="1672" height="941"/></div></div></section>
 </div>
 <div class="section-divider" aria-hidden="true"></div>
 
