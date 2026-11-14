@@ -857,7 +857,7 @@ canvas.nv-step-viz {
 .nv-analyse__offer .hero-cta { margin-top: auto; align-self: center; padding-top: 8px; }
 
 .nv-analyse__stage { --analysis-speed: .5s; --analysis-ease: cubic-bezier(.42,0,.58,1); --analysis-distance: 15%; position: relative; display: grid; grid-template-columns: minmax(0,1fr); gap: 12px; align-items: center; min-height: 320px; flex: 1 0 auto; }
-.nv-analyse__column { grid-area: 1 / 1; width: 100%; display: grid; gap: 8px; padding: 40px 0 12px 28px; min-width: 0; z-index: 2; container-type: inline-size; }
+.nv-analyse__column { grid-area: 1 / 1; align-self: start; width: 100%; display: grid; gap: 8px; padding: 40px 0 12px 28px; min-width: 0; z-index: 2; container-type: inline-size; }
 .nv-analyse__disclosure { width: 58%; min-width: 0; overflow: hidden; border-radius: 8px; background: color-mix(in srgb, var(--color-emerald) 85%, transparent); color: var(--color-text-light); }
 .nv-analyse__disclosure[open] { width: 86%; }
 .nv-analyse__summary { position: relative; display: flex; gap: 8px; align-items: center; min-height: 44px; padding: 10px; cursor: pointer; list-style: none; transition: opacity calc(var(--analysis-speed) * .5) var(--analysis-ease); font: 600 14px/1.35 Inter,Arial,sans-serif; }
@@ -2660,25 +2660,25 @@ canvas.nv-step-viz {
     <p>Für eine erste unverbindliche Einschätzung Ihrer Prozesse und Automatisierungspotenziale.</p>
     <div class="nv-analyse__stage" data-checking-details="false">
       <div class="nv-analyse__column">
-        <details class="nv-analyse__disclosure" name="nv-analysis-free">
+        <details class="nv-analyse__disclosure">
           <summary class="nv-analyse__summary"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v6m3-3H9m12 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" /></svg><span>Überblick</span></summary>
           <div class="nv-analyse__body">
             <p>Wir prüfen Ihre Prozesse, Daten und Automatisierungspotenziale und empfehlen den sinnvollsten nächsten Schritt.</p>
           </div>
         </details>
-        <details class="nv-analyse__disclosure" name="nv-analysis-free">
+        <details class="nv-analyse__disclosure">
           <summary class="nv-analyse__summary"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v6m3-3H9m12 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" /></svg><span>Prozesslage</span></summary>
           <div class="nv-analyse__body"><p>Welche wiederkehrenden Aufgaben aktuell Zeit binden, wo Rückfragen entstehen und welche Übergaben manuell laufen.</p></div>
         </details>
-        <details class="nv-analyse__disclosure" name="nv-analysis-free">
+        <details class="nv-analyse__disclosure">
           <summary class="nv-analyse__summary"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v6m3-3H9m12 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" /></svg><span>Datenlage</span></summary>
           <div class="nv-analyse__body"><p>Welche Systeme, Tabellen, E-Mails oder Dokumente beteiligt sind und ob die Informationen nutzbar zusammengeführt werden können.</p></div>
         </details>
-        <details class="nv-analyse__disclosure" name="nv-analysis-free">
+        <details class="nv-analyse__disclosure">
           <summary class="nv-analyse__summary"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v6m3-3H9m12 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" /></svg><span>Automatisierungspotenzial</span></summary>
           <div class="nv-analyse__body"><p>Ob KI, Automatisierung, SaaS-Tool oder ein normaler Prozessumbau für den konkreten Ablauf sinnvoller ist.</p></div>
         </details>
-        <details class="nv-analyse__disclosure" name="nv-analysis-free">
+        <details class="nv-analyse__disclosure">
           <summary class="nv-analyse__summary"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v6m3-3H9m12 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" /></svg><span>Nächster Schritt</span></summary>
           <div class="nv-analyse__body"><p>Welche Umsetzung zuerst den größten Nutzen bringt und welcher Einstieg realistisch vorbereitet werden sollte.</p></div>
         </details>
@@ -2706,23 +2706,23 @@ canvas.nv-step-viz {
     <p>Enthält alle Leistungen der kostenlosen Potenzialanalyse und erweitert diese um folgende Leistungen:</p>
     <div class="nv-analyse__stage" data-checking-details="false">
       <div class="nv-analyse__column">
-        <details class="nv-analyse__disclosure" name="nv-analysis-deep">
+        <details class="nv-analyse__disclosure">
           <summary class="nv-analyse__summary"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v6m3-3H9m12 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" /></svg><span>ROI-Überschlag je Prozess</span></summary>
           <div class="nv-analyse__body"><p>Für jeden betrachteten Prozess werden Aufwand und möglicher Nutzen gegenübergestellt. So lässt sich einschätzen, wo sich eine Umsetzung wirtschaftlich lohnt.</p></div>
         </details>
-        <details class="nv-analyse__disclosure" name="nv-analysis-deep">
+        <details class="nv-analyse__disclosure">
           <summary class="nv-analyse__summary"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v6m3-3H9m12 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" /></svg><span>technische Lösungsarchitektur</span></summary>
           <div class="nv-analyse__body"><p>Die passenden technischen Bausteine werden zu einer Lösungsarchitektur verbunden. Sie zeigt, wie die geplante Lösung in Ihre vorhandenen Systeme eingebunden wird.</p></div>
         </details>
-        <details class="nv-analyse__disclosure" name="nv-analysis-deep">
+        <details class="nv-analyse__disclosure">
           <summary class="nv-analyse__summary"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v6m3-3H9m12 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" /></svg><span>detaillierte Schnittstellenplanung</span></summary>
           <div class="nv-analyse__body"><p>Benötigte Datenflüsse, Schnittstellen und Zugriffe werden konkret geplant. Technische Abhängigkeiten und Voraussetzungen werden vor der Umsetzung sichtbar.</p></div>
         </details>
-        <details class="nv-analyse__disclosure" name="nv-analysis-deep">
+        <details class="nv-analyse__disclosure">
           <summary class="nv-analyse__summary"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v6m3-3H9m12 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" /></svg><span>ausgearbeitete Implementierungs-Roadmap</span></summary>
           <div class="nv-analyse__body"><p>Die Umsetzung wird in nachvollziehbare Schritte mit Prioritäten und Abhängigkeiten gegliedert. Daraus entsteht ein konkreter Fahrplan für Ihr Projekt.</p></div>
         </details>
-        <details class="nv-analyse__disclosure" name="nv-analysis-deep">
+        <details class="nv-analyse__disclosure">
           <summary class="nv-analyse__summary"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v6m3-3H9m12 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" /></svg><span>Report als HTML und PDF sowie Implementierungsleitfaden</span></summary>
           <div class="nv-analyse__body"><p>Die Ergebnisse werden als HTML- und PDF-Report dokumentiert. Ein Implementierungsleitfaden hält die geplanten Schritte für die anschließende Umsetzung fest.</p></div>
         </details>
