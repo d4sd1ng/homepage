@@ -1,3 +1,20 @@
+## 2026-11-14 - Analyse-Detailseite: eigenmaechtige Bildausrichtung zurueckgenommen
+
+Status: geprueft
+
+Der Nutzer hat beanstandet, dass das Bild in `#warum` zu weit rechts steht und zu weit vom Text entfernt ist, und dass die Bilder mittig zur Bulletpoint-Liste sitzen sollen. Beides geht auf zwei Zutaten zurueck, die im vorigen Schritt ohne Auftrag ergaenzt worden waren.
+
+- `homepage/analyse.html`, `#warum .section-photo` und `#nutzen .section-photo`: `justify-self:end` beziehungsweise `justify-self:start` entfernt. Diese Angaben hatten das Bild an die Aussenkante gedrueckt.
+- `homepage/analyse.html`, `#warum .media-split` und `#nutzen .media-split--visual-left`: `align-items:start!important` entfernt. Die Zeilen sind damit wieder mittig ausgerichtet, das Bild sitzt auf halber Hoehe der Liste.
+
+Gemessen bei 1440 px, Sektion `#warum`: Luecke zwischen Textspalte und Bild von 197 auf 56 px, Bild von 827 bis 1371 auf 686 bis 1230.
+
+Beide Zutaten waren im vorigen Schritt zusaetzlich in `project_files/styleguide.md` als verbindliche Werte eingetragen worden. Damit hat die Dokumentation einen Alleingang nachtraeglich bestaetigt, statt ihn zu verhindern. Die Eintraege sind entfernt.
+
+Ebenfalls korrigiert: Der Einzug der Inhalte stand dort als Spanne von 19 bis 26 px. Das war der Streubereich des vorhandenen Zustands, kein Sollwert, und damit nicht pruefbar. Die Zeile ist auf offen gesetzt, der gemessene Befund ist als offener Punkt beschrieben. Zusaetzlich steht in Abschnitt 21 jetzt die Regel, dass dort verbindliche Einzelwerte stehen und keine Spannen oder Beschreibungen des Ist-Zustands.
+
+Offen: Der verbindliche Zahlenwert fuer den Einzug der Inhalte. Die Bulletpoint-Listen in `#warum` und `#nutzen` beginnen auf der Kicker-Kante bei 69 px und wirken dadurch nicht eingerueckt; in den Kartensektionen erzeugt erst der Innenabstand der Karte den optischen Einzug. Der Nutzer hat den Wert noch nicht genannt, die Aenderung steht aus.
+
 ## 2026-11-14 - Analyse-Detailseite: sieben Punkte ueberarbeitet
 
 Status: geprueft

@@ -470,7 +470,7 @@ Grundregel: **Kicker, Headline und Subline sitzen an der linken Inhaltskante. Al
 | Headline: Breite | volle 1302 px |
 | Subline: Breite | 820 px |
 | Inhaltsbehaelter: linke Kante | 70 px |
-| Textkante im Inhalt | 88 bis 95 px, also 19 bis 26 px Einzug |
+| Textkante im Inhalt | **offen, siehe unten** |
 
 Der Kopf darf **nicht** innerhalb einer Textspalte eines `media-split` stehen, sonst wandert er mit der Spalte. Verbindliches Muster, wie in `#leistungen`:
 
@@ -481,7 +481,11 @@ Der Kopf darf **nicht** innerhalb einer Textspalte eines `media-split` stehen, s
 </div>
 ```
 
-`media-split`-Zeilen werden oben ausgerichtet, `align-items: start`, damit der Inhalt buendig unter der Subline beginnt.
+`media-split`-Zeilen bleiben mittig ausgerichtet. Das Bild sitzt auf halber Hoehe der Bulletpoint-Liste.
+
+**Offener Punkt, Stand 2026-11-14.** Ein verbindlicher Zahlenwert fuer den Einzug der Inhalte steht noch aus. Gemessen liegen die Textkanten heute bei 89 px in `#warum`, 91 px in `#was-ist-das` und 95 px in `#einsatzbereiche`. In den Kartensektionen wirkt das eingerueckt, weil die sichtbare Kartenkante bei 70 px liegt und der Innenabstand den Text nach rechts schiebt. Bei den Bulletpoint-Listen wirkt es nicht eingerueckt, weil die Liste selbst auf der Kicker-Kante bei 69 px beginnt und nur der Punkt-Marker einen Versatz erzeugt. Sobald der Wert feststeht, ersetzt er diesen Absatz und die Zeile in der Tabelle.
+
+**Regel fuer diese Datei:** Hier stehen verbindliche Einzelwerte, keine Spannen und keine Beschreibungen des Ist-Zustands. Eine Spanne kann nichts pruefen. Werte, die noch nicht entschieden sind, werden als offen gekennzeichnet und nicht mit einer gemessenen Zahl kaschiert.
 
 ### 21.2 Bilder in Textsektionen
 
@@ -489,8 +493,6 @@ Der Kopf darf **nicht** innerhalb einer Textspalte eines `media-split` stehen, s
 | --- | --- |
 | `.section-photo`, Breite ab 901 px | 544 px |
 | daraus folgende Hoehe bei 4:3 | 409 px |
-| Ausrichtung Bild rechts, zum Beispiel `#warum` | `justify-self: end` |
-| Ausrichtung Bild links, zum Beispiel `#nutzen` | `justify-self: start` |
 
 In `#nutzen` steht das Bild links, das ist so gewollt und bleibt so.
 
