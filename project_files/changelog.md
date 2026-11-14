@@ -1,3 +1,37 @@
+## 2026-11-14 - Analyse-Detailseite: Inhaltskorridor 70 bis 1370 festgeschrieben und durchgesetzt
+
+Status: geprueft
+
+Der Nutzer hat den Korridor an der Definitionssektion ausmessen lassen und als verbindlich festgelegt: linke Karte beginnt bei **70 px**, rechte Karte endet bei **1370 px**, Breite **1300 px**, gemessen bei 1440 px Fensterbreite.
+
+Festgeschrieben in `project_files/styleguide.md`, Abschnitt 21.1: die drei Werte als Tabellenzeilen, dazu die Regel, dass jeder Inhalt einer Sektion links bei 70 beginnt und rechts bei 1370 endet, kein Inhalt mittig in einem schmaleren Kasten zentriert wird und der Kopf aus Kicker, Headline und Subline davor bei 69 px sitzt. Referenz ist die Definitionssektion.
+
+Danach wurden alle sichtbaren Inhaltselemente jeder Sektion gegen den Korridor gemessen. Zwei Sektionen lagen daneben.
+
+- `homepage/analyse.html`, `#warum .media-split` im Block `@media(min-width:901px)`: `grid-template-columns` von `minmax(0,.9fr) minmax(580px,1.1fr)` auf `minmax(0,1fr) 544px`. Die Bildspalte war 684 px breit, das 544 px breite Bild stand linksbuendig darin und liess rechts 140 px leer.
+- `homepage/analyse.html`, `#nutzen .media-split--visual-left` im selben Block: `grid-template-columns` von `minmax(580px,1.08fr) minmax(0,.92fr)` auf `544px minmax(0,1fr)`, derselbe Grund spiegelbildlich.
+- `homepage/analyse.html`, `.faq-grid`: `max-width` von `1120px` auf `none`, `margin` von `16px auto 0` auf `16px 0 0`. Das Raster war mittig in einem schmaleren Kasten zentriert und lief von 160 bis 1280.
+
+Gemessen vorher und nachher bei 1440 px, linke und rechte Kante aller Inhaltselemente je Sektion:
+
+| Sektion | vorher | nachher |
+| --- | --- | --- |
+| `#was-ist-das` | 70 .. 1370 | 70 .. 1370 |
+| `#warum` | 70 .. 1230 | 70 .. 1371 |
+| `#leistungen` | 70 .. 1370 | 70 .. 1370 |
+| `#einsatzbereiche` | 70 .. 1370 | 70 .. 1370 |
+| `#nutzen` | 70 .. 1371 | 70 .. 1371 |
+| `#analyse-formular` | 70 .. 1370 | 70 .. 1370 |
+| `#faq` | 160 .. 1280 | 69 .. 1371 |
+
+Bildgroesse und Spaltenabstand bleiben unveraendert: Bild 544 px, Luecke zum Text 56 px. In `#warum` sitzt das Bild jetzt von 826 bis 1370 statt 686 bis 1230, die Textspalte waechst entsprechend von 561 auf 700 px. In `#nutzen` bleibt das Bild bei 70 bis 614, die Bulletpoint-Liste beginnt bei 670 statt 798, die Luecke faellt von 184 auf 56 px.
+
+Nebenbefund, kein eigener Auftrag: Durch die volle Korridorbreite sind bei 1440 px alle acht FAQ-Knoepfe einzeilig, Hoehe je 44 px, Knopfbreite 641 px bei 535 px Bedarf des laengsten.
+
+Nachgezogen in `project_files/styleguide.md`: Abschnitt 21.2 um Bildspalte 544 px, Spaltenabstand 56 px, Textspalte 700 px und die Begruendung ergaenzt, warum die Bildspalte fest und nicht als `fr` gesetzt ist. Abschnitt 21.4 auf `max-width: keine`, Kanten 70 und 1370 und Knopfbreite 641 px geaendert.
+
+Geprueft bei 1440, 1280, 1100 und 1000 px. Unveraendert offen und nicht von dieser Aenderung verursacht: unterhalb von 1280 px werden einzelne FAQ-Knoepfe wieder zweizeilig, bei 1100 px einer, bei 1000 px drei; der waagerechte Ueberlauf der Seite und der Konsolenfehler `breadcrumbGroups` bestehen unveraendert aus `origin/main`.
+
 ## 2026-11-14 - Analyse-Detailseite: eigenmaechtige Bildausrichtung zurueckgenommen
 
 Status: geprueft
