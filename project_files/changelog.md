@@ -1,3 +1,29 @@
+## 2026-11-14 - Analyse-Detailseite: Calendly-Icon aus dem Header-CTA entfernt
+
+Status: geprueft
+
+Ruecknahme eines Fehlers aus dem vorigen Schritt und Angleichung an `index.html`.
+
+Im vorigen Schritt war `<use href="index.html#nv-calendly-mark">` auf `#nv-calendly-mark` geaendert worden, weil die seitenuebergreifende Referenz von Browsern nicht aufgeloest wird. Dadurch wurde ein Icon sichtbar, das vorher unsichtbar war. Das war eine Darstellungsaenderung ohne Auftrag.
+
+Der Nutzer hat entschieden: Das Icon muss nicht unsichtbar sein, sondern weg, damit die Schrift im goldenen Knopf mittig sitzt. Ein unsichtbares `svg` von 16 px bleibt sonst im Flexlayout stehen und schiebt den Text nach rechts.
+
+- `homepage/analyse.html`, Header-CTA: `<svg class="nv-calendly-icon" viewBox="0 0 64 64" aria-hidden="true"><use href="#nv-calendly-mark"></use></svg>` entfernt.
+
+Der Header-CTA ist damit zeichengleich mit dem von `index.html`:
+
+```html
+<a class="header-cta" href="analyse.html" aria-label="Kostenlose KI-Potenzialanalyse oeffnen">
+  <span class="golden-button">
+    <span class="golden-text">Kostenlose Potenzialanalyse</span>
+  </span>
+</a>
+```
+
+Gemessen bei 1440 px, beide Seiten identisch: Knopf 1220 bis 1414, Breite 194 px. Text 1230 bis 1405, Breite 174 px. Abstand links 10 px, rechts 10 px, also mittig.
+
+**Offen, nicht geaendert, weil ausserhalb des Auftrags:** `detail_roadmap.html`, `detail_seo.html` und `potenzialanalyse-deep.html` tragen das Icon weiterhin im Header-CTA. Dort steht der Verweis als `#nv-calendly-mark` und wird aufgeloest, das Icon ist also sichtbar und der Text entsprechend nicht mittig. `index.html` hat es nicht. Welche Fassung gelten soll, ist fuer diese Seiten nicht entschieden.
+
 ## 2026-11-14 - Analyse-Detailseite: doppelt eingefuegte Kopfbereiche entfernt, Header-Skript repariert
 
 Status: geprueft
