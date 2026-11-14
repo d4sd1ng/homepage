@@ -1,3 +1,38 @@
+## 2026-11-14 - Formular: optionale Felder Telefon und Website entfernt
+
+Status: geprueft
+
+Vorgabe des Nutzers: die beiden optionalen Felder Telefon und Website streichen, auf jeder Seite, auf der das Formular vorkommt. Der Nutzer hat ausdruecklich auf besondere Vorsicht hingewiesen, weil das Formular mit vielen Stellen zusammenhaengt.
+
+Vorherige Bestandsaufnahme, Suche ueber alle HTML-, JS-, JSON-, PY- und MD-Dateien ausserhalb von `.history` und `docs-graph`:
+
+| Fundstelle | Art |
+| --- | --- |
+| `homepage/index.html` Zeile 2746, 2749 | Eingabefelder |
+| `homepage/index.html` Zeile 999, 1002 | Rasterplaetze im CSS |
+| `homepage/analyse.html` Zeile 923, 924 | Eingabefelder |
+| `homepage/analyse.html` Zeile 1357, 1358 | `getFormState` |
+| `homepage/analyse.html` Zeile 1431, 1437, 1479 | Nutzlast an `/analysis/start` und `/lead` |
+| `project_files/homepage_postgres_data_contract.md`, `project_files/DATABASE_SCHEMA.md` | Datenbankspalten |
+
+Geaendert wurde nur das Markup und das Raster:
+
+- `homepage/index.html`: `<input name="telefon">` und `<input name="website">` entfernt.
+- `homepage/index.html`: die Regeln `.nv-aform__grid > [name=telefon]` und `.nv-aform__grid > [name=website]` entfernt. Die verbleibenden Rasterplaetze von `email` bis `.nv-aform__submit` ruecken um eine Zeile nach: `email` auf `2 / 1 / 3 / 2`, `unternehmen` auf `2 / 2 / 3 / 3`, `branche` auf Zeile 3, `mitarbeiteranzahl` auf Zeile 3, `zeitaufwand` und `datenlage` auf Zeile 4, `herausforderung` auf Zeile 5, Datenschutz auf 6, Newsletter auf 7, Schaltflaeche auf 8. Ohne dieses Nachruecken waeren zwei Loecher im Raster geblieben.
+- `homepage/analyse.html`: dieselben beiden Eingabefelder entfernt. Dort gibt es keine festen Rasterplaetze, die Felder fliessen.
+
+Bewusst nicht geaendert: die JavaScript-Zeilen in `homepage/analyse.html`. `getFormState` liest weiterhin `data.get('telefon')` und `data.get('website')`. Ohne die Felder liefert das `null`, und `String(null || '').trim()` ergibt eine leere Zeichenkette. Die Nutzlast an das Backend behaelt damit exakt ihre Form: `company.website` und `contact.phone` bleiben als Schluessel erhalten und tragen einen leeren Wert. Haette man die Zeilen entfernt, waeren die Schluessel aus dem JSON verschwunden, weil `JSON.stringify` Eigenschaften mit `undefined` auslaesst.
+
+Ebenfalls unangetastet: der Honeypot `website_confirmation`, der trotz des aehnlichen Namens ein eigenes Feld ist, die Pruefung in `homepage/index.html` Zeile 4133 und die Abfrage in `homepage/analyse.html` Zeile 1406.
+
+Gemessene Nutzlast nach der Aenderung: `{"company":{"website":""},"contact":{"phone":""}}`. Das Uebergabeobjekt von `homepage/index.html` enthaelt die beiden Namen nicht mehr.
+
+Formularhoehe vorher und nachher: `index.html` bei 1440 px von 649 auf 608 px, bei 390 px von 996 auf 913 px. `analyse.html` bei 1440 px von 635 auf 585 px, bei 390 px von 745 auf 695 px. Felderzahl `index.html` von 19 auf 17, `analyse.html` von 14 auf 12.
+
+Pruefung bei 1440 und 390 px auf beiden Seiten: kein Feld `telefon` oder `website` mehr vorhanden, Honeypot vorhanden, Pflichtfeld Datenschutz vorhanden, keine Luecken im Raster, keine neuen JavaScript-Fehler.
+
+Offen: Die Datenbankspalten `telefon` und `website` bestehen weiter und erhalten kuenftig leere Werte. Ob sie entfallen sollen, ist eine Entscheidung ueber das Datenmodell und wurde nicht getroffen. Ausserdem meldet `homepage/analyse.html` beim Laden `Identifier 'breadcrumbGroups' has already been declared`; der Fehler bestand nachweislich schon vor dieser Aenderung und wurde nicht angefasst.
+
 ## 2026-11-14 - Leistungskarten mobil: Bild als Kartenhintergrund, Abstand 20 px
 
 Status: geprueft
