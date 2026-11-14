@@ -1,3 +1,40 @@
+## 2026-11-14 - Analyse-Detailseite: Hero-Bild sauber aufgebaut, Seitenueberlauf beseitigt
+
+Status: geprueft
+
+Der Nutzer hat verlangt, den Hero nicht weiter zu flicken, sondern ordentlich zu bauen.
+
+**Ursache des Ueberlaufs.** Das Hero-Bild war mit `width:760px` deklariert und per `transform:translateX(-50%) scale(1.6)` auf 1216 px aufgeblasen. Eine Transformation aendert nur die Darstellung, nicht den Platz im Layout: Das Raster rechnete weiter mit 760 px, das Bild lief aus dem Fenster. Dazu wirkte `max-height:230px` aus `.visual-card>img:first-child` dagegen. Im Block fuer 901 bis 1100 px stand dasselbe mit `width:680px` und `scale(1.45)`.
+
+Geaendert in `homepage/analyse.html`:
+
+- `#hero .visual-card--hero img` neu gefasst: `display:block; width:100%; max-width:100%; height:auto; max-height:none; margin-inline:auto`. Das `object-fit:contain` ist entfallen, weil es ohne feste Hoehe wirkungslos ist.
+- Im Block `@media(min-width:1101px)` die gesamte Regel `#hero .visual-card--hero img` mit `width:760px`, `max-width:none`, `position:relative`, `left:50%` und `transform:translateX(-50%) scale(1.6)` entfernt.
+- Im Block `@media(min-width:901px) and (max-width:1100px)` die entsprechende Regel mit `width:680px` und `scale(1.45)` entfernt.
+- `.hero-viewport` um `overflow-x:clip` ergaenzt.
+
+Groesse und Platzierung des Bildes ergeben sich jetzt allein aus `#hero .detail-hero`, also aus Spalten und Abstand. Keine Transformation, keine feste Pixelbreite.
+
+Das `overflow-x:clip` war noetig, weil nach dem Entfernen der Skalierung kein einziges normales Element mehr ueberlief, der Ueberlauf aber bei 59 px blieb. Verursacher war der dekorative Schein `#hero .visual-card--hero::before` mit `inset:-26% -32%`, der 147 px ueber die Kartenkante hinausreicht. Eine reine Dekoration darf keine Scrollleiste erzeugen. `clip` statt `hidden`, damit kein Scrollcontainer entsteht.
+
+Gemessen vorher und nachher, waagerechter Ueberlauf der gesamten Seite:
+
+| Fensterbreite | vorher | nachher | Bild nachher |
+| --- | --- | --- | --- |
+| 390 px | 0 | 0 | 354 x 199 |
+| 900 px | 0 | 0 | 864 x 486 |
+| 1100 px | 201 | 0 | 479 x 270 |
+| 1440 px | 290 | 0 | 460 x 259 |
+| 1600 px | nicht gemessen | 0 | 540 x 304 |
+| 1920 px | 136 | 0 | 584 x 329 |
+| 2560 px | nicht gemessen | 0 | 584 x 329 |
+
+Das Bild haelt bei jeder Breite das Seitenverhaeltnis 1,777 und wird nirgends mehr abgeschnitten. Damit ist der waagerechte Ueberlauf der Analyseseite erledigt, der seit `origin/main` bestand und mehrfach als Vorbefund vermerkt war.
+
+Das Bild ist kleiner als in der frueheren Darstellung, weil diese zu einem erheblichen Teil ausserhalb des Fensters lag. Seine Breite ist durch die Textspalte begrenzt: `#hero .hero-title-line` traegt oberhalb von 1100 px `white-space:nowrap`, die Headline braucht dadurch 780 px bei 1440 px Fensterbreite und 928 px bei 1920 px. Die Bildspalte bekommt den Rest und ist damit bereits maximal. Soll das Bild groesser werden, muesste die Headline umbrechen duerfen. Das ist nicht entschieden und wurde nicht geaendert.
+
+Festgeschrieben in `project_files/styleguide.md`, Abschnitt 21.6: die Regeln fuer das Hero-Bild, das Verbot von `transform: scale()` zum Vergroessern mit Begruendung, die Notwendigkeit von `overflow-x:clip` und die Messtabelle.
+
 ## 2026-11-14 - Analyse-Detailseite: richtiges Hero-Bild eingebunden
 
 Status: geprueft
