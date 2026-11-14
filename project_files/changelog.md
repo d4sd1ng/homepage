@@ -1,3 +1,70 @@
+## 2026-10-24 - Vier Textzeilen in der Definitionskarte als neue Inhaltsbreite
+
+Status: geprüft
+
+- `tools/detail_pages/ki_agenten.py`: gemeinsame Inhaltsbreite ueber `--detail-content-width:960px` festgelegt. Hergeleitet aus zwei gleich breiten Definitionskarten mit je 468 px und 24 px Abstand. Der vollstaendige Fliesstext der rechten Karte passt im zweispaltigen Desktoplayout in genau vier Zeilen; Schriftgroesse, Text und Innenpolster bleiben unveraendert.
+- `.analysis-intro-cards` verwendet dieselbe gemeinsame Breite wie Ausgangslage, Leistungsumfang, Anwendung, Nutzen, Formular, FAQ und die Definitions-CTA-Zeile. Die vorherige abweichende 45-cqw-Kartenbreite und der 800-px-Inhaltsstandard sind abgeloest. Zentrierung zwischen symmetrischen Seitenraendern erhalten.
+- Responsiv maximal 96 Prozent des Einleitungsblocks. Die Definitionskarten wechseln bei fehlender Breite automatisch auf eine Spalte und bleiben gleich breit. Mobil wird Text vollstaendig umgebrochen, nicht auf vier Zeilen abgeschnitten. Fotos bleiben innerhalb ihrer Raster zentriert; ihre Groessen und Assetpfade bleiben erhalten.
+- `homepage/preview-detail_ki-agenten.html` neu erzeugt. `tools/detail_pages/README.md` auf die neue gemeinsame Inhaltsbreite aktualisiert. `tools/detail_pages/verify.py` verhindert zusaetzlich eine scheinbare Vier-Zeilen-Loesung per Line-Clamp. Neue Sichtpruefung unter `project_files/ki-agenten-definition-20261024-vierzeilen.jpg`; `project_files/ki-agenten-vorschau.jpg` erneuert.
+
+Geprueft: Generator, HTML5/CSS/JavaScript-Syntax, `git diff --check`. Browser bei 1745 und 1280 CSS-Pixeln: beide Karten je ca. 468 px, gemeinsames Raster 960 px, rechter Fliesstext vier echte Zeilen. Bei 960 px einspaltiger Aufbau mit zwei Textzeilen rechts, bei 390/320 px vollstaendiger mobiler Umbruch. In allen fuenf Groessen gleiche Breite aller Inhaltsraster und keine horizontalen Ueberlaeufe. Keine Seitenfehler in der Browserkonsole. Vorher-/Nachhervergleich bestaetigt unveraenderte Einleitungsbloecke, Hero-Geometrie und Bildgroessen; gesamtes HTML ausser Stylebloecken unveraendert.
+
+Nicht geaendert: Originalanalyse, Produktionsseiten, Homepage, Shared Header/Footer, Tokens, andere Vorschauen, Texte, Schriftgroessen, Bilddateien, IDs, Links, Formular-/API-/Consent-/Honeypot-/Statuslogik und Animationen. Kein Formularversand, kein Deployment. Visuelle Nutzerfreigabe offen; auf schmalen Mobilgeraeten ist der vollstaendige Text laenger als vier Zeilen.
+
+## 2026-10-24 - Inhaltsraster unter den Einleitungen in symmetrischem Rahmen zentriert
+
+Status: geprüft
+
+- `tools/detail_pages/ki_agenten.py` / `NARROW_CONTENT`: vorhandene schmale Inhaltsraster unterhalb von Subline bzw. einleitendem Bodytext zwischen gleich gross gedachten linken und rechten Seitenraendern mittig ausgerichtet. Betroffen: Definitionskarten und zugehoerige CTA-Zeile, Ausgangslage, Leistungsumfang, Anwendung, Nutzen, Formular und FAQ. Keine zusaetzlichen sichtbaren Rahmen erzeugt; Texte innerhalb der Raster bleiben linksbuendig.
+- Ausschliesslich den horizontalen Rand der Inhaltsraster angepasst. Kicker, Titel, Subline und einleitender Bodytext bleiben exakt an ihrer bisherigen Position; auch der gesamte Hero bleibt unveraendert. Inhaltsbreiten, Bildgroessen, Hoehen und Schriftgroessen nicht geaendert.
+- `homepage/preview-detail_ki-agenten.html` neu erzeugt. `tools/detail_pages/README.md` aktualisiert. Sichtpruefung als `project_files/ki-agenten-vorschau-20261024-mittig.jpg` und `project_files/ki-agenten-vorschau-20261024-mittig-nutzen.jpg` bereitgestellt und `project_files/ki-agenten-vorschau.jpg` erneuert.
+
+Geprueft: Generator und Verifier mit HTML5/CSS/JavaScript-Syntax sowie `git diff --check`. Browser bei 1745, 1280, 390 und 320 CSS-Pixeln: alle betroffenen Inhaltsraster liegen mittig zwischen den Seitenraendern, Abweichung unter 1 px; keine horizontalen Ueberlaeufe und keine Seitenfehler in der Konsole. Vorher-/Nachhervergleich bei gleicher Fensterbreite bestaetigt unveraenderte Einleitungspositionen, Hero-Geometrie, Inhalts-/Bildbreiten und -hoehen. HTML ausser Stylebloecken unveraendert.
+
+Nicht geaendert: Originalanalyse, Produktionsdetailseiten, Homepage, Shared Header/Footer, Tokens, andere Vorschauen, Texte, IDs, Assetpfade, Formular-/API-/Consent-/Honeypot-/Statuslogik und Animationen. Kein Formularversand, kein Deployment. Visuelle Nutzerfreigabe offen.
+
+## 2026-10-24 - Zusaetzlichen linken Einzug halbiert und Hero-Titel einzeilig gesetzt
+
+Status: geprüft
+
+- `homepage/detail_ki-agenten.html`, `homepage/nurovelle.css` und `homepage/analyse.html` als Original-/Positionsreferenzen geprueft, nicht bearbeitet. Die vorherige vollstaendige Entfernung der zusaetzlichen Zentrierung wieder korrigiert.
+- `tools/detail_pages/ki_agenten.py`: `.section-inner` behaelt jetzt die Haelfte des urspruenglichen zusaetzlichen Zentrierungsabstands. `NARROW_CONTENT` verwendet ebenfalls die Haelfte seines urspruenglichen zentrierten Einzugs. Regulaere Inhaltsraster sind auf Desktop 50 statt 100 px gegenueber dem Kopfblock eingerueckt; ihre Breite bleibt 800 px gegenueber 1000 px Einleitungsbreite. Die uebertriebene erste Reduktion auf 0 bzw. hoechstens 32 px ist nicht mehr aktiv.
+- `#hero .hero-title-line` als Inline-Spannen statt Blockzeilen; der unveraenderte Hero-Titel steht auf Desktop in einer Zeile. Die Titelbreite ist auf die vorhandene Einleitungsbreite begrenzt. Mobil bleibt bei unveraenderter Schriftgroesse der bisherige zweizeilige Umbruch erhalten, ohne Abschneiden oder horizontales Scrollen.
+- `homepage/preview-detail_ki-agenten.html` neu erzeugt. `tools/detail_pages/README.md` beschreibt den halbierten Einzug und den responsiven Hero-Titel. Aktuelle Screenshots unter `project_files/ki-agenten-vorschau-20261024-rand-halbiert.jpg` und `project_files/ki-agenten-hero-20261024-einzeilig.jpg` bereitgestellt.
+
+Geprueft: Generator und Verifier mit HTML5/CSS/JavaScript-Syntax; `git diff --check`. Browser bei 1425, 1280, 390 und 320 CSS-Pixeln: 50-px-Inhaltseinzug auf Desktop, Hero-Titel dort einzeilig, auf Mobil unveraendert zweizeilig, keine horizontalen Ueberlaeufe. Beispiel bei 1425 px: Kopfblock links ca. 137 px, Inhalt links ca. 187 px, Inhaltsbreite weiterhin 800 px und Foto weiterhin ca. 384 px. Keine Seitenfehler in der Browserkonsole. Gesamtes HTML ausser Stylebloecken gegen den gesicherten Stand unveraendert.
+
+Nicht geaendert: Schrift-/Bildgroessen, Inhaltsbreiten, Texte, Assets, IDs, Formulare, JavaScript, Originalanalyse, Produktionsseiten, Shared Header/Footer, Tokens und andere Vorschauen. Kein Deployment. Visuelle Nutzerfreigabe offen.
+
+## 2026-10-24 - Sektionsverbreiterungen zurueckgenommen, Inhalte schmaler als Einleitungen
+
+Status: geprüft
+
+- `tools/detail_pages/ki_agenten.py` und neu erzeugte `homepage/preview-detail_ki-agenten.html`: bisherige `WIDE_CONTENT`-Regeln, 100-cqw-Inhaltsbreiten, negative Randabstaende und seitliche Titelverschiebungen entfernt. Inhaltsraster in Definition, Ausgangslage, Leistungsumfang, Anwendung, Nutzen, Formular und FAQ sind eingerueckt und schmaler als Kicker-/Titel-/Subline-Bloecke. Bei 1000 px Einleitungsbreite betragen die regulaeren Inhaltsraster 800 px; sie sind auch schmaler als die 820-/850-px-Sublines.
+- `.analysis-intro-cards`: gemeinsame Desktopbreite 45 cqw, maximal 80 Prozent des Einleitungsblocks. Bei 1280 px Viewport ca. 515 px gemeinsame Kartenbreite statt vorher ca. 1143 px; damit liegen die einzelnen Karten innerhalb der verlangten Breitenreduktion von ca. 50 bis 60 Prozent. Mobil schmaler einspaltiger Aufbau; `min-width:0` und vorhandenen Text vollstaendig erhaltender Umbruch verhindern ueberstehende Kartentitel.
+- `tools/detail_pages/reference.py` / `position_section_headings`: Kopfblock in Ausgangslage und Nutzen aus dem Foto-/Listenraster herausgenommen und links oberhalb davon positioniert. Foto bei Ausgangslage nach links, Bulletliste nach rechts. Beide Fotos vertikal zur jeweiligen Bulletliste zentriert; Bildbreiten bleiben erhalten.
+- Alle Abschnittstitel verwenden dieselbe Groesse wie der Hero-Titel; alle Kicker und Sublines verwenden jeweils 16 px. Hero-Spaltenabstand von 32 auf 64 px erhoeht, ohne die Bildbreite zu verkleinern. Einleitungs-CTAs verwenden 12,8 statt 16 px Schrift; Goldmaterial, Buttonstruktur und Links bleiben unveraendert. Das schmalere Formular behaelt auf Desktop zwei Feldspalten, mobil eine.
+- `tools/detail_pages/verify.py`: prueft zusaetzlich Kopfblock ausserhalb des schmalen Bildrasters, Foto links, Entfernung der Verbreiterungsregeln und Verknuepfung der einheitlichen Titel-/Kicker-Groessen. `tools/detail_pages/README.md` beschreibt den korrigierten Aufbau. `project_files/ki-agenten-vorschau.jpg` als aktuelle Sichtpruefung erneuert; zusaetzlich `project_files/ki-agenten-vorschau-20261024-schmal.jpg` mit eigenem Dateinamen gegen alte Bildcaches bereitgestellt.
+
+Geprueft: Generator, HTML5, CSS, JavaScript-Syntax und `git diff --check`; Texte, Scripts, Formulare, Header/Footer und Bildattribute gegen den gesicherten Vorzustand verglichen. Browser bei 1280, 960, 390 und 320 CSS-Pixeln: Inhaltsraster jeder Sektion schmaler und eingerueckt, keine horizontalen Seitenueberlaeufe. Hero-/Fotobreiten bei 1280 und 390 px gegen Vorzustand unveraendert, abgesehen von Subpixelrundung. Alle acht Abschnittstitel bei 1280 px 47,36 px, alle Kicker/Sublines 16 px; Sublines bei den geprueften Desktopbreiten maximal zweizeilig. Keine Seitenfehler in der Browserkonsole.
+
+Nicht geaendert: Originalanalyse, Produktionsdetailseiten, Homepage, Shared Header/Footer, Tokens, andere HTML-Vorschauen und Originalbilddateien. Keine Texte gekuerzt, keine IDs oder Assetpfade geaendert, keine Formular-/Consent-/Honeypot-/API-/Statuslogik ersetzt, keine neue Animation oder `!important`-Regel. Kein Formularversand, kein Deployment.
+
+Offen: visuelle Nutzerfreigabe. Die Zweizeilen-Vorgabe fuer lange Sublines auf schmalen Mobilgeraeten ist zur Klaerung vorgelegt; bis dahin bleibt der gesamte Text ohne Abschneiden lesbar. Reduced Motion und echter API-Versand nicht erneut zur Laufzeit getestet; bestehendes Verhalten erhalten.
+
+## 2026-10-23 - Bilder um 20 Prozent verkleinert, Vorschauinhalte bis zu den Seitenraendern
+
+Status: geprüft
+
+- Nur `homepage/preview-detail_ki-agenten.html` neu erzeugt. `tools/detail_pages/ki_agenten.py`: `#hero .visual-card--hero img` von 100 auf 80 Prozent Breite gesetzt. Beide `.section-photo` auf 80 Prozent ihrer vorherigen Breite berechnet, unabhaengig von den breiteren Inhaltsrastern. Bilddateien, Seitenverhaeltnisse und Zuschnitte nicht veraendert.
+- `.analysis-intro-cards`, `#leistungen .num-list`, `#einsatzbereiche > .section-inner > .panel`, `.analysis-layout`, `.faq-grid` und `.media-split` nutzen die verfuegbare Sektionsbreite innerhalb der unveraenderten Seitenpolster. Container-Einheiten und berechneter seitlicher Ueberhang heben nur die innere 1000-px-Begrenzung dieser Inhalte auf. Keine Inhalte bis an die Viewportraender gezogen.
+- Titel, Kicker und Subline behalten Wortlaut, Schriftgroesse, Breite, Umbrueche und horizontale Ausrichtung. In den beiden Foto-Rastern kompensiert eine lokale Titelpositionierung die geaenderten Spalten. Die bestehende `.section-inner`-Begrenzung bleibt erhalten. Keine neuen Farben, Komponenten, JavaScript-Aenderungen oder `!important`-Regeln.
+- `tools/detail_pages/README.md`: aktuelle Trennung zwischen unveraenderten Titelbreiten und breiteren Inhaltscontainern dokumentiert.
+
+Geprueft: Generator, HTML5, CSS, JavaScript-Syntax und `git diff --check`; gesamtes HTML ohne Stylebloecke entspricht dem gesicherten Vorzustand. Browser-Vorher-/Nachhervergleich bei 1280x720, 1440x900 und 390x844 CSS-Pixeln: alle drei Bildbreiten betragen 80 Prozent des Vorzustands, Titel-/Subline-Breite, Hoehe, Schriftgroesse und X-Position unveraendert. Inhalte bei 1280 px von 1000 auf ca. 1147 px, bei 1440 px auf ca. 1292 px verbreitert. Zusaetzlicher Ueberlauftest bei 320x720 erfolgreich. Keine Seitenfehler in der Browserkonsole.
+
+Nicht geaendert: Originalanalyse, Produktionsdetailseiten, Homepage, Shared Header/Footer, Tokens, andere Vorschauen, Texte, IDs, Assetpfade, Formulare, API-/Consent-/Honeypot-/Statuslogik und Reduced-Motion-Verhalten. Kein Formularversand, kein Deployment. Visuelle Nutzerfreigabe bleibt offen.
+
 ## 2026-10-22 - KI-Agenten-Vorschau fuer die visuelle Abnahme komprimiert
 
 Status: geprüft

@@ -34,6 +34,11 @@ def verify_structure(preview, original, reference, assets):
         require(texts(preview, "#hero " + selector) == texts(original.main.section, selector), "Hero-Text veraendert: " + selector)
     require(str(preview.header) == str(reference.header), "Referenzheader veraendert")
     require(str(preview.footer) == str(original.footer), "Originalfooter veraendert")
+    for identifier in ("warum", "nutzen"):
+        section = preview.select_one("#" + identifier)
+        require(section.select_one(".section-inner > h2") is not None, "Kopfblock nicht ueber dem Inhaltsraster: " + identifier)
+        require(not section.select(".media-split h2, .media-split .kicker, .media-split p.sub"), "Kopfblock wieder im schmalen Raster: " + identifier)
+        require(section.select_one(".media-split > .section-photo:first-child") is not None, "Foto nicht links: " + identifier)
     for destination, source in (("#warum", "#ausgangslage"), ("#leistungen", "#leistungsumfang"), ("#einsatzbereiche", "#moeglich"), ("#nutzen", "#nutzen")):
         for selector in ("h2", "p.sub"):
             require(texts(preview, destination + " " + selector) == texts(original, source + " " + selector)[:1], "Sektionsinhalt veraendert: " + destination)
@@ -80,6 +85,10 @@ def verify_code(preview, original, reference):
             require(result.returncode == 0, f"JavaScript-Syntaxfehler {index}: {result.stderr}")
     css = "\n".join(style.get_text() for style in preview.select("head > style"))
     require("\\n" not in css, "Defekte CSS-Zeilenumbrueche")
+    require("line-clamp" not in css, "Vier Textzeilen duerfen nicht durch Abschneiden entstehen")
+    require("--detail-overhang" not in css and "width:100cqw" not in css, "Sektionsverbreiterung wieder eingefuehrt")
+    require("--t-kartentitel:var(--t-sektionstitel)" in css, "Abschnittstitel weichen vom Hero ab")
+    require("--t-kicker-sektion:var(--t-subtitle)" in css, "Einheitliche Kicker-Groesse fehlt")
     result = subprocess.run(["node", "-e", "require('postcss').parse(require('fs').readFileSync(0,'utf8'))"], input=css, text=True, capture_output=True, cwd=ROOT)
     require(result.returncode == 0, "CSS-Syntaxfehler: " + result.stderr)
     reference_css = reference.style.get_text()

@@ -2,7 +2,7 @@ from copy import deepcopy
 import re
 
 from bs4 import BeautifulSoup, Comment
-from ki_agenten import complete_form
+from ki_agenten import complete_form, position_section_headings
 
 
 SECTION_IDS = ("hero", "was-ist-das", "warum", "leistungen", "einsatzbereiche", "nutzen", "analyse-formular", "faq")
@@ -157,6 +157,7 @@ def render_main(reference, data, assets):
             if identifier and main.find(id=identifier) is None:
                 destination.insert(0, document.new_tag("span", attrs={"id": identifier, "aria-hidden": "true"}))
     if data["source"] == "detail_ki-agenten.html":
+        position_section_headings(document)
         complete_form(document)
     return main.decode_contents()
 

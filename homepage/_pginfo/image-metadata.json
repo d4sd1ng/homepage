@@ -1,0 +1,20 @@
+{
+  "version": 1,
+  "assets": {
+    "image-mwg7aqqg-07xrez98plq9": {
+      "id": "image-mwg7aqqg-07xrez98plq9",
+      "source": "project:assets/seo-check-preview-gunmetal.png",
+      "remembered": {},
+      "suggestions": {},
+      "revision": "sha256:1a6b7f5927b8ee0c8b3b2dbe10150cf2d689c40742911dbe4ca0c1d99c7abf19",
+      "available": true
+    }
+  },
+  "sources": {
+    "project:assets/seo-check-preview-gunmetal.png": {
+      "asset": "image-mwg7aqqg-07xrez98plq9",
+      "kind": "original",
+      "cropToken": null
+    }
+  }
+}

@@ -146,10 +146,10 @@ main img { display: block; max-width: 100%; }
 .gold { background: linear-gradient(180deg,#ffd7a3 0%,#f0a05a 22%,#c76b2b 58%,#7a3518 100%); -webkit-background-clip: text; background-clip: text; color: transparent; -webkit-text-fill-color: transparent; }
 .btn { display: inline-flex; align-items: center; justify-content: center; box-sizing: border-box; height: 40px; padding: 0 18px; border: 1px solid var(--nv-gold-border); border-radius: 0.3em; color: var(--nv-gold-text-dark); background-image: var(--nv-gold-gradient); background-position: center; background-size: 100% 100%; box-shadow: 0 3px 6px var(--shadow-soft), 0 3px 6px var(--shadow-soft-2), inset 0 -2px 5px 1px var(--nv-gold-inner-dark), inset 0 -1px 1px 3px var(--nv-gold-highlight); font-family: "Inter",Arial,sans-serif; font-size: var(--t-cta); font-weight: 700; line-height: 1; letter-spacing: 0.045em; text-shadow: 0 2px 2px var(--nv-gold-highlight); text-transform: uppercase; transition: all 0.2s ease-in-out; }
 .btn:hover, .btn:focus-visible { color: var(--nv-gold-text-hover); border-color: var(--nv-gold-border-hover); background-size: 150% 150%; transform: translateY(-2px); box-shadow: 0 10px 20px var(--shadow-hover-1), 0 6px 6px var(--shadow-hover-2), inset 0 -2px 5px 1px var(--nv-gold-inner-mid), inset 0 -1px 1px 3px var(--nv-gold-highlight); }
-.section { position: relative; padding: 72px var(--side); background: #000;;scroll-margin-top:var(--header-height);
+.section { position: relative; padding: 72px var(--side); background: #000;;scroll-margin-top:var(--header-height);;container-type:inline-size;;--detail-photo-base:calc((min(1000px, 100cqw) - 40px) / 2);;--detail-photo-width:calc(var(--detail-photo-base) * .8);;--detail-hero-width:calc((min(1000px, 100cqw) - 32px) * .52);;--detail-hero-image-width:80%;;--detail-content-width:960px;
 }
 .section--landing { padding-block: max(24px, calc(20.83vh - 167px)); }
-.section-inner { max-width: var(--content-max); margin-left: auto; margin-right: auto; }
+.section-inner { max-width: var(--content-max); margin-left:max(0px, calc((100cqw - var(--content-max)) / 4)); margin-right:auto; }
 .kicker { font: var(--w-kicker-sektion) var(--t-kicker-sektion)/1.15 "Inter",Arial,sans-serif; letter-spacing: .14em; text-transform: uppercase; color: #55863f; margin-bottom: 10px; }
 h1,h2,h3 { font-family: "Exo 2",Inter,Arial,sans-serif; }
 h1 { max-width: 100%; margin-bottom: 22px; font: var(--w-sektionstitel) var(--t-sektionstitel)/1.08 "Exo 2",Inter,Arial,sans-serif; background: var(--gold-1); background-clip: text; -webkit-background-clip: text; color: transparent; -webkit-text-fill-color: transparent; }
@@ -157,11 +157,13 @@ main h2 { font: var(--w-kartentitel) var(--t-kartentitel)/1.15 "Exo 2",Inter,Ari
 main h3 { font: var(--w-zwischentitel) var(--t-zwischentitel)/1.2 "Exo 2",Inter,Arial,sans-serif; color: #f5f1e8; margin-bottom: 8px; }
 .lead { max-width: 875px; font: var(--w-fliesstext) var(--t-fliesstext)/1.75 "Inter",Arial,sans-serif; color: #b9c3bd; }
 .sub { max-width: 820px; font: var(--w-subtitle) var(--t-subtitle)/1.4 "Inter",Arial,sans-serif; color: #D7DDD9; margin-bottom: 27px; }
-.detail-hero { display: grid; grid-template-columns:minmax(0, .7fr) minmax(0, 1.3fr); gap:32px; align-items: center; }
+.detail-hero { display: grid; grid-template-columns:minmax(0, 1fr) var(--detail-hero-width); gap:64px; align-items: center;;--detail-hero-image-width:100%;
+}
 .detail-hero .kicker { margin-bottom: 14px; }
 .detail-hero h1 { margin-bottom: 21px; }
 .detail-hero .sub { font-size:16px; margin-bottom:24px; }
-.detail-hero .actions { margin-top:28px; position: relative; z-index: 4; }
+.detail-hero .actions { margin-top:28px; position: relative; z-index: 4;;--t-cta:12.8px;
+}
 .visual-card { position: relative; overflow: hidden; border: 1.25px solid transparent; border-radius: 10px; background-image: linear-gradient(#080B09,#080B09), var(--gold-3); background-origin: border-box; background-clip: padding-box, border-box; filter: drop-shadow(0 16px 24px rgba(0,0,0,.34)); }
 .visual-card>img:first-child { width: 100%; height: auto; max-height: 230px; object-fit: contain; }
 .visual-card--empty { aspect-ratio: 16 / 9; }
@@ -250,7 +252,8 @@ main h3 { font: var(--w-zwischentitel) var(--t-zwischentitel)/1.2 "Exo 2",Inter,
 @media (max-width: 640px) { .chip-list { grid-template-columns: 1fr; } }
 
 /* ---------- FAQ ---------- */
-.faq-grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 16px 20px; align-items: start; width: 100%; max-width: 1000px; margin: 16px auto 0; }
+.faq-grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 16px 20px; align-items: start; width:var(--detail-content-width); max-width:96%; margin: 16px auto 0;;margin-left:calc((100% - min(var(--detail-content-width), 96%)) / 2 + max(0px, calc((100cqw - var(--content-max)) / 4)));;margin-right:auto;
+}
 .faq-item summary { list-style: none; cursor: pointer; }
 .faq-item summary::-webkit-details-marker { display: none; }
 .faq-item summary > span { display: flex; width: 100%; box-sizing: border-box; align-items: center; justify-content: space-between; gap: 12px; min-height: 44px; padding: 8px 14px; border-radius: 0.3em; border: 1px solid var(--nv-gold-border); background-image: var(--nv-gold-gradient); background-position: center; background-size: 100% 100%; box-shadow: 0 3px 6px var(--shadow-soft), 0 3px 6px var(--shadow-soft-2), inset 0 -2px 5px 1px var(--nv-gold-inner-dark), inset 0 -1px 1px 3px var(--nv-gold-highlight); color: var(--nv-gold-text-dark); text-align: left; white-space: normal; font-family: "Inter",Arial,sans-serif; font-size: var(--t-cta); font-weight: 700; line-height: 1.2; letter-spacing: 0.045em; text-shadow: 0 2px 2px var(--nv-gold-highlight); text-transform: uppercase; transition: all 0.2s ease-in-out; }
@@ -258,13 +261,14 @@ main h3 { font: var(--w-zwischentitel) var(--t-zwischentitel)/1.2 "Exo 2",Inter,
 .faq-item summary > span::after { content: "+"; flex: 0 0 auto; font-size: 18px; }
 .faq-item[open] summary > span::after { content: "\2212"; }
 .faq-item p { margin: 16px 4px 0; font: var(--w-fliesstext) var(--t-fliesstext)/1.7 "Inter",Arial,sans-serif; color: #b9c3bd; }
-@media (max-width: 900px) { .faq-grid { grid-template-columns: 1fr; } }
+@media (max-width: 900px) { .faq-grid { grid-template-columns: 1fr;;width:var(--detail-content-width);;max-width:96%;;margin-left:calc((100% - min(var(--detail-content-width), 96%)) / 2 + max(0px, calc((100cqw - var(--content-max)) / 4)));;margin-right:auto;
+} }
 
 /* ---------- CTA-Formular (aus analyse.html übernommen) ---------- */
 .analysis-layout { display: grid; grid-template-columns:minmax(0, .85fr) minmax(0, 1.15fr); align-items: center; gap:36px; margin-top:32px; width: 100%; }
 .form-panel { width: 100%; min-width: 0; border: 1.25px solid transparent; border-radius: 10px; background-image: linear-gradient(#080B09,#080B09), var(--gold-3); background-origin: border-box; background-clip: padding-box, border-box; padding: 13px; }
 .form-panel h3 { font-size: 24px; line-height: 1.05; margin-bottom: 16px; text-transform: uppercase; background: var(--gold-1); -webkit-background-clip: text; background-clip: text; color: transparent; -webkit-text-fill-color: transparent; }
-.form-grid { display: grid; grid-template-columns:repeat(auto-fit, minmax(min(100%, 220px), 1fr)); gap: 10px; width: 100%; }
+.form-grid { display: grid; grid-template-columns:repeat(auto-fit, minmax(min(100%, 180px), 1fr)); gap: 10px; width: 100%; }
 .form-grid > * { min-width: 0; width: 100%; }
 .form-grid input, .form-grid select, .form-grid textarea { height: 40px; border: 1px solid rgba(240,160,90,.82); border-radius: 5px; background: rgba(235,235,226,.96); color: #111; font-family: "Inter",Arial,sans-serif; font-size: 13px; font-weight: 500; padding: 0 10px; outline: none; }
 .form-grid input:focus, .form-grid select:focus, .form-grid textarea:focus { box-shadow: 0 0 0 2px rgba(212,175,55,.34); }
@@ -368,19 +372,21 @@ h1, main h2 {
   .pair-chip, .chip-list li { overflow-wrap: anywhere; }
   #einsatzbereiche .panel { padding: 18px; }
   .panel .card-bullets, .card-bullets { padding-left: 0; gap: 10px 24px; }
-  .section { padding-left: 18px; padding-right: 18px;;scroll-margin-top:var(--header-height);
+  .section { padding-left: 18px; padding-right: 18px;;scroll-margin-top:var(--header-height);;container-type:inline-size;;--detail-photo-base:min(1000px, 100cqw);;--detail-photo-width:calc(var(--detail-photo-base) * .8);;--detail-hero-width:calc((min(1000px, 100cqw) - 32px) * .52);;--detail-hero-image-width:80%;;--detail-content-width:960px;
 }
 
   /* FAQ-Knoepfe wachsen mit der Frage */
   .faq-item summary > span { height: auto; min-height: 50px; padding: 12px 16px; line-height: 1.3; }
 }
 /* Analyse-Seite: freigegebene 8-Bereich-Struktur und Bildintegration */
-.media-split{display:grid;grid-template-columns:minmax(0, 1fr) minmax(0, 1fr);gap:40px;align-items:center}
-.media-split--visual-left{grid-template-columns:minmax(0, 1fr) minmax(0, 1fr);gap:40px;
+.media-split{display:grid;grid-template-columns:var(--detail-photo-width) minmax(0, 1fr);gap:40px;align-items:center;width:var(--detail-content-width);;max-width:96%;;margin-left:calc((100% - min(var(--detail-content-width), 96%)) / 2 + max(0px, calc((100cqw - var(--content-max)) / 4)));;margin-right:auto;
 }
-.section-photo{margin:0;overflow:hidden;border:1.25px solid transparent;border-radius:10px;background-image:linear-gradient(#080B09,#080B09),var(--gold-3);background-origin:border-box;background-clip:padding-box,border-box;filter:drop-shadow(0 16px 24px rgba(0,0,0,.34))}
+.media-split--visual-left{grid-template-columns:var(--detail-photo-width) minmax(0, 1fr);gap:40px;
+}
+.section-photo{margin:0;overflow:hidden;border:1.25px solid transparent;border-radius:10px;background-image:linear-gradient(#080B09,#080B09),var(--gold-3);background-origin:border-box;background-clip:padding-box,border-box;filter:drop-shadow(0 16px 24px rgba(0,0,0,.34));justify-self:center;
+}
 .section-photo img{display:block;width:100%;height:auto;aspect-ratio:4/3;object-fit:cover}
-.label-list--single{column-count:1;margin-top:28px}
+.label-list--single{column-count:1;margin-top:0}
 .analysis-flow{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin-top:64px}
 .analysis-flow span{padding:16px 14px;border:1px solid rgba(223,189,105,.38);border-radius:8px;background:#080B09;color:#d7ded9;font:600 13px/1.4 "Exo 2",Inter,Arial,sans-serif}
 @media(max-width:900px){.media-split,.media-split--visual-left{grid-template-columns:1fr;gap:36px}.media-split--visual-left .section-photo{order:2}.analysis-flow{grid-template-columns:repeat(2,minmax(0,1fr))}}
@@ -411,9 +417,9 @@ h1, main h2 {
   --analysis-divider-gap:58px;
   --analysis-kicker-title-gap:8px;
   --analysis-title-sub-gap:16px;
-  --analysis-sub-body-gap:28px;;--content-max:1000px;;--t-sektionstitel:clamp(28px, 3.7vw, 52px);;--t-kartentitel:clamp(26px, 2.1vw, 34px);;--t-subtitle:16px;;--t-bulletlabel:15px;;--t-bildunterschrift:15px;;--t-fliesstext:14px;;--detail-section-space:48px;
+  --analysis-sub-body-gap:28px;;--content-max:1000px;;--t-sektionstitel:clamp(28px, 3.7vw, 52px);;--t-kartentitel:var(--t-sektionstitel);;--t-kicker-sektion:var(--t-subtitle);;--t-subtitle:16px;;--t-bulletlabel:15px;;--t-bildunterschrift:15px;;--t-fliesstext:14px;;--detail-section-space:48px;
 }
-#leistungen .num-list{margin-top:0;;row-gap:28px;;column-gap:36px;
+#leistungen .num-list{margin-top:0;;row-gap:28px;;column-gap:36px;;width:var(--detail-content-width);;max-width:96%;;margin-left:calc((100% - min(var(--detail-content-width), 96%)) / 2 + max(0px, calc((100cqw - var(--content-max)) / 4)));;margin-right:auto;
 }
 #einsatzbereiche .panel{margin-top:6px!important;padding:22px!important;}
 #einsatzbereiche .pair-grid{gap:12px 16px!important;}
@@ -422,13 +428,14 @@ h1, main h2 {
 #einsatzbereiche .chip-icon{width:34px!important;height:34px!important;min-width:34px!important;}
 #einsatzbereiche .pair-arrow{width:24px!important;min-width:24px!important;}
 #einsatzbereiche .text--after{margin-top:24px!important;}
-#nutzen .section-photo{max-width:560px!important;width:100%!important;}
+#nutzen .section-photo{max-width:100%!important;width:var(--detail-photo-width)!important;}
 #nutzen .section-photo img{width:100%!important;}
 @media(max-width:900px){
-  :root{--analysis-divider-gap:42px;--analysis-title-sub-gap:14px;--analysis-sub-body-gap:28px;;--content-max:1000px;;--t-sektionstitel:clamp(28px, 3.7vw, 52px);;--t-kartentitel:clamp(26px, 2.1vw, 34px);;--t-subtitle:16px;;--t-bulletlabel:15px;;--t-bildunterschrift:15px;;--t-fliesstext:14px;;--detail-section-space:48px;
+  :root{--analysis-divider-gap:42px;--analysis-title-sub-gap:14px;--analysis-sub-body-gap:28px;;--content-max:1000px;;--t-sektionstitel:clamp(28px, 3.7vw, 52px);;--t-kartentitel:var(--t-sektionstitel);;--t-kicker-sektion:var(--t-subtitle);;--t-subtitle:16px;;--t-bulletlabel:15px;;--t-bildunterschrift:15px;;--t-fliesstext:14px;;--detail-section-space:48px;
 }
   #einsatzbereiche .panel{padding:16px!important;}
-  #nutzen .section-photo{max-width:500px!important;}
+  #nutzen .section-photo{max-width:100%!important;;width:var(--detail-photo-width);
+}
 }
 
 
@@ -440,17 +447,18 @@ h1, main h2 {
 
 /* Targeted correction: larger section images + more vertical air between application rows */
 @media(min-width:901px){
-  #warum .media-split{grid-template-columns:minmax(0, 1fr) minmax(0, 1fr)!important;gap:40px!important;}
-  #warum .section-photo{max-width:680px!important;width:100%!important;}
-  #nutzen .media-split--visual-left{grid-template-columns:minmax(0, 1fr) minmax(0, 1fr)!important;gap:40px!important;}
-  #nutzen .section-photo{max-width:680px!important;width:100%!important;}
+  #warum .media-split{grid-template-columns:var(--detail-photo-width) minmax(0, 1fr)!important;gap:40px!important;;width:var(--detail-content-width);;max-width:96%;;margin-left:calc((100% - min(var(--detail-content-width), 96%)) / 2 + max(0px, calc((100cqw - var(--content-max)) / 4)));;margin-right:auto;
+}
+  #warum .section-photo{max-width:100%!important;width:var(--detail-photo-width)!important;}
+  #nutzen .media-split--visual-left{grid-template-columns:var(--detail-photo-width) minmax(0, 1fr)!important;gap:40px!important;}
+  #nutzen .section-photo{max-width:100%!important;width:var(--detail-photo-width)!important;}
 }
 #einsatzbereiche .pair-grid{row-gap:20px!important;column-gap:18px!important;}
 #einsatzbereiche .pair{gap:12px!important;}
 #einsatzbereiche .pair-chip{min-height:68px!important;padding:4.5px 6px!important;}
 #einsatzbereiche .panel{padding:24px!important;}
 @media(max-width:900px){
-  #warum .section-photo,#nutzen .section-photo{max-width:620px!important;width:100%!important;}
+  #warum .section-photo,#nutzen .section-photo{max-width:100%!important;width:var(--detail-photo-width)!important;}
   #einsatzbereiche .pair-grid{row-gap:16px!important;}
 }
 
@@ -461,7 +469,8 @@ h1, main h2 {
   #einsatzbereiche .pair-grid{row-gap:clamp(16px,2.2vh,22px);column-gap:18px;}
   #einsatzbereiche .pair-chip{min-height:clamp(62px,7.2vh,70px);padding:4.5px 6px;}
   #einsatzbereiche .text--after{margin-top:clamp(18px,2.2vh,24px);}
-  #warum .section-photo,#nutzen .section-photo{max-height:clamp(430px,58vh,620px);}
+  #warum .section-photo,#nutzen .section-photo{max-height:clamp(430px,58vh,620px);;width:var(--detail-photo-width);;max-width:100%;
+}
   #warum .section-photo img,#nutzen .section-photo img{height:100%;max-height:clamp(430px,58vh,620px);object-fit:cover;}
 }
 @media (min-width: 901px) and (max-height: 719px){
@@ -483,17 +492,17 @@ h1, main h2 {
   --analysis-divider-gap:58px;
   --analysis-kicker-title-gap:8px;
   --analysis-title-sub-gap:16px;
-  --analysis-sub-body-gap:28px;;--t-sektionstitel:clamp(28px, 3.7vw, 52px);;--t-kartentitel:clamp(26px, 2.1vw, 34px);;--t-subtitle:16px;;--t-bulletlabel:15px;;--t-bildunterschrift:15px;;--t-fliesstext:14px;
+  --analysis-sub-body-gap:28px;;--t-sektionstitel:clamp(28px, 3.7vw, 52px);;--t-kartentitel:var(--t-sektionstitel);;--t-kicker-sektion:var(--t-subtitle);;--t-subtitle:16px;;--t-bulletlabel:15px;;--t-bildunterschrift:15px;;--t-fliesstext:14px;
 }
 
 .section{
   padding-left:var(--side);
-  padding-right:var(--side);;scroll-margin-top:var(--header-height);
+  padding-right:var(--side);;scroll-margin-top:var(--header-height);;container-type:inline-size;;--detail-photo-base:calc((min(1000px, 100cqw) - 40px) / 2);;--detail-photo-width:calc(var(--detail-photo-base) * .8);;--detail-hero-width:calc((min(1000px, 100cqw) - 32px) * .52);;--detail-hero-image-width:80%;;--detail-content-width:960px;
 }
 .section-inner{
   width:100%;
   max-width:var(--content-max);
-  margin-left:auto;
+  margin-left:max(0px, calc((100cqw - var(--content-max)) / 4));
   margin-right:auto;
 }
 
@@ -501,9 +510,9 @@ h1, main h2 {
 #leistungen .num-list,
 #einsatzbereiche > .section-inner > .panel,
 #analyse-formular .analysis-layout{
-  width:100%;
-  max-width:1300px;
-  margin-left:auto;
+  width:var(--detail-content-width);
+  max-width:96%;
+  margin-left:calc((100% - min(var(--detail-content-width), 96%)) / 2 + max(0px, calc((100cqw - var(--content-max)) / 4)));
   margin-right:auto;
 }
 
@@ -527,10 +536,10 @@ h1, main h2 {
   width:100%;
 }
 #hero h1{
-  max-width:none;;width:max-content;;position:relative;;z-index:3;
+  max-width:min(var(--content-max), 100cqw);;width:max-content;;position:relative;;z-index:3;
 }
 #hero .hero-title-line{
-  display:block;
+  display:inline;
   white-space:nowrap;
 }
 #hero .lead{
@@ -546,7 +555,7 @@ h1, main h2 {
   overflow:visible;
 }
 #hero .visual-card--hero img{
-  width:100%;
+  width:var(--detail-hero-image-width);
   margin-inline:auto;
   object-fit:contain;;max-width:100%;;max-height:none;;left:auto;;transform:none;
 }
@@ -571,10 +580,10 @@ h1, main h2 {
 .analysis-intro-cards{
   gap:24px;
   margin-top:0;
-  margin-bottom:0;
+  margin-bottom:0;;grid-template-columns:repeat(auto-fit, minmax(min(100%, calc((var(--detail-content-width) - 24px) / 2)), 1fr));
 }
 .analysis-intro-cards .panel{
-  padding:16px 20px;
+  padding:16px 20px;;min-width:0;;overflow-wrap:anywhere;
 }
 .analysis-intro-cards h3{
   margin:0 0 12px;
@@ -586,7 +595,7 @@ h1, main h2 {
 }
 #was-ist-das .actions{
   margin-top:32px;
-  justify-content:center;
+  justify-content:center;;--t-cta:12.8px;;width:var(--detail-content-width);;max-width:96%;;margin-left:calc((100% - min(var(--detail-content-width), 96%)) / 2 + max(0px, calc((100cqw - var(--content-max)) / 4)));;margin-right:auto;
 }
 
 .section:not(#hero){
@@ -619,7 +628,7 @@ h1, main h2 {
 #leistungen .num-list{
   margin-top:0;
   row-gap:28px;
-  column-gap:36px;
+  column-gap:36px;;width:var(--detail-content-width);;max-width:96%;;margin-left:calc((100% - min(var(--detail-content-width), 96%)) / 2 + max(0px, calc((100cqw - var(--content-max)) / 4)));;margin-right:auto;
 }
 #leistungen .num-list li{
   padding-bottom:6px;
@@ -627,11 +636,11 @@ h1, main h2 {
 
 @media(min-width:1101px){
   #hero .detail-hero{
-    grid-template-columns:minmax(0, .7fr) minmax(0, 1.3fr);
-    gap:32px;
-  }
+    grid-template-columns:minmax(0, 1fr) var(--detail-hero-width);
+    gap:64px;;--detail-hero-image-width:100%;
+}
   #hero .visual-card--hero img{
-    width:100%;
+    width:var(--detail-hero-image-width);
     max-width:100%;
     position:relative;
     left:auto;
@@ -641,11 +650,11 @@ h1, main h2 {
 }
 @media(min-width:901px) and (max-width:1100px){
   #hero .detail-hero{
-    grid-template-columns:minmax(0, .7fr) minmax(0, 1.3fr);
-    gap:32px;
-  }
+    grid-template-columns:minmax(0, 1fr) var(--detail-hero-width);
+    gap:64px;;--detail-hero-image-width:100%;
+}
   #hero .visual-card--hero img{
-    width:100%;
+    width:var(--detail-hero-image-width);
     max-width:100%;
     position:relative;
     left:auto;
@@ -695,7 +704,7 @@ h1, main h2 {
   }
   #hero .visual-card--hero img{
     position:relative;
-    z-index:1;;width:100%;;max-width:100%;;max-height:none;;left:auto;;transform:none;
+    z-index:1;;width:var(--detail-hero-image-width);;max-width:100%;;max-height:none;;left:auto;;transform:none;
 }
   .hero-viewport #hero,
   #was-ist-das{
@@ -729,33 +738,33 @@ h1, main h2 {
 }
 @media(max-width:900px){
   #hero .hero-title-line{
-    white-space:nowrap;
-  }
+    white-space:nowrap;;display:inline;
+}
 }
 @media(max-width:900px){
   :root{
     --detail-section-space:48px;
-    --analysis-sub-body-gap:28px;;--content-max:1000px;;--t-sektionstitel:clamp(28px, 3.7vw, 52px);;--t-kartentitel:clamp(26px, 2.1vw, 34px);;--t-subtitle:16px;;--t-bulletlabel:15px;;--t-bildunterschrift:15px;;--t-fliesstext:14px;
+    --analysis-sub-body-gap:28px;;--content-max:1000px;;--t-sektionstitel:clamp(28px, 3.7vw, 52px);;--t-kartentitel:var(--t-sektionstitel);;--t-kicker-sektion:var(--t-subtitle);;--t-subtitle:16px;;--t-bulletlabel:15px;;--t-bildunterschrift:15px;;--t-fliesstext:14px;
 }
   .section{
     padding-left:18px;
-    padding-right:18px;;scroll-margin-top:var(--header-height);
+    padding-right:18px;;scroll-margin-top:var(--header-height);;container-type:inline-size;;--detail-photo-base:min(1000px, 100cqw);;--detail-photo-width:calc(var(--detail-photo-base) * .8);;--detail-hero-width:calc((min(1000px, 100cqw) - 32px) * .52);;--detail-hero-image-width:80%;;--detail-content-width:960px;
 }
   #hero .detail-hero{
     grid-template-columns:1fr;
-    gap:38px;
-  }
+    gap:38px;;--detail-hero-image-width:80%;
+}
   .definition-intro{
     margin-bottom:32px;
   }
   .analysis-intro-cards{
-    gap:24px;
-  }
+    gap:24px;;grid-template-columns:repeat(auto-fit, minmax(min(100%, calc((var(--detail-content-width) - 24px) / 2)), 1fr));
+}
   #was-ist-das .actions{
-    margin-top:32px;
-  }
+    margin-top:32px;;--t-cta:12.8px;;width:var(--detail-content-width);;max-width:96%;;margin-left:calc((100% - min(var(--detail-content-width), 96%)) / 2 + max(0px, calc((100cqw - var(--content-max)) / 4)));;margin-right:auto;
+}
   #leistungen .num-list{
-    row-gap:28px;;column-gap:36px;
+    row-gap:28px;;column-gap:36px;;width:var(--detail-content-width);;max-width:96%;;margin-left:calc((100% - min(var(--detail-content-width), 96%)) / 2 + max(0px, calc((100cqw - var(--content-max)) / 4)));;margin-right:auto;
 }
 }
 
@@ -878,7 +887,7 @@ h1, main h2 {
 </section>
 <div aria-hidden="true" class="section-divider"></div>
 
-<section class="section" data-section-role="ausgangslage" id="warum"><div class="section-inner"><span aria-hidden="true" id="ausgangslage"></span><div class="media-split media-split--text-left"><div class="media-copy"><div class="kicker">Ausgangslage</div><h2>Ausgangslage</h2><p class="sub">Wiederkehrende Aufgaben binden Zeit und verursachen unnötige Übergaben.</p><ul class="label-list label-list--single"><li><strong>manuelle Informationssuche</strong></li><li><strong>wiederkehrende Aufgaben</strong></li><li><strong>verzögerte Rückfragen</strong></li><li><strong>uneinheitliche Bearbeitung</strong></li><li><strong>fehlende Transparenz</strong></li></ul></div><figure class="section-photo"><img alt="" src="assets/Fotos/ki_agenten_1.jpg"/></figure></div></div></section>
+<section class="section" data-section-role="ausgangslage" id="warum"><div class="section-inner"><span aria-hidden="true" id="ausgangslage"></span><div class="kicker">Ausgangslage</div><h2>Ausgangslage</h2><p class="sub">Wiederkehrende Aufgaben binden Zeit und verursachen unnötige Übergaben.</p><div class="media-split media-split--visual-left"><figure class="section-photo"><img alt="" src="assets/Fotos/ki_agenten_1.jpg"/></figure><div class="media-copy"><ul class="label-list label-list--single"><li><strong>manuelle Informationssuche</strong></li><li><strong>wiederkehrende Aufgaben</strong></li><li><strong>verzögerte Rückfragen</strong></li><li><strong>uneinheitliche Bearbeitung</strong></li><li><strong>fehlende Transparenz</strong></li></ul></div></div></div></section>
 <div aria-hidden="true" class="section-divider"></div>
 
 <section class="section" data-section-role="leistungen" id="leistungen"><div class="section-inner"><span aria-hidden="true" id="module"></span><span aria-hidden="true" id="leistungsumfang"></span><div class="media-copy"><div class="kicker">Leistungsumfang</div><h2>Leistungsumfang</h2><p class="sub">Von der Aufgabenanalyse bis zum einsatzfähigen Agenten.</p></div><ol class="num-list"><li><span aria-hidden="true" class="module-icon-frame"><img alt="" class="module-icon" src="assets/Module/mail_bot.png"/></span><b>Eingang</b><span>Anfragen, Aufgaben oder Systemmeldungen erfassen.</span></li><li><span aria-hidden="true" class="module-icon-frame"><img alt="" class="module-icon" loading="lazy" src="assets/Module/displsx_lupe_auge.png"/></span><b>Kontext</b><span>Thema, Vorgang und Zuständigkeit bestimmen.</span></li><li><span aria-hidden="true" class="module-icon-frame"><img alt="" class="module-icon" loading="lazy" src="assets/Module/speicher_vernetzt.png"/></span><b>Datenzugriff</b><span>Benötigte Informationen aus freigegebenen Quellen abrufen.</span></li><li><span aria-hidden="true" class="module-icon-frame"><img alt="" class="module-icon" loading="lazy" src="assets/Module/datenanalyse.png"/></span><b>Prüfung</b><span>Fehlende, widersprüchliche oder unvollständige Angaben erkennen.</span></li><li><span aria-hidden="true" class="module-icon-frame"><img alt="" class="module-icon" loading="lazy" src="assets/Module/papierstapel.png"/></span><b>Vorbereitung</b><span>Antworten, Aufgaben oder Entscheidungsvorlagen erstellen.</span></li><li><span aria-hidden="true" class="module-icon-frame"><img alt="" class="module-icon" loading="lazy" src="assets/Module/prozesse.png"/></span><b>Aktion</b><span>Freigegebene Schritte in verbundenen Systemen ausführen.</span></li><li><span aria-hidden="true" class="module-icon-frame"><img alt="" class="module-icon" loading="lazy" src="assets/Module/freigabe.png"/></span><b>Übergabe</b><span>Unklare oder sensible Fälle mit dem vorhandenen Kontext an eine zuständige Person weiterleiten.</span></li><li><span aria-hidden="true" class="module-icon-frame"><img alt="" class="module-icon" loading="lazy" src="assets/Module/dokumente.png"/></span><b>Dokumentation</b><span>Bearbeitung und ausgeführte Aktionen nachvollziehbar protokollieren.</span></li></ol></div></section>
@@ -890,7 +899,7 @@ h1, main h2 {
 </article></div></section>
 <div aria-hidden="true" class="section-divider"></div>
 
-<section class="section" data-section-role="nutzen" id="nutzen"><div class="section-inner"><div class="media-split media-split--visual-left"><figure class="section-photo"><img alt="" src="assets/Fotos/ki_agenten_2.jpg"/></figure><div class="media-copy"><div class="kicker">Ihr Nutzen</div><h2>Ihr konkreter Nutzen</h2><p class="sub">Entlastung dort, wo Informationen und Routinen zuverlässig verarbeitet werden.</p><ul class="label-list label-list--single"><li><strong>Weniger Routine</strong>Wiederkehrende Aufgaben werden vorbereitet oder innerhalb definierter Grenzen übernommen.</li><li><strong>Schnellere Abläufe</strong>Benötigte Informationen stehen ohne lange manuelle Suche bereit.</li><li><strong>Einheitliche Bearbeitung</strong>Prüfungen, Vorbereitungen und Aktionen folgen festgelegten Regeln.</li><li><strong>Klare Kontrolle</strong>Zugriffe, Berechtigungen, Freigaben und Übergaben bleiben nachvollziehbar.</li></ul></div></div></div></section>
+<section class="section" data-section-role="nutzen" id="nutzen"><div class="section-inner"><div class="kicker">Ihr Nutzen</div><h2>Ihr konkreter Nutzen</h2><p class="sub">Entlastung dort, wo Informationen und Routinen zuverlässig verarbeitet werden.</p><div class="media-split media-split--visual-left"><figure class="section-photo"><img alt="" src="assets/Fotos/ki_agenten_2.jpg"/></figure><div class="media-copy"><ul class="label-list label-list--single"><li><strong>Weniger Routine</strong>Wiederkehrende Aufgaben werden vorbereitet oder innerhalb definierter Grenzen übernommen.</li><li><strong>Schnellere Abläufe</strong>Benötigte Informationen stehen ohne lange manuelle Suche bereit.</li><li><strong>Einheitliche Bearbeitung</strong>Prüfungen, Vorbereitungen und Aktionen folgen festgelegten Regeln.</li><li><strong>Klare Kontrolle</strong>Zugriffe, Berechtigungen, Freigaben und Übergaben bleiben nachvollziehbar.</li></ul></div></div></div></section>
 <div aria-hidden="true" class="section-divider"></div>
 
 <section class="section" data-section-role="conversion" id="analyse-formular"><div class="section-inner"><span aria-hidden="true" id="kontakt"></span><div class="kicker">Potenzialanalyse starten</div><h2>Kostenlose Potenzialanalyse starten.</h2><p class="sub">Kurze Angaben reichen für die erste Einordnung. Das Formular bleibt bewusst kompakt.</p><div class="analysis-layout"><div class="result-strip" id="nurovelle-analysis-result"><div><h3 id="nurovelle-analysis-result-title">Was Sie danach erhalten</h3><p id="nurovelle-analysis-result-copy">Eine klare erste Einschätzung, ob und wo sich KI-Automatisierung lohnt. Fokus: Aufwand, Nutzen, Priorität und ein sinnvoller nächster Schritt.</p><a class="analysis-result-link" hidden="" href="#" id="nurovelle-analysis-result-link">Ergebnis öffnen</a></div><ul class="result-points" id="nurovelle-analysis-result-points"><li>Prozess-Einschätzung</li><li>Automatisierungs-Potenzial</li><li>Priorisierte Empfehlung</li><li>Nächster Schritt</li></ul></div><form action="analyse.html" class="form-panel" id="nurovelle-analysis-form" method="get">
