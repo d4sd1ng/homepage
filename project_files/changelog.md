@@ -1,3 +1,24 @@
+## 2026-11-14 - Falsche Bildmasse aus der Platzhalter-Anleitung entfernt
+
+Status: geprueft
+
+Die Einsetz-Anleitung im Platzhalter der Detailseiten nannte `width="620" height="507"`. Mehrfach festgestellt, dass das zu keiner der vorhandenen Hero-Grafiken passt.
+
+**Herkunft der Zahlen geklaert:** Sie stammen aus `assets/Module/Ablauf/lösung_wählen.png`, das tatsaechlich 620 x 507 px misst. Von dort sind sie in die Anleitung kopiert worden.
+
+Geaendert: In 14 Dateien `<img src="assets/detail_pages_grafics/DATEI.png" alt="Ablauf" width="620" height="507" />` auf `<img src="assets/detail_pages_grafics/DATEI.png" alt="Ablauf" />`. Beim Einsetzen werden die echten Masse der jeweiligen Datei eingetragen.
+
+`detail_automationen`, `detail_ki-agenten`, `detail_ki-sicherheit`, `detail_ki-software`, `detail_prompt-engineering`, `detail_roadmap`, `detail_seo`, `detail_sprachassistenten`, `detail_warum-nurovelle`, `detail_workflows`, `paket-betreuung`, `paket-buero`, `paket-handwerk`, `potenzialanalyse-deep`.
+
+**Nicht geaendert, weil dort korrekt:** `620 x 507` steht weiterhin an drei Stellen in `detail_roadmap.html`, `detail_prozessautomatisierung.html` und `index.html`. Dort gehoert es zu echten Einbindungen von `lösung_wählen.png` und stimmt mit der Datei ueberein.
+
+**Weiterhin offen:** `alt="Ablauf"` in der Anleitung. Fuer eine Hero-Grafik kein sinnvoller Alternativtext, je Seite durch eine Beschreibung des Motivs zu ersetzen.
+
+In `todo.md` aufgenommen, nach Klaerung mit dem Nutzer:
+
+- Die neun Dateien `from - NN.png` in `assets/Module/` sind Module, nur noch nicht benannt. Vier lagen schon vorher im Projekt, fuenf kamen am 2026-11-14 dazu. Sie bleiben liegen, bis die Motive zugeordnet sind.
+- Die drei Fotos in `assets/Fotos/Kein Titel (927 x 1200 px)` und `...-(1)` sind je 927 x 1200 px, zusammen 3,5 MB, und stammen aus einem Export ohne gesetzten Titel. Zuordnung oder Verwurf steht aus.
+
 ## 2026-11-14 - Platzhalter der Detailseiten: falscher Ordner korrigiert, Fehlbefund richtiggestellt
 
 Status: geprueft
