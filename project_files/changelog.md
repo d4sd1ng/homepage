@@ -1,3 +1,21 @@
+## 2026-11-14 - Leistungskarten mobil: Bild als Kartenhintergrund, Abstand 20 px
+
+Status: geprueft
+
+Vorgabe des Nutzers: den Abstand oben und unten von 44 auf 20 px senken. Das war mit dem Bildstreifen rechnerisch nicht erreichbar, weil der 0,8 px breite Kartenrahmen und der 28 px hohe Bildstreifen allein schon 28,8 px ergeben. Auf Rueckfrage hat der Nutzer festgelegt, dass das Bild ueberhaupt kein Streifen werden soll, und aus zwei vorgelegten Moeglichkeiten den abgedunkelten Kartenhintergrund gewaehlt. Verworfen: gar kein Bild auf Mobil.
+
+Das Bild lag auf Mobil bisher als Banner oben in der Karte, ein Ausschnitt eines Querformats. Jetzt fuellt es die Karte als Hintergrund, so wie es auf dem Desktop beim Ueberfahren der Karte ohnehin erscheint.
+
+- `homepage/index.html`, `@media (max-width: 900px)`, `.nv-s7-card__visual`: von `position: static` mit `height: 28px` auf `position: absolute; inset: 0` mit `height: 100%`, dazu `object-position: center` und `filter: brightness(0.3) contrast(1.05) saturate(0.7)` fuer die Lesbarkeit des Textes.
+- `homepage/index.html`, `@media (max-width: 900px)`, `.nv-s7-card__main`: `position` von `static` auf `relative`, `z-index: 2` ergaenzt, `padding` von `15px 12px 0` auf `19px 12px 0`.
+- `homepage/index.html`, `@media (max-width: 900px)`, `.nv-s7-card__left`: `position` von `static` auf `relative`, `z-index: 2` ergaenzt, `padding` von `0 12px 43px` auf `0 12px 19px`.
+
+`position: relative` ist hier unbedenklich, weil die vom Desktop geerbten Versatzwerte beider Bereiche auf 0 stehen. Bei `.nv-s7-card__points` waere es ein Fehler gewesen: dort steht `top: 145.6px` aus der Desktopregel, was die Liste um diesen Betrag nach unten geschoben haette. Dieser Fehler trat in einem Entwurf auf und wurde vor der Uebernahme behoben.
+
+Ergebnis bei 390 px: oben 20 px, unten 20 px, dazwischen 50 px zwischen letztem Stichpunkt und Schaltflaeche. Karte 227 px, vorher 275 px.
+
+Pruefung bei 360, 390, 430, 768 und 900 px: elf Karten, Hoehe 227 bis 241 px, CTA durchgaengig 30 px hoch, Mittenabweichung 0 px, kein abgeschnittener Karteninhalt, kein waagerechter Seitenueberlauf, keine JavaScript-Fehler. Ab 901 px unveraendert, Karten 88 px, CTA 23 px.
+
 ## 2026-11-14 - Leistungskarten mobil: Kartenabstand oben und unten auf 44 px
 
 Status: geprueft
