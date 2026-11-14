@@ -879,7 +879,12 @@ canvas.nv-step-viz {
 .nv-analyse__image-block.is-active .nv-analyse__image-wrapper { opacity: 1; scale: 1; translate: 0 0; transition-delay: calc(var(--analysis-speed) * .2); }
 .nv-analyse__stage[data-checking-details="true"] .nv-analyse__image-wrapper { transform-origin: 50% 100%; }
 .nv-analyse__inner > .nv-aform { width: min(100%, 1260px); height: auto; margin: 0 auto 40px; padding: 28px 32px; transform: none; }
-@media (max-width: 980px) { .nv-analyse__offers { grid-template-columns: minmax(0,1fr); grid-auto-rows: 1fr; } }
+@media (max-width: 980px) {
+  .nv-analyse__offers { grid-template-columns: minmax(0,1fr); grid-auto-rows: auto; }
+  .nv-analyse__offer > h3 { min-height: 0; }
+  .nv-analyse__offer-footer { min-height: 0; }
+  .nv-analyse__stage { flex: 0 0 auto; }
+}
 @media (max-width: 640px) {
   .nv-analyse__offers > .nv-analyse__offer { padding: 20px 16px; }
   .nv-analyse__stage { grid-template-columns: minmax(0,1fr); gap: 16px; min-height: 0; align-content: start; }
