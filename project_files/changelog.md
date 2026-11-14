@@ -1,3 +1,16 @@
+## 2026-11-14 - Leistungskarten mobil: Kartenabstand oben und unten auf 44 px
+
+Status: geprueft
+
+Vorgabe des Nutzers: den im vorigen Schritt angeglichenen Abstand von 37 px auf 44 px erhoehen, oben wie unten.
+
+- `homepage/index.html`, `@media (max-width: 900px)`, `.nv-s7-card__main`: `padding` von `8px 12px 0` auf `15px 12px 0`. Der obere Abstand setzt sich aus dem 28 px hohen Bildstreifen, dem 0,8 px breiten Kartenrahmen und diesem Innenabstand zusammen und betraegt damit gemessene 44 px.
+- `homepage/index.html`, `@media (max-width: 900px)`, `.nv-s7-card__left`: `padding` von `0 12px 36px` auf `0 12px 43px`. Zusammen mit dem Kartenrahmen ergibt das gemessene 44 px unter der Schaltflaeche.
+
+Ergebnis bei 390 px: oben 44 px, unten 44 px, dazwischen 50 px zwischen letztem Stichpunkt und Schaltflaeche. Karte 275 px, vorher 261 px.
+
+Pruefung bei 360, 390, 430, 768 und 900 px: elf Karten, Hoehe 275 bis 289 px, CTA durchgaengig 30 px hoch, Mittenabweichung 0 px, kein abgeschnittener Karteninhalt, kein waagerechter Seitenueberlauf, keine JavaScript-Fehler. Ab 901 px unveraendert, Karten 88 px, CTA 23 px.
+
 ## 2026-11-14 - Leistungskarten mobil: oberer und unterer Kartenabstand gleich
 
 Status: geprueft
