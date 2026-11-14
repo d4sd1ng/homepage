@@ -597,6 +597,35 @@ Die Linie ueber dem Footer ist keine `section-divider`, sondern `.footer::before
 
 Die goldenen Eckenlinien oben rechts, frueher `svg.hero-corner-lines`, sind am 2026-11-14 entfernt worden. Markup und CSS sind geloescht, nicht nur ausgeblendet.
 
+**Hero-Bild**
+
+| Element | Wert |
+| --- | --- |
+| `#hero .visual-card--hero img` | `display:block; width:100%; max-width:100%; height:auto; max-height:none` |
+| Transformationen | **keine** |
+| feste Pixelbreiten | **keine** |
+| `.hero-viewport` | `overflow-x:clip` |
+
+Das Bild fuellt seine Rasterspalte und behaelt sein Seitenverhaeltnis. Groesse und Platzierung ergeben sich allein aus `#hero .detail-hero`, also aus `grid-template-columns` und `gap`.
+
+**Verboten: `transform: scale()` zum Vergroessern des Hero-Bildes.** Eine Transformation aendert nur die Darstellung, nicht den Platz im Layout. Das Raster rechnet weiter mit der deklarierten Breite, das Bild laeuft aus dem Fenster und wird abgeschnitten. Genau daran ist die frueher Fassung gescheitert: `width:760px` mit `scale(1.6)` ergab einen 1216 px breiten Kasten und bei 1440 px Fensterbreite 290 px Ueberlauf. Soll das Bild groesser werden, wird die Spalte breiter gemacht, nicht das Bild skaliert.
+
+`overflow-x:clip` an `.hero-viewport` ist noetig, weil der dekorative Schein `#hero .visual-card--hero::before` mit `inset:-26% -32%` ueber die Kartenkante hinausreicht. Ohne das Abklemmen erzeugt eine reine Dekoration eine waagerechte Scrollleiste. `clip` statt `hidden`, damit kein Scrollcontainer entsteht.
+
+Gemessenes Ergebnis, Bild stets im Seitenverhaeltnis 1,777:
+
+| Fensterbreite | Bild | Ueberlauf der Seite |
+| --- | --- | --- |
+| 390 px | 354 x 199 | 0 |
+| 900 px | 864 x 486 | 0 |
+| 1100 px | 479 x 270 | 0 |
+| 1440 px | 460 x 259 | 0 |
+| 1600 px | 540 x 304 | 0 |
+| 1920 px | 584 x 329 | 0 |
+| 2560 px | 584 x 329 | 0 |
+
+Die Breite des Bildes ist durch die Textspalte begrenzt: `#hero .hero-title-line` traegt oberhalb von 1100 px `white-space:nowrap`, die Headline braucht dadurch 780 px bei 1440 px und 928 px bei 1920 px. Die Bildspalte bekommt den Rest. Soll das Bild groesser werden, muss die Headline umbrechen duerfen; das ist nicht entschieden.
+
 ### 21.7 Mobil, bis 900 px Fensterbreite
 
 | Element | Wert |
