@@ -1,3 +1,17 @@
+## 2026-11-14 - Analyse-Angebote: Steuerknoepfe entfernt, nur noch klickbare Karten
+
+Status: geprueft
+
+Vorgabe des Nutzers am 2026-11-14: entweder klickbare Karten oder Steuerelement, nicht beides. Da die Bedienung ueber den Klick auf die Karte ausdruecklich gewuenscht ist, entfallen die drei Knoepfe. Nach dem Wegfall des Akkordeons waren sie ohnehin ohne klare Funktion: `previous` und `next` haetten weitere Punkte geoeffnet, ohne etwas zu schliessen, und `exit` war durch den erneuten Klick auf die Karte doppelt belegt.
+
+- `homepage/index.html`: sechs `button`-Elemente mit der Klasse `nv-analyse__control` entfernt, drei je Angebotskarte, Aktionen `previous`, `next` und `exit`.
+- `homepage/index.html`: elf nun wirkungslose CSS-Zeilen zu `.nv-analyse__control` entfernt, davon neun im Hauptteil und zwei in der 640-px-Abfrage.
+- `homepage/analysis-offers.js`: Sammlung `controls` entfernt, die drei `click`-Listener entfernt, Funktion `navigate` entfernt, Zeile `controls.forEach(button => { button.hidden = !hasOpenDetails; })` aus `syncState` entfernt.
+
+Erhalten bleiben: `close` als Funktion, Escape schliesst weiterhin alle offenen Punkte und setzt den Fokus zurueck, die Bildzuordnung ueber `is-active`, `activeIndex` und `stage.dataset.checkingDetails`.
+
+Pruefung bei 1440, 1100, 640, 430, 390 und 360 px, je mit und ohne Reduced Motion, beide Angebotskarten: kein `[data-action]`-Element mehr im DOM, Versatz des angetippten Punktes 0 bis 5 px, Klick oeffnet, erneuter Klick schliesst genau diesen Punkt, Escape schliesst alle, Bildzuordnung folgt dem zuletzt geoeffneten Punkt, kein waagerechter Seitenueberlauf, keine JavaScript-Fehler.
+
 ## 2026-11-14 - Analyse-Angebote: Klick oeffnet die Karte, sonst bewegt sich nichts
 
 Status: geprueft

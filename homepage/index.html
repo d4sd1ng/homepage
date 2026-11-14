@@ -878,15 +878,6 @@ canvas.nv-step-viz {
 .nv-analyse__image { display: block; width: auto; max-width: none; height: 100%; margin-inline: auto; object-fit: contain; }
 .nv-analyse__image-block.is-active .nv-analyse__image-wrapper { opacity: 1; scale: 1; translate: 0 0; transition-delay: calc(var(--analysis-speed) * .2); }
 .nv-analyse__stage[data-checking-details="true"] .nv-analyse__image-wrapper { transform-origin: 50% 100%; }
-.nv-analyse__control.golden-button { position: absolute; z-index: 3; min-width: 0; width: 32px; height: 32px; padding: 4px; }
-.nv-analyse__control[hidden] { display: none; }
-.nv-analyse__control svg { width: 20px; height: 20px; }
-.nv-analyse__control[data-action="previous"] { left: -12px; top: calc(50% - 40px); }
-.nv-analyse__control[data-action="next"] { left: -12px; top: calc(50% + 8px); }
-.nv-analyse__control[data-action="next"] svg { rotate: 180deg; }
-.nv-analyse__control[data-action="exit"] { right: 0; top: 0; }
-.nv-analyse__control[data-action="exit"] svg { rotate: 45deg; }
-.nv-analyse__control:focus-visible { outline: 2px solid var(--nv-gold-highlight); outline-offset: 4px; }
 .nv-analyse__inner > .nv-aform { width: min(100%, 1260px); height: auto; margin: 0 auto 40px; padding: 28px 32px; transform: none; }
 @media (max-width: 980px) { .nv-analyse__offers { grid-template-columns: minmax(0,1fr); grid-auto-rows: 1fr; } }
 @media (max-width: 640px) {
@@ -897,8 +888,6 @@ canvas.nv-step-viz {
   .nv-analyse__disclosure[open] { width: 100%; }
   .nv-analyse__visual { grid-area: auto; width: 100%; height: 220px; align-self: auto; margin: 0; }
   .nv-analyse__offer .nv-analyse__visual, .nv-analyse__offer:not(.nv-analyse__offer--deep) .nv-analyse__visual { order: -1; height: 170px; }
-  .nv-analyse__control[data-action="previous"] { left: 0; top: 0; }
-  .nv-analyse__control[data-action="next"] { left: 44px; top: 0; }
   .nv-analyse__summary { padding: 12px; }
   .nv-analyse__body { width: 100cqw; padding-inline: 12px; }
   .nv-analyse__offer-price--stacked { grid-template-columns: minmax(0,1fr); row-gap: 4px; }
@@ -2691,9 +2680,6 @@ canvas.nv-step-viz {
         <div class="nv-analyse__image-block"><div class="nv-analyse__image-wrapper"><img class="nv-analyse__image" src="assets/Fotos/Analyse.png" alt="" width="941" height="1672" loading="lazy" decoding="async" /></div></div>
         <div class="nv-analyse__image-block"><div class="nv-analyse__image-wrapper"><img class="nv-analyse__image" src="assets/Fotos/Analyse.png" alt="" width="941" height="1672" loading="lazy" decoding="async" /></div></div>
       </div>
-      <button class="golden-button nv-analyse__control" type="button" data-action="previous" aria-label="Vorheriger Abschnitt" hidden><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 15.75 7.5-7.5 7.5 7.5" /></svg></button>
-      <button class="golden-button nv-analyse__control" type="button" data-action="next" aria-label="Nächster Abschnitt" hidden><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 15.75 7.5-7.5 7.5 7.5" /></svg></button>
-      <button class="golden-button nv-analyse__control" type="button" data-action="exit" aria-label="Abschnitt schließen" hidden><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" /></svg></button>
     </div>
     <div class="nv-analyse__offer-footer">
     <p class="nv-analyse__offer-price">199 € · für Sie kostenlos</p>
@@ -2735,9 +2721,6 @@ canvas.nv-step-viz {
         <div class="nv-analyse__image-block"><div class="nv-analyse__image-wrapper"><img class="nv-analyse__image" src="assets/Fotos/deep_analysis.png" alt="" width="927" height="1240" loading="lazy" decoding="async" /></div></div>
         <div class="nv-analyse__image-block"><div class="nv-analyse__image-wrapper"><img class="nv-analyse__image" src="assets/Fotos/deep_analysis.png" alt="" width="927" height="1240" loading="lazy" decoding="async" /></div></div>
       </div>
-      <button class="golden-button nv-analyse__control" type="button" data-action="previous" aria-label="Vorheriger Abschnitt" hidden><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 15.75 7.5-7.5 7.5 7.5" /></svg></button>
-      <button class="golden-button nv-analyse__control" type="button" data-action="next" aria-label="Nächster Abschnitt" hidden><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 15.75 7.5-7.5 7.5 7.5" /></svg></button>
-      <button class="golden-button nv-analyse__control" type="button" data-action="exit" aria-label="Abschnitt schließen" hidden><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" /></svg></button>
     </div>
     <div class="nv-analyse__offer-footer">
     <p class="nv-analyse__offer-price nv-analyse__offer-price--stacked"><span>Einführungspreis</span><span class="nv-analyse__offer-price-value">555 € netto</span><span>Listenpreis</span><span class="nv-analyse__offer-price-value">699 € netto</span></p>
