@@ -1,3 +1,22 @@
+## 2026-11-14 - Analyse-Angebote: Karten richten sich unter 980 px nach ihrem Inhalt
+
+Status: geprueft
+
+Der Nutzer bemaengelte, dass die Angebotskarten auf Mobil unnoetig gross sind und sich nicht an den Inhalt anpassen. Die Leere stammte nicht vom Inhalt, sondern aus Regeln, die nur fuer das Nebeneinander auf dem Desktop gedacht sind und unterhalb von 980 px mitliefen, wo die Karten untereinander stehen.
+
+Gemessen bei 390 px vorher: kostenlose Karte 1108 px hoch, davon 183 px Leerraum in der Buehne, Fussbereich 198 px bei 92 px Bedarf.
+
+- `homepage/index.html`, `@media (max-width: 980px)`, `.nv-analyse__offers`: `grid-auto-rows` von `1fr` auf `auto`. Die beiden Karten werden untereinander nicht mehr auf gleiche Hoehe gezogen.
+- `homepage/index.html`, `@media (max-width: 980px)`, `.nv-analyse__offer > h3`: `min-height: 0`. Die 64 px dienten der Zeilenangleichung nebeneinander.
+- `homepage/index.html`, `@media (max-width: 980px)`, `.nv-analyse__offer-footer`: `min-height: 0`. Die 190 px dienten der Angleichung von Preis und Schaltflaeche nebeneinander.
+- `homepage/index.html`, `@media (max-width: 980px)`, `.nv-analyse__stage`: `flex: 0 0 auto`. Die Buehne saugt den uebrigen Platz nicht mehr auf.
+
+Ergebnis, Hoehe der kostenlosen Karte geschlossen: 390 px Breite 1108 auf 840 px, 430 px Breite 1108 auf 840 px, 640 px Breite 1108 auf 761 px, 768 px Breite 727 auf 567 px, 980 px Breite 727 auf 545 px. Die Karte waechst beim Oeffnen eines Punktes wieder mit.
+
+Desktop unveraendert: Ab 1000 px greifen die Regeln nicht. Bei 1440 px sind beide Karten weiterhin 741 px hoch und damit gleich hoch nebeneinander.
+
+Pruefung bei 1440, 1100, 640, 430, 390 und 360 px, je mit und ohne Reduced Motion, beide Angebotskarten: Versatz des angetippten Punktes 0 bis 5 px, Klick oeffnet, erneuter Klick schliesst, Escape schliesst alle, Bildzuordnung folgt dem zuletzt geoeffneten Punkt, kein waagerechter Seitenueberlauf, keine JavaScript-Fehler. Zusaetzlich geprueft, dass bei geschlossener Karte das erste Bild aktiv, geladen und mit Deckkraft 1 sichtbar ist.
+
 ## 2026-11-14 - Analyse-Angebote: Steuerknoepfe entfernt, nur noch klickbare Karten
 
 Status: geprueft
