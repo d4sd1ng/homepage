@@ -78,9 +78,6 @@ Keine abgeschlossenen historischen Entscheidungen, Designregeln oder Projektbesc
 - [ ] **Unbenannte Moduldateien `from - NN.png` benennen** — offen
   - Neun Dateien in `homepage/assets/Module/`: `from - 5`, `- 16`, `- 51`, `- 70`, `- 86`, `- 87`, `- 89`, `- 90`, `- 92`. Vier lagen schon vorher im Projekt, fünf kamen am 2026-11-14 aus dem Sicherungszweig dazu.
   - Der Nutzer hat am 2026-11-14 bestätigt: Das sind Module, nur noch nicht benannt. Sie bleiben liegen, bis die Motive zugeordnet sind.
-- [ ] **Drei namenlose Fotos zuordnen oder verwerfen** — offen
-  - `homepage/assets/Fotos/Kein Titel (927 x 1200 px)/1.png` und `/2.png`, dazu `homepage/assets/Fotos/Kein Titel (927 x 1200 px)-(1)/2.png`. Je 927 x 1200 px, zusammen 3,5 MB.
-  - Ordner- und Dateinamen stammen aus einem Export ohne gesetzten Titel.
 - [ ] **Analyse-Hero auf `analyse_detail_page` umstellen** — offen
   - Der Nutzer hat die Analysegrafik lokal in `analyse_detail_page.png` und `analyse_detail_page.webp` umbenannt, damit sie namentlich zu `chatbot_detail_page.png` und `daten_detail_page.png` passt. Beide Dateien sind am 2026-11-14 noch nicht im Repository und live 404.
   - Bestätigt: die WebP ist dieselbe Grafik wie die PNG.

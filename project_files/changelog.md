@@ -1,3 +1,27 @@
+## 2026-11-14 - Drei namenlose Fotos geloescht
+
+Status: geprueft
+
+Geloescht, samt der beiden leeren Ordner:
+
+- `homepage/assets/Fotos/Kein Titel (927 x 1200 px)/1.png`
+- `homepage/assets/Fotos/Kein Titel (927 x 1200 px)/2.png`
+- `homepage/assets/Fotos/Kein Titel (927 x 1200 px)-(1)/2.png`
+
+Je 927 x 1200 px, zusammen 3,5 MB. Ordner- und Dateinamen stammten aus einem Export ohne gesetzten Titel. Sie waren am 2026-11-14 mit den 58 Assets aus dem Sicherungszweig hereingekommen.
+
+Vor dem Loeschen geprueft:
+
+- Keine Referenz in HTML, CSS oder JavaScript, auch nicht URL-kodiert.
+- Kein byte-gleiches Gegenstueck im Projekt.
+- Alle 262 Bilder des Projekts ueber eine Bildsignatur verglichen: kein optisch gleiches Bild. Die naechsten Treffer lagen bei 82 bis 95 von 256 Bit Abweichung, also praktisch unverwandt. Einzige Ausnahme `Kein Titel ...-(1)/2.png` mit 36 von 256 zu `deep_analysis.png`, das verbaut ist.
+
+Der Befund sprach damit gegen die Annahme, die Motive seien bereits anderswo verbaut. Der Nutzer hat nach Ansicht der Bilder bestaetigt, dass es dieselben Bilder sind, und die Loeschung angewiesen.
+
+Rueckholbar ueber die Git-Historie und ueber `origin/sicherung-2026-11-14`.
+
+Der zugehoerige offene Punkt ist aus `todo.md` entfernt.
+
 ## 2026-11-14 - Falsche Bildmasse aus der Platzhalter-Anleitung entfernt
 
 Status: geprueft
