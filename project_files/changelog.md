@@ -1,3 +1,22 @@
+## 2026-11-14 - Analyse-Angebote: beide Grafiken im gleichen Rahmen
+
+Status: geprueft
+
+Vorgabe des Nutzers: Die Grafiken der beiden Angebotskarten muessen gleich gross sein. Gemessen vorher bei 1440 px: kostenlos 167 mal 294 px, tiefgehend 167 mal 222 px, also 72 px Hoehenunterschied. Ursache war eine Sonderregel, die nur der kostenlosen Karte einen hoeheren Rahmen gab.
+
+- `homepage/index.html`: Regel `.nv-analyse__offer:not(.nv-analyse__offer--deep) .nv-analyse__visual { height: 292px; margin-top: 20px; }` entfernt. Beide Karten nutzen damit die Werte aus `.nv-analyse__visual`, also `height: 220px` und `margin: 56px 0 0`.
+- `homepage/index.html`, `@media (max-width: 640px)`: die beiden Regeln zu `.nv-analyse__visual` zu einer zusammengefasst, `grid-area: auto; order: -1; width: 100%; height: 170px; align-self: auto; margin: 0`. Der doppelte Selektor war nur noetig, um die entfernte Sonderregel zu ueberstimmen.
+
+Der Nutzer hat am 2026-11-14 aus drei vorgelegten Moeglichkeiten den kleineren gemeinsamen Rahmen gewaehlt. Verworfen: beide auf 294 px, dort rueckt die tiefgehende Grafik mit 222 px Breite dicht an die Punkteliste. Verworfen: gleiche sichtbare Flaeche statt gleicher Hoehe, dort blieben die Grafiken unterschiedlich hoch.
+
+Rahmen nach der Aenderung, an jeder gepruefen Breite fuer beide Karten identisch: 1440 px 237 mal 222, 1100 px 182 mal 221, 1000 px 164 mal 221, 768 px 270 mal 222, 390 px 317 mal 170.
+
+Die sichtbare Breite bleibt verschieden, 126 gegen 167 px bei 1440 px und 96 gegen 127 px bei 390 px. Das liegt an den Dateien: `Analyse.png` ist 941 mal 1672, `deep_analysis.png` 927 mal 1240. Eine Angleichung der Breite ginge nur ueber Verzerrung oder Beschnitt.
+
+Nebeneffekt: Die kostenlose Karte ist bei 390 px nochmals 20 px kuerzer, 820 statt 840 px, und enthaelt keinen messbaren Leerraum mehr.
+
+Pruefung bei 1440, 1100, 640, 430, 390 und 360 px, je mit und ohne Reduced Motion, beide Angebotskarten: Versatz des angetippten Punktes 0 bis 5 px, Klick oeffnet, erneuter Klick schliesst, Escape schliesst alle, Bildzuordnung folgt dem zuletzt geoeffneten Punkt, kein waagerechter Seitenueberlauf, keine JavaScript-Fehler.
+
 ## 2026-11-14 - Analyse-Angebote: Karten richten sich unter 980 px nach ihrem Inhalt
 
 Status: geprueft
