@@ -1,3 +1,41 @@
+## 2026-11-14 - Analyse-Detailseite: Hero-Headline und Bild neu aufgeteilt, Schein verkleinert
+
+Status: geprueft
+
+Vorgaben des Nutzers: Der Schein hinter dem Bild ist zu gross. Das Bild ist zu klein. Die Headline soll `Wo lohnt sich KI in Ihrem Unternehmen` in einer Zeile tragen und `wirklich?` darunter. Der Schriftgrad bleibt unveraendert. Die Schrift darf ueber das Bild laufen, das Bild sitzt dahinter.
+
+Alle Aenderungen in `homepage/analyse.html`.
+
+**Schein verkleinert, Stufe A.** `#hero .visual-card--hero::before`: `inset` von `-26% -32%` auf `-16% -19%`, `filter` von `blur(38px)` auf `blur(30px)`, `opacity` von `.94` auf `.90`. Der Schein misst damit 635 x 342 statt 754 x 393 px.
+
+**Zwei willkuerliche Beschraenkungen entfernt.** `#hero .lead` hatte `max-width:760px`, das Raster `minmax(780px,1.35fr)`. Beide hielten die Textspalte unabhaengig vom tatsaechlichen Bedarf bei 760 bis 787 px und druckten das Bild auf 460 px.
+
+**Raster und Schichtung neu.** Im Block `@media(min-width:1101px)`:
+
+- `#hero .detail-hero`: `grid-template-columns` von `minmax(780px,1.35fr) minmax(460px,.85fr)` auf `minmax(0,1fr) minmax(0,1fr)`, `gap` von `clamp(28px,3vw,48px)` auf `40px`.
+- `#hero .detail-hero>div:first-child` neu: `position:relative; z-index:3`. Die Textspalte liegt damit vor dem Bild, das `z-index:1` traegt.
+- `#hero h1` neu: `width:max-content; max-width:none`. Die Headline laeuft dadurch ueber ihre Spalte hinaus ins Bildfeld, statt das Raster zu sprengen.
+- `#hero .lead`: `max-width` von `760px` auf `none`.
+
+**Zeilenumbruch der Headline verschoben.** Die beiden `span.hero-title-line` tragen jetzt `Wo lohnt sich KI in Ihrem Unternehmen` und `wirklich?` statt `Wo lohnt sich KI in Ihrem` und `Unternehmen wirklich?`. Der Wortlaut ist unveraendert, nur die Umbruchstelle ist verschoben.
+
+**Der Schriftgrad ist nicht angefasst worden.** Er kommt weiter aus `--t-sektionstitel`, `clamp(40px, 4.6vw, 72px)`, gemessen 66,24 px bei 1440 px und 72 px bei 1920 px.
+
+Gemessen vorher und nachher:
+
+| Fensterbreite | Bild vorher | Bild nachher | Schriftgrad | Ueberlauf |
+| --- | --- | --- | --- | --- |
+| 390 px | 354 x 199 | 354 x 199 | 40 px | 0 |
+| 1100 px | 479 x 270 | 479 x 270 | 50,6 px | 0 |
+| 1440 px | 460 x 259 | **631 x 355** | 66,24 px | 0 |
+| 1920 px | 584 x 329 | **760 x 428** | 72 px | 0 |
+
+Bei 1440 px laeuft die erste Headline-Zeile von 69 bis 1309, das Bild von 740 bis 1371. Die Ueberlappung ist gewollt, die Schrift liegt vor dem Bild.
+
+Ein Zwischenstand mit `grid-template-columns:min-content` und einer eigenen Schriftstaffel `clamp(46px, 4.03vw, 63px)` ist verworfen worden, weil der Nutzer den Schriftgrad unveraendert haben wollte. Ebenso verworfen: `white-space:normal` an `.hero-title-line`, was die Headline auf vier Zeilen brach.
+
+Festgeschrieben in `project_files/styleguide.md`, Abschnitt 21.6.
+
 ## 2026-11-14 - Analyse-Detailseite: Hero-Bild sauber aufgebaut, Seitenueberlauf beseitigt
 
 Status: geprueft
