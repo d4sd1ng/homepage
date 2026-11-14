@@ -1,3 +1,50 @@
+## 2026-11-14 - Analyse-Detailseite: Inhaltsbreite auf feste 1300 px begrenzt
+
+Status: geprueft
+
+Der Nutzer hat gemeldet, dass Ausgangslage, Ihr Nutzen und FAQ zu breit sind und dass die ausgelieferte Datei nicht die Masse hat, die hier gemessen wurden. Beides war richtig.
+
+Ursache des Messfehlers: Alle bisherigen Messungen liefen bei 1440 px Fensterbreite. Der `.section-inner` ist dort 1302 px breit, waechst aber bis `--content-max: 1560px`. Ein Inhaltsblock ohne eigene Begrenzung misst bei 1440 px zufaellig dieselben 70 .. 1370 wie ein korrekt begrenzter und faellt erst bei breiterem Fenster auf. Die Vorgabe 70 und 1370 war damit nicht pruefbar.
+
+Live gemessen auf `https://nurovelle.de/homepage/analyse.html`, Baumarke 585b8a5, bei 1920 px:
+
+| Sektion | Inhalt vorher | Breite | Urteil des Nutzers |
+| --- | --- | --- | --- |
+| `#was-ist-das` | 310 .. 1610 | 1300 | okay |
+| `#leistungen` | 310 .. 1610 | 1300 | okay |
+| `#einsatzbereiche` | 310 .. 1610 | 1300 | okay |
+| `#analyse-formular` | 310 .. 1610 | 1300 | okay |
+| `#warum` | 181 .. 1740 | 1560 | zu breit |
+| `#nutzen` | 181 .. 1740 | 1560 | zu breit |
+| `#faq` | 180 .. 1740 | 1560 | zu breit |
+
+Die Sektionen, die der Nutzer als richtig bezeichnet hat, haben eine feste Inhaltsbreite von 1300 px, mittig im `.section-inner`. Die drei beanstandeten hatten keine Begrenzung.
+
+Geaendert in `homepage/analyse.html`:
+
+- `#warum .media-split`: `margin-left:1px` und `width:calc(100% - 1px)` ersetzt durch `width:100%`, `max-width:1300px`, `margin-left:auto`, `margin-right:auto`.
+- `#nutzen .media-split--visual-left`: dieselbe Ersetzung.
+- `.faq-grid`: `max-width` von `none` auf `1300px`, `margin` von `16px 0 0` auf `16px auto 0`.
+
+Gemessen danach, Inhaltsblock aller sieben Sektionen:
+
+| Fensterbreite | Inhalt, alle Sektionen |
+| --- | --- |
+| 1440 px | 70 .. 1370 |
+| 1600 px | 150 .. 1450 |
+| 1920 px | 310 .. 1610 |
+| 2560 px | 630 .. 1930 |
+
+Breitestes Einzelelement danach unveraendert bei jeder Fensterbreite: Ausgangslage und Ihr Nutzen 700 px Textspalte, FAQ 640 px je Knopf, Definition 634 px je Karte. Vorher wuchsen die ersten drei bei 1920 px auf 959 und 770 px.
+
+Damit entsteht erst die Einrueckung, die der Nutzer verlangt hat: Kicker, Headline und Subline stehen an der Kante des `.section-inner`, alles danach ist eingerueckt. Bei genau 1440 px faellt das nicht auf, weil die Einrueckung dort unter einem Pixel liegt.
+
+Nachgezogen in `project_files/styleguide.md`: Abschnitt 21.1 nennt jetzt **1300 px, mittig** als verbindlichen Wert und fuehrt 70 und 1370 nur noch als Ergebnis bei 1440 px. Dazu die Regel, dass jede Breitenpruefung bei mindestens zwei Fensterbreiten gemessen wird, davon einer ueber 1560 px. Abschnitt 21.2 und 21.4 entsprechend angepasst.
+
+Zurueckgenommen wurden zwei Zwischenstaende derselben Sitzung: feste 634-px-Spalten mit 32 px Abstand, die die Bilder auf 634 px vergroessert haetten, und das Verschieben des FAQ-Rasters um 1 px. Bildbreite bleibt bei 544 px, Spaltenabstand bei 56 px.
+
+Weiterhin offen, vom Nutzer als eigener Punkt benannt und hier nicht angefasst: Das Hero-Bild `sockel_loaded_analyse.png` laeuft durch `transform: scale(1.6)` und `left: 230px` bis 1730 px und erzeugt den waagerechten Ueberlauf der Seite von 290 px.
+
 ## 2026-11-14 - Analyse-Detailseite: FAQ-Raster auf die linke Inhaltskante gerueckt
 
 Status: geprueft
