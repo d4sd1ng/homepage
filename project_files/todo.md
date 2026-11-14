@@ -75,6 +75,10 @@ Keine abgeschlossenen historischen Entscheidungen, Designregeln oder Projektbesc
 - [ ] Download-Dateiendungen und endgültige Dateinamen prüfen — offen
 - [ ] Analyse-Grafiken `assets/analyse/1.png` bis `8.png` auf finalen Nurovelle-Stil prüfen — offen
 - [ ] Hero-/Detailseiten-Assets auf Transparenz und Stilkonstanz prüfen — offen
+- [ ] **Analyse-Hero auf `analyse_detail_page` umstellen** — offen
+  - Der Nutzer hat die Analysegrafik lokal in `analyse_detail_page.png` und `analyse_detail_page.webp` umbenannt, damit sie namentlich zu `chatbot_detail_page.png` und `daten_detail_page.png` passt. Beide Dateien sind am 2026-11-14 noch nicht im Repository und live 404.
+  - Bestätigt: die WebP ist dieselbe Grafik wie die PNG.
+  - Sobald die Dateien eingecheckt sind: `homepage/analyse.html` Zeile 803, Hero-Verweis von `assets/detail_pages_grafics/sockel_loaded_analyse.png` auf das Projektmuster umstellen, `<picture><source srcset="…webp" type="image/webp" /><img src="…png" alt="Ablauf der KI-Potenzialanalyse" width="…" height="…" /></picture>`, Masse aus der tatsächlichen Datei. Es ist die einzige Referenz auf den alten Namen.
 - [ ] Workflow-Modultabelle gegen tatsächlich vorhandene Modulassets prüfen — offen
 
 ## Detailseiten
@@ -84,6 +88,12 @@ Keine abgeschlossenen historischen Entscheidungen, Designregeln oder Projektbesc
 - [ ] Texte jeder Detailseite vollständig freigeben — offen
 - [ ] Framework je Detailseite mit mindestens der freigegebenen Anzahl Module/Schritte prüfen — offen
 - [ ] Hero-Visual je Detailseite zuordnen — offen
+- [ ] **Platzhalter `Ablauf/DATEI` ersetzen, je Seite beim Durchgehen der jeweiligen Seite** — offen
+  - 14 Seiten binden `assets/Module/Ablauf/DATEI.webp` und `assets/Module/Ablauf/DATEI.png` ein. `DATEI` ist ein nie ersetzter Platzhalter, beide Pfade liefern live HTTP 404.
+  - Betroffen: `detail_roadmap`, `detail_prompt-engineering`, `paket-buero`, `potenzialanalyse-deep`, `detail_workflows`, `detail_seo`, `paket-betreuung`, `detail_ki-software`, `detail_ki-agenten`, `detail_ki-sicherheit`, `detail_automationen`, `detail_warum-nurovelle`, `paket-handwerk`, `detail_sprachassistenten`.
+  - Im Ordner liegen die echten Motive je als PNG und WebP, unter anderem `aufgabe_erfassen`, `Prozesse_planen`, `daten_prüfen1`, `lösung_wählen`, `ki_potential`.
+  - Welches Motiv auf welche Seite gehört, ist nicht entschieden. Der Nutzer hat am 2026-11-14 festgelegt, das bei der jeweiligen Seite zu klären, nicht pauschal.
+  - Gefunden am 2026-11-14 bei der Arbeit an `analyse.html`, dort nicht vorhanden.
 - [ ] verwandte Leistungen je Seite final zuordnen — offen
 - [ ] FAQ je Detailseite final prüfen — offen
 - [ ] Kontakt-/Erstgesprächskomponente final prüfen — offen
