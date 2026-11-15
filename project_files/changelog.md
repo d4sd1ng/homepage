@@ -1,3 +1,23 @@
+## 2026-11-15 - Pflichtpruefung als ein Befehl
+
+Status: geprueft
+
+Neu: `tools/pruefung/pruefe-seite.cjs`, dazu `tools/pruefung/README.md` und `tools/pruefung/freigaben/`. Das Skript liest nur und aendert nichts. Es prueft eine umgestellte Detailseite in einem Durchgang gegen zehn Regeln und gibt je Regel bestanden oder abweichend aus:
+
+Shared Header und Footer, Assetpfade, Trennlinien, keine fremden Texte, Links wie in der Quelle, vollstaendige Sektionskoepfe, Werte aus Styleguide 21, gleicher Einzug in jedem Block, kein waagerechter Ueberlauf, saubere Konsole. Gemessen wird immer bei 390, 768, 1100, 1440, 1600, 1920 und 2560 px, nie nur bei einer Breite.
+
+Freigegebene Abweichungen stehen je Seite in `freigaben/<seite>.json`. Fuer `preview-detail_roadmap` sind das die vier am 2026-11-15 festgelegten Texte und der mit der Abschluss-Sektion entfallene Link `index.html#leistungen`.
+
+`preview-detail_roadmap.html` besteht alle zehn Regeln.
+
+**Befund aus dem Gegentest gegen die Vorlage:** `analyse.html` selbst besteht drei Regeln nicht.
+
+- Einzug: bei 1440 px messen Karten, `num-list`, `media-split`, breites Feld und FAQ-Raster einen Einzug von 1 px, bei 1100 px von 0 px. Der am 2026-11-15 festgelegte Mindesteinzug von 32 px ist dort nicht umgesetzt; die Vorlage steht noch auf dem reinen „1300 mittig".
+- Daraus folgend sind die Bloecke bei 1440 px 1300 statt 1238 px breit und bei 1100 px 994 statt 930 px.
+- Der Sektion `faq` fehlt die Subline.
+
+Nicht geaendert: `analyse.html` ist eine freigegebene, live stehende Seite. Ob sie nachgezogen wird, ist eine Entscheidung des Nutzers und in `todo.md` aufgenommen.
+
 ## 2026-11-15 - Einzug des Inhalts auf 32 px Mindestwert
 
 Status: offen, wartet auf Abnahme

@@ -98,6 +98,12 @@ Keine abgeschlossenen historischen Entscheidungen, Designregeln oder Projektbesc
   - Footer in drei Fassungen plus drei Ausreisser.
   - Der Unterschied Vorlage zu `index.html` ist kein Fehler: die Startseite verlinkt ihre Anker seitenlokal (`#hero`), jede Unterseite ueber `index.html#hero`.
   - Erledigt sich Seite fuer Seite mit der Umstellung auf die Vorlage, weil jede Seite als Kopie von `analyse.html` entsteht.
+- [ ] **analyse.html auf den 32-px-Einzug nachziehen** — offen
+  - Die Vorlage steht noch auf dem reinen „1300 mittig": Einzug 1 px bei 1440, 0 px bei 1100. Der am 2026-11-15 festgelegte Mindesteinzug von 32 px fehlt dort.
+  - Folge: Bloecke 1300 statt 1238 bei 1440 px, 994 statt 930 bei 1100 px. Nebeneinander sehen Vorlage und umgestellte Seiten unterschiedlich aus.
+  - Ausserdem fehlt der Sektion `faq` die Subline.
+  - Nachweis: `node tools/pruefung/pruefe-seite.cjs analyse.html`
+  - Nicht geaendert, weil `analyse.html` freigegeben ist und live steht.
 - [ ] endgültige Liste aller Leistungsdetailseiten gegen den zuletzt erarbeiteten Contentstand prüfen — offen
 - [ ] gemeinsame Detailseiten-Struktur final gegen die zuletzt erarbeiteten Seiten prüfen — offen
 - [ ] Texte jeder Detailseite vollständig freigeben — offen
