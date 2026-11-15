@@ -1,3 +1,28 @@
+## 2026-11-15 - Meta-Luecke auf analyse.html geschlossen
+
+Status: geprueft
+
+`analyse.html` war die einzige von 25 Seiten ohne Canonical, ohne `og:`-Angaben und ohne Favicon. Beim Teilen gab es dadurch keine Vorschau, und Suchmaschinen fehlte die kanonische Adresse.
+
+Ergaenzt nach dem Muster der uebrigen 24 Seiten, elf Zeilen hinter der Description:
+
+- `<link rel="canonical" href="https://nurovelle.de/homepage/analyse.html" />`
+- `<link rel="icon" type="image/png" href="assets/favicon.png" />`
+- `<link rel="apple-touch-icon" href="assets/apple-touch-icon.png" />`
+- `og:type` `website`, `og:site_name` `Nurovelle`, `og:locale` `de_DE`
+- `og:url` und `og:title` und `og:description` aus den vorhandenen Angaben der Seite, Wortlaut unveraendert
+- `og:image` `https://nurovelle.de/homepage/assets/hero/round.png`, wie auf allen anderen Seiten
+- `<meta name="twitter:card" content="summary_large_image" />`
+
+**Zusaetzlich gefunden und behoben:** `<meta charset>` und `<meta name="viewport">` standen zweimal im Kopf, ein weiterer Rest der fehlerhaften Zusammenfuehrung, aus der schon die doppelte Description, der doppelte Icon-Sprite und das doppelte Header-Skript stammten. Das zweite Vorkommen ist entfernt; beide stehen jetzt genau einmal.
+
+Gemessen nach der Aenderung bei 1440 px: Canonical, Favicon, Apple-Touch-Icon, sieben `og:`-Angaben und `twitter:card` vorhanden, `charset` und `viewport` je einmal. Hero unveraendert bei 740,324 und 631 x 355 px, waagerechter Ueberlauf 0, keine Konsolenfehler, keine Fehlantworten. Die zuvor gemeldete 404-Antwort auf `/favicon.ico` faellt damit weg.
+
+**Nicht geaendert, weil Entscheidungen, beide in `todo.md` aufgenommen:**
+
+- Das Titelmuster. `analyse.html` traegt `Nurovelle | KI-Potenzialanalyse`, die uebrigen Seiten die umgekehrte Reihenfolge, etwa `KI-Beratung und KI-Roadmap für KMU | Nurovelle`. Der Titeltext ist unangetastet geblieben.
+- Das Vorschaubild. Alle Seiten verweisen auf dasselbe `assets/hero/round.png`. Ob jede Seite ein eigenes bekommt, ist nicht entschieden.
+
 ## 2026-11-15 - todo.md vollstaendig gegen den Projektstand geprueft
 
 Status: geprueft
