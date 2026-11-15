@@ -72,7 +72,9 @@ Keine abgeschlossenen historischen Entscheidungen, Designregeln oder Projektbesc
 - [ ] Potenzialanalyse-/Formularflow vollständig testen — offen
 - [ ] Notion-/Lead-/Nurturing-Integration im realen Flow prüfen — offen
 - [ ] Downloadziele und Success-/Error-Verhalten prüfen — offen
-- [ ] Meta Title / Description / Canonical / OG — **am 2026-11-15 geprueft, eine Luecke**: 24 von 25 Seiten haben Description, Canonical und sieben oder mehr `og:`-Angaben. **`analyse.html` hat kein `rel="canonical"`, keine einzige `og:`-Angabe und kein `rel="icon"`.** Die uebrigen Seiten sind vollstaendig.
+- [x] Meta Title / Description / Canonical / OG — **fertig** am 2026-11-15. Alle 25 Seiten tragen Description, Canonical, Favicon, Apple-Touch-Icon, sieben `og:`-Angaben und `twitter:card`. `analyse.html` war die letzte Luecke und ist nachgezogen.
+- [ ] Titelmuster vereinheitlichen — offen: `analyse.html` traegt `Nurovelle | KI-Potenzialanalyse`, die uebrigen Seiten die umgekehrte Reihenfolge, etwa `KI-Beratung und KI-Roadmap für KMU | Nurovelle`. Welche Reihenfolge gelten soll, ist nicht entschieden; der Titeltext wurde deshalb nicht angefasst.
+- [ ] `og:image` je Seite pruefen — offen: Alle Seiten verweisen auf dasselbe Bild `assets/hero/round.png`. Ob jede Seite ein eigenes Vorschaubild bekommen soll, ist nicht entschieden.
 - [x] Impressum und Datenschutz verlinken — **fertig**, am 2026-11-15 geprueft: `impressum.html`, `datenschutz.html` und `agb.html` sind von allen 25 Seiten verlinkt. `cookie-hinweis.html` nur von sieben; ob das so gewollt ist, ist nicht entschieden.
 
 ## Assets
