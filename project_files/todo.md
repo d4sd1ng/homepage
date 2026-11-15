@@ -1,7 +1,9 @@
 # Nurovelle Homepage – Todo
 
-Stand: 2026-08-30  
+Stand: 2026-11-15  
 Status: in Arbeit
+
+Zuletzt am 2026-11-15 vollstaendig gegen den tatsaechlichen Projektstand geprueft. Punkte, die sich dabei als erledigt oder als ueberholt herausgestellt haben, sind entsprechend gekennzeichnet.
 
 ## Zweck dieser Datei
 
@@ -21,8 +23,8 @@ Keine abgeschlossenen historischen Entscheidungen, Designregeln oder Projektbesc
 - [x] `nurovelle-tokens.css` auf Styleguide-Hoheit umstellen — fertig
 - [ ] `decision_log.md` künftig bei jeder neuen Freigabe unmittelbar aktualisieren — offen
 - [ ] `changelog.md` bei jeder tatsächlichen Änderung unmittelbar aktualisieren — offen
-- [ ] `nurovelle-tokens.css` liegt doppelt (`project_files/` und `homepage/`) und lief inhaltlich auseinander; eine der beiden zur alleinigen Quelle machen und die andere daraus erzeugen — offen
-- [ ] sieben Gold-SVG-Wortmarken unter `homepage/assets/hero/` sind in keinem Commit und deshalb live nicht abrufbar; einchecken oder verwerfen — offen
+- [ ] `nurovelle-tokens.css` liegt doppelt und laeuft auseinander — **am 2026-11-15 nachgemessen**: `homepage/nurovelle-tokens.css` 5037 Bytes, `project_files/nurovelle-tokens.css` 4442 Bytes, **84 abweichende Zeilen**. Ausgeliefert wird die Fassung unter `homepage/`. Eine der beiden zur alleinigen Quelle machen und die andere daraus erzeugen — offen
+- [x] sieben Gold-SVG-Wortmarken unter `homepage/assets/hero/` — **ueberholt**, am 2026-11-15 geprueft: In `homepage/assets/hero/` liegt keine einzige SVG-Datei. Vorhanden sind drei PNG (`Nurovelle_schrift_gold.png`, `nurovelle_logo_gold.png`, `round.png`), und alle drei sind eingecheckt. Der Punkt beschreibt einen Zustand, den es nicht mehr gibt.
 
 ## Zahlung / Stripe
 
@@ -44,8 +46,12 @@ Keine abgeschlossenen historischen Entscheidungen, Designregeln oder Projektbesc
 
 ## Homepage – Design / Komponenten
 
-- [ ] Exo 2 und Inter als Webfont in die Website einbinden (self-hosted, OFL-Dateien liegen unter `/usr/local/share/fonts/nurovelle/`) — offen
-- [ ] Produktionscode auf `--font-display` prüfen: Stellen finden, die noch fest Tapera, Eastman Grotesque oder einen alten Stack setzen — offen
+- [x] Exo 2 und Inter als Webfont einbinden (self-hosted) — **fertig**, am 2026-11-15 geprueft: `homepage/assets/fonts/fonts.css` deklariert Exo 2 und Inter, acht `woff2`-Dateien liegen daneben, 34 Seiten binden die Datei ein. `analyse.html` war die letzte Ausnahme und ist am 2026-11-14 von Google Fonts auf lokal umgestellt. Keine Seite laedt noch von `fonts.googleapis.com`.
+- [ ] Produktionscode auf alte Schriftstacks pruefen — **praezisiert am 2026-11-15**, nichts davon ist live wirksam:
+  - `Tapera` und `Coder Pro`: kommen im Projekt nicht mehr vor.
+  - `Eastman Grotesque`: zehn `font-family`-Fundstellen, ausschliesslich in `homepage/xcomponents/` (`nurovelle-service-cards.css`, `nurovelle-resources-contact-faq.css`, `nurovelle-section-rhythm.css`). Dieser Ordner ist im Deploy per `--exclude='xcomponents/'` ausgeschlossen und wird von keiner Seite eingebunden. Entscheidung noetig: Ordner loeschen oder bereinigen.
+  - `Bebas Neue` und `Raleway`: in `assets/fonts/fonts.css` deklariert und in `xcomponents/nurovelle-tilt-card.css` gesetzt. In `datenschutz.html` werden sie nur im Rechtstext genannt, nicht gesetzt. Entscheidung noetig: Deklaration aus `fonts.css` entfernen oder die vier `woff2`-Dateien behalten.
+  - `Roboto`: nur in `homepage/stripe-sample-code/public/style.css`, also im Beispielcode.
 - [ ] **Goldwort-Regel: Entscheidung steht aus** — blockiert
   - `styleguide.md` Zeile 106: auf der Website trägt die Überschrift den Goldverlauf über den **kompletten** Text, „und so bleibt es".
   - Diese Datei verlangte bisher das Gegenteil: genau ein tragendes Wort je Überschrift.
@@ -66,22 +72,19 @@ Keine abgeschlossenen historischen Entscheidungen, Designregeln oder Projektbesc
 - [ ] Potenzialanalyse-/Formularflow vollständig testen — offen
 - [ ] Notion-/Lead-/Nurturing-Integration im realen Flow prüfen — offen
 - [ ] Downloadziele und Success-/Error-Verhalten prüfen — offen
-- [ ] Meta Title / Description / Canonical / OG prüfen — offen
-- [ ] Impressum und Datenschutz verlinken/testen — offen
+- [ ] Meta Title / Description / Canonical / OG — **am 2026-11-15 geprueft, eine Luecke**: 24 von 25 Seiten haben Description, Canonical und sieben oder mehr `og:`-Angaben. **`analyse.html` hat kein `rel="canonical"`, keine einzige `og:`-Angabe und kein `rel="icon"`.** Die uebrigen Seiten sind vollstaendig.
+- [x] Impressum und Datenschutz verlinken — **fertig**, am 2026-11-15 geprueft: `impressum.html`, `datenschutz.html` und `agb.html` sind von allen 25 Seiten verlinkt. `cookie-hinweis.html` nur von sieben; ob das so gewollt ist, ist nicht entschieden.
 
 ## Assets
 
 - [ ] `assets.md` gegen den realen Projektordner physisch abgleichen — offen
 - [ ] Download-Dateiendungen und endgültige Dateinamen prüfen — offen
-- [ ] Analyse-Grafiken `assets/analyse/1.png` bis `8.png` auf finalen Nurovelle-Stil prüfen — offen
+- [ ] Analyse-Grafiken auf finalen Nurovelle-Stil pruefen — **Pfad korrigiert am 2026-11-15**: Der Ordner `assets/analyse/` existiert nicht. Gemeint ist `homepage/assets/Module/analyse/`, dort liegen `1.png`, `2.png`, `2.webp`, `3.png`, `4.png`, also vier Motive statt acht.
 - [ ] Hero-/Detailseiten-Assets auf Transparenz und Stilkonstanz prüfen — offen
 - [ ] **Neu benannte Modulgrafiken einbinden** — offen
   - Am 2026-11-15 benannt und bisher auf keiner Seite verwendet: `seo.png`, `web.png`, `data.png`, `ausschuss.png`, `google.svg`, `datenaufbereitung.png`, `datenschutz.png`, `sicherung.png`, `api2.png`, `mitarbeiterfreigabe.png`.
   - Wo sie eingesetzt werden, ist nicht entschieden.
-- [ ] **Analyse-Hero auf `analyse_detail_page` umstellen** — offen
-  - Der Nutzer hat die Analysegrafik lokal in `analyse_detail_page.png` und `analyse_detail_page.webp` umbenannt, damit sie namentlich zu `chatbot_detail_page.png` und `daten_detail_page.png` passt. Beide Dateien sind am 2026-11-14 noch nicht im Repository und live 404.
-  - Bestätigt: die WebP ist dieselbe Grafik wie die PNG.
-  - Sobald die Dateien eingecheckt sind: `homepage/analyse.html` Zeile 803, Hero-Verweis von `assets/detail_pages_grafics/sockel_loaded_analyse.png` auf das Projektmuster umstellen, `<picture><source srcset="…webp" type="image/webp" /><img src="…png" alt="Ablauf der KI-Potenzialanalyse" width="…" height="…" /></picture>`, Masse aus der tatsächlichen Datei. Es ist die einzige Referenz auf den alten Namen.
+- [x] **Analyse-Hero auf `analyse_detail_page` umstellen** — **fertig** am 2026-11-14. Hero in `analyse.html` nutzt `<picture>` mit `analyse_detail_page.webp` und `.png`, 1672 x 941. `sockel_loaded_analyse.png` ist geloescht.
 - [ ] Workflow-Modultabelle gegen tatsächlich vorhandene Modulassets prüfen — offen
 
 ## Detailseiten
@@ -98,7 +101,7 @@ Keine abgeschlossenen historischen Entscheidungen, Designregeln oder Projektbesc
   - Welche Grafik auf welche Seite gehört, ist nicht entschieden. Der Nutzer klärt das bei der jeweiligen Seite, nicht pauschal.
   - `width="620" height="507"` ist am 2026-11-14 aus der Anleitung entfernt. Die Zahlen stammten aus `assets/Module/Ablauf/lösung_wählen.png`, das tatsächlich 620 x 507 misst, und passten zu keiner Hero-Grafik; zwölf von vierzehn sind 1672 x 941, dazu `ki_roadmap` 1659 x 948, `ki_software` 1912 x 823 und `seo` 1774 x 887. Beim Einsetzen werden die echten Masse der jeweiligen Datei eingetragen.
   - `alt="Ablauf"` ist am 2026-11-15 durch den Platzhalter `alt="BESCHREIBUNG"` ersetzt, zusammen mit einem Hinweis im Kommentar. Beim Einsetzen werden `DATEI` und `BESCHREIBUNG` ersetzt: Dateiname ohne Endung und ein Alternativtext, der das Motiv beschreibt.
-  - Vorhandene Grafiken in `assets/detail_pages_grafics/`: `betreuung`, `büro`, `chatbot`, `daten`, `gouvernance`, `handwerk`, `ki_agenten`, `ki_roadmap`, `ki_software`, `prompt_engineering`, `prozessautomation`, `seo`, `sprachassistent`, jeweils als `<name>_detail_page.png`, vier davon zusätzlich als `.webp`.
+  - Vorhandene Grafiken in `assets/detail_pages_grafics/`: `analyse`, `betreuung`, `büro`, `chatbot`, `daten`, `governance`, `handwerk`, `ki_agenten`, `ki_roadmap`, `ki_software`, `prompt_engineering`, `prozessautomatisierung`, `seo`, `sprachassistent`, jeweils als `<name>_detail_page.png`, fuenf davon zusaetzlich als `.webp`.
 - [ ] verwandte Leistungen je Seite final zuordnen — offen
 - [ ] FAQ je Detailseite final prüfen — offen
 - [ ] Kontakt-/Erstgesprächskomponente final prüfen — offen
