@@ -1,25 +1,3 @@
-## 2026-11-15 - Einzug des Inhalts auf 64 px Mindestwert
-
-Status: offen, wartet auf Abnahme
-
-Der Inhalt war nicht sichtbar eingerueckt. Grund: Die Regel „Inhalt 1300 px, mittig im `.section-inner`" ergibt bei 1440 px nur 1 px Einzug, weil der `.section-inner` dort 1302 px misst. Die Meldung „auf Soll" war formal richtig gegen den Zahlenwert und sachlich wertlos.
-
-Vom Nutzer festgelegt: **64 px Mindesteinzug je Seite.** Umgesetzt an jedem Inhaltsblock mit `width:auto` und `margin-left`/`margin-right: max(64px, calc(50% - 650px))`. Geaendert wurden die bestehenden Regeln direkt, keine Overrides, kein neues `!important`:
-
-- die Sammelregel fuer `.analysis-intro-cards`, `#leistungen .num-list` und `#einsatzbereiche > .section-inner > .panel`
-- `#einsatzbereiche .chip-list`
-- `.faq-grid`
-- `#warum .media-split` und `#nutzen .media-split--visual-left`
-- die Regel fuer `.text`
-
-Gemessen, jeder der sieben Bloecke gleich: 1440 px Einzug 64, Inhalt 133..1307; 1600 px Einzug 73, 150..1450; 1920 px Einzug 130, 310..1610; 2560 px Einzug 130, 630..1930.
-
-**Folge bei 1440 px:** 1300 + 2 x 64 = 1428 passt nicht in 1302 px. Der Inhalt ist dort 1174 px breit statt 1300, dadurch Karte 571 statt 634, `num-list`-Eintrag 559 statt 622, Textspalte 574 statt 700. Das Bild bleibt 544. Ab 1600 px stimmen alle Werte aus Styleguide 21 wieder exakt.
-
-`styleguide.md` Abschnitt 21.1 ist um die Regel, die Formel und beide Wertetabellen ergaenzt.
-
-Ueberlauf 0 bei 390, 768, 1100, 1440, 1600, 1920 und 2560 px. Konsole sauber.
-
 ## 2026-11-15 - Definitionssektion vervollstaendigt, Einrueckung des Fliesstextes korrigiert
 
 Status: offen, wartet auf Abnahme
