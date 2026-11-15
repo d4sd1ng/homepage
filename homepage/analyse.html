@@ -241,7 +241,7 @@ main h3 { font: var(--w-zwischentitel) var(--t-zwischentitel)/1.2 "Exo 2",Inter,
 @media (max-width: 640px) { .chip-list { grid-template-columns: 1fr; } }
 
 /* ---------- FAQ ---------- */
-.faq-grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 16px 20px; align-items: start; width: 100%; max-width: 1300px; margin: 16px auto 0; }
+.faq-grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 16px 20px; align-items: start; width: auto; margin: 16px max(32px, calc(50% - 650px)) 0; }
 .faq-item summary { list-style: none; cursor: pointer; }
 .faq-item summary::-webkit-details-marker { display: none; }
 .faq-item summary > span { display: flex; width: 100%; box-sizing: border-box; align-items: center; justify-content: space-between; gap: 12px; min-height: 44px; padding: 8px 14px; border-radius: 0.3em; border: 1px solid var(--nv-gold-border); background-image: var(--nv-gold-gradient); background-position: center; background-size: 100% 100%; box-shadow: 0 3px 6px var(--shadow-soft), 0 3px 6px var(--shadow-soft-2), inset 0 -2px 5px 1px var(--nv-gold-inner-dark), inset 0 -1px 1px 3px var(--nv-gold-highlight); color: var(--nv-gold-text-dark); text-align: left; white-space: normal; font-family: "Inter",Arial,sans-serif; font-size: var(--t-cta); font-weight: 700; line-height: 1.2; letter-spacing: 0.045em; text-shadow: 0 2px 2px var(--nv-gold-highlight); text-transform: uppercase; transition: all 0.2s ease-in-out; }
@@ -423,9 +423,9 @@ h1, main h2 {\n  -webkit-text-stroke: .6px rgba(255,248,207,.40);\n  background-
 
 /* Targeted correction: larger section images + more vertical air between application rows */
 @media(min-width:901px){
-  #warum .media-split{grid-template-columns:minmax(0,1fr) 544px!important;gap:56px!important;width:100%!important;max-width:1300px!important;margin-left:auto!important;margin-right:auto!important;}
+  #warum .media-split{grid-template-columns:minmax(0,1fr) 544px!important;gap:56px!important;width:auto!important;margin-left:max(32px, calc(50% - 650px))!important;margin-right:max(32px, calc(50% - 650px))!important;}
   #warum .section-photo{max-width:544px!important;width:100%!important;}
-  #nutzen .media-split--visual-left{grid-template-columns:544px minmax(0,1fr)!important;gap:56px!important;width:100%!important;max-width:1300px!important;margin-left:auto!important;margin-right:auto!important;}
+  #nutzen .media-split--visual-left{grid-template-columns:544px minmax(0,1fr)!important;gap:56px!important;width:auto!important;margin-left:max(32px, calc(50% - 650px))!important;margin-right:max(32px, calc(50% - 650px))!important;}
   #nutzen .section-photo{max-width:544px!important;width:100%!important;}
 }
 #einsatzbereiche .pair-grid{row-gap:20px!important;column-gap:18px!important;}
@@ -484,10 +484,9 @@ h1, main h2 {\n  -webkit-text-stroke: .6px rgba(255,248,207,.40);\n  background-
 #leistungen .num-list,
 #einsatzbereiche > .section-inner > .panel,
 #analyse-formular .analysis-layout{
-  width:100%;
-  max-width:1300px;
-  margin-left:auto;
-  margin-right:auto;
+  width:auto;
+  margin-left:max(32px, calc(50% - 650px));
+  margin-right:max(32px, calc(50% - 650px));
 }
 
 .hero-viewport{
@@ -602,6 +601,12 @@ h1, main h2 {\n  -webkit-text-stroke: .6px rgba(255,248,207,.40);\n  background-
   margin-top:var(--analysis-sub-body-gap);
 }
 
+/* Styleguide 21.1: Kicker, Headline und Subline an der Kopfkante,
+   alles andere auf das Inhaltsband eingerueckt, mindestens 32 px. */
+.section:not(#hero) .media-copy > .text,
+.section:not(#hero) > .section-inner > .text{
+  margin-left:max(32px, calc(50% - 650px));
+}
 #leistungen .num-list{
   margin-top:0;
   row-gap:52px;
@@ -921,7 +926,7 @@ h1, main h2 {\n  -webkit-text-stroke: .6px rgba(255,248,207,.40);\n  background-
 <div class="section-divider" aria-hidden="true"></div>
 
 <!-- ============================ 8. FAQ ============================ -->
-<section class="section" id="faq"><div class="section-inner"><div class="kicker">Häufige Fragen</div><h2>FAQ</h2><div class="faq-grid"><details class="faq-item"><summary><span>Ist die Analyse wirklich kostenlos?</span></summary><p>Ja. Die erste Einschätzung ist kostenlos und dient dazu, sinnvolle Potenziale zu erkennen.</p></details><details class="faq-item"><summary><span>Muss bereits ein KI-System vorhanden sein?</span></summary><p>Nein. Die Analyse startet bei Ihren bestehenden Abläufen, Daten und Aufgaben.</p></details><details class="faq-item"><summary><span>Für welche Unternehmen passt das?</span></summary><p>Für Unternehmen mit wiederkehrenden Aufgaben, manuellen Dokumentenprozessen oder verteilten Datenquellen.</p></details><details class="faq-item"><summary><span>Welche Bereiche werden untersucht?</span></summary><p>Untersucht werden Prozesse, Dokumente, Datenflüsse, Wissenszugriffe, Systembrüche und standardisierte Kommunikationsvorgänge.</p></details><details class="faq-item"><summary><span>Ersetzt die Analyse eine technische Konzeption?</span></summary><p>Nein. Sie dient der Ersteinschätzung und Priorisierung. Für die Umsetzung kann anschließend eine technische Detailkonzeption erforderlich sein.</p></details><details class="faq-item"><summary><span>Wie werden Anwendungsfälle priorisiert?</span></summary><p>Bewertet werden Nutzen, Häufigkeit, Datenlage, Integrationsaufwand, Risiko und Erweiterbarkeit.</p></details><details class="faq-item"><summary><span>Was erhalte ich als Ergebnis?</span></summary><p>Sie erhalten eine strukturierte Einordnung der identifizierten Potenziale und Empfehlungen für die nächsten Schritte.</p></details><details class="faq-item"><summary><span>Was folgt nach der Analyse?</span></summary><p>Je nach Ergebnis kann eine KI-Roadmap, ein Pilotprojekt oder zunächst eine vorbereitende Prozess- und Datenarbeit folgen.</p></details></div></div></section>
+<section class="section" id="faq"><div class="section-inner"><div class="kicker">Häufige Fragen</div><h2>FAQ</h2><p class="sub">Die wichtigsten Informationen zur Potenzialanalyse.</p><div class="faq-grid"><details class="faq-item"><summary><span>Ist die Analyse wirklich kostenlos?</span></summary><p>Ja. Die erste Einschätzung ist kostenlos und dient dazu, sinnvolle Potenziale zu erkennen.</p></details><details class="faq-item"><summary><span>Muss bereits ein KI-System vorhanden sein?</span></summary><p>Nein. Die Analyse startet bei Ihren bestehenden Abläufen, Daten und Aufgaben.</p></details><details class="faq-item"><summary><span>Für welche Unternehmen passt das?</span></summary><p>Für Unternehmen mit wiederkehrenden Aufgaben, manuellen Dokumentenprozessen oder verteilten Datenquellen.</p></details><details class="faq-item"><summary><span>Welche Bereiche werden untersucht?</span></summary><p>Untersucht werden Prozesse, Dokumente, Datenflüsse, Wissenszugriffe, Systembrüche und standardisierte Kommunikationsvorgänge.</p></details><details class="faq-item"><summary><span>Ersetzt die Analyse eine technische Konzeption?</span></summary><p>Nein. Sie dient der Ersteinschätzung und Priorisierung. Für die Umsetzung kann anschließend eine technische Detailkonzeption erforderlich sein.</p></details><details class="faq-item"><summary><span>Wie werden Anwendungsfälle priorisiert?</span></summary><p>Bewertet werden Nutzen, Häufigkeit, Datenlage, Integrationsaufwand, Risiko und Erweiterbarkeit.</p></details><details class="faq-item"><summary><span>Was erhalte ich als Ergebnis?</span></summary><p>Sie erhalten eine strukturierte Einordnung der identifizierten Potenziale und Empfehlungen für die nächsten Schritte.</p></details><details class="faq-item"><summary><span>Was folgt nach der Analyse?</span></summary><p>Je nach Ergebnis kann eine KI-Roadmap, ein Pilotprojekt oder zunächst eine vorbereitende Prozess- und Datenarbeit folgen.</p></details></div></div></section>
 </main>
 <footer class="footer" id="footer">
       <div class="footer-inner">

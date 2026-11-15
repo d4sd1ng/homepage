@@ -518,7 +518,32 @@ Der `.section-inner` ist nicht fest, er waechst bis `--content-max: 1560px`. Des
 
 Das gilt fuer jede Art von Inhalt: Karten, Bulletpoint-Listen, nummerierte Listen, `media-split`-Bloecke, Formularbloecke und das FAQ-Raster.
 
-Umgesetzt wird es mit `width:100%`, `max-width:1300px` und `margin-left:auto; margin-right:auto` am Inhaltsblock. Ein Block ohne `max-width` waechst mit dem Fenster mit und ist dann zu breit.
+**Einzug: 32 px Mindestwert, am 2026-11-15 vom Nutzer festgelegt.**
+
+Die Regel „1300 px mittig" allein erzeugt bei 1440 px nur 1 px Einzug, weil der `.section-inner` dort 1302 px misst. Das ist kein sichtbarer Einzug. Deshalb gilt ein Mindesteinzug von 32 px je Seite.
+
+Umgesetzt wird es am Inhaltsblock mit:
+
+```
+width:auto;
+margin-left:max(32px, calc(50% - 650px));
+margin-right:max(32px, calc(50% - 650px));
+```
+
+`calc(50% - 650px)` ist der Abstand, der die 1300 px mittig setzt. `max()` hebt ihn auf mindestens 32 px an. Ab rund 1577 px Fensterbreite uebernimmt der 1300er Wert, darunter gilt der feste Einzug.
+
+Gemessen danach, jeder Inhaltsblock gleich:
+
+| Fensterbreite | Kopfkante | Inhalt | Breite | Einzug |
+| --- | --- | --- | --- | --- |
+| 1440 px | 69 | 101 .. 1339 | 1238 | 32 |
+| 1600 px | 77 | 150 .. 1450 | 1300 | 73 |
+| 1920 px | 180 | 310 .. 1610 | 1300 | 130 |
+| 2560 px | 500 | 630 .. 1930 | 1300 | 130 |
+
+**Folge bei 1440 px:** 1300 + 2 x 32 = 1364 passt nicht in den 1302 px breiten `.section-inner`. Der Inhalt ist dort 1238 px breit, nicht 1300. Die abgeleiteten Werte schrumpfen entsprechend: Karte 603 statt 634, `num-list`-Eintrag 591 statt 622, Textspalte im `media-split` 638 statt 700. Das Bild bleibt bei 544 px. Ab 1600 px stimmen alle Werte wieder exakt.
+
+Ein Block ohne diese Begrenzung waechst mit dem Fenster mit und ist dann zu breit.
 
 Referenz ist die Definitionssektion: zwei Karten zu je 634 px mit 32 px Spalte, zusammen 1300 px. Am 2026-11-14 vom Nutzer festgelegt und an dieser Sektion gemessen.
 

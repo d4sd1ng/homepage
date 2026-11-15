@@ -1,3 +1,198 @@
+## 2026-11-15 - analyse.html auf den 32-px-Einzug nachgezogen
+
+Status: offen, wartet auf Abnahme
+
+Die Vorlage stand noch auf dem reinen „1300 mittig" und hatte bei 1440 px nur 1 px Einzug, bei 1100 px gar keinen. Nachgezogen mit derselben Umsetzung wie auf der Roadmap-Preview, an den bestehenden Regeln selbst, ohne Overrides und ohne neues `!important`:
+
+- die Sammelregel fuer `.analysis-intro-cards`, `#leistungen .num-list`, `#einsatzbereiche > .section-inner > .panel` und `#analyse-formular .analysis-layout`
+- `.faq-grid`
+- `#warum .media-split` und `#nutzen .media-split--visual-left`
+- neu: die Regel fuer `.text` auf Sektionsebene
+
+Gemessen bei 1440 px nach der Aenderung: Kopfkante 69, Karten, `num-list`, FAQ-Raster und Formularblock jeweils 101 .. 1339, Breite 1238. Hero unveraendert bei 740 .. 1371, 631 px. Ueberlauf 0 bei allen sieben Breiten, Konsole sauber.
+
+Im Pruefskript korrigiert: Fliesstext innerhalb einer Karte traegt deren Innenabstand und wird nicht mehr als Inhaltsblock auf Sektionsebene gewertet. Der Selektor ist jetzt `:is(.section-inner, .media-copy) > .text`.
+
+Die fehlende Subline der FAQ-Sektion ist gesetzt: `Die wichtigsten Informationen zur Potenzialanalyse.` Vom Nutzer am 2026-11-15 freigegeben. Damit besteht `analyse.html` alle zehn Regeln der Pflichtpruefung.
+
+## 2026-11-15 - Pflichtpruefung als ein Befehl
+
+Status: geprueft
+
+Neu: `tools/pruefung/pruefe-seite.cjs`, dazu `tools/pruefung/README.md` und `tools/pruefung/freigaben/`. Das Skript liest nur und aendert nichts. Es prueft eine umgestellte Detailseite in einem Durchgang gegen zehn Regeln und gibt je Regel bestanden oder abweichend aus:
+
+Shared Header und Footer, Assetpfade, Trennlinien, keine fremden Texte, Links wie in der Quelle, vollstaendige Sektionskoepfe, Werte aus Styleguide 21, gleicher Einzug in jedem Block, kein waagerechter Ueberlauf, saubere Konsole. Gemessen wird immer bei 390, 768, 1100, 1440, 1600, 1920 und 2560 px, nie nur bei einer Breite.
+
+Freigegebene Abweichungen stehen je Seite in `freigaben/<seite>.json`. Fuer `preview-detail_roadmap` sind das die vier am 2026-11-15 festgelegten Texte und der mit der Abschluss-Sektion entfallene Link `index.html#leistungen`.
+
+`preview-detail_roadmap.html` besteht alle zehn Regeln.
+
+**Befund aus dem Gegentest gegen die Vorlage:** `analyse.html` selbst besteht drei Regeln nicht.
+
+- Einzug: bei 1440 px messen Karten, `num-list`, `media-split`, breites Feld und FAQ-Raster einen Einzug von 1 px, bei 1100 px von 0 px. Der am 2026-11-15 festgelegte Mindesteinzug von 32 px ist dort nicht umgesetzt; die Vorlage steht noch auf dem reinen „1300 mittig".
+- Daraus folgend sind die Bloecke bei 1440 px 1300 statt 1238 px breit und bei 1100 px 994 statt 930 px.
+- Der Sektion `faq` fehlt die Subline.
+
+Nicht geaendert: `analyse.html` ist eine freigegebene, live stehende Seite. Ob sie nachgezogen wird, ist eine Entscheidung des Nutzers und in `todo.md` aufgenommen.
+
+## 2026-11-15 - Einzug des Inhalts auf 32 px Mindestwert
+
+Status: offen, wartet auf Abnahme
+
+Die Regel „Inhalt 1300 px, mittig im `.section-inner`" ergibt bei 1440 px nur 1 px Einzug, weil der `.section-inner` dort 1302 px misst. Vom Nutzer festgelegt: **32 px Mindesteinzug je Seite.**
+
+Umgesetzt an jedem Inhaltsblock mit `width:auto` und `margin-left`/`margin-right: max(32px, calc(50% - 650px))`. Geaendert wurden die bestehenden Regeln direkt, keine Overrides, kein neues `!important`: die Sammelregel fuer `.analysis-intro-cards`, `#leistungen .num-list` und `#einsatzbereiche > .section-inner > .panel`, dazu `#einsatzbereiche .chip-list`, `.faq-grid`, `#warum .media-split`, `#nutzen .media-split--visual-left` und die Regel fuer `.text`.
+
+Gemessen, jeder der sieben Bloecke gleich:
+
+| Fensterbreite | Kopfkante | Inhalt | Breite | Einzug |
+| --- | --- | --- | --- | --- |
+| 1440 px | 69 | 101 .. 1339 | 1238 | 32 |
+| 1600 px | 77 | 150 .. 1450 | 1300 | 73 |
+| 1920 px | 180 | 310 .. 1610 | 1300 | 130 |
+| 2560 px | 500 | 630 .. 1930 | 1300 | 130 |
+
+**Folge bei 1440 px:** 1300 + 2 x 32 = 1364 passt nicht in 1302. Der Inhalt ist dort 1238 px breit, dadurch Karte 603 statt 634, `num-list`-Eintrag 591 statt 622, Textspalte 638 statt 700. Das Bild bleibt 544. Ab 1600 px stimmen alle Werte aus Styleguide 21 wieder exakt.
+
+`styleguide.md` Abschnitt 21.1 ist um die Regel, die Formel und die Wertetabelle ergaenzt.
+
+Ueberlauf 0 bei 390, 768, 1100, 1440, 1600, 1920 und 2560 px. Konsole sauber.
+
+## 2026-11-15 - Definitionssektion vervollstaendigt, Einrueckung des Fliesstextes korrigiert
+
+Status: offen, wartet auf Abnahme
+
+**Fliesstext war nicht eingerueckt.** Styleguide 21.1: „Kicker, Headline und Subline sitzen an der linken Inhaltskante. Alles andere ist davon eingerueckt." Alle sechs `.text`-Bloecke standen an der Kopfkante. Gemessen bei 1920 px: 180 statt 310. Bei 1440 px faellt es nicht auf, weil Kopfkante 69 und Inhaltskante 70 fast gleich sind - derselbe Fehlertyp wie zuvor bei der `chip-list`.
+
+Korrigiert mit einer Regel, die den Block auf die linke Kante des 1300er Inhaltsbandes setzt:
+
+```
+.section:not(#hero) .media-copy > .text,
+.section:not(#hero) > .section-inner > .text{ margin-left:max(0px, calc(50% - 650px)); }
+```
+
+Gemessen danach, alle sechs Bloecke: 310 bei 1920 px, 70 bei 1440 px.
+
+**Definitionssektion ergaenzt:** zwei Saetze Fliesstext und der CTA `KI-Roadmap planen` auf `analyse.html`, wie ihn die Vorlage an derselben Stelle traegt. Der Kartentext steht wieder vollstaendig in Karte 1; die Subline lautet `Ein strukturierter Umsetzungspfad fuer Ihre Ziele, Prozesse und Systeme.`
+
+Der Fliesstext der Definitionssektion ist neu geschrieben und vom Nutzer angefordert: „Die Roadmap entsteht aus den Zielen des Unternehmens, den vorhandenen Prozessen und der eingesetzten Systemlandschaft. Statt einer Sammlung einzelner Ideen steht am Ende eine nachvollziehbare Reihenfolge, an der sich Entscheidungen und Budgets ausrichten lassen."
+
+Geprueft: alle Bausteine aus Styleguide 21 bei 1440 und 1920 px auf Soll, Ueberlauf 0 bei sieben Breiten, Konsole sauber.
+
+## 2026-11-15 - SEO-Promo auf preview-detail_roadmap.html eingebaut
+
+Status: offen, wartet auf Abnahme
+
+`assets/seo-check-preview-gunmetal.png`, das SEO-Fenster mit Lupe, ist zweimal eingebaut: in `#leistungen` und in `#faq`, jeweils oben rechts.
+
+Die Komponente ist unveraendert aus `index.html` uebernommen: Markup `aside.seo-placement[data-seo-promo]` mit `seo-placement__display`, `seo-placement__copy`, Text `Kostenloser SEO-Check`, `SEO-Probleme erkennen. Potenziale entdecken.` und Knopf `Website pruefen` auf `detail_seo.html`. Dazu die zehn CSS-Regeln der Komponente und der IntersectionObserver, der `is-visible` setzt, beides zeichengleich.
+
+**Groesse: 240 px breit**, nicht 1536 x 1024. Die Zahlen im `img`-Tag sind die Intrinsic-Masse der Datei; `.seo-placement{width:240px}` skaliert sie. Gemessen bei 390, 768, 900, 1100, 1440, 1920 und 2560 px: ueberall 240 px.
+
+Zwei Platzierungsregeln ergaenzt, seitenlokal, ohne `!important`:
+
+```
+#leistungen > .section-inner, #faq > .section-inner { position: relative; }
+#leistungen > .section-inner > .seo-placement,
+#faq > .section-inner > .seo-placement { top: 0; right: max(0px, calc(50% - 650px)); }
+```
+
+`calc(50% - 650px)` setzt die rechte Kante auf die rechte Kante des 1300er Inhaltsbandes, bei jeder Fensterbreite. Gemessen: 1440 px buendig bei 1370, 1920 px bei 1610, 2560 px bei 1930. Bis 900 px faellt die Komponente wie auf `index.html` in den Textfluss zurueck.
+
+Geprueft: Ueberlauf 0 bei allen sieben Breiten, keine Ueberdeckung von Text, keine JS-Fehler, keine Fehlantworten, Konsole sauber.
+
+Die vier Texte der Komponente (`Kostenloser SEO-Check`, `SEO-Probleme erkennen.`, `Potenziale entdecken.`, `Website pruefen`) stammen aus `index.html`, nicht aus `detail_roadmap.html`. Das ist gewollt: Die Komponente gehoert auf jede Seite, nicht zum Seiteninhalt.
+
+## 2026-11-15 - preview-detail_roadmap.html korrigiert
+
+Status: offen, wartet auf Abnahme
+
+Sechs Fehler der ersten Fassung behoben, alle selbst verursacht:
+
+1. Das Potenzialanalyse-Formular stand auf der Roadmap-Seite. Entfernt, samt Formular-Skriptblock, 364 Zeilen. Detailseiten tragen kein Formular; das einzige `<form>` ist der Newsletter im Footer.
+2. Die Abschluss-Sektion entfaellt ersatzlos. Eine Sektion nur aus Titel, Subline und zwei CTA wird nirgends gebaut. Die Seite hat jetzt sieben Sektionen: Hero, Definition, Ausgangslage, Leistungen, Einsatzbereiche, Nutzen, FAQ.
+3. Hero-CTA zurueck auf `href="analyse.html"` wie im Original, statt `#analyse-formular`.
+4. CTA-Knopf unter den Definition-Karten entfernt; die Roadmap hat ihn nicht.
+5. Kicker `Definition` entfernt; erfunden, im Original nicht vorhanden.
+6. Titel und `og:title` zurueck auf `KI-Beratung und KI-Roadmap für KMU | Nurovelle`.
+
+Zusaetzlich: Die H1 steht wieder auf einer Zeile wie im Original statt in zwei `hero-title-line`-Spans.
+
+Die `chip-list` in `einsatzbereiche` hatte keine Begrenzung und mass ab 1600 px 1560 statt 1300 px. Korrigiert mit `width:100%; max-width:1300px; margin-left:auto; margin-right:auto`, genau der Umsetzung aus Styleguide 21.1. Bei 1440 px war der Fehler nicht sichtbar, weil eine unbegrenzte Sektion dort ebenfalls 70..1370 misst.
+
+Geprueft: `shared-header-footer.css` geladen, Header- und Footer-Block zeichengleich mit `analyse.html`. Alle Bausteine aus Styleguide 21 bei 1440 und 1920 px auf Soll: Karte 634, breites Einzelfeld 1300, `num-list` 1300, Eintrag 622, beide `media-split` 1300, FAQ-Raster 1300, `chip-list` 1300. Kein Textstueck im Preview, das nicht aus `detail_roadmap.html` stammt. Links im Inhalt: nur `analyse.html` im Hero, wie im Original. Ueberlauf 0 bei 390, 768, 1100, 1440, 1600, 1920 und 2560 px. Keine JS-Fehler, keine Fehlantworten.
+
+Entschieden, nicht mehr offen: Die acht Kurz-Bullets der Karten Strategie und Planung aus `#leistungsumfang` bleiben draussen. `#leistungsumfang` und `#module` bleiben zusammengelegt. Vom Nutzer am 2026-11-15 festgelegt.
+
+Nicht eingebaut: `assets/seo-check-preview-gunmetal.png`, das SEO-Fenster mit Lupe. Es ist dreimal auf `index.html` in `seo-placement__display` eingebunden. Auf der Roadmap-Seite gibt es keine Stelle dafuer.
+
+## 2026-11-15 - Shared Header und Footer ueber alle 26 Seiten erhoben
+
+Status: geprueft
+
+Nur Dokumentation, keine Aenderung an Seiten, CSS oder JavaScript.
+
+Die Pruefung, ob eine Seite den Shared Header und Footer verwendet, ist ab sofort die erste Handlung bei jeder Seite, vor jeder anderen Aenderung. Pruefkriterium: Die Seite bindet `shared-header-footer.css` ein, und ihr `<header>`- und ihr `<footer>`-Block sind zeichengleich mit `analyse.html`.
+
+Erhebung ueber alle 26 Seiten in `homepage/`:
+
+- `shared-header-footer.css` binden drei Dateien ein: `index.html`, `analyse.html`, `preview-detail_roadmap.html`. Die uebrigen 23 haengen an `nurovelle.css`.
+- Header in fuenf Fassungen: Vorlage (`analyse.html`, `preview-detail_roadmap.html`), `index.html`, eine Altfassung auf 18 Seiten, eine zweite Altfassung auf `detail_chatbots` und `detail_datenabgleich`, je eine eigene Fassung auf `detail_seo`, `detail_warum-nurovelle` und `potenzialanalyse-deep`.
+- Footer in drei Fassungen plus drei Ausreisser.
+
+Der Unterschied zwischen der Vorlage und `index.html` ist kein Fehler: Die Startseite verlinkt ihre Anker seitenlokal (`#hero`), jede Unterseite ueber `index.html#hero`. Unterseiten bekommen deshalb die Vorlagenfassung.
+
+`homepage/preview-detail_roadmap.html` verwendet den Shared Header und Footer: Stylesheet in Zeile 7, Header- und Footer-Block zeichengleich mit `analyse.html`, 3 239 und 5 954 Zeichen, gleicher Hash.
+
+Der Befund ist in `todo.md` unter Detailseiten aufgenommen. Er erledigt sich Seite fuer Seite mit der Umstellung, weil jede Seite als Kopie der Vorlage entsteht.
+
+## 2026-11-15 - preview-detail_roadmap.html nach der Vorlage analyse.html gebaut
+
+Status: offen, wartet auf Abnahme
+
+Erste Seite der Umstellung aller Detailseiten auf das Format von `analyse.html`. Vorgehen laut Plan: `analyse.html` kopieren, saemtliche Texte von `detail_roadmap.html` hineinkopieren, Bilder austauschen. An Layout, Breiten, Abstaenden, Header, Footer und Formular ist nichts geaendert und nichts nachgemessen worden.
+
+Neue Datei `homepage/preview-detail_roadmap.html`, 96 912 Zeichen. `homepage/detail_roadmap.html` ist unberuehrt geblieben.
+
+Sektionszuordnung, acht Sektionen wie in der Vorlage:
+
+| Vorlage | aus `detail_roadmap.html` |
+| --- | --- |
+| `hero` | Hero |
+| `was-ist-das` | Was ist eine KI-Roadmap, zwei Panels |
+| `warum` | `#ausgangslage`, fuenf Bullets |
+| `leistungen` | `#leistungsumfang` **und** `#module`, acht Module |
+| `einsatzbereiche` | `#anwendung` **und** `#moeglich`, zehn Bereiche und fuenf Paare |
+| `nutzen` | `#nutzen`, fuenf Label-Eintraege |
+| `analyse-formular` | `#kontakt` ueber dem Formular der Vorlage |
+| `faq` | `#faq`, acht Fragen |
+
+Bilder:
+
+- Hero `assets/detail_pages_grafics/ki_roadmap_detail_page.png`
+- Ausgangslage `assets/Fotos/ki_roadmap_1.jpg`
+- Ihr Nutzen `assets/Fotos/prozessauto_2.jpg`
+
+Kopf: Titel `Nurovelle | KI-Roadmap`, `robots noindex`, Canonical und `og:url` auf `preview-detail_roadmap.html`, Description und `og:description` aus der Roadmap-Seite.
+
+**Eine Regel ergaenzt**, seitenlokal, ohne `!important`, mit dem vorhandenen Token:
+
+```
+#leistungen .media-copy > .text:last-of-type{ margin-bottom:var(--analysis-sub-body-gap); }
+```
+
+Grund: Die Vorlage hat in `leistungen` keinen Fliesstext, deshalb `#leistungen .num-list{margin-top:0}`. Die Roadmap bringt dort drei Absaetze mit, die sonst ohne Abstand an der Modulliste klebten. Das CSS ist sonst Zeichen fuer Zeichen das der Vorlage.
+
+**Nicht uebernommen:** die acht Kurz-Bullets aus den Karten Strategie und Planung in `#leistungsumfang` (Ziele klaeren, Handlungsfelder bestimmen, Anwendungsfaelle bewerten, Prioritaeten festlegen, Voraussetzungen definieren, Massnahmen strukturieren, Abhaengigkeiten einordnen, naechste Schritte festlegen). Sie sind die Kurzfassung der acht Module, die im Plan Zeile fuer Zeile zugeordnet wurden. Der Fliesstext beider Sektionen ist vollstaendig uebernommen.
+
+Geprueft bei 390, 768, 1100, 1440, 1920 und 2560 px: waagerechter Ueberlauf 0. Acht Sektionen in der Reihenfolge der Vorlage. Alle 25 Assetpfade vorhanden. Formular mit zwoelf Feldern, Consent, Honeypot und Ergebnisanzeige unveraendert. Keine Konsolenfehler, keine Fehlantworten, bei `prefers-reduced-motion: reduce` keine Fehler.
+
+**Offen:**
+
+- Kein `ki_roadmap_detail_page.webp`. Die Vorlage liefert das Hero-Bild als `<picture>` mit WebP-Quelle; hier steht nur das PNG, weil die WebP-Datei nicht existiert. `roadmap_detail_grafic.webp` ist mit 701 x 222 px eine andere Grafik, nicht dieselbe wie das PNG mit 1659 x 948 px.
+- Die Formularkarte traegt weiterhin `Potenzialanalyse starten` und die Datenschutz- und Newslettertexte der Potenzialanalyse. Laut Plan ist die Conversion-Sektion die der Vorlage. Ob der Formularkopf je Seite umbenannt wird, ist nicht entschieden.
+- Das Titelmuster, siehe Eintrag von heute zur Meta-Luecke.
+
 ## 2026-11-15 - Meta-Luecke auf analyse.html geschlossen
 
 Status: geprueft
