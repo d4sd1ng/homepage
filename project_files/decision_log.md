@@ -9,6 +9,12 @@ Hier stehen ausschließlich **freigegebene Entscheidungen** und ihr Datum.
 
 Die konkrete aktuelle Regel wird nicht hier dupliziert, sondern in der zuständigen Datei gepflegt.
 
+## 2026-11-15 – Mindesteinzug und FAQ-Subline
+
+Entscheidung: Der Inhalt einer Sektion ist gegenueber Kicker, Headline und Subline um mindestens 32 px je Seite eingerueckt. Die Regel „1300 px mittig" allein ergibt bei 1440 px nur 1 px und damit keinen sichtbaren Einzug. Gilt fuer alle Detailseiten einschliesslich `analyse.html`.
+
+Entscheidung: Die FAQ-Sektion auf `analyse.html` traegt die Subline `Die wichtigsten Informationen zur Potenzialanalyse.`
+
 ## 2026-11-15 – Sektionskoepfe der Detailseiten
 
 Entscheidung: Jede Sektion einer Detailseite traegt Kicker, Titel und Subline. Die Felder werden Feld auf Feld aus der Quellseite uebernommen, ohne Versatz: Ein Kartentitel bleibt Kartentitel, ein Sektionstitel bleibt Sektionstitel.

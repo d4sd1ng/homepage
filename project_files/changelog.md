@@ -13,7 +13,7 @@ Gemessen bei 1440 px nach der Aenderung: Kopfkante 69, Karten, `num-list`, FAQ-R
 
 Im Pruefskript korrigiert: Fliesstext innerhalb einer Karte traegt deren Innenabstand und wird nicht mehr als Inhaltsblock auf Sektionsebene gewertet. Der Selektor ist jetzt `:is(.section-inner, .media-copy) > .text`.
 
-**Weiterhin offen:** Der Sektion `faq` auf `analyse.html` fehlt die Subline. Der Text wird nicht erfunden; Vorschlag liegt beim Nutzer.
+Die fehlende Subline der FAQ-Sektion ist gesetzt: `Die wichtigsten Informationen zur Potenzialanalyse.` Vom Nutzer am 2026-11-15 freigegeben. Damit besteht `analyse.html` alle zehn Regeln der Pflichtpruefung.
 
 ## 2026-11-15 - Pflichtpruefung als ein Befehl
 
