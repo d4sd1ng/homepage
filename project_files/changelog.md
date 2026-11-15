@@ -1,3 +1,20 @@
+## 2026-11-15 - analyse.html auf den 32-px-Einzug nachgezogen
+
+Status: offen, wartet auf Abnahme
+
+Die Vorlage stand noch auf dem reinen „1300 mittig" und hatte bei 1440 px nur 1 px Einzug, bei 1100 px gar keinen. Nachgezogen mit derselben Umsetzung wie auf der Roadmap-Preview, an den bestehenden Regeln selbst, ohne Overrides und ohne neues `!important`:
+
+- die Sammelregel fuer `.analysis-intro-cards`, `#leistungen .num-list`, `#einsatzbereiche > .section-inner > .panel` und `#analyse-formular .analysis-layout`
+- `.faq-grid`
+- `#warum .media-split` und `#nutzen .media-split--visual-left`
+- neu: die Regel fuer `.text` auf Sektionsebene
+
+Gemessen bei 1440 px nach der Aenderung: Kopfkante 69, Karten, `num-list`, FAQ-Raster und Formularblock jeweils 101 .. 1339, Breite 1238. Hero unveraendert bei 740 .. 1371, 631 px. Ueberlauf 0 bei allen sieben Breiten, Konsole sauber.
+
+Im Pruefskript korrigiert: Fliesstext innerhalb einer Karte traegt deren Innenabstand und wird nicht mehr als Inhaltsblock auf Sektionsebene gewertet. Der Selektor ist jetzt `:is(.section-inner, .media-copy) > .text`.
+
+**Weiterhin offen:** Der Sektion `faq` auf `analyse.html` fehlt die Subline. Der Text wird nicht erfunden; Vorschlag liegt beim Nutzer.
+
 ## 2026-11-15 - Pflichtpruefung als ein Befehl
 
 Status: geprueft

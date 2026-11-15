@@ -41,7 +41,8 @@ const SOLL = {
 
 const BLOECKE = [
   ['Karten', '.analysis-intro-cards'],
-  ['Fliesstext', '.section:not(#hero) .text'],
+  // nur Fliesstext auf Sektionsebene; Text in einer Karte traegt deren Innenabstand
+  ['Fliesstext', '.section:not(#hero) :is(.section-inner, .media-copy) > .text'],
   ['media-split', '.media-split'],
   ['num-list', '.num-list'],
   ['chip-list', '.chip-list'],
