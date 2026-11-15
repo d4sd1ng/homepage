@@ -91,6 +91,13 @@ Keine abgeschlossenen historischen Entscheidungen, Designregeln oder Projektbesc
 
 ## Detailseiten
 
+- [ ] **Shared Header und Footer auf allen Seiten** — in Arbeit
+  - Erste Pruefung bei jeder Seite, vor jeder anderen Aenderung: bindet die Seite `shared-header-footer.css` ein, und ist ihr `<header>`- und `<footer>`-Block zeichengleich mit `analyse.html`?
+  - Stand 2026-11-15 ueber alle 26 Seiten: nur `index.html`, `analyse.html` und `preview-detail_roadmap.html` binden `shared-header-footer.css` ein. Die uebrigen 23 haengen an `nurovelle.css`.
+  - Header in fuenf Fassungen: Vorlage (2 Seiten), `index.html` (1), Altfassung (18, darunter `detail_roadmap`), zweite Altfassung (`detail_chatbots`, `detail_datenabgleich`), je eigene Fassung (`detail_seo`, `detail_warum-nurovelle`, `potenzialanalyse-deep`).
+  - Footer in drei Fassungen plus drei Ausreisser.
+  - Der Unterschied Vorlage zu `index.html` ist kein Fehler: die Startseite verlinkt ihre Anker seitenlokal (`#hero`), jede Unterseite ueber `index.html#hero`.
+  - Erledigt sich Seite fuer Seite mit der Umstellung auf die Vorlage, weil jede Seite als Kopie von `analyse.html` entsteht.
 - [ ] endgültige Liste aller Leistungsdetailseiten gegen den zuletzt erarbeiteten Contentstand prüfen — offen
 - [ ] gemeinsame Detailseiten-Struktur final gegen die zuletzt erarbeiteten Seiten prüfen — offen
 - [ ] Texte jeder Detailseite vollständig freigeben — offen

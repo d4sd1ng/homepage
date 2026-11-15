@@ -1,3 +1,23 @@
+## 2026-11-15 - Shared Header und Footer ueber alle 26 Seiten erhoben
+
+Status: geprueft
+
+Nur Dokumentation, keine Aenderung an Seiten, CSS oder JavaScript.
+
+Die Pruefung, ob eine Seite den Shared Header und Footer verwendet, ist ab sofort die erste Handlung bei jeder Seite, vor jeder anderen Aenderung. Pruefkriterium: Die Seite bindet `shared-header-footer.css` ein, und ihr `<header>`- und ihr `<footer>`-Block sind zeichengleich mit `analyse.html`.
+
+Erhebung ueber alle 26 Seiten in `homepage/`:
+
+- `shared-header-footer.css` binden drei Dateien ein: `index.html`, `analyse.html`, `preview-detail_roadmap.html`. Die uebrigen 23 haengen an `nurovelle.css`.
+- Header in fuenf Fassungen: Vorlage (`analyse.html`, `preview-detail_roadmap.html`), `index.html`, eine Altfassung auf 18 Seiten, eine zweite Altfassung auf `detail_chatbots` und `detail_datenabgleich`, je eine eigene Fassung auf `detail_seo`, `detail_warum-nurovelle` und `potenzialanalyse-deep`.
+- Footer in drei Fassungen plus drei Ausreisser.
+
+Der Unterschied zwischen der Vorlage und `index.html` ist kein Fehler: Die Startseite verlinkt ihre Anker seitenlokal (`#hero`), jede Unterseite ueber `index.html#hero`. Unterseiten bekommen deshalb die Vorlagenfassung.
+
+`homepage/preview-detail_roadmap.html` verwendet den Shared Header und Footer: Stylesheet in Zeile 7, Header- und Footer-Block zeichengleich mit `analyse.html`, 3 239 und 5 954 Zeichen, gleicher Hash.
+
+Der Befund ist in `todo.md` unter Detailseiten aufgenommen. Er erledigt sich Seite fuer Seite mit der Umstellung, weil jede Seite als Kopie der Vorlage entsteht.
+
 ## 2026-11-15 - preview-detail_roadmap.html nach der Vorlage analyse.html gebaut
 
 Status: offen, wartet auf Abnahme
