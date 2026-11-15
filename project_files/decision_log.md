@@ -9,6 +9,16 @@ Hier stehen ausschließlich **freigegebene Entscheidungen** und ihr Datum.
 
 Die konkrete aktuelle Regel wird nicht hier dupliziert, sondern in der zuständigen Datei gepflegt.
 
+## 2026-11-15 – Sektionskoepfe der Detailseiten
+
+Entscheidung: Jede Sektion einer Detailseite traegt Kicker, Titel und Subline. Die Felder werden Feld auf Feld aus der Quellseite uebernommen, ohne Versatz: Ein Kartentitel bleibt Kartentitel, ein Sektionstitel bleibt Sektionstitel.
+
+Entscheidung: Auf `detail_roadmap` fehlten vier Felder ohne Quelle. Festgelegt wurden: `was-ist-das` Kicker `Definition`, Titel `Was ist eine KI-Roadmap?`, Subline aus dem ersten Satz der ersten Karte; `warum` Subline neu formuliert als `Einzelne KI-Ideen wirken erst dann, wenn Prioritaeten, Zustaendigkeiten und technische Zielrichtung zusammenpassen.`
+
+Entscheidung: Detailseiten tragen kein Kontaktformular und keine Abschluss-Sektion aus Titel, Subline und zwei CTA. Das Potenzialanalyse-Formular bleibt auf `analyse.html`.
+
+Entscheidung: Der SEO-Callout bleibt vorerst auf der Homepage. Der Einbau auf Detailseiten ist zurueckgenommen, weil er `styleguide.md` Abschnitt 20 und der Entscheidung vom 2026-10-07 widersprach. Wird er spaeter auf Detailseiten gesetzt, gilt die Fluss-Fassung `.nv-seo-promo`, nicht `.seo-placement`.
+
 ## 2026-05-17 – Conversion-orientierte B2B-Homepage
 
 Entscheidung: Die Homepage wird als conversion-orientierte B2B-Website aufgebaut.
