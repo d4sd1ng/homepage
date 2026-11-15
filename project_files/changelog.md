@@ -1,3 +1,26 @@
+## 2026-11-15 - preview-detail_roadmap.html korrigiert
+
+Status: offen, wartet auf Abnahme
+
+Sechs Fehler der ersten Fassung behoben, alle selbst verursacht:
+
+1. Das Potenzialanalyse-Formular stand auf der Roadmap-Seite. Entfernt, samt Formular-Skriptblock, 364 Zeilen. Detailseiten tragen kein Formular; das einzige `<form>` ist der Newsletter im Footer.
+2. Die Abschluss-Sektion entfaellt ersatzlos. Eine Sektion nur aus Titel, Subline und zwei CTA wird nirgends gebaut. Die Seite hat jetzt sieben Sektionen: Hero, Definition, Ausgangslage, Leistungen, Einsatzbereiche, Nutzen, FAQ.
+3. Hero-CTA zurueck auf `href="analyse.html"` wie im Original, statt `#analyse-formular`.
+4. CTA-Knopf unter den Definition-Karten entfernt; die Roadmap hat ihn nicht.
+5. Kicker `Definition` entfernt; erfunden, im Original nicht vorhanden.
+6. Titel und `og:title` zurueck auf `KI-Beratung und KI-Roadmap für KMU | Nurovelle`.
+
+Zusaetzlich: Die H1 steht wieder auf einer Zeile wie im Original statt in zwei `hero-title-line`-Spans.
+
+Die `chip-list` in `einsatzbereiche` hatte keine Begrenzung und mass ab 1600 px 1560 statt 1300 px. Korrigiert mit `width:100%; max-width:1300px; margin-left:auto; margin-right:auto`, genau der Umsetzung aus Styleguide 21.1. Bei 1440 px war der Fehler nicht sichtbar, weil eine unbegrenzte Sektion dort ebenfalls 70..1370 misst.
+
+Geprueft: `shared-header-footer.css` geladen, Header- und Footer-Block zeichengleich mit `analyse.html`. Alle Bausteine aus Styleguide 21 bei 1440 und 1920 px auf Soll: Karte 634, breites Einzelfeld 1300, `num-list` 1300, Eintrag 622, beide `media-split` 1300, FAQ-Raster 1300, `chip-list` 1300. Kein Textstueck im Preview, das nicht aus `detail_roadmap.html` stammt. Links im Inhalt: nur `analyse.html` im Hero, wie im Original. Ueberlauf 0 bei 390, 768, 1100, 1440, 1600, 1920 und 2560 px. Keine JS-Fehler, keine Fehlantworten.
+
+Offen: die acht Kurz-Bullets der Karten Strategie und Planung aus `#leistungsumfang`. Sie sind die Kurzfassung der acht Module und stehen weiterhin nicht als eigene Liste auf der Seite.
+
+Nicht eingebaut: `assets/seo-check-preview-gunmetal.png`, das SEO-Fenster mit Lupe. Es ist dreimal auf `index.html` in `seo-placement__display` eingebunden. Auf der Roadmap-Seite gibt es keine Stelle dafuer.
+
 ## 2026-11-15 - Shared Header und Footer ueber alle 26 Seiten erhoben
 
 Status: geprueft
