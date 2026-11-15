@@ -13,7 +13,7 @@ Die konkrete aktuelle Regel wird nicht hier dupliziert, sondern in der zuständi
 
 Entscheidung: Jede Sektion einer Detailseite traegt Kicker, Titel und Subline. Die Felder werden Feld auf Feld aus der Quellseite uebernommen, ohne Versatz: Ein Kartentitel bleibt Kartentitel, ein Sektionstitel bleibt Sektionstitel.
 
-Entscheidung: Auf `detail_roadmap` fehlten vier Felder ohne Quelle. Festgelegt wurden: `was-ist-das` Kicker `Definition`, Titel `Was ist eine KI-Roadmap?`, Subline aus dem ersten Satz der ersten Karte; `warum` Subline neu formuliert als `Einzelne KI-Ideen wirken erst dann, wenn Prioritaeten, Zustaendigkeiten und technische Zielrichtung zusammenpassen.`
+Entscheidung: Auf `detail_roadmap` fehlten vier Felder ohne Quelle. Festgelegt wurden: `was-ist-das` Kicker `Definition`, Titel `Was ist eine KI-Roadmap?`, Subline `Ein strukturierter Umsetzungspfad fuer Ihre Ziele, Prozesse und Systeme.` Der Kartentext bleibt vollstaendig in der Karte; `warum` Subline neu formuliert als `Einzelne KI-Ideen wirken erst dann, wenn Prioritaeten, Zustaendigkeiten und technische Zielrichtung zusammenpassen.`
 
 Entscheidung: Detailseiten tragen kein Kontaktformular und keine Abschluss-Sektion aus Titel, Subline und zwei CTA. Das Potenzialanalyse-Formular bleibt auf `analyse.html`.
 
