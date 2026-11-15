@@ -1,3 +1,31 @@
+## 2026-11-15 - todo.md vollstaendig gegen den Projektstand geprueft
+
+Status: geprueft
+
+Nur Dokumentation, keine Aenderung an Seiten, CSS oder JavaScript.
+
+Jeder mechanisch pruefbare Punkt der Datei wurde gegen das Repository und die ausgelieferte Seite gemessen. Ergebnis: vier Punkte waren erledigt oder ueberholt, vier waren ungenau, und eine bisher unbekannte Luecke kam dazu.
+
+**Als erledigt gekennzeichnet:**
+
+- *Exo 2 und Inter als Webfont einbinden.* `homepage/assets/fonts/fonts.css` deklariert beide, acht `woff2`-Dateien liegen daneben, 34 Seiten binden die Datei ein. `analyse.html` war die letzte Ausnahme und ist am 2026-11-14 umgestellt. Keine Seite laedt noch von `fonts.googleapis.com`.
+- *Impressum und Datenschutz verlinken.* `impressum.html`, `datenschutz.html` und `agb.html` sind von allen 25 Seiten verlinkt. `cookie-hinweis.html` nur von sieben, als offene Frage vermerkt.
+- *Analyse-Hero auf `analyse_detail_page` umstellen.* Am 2026-11-14 erledigt.
+- *Sieben Gold-SVG-Wortmarken unter `assets/hero/`.* Ueberholt: Dort liegt keine einzige SVG-Datei. Vorhanden sind drei PNG, alle eingecheckt. Der Punkt beschrieb einen Zustand, den es nicht mehr gibt.
+
+**Praezisiert:**
+
+- *Alte Schriftstacks.* `Tapera` und `Coder Pro` kommen nicht mehr vor. `Eastman Grotesque` hat zehn Fundstellen, aber ausschliesslich in `homepage/xcomponents/`, das im Deploy per `--exclude` ausgeschlossen ist und von keiner Seite eingebunden wird. `Bebas Neue` und `Raleway` sind in `fonts.css` deklariert und in `xcomponents/nurovelle-tilt-card.css` gesetzt; in `datenschutz.html` werden sie nur im Rechtstext genannt. `Roboto` nur im Stripe-Beispielcode. **Nichts davon ist live wirksam.**
+- *Analyse-Grafiken `assets/analyse/1.png` bis `8.png`.* Dieser Ordner existiert nicht. Gemeint ist `assets/Module/analyse/` mit vier Motiven statt acht.
+- *`nurovelle-tokens.css` doppelt.* Nachgemessen: 5037 gegen 4442 Bytes, 84 abweichende Zeilen. Ausgeliefert wird die Fassung unter `homepage/`.
+- *Liste der vorhandenen Hero-Grafiken.* Auf die am 2026-11-15 korrigierten Schreibweisen `governance` und `prozessautomatisierung` nachgezogen, `analyse` ergaenzt, Zahl der WebP von vier auf fuenf berichtigt.
+
+**Neu gefunden und aufgenommen:**
+
+- *Meta-Angaben.* 24 von 25 Seiten haben Description, Canonical und sieben oder mehr `og:`-Angaben. `analyse.html` hat **kein** `rel="canonical"`, **keine** `og:`-Angabe und **kein** `rel="icon"`. Die uebrigen Seiten sind vollstaendig.
+
+Stand der Datei von 2026-08-30 auf 2026-11-15 gesetzt. Bilanz jetzt: 12 erledigt, 56 offen.
+
 ## 2026-11-15 - Schreibweisen korrigiert und Alt-Text-Platzhalter gesetzt
 
 Status: geprueft
