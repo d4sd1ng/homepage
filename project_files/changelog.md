@@ -1,3 +1,24 @@
+## 2026-11-15 - Definitionssektion vervollstaendigt, Einrueckung des Fliesstextes korrigiert
+
+Status: offen, wartet auf Abnahme
+
+**Fliesstext war nicht eingerueckt.** Styleguide 21.1: „Kicker, Headline und Subline sitzen an der linken Inhaltskante. Alles andere ist davon eingerueckt." Alle sechs `.text`-Bloecke standen an der Kopfkante. Gemessen bei 1920 px: 180 statt 310. Bei 1440 px faellt es nicht auf, weil Kopfkante 69 und Inhaltskante 70 fast gleich sind - derselbe Fehlertyp wie zuvor bei der `chip-list`.
+
+Korrigiert mit einer Regel, die den Block auf die linke Kante des 1300er Inhaltsbandes setzt:
+
+```
+.section:not(#hero) .media-copy > .text,
+.section:not(#hero) > .section-inner > .text{ margin-left:max(0px, calc(50% - 650px)); }
+```
+
+Gemessen danach, alle sechs Bloecke: 310 bei 1920 px, 70 bei 1440 px.
+
+**Definitionssektion ergaenzt:** zwei Saetze Fliesstext und der CTA `KI-Roadmap planen` auf `analyse.html`, wie ihn die Vorlage an derselben Stelle traegt. Der Kartentext steht wieder vollstaendig in Karte 1; die Subline lautet `Ein strukturierter Umsetzungspfad fuer Ihre Ziele, Prozesse und Systeme.`
+
+Der Fliesstext der Definitionssektion ist neu geschrieben und vom Nutzer angefordert: „Die Roadmap entsteht aus den Zielen des Unternehmens, den vorhandenen Prozessen und der eingesetzten Systemlandschaft. Statt einer Sammlung einzelner Ideen steht am Ende eine nachvollziehbare Reihenfolge, an der sich Entscheidungen und Budgets ausrichten lassen."
+
+Geprueft: alle Bausteine aus Styleguide 21 bei 1440 und 1920 px auf Soll, Ueberlauf 0 bei sieben Breiten, Konsole sauber.
+
 ## 2026-11-15 - SEO-Promo auf preview-detail_roadmap.html eingebaut
 
 Status: offen, wartet auf Abnahme
