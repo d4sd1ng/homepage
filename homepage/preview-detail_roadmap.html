@@ -746,28 +746,6 @@ h1, main h2 {\n  -webkit-text-stroke: .6px rgba(255,248,207,.40);\n  background-
   }
 }
 
-/* ==========================================================================
-   SEO-Promo. Komponente unveraendert aus index.html uebernommen.
-   Platzierung an der rechten Kante des 1300er Inhaltsbandes.
-   ========================================================================== */
-.seo-placement { position: absolute; top: 0; right: 0; width: 240px; margin: 0; z-index: 3; opacity: 0; transform: translateX(-32px); transition: opacity .46s ease, transform .46s cubic-bezier(.22,1,.36,1); }
-.seo-placement.is-visible { opacity: 1; transform: none; }
-@media (prefers-reduced-motion: reduce) { .seo-placement { opacity: 1; transform: none; transition: none; } }
-.seo-placement__display { position: relative; transform: perspective(900px) rotateY(-18deg); transform-origin: center; }
-.seo-placement img { display: block; width: 100%; height: auto; }
-.seo-placement__copy { position: absolute; top: 49%; left: 9%; width: 58%; transform: translateY(-50%); }
-.seo-placement .seo-placement__copy strong { display: block; margin: 0 0 4px; color: var(--nv-gold-highlight); font: 600 11.33px/1.2 Inter,Arial,sans-serif; }
-.seo-placement .seo-placement__copy p { margin: 0; color: var(--color-text-muted); font: 400 8px/1.5 Inter,Arial,sans-serif; }
-.seo-placement .hero-cta { display: inline-flex; margin-top: 8px; text-decoration: none; font-size: 6.67px; }
-.seo-placement .hero-cta .golden-button { min-width: 0; width: auto; height: 2.75em; padding: 0 1em; font-size: inherit; line-height: 2.5em; white-space: nowrap; }
-#leistungen > .section-inner, #faq > .section-inner { position: relative; }
-#leistungen > .section-inner > .seo-placement,
-#faq > .section-inner > .seo-placement { top: 0; right: max(0px, calc(50% - 650px)); }
-@media (max-width: 900px) {
-  .seo-placement { position: relative; top: auto; right: auto; width: 240px; max-width: 100%; }
-  #leistungen > .section-inner > .seo-placement,
-  #faq > .section-inner > .seo-placement { top: auto; right: auto; margin-bottom: 12px; }
-}
 </style>
 
 
@@ -850,11 +828,9 @@ h1, main h2 {\n  -webkit-text-stroke: .6px rgba(255,248,207,.40);\n  background-
 <!-- ============================ 2. DEFINITION ============================ -->
 <section class="section" id="was-ist-das">
   <div class="section-inner">
-    <div class="definition-intro">
-      <h2>Was ist eine KI-Roadmap?</h2>
-    </div>
     <div class="content-grid analysis-intro-cards">
       <article class="panel">
+        <h3>Was ist eine KI-Roadmap?</h3>
         <p>Eine KI-Roadmap ordnet mögliche Vorhaben nach Nutzen, Aufwand, Risiken und technischen Voraussetzungen. Sie verbindet kurzfristig realisierbare Maßnahmen mit langfristigen Entwicklungszielen.</p>
       </article>
       <article class="panel summary">
@@ -900,10 +876,6 @@ h1, main h2 {\n  -webkit-text-stroke: .6px rgba(255,248,207,.40);\n  background-
 <!-- ============================ 4. LEISTUNGSUMFANG ============================ -->
 <section class="section" id="leistungen">
 <div class="section-inner">
-<aside class="seo-placement" data-seo-promo aria-label="Kostenloser SEO-Check">
-  <div class="seo-placement__display"><img src="assets/seo-check-preview-gunmetal.png" alt="" width="1536" height="1024" loading="lazy" decoding="async" />
-  <div class="seo-placement__copy"><strong>Kostenloser SEO-Check</strong><p>SEO-Probleme erkennen.<br />Potenziale entdecken.</p><a class="hero-cta" href="detail_seo.html"><span class="golden-button"><span class="golden-text">Website prüfen</span></span></a></div></div>
-</aside>
 <div class="media-copy">
 <div class="kicker">Leistungsumfang</div>
 <h2>Module der Roadmap</h2>
@@ -1035,10 +1007,6 @@ h1, main h2 {\n  -webkit-text-stroke: .6px rgba(255,248,207,.40);\n  background-
 
 <!-- ============================ 7. FAQ ============================ -->
 <section class="section" id="faq"><div class="section-inner">
-<aside class="seo-placement" data-seo-promo aria-label="Kostenloser SEO-Check">
-  <div class="seo-placement__display"><img src="assets/seo-check-preview-gunmetal.png" alt="" width="1536" height="1024" loading="lazy" decoding="async" />
-  <div class="seo-placement__copy"><strong>Kostenloser SEO-Check</strong><p>SEO-Probleme erkennen.<br />Potenziale entdecken.</p><a class="hero-cta" href="detail_seo.html"><span class="golden-button"><span class="golden-text">Website prüfen</span></span></a></div></div>
-</aside>
 <div class="kicker">FAQ</div><h2>Häufige Fragen</h2><p class="sub">Die wichtigsten Informationen zur Beratung und KI-Roadmap.</p><p class="text">Umfang und Schwerpunkt richten sich nach den Zielen, den beteiligten Unternehmensbereichen und den bereits vorhandenen Vorhaben.</p><div class="faq-grid"><details class="faq-item"><summary><span>Muss bereits eine KI-Strategie vorhanden sein?</span></summary><p>Nein. Die Roadmap kann den Einstieg vollständig strukturieren.</p></details>
 <details class="faq-item"><summary><span>Kann eine bestehende Strategie geprüft werden?</span></summary><p>Ja. Vorhandene Pläne und Initiativen können bewertet und neu geordnet werden.</p></details>
 <details class="faq-item"><summary><span>Enthält die Roadmap konkrete Projekte?</span></summary><p>Ja. Geeignete Anwendungsfälle und empfohlene nächste Schritte werden benannt.</p></details>
@@ -1403,27 +1371,6 @@ void main(){
       gl.drawArrays(gl.TRIANGLES, 0, 3);
     }
     requestAnimationFrame(animar);
-  })();
-</script>
-<script>
-  (() => {
-    const promos = [...document.querySelectorAll("[data-seo-promo]")];
-    if (!promos.length) return;
-    if (!("IntersectionObserver" in window)) {
-      promos.forEach(promo => promo.classList.add("is-visible"));
-      return;
-    }
-    const observer = new IntersectionObserver(
-      entries => {
-        entries.forEach(entry => {
-          if (!entry.isIntersecting) return;
-          entry.target.classList.add("is-visible");
-          observer.unobserve(entry.target);
-        });
-      },
-      { threshold: 0.3 }
-    );
-    promos.forEach(promo => observer.observe(promo));
   })();
 </script>
 </body>
