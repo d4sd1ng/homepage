@@ -1,3 +1,27 @@
+## 2026-11-15 - SEO-Promo auf preview-detail_roadmap.html eingebaut
+
+Status: offen, wartet auf Abnahme
+
+`assets/seo-check-preview-gunmetal.png`, das SEO-Fenster mit Lupe, ist zweimal eingebaut: in `#leistungen` und in `#faq`, jeweils oben rechts.
+
+Die Komponente ist unveraendert aus `index.html` uebernommen: Markup `aside.seo-placement[data-seo-promo]` mit `seo-placement__display`, `seo-placement__copy`, Text `Kostenloser SEO-Check`, `SEO-Probleme erkennen. Potenziale entdecken.` und Knopf `Website pruefen` auf `detail_seo.html`. Dazu die zehn CSS-Regeln der Komponente und der IntersectionObserver, der `is-visible` setzt, beides zeichengleich.
+
+**Groesse: 240 px breit**, nicht 1536 x 1024. Die Zahlen im `img`-Tag sind die Intrinsic-Masse der Datei; `.seo-placement{width:240px}` skaliert sie. Gemessen bei 390, 768, 900, 1100, 1440, 1920 und 2560 px: ueberall 240 px.
+
+Zwei Platzierungsregeln ergaenzt, seitenlokal, ohne `!important`:
+
+```
+#leistungen > .section-inner, #faq > .section-inner { position: relative; }
+#leistungen > .section-inner > .seo-placement,
+#faq > .section-inner > .seo-placement { top: 0; right: max(0px, calc(50% - 650px)); }
+```
+
+`calc(50% - 650px)` setzt die rechte Kante auf die rechte Kante des 1300er Inhaltsbandes, bei jeder Fensterbreite. Gemessen: 1440 px buendig bei 1370, 1920 px bei 1610, 2560 px bei 1930. Bis 900 px faellt die Komponente wie auf `index.html` in den Textfluss zurueck.
+
+Geprueft: Ueberlauf 0 bei allen sieben Breiten, keine Ueberdeckung von Text, keine JS-Fehler, keine Fehlantworten, Konsole sauber.
+
+Die vier Texte der Komponente (`Kostenloser SEO-Check`, `SEO-Probleme erkennen.`, `Potenziale entdecken.`, `Website pruefen`) stammen aus `index.html`, nicht aus `detail_roadmap.html`. Das ist gewollt: Die Komponente gehoert auf jede Seite, nicht zum Seiteninhalt.
+
 ## 2026-11-15 - preview-detail_roadmap.html korrigiert
 
 Status: offen, wartet auf Abnahme
