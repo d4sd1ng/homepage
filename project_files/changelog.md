@@ -1,3 +1,50 @@
+## 2026-11-15 - preview-detail_roadmap.html nach der Vorlage analyse.html gebaut
+
+Status: offen, wartet auf Abnahme
+
+Erste Seite der Umstellung aller Detailseiten auf das Format von `analyse.html`. Vorgehen laut Plan: `analyse.html` kopieren, saemtliche Texte von `detail_roadmap.html` hineinkopieren, Bilder austauschen. An Layout, Breiten, Abstaenden, Header, Footer und Formular ist nichts geaendert und nichts nachgemessen worden.
+
+Neue Datei `homepage/preview-detail_roadmap.html`, 96 912 Zeichen. `homepage/detail_roadmap.html` ist unberuehrt geblieben.
+
+Sektionszuordnung, acht Sektionen wie in der Vorlage:
+
+| Vorlage | aus `detail_roadmap.html` |
+| --- | --- |
+| `hero` | Hero |
+| `was-ist-das` | Was ist eine KI-Roadmap, zwei Panels |
+| `warum` | `#ausgangslage`, fuenf Bullets |
+| `leistungen` | `#leistungsumfang` **und** `#module`, acht Module |
+| `einsatzbereiche` | `#anwendung` **und** `#moeglich`, zehn Bereiche und fuenf Paare |
+| `nutzen` | `#nutzen`, fuenf Label-Eintraege |
+| `analyse-formular` | `#kontakt` ueber dem Formular der Vorlage |
+| `faq` | `#faq`, acht Fragen |
+
+Bilder:
+
+- Hero `assets/detail_pages_grafics/ki_roadmap_detail_page.png`
+- Ausgangslage `assets/Fotos/ki_roadmap_1.jpg`
+- Ihr Nutzen `assets/Fotos/prozessauto_2.jpg`
+
+Kopf: Titel `Nurovelle | KI-Roadmap`, `robots noindex`, Canonical und `og:url` auf `preview-detail_roadmap.html`, Description und `og:description` aus der Roadmap-Seite.
+
+**Eine Regel ergaenzt**, seitenlokal, ohne `!important`, mit dem vorhandenen Token:
+
+```
+#leistungen .media-copy > .text:last-of-type{ margin-bottom:var(--analysis-sub-body-gap); }
+```
+
+Grund: Die Vorlage hat in `leistungen` keinen Fliesstext, deshalb `#leistungen .num-list{margin-top:0}`. Die Roadmap bringt dort drei Absaetze mit, die sonst ohne Abstand an der Modulliste klebten. Das CSS ist sonst Zeichen fuer Zeichen das der Vorlage.
+
+**Nicht uebernommen:** die acht Kurz-Bullets aus den Karten Strategie und Planung in `#leistungsumfang` (Ziele klaeren, Handlungsfelder bestimmen, Anwendungsfaelle bewerten, Prioritaeten festlegen, Voraussetzungen definieren, Massnahmen strukturieren, Abhaengigkeiten einordnen, naechste Schritte festlegen). Sie sind die Kurzfassung der acht Module, die im Plan Zeile fuer Zeile zugeordnet wurden. Der Fliesstext beider Sektionen ist vollstaendig uebernommen.
+
+Geprueft bei 390, 768, 1100, 1440, 1920 und 2560 px: waagerechter Ueberlauf 0. Acht Sektionen in der Reihenfolge der Vorlage. Alle 25 Assetpfade vorhanden. Formular mit zwoelf Feldern, Consent, Honeypot und Ergebnisanzeige unveraendert. Keine Konsolenfehler, keine Fehlantworten, bei `prefers-reduced-motion: reduce` keine Fehler.
+
+**Offen:**
+
+- Kein `ki_roadmap_detail_page.webp`. Die Vorlage liefert das Hero-Bild als `<picture>` mit WebP-Quelle; hier steht nur das PNG, weil die WebP-Datei nicht existiert. `roadmap_detail_grafic.webp` ist mit 701 x 222 px eine andere Grafik, nicht dieselbe wie das PNG mit 1659 x 948 px.
+- Die Formularkarte traegt weiterhin `Potenzialanalyse starten` und die Datenschutz- und Newslettertexte der Potenzialanalyse. Laut Plan ist die Conversion-Sektion die der Vorlage. Ob der Formularkopf je Seite umbenannt wird, ist nicht entschieden.
+- Das Titelmuster, siehe Eintrag von heute zur Meta-Luecke.
+
 ## 2026-11-15 - Meta-Luecke auf analyse.html geschlossen
 
 Status: geprueft
