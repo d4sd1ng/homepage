@@ -17,7 +17,7 @@ Die `chip-list` in `einsatzbereiche` hatte keine Begrenzung und mass ab 1600 px 
 
 Geprueft: `shared-header-footer.css` geladen, Header- und Footer-Block zeichengleich mit `analyse.html`. Alle Bausteine aus Styleguide 21 bei 1440 und 1920 px auf Soll: Karte 634, breites Einzelfeld 1300, `num-list` 1300, Eintrag 622, beide `media-split` 1300, FAQ-Raster 1300, `chip-list` 1300. Kein Textstueck im Preview, das nicht aus `detail_roadmap.html` stammt. Links im Inhalt: nur `analyse.html` im Hero, wie im Original. Ueberlauf 0 bei 390, 768, 1100, 1440, 1600, 1920 und 2560 px. Keine JS-Fehler, keine Fehlantworten.
 
-Offen: die acht Kurz-Bullets der Karten Strategie und Planung aus `#leistungsumfang`. Sie sind die Kurzfassung der acht Module und stehen weiterhin nicht als eigene Liste auf der Seite.
+Entschieden, nicht mehr offen: Die acht Kurz-Bullets der Karten Strategie und Planung aus `#leistungsumfang` bleiben draussen. `#leistungsumfang` und `#module` bleiben zusammengelegt. Vom Nutzer am 2026-11-15 festgelegt.
 
 Nicht eingebaut: `assets/seo-check-preview-gunmetal.png`, das SEO-Fenster mit Lupe. Es ist dreimal auf `index.html` in `seo-placement__display` eingebunden. Auf der Roadmap-Seite gibt es keine Stelle dafuer.
 
