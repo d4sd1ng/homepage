@@ -21,7 +21,7 @@ jobs:
         uses: actions/checkout@v4
         with:
           repository: d4sd1ng/grow_controller
-          ref: main
+          ref: feature/sensor-m3-mounts-20261117
           persist-credentials: false
           path: grow_controller
 
