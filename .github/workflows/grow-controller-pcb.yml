@@ -1,0 +1,59 @@
+name: Grow Controller PCB KiCad check (existing VPS runner)
+on:
+  pull_request:
+    paths:
+      - '.github/workflows/grow-controller-pcb.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: grow-controller-pcb
+  cancel-in-progress: false
+
+jobs:
+  pcb-check:
+    runs-on: [self-hosted, linux, vps]
+    timeout-minutes: 15
+    steps:
+      - name: Checkout Grow Controller on existing VPS runner
+        uses: actions/checkout@v4
+        with:
+          repository: d4sd1ng/grow_controller
+          ref: main
+          persist-credentials: false
+          path: grow_controller
+
+      - name: Static layout preflight
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p pcb-check
+          python3 grow_controller/hardware/cad/audit_sensor_pcb.py | tee pcb-check/static.txt
+
+      - name: Check KiCad availability (do not install on production VPS)
+        shell: bash
+        run: |
+          set -euo pipefail
+          if ! command -v kicad-cli >/dev/null 2>&1; then
+            echo 'KiCad CLI unavailable on existing VPS runner; cannot execute DRC without isolated tooling.' | tee pcb-check/kicad-unavailable.txt
+            exit 1
+          fi
+          kicad-cli version
+
+      - name: KiCad DRC
+        shell: bash
+        run: |
+          set -euo pipefail
+          kicad-cli pcb drc --exit-code-violations --all-track-errors \
+            --output pcb-check/sensor_drc.txt \
+            grow_controller/hardware/cad/sensor_pcb_routed_candidate.kicad_pcb
+
+      - name: Upload reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: grow-controller-pcb-existing-runner
+          path: pcb-check/
+          if-no-files-found: warn
