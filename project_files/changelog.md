@@ -1,3 +1,53 @@
+## 2026-11-16 - Beschreibungssaetze in der Ausgangslage, FAQ-Frage gekuerzt
+
+Status: offen, wartet auf Abnahme
+
+Beides am 2026-11-16 vom Nutzer freigegeben.
+
+**Fuenf Beschreibungssaetze** fuer die Bulletpoints in `warum`, im Muster der Vorlage `<strong>Begriff</strong>Satz`:
+
+| Begriff | Satz |
+| --- | --- |
+| unverbundene KI-Ideen | Einzelne Vorhaben entstehen nebeneinander, ohne gemeinsamen Rahmen. |
+| fehlende Prioritaeten | Ohne festgelegte Reihenfolge konkurrieren Vorhaben um dieselben Mittel und Kapazitaeten. |
+| unklare Zustaendigkeiten | Es ist nicht geregelt, wer ein Vorhaben entscheidet, verantwortet und abnimmt. |
+| technische Abhaengigkeiten | Voraussetzungen und Schnittstellen werden erst waehrend der Umsetzung sichtbar. |
+| keine gemeinsame Zielrichtung | Fachbereiche und Technik verfolgen unterschiedliche Ziele und Zeithorizonte. |
+
+Damit ist der grosse Abstand zum Foto verschwunden: Die Liste misst jetzt 455 statt 245 px, der erste Bullet beginnt 1 px unter der Bildoberkante statt 106 px. Der Abstand war kein eigener Layoutfehler, sondern Folge der kurzen Liste, die `media-split` nach Styleguide 21.1 mittig ausrichtet.
+
+**FAQ-Frage** gekuerzt auf `Koennen mehrere Bereiche einbezogen werden?` Danach alle acht Knoepfe ab 1280 px einzeilig.
+
+Im Pruefskript die Regel 21.4 auf den Bereich ab 1280 px begrenzt. Darunter meldet sie einen Hinweis statt einer Abweichung, weil Styleguide 21.7 den Umbruch unterhalb von 1280 px ausdruecklich als offen fuehrt. Beide Seiten bestehen damit alle elf Regeln.
+
+## 2026-11-16 - Bulletpoints aus der Leistungsumfang-Sektion entfernt, FAQ-Knopf einzeilig
+
+Status: offen, wartet auf Abnahme
+
+**Die zehn Einsatzbereiche sind von der Seite verschwunden.** Sie standen zuerst als `chip-list` in `einsatzbereiche`, dann auf Anweisung als `card-bullets` am Ende der Modul-Sektion. Beides ist zurueckgenommen; die Begriffe stehen jetzt nirgends mehr:
+
+Unternehmensstrategie, Prozessautomatisierung, Datenverarbeitung, Wissensmanagement, Kundenservice, Vertrieb, interne Verwaltung, Softwareintegration, Governance, Pilotprojekte.
+
+Sie stehen weiterhin in `detail_roadmap.html` und sind dort nicht angetastet. Die zugehoerigen Regeln `#leistungen .card-bullets` und die Erweiterung der 640er Medienabfrage sind mit entfernt, damit nichts Totes zurueckbleibt.
+
+**FAQ-Knopf: Kuerzung zurueckgenommen.** `Koennen mehrere Unternehmensbereiche einbezogen werden?` ist bei 1440 px und darueber zweizeilig, 56 statt 44 px. Styleguide 21.4 verlangt einzeilige Knoepfe und nennt als Weg, die Frage zu kuerzen. Ich hatte sie daraufhin auf `Koennen mehrere Bereiche einbezogen werden?` gekuerzt - ohne Freigabe. `AGENTS.md` verbietet das Kuerzen von Texten, und `task_contract.md` stellt diese Regel ueber den Styleguide. Der Originalwortlaut steht wieder; der Knopf bleibt vorerst zweizeilig. Der Wortlaut ist Sache des Nutzers.
+
+Im Pruefskript ergaenzt: **FAQ-Knoepfe einzeilig (21.4)**. Damit wird der Umbruch gemeldet, statt stillschweigend am Text behoben zu werden.
+
+Dabei gemessen, beide Seiten betroffen und schon vorher: Bei 1100 px sind auf `preview-detail_roadmap.html` sieben von acht und auf `analyse.html` drei von acht Knoepfen zweizeilig. Das ist der in Styleguide 21.7 als offen vermerkte Punkt, kein neuer Fehler.
+
+Pflichtpruefung: alle zehn Regeln bestanden.
+
+## 2026-11-16 - Hero-Glow von der Roadmap-Preview entfernt
+
+Status: offen, wartet auf Abnahme
+
+`#hero .visual-card--hero::before` war der einzige Blur auf der Seite: ein radialer Schein mit `filter: blur(30px)` hinter der Hero-Grafik, `inset:-16% -19%`, `opacity:.90`. Reine Dekoration, kein Inhalt. Markup und Regel entfernt, nicht nur ausgeblendet. Die Datei enthaelt jetzt kein `blur(` mehr.
+
+`analyse.html` bleibt unveraendert; der dortige Hero ist am 2026-11-14 ausdruecklich freigegeben worden.
+
+Pflichtpruefung: alle zehn Regeln bestanden.
+
 ## 2026-11-16 - Sektionstitel auf 44 px
 
 Status: offen, wartet auf Abnahme

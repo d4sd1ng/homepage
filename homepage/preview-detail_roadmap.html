@@ -239,7 +239,7 @@ main h3 { font: var(--w-zwischentitel) var(--t-zwischentitel)/1.2 "Exo 2",Inter,
 .chip-list li { display: flex; align-items: center; min-height: 58px; padding: 12px 16px; border-radius: 10px; color: #e4e0d6; border: 1.25px solid transparent; background-image: linear-gradient(#080B09,#080B09), var(--gold-3); background-origin: border-box; background-clip: padding-box, border-box; font: var(--w-bildunterschrift) var(--t-bildunterschrift)/1.4 "Inter",Arial,sans-serif; hyphens: auto; overflow-wrap: break-word; }
 @media (max-width: 1200px) { .chip-list { grid-template-columns: repeat(3,minmax(0,1fr)); } }
 @media (max-width: 900px) { .dot-list, .split-grid { grid-template-columns: 1fr; } .chip-list { grid-template-columns: repeat(2,minmax(0,1fr)); } }
-@media (max-width: 640px) { .chip-list, .card-bullets { grid-template-columns: 1fr; } }
+@media (max-width: 640px) { .chip-list { grid-template-columns: 1fr; } }
 
 /* ---------- FAQ ---------- */
 .faq-grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 16px 20px; align-items: start; width: auto; margin: 16px max(32px, calc(50% - 650px)) 0; }
@@ -606,11 +606,6 @@ h1, main h2 {\n  -webkit-text-stroke: .6px rgba(255,248,207,.40);\n  background-
   margin-top:var(--analysis-sub-body-gap);
 }
 
-#leistungen .card-bullets{
-  width:auto;
-  margin-left:max(32px, calc(50% - 650px));
-  margin-right:max(32px, calc(50% - 650px));
-}
 /* Styleguide 21.1: Kicker, Headline und Subline an der Kopfkante,
    alles andere auf das 1300er Inhaltsband eingerueckt. */
 .section:not(#hero) .media-copy > .text,
@@ -672,22 +667,6 @@ h1, main h2 {\n  -webkit-text-stroke: .6px rgba(255,248,207,.40);\n  background-
   #hero .visual-card--hero{
     position:relative;
     isolation:isolate;
-  }
-  #hero .visual-card--hero::before{
-    content:"";
-    position:absolute;
-    inset:-16% -19%;
-    background:
-      radial-gradient(ellipse at 52% 48%,
-        rgba(14,91,60,.34) 0%,
-        rgba(11,67,49,.30) 26%,
-        rgba(37,48,52,.26) 48%,
-        rgba(7,28,23,.12) 64%,
-        transparent 78%);
-    filter:blur(30px);
-    opacity:.90;
-    pointer-events:none;
-    z-index:0;
   }
   #hero .visual-card--hero img{
     position:relative;
@@ -870,15 +849,15 @@ h1, main h2 {\n  -webkit-text-stroke: .6px rgba(255,248,207,.40);\n  background-
 <div class="media-copy">
 <ul class="label-list label-list--single">
 <li>
-<strong>unverbundene KI-Ideen</strong></li>
+<strong>unverbundene KI-Ideen</strong>Einzelne Vorhaben entstehen nebeneinander, ohne gemeinsamen Rahmen.</li>
 <li>
-<strong>fehlende Prioritäten</strong></li>
+<strong>fehlende Prioritäten</strong>Ohne festgelegte Reihenfolge konkurrieren Vorhaben um dieselben Mittel und Kapazitäten.</li>
 <li>
-<strong>unklare Zuständigkeiten</strong></li>
+<strong>unklare Zuständigkeiten</strong>Es ist nicht geregelt, wer ein Vorhaben entscheidet, verantwortet und abnimmt.</li>
 <li>
-<strong>technische Abhängigkeiten</strong></li>
+<strong>technische Abhängigkeiten</strong>Voraussetzungen und Schnittstellen werden erst während der Umsetzung sichtbar.</li>
 <li>
-<strong>keine gemeinsame Zielrichtung</strong></li>
+<strong>keine gemeinsame Zielrichtung</strong>Fachbereiche und Technik verfolgen unterschiedliche Ziele und Zeithorizonte.</li>
 </ul>
 </div>
 <figure class="section-photo">
@@ -958,18 +937,6 @@ h1, main h2 {\n  -webkit-text-stroke: .6px rgba(255,248,207,.40);\n  background-
 <span>Pilotprojekte, Ausbaustufen und nächste Entscheidungen festlegen.</span>
 </li>
 </ol>
-<ul class="card-bullets">
-<li>Unternehmensstrategie</li>
-<li>Prozessautomatisierung</li>
-<li>Datenverarbeitung</li>
-<li>Wissensmanagement</li>
-<li>Kundenservice</li>
-<li>Vertrieb</li>
-<li>interne Verwaltung</li>
-<li>Softwareintegration</li>
-<li>Governance</li>
-<li>Pilotprojekte</li>
-</ul>
 </div>
 </section>
 <div class="section-divider" aria-hidden="true"></div>
@@ -1027,7 +994,7 @@ h1, main h2 {\n  -webkit-text-stroke: .6px rgba(255,248,207,.40);\n  background-
 <details class="faq-item"><summary><span>Kann eine bestehende Strategie geprüft werden?</span></summary><p>Ja. Vorhandene Pläne und Initiativen können bewertet und neu geordnet werden.</p></details>
 <details class="faq-item"><summary><span>Enthält die Roadmap konkrete Projekte?</span></summary><p>Ja. Geeignete Anwendungsfälle und empfohlene nächste Schritte werden benannt.</p></details>
 <details class="faq-item"><summary><span>Werden technische Voraussetzungen berücksichtigt?</span></summary><p>Ja. Daten, Systeme, Schnittstellen und Sicherheitsanforderungen fließen in die Planung ein.</p></details>
-<details class="faq-item"><summary><span>Können mehrere Unternehmensbereiche einbezogen werden?</span></summary><p>Ja. Umfang und Priorisierung lassen sich bereichsübergreifend planen.</p></details>
+<details class="faq-item"><summary><span>Können mehrere Bereiche einbezogen werden?</span></summary><p>Ja. Umfang und Priorisierung lassen sich bereichsübergreifend planen.</p></details>
 <details class="faq-item"><summary><span>Wird bereits eine Technologie festgelegt?</span></summary><p>Nur wenn dies für die Planung notwendig und fachlich begründet ist.</p></details>
 <details class="faq-item"><summary><span>Kann mit einem Pilotprojekt begonnen werden?</span></summary><p>Ja. Geeignete Pilotprojekte können als erste Umsetzungsstufe definiert werden.</p></details>
 <details class="faq-item"><summary><span>Was folgt nach der Roadmap?</span></summary><p>Möglich sind eine Detailkonzeption, ein Pilotprojekt, eine Integration oder die direkte Umsetzung.</p></details></div></section>
