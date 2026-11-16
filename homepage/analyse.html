@@ -583,15 +583,9 @@ h1, main h2 {\n  -webkit-text-stroke: .6px rgba(255,248,207,.40);\n  background-
   margin-bottom:10px;
 }
 .section:not(#hero) .section-inner > h2,
-.section:not(#hero) .media-copy > h2,
-.section:not(#hero) .definition-intro > h2{
+.section:not(#hero) .media-copy > h2{
   margin-top:0;
   margin-bottom:var(--detail-title-gap);
-  /* Sektionstitel tragen den Sektionstitel-Token, nicht den Kartentitel-Token.
-     Bis 2026-11-16 stand hier ueber `main h2` --t-kartentitel, 30,24 px bei
-     1440. index.html setzt Sektionstitel auf 80 px. */
-  font-size:var(--t-sektionstitel);
-  font-weight:var(--w-sektionstitel);
 }
 .section:not(#hero) .section-inner > h2 + .sub,
 .section:not(#hero) .media-copy > h2 + .sub{

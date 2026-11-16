@@ -9,10 +9,6 @@ Hier stehen ausschließlich **freigegebene Entscheidungen** und ihr Datum.
 
 Die konkrete aktuelle Regel wird nicht hier dupliziert, sondern in der zuständigen Datei gepflegt.
 
-## 2026-11-16 – Sektionstitel der Detailseiten
-
-Entscheidung: Sektionstitel auf Detailseiten tragen den Token `--t-sektionstitel`, nicht `--t-kartentitel`. Bei 1440 px sind das 66,24 px gegen 19 px Subline. Der bisherige Zustand, 30,24 px, stammte aus der Basisregel `main h2` und liess keine Hierarchie zwischen Titel und Subline erkennen.
-
 ## 2026-11-15 – Mindesteinzug und FAQ-Subline
 
 Entscheidung: Der Inhalt einer Sektion ist gegenueber Kicker, Headline und Subline um mindestens 32 px je Seite eingerueckt. Die Regel „1300 px mittig" allein ergibt bei 1440 px nur 1 px und damit keinen sichtbaren Einzug. Gilt fuer alle Detailseiten einschliesslich `analyse.html`.

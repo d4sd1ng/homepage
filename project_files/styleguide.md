@@ -661,22 +661,6 @@ Der Zeilenumbruch der Headline ist redaktionell gesetzt und steht im Markup: Zei
 
 Keine festen Pixelbreiten fuer Textspalte oder Lead. Die frueheren Werte `minmax(780px,1.35fr)` am Raster und `max-width:760px` am Lead sind entfernt; sie hielten die Textspalte unabhaengig vom tatsaechlichen Bedarf bei 760 bis 787 px und druckten das Bild auf 460 px.
 
-### 21.8 Sektionstitel
-
-| Element | Token | Wert bei 1440 px |
-| --- | --- | --- |
-| Sektionstitel `h2` im Sektionskopf | `--t-sektionstitel`, `--w-sektionstitel` | 66,24 px, Gewicht 800, Exo 2 |
-| Subline `.sub` | `--t-subtitle`, `--w-subtitle` | 19 px, Gewicht 600, Inter |
-| Verhaeltnis | | 3,5 : 1 |
-
-Bis 2026-11-16 trugen die Sektionstitel der Detailseiten ueber die Basisregel `main h2` den Token `--t-kartentitel`, `clamp(26px, 2.1vw, 44px)`, also 30,24 px bei 1440 px. Das ist der Token fuer Kartentitel. Gegen eine 19 px grosse, fette Subline ergab das ein Verhaeltnis von 1,59 : 1 und keine erkennbare Hierarchie.
-
-Zum Vergleich: `index.html` setzt saemtliche Sektionstitel auf 80 px bei 19,2 px Subline, Verhaeltnis 4,2 : 1.
-
-Gesetzt wird der Token an der vorhandenen Kopfregel `.section:not(#hero) .section-inner > h2`, nicht an `main h2`, damit Kartentitel unberuehrt bleiben. Gilt fuer `analyse.html` und jede daraus abgeleitete Detailseite.
-
-**Offen:** Die Detailseiten liegen mit 66,24 px weiterhin unter den 80 px der Startseite. Ob beide auf denselben Wert gehen, ist nicht entschieden.
-
 ### 21.7 Mobil, bis 900 px Fensterbreite
 
 | Element | Wert |

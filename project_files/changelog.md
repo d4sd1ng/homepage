@@ -1,19 +1,3 @@
-## 2026-11-16 - Sektionstitel auf den richtigen Token gesetzt
-
-Status: offen, wartet auf Abnahme
-
-Die Sektionstitel der Detailseiten waren kaum groesser als die Sublines. Ursache gefunden: Sie trugen ueber die Basisregel `main h2` den Token `--t-kartentitel`, `clamp(26px, 2.1vw, 44px)`, also 30,24 px bei 1440 px. Das ist der Token fuer **Kartentitel**. Der Token `--t-sektionstitel`, `clamp(40px, 4.6vw, 72px)`, wurde nur vom Hero-`h1` benutzt.
-
-Zum Vergleich gemessen: `index.html` setzt alle Sektionstitel auf 80 px bei 19,2 px Subline, Verhaeltnis 4,2 : 1. Die Detailseiten lagen bei 1,59 : 1.
-
-Geaendert an der vorhandenen Kopfregel `.section:not(#hero) .section-inner > h2`, nicht an `main h2`, damit Kartentitel unberuehrt bleiben. Betroffen sind `analyse.html` und `preview-detail_roadmap.html`.
-
-Gemessen danach, auf beiden Seiten in jeder Sektion: Titel 66,24 px, Gewicht 800, Exo 2. Subline 19 px. Verhaeltnis 3,5 : 1.
-
-Beide Seiten bestehen weiterhin alle zehn Regeln der Pflichtpruefung, Ueberlauf 0 bei allen sieben Breiten.
-
-**Offen:** Die Detailseiten liegen mit 66,24 px unter den 80 px der Startseite. Ob beide denselben Wert bekommen, ist nicht entschieden.
-
 ## 2026-11-16 - Einsatzbereiche in die Modul-Sektion, chip-list entfernt
 
 Status: offen, wartet auf Abnahme
