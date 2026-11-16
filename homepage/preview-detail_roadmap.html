@@ -239,7 +239,7 @@ main h3 { font: var(--w-zwischentitel) var(--t-zwischentitel)/1.2 "Exo 2",Inter,
 .chip-list li { display: flex; align-items: center; min-height: 58px; padding: 12px 16px; border-radius: 10px; color: #e4e0d6; border: 1.25px solid transparent; background-image: linear-gradient(#080B09,#080B09), var(--gold-3); background-origin: border-box; background-clip: padding-box, border-box; font: var(--w-bildunterschrift) var(--t-bildunterschrift)/1.4 "Inter",Arial,sans-serif; hyphens: auto; overflow-wrap: break-word; }
 @media (max-width: 1200px) { .chip-list { grid-template-columns: repeat(3,minmax(0,1fr)); } }
 @media (max-width: 900px) { .dot-list, .split-grid { grid-template-columns: 1fr; } .chip-list { grid-template-columns: repeat(2,minmax(0,1fr)); } }
-@media (max-width: 640px) { .chip-list { grid-template-columns: 1fr; } }
+@media (max-width: 640px) { .chip-list, .card-bullets { grid-template-columns: 1fr; } }
 
 /* ---------- FAQ ---------- */
 .faq-grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 16px 20px; align-items: start; width: auto; margin: 16px max(32px, calc(50% - 650px)) 0; }
@@ -583,9 +583,14 @@ h1, main h2 {\n  -webkit-text-stroke: .6px rgba(255,248,207,.40);\n  background-
   margin-bottom:10px;
 }
 .section:not(#hero) .section-inner > h2,
-.section:not(#hero) .media-copy > h2{
+.section:not(#hero) .media-copy > h2,
+.section:not(#hero) .definition-intro > h2{
   margin-top:0;
   margin-bottom:var(--detail-title-gap);
+  /* Sektionstitel 44 px ab 1440 px, am 2026-11-16 vom Nutzer festgelegt.
+     Verhaeltnis zur 19-px-Subline dort 2,3 zu 1. Untere Grenze 26 px wie beim
+     vorhandenen --t-kartentitel; ein fester Wert lief bei 390 px ueber. */
+  font-size:clamp(26px, 3.056vw, 44px);
 }
 .section:not(#hero) .section-inner > h2 + .sub,
 .section:not(#hero) .media-copy > h2 + .sub{
@@ -601,7 +606,7 @@ h1, main h2 {\n  -webkit-text-stroke: .6px rgba(255,248,207,.40);\n  background-
   margin-top:var(--analysis-sub-body-gap);
 }
 
-#einsatzbereiche .chip-list{
+#leistungen .card-bullets{
   width:auto;
   margin-left:max(32px, calc(50% - 650px));
   margin-right:max(32px, calc(50% - 650px));
@@ -857,8 +862,8 @@ h1, main h2 {\n  -webkit-text-stroke: .6px rgba(255,248,207,.40);\n  background-
 <div class="section-inner">
 <div class="media-copy">
 <div class="kicker">Ausgangslage</div>
-<h2>Unverbundene Einzelprojekte erzeugen selten nachhaltigen Nutzen.</h2>
-<p class="sub">Einzelne KI-Ideen wirken erst dann, wenn Prioritäten, Zuständigkeiten und technische Zielrichtung zusammenpassen.</p>
+<h2>Warum ist die Roadmap entscheidend?</h2>
+<p class="sub">Unverbundene Einzelprojekte erzeugen selten nachhaltigen Nutzen.</p>
 <p class="text">In vielen Unternehmen bestehen bereits erste KI-Ideen, einzelne Tools oder geplante Pilotprojekte. Häufig fehlen jedoch gemeinsame Prioritäten, klar geregelte Zuständigkeiten und eine abgestimmte technische Zielrichtung. Dadurch entstehen parallele Lösungen, doppelte Arbeiten und Abhängigkeiten, die erst während der Umsetzung sichtbar werden.</p>
 </div>
 <div class="media-split media-split--text-left">
@@ -889,7 +894,7 @@ h1, main h2 {\n  -webkit-text-stroke: .6px rgba(255,248,207,.40);\n  background-
 <div class="section-inner">
 <div class="media-copy">
 <div class="kicker">Leistungsumfang</div>
-<h2>Module der Roadmap</h2>
+<h2>Unsere Leistungen innerhalb der KI-Roadmap</h2>
 <p class="sub">Acht Schritte vom Zielbild bis zum Umsetzungspfad.</p>
 <p class="text">Von der Zielklärung bis zum priorisierten Maßnahmenplan.</p>
 <p class="text text--after">Die Beratung verbindet geschäftliche Ziele mit Prozessen, Daten, bestehenden Systemen und organisatorischen Rahmenbedingungen. Daraus entsteht eine realistische Reihenfolge konkreter Vorhaben, die als Grundlage für Pilotprojekte, Integrationen und weitere Ausbaustufen dient.</p>
@@ -953,20 +958,7 @@ h1, main h2 {\n  -webkit-text-stroke: .6px rgba(255,248,207,.40);\n  background-
 <span>Pilotprojekte, Ausbaustufen und nächste Entscheidungen festlegen.</span>
 </li>
 </ol>
-</div>
-</section>
-<div class="section-divider" aria-hidden="true"></div>
-
-<!-- ============================ 5. ANWENDUNG ============================ -->
-<section class="section" id="einsatzbereiche">
-<div class="section-inner">
-<div class="media-copy">
-<div class="kicker">Anwendung</div>
-<h2>Was damit möglich wird</h2>
-<p class="sub">Eine KI-Roadmap kann einzelne Bereiche oder die gesamte Organisation strukturieren.</p>
-<p class="text">Die Roadmap eignet sich sowohl für den ersten Einstieg in KI als auch für die Ordnung bereits bestehender Initiativen. Sie legt fest, welche Maßnahmen vorbereitet, getestet oder direkt umgesetzt werden sollten.</p>
-</div>
-<ul class="chip-list">
+<ul class="card-bullets">
 <li>Unternehmensstrategie</li>
 <li>Prozessautomatisierung</li>
 <li>Datenverarbeitung</li>
@@ -978,6 +970,19 @@ h1, main h2 {\n  -webkit-text-stroke: .6px rgba(255,248,207,.40);\n  background-
 <li>Governance</li>
 <li>Pilotprojekte</li>
 </ul>
+</div>
+</section>
+<div class="section-divider" aria-hidden="true"></div>
+
+<!-- ============================ 5. ANWENDUNG ============================ -->
+<section class="section" id="einsatzbereiche">
+<div class="section-inner">
+<div class="media-copy">
+<div class="kicker">Anwendung</div>
+<h2>Typische Einsatzbereiche und was damit möglich wird</h2>
+<p class="sub">Eine KI-Roadmap kann einzelne Bereiche oder die gesamte Organisation strukturieren.</p>
+<p class="text">Die Roadmap eignet sich sowohl für den ersten Einstieg in KI als auch für die Ordnung bereits bestehender Initiativen. Sie legt fest, welche Maßnahmen vorbereitet, getestet oder direkt umgesetzt werden sollten.</p>
+</div>
 <article class="panel">
 <div class="pair-grid"><div class="pair"><span class="pair-chip"><span class="chip-icon"><img src="assets/cards/service/icons/5.png" alt="" width="100" height="100" loading="lazy" /></span>viele Einzelideen</span><span class="pair-arrow"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-chev"/></svg></span><span class="pair-chip pair-chip--gold"><span class="chip-icon"><img src="assets/cards/service/icons/2.png" alt="" width="100" height="100" loading="lazy" /></span>priorisierte Vorhaben</span></div>
 <div class="pair"><span class="pair-chip"><span class="chip-icon"><img src="assets/cards/service/icons/9.png" alt="" width="100" height="100" loading="lazy" /></span>unklare Reihenfolge</span><span class="pair-arrow"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-chev"/></svg></span><span class="pair-chip pair-chip--gold"><span class="chip-icon"><img src="assets/cards/service/icons/1.png" alt="" width="100" height="100" loading="lazy" /></span>definierte Voraussetzungen</span></div>
@@ -994,8 +999,8 @@ h1, main h2 {\n  -webkit-text-stroke: .6px rgba(255,248,207,.40);\n  background-
 <section class="section" id="nutzen">
 <div class="section-inner">
 <div class="media-copy">
-<div class="kicker">Nutzen</div>
-<h2>Ihr konkreter Nutzen</h2>
+<div class="kicker">Ihr Nutzen</div>
+<h2>Ihr Nutzen aus der KI-Roadmap</h2>
 <p class="sub">Ein abgestimmter Plan statt unverbundener Einzelmaßnahmen.</p>
 <p class="text">Die Roadmap schafft Klarheit darüber, welche Vorhaben sinnvoll sind, welche Voraussetzungen benötigt werden und wie die einzelnen Maßnahmen aufeinander aufbauen.</p>
 </div>
@@ -1018,7 +1023,7 @@ h1, main h2 {\n  -webkit-text-stroke: .6px rgba(255,248,207,.40);\n  background-
 
 <!-- ============================ 7. FAQ ============================ -->
 <section class="section" id="faq"><div class="section-inner">
-<div class="kicker">FAQ</div><h2>Häufige Fragen</h2><p class="sub">Die wichtigsten Informationen zur Beratung und KI-Roadmap.</p><p class="text">Umfang und Schwerpunkt richten sich nach den Zielen, den beteiligten Unternehmensbereichen und den bereits vorhandenen Vorhaben.</p><div class="faq-grid"><details class="faq-item"><summary><span>Muss bereits eine KI-Strategie vorhanden sein?</span></summary><p>Nein. Die Roadmap kann den Einstieg vollständig strukturieren.</p></details>
+<div class="kicker">Häufige Fragen</div><h2>FAQ</h2><p class="sub">Die wichtigsten Informationen zur Beratung und KI-Roadmap.</p><p class="text">Umfang und Schwerpunkt richten sich nach den Zielen, den beteiligten Unternehmensbereichen und den bereits vorhandenen Vorhaben.</p><div class="faq-grid"><details class="faq-item"><summary><span>Muss bereits eine KI-Strategie vorhanden sein?</span></summary><p>Nein. Die Roadmap kann den Einstieg vollständig strukturieren.</p></details>
 <details class="faq-item"><summary><span>Kann eine bestehende Strategie geprüft werden?</span></summary><p>Ja. Vorhandene Pläne und Initiativen können bewertet und neu geordnet werden.</p></details>
 <details class="faq-item"><summary><span>Enthält die Roadmap konkrete Projekte?</span></summary><p>Ja. Geeignete Anwendungsfälle und empfohlene nächste Schritte werden benannt.</p></details>
 <details class="faq-item"><summary><span>Werden technische Voraussetzungen berücksichtigt?</span></summary><p>Ja. Daten, Systeme, Schnittstellen und Sicherheitsanforderungen fließen in die Planung ein.</p></details>

@@ -1,3 +1,82 @@
+## 2026-11-16 - Sektionstitel auf 44 px
+
+Status: offen, wartet auf Abnahme
+
+Die Sektionstitel waren kaum groesser als die Sublines. Ursache: Sie trugen ueber die Basisregel `main h2` den Token `--t-kartentitel`, 30,24 px bei 1440 px. Das ist der Token fuer Kartentitel.
+
+Ein erster Versuch setzte sie auf `--t-sektionstitel`, 66,24 px. Das war mehr als eine Verdopplung und nicht abgesprochen; zurueckgenommen mit einem Revert.
+
+Vom Nutzer festgelegt: **44 px ab 1440 px**, Verhaeltnis 2,32 : 1. Umgesetzt als `clamp(26px, 3.056vw, 44px)` an der Kopfregel `.section:not(#hero) .section-inner > h2`, nicht an `main h2`. Ein fester Wert von 44 px lief bei 390 px um 10 px ueber den Rand; die `clamp`-Form haelt dort 26 px, wie der vorhandene Token.
+
+Gemessen: 390 und 768 px je 26, 1100 px 33,6, ab 1440 px 44. Alle Titel einzeilig. Beide Seiten bestehen alle zehn Regeln, Ueberlauf 0 bei allen sieben Breiten.
+
+**Offen:** `index.html` setzt Sektionstitel auf 80 px. Ob Startseite und Detailseiten angeglichen werden, ist nicht entschieden.
+
+## 2026-11-16 - Einsatzbereiche in die Modul-Sektion, chip-list entfernt
+
+Status: offen, wartet auf Abnahme
+
+Die zehn Einsatzbereiche aus `#anwendung` standen als `chip-list` ueber dem gruenen Feld in `einsatzbereiche`. Diesen Baustein hat die Vorlage dort nicht; er war eine eigene Zutat und faellt weg.
+
+Die zehn Begriffe stehen jetzt am Ende der Modul-Sektion als `ul.card-bullets`, wie es `detail_ki-agenten.html` und `detail_chatbots.html` fuer dieselbe Art Liste tun. Das Bauteil ist in der Vorlage vorhanden, bisher nur unbenutzt.
+
+Begriffe unveraendert: Unternehmensstrategie, Prozessautomatisierung, Datenverarbeitung, Wissensmanagement, Kundenservice, Vertrieb, interne Verwaltung, Softwareintegration, Governance, Pilotprojekte.
+
+Zwei Regeln angepasst, beide an der bestehenden Stelle:
+
+- `#leistungen .card-bullets` bekommt denselben Einzug wie jeder andere Inhaltsblock; die Regel ersetzt die bisherige fuer `#einsatzbereiche .chip-list`.
+- `@media (max-width: 640px)` stellt jetzt `.chip-list` **und** `.card-bullets` einspaltig. Ohne das lief die Liste bei 390 px um 66 px ueber den Rand.
+
+**Schriftgroessen unveraendert.** Gemessen auf beiden Seiten: Sektionstitel 30,24 px Exo 2 700, Subline 19 px Inter, in jeder Sektion gleich. Dass die Titel schwaecher wirken, kommt von ihrer Laenge, nicht von einer Groessenaenderung.
+
+Pflichtpruefung: alle zehn Regeln bestanden, Ueberlauf 0 bei allen sieben Breiten.
+
+## 2026-11-16 - Vier Sektionstitel der Roadmap-Preview nach dem Muster der Vorlage
+
+Status: offen, wartet auf Abnahme
+
+`analyse.html` nennt in jedem Sektionstitel die Leistung. Die Roadmap-Seite tat das nicht. Vom Nutzer beauftragt, die vier Titel in diesem Muster zu schreiben:
+
+| Sektion | vorher | jetzt | Muster in `analyse.html` |
+| --- | --- | --- | --- |
+| warum | Unverbundene Einzelprojekte erzeugen selten nachhaltigen Nutzen. | Warum ist die Roadmap entscheidend? | Warum ist die Analyse entscheidend? |
+| leistungen | Module der Roadmap | Unsere Leistungen innerhalb der KI-Roadmap | Unsere Leistungen innerhalb der Potenzialanalyse |
+| einsatzbereiche | Was damit moeglich wird | Typische Einsatzbereiche und was damit moeglich wird | gleicher Wortlaut |
+| nutzen | Ihr konkreter Nutzen | Ihr Nutzen aus der KI-Roadmap | Ihr Nutzen aus der Potenzialanalyse |
+
+**In `warum` ist dabei ein erfundener Text weggefallen.** Der bisherige Titel `Unverbundene Einzelprojekte erzeugen selten nachhaltigen Nutzen.` stammt aus `detail_roadmap.html` und steht jetzt als Subline. Die am 2026-11-15 von mir geschriebene Subline `Einzelne KI-Ideen wirken erst dann, ...` ist dadurch entfallen. Die Seite traegt damit einen selbst geschriebenen Text weniger.
+
+**Weggefallen ohne Ersatz:** `Module der Roadmap`. Der Inhalt steht unveraendert im Kicker `Leistungsumfang` und in der Subline `Acht Schritte vom Zielbild bis zum Umsetzungspfad.`
+
+Alle acht freigegebenen Abweichungen stehen in `tools/pruefung/freigaben/preview-detail_roadmap.json`.
+
+Pflichtpruefung: alle zehn Regeln bestanden. Konsole sauber.
+
+## 2026-11-16 - Kicker der Roadmap-Preview an die Vorlage angeglichen
+
+Status: offen, Titel stehen aus
+
+Abgleich aller Sektionskoepfe zwischen `analyse.html` und `preview-detail_roadmap.html`. Vier von sieben Kickern waren bereits gleich, drei nicht.
+
+- `faq`: Kicker und Titel waren vertauscht. Die Vorlage traegt Kicker `Haeufige Fragen` und Titel `FAQ`, die Roadmap hatte es umgekehrt. Getauscht; beide Texte standen bereits auf der Seite, nichts hinzugefuegt.
+- `nutzen`: Kicker `Nutzen` auf `Ihr Nutzen` gesetzt, wie in der Vorlage. In `tools/pruefung/freigaben/` aufgenommen, weil der Wortlaut so nicht in `detail_roadmap.html` steht.
+- `hero`: Kicker bleibt `KI-Roadmap`. Der Unterschied zu `KI-Potenzialanalyse` ist das Seitenthema und kein Fehler.
+
+Danach sind sechs von sieben Kickern identisch, der siebte ist das Seitenthema.
+
+**Offen: die Titel.** Die Vorlage nennt die Leistung im Titel, die Roadmap-Seite nicht:
+
+| Sektion | `analyse.html` | Roadmap |
+| --- | --- | --- |
+| warum | Warum ist die Analyse entscheidend? | Unverbundene Einzelprojekte erzeugen selten nachhaltigen Nutzen. |
+| leistungen | Unsere Leistungen innerhalb der Potenzialanalyse | Module der Roadmap |
+| einsatzbereiche | Typische Einsatzbereiche und was damit moeglich wird | Was damit moeglich wird |
+| nutzen | Ihr Nutzen aus der Potenzialanalyse | Ihr konkreter Nutzen |
+
+Der Nutzer gibt die vier Titel vor; bis dahin bleiben die vorhandenen stehen. Nicht umformuliert.
+
+Pflichtpruefung nach der Aenderung: alle zehn Regeln bestanden.
+
 ## 2026-11-15 - analyse.html auf den 32-px-Einzug nachgezogen
 
 Status: offen, wartet auf Abnahme

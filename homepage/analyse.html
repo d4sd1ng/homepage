@@ -583,9 +583,14 @@ h1, main h2 {\n  -webkit-text-stroke: .6px rgba(255,248,207,.40);\n  background-
   margin-bottom:10px;
 }
 .section:not(#hero) .section-inner > h2,
-.section:not(#hero) .media-copy > h2{
+.section:not(#hero) .media-copy > h2,
+.section:not(#hero) .definition-intro > h2{
   margin-top:0;
   margin-bottom:var(--detail-title-gap);
+  /* Sektionstitel 44 px ab 1440 px, am 2026-11-16 vom Nutzer festgelegt.
+     Verhaeltnis zur 19-px-Subline dort 2,3 zu 1. Untere Grenze 26 px wie beim
+     vorhandenen --t-kartentitel; ein fester Wert lief bei 390 px ueber. */
+  font-size:clamp(26px, 3.056vw, 44px);
 }
 .section:not(#hero) .section-inner > h2 + .sub,
 .section:not(#hero) .media-copy > h2 + .sub{
