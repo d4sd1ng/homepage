@@ -38,6 +38,21 @@ jobs:
           set -euo pipefail
           python3 grow_controller/hardware/cad/sensor_pcb_mechanical_electrical_audit.py | tee pcb-check/mechanical-electrical.txt
 
+      - name: Confirm fabrication release is blocked while mount/USB remain unresolved
+        shell: bash
+        run: |
+          set -euo pipefail
+          if python3 grow_controller/hardware/cad/sensor_pcb_mechanical_electrical_audit.py --release > pcb-check/release-gate.txt; then
+            echo "ERROR: manufacturing release unexpectedly passed" >&2
+            exit 1
+          fi
+          if ! grep -q 'FABRICATION RELEASE BLOCKED' pcb-check/release-gate.txt; then
+            echo "ERROR: audit failed for reasons unrelated to expected physical hold" >&2
+            cat pcb-check/release-gate.txt
+            exit 1
+          fi
+          echo "Confirmed: factory CAM export blocked until the physical hold is resolved"
+
       - name: Isolated KiCad DRC in Docker (no host package changes)
         shell: bash
         run: |
@@ -84,7 +99,7 @@ jobs:
         if: always()
         shell: bash
         run: |
-          for file in pcb-check/static.txt pcb-check/mechanical-electrical.txt pcb-check/sensor_drc.txt; do
+          for file in pcb-check/static.txt pcb-check/mechanical-electrical.txt pcb-check/release-gate.txt pcb-check/sensor_drc.txt; do
             if [ -f "$file" ]; then
               echo "====== $file ======"
               head -n 420 "$file"
