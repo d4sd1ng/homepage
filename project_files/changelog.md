@@ -1,3 +1,17 @@
+## 2026-11-16 - Sektionstitel auf 44 px
+
+Status: offen, wartet auf Abnahme
+
+Die Sektionstitel waren kaum groesser als die Sublines. Ursache: Sie trugen ueber die Basisregel `main h2` den Token `--t-kartentitel`, 30,24 px bei 1440 px. Das ist der Token fuer Kartentitel.
+
+Ein erster Versuch setzte sie auf `--t-sektionstitel`, 66,24 px. Das war mehr als eine Verdopplung und nicht abgesprochen; zurueckgenommen mit einem Revert.
+
+Vom Nutzer festgelegt: **44 px ab 1440 px**, Verhaeltnis 2,32 : 1. Umgesetzt als `clamp(26px, 3.056vw, 44px)` an der Kopfregel `.section:not(#hero) .section-inner > h2`, nicht an `main h2`. Ein fester Wert von 44 px lief bei 390 px um 10 px ueber den Rand; die `clamp`-Form haelt dort 26 px, wie der vorhandene Token.
+
+Gemessen: 390 und 768 px je 26, 1100 px 33,6, ab 1440 px 44. Alle Titel einzeilig. Beide Seiten bestehen alle zehn Regeln, Ueberlauf 0 bei allen sieben Breiten.
+
+**Offen:** `index.html` setzt Sektionstitel auf 80 px. Ob Startseite und Detailseiten angeglichen werden, ist nicht entschieden.
+
 ## 2026-11-16 - Einsatzbereiche in die Modul-Sektion, chip-list entfernt
 
 Status: offen, wartet auf Abnahme
