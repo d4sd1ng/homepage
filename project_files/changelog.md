@@ -1,3 +1,22 @@
+## 2026-11-16 - Einsatzbereiche in die Modul-Sektion, chip-list entfernt
+
+Status: offen, wartet auf Abnahme
+
+Die zehn Einsatzbereiche aus `#anwendung` standen als `chip-list` ueber dem gruenen Feld in `einsatzbereiche`. Diesen Baustein hat die Vorlage dort nicht; er war eine eigene Zutat und faellt weg.
+
+Die zehn Begriffe stehen jetzt am Ende der Modul-Sektion als `ul.card-bullets`, wie es `detail_ki-agenten.html` und `detail_chatbots.html` fuer dieselbe Art Liste tun. Das Bauteil ist in der Vorlage vorhanden, bisher nur unbenutzt.
+
+Begriffe unveraendert: Unternehmensstrategie, Prozessautomatisierung, Datenverarbeitung, Wissensmanagement, Kundenservice, Vertrieb, interne Verwaltung, Softwareintegration, Governance, Pilotprojekte.
+
+Zwei Regeln angepasst, beide an der bestehenden Stelle:
+
+- `#leistungen .card-bullets` bekommt denselben Einzug wie jeder andere Inhaltsblock; die Regel ersetzt die bisherige fuer `#einsatzbereiche .chip-list`.
+- `@media (max-width: 640px)` stellt jetzt `.chip-list` **und** `.card-bullets` einspaltig. Ohne das lief die Liste bei 390 px um 66 px ueber den Rand.
+
+**Schriftgroessen unveraendert.** Gemessen auf beiden Seiten: Sektionstitel 30,24 px Exo 2 700, Subline 19 px Inter, in jeder Sektion gleich. Dass die Titel schwaecher wirken, kommt von ihrer Laenge, nicht von einer Groessenaenderung.
+
+Pflichtpruefung: alle zehn Regeln bestanden, Ueberlauf 0 bei allen sieben Breiten.
+
 ## 2026-11-16 - Vier Sektionstitel der Roadmap-Preview nach dem Muster der Vorlage
 
 Status: offen, wartet auf Abnahme
