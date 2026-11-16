@@ -59,9 +59,9 @@ jobs:
               kicad-cli pcb export drill --format excellon \
                 --output /reports/preview/ \
                 /workspace/hardware/cad/sensor_pcb_routed_candidate.kicad_pcb
-              printf '%s\n' 'DO NOT FABRICATE — DIAGNOSTIC PCB PREVIEW ONLY' \
-                'Footprints and mechanical dimensions are unverified.' \
-                'DRC has warnings; Gerbers are for review, not ordering.' \
+              printf "%s\n" "DO NOT FABRICATE - DIAGNOSTIC PCB PREVIEW ONLY" \
+                "Footprints and mechanical dimensions are unverified." \
+                "DRC has warnings; Gerbers are for review, not ordering." \
                 > /reports/preview/DO_NOT_FABRICATE.txt
               tar -C /reports/preview -czf /reports/pcb-preview-NOT_FOR_ORDER.tar.gz .
               exit "$drc_status"
