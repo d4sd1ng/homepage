@@ -1,0 +1,73 @@
+name: Grow Controller PCB DRC (existing nurovelle-vps runner)
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - '.github/workflows/grow-controller-pcb.yml'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: grow-controller-pcb-main
+  cancel-in-progress: false
+
+jobs:
+  sensor-pcb:
+    runs-on: [self-hosted, linux, vps]
+    timeout-minutes: 20
+    steps:
+      - name: Checkout Grow Controller source
+        uses: actions/checkout@v4
+        with:
+          repository: d4sd1ng/grow_controller
+          ref: main
+          path: grow_controller
+          persist-credentials: false
+
+      - name: Static footprint and pin-net audit
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 grow_controller/hardware/cad/audit_sensor_pcb.py
+          python3 grow_controller/hardware/cad/sensor_pcb_mechanical_electrical_audit.py
+
+      - name: KiCad DRC and separate PTH/NPTH check (isolated Docker)
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p pcb-drc-revA
+          docker run --rm \
+            -v "$PWD/grow_controller:/workspace:ro" \
+            -v "$PWD/pcb-drc-revA:/reports" \
+            -e DEBIAN_FRONTEND=noninteractive \
+            debian:trixie bash -c '
+              set -euo pipefail
+              apt-get update -qq
+              apt-get install -y -qq --no-install-recommends kicad
+              mkdir -p /root/.config/kicad/9.0
+              printf "%s\n" "(fp_lib_table" "  (lib (name \"Grow_Controller_Sensor\")(type \"KiCad\")(uri \"/workspace/hardware/cad/Grow_Controller_Sensor.pretty\")(options \"\")(descr \"\"))" ")" > /root/.config/kicad/9.0/fp-lib-table
+              kicad-cli version
+              kicad-cli pcb drc --exit-code-violations --all-track-errors \
+                --output /reports/sensor_drc.txt \
+                /workspace/hardware/cad/sensor_pcb_routed_candidate.kicad_pcb
+              mkdir -p /reports/drills
+              kicad-cli pcb export drill --format excellon --excellon-separate-th \
+                --output /reports/drills/ \
+                /workspace/hardware/cad/sensor_pcb_routed_candidate.kicad_pcb
+              test -s /reports/drills/sensor_pcb_routed_candidate-PTH.drl
+              test -s /reports/drills/sensor_pcb_routed_candidate-NPTH.drl
+              echo "PASS: PTH and NPTH drill output present"
+              cat /reports/sensor_drc.txt
+            '
+
+      - name: Preserve fabrication gate (not a build release)
+        shell: bash
+        run: |
+          set -euo pipefail
+          if [ -f grow_controller/hardware/cad/FABRICATION_RELEASE_APPROVED ]; then
+            echo "FABRICATION_RELEASE_APPROVED exists: inspect actual physical sign-off manually" >&2
+            exit 1
+          fi
+          echo "CAD DRC complete; mechanical and electrical production release remains blocked."
