@@ -29,7 +29,9 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          rm -rf pcb-check
+          mkdir -p pcb-check
+          # Older KiCad jobs left root-owned preview files in this directory.
+          docker run --rm -v "$PWD/pcb-check:/reports" debian:trixie sh -c 'rm -rf /reports/*'
           mkdir -p pcb-check
           python3 grow_controller/hardware/cad/audit_sensor_pcb.py | tee pcb-check/static.txt
 
