@@ -101,9 +101,9 @@ Keine abgeschlossenen historischen Entscheidungen, Designregeln oder Projektbesc
 - [x] **analyse.html auf den Stand der Pflichtpruefung gebracht** — fertig
   - 32-px-Einzug nachgezogen, Subline der FAQ-Sektion gesetzt.
   - Besteht alle zehn Regeln: `node tools/pruefung/pruefe-seite.cjs analyse.html`
-- [ ] **Titel der Roadmap-Preview** — blockiert, Nutzer gibt sie vor
-  - Die Vorlage nennt die Leistung im Titel, die Roadmap-Seite nicht. Betroffen: `warum`, `leistungen`, `einsatzbereiche`, `nutzen`.
-  - Kicker sind am 2026-11-16 angeglichen, sechs von sieben identisch.
+- [x] **Sektionskoepfe der Roadmap-Preview** — fertig
+  - Kicker angeglichen, sechs von sieben identisch mit `analyse.html`.
+  - Vier Titel am 2026-11-16 nach dem Muster der Vorlage gesetzt.
 - [ ] endgültige Liste aller Leistungsdetailseiten gegen den zuletzt erarbeiteten Contentstand prüfen — offen
 - [ ] gemeinsame Detailseiten-Struktur final gegen die zuletzt erarbeiteten Seiten prüfen — offen
 - [ ] Texte jeder Detailseite vollständig freigeben — offen

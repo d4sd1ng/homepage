@@ -1,3 +1,24 @@
+## 2026-11-16 - Vier Sektionstitel der Roadmap-Preview nach dem Muster der Vorlage
+
+Status: offen, wartet auf Abnahme
+
+`analyse.html` nennt in jedem Sektionstitel die Leistung. Die Roadmap-Seite tat das nicht. Vom Nutzer beauftragt, die vier Titel in diesem Muster zu schreiben:
+
+| Sektion | vorher | jetzt | Muster in `analyse.html` |
+| --- | --- | --- | --- |
+| warum | Unverbundene Einzelprojekte erzeugen selten nachhaltigen Nutzen. | Warum ist die Roadmap entscheidend? | Warum ist die Analyse entscheidend? |
+| leistungen | Module der Roadmap | Unsere Leistungen innerhalb der KI-Roadmap | Unsere Leistungen innerhalb der Potenzialanalyse |
+| einsatzbereiche | Was damit moeglich wird | Typische Einsatzbereiche und was damit moeglich wird | gleicher Wortlaut |
+| nutzen | Ihr konkreter Nutzen | Ihr Nutzen aus der KI-Roadmap | Ihr Nutzen aus der Potenzialanalyse |
+
+**In `warum` ist dabei ein erfundener Text weggefallen.** Der bisherige Titel `Unverbundene Einzelprojekte erzeugen selten nachhaltigen Nutzen.` stammt aus `detail_roadmap.html` und steht jetzt als Subline. Die am 2026-11-15 von mir geschriebene Subline `Einzelne KI-Ideen wirken erst dann, ...` ist dadurch entfallen. Die Seite traegt damit einen selbst geschriebenen Text weniger.
+
+**Weggefallen ohne Ersatz:** `Module der Roadmap`. Der Inhalt steht unveraendert im Kicker `Leistungsumfang` und in der Subline `Acht Schritte vom Zielbild bis zum Umsetzungspfad.`
+
+Alle acht freigegebenen Abweichungen stehen in `tools/pruefung/freigaben/preview-detail_roadmap.json`.
+
+Pflichtpruefung: alle zehn Regeln bestanden. Konsole sauber.
+
 ## 2026-11-16 - Kicker der Roadmap-Preview an die Vorlage angeglichen
 
 Status: offen, Titel stehen aus
