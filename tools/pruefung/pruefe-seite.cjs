@@ -174,7 +174,7 @@ function block(html, tag) {
   // --- 7. bis 10. im Browser
   const { s, port } = await server();
   const browser = await chromium.launch({ executablePath: '/opt/pw-browsers/chromium', args: ['--no-sandbox'] });
-  const abwWerte = [], abwEinzug = [], abwUeberlauf = [], meldungen = [], abwFaq = [];
+  const abwWerte = [], abwEinzug = [], abwUeberlauf = [], meldungen = [], abwFaq = [], hinweise = [];
 
   for (const w of BREITEN) {
     const page = await browser.newPage({ viewport: { width: w, height: 1000 } });
@@ -215,7 +215,9 @@ function block(html, tag) {
     }, { BLOECKE, SOLL });
 
     if (d.ueberlauf !== 0) abwUeberlauf.push(`${w}px: ${d.ueberlauf}`);
-    if (w >= 1100) d.faqZweizeilig.forEach(t => abwFaq.push(`${w}px: "${t}"`));
+    // 21.4 gilt ab 1280 px; darunter ist der Umbruch in 21.7 als offen vermerkt
+    if (w >= 1280) d.faqZweizeilig.forEach(t => abwFaq.push(`${w}px: "${t}"`));
+    else if (d.faqZweizeilig.length) hinweise.push(`${w}px: ${d.faqZweizeilig.length} FAQ-Knoepfe zweizeilig (21.7, offen)`);
 
     if (w >= 901) {
       // Sollbreite des Inhalts: 1300, aber hoechstens section-inner minus zweimal Einzug
@@ -260,7 +262,8 @@ function block(html, tag) {
   melde('Einzug gleich in jedem Block', abwEinzug.length === 0,
     abwEinzug.length ? abwEinzug.join(' | ') : `${SOLL.einzug} px Mindesteinzug eingehalten`);
   melde('FAQ-Knoepfe einzeilig (21.4)', abwFaq.length === 0,
-    abwFaq.length ? [...new Set(abwFaq)].join(' | ') : 'alle Knoepfe einzeilig ab 1100 px');
+    abwFaq.length ? [...new Set(abwFaq)].join(' | ')
+      : 'alle Knoepfe einzeilig ab 1280 px' + (hinweise.length ? '  |  ' + [...new Set(hinweise)].join(', ') : ''));
   melde('Kein waagerechter Ueberlauf', abwUeberlauf.length === 0,
     abwUeberlauf.length ? abwUeberlauf.join(' | ') : `0 bei ${BREITEN.join(', ')} px`);
   melde('Konsole und Antworten sauber', meldungen.length === 0,

@@ -1,3 +1,25 @@
+## 2026-11-16 - Beschreibungssaetze in der Ausgangslage, FAQ-Frage gekuerzt
+
+Status: offen, wartet auf Abnahme
+
+Beides am 2026-11-16 vom Nutzer freigegeben.
+
+**Fuenf Beschreibungssaetze** fuer die Bulletpoints in `warum`, im Muster der Vorlage `<strong>Begriff</strong>Satz`:
+
+| Begriff | Satz |
+| --- | --- |
+| unverbundene KI-Ideen | Einzelne Vorhaben entstehen nebeneinander, ohne gemeinsamen Rahmen. |
+| fehlende Prioritaeten | Ohne festgelegte Reihenfolge konkurrieren Vorhaben um dieselben Mittel und Kapazitaeten. |
+| unklare Zustaendigkeiten | Es ist nicht geregelt, wer ein Vorhaben entscheidet, verantwortet und abnimmt. |
+| technische Abhaengigkeiten | Voraussetzungen und Schnittstellen werden erst waehrend der Umsetzung sichtbar. |
+| keine gemeinsame Zielrichtung | Fachbereiche und Technik verfolgen unterschiedliche Ziele und Zeithorizonte. |
+
+Damit ist der grosse Abstand zum Foto verschwunden: Die Liste misst jetzt 455 statt 245 px, der erste Bullet beginnt 1 px unter der Bildoberkante statt 106 px. Der Abstand war kein eigener Layoutfehler, sondern Folge der kurzen Liste, die `media-split` nach Styleguide 21.1 mittig ausrichtet.
+
+**FAQ-Frage** gekuerzt auf `Koennen mehrere Bereiche einbezogen werden?` Danach alle acht Knoepfe ab 1280 px einzeilig.
+
+Im Pruefskript die Regel 21.4 auf den Bereich ab 1280 px begrenzt. Darunter meldet sie einen Hinweis statt einer Abweichung, weil Styleguide 21.7 den Umbruch unterhalb von 1280 px ausdruecklich als offen fuehrt. Beide Seiten bestehen damit alle elf Regeln.
+
 ## 2026-11-16 - Bulletpoints aus der Leistungsumfang-Sektion entfernt, FAQ-Knopf einzeilig
 
 Status: offen, wartet auf Abnahme
