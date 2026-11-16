@@ -45,9 +45,26 @@ jobs:
               apt-get update -qq
               apt-get install -y -qq --no-install-recommends kicad
               kicad-cli version
+              set +e
               kicad-cli pcb drc --exit-code-violations --all-track-errors \
                 --output /reports/sensor_drc.txt \
                 /workspace/hardware/cad/sensor_pcb_routed_candidate.kicad_pcb
+              drc_status=$?
+              set -e
+              mkdir -p /reports/preview
+              kicad-cli pcb export gerbers \
+                --layers F.Cu,B.Cu,F.SilkS,B.SilkS,F.Mask,B.Mask,Edge.Cuts \
+                --output /reports/preview/ \
+                /workspace/hardware/cad/sensor_pcb_routed_candidate.kicad_pcb
+              kicad-cli pcb export drill --format excellon \
+                --output /reports/preview/ \
+                /workspace/hardware/cad/sensor_pcb_routed_candidate.kicad_pcb
+              printf '%s\n' 'DO NOT FABRICATE — DIAGNOSTIC PCB PREVIEW ONLY' \
+                'Footprints and mechanical dimensions are unverified.' \
+                'DRC has warnings; Gerbers are for review, not ordering.' \
+                > /reports/preview/DO_NOT_FABRICATE.txt
+              tar -C /reports/preview -czf /reports/pcb-preview-NOT_FOR_ORDER.tar.gz .
+              exit "$drc_status"
             '
 
       - name: Print inspection summary (no artifact quota)
@@ -60,3 +77,9 @@ jobs:
               head -n 420 "$file"
             fi
           done
+          if [ -f pcb-check/pcb-preview-NOT_FOR_ORDER.tar.gz ]; then
+            echo 'BEGIN_PCB_PREVIEW_BASE64'
+            base64 -w0 pcb-check/pcb-preview-NOT_FOR_ORDER.tar.gz
+            echo
+            echo 'END_PCB_PREVIEW_BASE64'
+          fi
