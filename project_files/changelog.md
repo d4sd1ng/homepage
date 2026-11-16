@@ -1,3 +1,23 @@
+## 2026-11-16 - Zweites CTA, invertiert
+
+Status: offen, wartet auf Abnahme
+
+Am 2026-11-16 vom Nutzer beauftragt. Neben jedem vorhandenen CTA steht jetzt ein zweites: `Erstgespraech vereinbaren` mit Calendly-Icon, Ziel `https://calendly.com/d4sd1ng/30min`, in neuem Tab mit `rel="noopener"`. Beschriftung, Ziel und Icon sind woertlich aus `index.html` uebernommen; das Icon-Symbol `#nv-calendly-mark` liegt bereits im Sprite der Seite.
+
+Betroffen sind beide `.actions`-Bloecke: Hero und Definitionssektion. Das vorhandene CTA `KI-Roadmap planen` auf `analyse.html` bleibt unveraendert.
+
+**Neue Variante `.btn--outline`**, invertiert zum `.btn`: Goldrahmen, goldene Schrift, schwarzer Grund. Es gab keine fertige Variante dafuer - `hero-cta--outline` auf `index.html` traegt keine eigenen Regeln und ist dort wirkungslos. Gebaut aus vorhandenen Tokens, keine neuen Farben:
+
+```
+.btn--outline { color: var(--nv-gold-highlight); background-image: none; background-color: var(--color-bg-black); box-shadow: none; text-shadow: none; }
+```
+
+Dazu eine Regel fuer das Icon im Knopf, mit denselben Massen wie `.golden-button .nv-calendly-icon` in `shared-header-footer.css`: 16 x 16 px.
+
+Pflichtpruefung: alle elf Regeln bestanden.
+
+**Weiterhin offen:** Der linken Karte in der Definitionssektion fehlt der Titel. Vorschlag `Was die Roadmap ordnet` liegt beim Nutzer.
+
 ## 2026-11-16 - Beschreibungssaetze in der Ausgangslage, FAQ-Frage gekuerzt
 
 Status: offen, wartet auf Abnahme
