@@ -1,3 +1,17 @@
+## 2026-11-16 - Bulletpoints aus der Leistungsumfang-Sektion entfernt, FAQ-Knopf einzeilig
+
+Status: offen, wartet auf Abnahme
+
+**Die zehn Einsatzbereiche sind von der Seite verschwunden.** Sie standen zuerst als `chip-list` in `einsatzbereiche`, dann auf Anweisung als `card-bullets` am Ende der Modul-Sektion. Beides ist zurueckgenommen; die Begriffe stehen jetzt nirgends mehr:
+
+Unternehmensstrategie, Prozessautomatisierung, Datenverarbeitung, Wissensmanagement, Kundenservice, Vertrieb, interne Verwaltung, Softwareintegration, Governance, Pilotprojekte.
+
+Sie stehen weiterhin in `detail_roadmap.html` und sind dort nicht angetastet. Die zugehoerigen Regeln `#leistungen .card-bullets` und die Erweiterung der 640er Medienabfrage sind mit entfernt, damit nichts Totes zurueckbleibt.
+
+**FAQ-Knopf.** `Koennen mehrere Unternehmensbereiche einbezogen werden?` war bei 1440, 1600 und 1920 px zweizeilig, 56 statt 44 px. Styleguide 21.4: Knoepfe muessen einzeilig bleiben, mehr als 640 px gibt die Inhaltsbreite nicht her, dann muss die Frage kuerzer werden. Gekuerzt auf `Koennen mehrere Bereiche einbezogen werden?`; das Wort `Unternehmens` faellt weg, die Seite spricht durchgehend von Unternehmen. Danach alle acht Knoepfe einzeilig bei allen drei Breiten.
+
+Pflichtpruefung: alle zehn Regeln bestanden.
+
 ## 2026-11-16 - Hero-Glow von der Roadmap-Preview entfernt
 
 Status: offen, wartet auf Abnahme
