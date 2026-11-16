@@ -21,7 +21,7 @@ jobs:
         uses: actions/checkout@v4
         with:
           repository: d4sd1ng/grow_controller
-          ref: main
+          ref: feature/sensor-25-footprint-assignment-20261116
           persist-credentials: false
           path: grow_controller
 
