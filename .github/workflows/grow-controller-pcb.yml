@@ -83,9 +83,10 @@ jobs:
                 --layers F.Cu,B.Cu,F.SilkS,B.SilkS,F.Mask,B.Mask,Edge.Cuts \
                 --output /reports/preview/ \
                 /workspace/hardware/cad/sensor_pcb_routed_candidate.kicad_pcb
-              kicad-cli pcb export drill --format excellon \
+              kicad-cli pcb export drill --format excellon --excellon-separate-th \
                 --output /reports/preview/ \
                 /workspace/hardware/cad/sensor_pcb_routed_candidate.kicad_pcb
+              ls -lah /reports/preview/*.drl
               kicad-cli pcb export svg --fit-page-to-board --exclude-drawing-sheet \
                 --layers F.Cu,F.SilkS,Edge.Cuts \
                 --mode-single --output /reports/preview/sensor_pcb_top_review.svg \
