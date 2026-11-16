@@ -8,7 +8,11 @@ Unternehmensstrategie, Prozessautomatisierung, Datenverarbeitung, Wissensmanagem
 
 Sie stehen weiterhin in `detail_roadmap.html` und sind dort nicht angetastet. Die zugehoerigen Regeln `#leistungen .card-bullets` und die Erweiterung der 640er Medienabfrage sind mit entfernt, damit nichts Totes zurueckbleibt.
 
-**FAQ-Knopf.** `Koennen mehrere Unternehmensbereiche einbezogen werden?` war bei 1440, 1600 und 1920 px zweizeilig, 56 statt 44 px. Styleguide 21.4: Knoepfe muessen einzeilig bleiben, mehr als 640 px gibt die Inhaltsbreite nicht her, dann muss die Frage kuerzer werden. Gekuerzt auf `Koennen mehrere Bereiche einbezogen werden?`; das Wort `Unternehmens` faellt weg, die Seite spricht durchgehend von Unternehmen. Danach alle acht Knoepfe einzeilig bei allen drei Breiten.
+**FAQ-Knopf: Kuerzung zurueckgenommen.** `Koennen mehrere Unternehmensbereiche einbezogen werden?` ist bei 1440 px und darueber zweizeilig, 56 statt 44 px. Styleguide 21.4 verlangt einzeilige Knoepfe und nennt als Weg, die Frage zu kuerzen. Ich hatte sie daraufhin auf `Koennen mehrere Bereiche einbezogen werden?` gekuerzt - ohne Freigabe. `AGENTS.md` verbietet das Kuerzen von Texten, und `task_contract.md` stellt diese Regel ueber den Styleguide. Der Originalwortlaut steht wieder; der Knopf bleibt vorerst zweizeilig. Der Wortlaut ist Sache des Nutzers.
+
+Im Pruefskript ergaenzt: **FAQ-Knoepfe einzeilig (21.4)**. Damit wird der Umbruch gemeldet, statt stillschweigend am Text behoben zu werden.
+
+Dabei gemessen, beide Seiten betroffen und schon vorher: Bei 1100 px sind auf `preview-detail_roadmap.html` sieben von acht und auf `analyse.html` drei von acht Knoepfen zweizeilig. Das ist der in Styleguide 21.7 als offen vermerkte Punkt, kein neuer Fehler.
 
 Pflichtpruefung: alle zehn Regeln bestanden.
 

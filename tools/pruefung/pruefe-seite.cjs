@@ -174,7 +174,7 @@ function block(html, tag) {
   // --- 7. bis 10. im Browser
   const { s, port } = await server();
   const browser = await chromium.launch({ executablePath: '/opt/pw-browsers/chromium', args: ['--no-sandbox'] });
-  const abwWerte = [], abwEinzug = [], abwUeberlauf = [], meldungen = [];
+  const abwWerte = [], abwEinzug = [], abwUeberlauf = [], meldungen = [], abwFaq = [];
 
   for (const w of BREITEN) {
     const page = await browser.newPage({ viewport: { width: w, height: 1000 } });
@@ -205,12 +205,17 @@ function block(html, tag) {
           Math.round(e.getBoundingClientRect().width)
         ]),
         faqKnopf: breite('.faq-item summary'),
+        // 21.4: Knoepfe muessen einzeilig bleiben. Ein Knopf ueber 50 px ist umgebrochen.
+        faqZweizeilig: [...document.querySelectorAll('.faq-item summary')]
+          .filter(e => e.getBoundingClientRect().height > 50)
+          .map(e => e.textContent.trim()),
         iconRahmen: breite('.module-icon-frame'),
         icon: breite('.module-icon')
       };
     }, { BLOECKE, SOLL });
 
     if (d.ueberlauf !== 0) abwUeberlauf.push(`${w}px: ${d.ueberlauf}`);
+    if (w >= 1100) d.faqZweizeilig.forEach(t => abwFaq.push(`${w}px: "${t}"`));
 
     if (w >= 901) {
       // Sollbreite des Inhalts: 1300, aber hoechstens section-inner minus zweimal Einzug
@@ -254,6 +259,8 @@ function block(html, tag) {
     abwWerte.length ? abwWerte.join(' | ') : 'alle Bausteine auf Soll, 1100 bis 2560 px');
   melde('Einzug gleich in jedem Block', abwEinzug.length === 0,
     abwEinzug.length ? abwEinzug.join(' | ') : `${SOLL.einzug} px Mindesteinzug eingehalten`);
+  melde('FAQ-Knoepfe einzeilig (21.4)', abwFaq.length === 0,
+    abwFaq.length ? [...new Set(abwFaq)].join(' | ') : 'alle Knoepfe einzeilig ab 1100 px');
   melde('Kein waagerechter Ueberlauf', abwUeberlauf.length === 0,
     abwUeberlauf.length ? abwUeberlauf.join(' | ') : `0 bei ${BREITEN.join(', ')} px`);
   melde('Konsole und Antworten sauber', meldungen.length === 0,
