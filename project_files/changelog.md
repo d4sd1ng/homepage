@@ -1,3 +1,13 @@
+## 2026-11-16 - Hero-Glow von der Roadmap-Preview entfernt
+
+Status: offen, wartet auf Abnahme
+
+`#hero .visual-card--hero::before` war der einzige Blur auf der Seite: ein radialer Schein mit `filter: blur(30px)` hinter der Hero-Grafik, `inset:-16% -19%`, `opacity:.90`. Reine Dekoration, kein Inhalt. Markup und Regel entfernt, nicht nur ausgeblendet. Die Datei enthaelt jetzt kein `blur(` mehr.
+
+`analyse.html` bleibt unveraendert; der dortige Hero ist am 2026-11-14 ausdruecklich freigegeben worden.
+
+Pflichtpruefung: alle zehn Regeln bestanden.
+
 ## 2026-11-16 - Sektionstitel auf 44 px
 
 Status: offen, wartet auf Abnahme
