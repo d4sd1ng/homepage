@@ -45,6 +45,9 @@ jobs:
               apt-get update -qq
               apt-get install -y -qq --no-install-recommends kicad
               kicad-cli version
+              mkdir -p /root/.config/kicad/9.0
+              printf "%s\n" "(fp_lib_table" "  (lib (name \"Grow_Controller_Sensor\")(type \"KiCad\")(uri \"/workspace/hardware/cad/Grow_Controller_Sensor.pretty\")(options \"\")(descr \"\"))" ")" > /root/.config/kicad/9.0/fp-lib-table
+              ls -la /workspace/hardware/cad/Grow_Controller_Sensor.pretty/
               set +e
               kicad-cli pcb drc --exit-code-violations --all-track-errors \
                 --output /reports/sensor_drc.txt \
