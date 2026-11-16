@@ -1,3 +1,28 @@
+## 2026-11-16 - Kicker der Roadmap-Preview an die Vorlage angeglichen
+
+Status: offen, Titel stehen aus
+
+Abgleich aller Sektionskoepfe zwischen `analyse.html` und `preview-detail_roadmap.html`. Vier von sieben Kickern waren bereits gleich, drei nicht.
+
+- `faq`: Kicker und Titel waren vertauscht. Die Vorlage traegt Kicker `Haeufige Fragen` und Titel `FAQ`, die Roadmap hatte es umgekehrt. Getauscht; beide Texte standen bereits auf der Seite, nichts hinzugefuegt.
+- `nutzen`: Kicker `Nutzen` auf `Ihr Nutzen` gesetzt, wie in der Vorlage. In `tools/pruefung/freigaben/` aufgenommen, weil der Wortlaut so nicht in `detail_roadmap.html` steht.
+- `hero`: Kicker bleibt `KI-Roadmap`. Der Unterschied zu `KI-Potenzialanalyse` ist das Seitenthema und kein Fehler.
+
+Danach sind sechs von sieben Kickern identisch, der siebte ist das Seitenthema.
+
+**Offen: die Titel.** Die Vorlage nennt die Leistung im Titel, die Roadmap-Seite nicht:
+
+| Sektion | `analyse.html` | Roadmap |
+| --- | --- | --- |
+| warum | Warum ist die Analyse entscheidend? | Unverbundene Einzelprojekte erzeugen selten nachhaltigen Nutzen. |
+| leistungen | Unsere Leistungen innerhalb der Potenzialanalyse | Module der Roadmap |
+| einsatzbereiche | Typische Einsatzbereiche und was damit moeglich wird | Was damit moeglich wird |
+| nutzen | Ihr Nutzen aus der Potenzialanalyse | Ihr konkreter Nutzen |
+
+Der Nutzer gibt die vier Titel vor; bis dahin bleiben die vorhandenen stehen. Nicht umformuliert.
+
+Pflichtpruefung nach der Aenderung: alle zehn Regeln bestanden.
+
 ## 2026-11-15 - analyse.html auf den 32-px-Einzug nachgezogen
 
 Status: offen, wartet auf Abnahme
