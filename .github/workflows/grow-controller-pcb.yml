@@ -40,7 +40,7 @@ jobs:
             -v "$PWD/grow_controller:/workspace:ro" \
             -v "$PWD/pcb-check:/reports" \
             -e DEBIAN_FRONTEND=noninteractive \
-            ubuntu:24.04 bash -c '
+            debian:trixie bash -c '
               set -euo pipefail
               apt-get update -qq
               apt-get install -y -qq --no-install-recommends kicad
@@ -50,10 +50,13 @@ jobs:
                 /workspace/hardware/cad/sensor_pcb_routed_candidate.kicad_pcb
             '
 
-      - name: Upload reports
+      - name: Print inspection summary (no artifact quota)
         if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: grow-controller-pcb-existing-runner
-          path: pcb-check/
-          if-no-files-found: warn
+        shell: bash
+        run: |
+          for file in pcb-check/static.txt pcb-check/sensor_drc.txt; do
+            if [ -f "$file" ]; then
+              echo "====== $file ======"
+              head -n 240 "$file"
+            fi
+          done
