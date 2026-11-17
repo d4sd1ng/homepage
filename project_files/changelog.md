@@ -16,7 +16,7 @@ Dazu eine Regel fuer das Icon im Knopf, mit denselben Massen wie `.golden-button
 
 Pflichtpruefung: alle elf Regeln bestanden.
 
-**Weiterhin offen:** Der linken Karte in der Definitionssektion fehlt der Titel. Vorschlag `Was die Roadmap ordnet` liegt beim Nutzer.
+Die linke Karte in der Definitionssektion traegt jetzt den Titel `Was geordnet wird`, am 2026-11-17 vom Nutzer festgelegt. Sie stand ohne Ueberschrift da, seit ihr urspruenglicher Titel `Was ist eine KI-Roadmap?` zum Sektionstitel geworden war. Als `h3`, wie die Vorlage es in `.analysis-intro-cards` vorgibt.
 
 ## 2026-11-16 - Beschreibungssaetze in der Ausgangslage, FAQ-Frage gekuerzt
 

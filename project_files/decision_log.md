@@ -9,6 +9,12 @@ Hier stehen ausschließlich **freigegebene Entscheidungen** und ihr Datum.
 
 Die konkrete aktuelle Regel wird nicht hier dupliziert, sondern in der zuständigen Datei gepflegt.
 
+## 2026-11-17 – Zweites CTA und Kartentitel auf Detailseiten
+
+Entscheidung: Neben dem bestehenden CTA steht ein zweites, `Erstgespraech vereinbaren` mit Calendly-Icon auf `https://calendly.com/d4sd1ng/30min`. Es ist invertiert gestaltet: Goldrahmen, goldene Schrift, schwarzer Grund, als Variante `.btn--outline`.
+
+Entscheidung: Die linke Karte der Definitionssektion auf `detail_roadmap` traegt den Titel `Was geordnet wird`.
+
 ## 2026-11-16 – Groesse der Sektionstitel auf Detailseiten
 
 Entscheidung: Sektionstitel auf Detailseiten messen 44 px ab 1440 px Fensterbreite, umgesetzt als `clamp(26px, 3.056vw, 44px)`. Verhaeltnis zur 19-px-Subline dort 2,32 : 1. Zuvor trugen sie ueber `main h2` den Kartentitel-Token mit 30,24 px.
