@@ -51,7 +51,8 @@ jobs:
               kicad-cli version
               kicad-cli pcb drc --exit-code-violations --all-track-errors \
                 --output /reports/sensor_drc.txt \
-                /workspace/hardware/cad/sensor_pcb_routed_candidate.kicad_pcb
+                /workspace/hardware/cad/sensor_pcb_routed_candidate.kicad_pcb \
+                || { cat /reports/sensor_drc.txt; exit 5; }
               mkdir -p /reports/drills
               kicad-cli pcb export drill --format excellon --excellon-separate-th \
                 --output /reports/drills/ \
