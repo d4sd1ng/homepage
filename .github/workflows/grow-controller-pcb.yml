@@ -93,7 +93,7 @@ jobs:
           cd pcb-download-public
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add sensor-pcb-RevA-20261122-BarePrototype.zip
+          git add -f sensor-pcb-RevA-20261122-BarePrototype.zip
           if ! git diff --cached --quiet; then
             git commit -m "Publish validated sensor bare-PCB prototype CAM package"
             git push origin HEAD:test/grow-sensor-ph-divider-drc-20261122
