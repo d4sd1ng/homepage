@@ -22,7 +22,7 @@ jobs:
         uses: actions/checkout@v4
         with:
           repository: d4sd1ng/grow_controller
-          ref: main
+          ref: fix/sensor-usb-c-corridor-20261122
           path: grow_controller
           persist-credentials: false
 
