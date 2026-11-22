@@ -22,7 +22,7 @@ jobs:
         uses: actions/checkout@v4
         with:
           repository: d4sd1ng/grow_controller
-          ref: main
+          ref: feature/sensor-prototype-cam-release-20261122
           path: grow_controller
           persist-credentials: false
 
@@ -59,8 +59,29 @@ jobs:
               test -s /reports/drills/sensor_pcb_routed_candidate-PTH.drl
               test -s /reports/drills/sensor_pcb_routed_candidate-NPTH.drl
               echo "PASS: PTH and NPTH drill output present"
+              mkdir -p /reports/gerber
+              kicad-cli pcb export gerbers \
+                --layers "F.Cu,B.Cu,F.SilkS,B.SilkS,F.Mask,B.Mask,Edge.Cuts" \
+                --output /reports/gerber/ \
+                /workspace/hardware/cad/sensor_pcb_routed_candidate.kicad_pcb
+              cp /reports/drills/*.drl /reports/gerber/
               cat /reports/sensor_drc.txt
             '
+
+      - name: Package verified bare-board prototype only
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 grow_controller/hardware/cad/package_sensor_prototype.py \
+            pcb-drc-revA/gerber \
+            grow_controller/hardware/cad/sensor_pcb_routed_candidate.kicad_pcb
+
+      - name: Upload marked prototype CAM ZIP
+        uses: actions/upload-artifact@v4
+        with:
+          name: sensor-pcb-pr16-BARE-PROTOTYPE-ONLY
+          path: pcb-drc-revA/gerber.zip
+          if-no-files-found: error
 
       - name: Preserve fabrication gate (not a build release)
         shell: bash
