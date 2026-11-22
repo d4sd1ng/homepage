@@ -22,7 +22,7 @@ jobs:
         uses: actions/checkout@v4
         with:
           repository: d4sd1ng/grow_controller
-          ref: fix/sensor-usb-c-corridor-20261122
+          ref: main
           path: grow_controller
           persist-credentials: false
 
@@ -31,7 +31,7 @@ jobs:
         run: |
           set -euo pipefail
           python3 grow_controller/hardware/cad/audit_sensor_pcb.py
-          python3 grow_controller/hardware/cad/sensor_pcb_mechanical_electrical_audit.py
+          python3 grow_controller/hardware/cad/sensor_pcb_mechanical_electrical_audit.py --release-bare-pcb
 
       - name: KiCad DRC and separate PTH/NPTH check (isolated Docker)
         shell: bash
