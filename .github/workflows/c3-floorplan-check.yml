@@ -39,7 +39,7 @@ jobs:
               mkdir -p /reports/preview
               kicad-cli pcb export svg --fit-page-to-board \
                 -l F.Cu,F.SilkS,Edge.Cuts \
-                -o /reports/preview/ \
+                -o /reports/preview/c3_floorplan.svg \
                 /workspace/hardware/cad_c3/c3_floorplan_UNROUTED_NOT_FOR_ORDER.kicad_pcb
               test -n "$(find /reports/preview -name "*.svg" -print -quit)"
               echo "PASS: KiCad can parse C3 draft PCB and generate SVG"
