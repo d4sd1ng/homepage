@@ -1,0 +1,46 @@
+name: C3 PCB CAD floorplan syntax validation (nurovelle-vps)
+
+on:
+  push:
+    paths:
+      - '.github/workflows/c3-floorplan-check.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  c3-floorplan:
+    runs-on: [self-hosted, linux, vps]
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          repository: d4sd1ng/grow_controller
+          ref: feature/c3-board-cad-start-20261125
+          path: grow_controller
+          persist-credentials: false
+
+      - name: Parse layout in KiCad 9 and export SVG preview
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p c3-cad-check
+          docker run --rm \
+            -v "$PWD/grow_controller:/workspace:ro" \
+            -v "$PWD/c3-cad-check:/reports" \
+            -e DEBIAN_FRONTEND=noninteractive \
+            debian:trixie bash -c '
+              set -euo pipefail
+              apt-get update -qq
+              apt-get install -y -qq --no-install-recommends kicad
+              kicad-cli version
+              mkdir -p /root/.config/kicad/9.0
+              printf "%s\\n" "(fp_lib_table" "  (lib (name \\"Grow_Controller_C3\\")(type \\"KiCad\\")(uri \\"/workspace/hardware/cad_c3/Grow_Controller_C3.pretty\\")(options \\"\\")(descr \\"\\"))" ")" > /root/.config/kicad/9.0/fp-lib-table
+              kicad-cli pcb export svg --fit-page-to-board \
+                -l F.Cu,F.SilkS,Edge.Cuts \
+                -o /reports/preview/ \
+                /workspace/hardware/cad_c3/c3_floorplan_UNROUTED_NOT_FOR_ORDER.kicad_pcb
+              test -n "$(find /reports/preview -name "*.svg" -print -quit)"
+              echo "PASS: KiCad can parse C3 draft PCB and generate SVG"
+              echo "WARNING: Unrouted CAD floorplan only — NOT for manufacturing"
+            '
