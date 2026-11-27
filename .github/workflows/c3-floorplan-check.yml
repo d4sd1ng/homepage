@@ -105,5 +105,29 @@ jobs:
               grep -E "^\\[|^Found |^Total|^PCB|^[[:space:]]*Type|^\s*Severity" /reports/c3_drc.txt | head -100 || true
               cat /reports/c3_drc.txt
               test "$STATUS" -eq 0
-              echo "WARNING: Incomplete power-only prototype — NOT for manufacturing"
+              mkdir -p /reports/manufacturing
+              kicad-cli pcb export gerbers \\
+                -l F.Cu,B.Cu,F.Mask,B.Mask,F.SilkS,B.SilkS,Edge.Cuts \
+                -o /reports/manufacturing/ \
+                /workspace/hardware/cad_c3/c3_12v_5signals_1fan_WIP_NOT_FOR_ORDER.kicad_pcb
+              kicad-cli pcb export drill \\
+                -o /reports/manufacturing/ \
+                /workspace/hardware/cad_c3/c3_12v_5signals_1fan_WIP_NOT_FOR_ORDER.kicad_pcb
+              sha256sum /workspace/hardware/cad_c3/c3_12v_5signals_1fan_WIP_NOT_FOR_ORDER.kicad_pcb > /reports/manufacturing/source_sha256.txt
+              find /reports/manufacturing -maxdepth 1 -type f -printf "%f %s bytes\\n" | sort
+              test "$(find /reports/manufacturing -name "*.gbr" -type f | wc -l)" -ge 7
+              test "$(find /reports/manufacturing -name "*.drl" -type f | wc -l)" -ge 1
+              echo "PASS: KiCad gerber layers and drill files exported (prototype review package)"
             '
+
+      - name: Upload 12V PCB fabrication review files
+        uses: actions/upload-artifact@v4
+        with:
+          name: grow-controller-12v-pcb-manufacturing-review
+          path: |
+            c3-cad-check/manufacturing/
+            c3-cad-check/c3_drc.txt
+            c3-cad-check/preview/
+          if-no-files-found: error
+          retention-days: 30
+
