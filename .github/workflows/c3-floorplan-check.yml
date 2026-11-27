@@ -31,7 +31,7 @@ on:
       - '.github/workflows/c3-floorplan-check.yml'
 
 permissions:
-  contents: read
+  contents: write
 
 jobs:
   c3-floorplan:
@@ -146,3 +146,44 @@ jobs:
               print('C3_FAB_B64', payload[i:i+1200])
           print('C3_FAB_END')
           PY
+
+
+      - name: Publish Gerber ZIP into GitHub branch (bypass artifact quota)
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          import zipfile
+          from pathlib import Path
+          out=Path("c3-cad-check/Grow_Controller_C3_12V_R1_Gerber_Drill.zip")
+          root=Path("c3-cad-check")
+          src=Path("grow_controller/hardware/cad_c3/c3_12v_5signals_1fan_WIP_NOT_FOR_ORDER.kicad_pcb")
+          with zipfile.ZipFile(out,"w",zipfile.ZIP_DEFLATED,compresslevel=9) as z:
+              for p in sorted((root/"manufacturing").glob("*")):
+                  if p.is_file(): z.write(p,arcname=p.name)
+              z.write(root/"c3_drc.txt",arcname="KiCad_DRC.txt")
+              z.write(src,arcname="C3_12V_source.kicad_pcb")
+              for p in sorted((root/"preview").glob("*.svg")): z.write(p,arcname="preview/"+p.name)
+          print("Prepared ZIP:",out, out.stat().st_size,"bytes")
+          PY
+          git clone --quiet --depth 1 --branch ci/c3-kicad-floorplan-20261125 \
+            "https://x-access-token:${GH_TOKEN}@github.com/d4sd1ng/homepage.git" c3-fab-git
+          mkdir -p c3-fab-git/fabrication/grow_controller_c3_12v_r1
+          cp c3-cad-check/Grow_Controller_C3_12V_R1_Gerber_Drill.zip \
+            c3-fab-git/fabrication/grow_controller_c3_12v_r1/
+          cp c3-cad-check/manufacturing/source_sha256.txt \
+            c3-fab-git/fabrication/grow_controller_c3_12v_r1/
+          cp c3-cad-check/manufacturing/C3_12V_R1_BOM_AND_PINOUT.md \
+            c3-fab-git/fabrication/grow_controller_c3_12v_r1/
+          git -C c3-fab-git config user.name 'github-actions[bot]'
+          git -C c3-fab-git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git -C c3-fab-git add fabrication/grow_controller_c3_12v_r1
+          if git -C c3-fab-git diff --cached --quiet; then
+            echo "PASS: Fabrication ZIP unchanged"
+          else
+            git -C c3-fab-git commit -m "fab(c3): publish DRC-passing Gerber and Excellon ZIP"
+            git -C c3-fab-git push origin HEAD:ci/c3-kicad-floorplan-20261125
+            echo "PASS: Fabrication ZIP committed to GitHub repository"
+          fi
