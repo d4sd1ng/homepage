@@ -1,0 +1,1 @@
+32034c2bfdbc816ac076a8a4b133e30e868831a5b383d6151697a589ae3079e2  /workspace/hardware/cad_c3/c3_12v_5signals_1fan_WIP_NOT_FOR_ORDER.kicad_pcb
