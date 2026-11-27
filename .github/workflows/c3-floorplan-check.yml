@@ -1,4 +1,4 @@
-name: C3 PCB CAD floorplan syntax validation (nurovelle-vps)
+name: C3 power-path KiCad syntax and DRC (nurovelle-vps)
 # Recheck C3 regulator footprint and corrected top-view pinout (2026-11-27)
 # Recheck updated power-net floorplan from Grow Controller branch (2026-11-27)
 
@@ -42,8 +42,17 @@ jobs:
               kicad-cli pcb export svg --fit-page-to-board \
                 -l F.Cu,F.SilkS,Edge.Cuts \
                 -o /reports/preview/c3_floorplan.svg \
-                /workspace/hardware/cad_c3/c3_floorplan_UNROUTED_NOT_FOR_ORDER.kicad_pcb
+                /workspace/hardware/cad_c3/c3_power_path_PARTIAL_NOT_FOR_ORDER.kicad_pcb
               test -n "$(find /reports/preview -name "*.svg" -print -quit)"
-              echo "PASS: KiCad can parse C3 draft PCB and generate SVG"
-              echo "WARNING: Unrouted CAD floorplan only — NOT for manufacturing"
+              echo "PASS: KiCad can parse powered prototype and generate SVG"
+              set +e
+              kicad-cli pcb drc --all-track-errors --output /reports/c3_drc.txt \
+                /workspace/hardware/cad_c3/c3_power_path_PARTIAL_NOT_FOR_ORDER.kicad_pcb
+              STATUS=$?
+              set -e
+              echo "DRC exit code (without exit-on-violations): $STATUS"
+              grep -E "^\\[|^Found |^Total|^PCB|^[[:space:]]*Type|^\s*Severity" /reports/c3_drc.txt | head -100 || true
+              cat /reports/c3_drc.txt
+              test "$STATUS" -eq 0
+              echo "WARNING: Incomplete power-only prototype — NOT for manufacturing"
             '
