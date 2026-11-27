@@ -106,11 +106,11 @@ jobs:
               cat /reports/c3_drc.txt
               test "$STATUS" -eq 0
               mkdir -p /reports/manufacturing
-              kicad-cli pcb export gerbers \\
+              kicad-cli pcb export gerbers \
                 -l F.Cu,B.Cu,F.Mask,B.Mask,F.SilkS,B.SilkS,Edge.Cuts \
                 -o /reports/manufacturing/ \
                 /workspace/hardware/cad_c3/c3_12v_5signals_1fan_WIP_NOT_FOR_ORDER.kicad_pcb
-              kicad-cli pcb export drill \\
+              kicad-cli pcb export drill \
                 -o /reports/manufacturing/ \
                 /workspace/hardware/cad_c3/c3_12v_5signals_1fan_WIP_NOT_FOR_ORDER.kicad_pcb
               sha256sum /workspace/hardware/cad_c3/c3_12v_5signals_1fan_WIP_NOT_FOR_ORDER.kicad_pcb > /reports/manufacturing/source_sha256.txt
