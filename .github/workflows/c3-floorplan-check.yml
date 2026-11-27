@@ -1,4 +1,5 @@
 name: C3 12V pump plus 5 GPIO and fan DRC (nurovelle-vps)
+# Validate M6 route moved above fan GND copper; strict DRC and fabrication export
 # Check latest OE and M6 short repairs on 12V board 2026-11-27 17:34
 # Clear final DFAN courtyard and +12V via spacing violations
 # Reverify fan stage copper after existing-trace crossing fixes
