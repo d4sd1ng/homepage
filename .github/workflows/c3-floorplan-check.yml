@@ -1,4 +1,5 @@
 name: C3 12V pump plus 5 GPIO and fan DRC (nurovelle-vps)
+# J13 fan release checker regex fixed; strict DRC rerun
 # Final CTRL3 via offset clears existing OE signal track
 # Recheck routed CTRL3 bypasses D1 pad and existing 12V/DC nets
 # Recheck A-star routed five passive 3V3 GPIO control outputs on 12V PCB
