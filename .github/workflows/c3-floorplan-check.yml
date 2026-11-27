@@ -1,4 +1,5 @@
 name: C3 PCB CAD floorplan syntax validation (nurovelle-vps)
+# Recheck updated power-net floorplan from Grow Controller branch (2026-11-27)
 
 on:
   push:
