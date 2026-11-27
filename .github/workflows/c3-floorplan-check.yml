@@ -1,4 +1,5 @@
 name: C3 12V GPIO connectors PCB DRC (nurovelle-vps)
+# Recheck A-star routed five passive 3V3 GPIO control outputs on 12V PCB
 # J1 official mechanical pad pitch correction: 6.0 -> 6.3 mm
 # Confirm unrotated PJ-037AH left-edge footprint eliminates KiCad mismatch
 # J1 footprint library normalized against embedded CAD, strict DRC recheck
