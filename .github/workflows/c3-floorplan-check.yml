@@ -125,14 +125,24 @@ jobs:
               echo "PASS: KiCad gerber layers and drill files exported (prototype review package)"
             '
 
-      - name: Upload 12V PCB fabrication review files
-        uses: actions/upload-artifact@v4
-        with:
-          name: grow-controller-12v-pcb-manufacturing-review
-          path: |
-            c3-cad-check/manufacturing/
-            c3-cad-check/c3_drc.txt
-            c3-cad-check/preview/
-          if-no-files-found: error
-          retention-days: 30
-
+      - name: Emit verified Gerber/Drill ZIP for GitHub repository archive
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          import base64, io, zipfile
+          from pathlib import Path
+          root = Path('c3-cad-check')
+          pcb = Path('grow_controller/hardware/cad_c3/c3_12v_5signals_1fan_WIP_NOT_FOR_ORDER.kicad_pcb')
+          buf = io.BytesIO()
+          with zipfile.ZipFile(buf, 'w', zipfile.ZIP_DEFLATED, compresslevel=9) as z:
+              for p in sorted((root / 'manufacturing').glob('*')):
+                  if p.is_file(): z.write(p, arcname=p.name)
+              z.write(root / 'c3_drc.txt', arcname='KiCad_DRC.txt')
+              z.write(pcb, arcname='C3_12V_source.kicad_pcb')
+          payload = base64.b64encode(buf.getvalue()).decode('ascii')
+          print('C3_FAB_BEGIN', len(payload))
+          for i in range(0, len(payload), 1200):
+              print('C3_FAB_B64', payload[i:i+1200])
+          print('C3_FAB_END')
+          PY
