@@ -117,7 +117,9 @@ jobs:
                 /workspace/hardware/cad_c3/c3_12v_5signals_1fan_WIP_NOT_FOR_ORDER.kicad_pcb
               sha256sum /workspace/hardware/cad_c3/c3_12v_5signals_1fan_WIP_NOT_FOR_ORDER.kicad_pcb > /reports/manufacturing/source_sha256.txt
               find /reports/manufacturing -maxdepth 1 -type f -printf "%f %s bytes\\n" | sort
-              test "$(find /reports/manufacturing -name "*.gbr" -type f | wc -l)" -ge 7
+              for ext in gtl gbl gts gbs gto gbo gm1; do
+                test "$(find /reports/manufacturing -name "*.$ext" -type f | wc -l)" -ge 1
+              done
               test "$(find /reports/manufacturing -name "*.drl" -type f | wc -l)" -ge 1
               echo "PASS: KiCad gerber layers and drill files exported (prototype review package)"
             '
