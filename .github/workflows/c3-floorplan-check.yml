@@ -65,8 +65,8 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          rm -rf c3-cad-check
           mkdir -p c3-cad-check
+          docker run --rm -v "$PWD/c3-cad-check:/reports" debian:trixie sh -c 'find /reports -mindepth 1 -maxdepth 1 -exec rm -rf {} +'
           docker run --rm \
             -v "$PWD/grow_controller:/workspace:ro" \
             -v "$PWD/c3-cad-check:/reports" \
