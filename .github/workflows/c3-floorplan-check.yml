@@ -1,4 +1,5 @@
 name: C3 service link and motor-on-off DRC (nurovelle-vps)
+# Service JP1 header clearance and silkscreen corrected, rerun strict DRC
 # Recheck low-voltage 3V3 routing after DRC crossing correction
 # Verify six motor-channel DRC fixes: OE net, vias, silkscreens
 # Validate I2C and 3V3 crossing corrections in logic-only PCB
