@@ -88,7 +88,7 @@ jobs:
               test -n "$(find /reports/preview -name "*.svg" -print -quit)"
               echo "PASS: KiCad can parse powered prototype and generate SVG"
               set +e
-              kicad-cli pcb drc --exit-code-violations --all-track-errors --output /reports/c3_drc.txt \
+              kicad-cli pcb drc --exit-code-violations --all-track-errors --refill-zones --output /reports/c3_drc.txt \
                 /workspace/hardware/cad_c3/c3_6motor_5control_switches_WIP_NOT_FOR_ORDER.kicad_pcb
               STATUS=$?
               set -e
