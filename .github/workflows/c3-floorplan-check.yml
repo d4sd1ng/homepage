@@ -38,6 +38,8 @@ jobs:
               kicad-cli version
               mkdir -p /root/.config/kicad/9.0
               printf "%s\\n" "(fp_lib_table" "  (lib (name \\"Grow_Controller_C3\\")(type \\"KiCad\\")(uri \\"/workspace/hardware/cad_c3/Grow_Controller_C3.pretty\\")(options \\"\\")(descr \\"\\"))" ")" > /root/.config/kicad/9.0/fp-lib-table
+              cp /workspace/hardware/cad_c3/fp-lib-table /root/.config/kicad/9.0/fp-lib-table
+              export KIPRJMOD=/workspace/hardware/cad_c3
               mkdir -p /reports/preview
               kicad-cli pcb export svg --fit-page-to-board \
                 -l F.Cu,F.SilkS,Edge.Cuts \
@@ -46,7 +48,7 @@ jobs:
               test -n "$(find /reports/preview -name "*.svg" -print -quit)"
               echo "PASS: KiCad can parse powered prototype and generate SVG"
               set +e
-              kicad-cli pcb drc --all-track-errors --output /reports/c3_drc.txt \
+              kicad-cli pcb drc --exit-code-violations --all-track-errors --output /reports/c3_drc.txt \
                 /workspace/hardware/cad_c3/c3_power_path_PARTIAL_NOT_FOR_ORDER.kicad_pcb
               STATUS=$?
               set -e
