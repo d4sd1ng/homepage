@@ -35,6 +35,23 @@ jobs:
           set -euo pipefail
           python3 grow_controller/hardware/cad_c3/audit_c3_service_netlist.py
 
+      - name: Verify final manufacturing release is blocked until fully checked
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 -m py_compile grow_controller/hardware/cad_c3/release_gate_c3.py
+          set +e
+          python3 grow_controller/hardware/cad_c3/release_gate_c3.py > c3_release_status.json
+          STATUS=$?
+          set -e
+          cat c3_release_status.json
+          if [ "$STATUS" -ne 1 ]; then
+            echo "FAIL: incomplete C3 board must not be approved for fabrication"
+            exit 1
+          fi
+          grep -q '"order_ready": false' c3_release_status.json
+          echo "PASS: C3 fabrication release correctly BLOCKED"
+
       - name: Parse layout in KiCad 9 and export SVG preview
         shell: bash
         run: |
