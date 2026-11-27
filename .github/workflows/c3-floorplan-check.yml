@@ -1,4 +1,4 @@
-name: C3 12V GPIO connectors PCB DRC (nurovelle-vps)
+name: C3 12V pump plus 5 GPIO and fan DRC (nurovelle-vps)
 # Final CTRL3 via offset clears existing OE signal track
 # Recheck routed CTRL3 bypasses D1 pad and existing 12V/DC nets
 # Recheck A-star routed five passive 3V3 GPIO control outputs on 12V PCB
@@ -88,12 +88,12 @@ jobs:
               kicad-cli pcb export svg --fit-page-to-board \
                 -l F.Cu,F.SilkS,Edge.Cuts \
                 -o /reports/preview/c3_floorplan.svg \
-                /workspace/hardware/cad_c3/c3_12v_control_signals_5x_WIP_NOT_FOR_ORDER.kicad_pcb
+                /workspace/hardware/cad_c3/c3_12v_5signals_1fan_WIP_NOT_FOR_ORDER.kicad_pcb
               test -n "$(find /reports/preview -name "*.svg" -print -quit)"
               echo "PASS: KiCad can parse powered prototype and generate SVG"
               set +e
               kicad-cli pcb drc --exit-code-violations --all-track-errors --output /reports/c3_drc.txt \
-                /workspace/hardware/cad_c3/c3_12v_control_signals_5x_WIP_NOT_FOR_ORDER.kicad_pcb
+                /workspace/hardware/cad_c3/c3_12v_5signals_1fan_WIP_NOT_FOR_ORDER.kicad_pcb
               STATUS=$?
               set -e
               echo "DRC exit code (without exit-on-violations): $STATUS"
