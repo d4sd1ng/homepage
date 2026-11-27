@@ -1,4 +1,4 @@
-name: C3 WIP strict DRC and clean report isolation (nurovelle-vps)
+name: C3 12V GPIO connectors PCB DRC (nurovelle-vps)
 # J1 official mechanical pad pitch correction: 6.0 -> 6.3 mm
 # Confirm unrotated PJ-037AH left-edge footprint eliminates KiCad mismatch
 # J1 footprint library normalized against embedded CAD, strict DRC recheck
@@ -85,12 +85,12 @@ jobs:
               kicad-cli pcb export svg --fit-page-to-board \
                 -l F.Cu,F.SilkS,Edge.Cuts \
                 -o /reports/preview/c3_floorplan.svg \
-                /workspace/hardware/cad_c3/c3_6motor_5control_switches_WIP_NOT_FOR_ORDER.kicad_pcb
+                /workspace/hardware/cad_c3/c3_12v_control_signals_5x_WIP_NOT_FOR_ORDER.kicad_pcb
               test -n "$(find /reports/preview -name "*.svg" -print -quit)"
               echo "PASS: KiCad can parse powered prototype and generate SVG"
               set +e
               kicad-cli pcb drc --exit-code-violations --all-track-errors --output /reports/c3_drc.txt \
-                /workspace/hardware/cad_c3/c3_6motor_5control_switches_WIP_NOT_FOR_ORDER.kicad_pcb
+                /workspace/hardware/cad_c3/c3_12v_control_signals_5x_WIP_NOT_FOR_ORDER.kicad_pcb
               STATUS=$?
               set -e
               echo "DRC exit code (without exit-on-violations): $STATUS"
