@@ -1,4 +1,5 @@
 name: C3 DC-J1 KiCad DRC and release gate (nurovelle-vps)
+# J1 official mechanical pad pitch correction: 6.0 -> 6.3 mm
 # Confirm unrotated PJ-037AH left-edge footprint eliminates KiCad mismatch
 # J1 footprint library normalized against embedded CAD, strict DRC recheck
 # Confirm release gate detects obsolete Phoenix J1 after DC-jack choice
