@@ -1,4 +1,5 @@
 name: C3 motor on-off KiCad DRC candidate (nurovelle-vps)
+# Verify six motor-channel DRC fixes: OE net, vias, silkscreens
 # Validate I2C and 3V3 crossing corrections in logic-only PCB
 # Verify final custom D1 footprint orientation against KiCad library
 # Verify current C3 geometry footprint library normalization
