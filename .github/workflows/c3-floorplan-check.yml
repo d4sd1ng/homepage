@@ -1,4 +1,5 @@
 name: C3 service link and motor-on-off DRC (nurovelle-vps)
+# Validate separate PCB-order and system-operation release classes
 # Verify fixed fail-closed fabrication gate parser and all missing approvals
 # Validate silkscreen labeling of six motor outputs and 12V input
 # Service JP1 header clearance and silkscreen corrected, rerun strict DRC
@@ -51,6 +52,8 @@ jobs:
             exit 1
           fi
           grep -q '"order_ready": false' c3_release_status.json
+          grep -q '"pcb_order_ready": false' c3_release_status.json
+          grep -q '"system_operation_ready": false' c3_release_status.json
           echo "PASS: C3 fabrication release correctly BLOCKED"
 
       - name: Parse layout in KiCad 9 and export SVG preview
