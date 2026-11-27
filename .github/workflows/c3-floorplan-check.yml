@@ -1,4 +1,4 @@
-name: C3 motor+logic support KiCad DRC candidate (nurovelle-vps)
+name: C3 service link and motor-on-off DRC (nurovelle-vps)
 # Recheck low-voltage 3V3 routing after DRC crossing correction
 # Verify six motor-channel DRC fixes: OE net, vias, silkscreens
 # Validate I2C and 3V3 crossing corrections in logic-only PCB
@@ -31,7 +31,7 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          python3 grow_controller/hardware/cad_c3/audit_c3_netlist.py
+          python3 grow_controller/hardware/cad_c3/audit_c3_service_netlist.py
 
       - name: Parse layout in KiCad 9 and export SVG preview
         shell: bash
@@ -56,12 +56,12 @@ jobs:
               kicad-cli pcb export svg --fit-page-to-board \
                 -l F.Cu,F.SilkS,Edge.Cuts \
                 -o /reports/preview/c3_floorplan.svg \
-                /workspace/hardware/cad_c3/c3_6motor_logic_supported_DRAFT_NOT_FOR_ORDER.kicad_pcb
+                /workspace/hardware/cad_c3/c3_6motor_usb_service_disconnect_DRAFT_NOT_FOR_ORDER.kicad_pcb
               test -n "$(find /reports/preview -name "*.svg" -print -quit)"
               echo "PASS: KiCad can parse powered prototype and generate SVG"
               set +e
               kicad-cli pcb drc --exit-code-violations --all-track-errors --output /reports/c3_drc.txt \
-                /workspace/hardware/cad_c3/c3_6motor_logic_supported_DRAFT_NOT_FOR_ORDER.kicad_pcb
+                /workspace/hardware/cad_c3/c3_6motor_usb_service_disconnect_DRAFT_NOT_FOR_ORDER.kicad_pcb
               STATUS=$?
               set -e
               echo "DRC exit code (without exit-on-violations): $STATUS"
