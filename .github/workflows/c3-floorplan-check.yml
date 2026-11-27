@@ -180,6 +180,7 @@ jobs:
           git -C c3-fab-git config user.name 'github-actions[bot]'
           git -C c3-fab-git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git -C c3-fab-git add fabrication/grow_controller_c3_12v_r1
+          git -C c3-fab-git add -f fabrication/grow_controller_c3_12v_r1/Grow_Controller_C3_12V_R1_Gerber_Drill.zip
           if git -C c3-fab-git diff --cached --quiet; then
             echo "PASS: Fabrication ZIP unchanged"
           else
