@@ -1,4 +1,5 @@
 name: C3 service link and motor-on-off DRC (nurovelle-vps)
+# Validate silkscreen labeling of six motor outputs and 12V input
 # Service JP1 header clearance and silkscreen corrected, rerun strict DRC
 # Recheck low-voltage 3V3 routing after DRC crossing correction
 # Verify six motor-channel DRC fixes: OE net, vias, silkscreens
