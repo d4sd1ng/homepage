@@ -51,6 +51,12 @@ jobs:
           set -euo pipefail
           python3 grow_controller/hardware/cad_c3/audit_c3_dc_jack_netlist.py
 
+      - name: Verify order-ready bare PCB prototype archive against current source
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 grow_controller/hardware/cad_c3/check_12v_prototype_fabrication.py
+
       - name: Verify final manufacturing release is blocked until fully checked
         shell: bash
         run: |
