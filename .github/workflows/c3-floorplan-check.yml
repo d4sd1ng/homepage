@@ -168,6 +168,7 @@ jobs:
               for p in sorted((root/"preview").glob("*.svg")): z.write(p,arcname="preview/"+p.name)
           print("Prepared ZIP:",out, out.stat().st_size,"bytes")
           PY
+          rm -rf c3-fab-git
           git clone --quiet --depth 1 --branch ci/c3-kicad-floorplan-20261125 \
             "https://x-access-token:${GH_TOKEN}@github.com/d4sd1ng/homepage.git" c3-fab-git
           mkdir -p c3-fab-git/fabrication/grow_controller_c3_12v_r1
