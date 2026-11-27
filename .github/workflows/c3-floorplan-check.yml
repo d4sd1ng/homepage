@@ -115,6 +115,7 @@ jobs:
               kicad-cli pcb export drill \
                 -o /reports/manufacturing/ \
                 /workspace/hardware/cad_c3/c3_12v_5signals_1fan_WIP_NOT_FOR_ORDER.kicad_pcb
+              cp /workspace/hardware/cad_c3/C3_12V_R1_BOM_AND_PINOUT.md /reports/manufacturing/C3_12V_R1_BOM_AND_PINOUT.md
               sha256sum /workspace/hardware/cad_c3/c3_12v_5signals_1fan_WIP_NOT_FOR_ORDER.kicad_pcb > /reports/manufacturing/source_sha256.txt
               find /reports/manufacturing -maxdepth 1 -type f -printf "%f %s bytes\\n" | sort
               for ext in gtl gbl gts gbs gto gbo gm1; do
