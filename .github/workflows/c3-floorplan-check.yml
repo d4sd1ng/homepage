@@ -39,6 +39,7 @@ jobs:
               mkdir -p /root/.config/kicad/9.0
               printf "%s\\n" "(fp_lib_table" "  (lib (name \\"Grow_Controller_C3\\")(type \\"KiCad\\")(uri \\"/workspace/hardware/cad_c3/Grow_Controller_C3.pretty\\")(options \\"\\")(descr \\"\\"))" ")" > /root/.config/kicad/9.0/fp-lib-table
               cp /workspace/hardware/cad_c3/fp-lib-table /root/.config/kicad/9.0/fp-lib-table
+              sed -i "s@[$][{]KIPRJMOD[}]@/workspace/hardware/cad_c3@g" /root/.config/kicad/9.0/fp-lib-table
               export KIPRJMOD=/workspace/hardware/cad_c3
               mkdir -p /reports/preview
               kicad-cli pcb export svg --fit-page-to-board \
