@@ -1,0 +1,67 @@
+name: Sensor screw-terminal revision - CAD DRC
+on:
+  workflow_dispatch:
+  pull_request:
+    branches: [ci/c3-kicad-floorplan-20261125]
+    paths: [.github/workflows/sensor-terminal-revision-20261128.yml]
+  push:
+    branches: [ci/sensor-terminal-revision-20261128]
+    paths: [.github/workflows/sensor-terminal-revision-20261128.yml]
+permissions:
+  contents: read
+jobs:
+  sensor-drc:
+    if: github.event_name != 'pull_request' || (github.event.pull_request.head.repo.full_name == github.repository && github.head_ref == 'ci/sensor-terminal-revision-20261128')
+    runs-on: [self-hosted, linux, vps]
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          repository: d4sd1ng/grow_controller
+          ref: fcd51cfb3a75939676c2825164cc17161a292c20
+          path: grow_controller
+          persist-credentials: false
+      - name: KiCad DRC (sensor only)
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p sensor-terminal-report
+          docker run --rm -v "$PWD/grow_controller:/workspace:ro" -v "$PWD/sensor-terminal-report:/reports" -e DEBIAN_FRONTEND=noninteractive debian:trixie bash -c '
+            set -euo pipefail
+            apt-get update -qq
+            apt-get install -y -qq --no-install-recommends kicad
+            mkdir -p /root/.config/kicad/9.0
+            printf "%s\n" "(fp_lib_table" "  (lib (name \"Grow_Controller_Sensor\")(type \"KiCad\")(uri \"/workspace/hardware/cad/Grow_Controller_Sensor.pretty\")(options \"\")(descr \"\"))" "  (lib (name \"TerminalBlock_Candidate\")(type \"KiCad\")(uri \"/workspace/hardware/terminal_block_revision/TerminalBlock_Candidate.pretty\")(options \"\")(descr \"\"))" ")" > /root/.config/kicad/9.0/fp-lib-table
+            kicad-cli version
+            board=/workspace/hardware/terminal_block_revision/sensor_terminal_routing_CANDIDATE_NOT_FOR_ORDER.kicad_pcb
+            status=0
+            kicad-cli pcb drc --exit-code-violations --all-track-errors --output /reports/sensor_drc.txt "$board" || status=$?
+            cat /reports/sensor_drc.txt
+            test "$status" -eq 0
+            mkdir -p /reports/cam
+            kicad-cli pcb export gerbers --layers F.Cu,B.Cu,F.Mask,B.Mask,F.Silkscreen,B.Silkscreen,Edge.Cuts --output /reports/cam/ "$board"
+            kicad-cli pcb export drill --format excellon --excellon-separate-th --output /reports/cam/ "$board"
+            test "$(find /reports/cam -name "*.gbr" | wc -l)" -eq 7
+            test -s /reports/cam/sensor_terminal_routing_CANDIDATE_NOT_FOR_ORDER-PTH.drl
+            test -s /reports/cam/sensor_terminal_routing_CANDIDATE_NOT_FOR_ORDER-NPTH.drl
+            ls -l /reports/cam
+            sha256sum /reports/cam/*
+          '
+      - name: Package sensor CAM files for review (no release)
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          import pathlib, zipfile, base64, hashlib
+          p=pathlib.Path('sensor-terminal-report')
+          z=p/'sensor-terminal-cam-review.zip'
+          with zipfile.ZipFile(z,'w',zipfile.ZIP_DEFLATED) as f:
+              for src in sorted((p/'cam').iterdir()):
+                  if src.is_file(): f.write(src,src.name)
+              f.write(p/'sensor_drc.txt','sensor_drc.txt')
+              f.write('grow_controller/hardware/terminal_block_revision/SENSOR_BOM_TERMINAL_REV_CANDIDATE.md','SENSOR_BOM.md')
+          data=z.read_bytes()
+          print('CAM_ZIP_SHA256 '+hashlib.sha256(data).hexdigest())
+          b=base64.b64encode(data).decode('ascii')
+          for i in range(0,len(b),120): print('CAM_ZIP_B64 '+b[i:i+120])
+          PY
