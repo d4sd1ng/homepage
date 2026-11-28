@@ -18,7 +18,7 @@ jobs:
       - uses: actions/checkout@v4
         with:
           repository: d4sd1ng/grow_controller
-          ref: ab6102f4ed1efeb77380fc6906b48527b7994519
+          ref: 3c0841baa363b11de872ea6eb1d00b350814f72e
           path: grow_controller
           persist-credentials: false
       - name: KiCad DRC (sensor only)
@@ -39,10 +39,6 @@ jobs:
             cat /reports/sensor_drc.txt
             exit "$status"
           '
-      - name: Report
+      - name: Report location
         if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: sensor-terminal-drc-report
-          path: sensor-terminal-report/sensor_drc.txt
-          if-no-files-found: warn
+        run: echo 'DRC report printed above; artifact upload disabled because storage quota is exhausted.'
