@@ -1,6 +1,9 @@
 name: Sensor screw-terminal revision - CAD DRC
 on:
   workflow_dispatch:
+  pull_request:
+    branches: [ci/c3-kicad-floorplan-20261125]
+    paths: [.github/workflows/sensor-terminal-revision-20261128.yml]
   push:
     branches: [ci/sensor-terminal-revision-20261128]
     paths: [.github/workflows/sensor-terminal-revision-20261128.yml]
@@ -8,6 +11,7 @@ permissions:
   contents: read
 jobs:
   sensor-drc:
+    if: github.event_name != 'pull_request' || (github.event.pull_request.head.repo.full_name == github.repository && github.head_ref == 'ci/sensor-terminal-revision-20261128')
     runs-on: [self-hosted, linux, vps]
     timeout-minutes: 20
     steps:
