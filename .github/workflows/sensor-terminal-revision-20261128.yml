@@ -18,7 +18,7 @@ jobs:
       - uses: actions/checkout@v4
         with:
           repository: d4sd1ng/grow_controller
-          ref: 3c0841baa363b11de872ea6eb1d00b350814f72e
+          ref: fcd51cfb3a75939676c2825164cc17161a292c20
           path: grow_controller
           persist-credentials: false
       - name: KiCad DRC (sensor only)
@@ -37,8 +37,31 @@ jobs:
             status=0
             kicad-cli pcb drc --exit-code-violations --all-track-errors --output /reports/sensor_drc.txt "$board" || status=$?
             cat /reports/sensor_drc.txt
-            exit "$status"
+            test "$status" -eq 0
+            mkdir -p /reports/cam
+            kicad-cli pcb export gerbers --layers F.Cu,B.Cu,F.Mask,B.Mask,F.Silkscreen,B.Silkscreen,Edge.Cuts --output /reports/cam/ "$board"
+            kicad-cli pcb export drill --format excellon --excellon-separate-th --output /reports/cam/ "$board"
+            test "$(find /reports/cam -name "*.gbr" | wc -l)" -eq 7
+            test -s /reports/cam/sensor_terminal_routing_CANDIDATE_NOT_FOR_ORDER-PTH.drl
+            test -s /reports/cam/sensor_terminal_routing_CANDIDATE_NOT_FOR_ORDER-NPTH.drl
+            ls -l /reports/cam
+            sha256sum /reports/cam/*
           '
-      - name: Report location
-        if: always()
-        run: echo 'DRC report printed above; artifact upload disabled because storage quota is exhausted.'
+      - name: Package sensor CAM files for review (no release)
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          import pathlib, zipfile, base64, hashlib
+          p=pathlib.Path('sensor-terminal-report')
+          z=p/'sensor-terminal-cam-review.zip'
+          with zipfile.ZipFile(z,'w',zipfile.ZIP_DEFLATED) as f:
+              for src in sorted((p/'cam').iterdir()):
+                  if src.is_file(): f.write(src,src.name)
+              f.write(p/'sensor_drc.txt','sensor_drc.txt')
+              f.write('grow_controller/hardware/terminal_block_revision/SENSOR_BOM_TERMINAL_REV_CANDIDATE.md','SENSOR_BOM.md')
+          data=z.read_bytes()
+          print('CAM_ZIP_SHA256 '+hashlib.sha256(data).hexdigest())
+          b=base64.b64encode(data).decode('ascii')
+          for i in range(0,len(b),120): print('CAM_ZIP_B64 '+b[i:i+120])
+          PY
