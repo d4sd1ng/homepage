@@ -1,0 +1,44 @@
+name: Sensor screw-terminal revision - CAD DRC
+on:
+  workflow_dispatch:
+  push:
+    branches: [ci/sensor-terminal-revision-20261128]
+    paths: [.github/workflows/sensor-terminal-revision-20261128.yml]
+permissions:
+  contents: read
+jobs:
+  sensor-drc:
+    runs-on: [self-hosted, linux, vps]
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          repository: d4sd1ng/grow_controller
+          ref: ab6102f4ed1efeb77380fc6906b48527b7994519
+          path: grow_controller
+          persist-credentials: false
+      - name: KiCad DRC (sensor only)
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p sensor-terminal-report
+          docker run --rm -v "$PWD/grow_controller:/workspace:ro" -v "$PWD/sensor-terminal-report:/reports" -e DEBIAN_FRONTEND=noninteractive debian:trixie bash -c '
+            set -euo pipefail
+            apt-get update -qq
+            apt-get install -y -qq --no-install-recommends kicad
+            mkdir -p /root/.config/kicad/9.0
+            printf "%s\n" "(fp_lib_table" "  (lib (name \"Grow_Controller_Sensor\")(type \"KiCad\")(uri \"/workspace/hardware/cad/Grow_Controller_Sensor.pretty\")(options \"\")(descr \"\"))" "  (lib (name \"TerminalBlock_Candidate\")(type \"KiCad\")(uri \"/workspace/hardware/terminal_block_revision/TerminalBlock_Candidate.pretty\")(options \"\")(descr \"\"))" ")" > /root/.config/kicad/9.0/fp-lib-table
+            kicad-cli version
+            board=/workspace/hardware/terminal_block_revision/sensor_terminal_routing_CANDIDATE_NOT_FOR_ORDER.kicad_pcb
+            status=0
+            kicad-cli pcb drc --exit-code-violations --all-track-errors --output /reports/sensor_drc.txt "$board" || status=$?
+            cat /reports/sensor_drc.txt
+            exit "$status"
+          '
+      - name: Report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: sensor-terminal-drc-report
+          path: sensor-terminal-report/sensor_drc.txt
+          if-no-files-found: warn
